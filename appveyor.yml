@@ -30,3 +30,11 @@ after_test:
 artifacts:
   - type: NuGetPackage
     path: nupkgs/*.nupkg
+
+deploy:
+  provider: NuGet
+  skip_symbols: false
+  api_key:
+    secure: DiGJunoltKKtbdv848PTwuhNSkpZdGn5MLOwn3TTXjnr/D/gmbCGCOgzHICN7yGk
+  on:
+    appveyor_repo_tag: true
