@@ -1,12 +1,14 @@
 Sawmill
 =======
 
+[![Build status](https://ci.appveyor.com/api/projects/status/cc2fnul624198x02?svg=true)](https://ci.appveyor.com/project/benjamin-hodgson/sawmill)
+
 Simple tools for working with immutable trees, based on [_Uniform Boilerplate and List Processing_](http://ndmitchell.com/downloads/paper-uniform_boilerplate_and_list_processing-30_sep_2007.pdf) and developed at Stack Overflow.
 
 Installing
 ----------
 
-Sawmill is [available on Nuget](https://www.nuget.org/packages/Sawmill/).
+Sawmill is [available on Nuget](https://www.nuget.org/packages/Sawmill/). Dev builds can be found on [our AppVeyor Nuget feed](https://ci.appveyor.com/nuget/sawmill-2d8cq9lwy37i).
 
 Tutorial
 --------
