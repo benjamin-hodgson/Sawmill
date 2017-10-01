@@ -1,0 +1,29 @@
+configuration: Release
+
+nuget:
+  project_feed: true
+  disable_publish_on_pr: true
+
+install:
+  - ps: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dotnet/cli/v2.0.0/scripts/obtain/dotnet-install.ps1" -OutFile "dotnet-install.ps1"
+  - ps: .\dotnet-install.ps1 -Version 2.0.0
+
+before_build:
+  - ps: |
+      $lastTag = git describe --abbrev=0
+      Update-AppveyorBuild -Version "$lastTag-$env:APPVEYOR_BUILD_NUMBER"
+  - cmd: dotnet --info
+  - cmd: dotnet restore --verbosity Minimal
+
+build_script:
+  - cmd: dotnet build --configuration %CONFIGURATION%
+
+test_script:
+  - cmd: dotnet test --configuration %CONFIGURATION% Sawmill.Tests\Sawmill.Tests.csproj
+
+after_test:
+  - cmd: dotnet pack Sawmill\Sawmill.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
+
+artifacts:
+  - type: NuGetPackage
+    path: nupkgs/*.nupkg
