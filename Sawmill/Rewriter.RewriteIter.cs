@@ -45,7 +45,7 @@ namespace Sawmill
                 }
                 return x;
             }
-            T Go(T x) => rewriter.Rewrite(Transformer, x);
+            T Go(T x) => rewriter.Rewrite(transformerDelegate, x);
             return Go(value);
         }
     }
