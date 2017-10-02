@@ -15,7 +15,7 @@ Tutorial
 
 Sawmill contains functions which make it easy to work with immutable tree-shaped data such as abstract syntax trees. It factors out the boilerplate associated with recursively traversing a tree, allowing you to write queries and transformations which get straight to the point.
 
-Sawmill is designed to be extremely simple and lightweight (it's built as a set of extensions methods for a single simple interface); it works well with modern C# features like lambdas and pattern matching (the days of the clunky old visitor pattern are over!); and it doesn't get in the way when you need to go it alone and write traversals without Sawmill's help.
+Sawmill is designed to be extremely simple and lightweight (it's built as a set of extension methods for a single simple interface); it works well with modern C# features like lambdas and pattern matching (the days of the clunky old visitor pattern are over!); and it doesn't get in the way when you need to go it alone and write traversals without Sawmill's help.
 
 ### Querying a tree
 
