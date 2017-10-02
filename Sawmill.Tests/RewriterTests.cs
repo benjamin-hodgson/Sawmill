@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 using Xunit;
 
 namespace Sawmill.Tests
@@ -73,6 +74,24 @@ namespace Sawmill.Tests
             var rewritten = _rewriter.DefaultRewriteChildren(_ => new Lit(3), expr);
 
             Assert.Equal(6, Eval(rewritten));
+        }
+
+
+        [Fact]
+        public void TestDefaultRewriteChildren_ImmutableList_NoOp()
+        {
+            var t = new Tree<int>(
+                1,
+                new[]
+                {
+                    new Tree<int>(2, ImmutableList.Create<Tree<int>>()),
+                    new Tree<int>(3, ImmutableList.Create<Tree<int>>())
+                }.ToImmutableList()
+            );
+
+            var rewritten = t.DefaultRewriteChildren(x => x);
+
+            Assert.Same(t.Children, rewritten.Children);
         }
 
         [Fact]

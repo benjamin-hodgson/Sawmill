@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Sawmill
 {
@@ -70,17 +71,37 @@ namespace Sawmill
                 case NumberOfChildren.Many:
                 {
                     var many = children.Many;
-                    var list = many is ICollection<T> c ? new List<T>(c.Count) : new List<T>();
-                    foreach (var child in many)
+
+                    IEnumerable<T> result;
+                    if (many is IImmutableList<T> l)  // more efficient to rewrite the parts of the list that changed in-place, because sharing
                     {
-                        var newChild = transformer(child);
-                        list.Add(newChild);
-                        if (!ReferenceEquals(newChild, child))
+                        for (var i = 0; i < l.Count; i++)
                         {
-                            changed = true;
+                            var child = l[i];
+                            var newChild = transformer(child);
+                            if (!ReferenceEquals(child, newChild))
+                            {
+                                changed = true;
+                                l = l.SetItem(i, newChild);
+                            }
                         }
+                        result = l;
                     }
-                    newChildren = Children.Many(list);
+                    else
+                    {
+                        var list = many is ICollection<T> c ? new List<T>(c.Count) : new List<T>();
+                        foreach (var child in many)
+                        {
+                            var newChild = transformer(child);
+                            list.Add(newChild);
+                            if (!ReferenceEquals(newChild, child))
+                            {
+                                changed = true;
+                            }
+                        }
+                        result = list;
+                    }
+                    newChildren = Children.Many(result);
                     break;
                 }
                 default:
