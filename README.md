@@ -98,6 +98,11 @@ abstract class Expr : IRewritable<Expr>
 class Lit : Expr
 {
     public int Value { get; }
+    
+    public Lit(int value)
+    {
+        Value = value;
+    }
 
     public override Children<Expr> GetChildren()
         => Children.None<Expr>();
@@ -107,7 +112,12 @@ class Lit : Expr
 // variables also have no children
 class Var : Expr
 {
-    public int Name { get; }
+    public string Name { get; }
+    
+    public Var(string name)
+    {
+        Name = name;
+    }
 
     public override Children<Expr> GetChildren()
         => Children.None<Expr>();
@@ -117,6 +127,11 @@ class Var : Expr
 class Neg : Expr
 {
     public Expr Operand { get; }
+    
+    public Neg(Expr operand)
+    {
+        Operand = operand;
+    }
 
     public override Children<Expr> GetChildren()
         => Children.One(this.Operand);
@@ -127,6 +142,12 @@ class Add : Expr
 {
     public Expr Left { get; }
     public Expr Right { get; }
+    
+    public Add(Expr left, Expr right)
+    {
+        Left = left;
+        Right = right;
+    }
 
     public override Children<Expr> GetChildren()
         => Children.Two(this.Left, this.Right);
