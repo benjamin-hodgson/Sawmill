@@ -73,19 +73,20 @@ namespace Sawmill
                     var many = children.Many;
 
                     IEnumerable<T> result;
-                    if (many is IImmutableList<T> l)  // more efficient to rewrite the parts of the list that changed in-place, because sharing
+                    if (many is ImmutableList<T> l)  // more efficient to rewrite the parts of the list that changed in-place, because sharing
                     {
+                        var builder = l.ToBuilder();
                         for (var i = 0; i < l.Count; i++)
                         {
-                            var child = l[i];
+                            var child = builder[i];
                             var newChild = transformer(child);
                             if (!ReferenceEquals(child, newChild))
                             {
                                 changed = true;
-                                l = l.SetItem(i, newChild);
+                                builder[i] = newChild;
                             }
                         }
-                        result = l;
+                        result = builder.ToImmutable();
                     }
                     else
                     {
