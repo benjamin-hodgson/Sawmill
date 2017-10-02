@@ -31,7 +31,7 @@ IEnumerable<string> GetVariables(Expr expr)
         case Var v:
             return new[] { v.Name };
         case Add a:
-            return GetVariables(a.Left).Union(GetVariables(a.Right));
+            return GetVariables(a.Left).Concat(GetVariables(a.Right));
         case Neg n:
             return GetVariables(n.Operand);
     }
