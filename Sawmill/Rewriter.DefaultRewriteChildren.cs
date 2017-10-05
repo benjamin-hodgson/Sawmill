@@ -72,37 +72,29 @@ namespace Sawmill
                 {
                     var many = children.Many;
 
-                    IEnumerable<T> result;
-                    if (many is ImmutableList<T> l)  // more efficient to rewrite the parts of the list that changed in-place, because sharing
+                    var mapped = EnumerableBuilder<T>.Map(many, transformer);
+
+                    if (mapped.HasValue)
                     {
-                        var builder = l.ToBuilder();
-                        for (var i = 0; i < l.Count; i++)
-                        {
-                            var child = builder[i];
-                            var newChild = transformer(child);
-                            if (!ReferenceEquals(child, newChild))
-                            {
-                                changed = true;
-                                builder[i] = newChild;
-                            }
-                        }
-                        result = builder.ToImmutable();
+                        changed = mapped.Value.changed;
+                        newChildren = Children.Many(mapped.Value.result);
                     }
-                    else
+                    else  // wasn't a type we know how to rebuild. let's just build an ImmutableArray
                     {
-                        var list = many is ICollection<T> c ? new List<T>(c.Count) : new List<T>();
-                        foreach (var child in many)
+                        var builder = many is ICollection<T> c
+                            ? ImmutableArray.CreateBuilder<T>(c.Count)
+                            : ImmutableArray.CreateBuilder<T>();
+                        
+                        foreach (var oldChild in many)
                         {
-                            var newChild = transformer(child);
-                            list.Add(newChild);
-                            if (!ReferenceEquals(newChild, child))
-                            {
-                                changed = true;
-                            }
+                            var newChild = transformer(oldChild);
+                            changed = changed || !ReferenceEquals(oldChild, newChild);
+                            builder.Add(newChild);
                         }
-                        result = list;
+
+                        newChildren = Children.Many(ToImmutableAndClear(builder));
                     }
-                    newChildren = Children.Many(result);
+
                     break;
                 }
                 default:
@@ -113,6 +105,17 @@ namespace Sawmill
 
 
             return changed ? rewriter.SetChildren(newChildren, oldValue) : oldValue;
+        }
+
+        private static ImmutableArray<T> ToImmutableAndClear<T>(ImmutableArray<T>.Builder builder)
+        {
+            if (builder.Capacity == builder.Count)
+            {
+                return builder.MoveToImmutable();
+            }
+            var array = builder.ToImmutable();
+            builder.Clear();
+            return array;
         }
     }
 }

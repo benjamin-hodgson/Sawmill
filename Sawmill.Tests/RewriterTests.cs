@@ -76,7 +76,6 @@ namespace Sawmill.Tests
             Assert.Equal(6, Eval(rewritten));
         }
 
-
         [Fact]
         public void TestDefaultRewriteChildren_ImmutableList_NoOp()
         {

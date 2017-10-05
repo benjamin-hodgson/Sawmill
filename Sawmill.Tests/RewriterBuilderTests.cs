@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Xunit;
 
 namespace Sawmill.Tests
@@ -21,6 +22,18 @@ namespace Sawmill.Tests
                         .Child(a => a.Left)
                         .Child(a => a.Right)
                         .ConstructWith((l, r) => new Add(l, r))
+                )
+                .And<Ternary>(
+                    c => c
+                        .Child(t => t.Condition)
+                        .Child(t => t.ThenBranch)
+                        .Child(t => t.ElseBranch)
+                        .ConstructWith((cond, tru, fls) => new Ternary(cond, tru, fls))
+                )
+                .And<List>(
+                    c => c
+                        .Children(l => l.Exprs)
+                        .ConstructWith(es => new List(es))
                 )
                 .Build();
 
@@ -50,6 +63,28 @@ namespace Sawmill.Tests
 
             Assert.Equal(new[]{ l, r }, _rewriter.GetChildren(add));
         }
+
+        [Fact]
+        public void TestGetChildren_ThreeChildren()
+        {
+            var c = new Lit(0);
+            var l = new Lit(1);
+            var r = new Lit(2);
+            var tern = new Ternary(c, l, r);
+
+            Assert.Equal(new[]{ c, l, r }, _rewriter.GetChildren(tern));
+        }
+
+        [Fact]
+        public void TestGetChildren_ManyChildren()
+        {
+            var zero = new Lit(0);
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var list = new List(ImmutableArray.CreateRange(new Expr[]{ zero, one, two }));
+
+            Assert.Equal(new[]{ zero, one, two }, _rewriter.GetChildren(list));
+        }
         
         [Fact]
         public void TestSetChildren_NoChildren()
@@ -68,7 +103,7 @@ namespace Sawmill.Tests
             var newLit = new Lit(4);
             var newNeg = _rewriter.SetChildren(Children.One<Expr>(newLit), neg);
 
-            Assert.Equal(new[]{ newNeg, newLit }, _rewriter.SelfAndDescendants(newNeg));
+            Assert.Equal(new[]{ newLit }, _rewriter.GetChildren(newNeg));
         }
 
         [Fact]
@@ -82,7 +117,39 @@ namespace Sawmill.Tests
             var newR = new Lit(4);
             var newAdd = _rewriter.SetChildren(Children.Two<Expr>(newL, newR), add);
 
-            Assert.Equal(new[]{ newAdd, newL, newR }, _rewriter.SelfAndDescendants(newAdd));
+            Assert.Equal(new[]{ newL, newR }, _rewriter.GetChildren(newAdd));
+        }
+
+        [Fact]
+        public void TestSetChildren_ThreeChildren()
+        {
+            var c = new Lit(0);
+            var l = new Lit(1);
+            var r = new Lit(2);
+            var tern = new Ternary(c, l, r);
+
+            var newC = new Lit(3);
+            var newL = new Lit(4);
+            var newR = new Lit(5);
+            var newTern = _rewriter.SetChildren(Children.Many(new Expr[]{ newC, newL, newR }), tern);
+
+            Assert.Equal(new[]{ newC, newL, newR }, _rewriter.GetChildren(newTern));
+        }
+
+        [Fact]
+        public void TestSetChildren_ManyChildren()
+        {
+            var zero = new Lit(0);
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var list = new List(ImmutableArray.CreateRange(new Expr[]{ zero, one, two }));
+
+            var new0 = new Lit(3);
+            var new1 = new Lit(4);
+            var new2 = new Lit(5);
+            var newList = _rewriter.SetChildren(Children.Many(new Expr[]{ new0, new1, new2 }), list);
+
+            Assert.Equal(new[]{ new0, new1, new2 }, _rewriter.GetChildren(newList));
         }
     }
 }

@@ -148,9 +148,13 @@ namespace Sawmill
                             case NumberOfChildren.One:
                                 return Sawmill.Children.Two(acc.First, thisChild);
                             case NumberOfChildren.Two:
-                                return Sawmill.Children.Many(new List<TBase> { acc.First, acc.Second, thisChild });
+                                var builder = ImmutableList.CreateBuilder<TBase>();
+                                builder.Add(acc.First);
+                                builder.Add(acc.Second);
+                                builder.Add(thisChild);
+                                return Sawmill.Children.Many(builder);
                             case NumberOfChildren.Many:
-                                var many = (List<TBase>)acc.Many;
+                                var many = (ImmutableList<TBase>.Builder)acc.Many;
                                 many.Add(thisChild);
                                 return Sawmill.Children.Many(many);
                         }
@@ -194,7 +198,7 @@ namespace Sawmill
                 GetChildrenDelegates.Add(
                     (value, acc) =>
                     {
-                        var many = (List<TBase>)acc.Many;
+                        var many = (ImmutableList<TBase>.Builder)acc.Many;
                         many.AddRange(children(value));
                         return Sawmill.Children.Many(many);
                     }
@@ -204,35 +208,72 @@ namespace Sawmill
                     var (changed, rest) = GetSetChildrenCtorArgs(oldValue, newChildrenEnumerator);
                     var oldChildren = children(oldValue);
 
-                    var newChildren = EnumerableBuilder<TBase>.Create<TEnumerable>();
-                    foreach (var oldChild in oldChildren)
+                    TEnumerable newChildren;
+                    if (oldChildren is ImmutableList<TBase>)
                     {
-                        newChildrenEnumerator.MoveNext();
-                        var newChild = newChildrenEnumerator.Current;
+                        var builder = ((ImmutableList<TBase>)(object)oldChildren).ToBuilder();
+                        for (var i = 0; i < builder.Count; i++)
+                        {
+                            var oldChild = builder[i];
+                            var newChild = newChildrenEnumerator.Draw1();
 
-                        changed = changed || !ReferenceEquals(oldChild, newChild);
-                        newChildren.Add(newChild);
+                            if (!ReferenceEquals(oldChild, newChild))
+                            {
+                                changed = true;
+                                builder[i] = newChild;
+                            }
+                        }
+                        newChildren = (TEnumerable)(object)builder.ToImmutable();
+                    }
+                    else
+                    {
+                        var result = EnumerableBuilder<TBase>.RebuildFrom(oldChildren, newChildrenEnumerator);
+                        if (!result.HasValue)
+                        {
+                            throw new Exception("Unknown type of enumerable");
+                        }
+                        changed = changed || result.Value.changed;
+                        newChildren = result.Value.result;
                     }
 
                     
-                    return (changed, (rest, newChildren.Build()));
+                    return (changed, (rest, newChildren));
                 },
                 (oldValue, func) =>
                 {
                     var (changed, rest) = GetRewriteChildrenCtorArgs(oldValue, func);
                     var oldChildren = children(oldValue);
 
-                    var newChildren = EnumerableBuilder<TBase>.Create<TEnumerable>();
-                    foreach (var oldChild in oldChildren)
+                    TEnumerable newChildren;
+                    if (oldChildren is ImmutableList<TBase>)
                     {
-                        var newChild = func(oldChild);
+                        var builder = ((ImmutableList<TBase>)(object)oldChildren).ToBuilder();
+                        for (var i = 0; i < builder.Count; i++)
+                        {
+                            var oldChild = builder[i];
+                            var newChild = func(oldChild);
 
-                        changed = changed || !ReferenceEquals(oldChild, newChild);
-                        newChildren.Add(newChild);
+                            if (!ReferenceEquals(oldChild, newChild))
+                            {
+                                changed = true;
+                                builder[i] = newChild;
+                            }
+                        }
+                        newChildren = (TEnumerable)(object)builder.ToImmutable();
+                    }
+                    else
+                    {
+                        var result = EnumerableBuilder<TBase>.Map(oldChildren, func);
+                        if (!result.HasValue)
+                        {
+                            throw new Exception("Unknown type of enumerable");
+                        }
+                        changed = changed || result.Value.changed;
+                        newChildren = result.Value.result;
                     }
 
                     
-                    return (changed, (rest, newChildren.Build()));
+                    return (changed, (rest, newChildren));
                 },
                 null  // assume there'll be many children
             );
@@ -263,10 +304,15 @@ namespace Sawmill
         {
             var children = _childrenCount.HasValue && _childrenCount.Value <= 2
                 ? Children.None<TBase>()
-                : Children.Many(new List<TBase>());
+                : Children.Many(ImmutableList.CreateBuilder<TBase>());
             foreach (var action in _getChildrenDelegates)
             {
                 children = action((TSub)value, children);
+            }
+            if (children.NumberOfChildren == NumberOfChildren.Many)
+            {
+                // freeze the builder
+                children = Children.Many(((ImmutableList<TBase>.Builder)children.Many).ToImmutable());
             }
             return children;
         }

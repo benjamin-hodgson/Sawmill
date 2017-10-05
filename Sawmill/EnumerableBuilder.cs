@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace Sawmill
 {
@@ -11,79 +14,197 @@ namespace Sawmill
     }
     internal static class EnumerableBuilder<T>
     {
-        private static readonly Type _iEnumerableT = typeof(IEnumerable<T>);
-        private static readonly Type _tArray = typeof(T[]);
-        private static readonly Type _listT = typeof(List<T>);
-        private static readonly Type _immutableListT = typeof(ImmutableList<T>);
-        private static readonly Type _immutableArrayT = typeof(ImmutableArray<T>);
+        private static readonly ImmutableArray<Type> _canHandleTypes = ImmutableArray.CreateRange(
+            new[]
+            {
+                typeof(T[]),
+                typeof(List<T>),
+                typeof(ImmutableList<T>),
+                typeof(ImmutableArray<T>)
+            }
+        );
 
+        private static Delegate _castImmutableArray;
+        private static readonly object _castImmutableArrayLock = new object();
 
-        internal static IEnumerableBuilder<T, TEnumerable> Create<TEnumerable>() where TEnumerable : IEnumerable<T>
+        internal static bool CanHandle<TEnumerable>() where TEnumerable : IEnumerable<T>
+            => CanHandle(typeof(TEnumerable));
+        internal static bool CanHandle(Type enumerable)
+            => _canHandleTypes.Contains(enumerable);
+
+        internal static (bool changed, TEnumerable result)? Map<TEnumerable>(TEnumerable enumerable, Func<T, T> func) where TEnumerable : IEnumerable<T>
         {
-            var tEnumerable = typeof(TEnumerable);
+            var changed = false;
 
-            if (tEnumerable.Equals(_iEnumerableT))
+            if (enumerable is T[])
             {
-                return (IEnumerableBuilder<T, TEnumerable>)((object)new ImmutableArrayBuilder());
-            }
-            if (tEnumerable.Equals(_tArray))
-            {
-                return (IEnumerableBuilder<T, TEnumerable>)((object)new ArrayBuilder());
-            }
-            if (tEnumerable.Equals(_listT))
-            {
-                return (IEnumerableBuilder<T, TEnumerable>)((object)new ListBuilder());
-            }
-            if (tEnumerable.Equals(_immutableListT))
-            {
-                return (IEnumerableBuilder<T, TEnumerable>)((object)new ImmutableListBuilder());
-            }
-            if (tEnumerable.Equals(_immutableArrayT))
-            {
-                return (IEnumerableBuilder<T, TEnumerable>)((object)new ImmutableArrayBuilder());
-            }
-            
-            throw new Exception();
-        }
+                var oldArray = (T[])(object)enumerable;
+                var newArray = new T[oldArray.Length];
 
-        private sealed class ListBuilder : IEnumerableBuilder<T, List<T>>
-        {
-            private readonly List<T> _list = new List<T>();
-
-            public void Add(T item) => _list.Add(item);
-
-            public List<T> Build() => _list;
-        }
-        private sealed class ArrayBuilder : IEnumerableBuilder<T, T[]>
-        {
-            private readonly List<T> _list = new List<T>();
-
-            public void Add(T item) => _list.Add(item);
-
-            public T[] Build() => _list.ToArray();
-        }
-        private sealed class ImmutableArrayBuilder : IEnumerableBuilder<T, ImmutableArray<T>>
-        {
-            private readonly ImmutableArray<T>.Builder _builder = ImmutableArray.CreateBuilder<T>();
-
-            public void Add(T item) => _builder.Add(item);
-
-            public ImmutableArray<T> Build()
-            {
-                if (_builder.Capacity == _builder.Count)
+                for(var i = 0; i < oldArray.Length; i++)
                 {
-                    return _builder.MoveToImmutable();
+                    var oldItem = oldArray[i];
+                    var newItem = func(oldItem);
+
+                    changed = changed || !ReferenceEquals(oldItem, newItem);
+                    newArray[i] = newItem;
                 }
-                return _builder.ToImmutable();
+
+                return (changed, (TEnumerable)(object)newArray);
             }
+            if (enumerable is List<T>)
+            {
+                var oldList = (List<T>)(object)enumerable;
+                var newList = new List<T>(oldList.Count);
+
+                foreach (var oldItem in oldList)
+                {
+                    var newItem = func(oldItem);
+
+                    changed = changed || !ReferenceEquals(oldItem, newItem);
+                    newList.Add(newItem);
+                }
+
+                return (changed, (TEnumerable)(object)newList);
+            }
+            if (enumerable is ImmutableList<T>)
+            {
+                var builder = ((ImmutableList<T>)(object)enumerable).ToBuilder();
+
+                for (var i = 0; i < builder.Count; i++)
+                {
+                    var oldItem = builder[i];
+                    var newItem = func(oldItem);
+
+                    if (!ReferenceEquals(oldItem, newItem))
+                    {
+                        changed = true;
+                        builder[i] = newItem;
+                    }
+                }
+            
+                return (changed, (TEnumerable)(object)builder.ToImmutable());
+            }
+            if (enumerable is ImmutableArray<T>)
+            {
+                if (_castImmutableArray == null)
+                {
+                    lock (_castImmutableArrayLock)
+                    {
+                        if (_castImmutableArray == null)
+                        {
+                            var param = Expression.Parameter(typeof(TEnumerable));
+                            _castImmutableArray = Expression.Lambda<Func<TEnumerable, ImmutableArray<T>>>(param, param).Compile();
+                        }
+                    }
+                }
+
+                var builder = ((Func<TEnumerable, ImmutableArray<T>>)_castImmutableArray)(enumerable).ToBuilder();
+
+                for (var i = 0; i < builder.Count; i++)
+                {
+                    var oldItem = builder[i];
+                    var newItem = func(oldItem);
+
+                    if (!ReferenceEquals(oldItem, newItem))
+                    {
+                        changed = true;
+                        builder[i] = newItem;
+                    }
+                }
+            
+                return (changed, (TEnumerable)(object)builder.MoveToImmutable());
+            }
+
+            return null;
         }
-        private sealed class ImmutableListBuilder : IEnumerableBuilder<T, ImmutableList<T>>
+
+        internal static (bool changed, TEnumerable result)? RebuildFrom<TEnumerable>(TEnumerable enumerable, IEnumerator<T> enumerator)
+            where TEnumerable : IEnumerable<T>
         {
-            private readonly ImmutableList<T>.Builder _builder = ImmutableList.CreateBuilder<T>();
+            var changed = false;
 
-            public void Add(T item) => _builder.Add(item);
+            if (enumerable is T[])
+            {
+                var oldArray = (T[])(object)enumerable;
+                var newArray = new T[oldArray.Length];
 
-            public ImmutableList<T> Build() => _builder.ToImmutable();
+                for(var i = 0; i < oldArray.Length; i++)
+                {
+                    var oldItem = oldArray[i];
+                    var newItem = enumerator.Draw1();
+
+                    changed = changed || !ReferenceEquals(oldItem, newItem);
+                    newArray[i] = newItem;
+                }
+                
+                return (changed, (TEnumerable)(object)newArray);
+            }
+            if (enumerable is List<T>)
+            {
+                var oldList = (List<T>)(object)enumerable;
+                var newList = new List<T>(oldList.Count);
+
+                foreach (var oldItem in oldList)
+                {
+                    var newItem = enumerator.Draw1();
+
+                    changed = changed || !ReferenceEquals(oldItem, newItem);
+                    newList.Add(newItem);
+                }
+
+                return (changed, (TEnumerable)(object)newList);
+            }
+            if (enumerable is ImmutableList<T>)
+            {
+                var builder = ((ImmutableList<T>)(object)enumerable).ToBuilder();
+
+                for (var i = 0; i < builder.Count; i++)
+                {
+                    var oldItem = builder[i];
+                    var newItem = enumerator.Draw1();
+
+                    if (!ReferenceEquals(oldItem, newItem))
+                    {
+                        changed = true;
+                        builder[i] = newItem;
+                    }
+                }
+            
+                return (changed, (TEnumerable)(object)builder.ToImmutable());
+            }
+            if (enumerable is ImmutableArray<T>)
+            {
+                if (_castImmutableArray == null)
+                {
+                    lock (_castImmutableArrayLock)
+                    {
+                        if (_castImmutableArray == null)
+                        {
+                            var param = Expression.Parameter(typeof(TEnumerable));
+                            _castImmutableArray = Expression.Lambda<Func<TEnumerable, ImmutableArray<T>>>(param, param).Compile();
+                        }
+                    }
+                }
+
+                var builder = ((Func<TEnumerable, ImmutableArray<T>>)_castImmutableArray)(enumerable).ToBuilder();
+
+                for (var i = 0; i < builder.Count; i++)
+                {
+                    var oldItem = builder[i];
+                    var newItem = enumerator.Draw1();
+
+                    if (!ReferenceEquals(oldItem, newItem))
+                    {
+                        changed = true;
+                        builder[i] = newItem;
+                    }
+                }
+            
+                return (changed, (TEnumerable)(object)builder.MoveToImmutable());
+            }
+
+            return null;
         }
     }
 }
