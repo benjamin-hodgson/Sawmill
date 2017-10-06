@@ -11,9 +11,9 @@ namespace Sawmill
     /// <typeparam name="T">The rewritable tree type</typeparam>
     public class RewriterBuilder<T>
     {
-        private readonly ImmutableDictionary<Type, IRewriter<T>> _rewriters;
+        private readonly ImmutableList<(Type, IRewriter<T>)> _rewriters;
 
-        private RewriterBuilder(ImmutableDictionary<Type, IRewriter<T>> rewriters)
+        private RewriterBuilder(ImmutableList<(Type, IRewriter<T>)> rewriters)
         {
             _rewriters = rewriters;
         }
@@ -24,7 +24,7 @@ namespace Sawmill
         public static RewriterBuilder<T> Case<TSub>(
             Func<RewriterBuilderCase<object, T, TSub>, IRewriter<T>> builderAction
         ) where TSub : T
-            => new RewriterBuilder<T>(ImmutableDictionary.Create<Type, IRewriter<T>>())
+            => new RewriterBuilder<T>(ImmutableList.Create<(Type, IRewriter<T>)>())
                 .And<TSub>(builderAction);
         
         /// <summary>
@@ -45,32 +45,68 @@ namespace Sawmill
                 0        
             );
             var completedBuilder = builderAction(builder);
-            return new RewriterBuilder<T>(_rewriters.Add(typeof(TSub), completedBuilder));
+            return new RewriterBuilder<T>(_rewriters.Add((typeof(TSub), completedBuilder)));
         }
 
         /// <summary>
         /// Build a rewriter
         /// </summary>
         public IRewriter<T> Build()
-            => new BuilderRewriter(_rewriters.ToDictionary(kv => kv.Key, kv => kv.Value));
+            => new BuilderRewriter(_rewriters.ToArray());
 
         private class BuilderRewriter : IRewriter<T>
         {
-            private readonly Dictionary<Type, IRewriter<T>> _rewriters;
+            private readonly (Type, IRewriter<T>)[] _rewriters;
 
-            public BuilderRewriter(Dictionary<Type, IRewriter<T>> rewriters)
+            public BuilderRewriter((Type, IRewriter<T>)[] rewriters)
             {
                 _rewriters = rewriters;
             }
 
             public Children<T> GetChildren(T value)
-                => _rewriters[value.GetType()].GetChildren(value);
+            {
+                foreach (var kv in _rewriters)
+                {
+                    if (kv.Item1.IsAssignableFrom(value.GetType()))
+                    {
+                        return kv.Item2.GetChildren(value);
+                    }
+                }
+                throw new ArgumentOutOfRangeException(
+                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?",
+                    nameof(value)
+                );
+            }
 
             public T RewriteChildren(Func<T, T> transformer, T oldValue)
-                => _rewriters[oldValue.GetType()].RewriteChildren(transformer, oldValue);
+            {
+                foreach (var kv in _rewriters)
+                {
+                    if (kv.Item1.IsAssignableFrom(oldValue.GetType()))
+                    {
+                        return kv.Item2.RewriteChildren(transformer, oldValue);
+                    }
+                }
+                throw new ArgumentOutOfRangeException(
+                    $"Unknown type {oldValue.GetType()}. Are you missing an And clause from your RewriterBuilder?",
+                    nameof(oldValue)
+                );
+            }
 
             public T SetChildren(Children<T> newChildren, T oldValue)
-                => _rewriters[oldValue.GetType()].SetChildren(newChildren, oldValue);
+            {
+                foreach (var kv in _rewriters)
+                {
+                    if (kv.Item1.IsAssignableFrom(oldValue.GetType()))
+                    {
+                        return kv.Item2.SetChildren(newChildren, oldValue);
+                    }
+                }
+                throw new ArgumentOutOfRangeException(
+                    $"Unknown type {oldValue.GetType()}. Are you missing an And clause from your RewriterBuilder?",
+                    nameof(oldValue)
+                );
+            }
         }
     }
 
