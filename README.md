@@ -61,7 +61,23 @@ Expr RemoveDoubleNegation(Expr expr)
     );
 ```
 
-`Rewrite` takes a transformation function and rebuilds a tree by applying the function to every node in the tree. Sawmill takes care to avoid rebuilding parts of the tree which the transformation function leaves unchanged, so `Rewrite` will typically be more efficient than a naïve handwritten implementation.
+`Rewrite` takes a transformation function and rebuilds a tree by applying the function to every node in the tree. For example, given an expression like `(2 + 3) + (-4)`, applying `Rewrite` with a transformer function `transformer` is equivalent to the expression:
+
+```csharp
+transformer(new Add(
+    transformer(new Add(
+        transformer(new Lit(2)),
+        transformer(new Lit(3))
+    )),
+    transformer(new Neg(
+        transformer(new Lit(4))
+    ))
+))
+```
+
+So the transformation function gets applied to every node in the tree exactly once. `Rewrite` is a _mapping_ operation.
+
+Sawmill takes care to avoid rebuilding parts of the tree which the transformation function leaves unchanged, so `Rewrite` will typically be more efficient than a naïve handwritten implementation.
 
 ### Putting an expression into normal form
 
