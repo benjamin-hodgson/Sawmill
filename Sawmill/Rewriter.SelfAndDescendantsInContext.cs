@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+
+namespace Sawmill
+{
+    public static partial class Rewriter
+    {
+        public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContext<T>(this IRewriter<T> rewriter, T value)
+        {
+            if (rewriter == null)
+            {
+                throw new ArgumentNullException(nameof(rewriter));
+            }
+
+            var result = new List<(T item, Func<T, T> replace)>();
+
+            void Go(T t, Func<T, T> replace)
+            {
+                result.Add((t, replace));
+
+                foreach (var (child, replaceChild) in rewriter.ChildrenInContext(t))
+                {
+                    Go(child, newDescendant => replace(replaceChild(newDescendant)));
+                }
+            }
+            Go(value, x => x);
+            return result;
+        }
+
+        public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextLazy<T>(this IRewriter<T> rewriter, T value)
+        {
+            if (rewriter == null)
+            {
+                throw new ArgumentNullException(nameof(rewriter));
+            }
+
+            IEnumerable<(T item, Func<T, T> context)> Go(T t)
+            {
+                yield return (t, newT => newT);
+
+                foreach (var (child, replaceChild) in ChildrenInContext(rewriter, t))
+                {
+                    foreach (var (descendant, replaceDescendant) in Go(child))
+                    {
+                        yield return (descendant, newDescendant => replaceChild(replaceDescendant(newDescendant)));
+                    }
+                }
+            }
+            return Go(value);
+        }
+    }
+}
