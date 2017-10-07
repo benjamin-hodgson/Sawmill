@@ -19,7 +19,9 @@ Sawmill is designed to be extremely simple and lightweight (it's built as a set 
 
 ### Querying a tree
 
-For example, suppose you're working with a simple language of arithmetic expressions featuring literal numbers, variables, addition, and unary subtraction. Here's a function to extract a list of the variables mentioned in a given expression (for example, a compiler writer might want to find the variables captured by a lambda expression):
+For example, suppose you're working with a simple language of arithmetic expressions featuring literal numbers, variables, addition, and unary subtraction. Each syntactic construct corresponds to a subclass of an `Expr` base type, so an expression like `(2 + x) + (-4)` would be represented as `new Add(new Add(new Lit(2), new Var(x)), new Neg(new Lit(4)))`.
+
+Here's a function to extract a list of the variables mentioned in a given expression (for example, a compiler writer might want to find the variables captured by a lambda expression):
 
 ```csharp
 IEnumerable<string> GetVariables(Expr expr)
@@ -61,7 +63,7 @@ Expr RemoveDoubleNegation(Expr expr)
     );
 ```
 
-`Rewrite` takes a transformation function and rebuilds a tree by applying the function to every node in the tree. For example, given an expression like `(2 + 3) + (-4)`, applying `Rewrite` with a transformer function `transformer` is equivalent to the expression:
+`Rewrite` takes a transformation function and rebuilds a tree by applying the function to every node in the tree. For example, given a representation of the expression `(2 + x) + (-4)` and a transformer function, `expr.Rewrite(transformer)` is equivalent to:
 
 ```csharp
 transformer(new Add(
