@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Immutable;
+using System.Linq;
 using Xunit;
 
 namespace Sawmill.Tests
@@ -50,6 +51,91 @@ namespace Sawmill.Tests
             var expr = new Add(one, minusTwo);
 
             Assert.Equal(new Expr[] { one, two, minusTwo, expr }, _rewriter.DescendantsAndSelfLazy(expr));
+        }
+
+        [Fact]
+        public void TestChildrenInContext()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+
+            var childrenInContext = _rewriter.ChildrenInContext(expr);
+
+            Assert.Equal(new Expr[] { one, minusTwo }, childrenInContext.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = childrenInContext.First.replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+        }
+
+        [Fact]
+        public void TestSelfAndDescendantsInContext()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+
+            var contexts = _rewriter.SelfAndDescendantsInContext(expr);
+
+            Assert.Equal(new Expr[] { expr, one, minusTwo, two }, contexts.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = contexts.ElementAt(1).replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+        }
+
+        [Fact]
+        public void TestSelfAndDescendantsInContextLazy()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+
+            var contexts = _rewriter.SelfAndDescendantsInContextLazy(expr);
+
+            Assert.Equal(new Expr[] { expr, one, minusTwo, two }, contexts.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = contexts.ElementAt(1).replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+        }
+
+        [Fact]
+        public void TestDescendantsAndSelfInContext()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+
+            var contexts = _rewriter.DescendantsAndSelfInContext(expr);
+
+            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, contexts.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = contexts.ElementAt(0).replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+        }
+
+        [Fact]
+        public void TestDescendantsAndSelfInContextLazy()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+
+            var contexts = _rewriter.DescendantsAndSelfInContextLazy(expr);
+
+            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, contexts.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = contexts.ElementAt(0).replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
         }
 
         [Fact]
