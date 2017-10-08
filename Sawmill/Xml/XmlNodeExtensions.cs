@@ -46,6 +46,36 @@ namespace Sawmill.Xml
             => XmlNodeRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Children<(XmlNode item, Func<XmlNode, XmlNode> replace)> ChildrenInContext(this XmlNode value)
+            => XmlNodeRewriter.Instance.ChildrenInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> SelfAndDescendantsInContext(this XmlNode value)
+            => XmlNodeRewriter.Instance.SelfAndDescendantsInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> SelfAndDescendantsInContextLazy(this XmlNode value)
+            => XmlNodeRewriter.Instance.SelfAndDescendantsInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> DescendantsAndSelfInContext(this XmlNode value)
+            => XmlNodeRewriter.Instance.DescendantsAndSelfInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> DescendantsAndSelfInContextLazy(this XmlNode value)
+            => XmlNodeRewriter.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>
         /// </summary>
         public static T Fold<T>(this XmlNode value, Func<XmlNode, Children<T>, T> func)

@@ -46,6 +46,36 @@ namespace Sawmill.Xml
             => XElementRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Children<(XElement item, Func<XElement, XElement> replace)> ChildrenInContext(this XElement value)
+            => XElementRewriter.Instance.ChildrenInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XElement item, Func<XElement, XElement> replace)> SelfAndDescendantsInContext(this XElement value)
+            => XElementRewriter.Instance.SelfAndDescendantsInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XElement item, Func<XElement, XElement> replace)> SelfAndDescendantsInContextLazy(this XElement value)
+            => XElementRewriter.Instance.SelfAndDescendantsInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XElement item, Func<XElement, XElement> replace)> DescendantsAndSelfInContext(this XElement value)
+            => XElementRewriter.Instance.DescendantsAndSelfInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(XElement item, Func<XElement, XElement> replace)> DescendantsAndSelfInContextLazy(this XElement value)
+            => XElementRewriter.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>
         /// </summary>
         public static T Fold<T>(this XElement value, Func<XElement, Children<T>, T> func)

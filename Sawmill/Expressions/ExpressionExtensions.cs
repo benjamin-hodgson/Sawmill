@@ -46,6 +46,36 @@ namespace Sawmill.Expressions
             => ExpressionRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Children<(Expression item, Func<Expression, Expression> replace)> ChildrenInContext(this Expression value)
+            => ExpressionRewriter.Instance.ChildrenInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> SelfAndDescendantsInContext(this Expression value)
+            => ExpressionRewriter.Instance.SelfAndDescendantsInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> SelfAndDescendantsInContextLazy(this Expression value)
+            => ExpressionRewriter.Instance.SelfAndDescendantsInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> DescendantsAndSelfInContext(this Expression value)
+            => ExpressionRewriter.Instance.DescendantsAndSelfInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> DescendantsAndSelfInContextLazy(this Expression value)
+            => ExpressionRewriter.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>
         /// </summary>
         public static T Fold<T>(this Expression value, Func<Expression, Children<T>, T> func)

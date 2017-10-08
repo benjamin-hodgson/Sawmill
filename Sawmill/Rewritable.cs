@@ -31,6 +31,36 @@ namespace Sawmill
         /// </summary>
         public static IEnumerable<T> SelfAndDescendantsLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Children<(T item, Func<T, T> replace)> ChildrenInContext<T>(this T value) where T : IRewritable<T>
+            => RewritableRewriter<T>.Instance.ChildrenInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContext<T>(this T value) where T : IRewritable<T>
+            => RewritableRewriter<T>.Instance.SelfAndDescendantsInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextLazy<T>(this T value) where T : IRewritable<T>
+            => RewritableRewriter<T>.Instance.SelfAndDescendantsInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContext{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(T item, Func<T, T> replace)> DescendantsAndSelfInContext<T>(this T value) where T : IRewritable<T>
+            => RewritableRewriter<T>.Instance.DescendantsAndSelfInContext(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(T item, Func<T, T> replace)> DescendantsAndSelfInContextLazy<T>(this T value) where T : IRewritable<T>
+            => RewritableRewriter<T>.Instance.DescendantsAndSelfInContextLazy(value);
         
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>
