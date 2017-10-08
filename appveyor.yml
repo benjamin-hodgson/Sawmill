@@ -26,6 +26,7 @@ test_script:
 
 after_test:
   - cmd: dotnet pack Sawmill\Sawmill.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
+  - cmd: dotnet pack Sawmill.Newtonsoft.Json\Sawmill.Newtonsoft.Json.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
 
 artifacts:
   - type: NuGetPackage
