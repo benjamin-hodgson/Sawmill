@@ -7,6 +7,24 @@ namespace Sawmill
 {
     public static partial class Rewriter
     {
+        /// <summary>
+        /// Returns an instance of <see cref="Children{T}"/> containing each immediate child of
+        /// <paramref name="value"/> paired with a function to replace the child.
+        /// This is typically useful when you need to replace a node's children one at a time,
+        /// such as during mutation testing.
+        /// 
+        /// <para>
+        /// The replacement function can be seen as the "context" of the child; calling the
+        /// function with a new child "plugs the hole" in the context.
+        /// </para>
+        /// 
+        /// <seealso cref="SelfAndDescendantsInContext"/>
+        /// <seealso cref="SelfAndDescendantsInContextLazy"/>
+        /// <seealso cref="DescendantsAndSelfInContext"/>
+        /// <seealso cref="DescendantsAndSelfInContextLazy"/>
+        /// </summary>
+        /// <param name="rewriter">The rewriter</param>
+        /// <param name="value">The value to get the contexts for the immediate children</param>
         public static Children<(T item, Func<T, T> replace)> ChildrenInContext<T>(this IRewriter<T> rewriter, T value)
         {
             if (rewriter == null)
