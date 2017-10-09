@@ -6,7 +6,7 @@ namespace Sawmill.Newtonsoft.Json
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for <see cref="JToken"/>s.
     /// </summary>
-    public class JTokenRewriter : IRewriter<JToken>
+    public sealed class JTokenRewriter : IRewriter<JToken>
     {
         private JTokenRewriter() {}
 
