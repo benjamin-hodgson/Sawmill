@@ -63,25 +63,31 @@ namespace Sawmill
         
         public Zipper<T> Top()
         {
-            var (focus, prevSiblings, nextSiblings) = _path.Aggregate(
-                (focus: _focus, prevSiblings: _prevSiblings, nextSiblings: _nextSiblings),
-                (t, parent) => (
-                    focus: new Scarred<T>(
-                        _rewriter,
-                        parent.Focus.OldValue,
-                        true,
-                        parent.Focus.NumberOfChildren,
-                        t.prevSiblings,
-                        t.focus,
-                        t.nextSiblings
-                    ),
-                    parent.PrevSiblings,
-                    parent.NextSiblings
-                )
-            );
+            var focus = _focus;
+            var prevSiblings = _prevSiblings;
+            var nextSiblings = _nextSiblings;
+
+            var path = _path;
+
+            while (!path.IsEmpty)
+            {
+                path = path.Pop(out var parent);
+                focus = new Scarred<T>(
+                    _rewriter,
+                    parent.Focus.OldValue,
+                    true,
+                    parent.Focus.NumberOfChildren,
+                    prevSiblings,
+                    focus,
+                    nextSiblings
+                );
+                prevSiblings = parent.PrevSiblings;
+                nextSiblings = parent.NextSiblings;
+            }
+
             return new Zipper<T>(
                 _rewriter,
-                ImmutableStack.Create<Step<T>>(),
+                path,
                 prevSiblings,
                 focus,
                 nextSiblings
@@ -94,6 +100,7 @@ namespace Sawmill
             {
                 return null;
             }
+
             return new Zipper<T>(
                 _rewriter,
                 _path.Pop(out var parent),
@@ -118,6 +125,7 @@ namespace Sawmill
             {
                 return null;
             }
+
             return new Zipper<T>(
                 _rewriter,
                 _path.Push(new Step<T>(_prevSiblings, _focus, _nextSiblings)),
@@ -134,6 +142,7 @@ namespace Sawmill
             {
                 return null;
             }
+
             return new Zipper<T>(
                 _rewriter,
                 _path,
@@ -150,6 +159,7 @@ namespace Sawmill
             {
                 return null;
             }
+            
             var nextSiblings = _nextSiblings.Pop(out var newFocus);
             return new Zipper<T>(
                 _rewriter,

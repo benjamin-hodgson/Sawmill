@@ -13,8 +13,8 @@ namespace Sawmill
     internal sealed class Scarred<T>
     {
         private readonly IRewriter<T> _rewriter;
-        public T OldValue { get; }
 
+        public T OldValue { get; }
 
         private bool? _hasChildren;
         private NumberOfChildren? _numberOfChildren;
