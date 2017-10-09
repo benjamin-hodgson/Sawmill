@@ -5,7 +5,7 @@ namespace Sawmill
 {
     public static partial class Rewriter
     {
-        public static Zipper<T> Unzip<T>(this IRewriter<T> rewriter, T value)
+        public static Zipper<T> Zipper<T>(this IRewriter<T> rewriter, T value)
         {
             if (rewriter == null)
             {

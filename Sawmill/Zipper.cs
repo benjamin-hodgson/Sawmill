@@ -59,7 +59,7 @@ namespace Sawmill
                 _nextSiblings
             );
 
-        public T Zip() => _focus.Heal();
+        public T Focus => _focus.Heal();
         
         public Zipper<T> Top()
         {
@@ -87,7 +87,6 @@ namespace Sawmill
                 nextSiblings
             );
         }
-        public T ZipTop() => Top().Zip();
 
         public Zipper<T> Up()
         {
