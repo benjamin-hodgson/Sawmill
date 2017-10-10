@@ -5,6 +5,39 @@ using System.Linq;
 
 namespace Sawmill
 {
+    /// <summary>
+    /// A <see cref="Cursor{T}"/> is a mutable view of a location in a <typeparamref name="T"/>-structure,
+    /// allowing efficient access to (and editing of) a node and its parent, siblings, and immediate children.
+    /// 
+    /// <para>
+    /// You can think of a <see cref="Cursor{T}"/> as being focused on a particular node.
+    /// After zooming in on a node, you can efficiently go up to the node's parent, down to the node's first child,
+    /// or left or right to the node's immediate siblings.
+    /// </para>
+    /// 
+    /// <para>
+    /// <see cref="Cursor{T}"/> is generally not as efficient as the
+    /// <see cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/> family for replacing single nodes,
+    /// but it efficiently supports longer sequences of edits to a location and its neighbours.
+    /// </para>
+    /// </summary>
+    /// 
+    /// <example>
+    /// Here we traverse to, and replace, the right child of a binary node.
+    /// <code>
+    /// Expr expr = new Add(new Lit(1), new Neg(new Lit(2)));
+    /// var cursor = expr.Cursor();
+    /// cursor.Down();
+    /// cursor.Right();
+    /// 
+    /// Assert.Equal(new Neg(new Lit(2)), cursor.Focus);
+    /// 
+    /// cursor.Focus = new Lit(10);
+    /// cursor.Top();
+    /// 
+    /// Assert.Equal(new Add(new Lit(1), new Lit(10)), cursor.Focus);
+    /// </code>
+    /// </example>
     public sealed class Cursor<T>
     {
         private readonly IRewriter<T> _rewriter;
@@ -14,6 +47,11 @@ namespace Sawmill
         private Stack<T> _prevSiblings;
         
         private T _focus;
+
+        /// <summary>
+        /// Gets or sets the current focus of the <see cref="Cursor{T}"/>
+        /// </summary>
+        /// <returns>The current focus of the <see cref="Cursor{T}"/></returns>
         public T Focus
         {
             get
@@ -67,6 +105,14 @@ namespace Sawmill
             _nextSiblings = nextSiblings;
         }
 
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// </para>
+        /// </summary>
+        /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the root node.</exception>
         public void Up()
         {
             if (!TryUp())
@@ -74,6 +120,15 @@ namespace Sawmill
                 throw new InvalidOperationException("Can't go up from the top of a cursor");
             }
         }
+
+        /// <summary>
+        /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// </para>
+        /// </summary>
+        /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the root node</returns>
         public bool TryUp()
         {
             if (!_path.Any())
@@ -88,6 +143,10 @@ namespace Sawmill
             return true;
         }
 
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s first child.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">The current <see cref="Focus"/>'s has no children.</exception>
         public void Down()
         {
             if (!TryDown())
@@ -95,6 +154,15 @@ namespace Sawmill
                 throw new InvalidOperationException("Can't go down from here, focus has no children");
             }
         }
+
+        /// <summary>
+        /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s first child.
+        /// 
+        /// <para>
+        /// This operation "opens a hole" in the current node, descending to the children so you can replace them one at a time.
+        /// </para>
+        /// </summary>
+        /// <returns>True if the operation was successful, false if the current <see cref="Focus"/> has no children</returns>
         public bool TryDown()
         {
             var children = _rewriter.GetChildren(Focus);
@@ -110,6 +178,10 @@ namespace Sawmill
             return true;
         }
 
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate predecessor sibling.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the leftmost sibling</exception>
         public void Left()
         {
             if (!TryLeft())
@@ -117,6 +189,11 @@ namespace Sawmill
                 throw new InvalidOperationException("Can't go left from here, already at the leftmost sibling");
             }
         }
+
+        /// <summary>
+        /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate predecessor sibling.
+        /// </summary>
+        /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling</returns>
         public bool TryLeft()
         {
             if (!_prevSiblings.Any())
@@ -128,13 +205,22 @@ namespace Sawmill
             return true;
         }
 
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate successor sibling.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the rightmost sibling</exception>
         public void Right()
         {
             if (!TryRight())
             {
-                throw new InvalidOperationException("Can't go left from here, already at the leftmost sibling");
+                throw new InvalidOperationException("Can't go left from here, already at the rightmost sibling");
             }
         }
+
+        /// <summary>
+        /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate successor sibling.
+        /// </summary>
+        /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the rightmost sibling</returns>
         public bool TryRight()
         {
             if (!_nextSiblings.Any())
@@ -146,6 +232,26 @@ namespace Sawmill
             return true;
         }
 
+        /// <summary>
+        /// "Unzip" the <see cref="Cursor{T}"/>, moving the current <see cref="Focus"/> to the top of the tree.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in all of the current node's ancestors, replacing their children as necessary.
+        /// </para>
+        /// </summary>
+        public void Top()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryUp();
+            }
+        }
+
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s leftmost sibling.
+        /// Do nothing if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling.
+        /// </summary>
         public void Leftmost()
         {
             var success = true;
@@ -155,21 +261,16 @@ namespace Sawmill
             }
         }
 
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s rightmost sibling.
+        /// Do nothing if the <see cref="Cursor{T}"/> is already focused on the rightmost sibling.
+        /// </summary>
         public void Rightmost()
         {
             var success = true;
             while (success)
             {
                 success = TryRight();
-            }
-        }
-
-        public void Top()
-        {
-            var success = true;
-            while (success)
-            {
-                success = TryUp();
             }
         }
 
