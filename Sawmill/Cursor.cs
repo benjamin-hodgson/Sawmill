@@ -105,6 +105,7 @@ namespace Sawmill
             _nextSiblings = nextSiblings;
         }
 
+
         /// <summary>
         /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
         /// 
@@ -122,13 +123,35 @@ namespace Sawmill
         }
 
         /// <summary>
+        /// Go <see cref="Up()"/> <paramref name="count"/> times.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in the current node's parents, replacing the parents' children as necessary.
+        /// </para>
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the root node.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the top of the tree.
+        /// </exception>
+        public void Up(int count)
+        {
+            while (count > 0)
+            {
+                Up();
+                count--;
+            }
+        }
+
+        /// <summary>
         /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
         /// 
         /// <para>
         /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
         /// </para>
         /// </summary>
-        /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the root node</returns>
+        /// <returns>
+        /// True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the root node
+        /// </returns>
         public bool TryUp()
         {
             if (!_path.Any())
@@ -144,7 +167,49 @@ namespace Sawmill
         }
 
         /// <summary>
+        /// Go <see cref="Up()"/> <paramref name="count"/> times, stopping if you reach the top.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// </para>
+        /// </summary>
+        /// <returns>
+        /// True if the operation was successful, false if the cursor went <see cref="Up()"/> fewer than <paramref name="count"/> times.
+        /// </returns>
+        public bool TryUp(int count)
+        {
+            var success = true;
+            while (count > 0 && success)
+            {
+                success = TryUp();
+                count--;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// "Unzip" the <see cref="Cursor{T}"/>, moving the current <see cref="Focus"/> to the top of the tree.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in all of the current node's ancestors, replacing their children as necessary.
+        /// </para>
+        /// </summary>
+        public void Top()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryUp();
+            }
+        }
+
+
+        /// <summary>
         /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s first child.
+        /// 
+        /// <para>
+        /// This operation "opens a hole" in the current node, descending to the children so you can replace them one at a time.
+        /// </para>
         /// </summary>
         /// <exception cref="InvalidOperationException">The current <see cref="Focus"/>'s has no children.</exception>
         public void Down()
@@ -152,6 +217,26 @@ namespace Sawmill
             if (!TryDown())
             {
                 throw new InvalidOperationException("Can't go down from here, focus has no children");
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Down()"/> <paramref name="count"/> times.
+        /// 
+        /// <para>
+        /// This operation "opens a hole" in the current node and its <paramref name="count"/> first descendants.
+        /// </para>
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached a node with no children.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the bottom of the tree.
+        /// </exception>
+        public void Down(int count)
+        {
+            while (count > 0)
+            {
+                Down();
+                count--;
             }
         }
 
@@ -179,6 +264,28 @@ namespace Sawmill
         }
 
         /// <summary>
+        /// Go <see cref="Down()"/> <paramref name="count"/> times, stopping if you reach a node with no children.
+        /// 
+        /// <para>
+        /// This operation "opens a hole" in the current node and its <paramref name="count"/> first descendants.
+        /// </para>
+        /// </summary>
+        /// <returns>
+        /// True if the operation was successful, false if the cursor went <see cref="Down()"/> fewer than <paramref name="count"/> times.
+        /// </returns>
+        public bool TryDown(int count)
+        {
+            var success = true;
+            while (count > 0 && success)
+            {
+                success = TryDown();
+                count--;
+            }
+            return success;
+        }
+
+
+        /// <summary>
         /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate predecessor sibling.
         /// </summary>
         /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the leftmost sibling</exception>
@@ -189,11 +296,28 @@ namespace Sawmill
                 throw new InvalidOperationException("Can't go left from here, already at the leftmost sibling");
             }
         }
+        /// <summary>
+        /// Go <see cref="Left()"/> <paramref name="count"/> times.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the leftmost sibling.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, focused on the leftmost sibling.
+        /// </exception>
+        public void Left(int count)
+        {
+            while (count > 0)
+            {
+                Left();
+                count--;
+            }
+        }
 
         /// <summary>
         /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate predecessor sibling.
         /// </summary>
-        /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling</returns>
+        /// <returns>
+        /// True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling
+        /// </returns>
         public bool TryLeft()
         {
             if (!_prevSiblings.Any())
@@ -206,6 +330,37 @@ namespace Sawmill
         }
 
         /// <summary>
+        /// Go <see cref="Left()"/> <paramref name="count"/> times, stopping if you reach the leftmost sibling.
+        /// </summary>
+        /// <returns>
+        /// True if the operation was successful, false if the cursor went <see cref="Left()"/> fewer than <paramref name="count"/> times.
+        /// </returns>
+        public bool TryLeft(int count)
+        {
+            var success = true;
+            while (count > 0 && success)
+            {
+                success = TryDown();
+                count--;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s leftmost sibling.
+        /// Do nothing if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling.
+        /// </summary>
+        public void Leftmost()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryLeft();
+            }
+        }
+
+
+        /// <summary>
         /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate successor sibling.
         /// </summary>
         /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the rightmost sibling</exception>
@@ -214,6 +369,22 @@ namespace Sawmill
             if (!TryRight())
             {
                 throw new InvalidOperationException("Can't go left from here, already at the rightmost sibling");
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Right()"/> <paramref name="count"/> times.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the rightmost sibling.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, focused on the rightmost sibling.
+        /// </exception>
+        public void Right(int count)
+        {
+            while (count > 0)
+            {
+                Right();
+                count--;
             }
         }
 
@@ -233,32 +404,20 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// "Unzip" the <see cref="Cursor{T}"/>, moving the current <see cref="Focus"/> to the top of the tree.
-        /// 
-        /// <para>
-        /// This operation "plugs the hole" in all of the current node's ancestors, replacing their children as necessary.
-        /// </para>
+        /// Go <see cref="Right()"/> <paramref name="count"/> times, stopping if you reach the rightmost sibling.
         /// </summary>
-        public void Top()
+        /// <returns>
+        /// True if the operation was successful, false if the cursor went <see cref="Right()"/> fewer than <paramref name="count"/> times.
+        /// </returns>
+        public bool TryRight(int count)
         {
             var success = true;
-            while (success)
+            while (count > 0 && success)
             {
-                success = TryUp();
+                success = TryDown();
+                count--;
             }
-        }
-
-        /// <summary>
-        /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s leftmost sibling.
-        /// Do nothing if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling.
-        /// </summary>
-        public void Leftmost()
-        {
-            var success = true;
-            while (success)
-            {
-                success = TryLeft();
-            }
+            return success;
         }
 
         /// <summary>
