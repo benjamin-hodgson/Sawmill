@@ -5,13 +5,13 @@ namespace Sawmill
 {
     public static partial class Rewriter
     {
-        public static Zipper<T> Zipper<T>(this IRewriter<T> rewriter, T value)
+        public static Editor<T> Editor<T>(this IRewriter<T> rewriter, T value)
         {
             if (rewriter == null)
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
-            return new Zipper<T>(
+            return new Editor<T>(
                 rewriter,
                 ImmutableStack.Create<Step<T>>(),
                 ImmutableStack.Create<Scarred<T>>(),

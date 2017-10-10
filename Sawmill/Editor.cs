@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Sawmill
 {
-    public sealed class Zipper<T>
+    public sealed class Editor<T>
     {
         private readonly IRewriter<T> _rewriter;
 
@@ -17,7 +17,7 @@ namespace Sawmill
 
         private readonly bool _focusOrSiblingsChanged;
 
-        internal Zipper(
+        internal Editor(
             IRewriter<T> rewriter,
             ImmutableStack<Step<T>> path,
             ImmutableStack<Scarred<T>> prevSiblings,
@@ -55,10 +55,10 @@ namespace Sawmill
             _focusOrSiblingsChanged = focusOrSiblingsChanged;
         }
 
-        public Zipper<T> SetFocus(T newFocus)
+        public Editor<T> SetFocus(T newFocus)
             => ReferenceEquals(newFocus, _focus.Value)
                 ? this
-                : new Zipper<T>(
+                : new Editor<T>(
                     _rewriter,
                     _path,
                     _prevSiblings,
@@ -69,14 +69,14 @@ namespace Sawmill
 
         public T Focus => _focus.Value;
 
-        public Zipper<T> Up()
+        public Editor<T> Up()
         {
             if (_path.IsEmpty)
             {
                 return null;
             }
 
-            return new Zipper<T>(
+            return new Editor<T>(
                 _rewriter,
                 _path.Pop(out var parent),
                 parent.PrevSiblings,
@@ -95,16 +95,16 @@ namespace Sawmill
                 _focusOrSiblingsChanged || parent.FocusOrSiblingsChanged
             );
         }
-        public Zipper<T> TryUp() => Up() ?? this;
+        public Editor<T> TryUp() => Up() ?? this;
 
-        public Zipper<T> Down()
+        public Editor<T> Down()
         {
             if (!_focus.HasChildren)
             {
                 return null;
             }
 
-            return new Zipper<T>(
+            return new Editor<T>(
                 _rewriter,
                 _path.Push(new Step<T>(_prevSiblings, _focus, _nextSiblings, _focusOrSiblingsChanged)),
                 _focus.LeftChildren,
@@ -113,16 +113,16 @@ namespace Sawmill
                 false
             );
         }
-        public Zipper<T> TryDown() => Down() ?? this;
+        public Editor<T> TryDown() => Down() ?? this;
 
-        public Zipper<T> Left()
+        public Editor<T> Left()
         {
             if (_prevSiblings.IsEmpty)
             {
                 return null;
             }
 
-            return new Zipper<T>(
+            return new Editor<T>(
                 _rewriter,
                 _path,
                 _prevSiblings.Pop(out var newFocus),
@@ -131,9 +131,9 @@ namespace Sawmill
                 _focusOrSiblingsChanged
             );
         }
-        public Zipper<T> TryLeft() => Left() ?? this;
+        public Editor<T> TryLeft() => Left() ?? this;
 
-        public Zipper<T> Right()
+        public Editor<T> Right()
         {
             if (_nextSiblings.IsEmpty)
             {
@@ -141,7 +141,7 @@ namespace Sawmill
             }
             
             var nextSiblings = _nextSiblings.Pop(out var newFocus);
-            return new Zipper<T>(
+            return new Editor<T>(
                 _rewriter,
                 _path,
                 _prevSiblings.Push(_focus),
@@ -150,9 +150,9 @@ namespace Sawmill
                 _focusOrSiblingsChanged
             );
         }
-        public Zipper<T> TryRight() => Right() ?? this;
+        public Editor<T> TryRight() => Right() ?? this;
 
-        public Zipper<T> Leftmost()
+        public Editor<T> Leftmost()
         {
             if (_prevSiblings.IsEmpty)
             {
@@ -169,7 +169,7 @@ namespace Sawmill
                 prevSiblings = prevSiblings.Pop(out focus);
             }
 
-            return new Zipper<T>(
+            return new Editor<T>(
                 _rewriter,
                 _path,
                 prevSiblings,
@@ -179,7 +179,7 @@ namespace Sawmill
             );
         }
 
-        public Zipper<T> Rightmost()
+        public Editor<T> Rightmost()
         {
             if (_nextSiblings.IsEmpty)
             {
@@ -196,7 +196,7 @@ namespace Sawmill
                 nextSiblings = nextSiblings.Pop(out focus);
             }
 
-            return new Zipper<T>(
+            return new Editor<T>(
                 _rewriter,
                 _path,
                 prevSiblings,
@@ -206,7 +206,7 @@ namespace Sawmill
             );
         }
 
-        public Zipper<T> Top()
+        public Editor<T> Top()
         {
             if (_path.IsEmpty)
             {
@@ -239,7 +239,7 @@ namespace Sawmill
                 changed = changed || parent.FocusOrSiblingsChanged;
             }
 
-            return new Zipper<T>(_rewriter, path, prevSiblings, focus, nextSiblings, changed);
+            return new Editor<T>(_rewriter, path, prevSiblings, focus, nextSiblings, changed);
         }
 
         private T SetChildren(T value, ImmutableStack<Scarred<T>> leftChildren, T focusedChild, ImmutableStack<Scarred<T>> rightChildren)

@@ -2,7 +2,7 @@ using Xunit;
 
 namespace Sawmill.Tests
 {
-    public class ZipperTests
+    public class EditorTests
     {
         private readonly Expr _expr = new Add(
             new Neg(new Lit(3)),
@@ -14,83 +14,83 @@ namespace Sawmill.Tests
         [Fact]
         public void UpFromTop()
         {
-            var zipper = _rewriter.Zipper(_expr);
+            var editor = _rewriter.Editor(_expr);
 
-            Assert.Null(zipper.Up());
-            Assert.Same(zipper, zipper.TryUp());
+            Assert.Null(editor.Up());
+            Assert.Same(editor, editor.TryUp());
         }
 
         [Fact]
         public void LeftFromStart()
         {
-            var zipper = _rewriter.Zipper(_expr);
+            var editor = _rewriter.Editor(_expr);
 
-            Assert.Null(zipper.Left());
-            Assert.Same(zipper, zipper.TryLeft());
+            Assert.Null(editor.Left());
+            Assert.Same(editor, editor.TryLeft());
         }
 
         [Fact]
         public void RightFromEnd()
         {
-            var zipper = _rewriter.Zipper(_expr);
+            var editor = _rewriter.Editor(_expr);
 
-            Assert.Null(zipper.Right());
-            Assert.Same(zipper, zipper.TryRight());
+            Assert.Null(editor.Right());
+            Assert.Same(editor, editor.TryRight());
         }
 
         [Fact]
         public void DownFromBottom()
         {
-            var zipper = _rewriter.Zipper(_expr).Down().Down();
+            var editor = _rewriter.Editor(_expr).Down().Down();
 
-            Assert.Null(zipper.Down());
-            Assert.Same(zipper, zipper.TryDown());
+            Assert.Null(editor.Down());
+            Assert.Same(editor, editor.TryDown());
         }
 
         [Fact]
         public void Down()
         {
-            var zipper = _rewriter.Zipper(_expr);
+            var editor = _rewriter.Editor(_expr);
             
-            var firstChild = zipper.Down().Focus;
+            var firstChild = editor.Down().Focus;
 
             var neg = Assert.IsType<Neg>(firstChild);
             var lit = Assert.IsType<Lit>(neg.Operand);
             Assert.Equal(3, lit.Value);
 
-            Assert.Same(firstChild, zipper.TryDown().Focus);
+            Assert.Same(firstChild, editor.TryDown().Focus);
         }
 
         [Fact]
         public void DownUp()
         {
-            var zipper = _rewriter.Zipper(_expr).Down();
+            var editor = _rewriter.Editor(_expr).Down();
             
-            var up = zipper.Up().Focus;
+            var up = editor.Up().Focus;
 
             Assert.Same(_expr, up);
-            Assert.Same(_expr, zipper.TryUp().Focus);
+            Assert.Same(_expr, editor.TryUp().Focus);
         }
 
         [Fact]
         public void DownRight()
         {
-            var zipper = _rewriter.Zipper(_expr).Down();
+            var editor = _rewriter.Editor(_expr).Down();
             
-            var right = zipper.Right().Focus;
+            var right = editor.Right().Focus;
 
             var lit = Assert.IsType<Lit>(right);
             Assert.Equal(4, lit.Value);
 
-            Assert.Same(right, zipper.TryRight().Focus);
+            Assert.Same(right, editor.TryRight().Focus);
         }
 
         [Fact]
         public void DownRightUp()
         {
-            var zipper = _rewriter.Zipper(_expr).Down().Right();
+            var editor = _rewriter.Editor(_expr).Down().Right();
             
-            var up = zipper.Up().Focus;
+            var up = editor.Up().Focus;
 
             Assert.Same(_expr, up);
         }
@@ -98,9 +98,9 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRightUpDown()
         {
-            var zipper = _rewriter.Zipper(_expr).Down().Right().Up();
+            var editor = _rewriter.Editor(_expr).Down().Right().Up();
             
-            var down = zipper.Down().Focus;
+            var down = editor.Down().Focus;
 
             var lit = Assert.IsType<Lit>(down);
             Assert.Equal(4, lit.Value);
@@ -109,9 +109,9 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRightLeft()
         {
-            var zipper = _rewriter.Zipper(_expr).Down().Right();
+            var editor = _rewriter.Editor(_expr).Down().Right();
             
-            var left = zipper.Left().Focus;
+            var left = editor.Left().Focus;
 
             var neg = Assert.IsType<Neg>(left);
             var lit = Assert.IsType<Lit>(neg.Operand);
@@ -123,9 +123,9 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var zipper = _rewriter.Zipper(_expr).SetFocus(replacement);
+            var editor = _rewriter.Editor(_expr).SetFocus(replacement);
 
-            Assert.Same(replacement, zipper.Focus);
+            Assert.Same(replacement, editor.Focus);
         }
 
         [Fact]
@@ -133,13 +133,13 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var zipper = _rewriter.Zipper(_expr)
+            var editor = _rewriter.Editor(_expr)
                 .Down()
                 .SetFocus(replacement)
                 .Up();
             
-            Assert.NotSame(_expr, zipper.Focus);
-            var add = Assert.IsType<Add>(zipper.Focus);
+            Assert.NotSame(_expr, editor.Focus);
+            var add = Assert.IsType<Add>(editor.Focus);
             Assert.Same(add.Right, ((Add)_expr).Right);
             Assert.Same(replacement, add.Left);
         }
@@ -149,14 +149,14 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var zipper = _rewriter.Zipper(_expr)
+            var editor = _rewriter.Editor(_expr)
                 .Down()
                 .Right()
                 .SetFocus(replacement)
                 .Up();
             
-            Assert.NotSame(_expr, zipper.Focus);
-            var add = Assert.IsType<Add>(zipper.Focus);
+            Assert.NotSame(_expr, editor.Focus);
+            var add = Assert.IsType<Add>(editor.Focus);
             Assert.Same(add.Left, ((Add)_expr).Left);
             Assert.Same(replacement, add.Right);
         }
@@ -164,32 +164,32 @@ namespace Sawmill.Tests
         [Fact]
         public void Top()
         {
-            var zipper = _rewriter.Zipper(_expr)
+            var editor = _rewriter.Editor(_expr)
                 .Down()
                 .Down()
                 .Top();
-            Assert.Same(_expr, zipper.Focus);
-            Assert.Same(zipper, zipper.Top());
+            Assert.Same(_expr, editor.Focus);
+            Assert.Same(editor, editor.Top());
         }
 
         [Fact]
         public void Leftmost()
         {
-            var zipper = _rewriter.Zipper(_expr)
+            var editor = _rewriter.Editor(_expr)
                 .Down()
                 .Leftmost();
-            Assert.IsType<Neg>(zipper.Focus);
-            Assert.Same(zipper, zipper.Leftmost());
+            Assert.IsType<Neg>(editor.Focus);
+            Assert.Same(editor, editor.Leftmost());
         }
 
         [Fact]
         public void Rightmost()
         {
-            var zipper = _rewriter.Zipper(_expr)
+            var editor = _rewriter.Editor(_expr)
                 .Down()
                 .Rightmost();
-            Assert.IsType<Lit>(zipper.Focus);
-            Assert.Same(zipper, zipper.Rightmost());
+            Assert.IsType<Lit>(editor.Focus);
+            Assert.Same(editor, editor.Rightmost());
         }
     }
 }
