@@ -32,7 +32,7 @@ namespace Sawmill
             ImmutableStack<Scarred<T>> rightChildren
         )
         {
-            if (_rewriter == null)
+            if (rewriter == null)
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
