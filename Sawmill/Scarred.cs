@@ -16,11 +16,6 @@ namespace Sawmill
 
         public T Value { get; }
 
-        /// <summary>
-        /// Have any of the children changed since OldValue?
-        /// </summary>
-        public bool Changed { get; }
-
         private bool? _hasChildren;
         private NumberOfChildren? _numberOfChildren;
         private ImmutableStack<Scarred<T>> _leftChildren;
