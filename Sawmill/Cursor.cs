@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Sawmill
 {
-    public sealed class Editor<T>
+    public sealed class Cursor<T>
     {
         private readonly IRewriter<T> _rewriter;
 
@@ -17,7 +17,7 @@ namespace Sawmill
 
         private readonly bool _focusOrSiblingsChanged;
 
-        internal Editor(
+        internal Cursor(
             IRewriter<T> rewriter,
             ImmutableStack<Step<T>> path,
             ImmutableStack<Scarred<T>> prevSiblings,
@@ -55,10 +55,10 @@ namespace Sawmill
             _focusOrSiblingsChanged = focusOrSiblingsChanged;
         }
 
-        public Editor<T> SetFocus(T newFocus)
+        public Cursor<T> SetFocus(T newFocus)
             => ReferenceEquals(newFocus, _focus.Value)
                 ? this
-                : new Editor<T>(
+                : new Cursor<T>(
                     _rewriter,
                     _path,
                     _prevSiblings,
@@ -69,14 +69,14 @@ namespace Sawmill
 
         public T Focus => _focus.Value;
 
-        public Editor<T> Up()
+        public Cursor<T> Up()
         {
             if (_path.IsEmpty)
             {
                 return null;
             }
 
-            return new Editor<T>(
+            return new Cursor<T>(
                 _rewriter,
                 _path.Pop(out var parent),
                 parent.PrevSiblings,
@@ -95,16 +95,16 @@ namespace Sawmill
                 _focusOrSiblingsChanged || parent.FocusOrSiblingsChanged
             );
         }
-        public Editor<T> TryUp() => Up() ?? this;
+        public Cursor<T> TryUp() => Up() ?? this;
 
-        public Editor<T> Down()
+        public Cursor<T> Down()
         {
             if (!_focus.HasChildren)
             {
                 return null;
             }
 
-            return new Editor<T>(
+            return new Cursor<T>(
                 _rewriter,
                 _path.Push(new Step<T>(_prevSiblings, _focus, _nextSiblings, _focusOrSiblingsChanged)),
                 _focus.LeftChildren,
@@ -113,16 +113,16 @@ namespace Sawmill
                 false
             );
         }
-        public Editor<T> TryDown() => Down() ?? this;
+        public Cursor<T> TryDown() => Down() ?? this;
 
-        public Editor<T> Left()
+        public Cursor<T> Left()
         {
             if (_prevSiblings.IsEmpty)
             {
                 return null;
             }
 
-            return new Editor<T>(
+            return new Cursor<T>(
                 _rewriter,
                 _path,
                 _prevSiblings.Pop(out var newFocus),
@@ -131,9 +131,9 @@ namespace Sawmill
                 _focusOrSiblingsChanged
             );
         }
-        public Editor<T> TryLeft() => Left() ?? this;
+        public Cursor<T> TryLeft() => Left() ?? this;
 
-        public Editor<T> Right()
+        public Cursor<T> Right()
         {
             if (_nextSiblings.IsEmpty)
             {
@@ -141,7 +141,7 @@ namespace Sawmill
             }
             
             var nextSiblings = _nextSiblings.Pop(out var newFocus);
-            return new Editor<T>(
+            return new Cursor<T>(
                 _rewriter,
                 _path,
                 _prevSiblings.Push(_focus),
@@ -150,9 +150,9 @@ namespace Sawmill
                 _focusOrSiblingsChanged
             );
         }
-        public Editor<T> TryRight() => Right() ?? this;
+        public Cursor<T> TryRight() => Right() ?? this;
 
-        public Editor<T> Leftmost()
+        public Cursor<T> Leftmost()
         {
             if (_prevSiblings.IsEmpty)
             {
@@ -169,7 +169,7 @@ namespace Sawmill
                 prevSiblings = prevSiblings.Pop(out focus);
             }
 
-            return new Editor<T>(
+            return new Cursor<T>(
                 _rewriter,
                 _path,
                 prevSiblings,
@@ -179,7 +179,7 @@ namespace Sawmill
             );
         }
 
-        public Editor<T> Rightmost()
+        public Cursor<T> Rightmost()
         {
             if (_nextSiblings.IsEmpty)
             {
@@ -196,7 +196,7 @@ namespace Sawmill
                 nextSiblings = nextSiblings.Pop(out focus);
             }
 
-            return new Editor<T>(
+            return new Cursor<T>(
                 _rewriter,
                 _path,
                 prevSiblings,
@@ -206,7 +206,7 @@ namespace Sawmill
             );
         }
 
-        public Editor<T> Top()
+        public Cursor<T> Top()
         {
             if (_path.IsEmpty)
             {
@@ -239,7 +239,7 @@ namespace Sawmill
                 changed = changed || parent.FocusOrSiblingsChanged;
             }
 
-            return new Editor<T>(_rewriter, path, prevSiblings, focus, nextSiblings, changed);
+            return new Cursor<T>(_rewriter, path, prevSiblings, focus, nextSiblings, changed);
         }
 
         private T SetChildren(T value, ImmutableStack<Scarred<T>> leftChildren, T focusedChild, ImmutableStack<Scarred<T>> rightChildren)

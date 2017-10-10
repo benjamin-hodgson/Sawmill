@@ -5,13 +5,14 @@ namespace Sawmill
 {
     public static partial class Rewriter
     {
-        public static Editor<T> Editor<T>(this IRewriter<T> rewriter, T value)
+        public static Cursor<T> Cursor<T>(this IRewriter<T> rewriter, T value)
         {
             if (rewriter == null)
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
-            return new Editor<T>(
+            
+            return new Cursor<T>(
                 rewriter,
                 ImmutableStack.Create<Step<T>>(),
                 ImmutableStack.Create<Scarred<T>>(),
