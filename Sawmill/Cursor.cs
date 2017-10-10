@@ -340,7 +340,7 @@ namespace Sawmill
             var success = true;
             while (count > 0 && success)
             {
-                success = TryDown();
+                success = TryLeft();
                 count--;
             }
             return success;
@@ -414,7 +414,7 @@ namespace Sawmill
             var success = true;
             while (count > 0 && success)
             {
-                success = TryDown();
+                success = TryRight();
                 count--;
             }
             return success;

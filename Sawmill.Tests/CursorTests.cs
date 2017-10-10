@@ -206,5 +206,165 @@ namespace Sawmill.Tests
 
             Assert.IsType<Lit>(cursor.Focus);
         }
+
+        [Fact]
+        public void UpN()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Down();
+
+                cursor.Up(2);
+
+                Assert.Same(_expr, cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Down();
+
+                var success = cursor.TryUp(2);
+
+                Assert.True(success);
+                Assert.Same(_expr, cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<InvalidOperationException>(() => cursor.Up(5));
+
+                Assert.Same(_expr, cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.False(cursor.TryUp(5));
+
+                Assert.Same(_expr, cursor.Focus);
+            }
+        }
+
+        [Fact]
+        public void DownN()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                cursor.Down(2);
+
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(3, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                var success = cursor.TryDown(2);
+
+                Assert.True(success);
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(3, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<InvalidOperationException>(() => cursor.Down(5));
+
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(3, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.False(cursor.TryDown(5));
+
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(3, lit.Value);
+            }
+        }
+
+        [Fact]
+        public void RightN()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                cursor.Right(1);
+
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(4, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                var success = cursor.TryRight(1);
+
+                Assert.True(success);
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(4, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                Assert.Throws<InvalidOperationException>(() => cursor.Right(5));
+
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(4, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                Assert.False(cursor.TryRight(5));
+
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(4, lit.Value);
+            }
+        }
+
+        [Fact]
+        public void LeftN()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                cursor.Left(1);
+
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                var success = cursor.TryLeft(1);
+
+                Assert.True(success);
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                Assert.Throws<InvalidOperationException>(() => cursor.Left(5));
+
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                Assert.False(cursor.TryLeft(5));
+
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+        }
     }
 }
