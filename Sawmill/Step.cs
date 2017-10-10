@@ -9,10 +9,13 @@ namespace Sawmill
         public Scarred<T> Focus { get; }
         public ImmutableStack<Scarred<T>> NextSiblings { get; }
 
+        public bool FocusOrSiblingsChanged { get; }
+
         public Step(
             ImmutableStack<Scarred<T>> prevSiblings,
             Scarred<T> focus,
-            ImmutableStack<Scarred<T>> nextSiblings
+            ImmutableStack<Scarred<T>> nextSiblings,
+            bool focusOrSiblingsChanged
         )
         {
             if (prevSiblings == null)
@@ -31,6 +34,7 @@ namespace Sawmill
             PrevSiblings = prevSiblings;
             Focus = focus;
             NextSiblings = nextSiblings;
+            FocusOrSiblingsChanged = focusOrSiblingsChanged;
         }
     }
 }

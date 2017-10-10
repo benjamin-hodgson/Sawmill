@@ -9,12 +9,17 @@ namespace Sawmill
         public static Scarred<T> Create<T>(IRewriter<T> rewriter, T value)
             => new Scarred<T>(rewriter, value, null, null, null, null, null);
     }
-    // A view of a value and its lazily-instantiated, possibly-changed children
+    // A view of a value and its (lazily-instantiated) children
     internal sealed class Scarred<T>
     {
         private readonly IRewriter<T> _rewriter;
 
-        public T OldValue { get; }
+        public T Value { get; }
+
+        /// <summary>
+        /// Have any of the children changed since OldValue?
+        /// </summary>
+        public bool Changed { get; }
 
         private bool? _hasChildren;
         private NumberOfChildren? _numberOfChildren;
@@ -24,7 +29,7 @@ namespace Sawmill
 
         public Scarred(
             IRewriter<T> rewriter,
-            T oldValue,
+            T value,
             bool? hasChildren,
             NumberOfChildren? numberOfChildren,
             ImmutableStack<Scarred<T>> leftChildren,
@@ -38,7 +43,7 @@ namespace Sawmill
             }
 
             _rewriter = rewriter;
-            OldValue = oldValue;
+            Value = value;
 
             _hasChildren = hasChildren;
             _numberOfChildren = numberOfChildren;
@@ -90,66 +95,13 @@ namespace Sawmill
             }
         }
 
-        private bool _hasHealed = false;
-        private T _healed;
-        public T Heal()
-        {
-            CheckInitialisedOrUninitialised();
-            if (Uninitialised || !_hasChildren.Value)
-            {
-                return OldValue;
-            }
-            if (_hasHealed)
-            {
-                // Heal() has already been called on this instance, so don't traverse/rebuild again
-                return _healed;
-            }
-
-            // the children have been traversed, so put _value back together
-            _healed = HealChildren();
-            _hasHealed = true;
-            return _healed;
-        }
-
-        private T HealChildren()
-        {
-            switch (_numberOfChildren)
-            {
-                case NumberOfChildren.None:
-                    return OldValue;
-                case NumberOfChildren.One:
-                    return _rewriter.SetChildren(Children.One(_focusedChild.Heal()), OldValue);
-                case NumberOfChildren.Two:
-                    Scarred<T> first;
-                    Scarred<T> second;
-                    if (_leftChildren.IsEmpty)
-                    {
-                        first = _focusedChild;
-                        second = _rightChildren.Peek();
-                    }
-                    else  // rightChildren.IsEmpty
-                    {
-                        first = _leftChildren.Peek();
-                        second = _focusedChild;
-                    }
-                    return _rewriter.SetChildren(Children.Two(first.Heal(), second.Heal()), OldValue);
-                case NumberOfChildren.Many:
-                    // todo: return enumerable of same type
-                    var children = _leftChildren.Select(c => c.Heal()).Reverse().ToList();
-                    children.Add(_focusedChild.Heal());
-                    children.AddRange(_rightChildren.Select(c => c.Heal()));
-                    return _rewriter.SetChildren(Children.Many(children), OldValue);
-            }
-            throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
-        }
-
         private void EnsureChildren()
         {
             if (_hasChildren == null)
             {
                 CheckUninitialised();
 
-                var children = _rewriter.GetChildren(OldValue);
+                var children = _rewriter.GetChildren(Value);
                 _hasChildren = children.Any();
                 _numberOfChildren = children.NumberOfChildren;
                 _leftChildren = ImmutableStack.Create<Scarred<T>>();

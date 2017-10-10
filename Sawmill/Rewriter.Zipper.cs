@@ -16,7 +16,8 @@ namespace Sawmill
                 ImmutableStack.Create<Step<T>>(),
                 ImmutableStack.Create<Scarred<T>>(),
                 Scarred.Create(rewriter, value),
-                ImmutableStack.Create<Scarred<T>>()                
+                ImmutableStack.Create<Scarred<T>>(),
+                false                
             );
         }
     }
