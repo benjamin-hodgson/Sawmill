@@ -34,7 +34,7 @@ namespace Sawmill
         {
             if (_rewriter == null)
             {
-                _rewriter = rewriter;
+                throw new ArgumentNullException(nameof(rewriter));
             }
 
             _rewriter = rewriter;
