@@ -208,6 +208,11 @@ namespace Sawmill
 
         public Zipper<T> Top()
         {
+            if (_path.IsEmpty)
+            {
+                return this;
+            }
+
             var focus = _focus;
             var prevSiblings = _prevSiblings;
             var nextSiblings = _nextSiblings;
