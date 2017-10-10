@@ -1,21 +1,21 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace Sawmill
 {
     internal struct Step<T>
     {
-        public ImmutableStack<Scarred<T>> PrevSiblings { get; }
-        public Scarred<T> Focus { get; }
-        public ImmutableStack<Scarred<T>> NextSiblings { get; }
-
-        public bool FocusOrSiblingsChanged { get; }
+        public Stack<T> PrevSiblings { get; }
+        public T Focus { get; }
+        public Stack<T> NextSiblings { get; }
+        public bool Changed { get; }
 
         public Step(
-            ImmutableStack<Scarred<T>> prevSiblings,
-            Scarred<T> focus,
-            ImmutableStack<Scarred<T>> nextSiblings,
-            bool focusOrSiblingsChanged
+            Stack<T> prevSiblings,
+            T focus,
+            Stack<T> nextSiblings,
+            bool changed
         )
         {
             if (prevSiblings == null)
@@ -34,7 +34,7 @@ namespace Sawmill
             PrevSiblings = prevSiblings;
             Focus = focus;
             NextSiblings = nextSiblings;
-            FocusOrSiblingsChanged = focusOrSiblingsChanged;
+            Changed = changed;
         }
     }
 }

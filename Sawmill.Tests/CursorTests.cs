@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace Sawmill.Tests
@@ -16,8 +17,8 @@ namespace Sawmill.Tests
         {
             var cursor = _rewriter.Cursor(_expr);
 
-            Assert.Null(cursor.Up());
-            Assert.Same(cursor, cursor.TryUp());
+            Assert.Throws<InvalidOperationException>(() => cursor.Up());
+            Assert.False(cursor.TryUp());
         }
 
         [Fact]
@@ -25,8 +26,8 @@ namespace Sawmill.Tests
         {
             var cursor = _rewriter.Cursor(_expr);
 
-            Assert.Null(cursor.Left());
-            Assert.Same(cursor, cursor.TryLeft());
+            Assert.Throws<InvalidOperationException>(() => cursor.Left());
+            Assert.False(cursor.TryLeft());
         }
 
         [Fact]
@@ -34,17 +35,19 @@ namespace Sawmill.Tests
         {
             var cursor = _rewriter.Cursor(_expr);
 
-            Assert.Null(cursor.Right());
-            Assert.Same(cursor, cursor.TryRight());
+            Assert.Throws<InvalidOperationException>(() => cursor.Right());
+            Assert.False(cursor.TryRight());
         }
 
         [Fact]
         public void DownFromBottom()
         {
-            var cursor = _rewriter.Cursor(_expr).Down().Down();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Down();
 
-            Assert.Null(cursor.Down());
-            Assert.Same(cursor, cursor.TryDown());
+            Assert.Throws<InvalidOperationException>(() => cursor.Down());
+            Assert.False(cursor.TryDown());
         }
 
         [Fact]
@@ -52,45 +55,51 @@ namespace Sawmill.Tests
         {
             var cursor = _rewriter.Cursor(_expr);
             
-            var firstChild = cursor.Down().Focus;
+            cursor.Down();
 
+            var firstChild = cursor.Focus;
             var neg = Assert.IsType<Neg>(firstChild);
             var lit = Assert.IsType<Lit>(neg.Operand);
             Assert.Equal(3, lit.Value);
-
-            Assert.Same(firstChild, cursor.TryDown().Focus);
         }
 
         [Fact]
         public void DownUp()
         {
-            var cursor = _rewriter.Cursor(_expr).Down();
-            
-            var up = cursor.Up().Focus;
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Up();
 
-            Assert.Same(_expr, up);
-            Assert.Same(_expr, cursor.TryUp().Focus);
+            Assert.Same(_expr, cursor.Focus);
+
+            Assert.False(cursor.TryUp());
+            Assert.Same(_expr, cursor.Focus);
         }
 
         [Fact]
         public void DownRight()
         {
-            var cursor = _rewriter.Cursor(_expr).Down();
-            
-            var right = cursor.Right().Focus;
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
 
+            var right = cursor.Focus;
             var lit = Assert.IsType<Lit>(right);
             Assert.Equal(4, lit.Value);
 
-            Assert.Same(right, cursor.TryRight().Focus);
+            Assert.False(cursor.TryRight());
+            Assert.Same(right, cursor.Focus);
         }
 
         [Fact]
         public void DownRightUp()
         {
-            var cursor = _rewriter.Cursor(_expr).Down().Right();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
+            cursor.Up();
             
-            var up = cursor.Up().Focus;
+            var up = cursor.Focus;
 
             Assert.Same(_expr, up);
         }
@@ -98,22 +107,28 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRightUpDown()
         {
-            var cursor = _rewriter.Cursor(_expr).Down().Right().Up();
-            
-            var down = cursor.Down().Focus;
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
+            cursor.Up();
+            cursor.Down();
 
-            var lit = Assert.IsType<Lit>(down);
-            Assert.Equal(4, lit.Value);
+            var firstChild = cursor.Focus;
+            var neg = Assert.IsType<Neg>(firstChild);
+            var lit = Assert.IsType<Lit>(neg.Operand);
+            Assert.Equal(3, lit.Value);
         }
 
         [Fact]
         public void DownRightLeft()
         {
-            var cursor = _rewriter.Cursor(_expr).Down().Right();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
+            cursor.Left();
             
-            var left = cursor.Left().Focus;
-
-            var neg = Assert.IsType<Neg>(left);
+            var firstChild = cursor.Focus;
+            var neg = Assert.IsType<Neg>(firstChild);
             var lit = Assert.IsType<Lit>(neg.Operand);
             Assert.Equal(3, lit.Value);
         }
@@ -123,7 +138,8 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var cursor = _rewriter.Cursor(_expr).SetFocus(replacement);
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Focus = replacement;
 
             Assert.Same(replacement, cursor.Focus);
         }
@@ -133,10 +149,10 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var cursor = _rewriter.Cursor(_expr)
-                .Down()
-                .SetFocus(replacement)
-                .Up();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Focus = replacement;
+            cursor.Up();
             
             Assert.NotSame(_expr, cursor.Focus);
             var add = Assert.IsType<Add>(cursor.Focus);
@@ -149,11 +165,11 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var cursor = _rewriter.Cursor(_expr)
-                .Down()
-                .Right()
-                .SetFocus(replacement)
-                .Up();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
+            cursor.Focus = replacement;
+            cursor.Up();
             
             Assert.NotSame(_expr, cursor.Focus);
             var add = Assert.IsType<Add>(cursor.Focus);
@@ -164,32 +180,31 @@ namespace Sawmill.Tests
         [Fact]
         public void Top()
         {
-            var cursor = _rewriter.Cursor(_expr)
-                .Down()
-                .Down()
-                .Top();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Down();
+            cursor.Top();
             Assert.Same(_expr, cursor.Focus);
-            Assert.Same(cursor, cursor.Top());
         }
 
         [Fact]
         public void Leftmost()
         {
-            var cursor = _rewriter.Cursor(_expr)
-                .Down()
-                .Leftmost();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Leftmost();
+
             Assert.IsType<Neg>(cursor.Focus);
-            Assert.Same(cursor, cursor.Leftmost());
         }
 
         [Fact]
         public void Rightmost()
         {
-            var cursor = _rewriter.Cursor(_expr)
-                .Down()
-                .Rightmost();
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Rightmost();
+
             Assert.IsType<Lit>(cursor.Focus);
-            Assert.Same(cursor, cursor.Rightmost());
         }
     }
 }

@@ -9,21 +9,34 @@ namespace Sawmill
     {
         private readonly IRewriter<T> _rewriter;
 
-        private readonly ImmutableStack<Step<T>> _path;
+        private readonly Stack<Step<T>> _path;
 
-        private readonly ImmutableStack<Scarred<T>> _prevSiblings;
-        private readonly Scarred<T> _focus;
-        private readonly ImmutableStack<Scarred<T>> _nextSiblings;
-
-        private readonly bool _focusOrSiblingsChanged;
+        private Stack<T> _prevSiblings;
+        
+        private T _focus;
+        public T Focus
+        {
+            get
+            {
+                return _focus;
+            }
+            set
+            {
+                _changed = _changed || !ReferenceEquals(_focus, value);
+                _focus = value;
+            }
+        }
+        
+        private Stack<T> _nextSiblings;
+        
+        private bool _changed;
 
         internal Cursor(
             IRewriter<T> rewriter,
-            ImmutableStack<Step<T>> path,
-            ImmutableStack<Scarred<T>> prevSiblings,
-            Scarred<T> focus,
-            ImmutableStack<Scarred<T>> nextSiblings,
-            bool focusOrSiblingsChanged
+            Stack<Step<T>> path,
+            Stack<T> prevSiblings,
+            T focus,
+            Stack<T> nextSiblings
         )
         {
             if (rewriter == null)
@@ -52,229 +65,159 @@ namespace Sawmill
             _prevSiblings = prevSiblings;
             _focus = focus;
             _nextSiblings = nextSiblings;
-            _focusOrSiblingsChanged = focusOrSiblingsChanged;
         }
 
-        public Cursor<T> SetFocus(T newFocus)
-            => ReferenceEquals(newFocus, _focus.Value)
-                ? this
-                : new Cursor<T>(
-                    _rewriter,
-                    _path,
-                    _prevSiblings,
-                    Scarred.Create(_rewriter, newFocus),
-                    _nextSiblings,
-                    true
-                );
-
-        public T Focus => _focus.Value;
-
-        public Cursor<T> Up()
+        public void Up()
         {
-            if (_path.IsEmpty)
+            if (!TryUp())
             {
-                return null;
+                throw new InvalidOperationException("Can't go up from the top of a cursor");
             }
-
-            return new Cursor<T>(
-                _rewriter,
-                _path.Pop(out var parent),
-                parent.PrevSiblings,
-                new Scarred<T>(
-                    _rewriter,
-                    _focusOrSiblingsChanged
-                        ? SetChildren(parent.Focus.Value, _prevSiblings, _focus.Value, _nextSiblings)
-                        : parent.Focus.Value,
-                    true,  // it must have children, because we came up
-                    parent.Focus.NumberOfChildren,
-                    _prevSiblings,
-                    _focus,
-                    _nextSiblings
-                ),
-                parent.NextSiblings,
-                _focusOrSiblingsChanged || parent.FocusOrSiblingsChanged
-            );
         }
-        public Cursor<T> TryUp() => Up() ?? this;
-
-        public Cursor<T> Down()
+        public bool TryUp()
         {
-            if (!_focus.HasChildren)
+            if (!_path.Any())
             {
-                return null;
+                return false;
             }
-
-            return new Cursor<T>(
-                _rewriter,
-                _path.Push(new Step<T>(_prevSiblings, _focus, _nextSiblings, _focusOrSiblingsChanged)),
-                _focus.LeftChildren,
-                _focus.FocusedChild,
-                _focus.RightChildren,
-                false
-            );
+            var parent = _path.Pop();
+            _focus = _changed ? SetChildren(parent.Focus) : parent.Focus;
+            _prevSiblings = parent.PrevSiblings;
+            _nextSiblings = parent.NextSiblings;
+            _changed = parent.Changed;
+            return true;
         }
-        public Cursor<T> TryDown() => Down() ?? this;
 
-        public Cursor<T> Left()
+        public void Down()
         {
-            if (_prevSiblings.IsEmpty)
+            if (!TryDown())
             {
-                return null;
+                throw new InvalidOperationException("Can't go down from here, focus has no children");
             }
-
-            return new Cursor<T>(
-                _rewriter,
-                _path,
-                _prevSiblings.Pop(out var newFocus),
-                newFocus,
-                _nextSiblings.Push(_focus),
-                _focusOrSiblingsChanged
-            );
         }
-        public Cursor<T> TryLeft() => Left() ?? this;
-
-        public Cursor<T> Right()
+        public bool TryDown()
         {
-            if (_nextSiblings.IsEmpty)
+            var children = _rewriter.GetChildren(Focus);
+            if (!children.Any())
             {
-                return null;
+                return false;
             }
-            
-            var nextSiblings = _nextSiblings.Pop(out var newFocus);
-            return new Cursor<T>(
-                _rewriter,
-                _path,
-                _prevSiblings.Push(_focus),
-                newFocus,
-                nextSiblings,
-                _focusOrSiblingsChanged
-            );
+            _path.Push(new Step<T>(_prevSiblings, Focus, _nextSiblings, _changed));
+            _prevSiblings = new Stack<T>();
+            _nextSiblings = new Stack<T>(children.Reverse());
+            _focus = _nextSiblings.Pop();
+            _changed = false;
+            return true;
         }
-        public Cursor<T> TryRight() => Right() ?? this;
 
-        public Cursor<T> Leftmost()
+        public void Left()
         {
-            if (_prevSiblings.IsEmpty)
+            if (!TryLeft())
             {
-                return this;
+                throw new InvalidOperationException("Can't go left from here, already at the leftmost sibling");
             }
-
-            var prevSiblings = _prevSiblings;
-            var focus = _focus;
-            var nextSiblings = _nextSiblings;
-
-            while (!prevSiblings.IsEmpty)
-            {
-                nextSiblings = nextSiblings.Push(focus);
-                prevSiblings = prevSiblings.Pop(out focus);
-            }
-
-            return new Cursor<T>(
-                _rewriter,
-                _path,
-                prevSiblings,
-                focus,
-                nextSiblings,
-                _focusOrSiblingsChanged
-            );
         }
-
-        public Cursor<T> Rightmost()
+        public bool TryLeft()
         {
-            if (_nextSiblings.IsEmpty)
+            if (!_prevSiblings.Any())
             {
-                return this;
+                return false;
             }
-            
-            var nextSiblings = _nextSiblings;
-            var focus = _focus;
-            var prevSiblings = _prevSiblings;
-
-            while (!nextSiblings.IsEmpty)
-            {
-                prevSiblings = prevSiblings.Push(focus);
-                nextSiblings = nextSiblings.Pop(out focus);
-            }
-
-            return new Cursor<T>(
-                _rewriter,
-                _path,
-                prevSiblings,
-                focus,
-                nextSiblings,
-                _focusOrSiblingsChanged
-            );
+            _nextSiblings.Push(Focus);
+            _focus = _prevSiblings.Pop();
+            return true;
         }
 
-        public Cursor<T> Top()
+        public void Right()
         {
-            if (_path.IsEmpty)
+            if (!TryRight())
             {
-                return this;
+                throw new InvalidOperationException("Can't go left from here, already at the leftmost sibling");
             }
-
-            var focus = _focus;
-            var prevSiblings = _prevSiblings;
-            var nextSiblings = _nextSiblings;
-            var changed = _focusOrSiblingsChanged;
-
-            var path = _path;
-
-            while (!path.IsEmpty)
+        }
+        public bool TryRight()
+        {
+            if (!_nextSiblings.Any())
             {
-                path = path.Pop(out var parent);
-                focus = new Scarred<T>(
-                    _rewriter,
-                    changed
-                        ? SetChildren(parent.Focus.Value, prevSiblings, focus.Value, nextSiblings)
-                        : parent.Focus.Value,
-                    true,  // it must have children, because we came up
-                    parent.Focus.NumberOfChildren,
-                    prevSiblings,
-                    focus,
-                    nextSiblings
-                );
-                prevSiblings = parent.PrevSiblings;
-                nextSiblings = parent.NextSiblings;
-                changed = changed || parent.FocusOrSiblingsChanged;
+                return false;
             }
-
-            return new Cursor<T>(_rewriter, path, prevSiblings, focus, nextSiblings, changed);
+            _prevSiblings.Push(Focus);
+            _focus = _nextSiblings.Pop();
+            return true;
         }
 
-        private T SetChildren(T value, ImmutableStack<Scarred<T>> leftChildren, T focusedChild, ImmutableStack<Scarred<T>> rightChildren)
+        public void Leftmost()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryLeft();
+            }
+        }
+
+        public void Rightmost()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryRight();
+            }
+        }
+
+        public void Top()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryUp();
+            }
+        }
+
+        private T SetChildren(T value)
         {
             var children = _rewriter.GetChildren(value);
+            T result;
             switch (children.NumberOfChildren)
             {
                 case NumberOfChildren.None:
-                    return value;
+                    result = value;
+                    break;
                 case NumberOfChildren.One:
-                    return _rewriter.SetChildren(Children.One(focusedChild), value);
+                    result = _rewriter.SetChildren(Children.One(Focus), value);
+                    break;
                 case NumberOfChildren.Two:
                     T first;
                     T second;
-                    if (leftChildren.IsEmpty)
+                    if (!_prevSiblings.Any())
                     {
-                        first = focusedChild;
-                        second = rightChildren.Peek().Value;
+                        first = Focus;
+                        second = _nextSiblings.Peek();
                     }
-                    else  // rightChildren.IsEmpty
+                    else  // !_nextSiblings.Any()
                     {
-                        first = leftChildren.Peek().Value;
-                        second = focusedChild;
+                        first = _prevSiblings.Peek();
+                        second = Focus;
                     }
-                    return _rewriter.SetChildren(Children.Two(first, second), value);
+                    result = _rewriter.SetChildren(Children.Two(first, second), value);
+                    break;
                 case NumberOfChildren.Many:
-                    var childrenList = leftChildren.Select(s => s.Value).Reverse().ToList();
-                    childrenList.Add(focusedChild);
-                    childrenList.AddRange(rightChildren.Select(s => s.Value));
+                    _nextSiblings.Push(Focus);
+                    while (_prevSiblings.Any())
+                    {
+                        _nextSiblings.Push(_prevSiblings.Pop());
+                    }
 
-                    var newChildren = EnumerableBuilder<T>.RebuildFrom(children.Many, childrenList.GetEnumerator());
+                    var newChildren = EnumerableBuilder<T>.RebuildFrom(children.Many, _nextSiblings.GetEnumerator());
                     
-                    return _rewriter.SetChildren(Children.Many(newChildren?.result ?? childrenList), value);
+                    result = _rewriter.SetChildren(Children.Many(newChildren?.result ?? _nextSiblings.ToImmutableList()), value);
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
             }
-            throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
+            _nextSiblings = null;
+            _prevSiblings = null;
+            _focus = default(T);
+            return result;
         }
     }
 }

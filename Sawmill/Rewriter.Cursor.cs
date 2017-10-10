@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace Sawmill
@@ -14,11 +15,10 @@ namespace Sawmill
             
             return new Cursor<T>(
                 rewriter,
-                ImmutableStack.Create<Step<T>>(),
-                ImmutableStack.Create<Scarred<T>>(),
-                Scarred.Create(rewriter, value),
-                ImmutableStack.Create<Scarred<T>>(),
-                false                
+                new Stack<Step<T>>(),
+                new Stack<T>(),
+                value,
+                new Stack<T>()
             );
         }
     }
