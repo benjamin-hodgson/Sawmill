@@ -69,7 +69,7 @@ Expr RemoveDoubleNegation(Expr expr)
     switch (expr)
     {
         case Neg n1 when n.Operand is Neg n2:
-            return n2;
+            return RemoveDoubleNegation(n2);
         case Neg n:
             return new Neg(RemoveDoubleNegation(n.Operand));
         case Lit l:
@@ -100,7 +100,7 @@ Expr RemoveDoubleNegation(Expr expr)
 transformer(new Add(
     transformer(new Add(
         transformer(new Lit(2)),
-        transformer(new Lit(3))
+        transformer(new Var("x"))
     )),
     transformer(new Neg(
         transformer(new Lit(4))
