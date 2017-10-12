@@ -54,6 +54,30 @@ namespace Sawmill.Tests
         }
 
         [Fact]
+        public void TestSelfAndDescendantsBreadthFirst()
+        {
+            var one = new Lit(1);
+            var minusOne = new Neg(one);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(minusOne, minusTwo);
+
+            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, _rewriter.SelfAndDescendantsBreadthFirst(expr));
+        }
+
+        [Fact]
+        public void TestSelfAndDescendantsBreadthFirstLazy()
+        {
+            var one = new Lit(1);
+            var minusOne = new Neg(one);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(minusOne, minusTwo);
+
+            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, _rewriter.SelfAndDescendantsBreadthFirstLazy(expr));
+        }
+
+        [Fact]
         public void TestChildrenInContext()
         {
             var one = new Lit(1);
@@ -135,6 +159,42 @@ namespace Sawmill.Tests
             
             var three = new Lit(3);
             var newExpr = contexts.ElementAt(0).replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+        }
+
+        [Fact]
+        public void TestSelfAndDescendantsInContextBreadthFirst()
+        {
+            var one = new Lit(1);
+            var minusOne = new Neg(one);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(minusOne, minusTwo);
+
+            var contexts = _rewriter.SelfAndDescendantsInContextBreadthFirst(expr);
+
+            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, contexts.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = contexts.ElementAt(1).replace(three);
+            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+        }
+
+        [Fact]
+        public void TestSelfAndDescendantsInContextBreadthFirstLazy()
+        {
+            var one = new Lit(1);
+            var minusOne = new Neg(one);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(minusOne, minusTwo);
+
+            var contexts = _rewriter.SelfAndDescendantsInContextBreadthFirstLazy(expr);
+
+            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, contexts.Select(x => x.item));
+            
+            var three = new Lit(3);
+            var newExpr = contexts.ElementAt(1).replace(three);
             Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
         }
 
