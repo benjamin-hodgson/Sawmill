@@ -659,12 +659,104 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(predicate));
             }
+
             var success = true;
             while (success && predicate(Focus))
             {
                 success = TryRight();
             }
             return success;
+        }
+
+        /// <summary>
+        /// Focus the current focus's first descendant or right sibling's descendant which satisfies <see paramref="predicate"/>,
+        /// searching descendants before siblings and ending at the current node's rightmost sibling.
+        ///
+        /// <para>
+        /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="BreadthFirstSearch"/>.
+        /// </para>
+        /// 
+        /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
+        /// <seealso cref="BreadthFirstSearch"/>
+        /// </summary>
+        /// <param name="predicate">A predicate which returns true when the search should stop</param>
+        /// <returns>True if a matching focus was found, false if the search was exhaustive</returns>
+        public bool DepthFirstSearch(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
+            bool Go()
+            {
+                if (predicate(Focus))
+                {
+                    return true;
+                }
+                if (TryDown())
+                {
+                    if (Go())
+                    {
+                        return true;
+                    }
+                    Up();
+                }
+                if (TryRight())
+                {
+                    if (Go())
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return Go();
+        }
+
+        /// <summary>
+        /// Focus the current focus's first descendant or right sibling's descendant which satisfies <see paramref="predicate"/>,
+        /// searching siblings before descendants and ending at the current node's lowest leftmost descendant.
+        /// 
+        /// <para>
+        /// This function searches the top-right part of the tree first, so will typically end up focusing a node higher up than <see cref="BreadthFirstSearch"/>.
+        /// </para>
+        /// 
+        /// <seealso cref="DepthFirstSearch"/>
+        /// </summary>
+        /// <param name="predicate">A predicate which returns true when the search should stop</param>
+        /// <returns>True if a matching focus was found, false if the search was exhaustive</returns>
+        public bool BreadthFirstSearch(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
+            bool Go()
+            {
+                if (predicate(Focus))
+                {
+                    return true;
+                }
+                if (TryRight())
+                {
+                    if (Go())
+                    {
+                        return true;
+                    }
+                    Left();
+                }
+                if (TryDown())
+                {
+                    if (Go())
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return Go();
         }
 
         private T SetChildren(T value)

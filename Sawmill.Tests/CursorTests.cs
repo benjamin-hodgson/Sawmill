@@ -542,5 +542,46 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
         }
+
+        [Fact]
+        public void DepthFirstSearch()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                var success = cursor.DepthFirstSearch(n => n is Lit);
+
+                Assert.True(success);
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(3, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                var success = cursor.DepthFirstSearch(n => false);
+
+                Assert.False(success);
+                Assert.IsType<Add>(cursor.Focus);
+            }
+        }
+
+        [Fact]
+        public void BreadthFirstSearch()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                var success = cursor.BreadthFirstSearch(n => n is Lit);
+
+                Assert.True(success);
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(4, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                var success = cursor.BreadthFirstSearch(n => false);
+
+                Assert.False(success);
+                var lit = Assert.IsType<Lit>(cursor.Focus);
+                Assert.Equal(3, lit.Value);
+            }
+        }
     }
 }
