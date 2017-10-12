@@ -243,6 +243,12 @@ namespace Sawmill.Tests
 
                 Assert.Same(_expr, cursor.Focus);
             }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Up(-1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryUp(-1));
+            }
         }
 
         [Fact]
@@ -280,6 +286,12 @@ namespace Sawmill.Tests
 
                 var lit = Assert.IsType<Lit>(cursor.Focus);
                 Assert.Equal(3, lit.Value);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Down(-1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryDown(-1));
             }
         }
 
@@ -323,6 +335,12 @@ namespace Sawmill.Tests
                 var lit = Assert.IsType<Lit>(cursor.Focus);
                 Assert.Equal(4, lit.Value);
             }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Right(-1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryRight(-1));
+            }
         }
 
         [Fact]
@@ -363,6 +381,164 @@ namespace Sawmill.Tests
 
                 Assert.False(cursor.TryLeft(5));
 
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Left(-1));
+                Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryLeft(-1));
+            }
+        }
+
+        [Fact]
+        public void UpWhile()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                cursor.UpWhile(e => e is Neg);
+
+                Assert.Same(_expr, cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                var success = cursor.TryUpWhile(e => e is Neg);
+
+                Assert.True(success);
+                Assert.Same(_expr, cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                Assert.Throws<InvalidOperationException>(() => cursor.UpWhile(e => true));
+                Assert.Same(_expr, cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                var success = cursor.TryUpWhile(e => true);
+
+                Assert.False(success);
+                Assert.Same(_expr, cursor.Focus);
+            }
+        }
+
+        [Fact]
+        public void DownWhile()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                cursor.DownWhile(e => e is Add);
+
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                var success = cursor.TryDownWhile(e => e is Add);
+
+                Assert.True(success);
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                Assert.Throws<InvalidOperationException>(() => cursor.DownWhile(e => true));
+                Assert.IsType<Lit>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+
+                var success = cursor.TryDownWhile(e => true);
+
+                Assert.False(success);
+                Assert.IsType<Lit>(cursor.Focus);
+            }
+        }
+
+        [Fact]
+        public void RightWhile()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                cursor.RightWhile(e => e is Neg);
+
+                Assert.IsType<Lit>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                var success = cursor.TryRightWhile(e => e is Neg);
+
+                Assert.True(success);
+                Assert.IsType<Lit>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                Assert.Throws<InvalidOperationException>(() => cursor.RightWhile(e => true));
+                Assert.IsType<Lit>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+
+                var success = cursor.TryRightWhile(e => true);
+
+                Assert.False(success);
+                Assert.IsType<Lit>(cursor.Focus);
+            }
+        }
+
+        [Fact]
+        public void LeftWhile()
+        {
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                cursor.LeftWhile(e => e is Lit);
+
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                var success = cursor.TryLeftWhile(e => e is Lit);
+
+                Assert.True(success);
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                Assert.Throws<InvalidOperationException>(() => cursor.LeftWhile(e => true));
+                Assert.IsType<Neg>(cursor.Focus);
+            }
+            {
+                var cursor = _rewriter.Cursor(_expr);
+                cursor.Down();
+                cursor.Right();
+
+                var success = cursor.TryLeftWhile(e => true);
+
+                Assert.False(success);
                 Assert.IsType<Neg>(cursor.Focus);
             }
         }

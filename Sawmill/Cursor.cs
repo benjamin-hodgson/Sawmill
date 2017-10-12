@@ -133,8 +133,13 @@ namespace Sawmill
         /// The <see cref="Cursor{T}"/> reached the root node.
         /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the top of the tree.
         /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         public void Up(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             while (count > 0)
             {
                 Up();
@@ -173,11 +178,16 @@ namespace Sawmill
         /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
         /// </para>
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         /// <returns>
         /// True if the operation was successful, false if the cursor went <see cref="Up()"/> fewer than <paramref name="count"/> times.
         /// </returns>
         public bool TryUp(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             var success = true;
             while (count > 0 && success)
             {
@@ -201,6 +211,51 @@ namespace Sawmill
             {
                 success = TryUp();
             }
+        }
+
+        /// <summary>
+        /// Go <see cref="Up()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
+        /// In other words, find the first ancestor of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the root node.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the top of the tree.
+        /// </exception>
+        public void UpWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            while (predicate(Focus))
+            {
+                Up();
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Up()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the top.
+        /// In other words, find the first ancestor of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <returns>
+        /// True if an ancestor not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the top.
+        /// </returns>
+        public bool TryUpWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            var success = true;
+            while (success && predicate(Focus))
+            {
+                success = TryUp();
+            }
+            return success;
         }
 
 
@@ -231,8 +286,13 @@ namespace Sawmill
         /// The <see cref="Cursor{T}"/> reached a node with no children.
         /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the bottom of the tree.
         /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         public void Down(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             while (count > 0)
             {
                 Down();
@@ -270,16 +330,79 @@ namespace Sawmill
         /// This operation "opens a hole" in the current node and its <paramref name="count"/> first descendants.
         /// </para>
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         /// <returns>
         /// True if the operation was successful, false if the cursor went <see cref="Down()"/> fewer than <paramref name="count"/> times.
         /// </returns>
         public bool TryDown(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             var success = true;
             while (count > 0 && success)
             {
                 success = TryDown();
                 count--;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// Move the current <see cref="Focus"/> to the bottom-left of the tree.
+        /// Do nothing if the current <see cref="Focus"/> has no children.
+        /// </summary>
+        public void Bottom()
+        {
+            var success = true;
+            while (success)
+            {
+                success = TryDown();
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Down()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
+        /// In other words, find the first leftmost descendant of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its leftmost descendants</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the root node.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the bottom of the tree.
+        /// </exception>
+        public void DownWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            while (predicate(Focus))
+            {
+                Down();
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Down()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the bottom.
+        /// In other words, find the first leftmost descendant of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its leftmost descendants</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <returns>
+        /// True if a leftmost descendant not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the bottom.
+        /// </returns>
+        public bool TryDownWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            var success = true;
+            while (success && predicate(Focus))
+            {
+                success = TryDown();
             }
             return success;
         }
@@ -296,6 +419,7 @@ namespace Sawmill
                 throw new InvalidOperationException("Can't go left from here, already at the leftmost sibling");
             }
         }
+
         /// <summary>
         /// Go <see cref="Left()"/> <paramref name="count"/> times.
         /// </summary>
@@ -303,8 +427,13 @@ namespace Sawmill
         /// The <see cref="Cursor{T}"/> reached the leftmost sibling.
         /// The <see cref="Cursor{T}"/> is left in the last good state, that is, focused on the leftmost sibling.
         /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         public void Left(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             while (count > 0)
             {
                 Left();
@@ -332,11 +461,16 @@ namespace Sawmill
         /// <summary>
         /// Go <see cref="Left()"/> <paramref name="count"/> times, stopping if you reach the leftmost sibling.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         /// <returns>
         /// True if the operation was successful, false if the cursor went <see cref="Left()"/> fewer than <paramref name="count"/> times.
         /// </returns>
         public bool TryLeft(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             var success = true;
             while (count > 0 && success)
             {
@@ -359,6 +493,51 @@ namespace Sawmill
             }
         }
 
+        /// <summary>
+        /// Go <see cref="Left()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
+        /// In other words, find the first left sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the root node.
+        /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the leftmost sibling.
+        /// </exception>
+        public void LeftWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            while (predicate(Focus))
+            {
+                Left();
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Left()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the leftmost sibling.
+        /// In other words, find the left sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <returns>
+        /// True if an ancestor not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the leftmost sibling.
+        /// </returns>
+        public bool TryLeftWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            var success = true;
+            while (success && predicate(Focus))
+            {
+                success = TryLeft();
+            }
+            return success;
+        }
+
 
         /// <summary>
         /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate successor sibling.
@@ -379,8 +558,13 @@ namespace Sawmill
         /// The <see cref="Cursor{T}"/> reached the rightmost sibling.
         /// The <see cref="Cursor{T}"/> is left in the last good state, that is, focused on the rightmost sibling.
         /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         public void Right(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             while (count > 0)
             {
                 Right();
@@ -406,11 +590,16 @@ namespace Sawmill
         /// <summary>
         /// Go <see cref="Right()"/> <paramref name="count"/> times, stopping if you reach the rightmost sibling.
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
         /// <returns>
         /// True if the operation was successful, false if the cursor went <see cref="Right()"/> fewer than <paramref name="count"/> times.
         /// </returns>
         public bool TryRight(int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
+            }
             var success = true;
             while (count > 0 && success)
             {
@@ -431,6 +620,51 @@ namespace Sawmill
             {
                 success = TryRight();
             }
+        }
+
+        /// <summary>
+        /// Go <see cref="Right()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
+        /// In other words, find the first Right sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <exception cref="InvalidOperationException">
+        /// The <see cref="Cursor{T}"/> reached the root node.
+        /// The <see cref="Cursor{T}"/> is Right in the last good state, that is, at the Rightmost sibling.
+        /// </exception>
+        public void RightWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            while (predicate(Focus))
+            {
+                Right();
+            }
+        }
+
+        /// <summary>
+        /// Go <see cref="Right()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the Rightmost sibling.
+        /// In other words, find the Right sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
+        /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+        /// <returns>
+        /// True if an ancestor not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the Rightmost sibling.
+        /// </returns>
+        public bool TryRightWhile(Func<T, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+            var success = true;
+            while (success && predicate(Focus))
+            {
+                success = TryRight();
+            }
+            return success;
         }
 
         private T SetChildren(T value)
