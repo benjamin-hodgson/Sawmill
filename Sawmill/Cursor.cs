@@ -673,15 +673,14 @@ namespace Sawmill
         /// searching descendants before siblings and ending at the current node's rightmost sibling.
         ///
         /// <para>
-        /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="BreadthFirstSearch"/>.
+        /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="SearchRightAndDown"/>.
         /// </para>
         /// 
         /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
-        /// <seealso cref="BreadthFirstSearch"/>
         /// </summary>
         /// <param name="predicate">A predicate which returns true when the search should stop</param>
         /// <returns>True if a matching focus was found, false if the search was exhaustive</returns>
-        public bool DepthFirstSearch(Func<T, bool> predicate)
+        public bool SearchDownAndRight(Func<T, bool> predicate)
         {
             if (predicate == null)
             {
@@ -719,14 +718,12 @@ namespace Sawmill
         /// searching siblings before descendants and ending at the current node's lowest leftmost descendant.
         /// 
         /// <para>
-        /// This function searches the top-right part of the tree first, so will typically end up focusing a node higher up than <see cref="BreadthFirstSearch"/>.
+        /// This function searches the top-right part of the tree first, so will typically end up focusing a node higher up than <see cref="SearchDownAndRight"/>.
         /// </para>
-        /// 
-        /// <seealso cref="DepthFirstSearch"/>
         /// </summary>
         /// <param name="predicate">A predicate which returns true when the search should stop</param>
         /// <returns>True if a matching focus was found, false if the search was exhaustive</returns>
-        public bool BreadthFirstSearch(Func<T, bool> predicate)
+        public bool SearchRightAndDown(Func<T, bool> predicate)
         {
             if (predicate == null)
             {

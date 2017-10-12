@@ -544,11 +544,11 @@ namespace Sawmill.Tests
         }
 
         [Fact]
-        public void DepthFirstSearch()
+        public void SearchDownAndRight()
         {
             {
                 var cursor = _rewriter.Cursor(_expr);
-                var success = cursor.DepthFirstSearch(n => n is Lit);
+                var success = cursor.SearchDownAndRight(n => n is Lit);
 
                 Assert.True(success);
                 var lit = Assert.IsType<Lit>(cursor.Focus);
@@ -556,7 +556,7 @@ namespace Sawmill.Tests
             }
             {
                 var cursor = _rewriter.Cursor(_expr);
-                var success = cursor.DepthFirstSearch(n => false);
+                var success = cursor.SearchDownAndRight(n => false);
 
                 Assert.False(success);
                 Assert.IsType<Add>(cursor.Focus);
@@ -564,11 +564,11 @@ namespace Sawmill.Tests
         }
 
         [Fact]
-        public void BreadthFirstSearch()
+        public void SearchRightAndDown()
         {
             {
                 var cursor = _rewriter.Cursor(_expr);
-                var success = cursor.BreadthFirstSearch(n => n is Lit);
+                var success = cursor.SearchRightAndDown(n => n is Lit);
 
                 Assert.True(success);
                 var lit = Assert.IsType<Lit>(cursor.Focus);
@@ -576,7 +576,7 @@ namespace Sawmill.Tests
             }
             {
                 var cursor = _rewriter.Cursor(_expr);
-                var success = cursor.BreadthFirstSearch(n => false);
+                var success = cursor.SearchRightAndDown(n => false);
 
                 Assert.False(success);
                 var lit = Assert.IsType<Lit>(cursor.Focus);
