@@ -5,6 +5,14 @@ namespace Sawmill
 {
     /// <summary>
     /// A rewriter is an object which knows how to access the immediate children of a value of type <typeparamref name="T"/>.
+    /// 
+    /// <para>
+    /// Implementations should ensure that you always get the children you just set
+    /// (<c>rewriter.GetChildren(rewriter.SetChildren(children, expr)) == children</c>),
+    /// and that successive sets overwrite the earlier operation
+    /// (<c>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</c>).
+    /// </para>
+    ///
     /// <seealso cref="IRewritable{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type for which the rewriter can get the immediate children</typeparam>

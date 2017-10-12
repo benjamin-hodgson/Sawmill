@@ -5,6 +5,14 @@ namespace Sawmill
 {
     /// <summary>
     /// A object is rewriterable if it knows how to access its immediate children.
+    /// 
+    /// <para>
+    /// Implementations should ensure that you always get the children you just set
+    /// (<c>rewriter.GetChildren(rewriter.SetChildren(children, expr)) == children</c>),
+    /// and that successive sets overwrite the earlier operation
+    /// (<c>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</c>).
+    /// </para>
+    /// 
     /// <seealso cref="IRewriter{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type of the object implementing the interface</typeparam>
