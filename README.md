@@ -21,12 +21,12 @@ Sawmill is designed to be extremely simple and lightweight (it's built as a set 
 
 For example, suppose you're working with a simple language of arithmetic expressions featuring literal numbers, variables, addition, and unary subtraction. Each syntactic construct corresponds to a subclass of an `Expr` base type, so an expression like `(2 + x) + (-4)` would be represented as `new Add(new Add(new Lit(2), new Var(x)), new Neg(new Lit(4)))`.
 
-For your tree type to work with Sawmill, it must implement the `IRewritable` interface. An object is rewritable if it knows how to access its immediate children; accordingly, `IRewritable` contains `GetChildren` and `SetChildren` methods. Implementations of `IRewritable` should ensure that the rewritable type conforms to the following two-point specification:
+For your tree type to work with Sawmill, it must implement [the `IRewritable<T>` interface](https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs). An object is rewritable if it knows how to access its collection of immediate children; accordingly, `IRewritable<T>` contains `GetChildren` and `SetChildren` methods. Implementations of `IRewritable` should ensure that the rewritable type conforms to the following two-point specification:
 
   * You get out what you put in - `x.SetChildren(children).GetChildren() == children`
   * Setting twice is the same as setting once - `x.SetChildren(children1).SetChildren(children2) == x.SetChildren(children2)`
 
-[See below](#implementing-irewritable) for a full example. You can also use the supplied `AutoRewriter` or `RewriterBuilder` classes to assist in implementing `IRewritable`.
+[See below](#implementing-irewritable-t) for a full example. You can also use the supplied `AutoRewriter` or `RewriterBuilder` classes to assist in implementing `IRewritable`.
 
 ### Querying a tree
 
@@ -176,7 +176,7 @@ These all have a return type of `IEnumerable<(T item, Func<T, T> replace)>`: a l
 
 The `Cursor()` method generalises the `InContext` methods by returning a `Cursor<T>` - a mutable builder object representing a _focus_ on a particular node in a tree. You can efficiently replace the currently focused node by setting the cursor's `Focus` property. The `Up`, `Down`, `Left` and `Right` methods allow you to efficiently move the cursor's focus to the current node's parent, the current node's first child, and the current node's next and previous siblings, respectively. This is useful if you need to make a complex sequence of edits to a particular area in a tree, such as if a user is editing part of a text file. Moving the cursor all the way back to the `Top` rebuilds the whole tree with the new nodes in place of the old ones.
 
-### Implementing `IRewritable`
+### Implementing `IRewritable<T>`
 
 To use Sawmill with your own expression types, you implement the `IRewritable` interface. You explain how to read and write the nodes' immediate children, and Sawmill does the boring work of recursively traversing the children's children.
 
