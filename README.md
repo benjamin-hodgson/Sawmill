@@ -26,11 +26,11 @@ For your tree type to work with Sawmill, it must implement [the `IRewritable<T>`
   * You get out what you put in - `x.SetChildren(children).GetChildren() == children`
   * Setting twice is the same as setting once - `x.SetChildren(children1).SetChildren(children2) == x.SetChildren(children2)`
 
-[See below](#implementing-irewritable-t) for a full example. You can also use the supplied `AutoRewriter` or `RewriterBuilder` classes to assist in implementing `IRewritable`.
+[See below](#implementing-irewritablet) for a full example using the `Expr` type outline above. You can also use the supplied `AutoRewriter` or `RewriterBuilder` classes to assist in implementing `IRewritable`.
 
 ### Querying a tree
 
-Here's a function to extract a list of the variables mentioned in a given expression (for example, a compiler writer might want to find the variables captured by a lambda expression):
+Here's a function to extract a list of the variables mentioned in a given `Expr` (for example, a compiler writer might want to find the variables captured by a lambda expression):
 
 ```csharp
 IEnumerable<string> GetVariables(Expr expr)
