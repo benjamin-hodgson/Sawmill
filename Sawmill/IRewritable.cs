@@ -8,9 +8,9 @@ namespace Sawmill
     /// 
     /// <para>
     /// Implementations should ensure that you always get the children you just set
-    /// (<c>rewriter.GetChildren(rewriter.SetChildren(children, expr)) == children</c>),
+    /// (<c>rewritable.SetChildren(children).GetChildren() == children</c>),
     /// and that successive sets overwrite the earlier operation
-    /// (<c>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</c>).
+    /// (<c>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</c>).
     /// </para>
     /// 
     /// <seealso cref="IRewriter{T}"/>.

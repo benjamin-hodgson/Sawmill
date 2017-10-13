@@ -26,7 +26,7 @@ For your tree type to work with Sawmill, it must implement [the `IRewritable<T>`
   * You get out what you put in - `x.SetChildren(children).GetChildren() == children`
   * Setting twice is the same as setting once - `x.SetChildren(children1).SetChildren(children2) == x.SetChildren(children2)`
 
-[See below](#implementing-irewritablet) for a full example using the `Expr` type outline above. You can also use the supplied `AutoRewriter` or `RewriterBuilder` classes to assist in implementing `IRewritable`.
+[See below](#implementing-irewritablet) for a full example of how to implement the `Expr` type outlined above. You can also use the supplied `AutoRewriter` or `RewriterBuilder` classes to assist in implementing `IRewritable`.
 
 ### Querying a tree
 
@@ -58,6 +58,8 @@ IEnumerable<string> GetVariables(Expr expr)
 ```
 
 `SelfAndDescendants` returns an enumerable containing the current node and all of the nodes in the rest of the tree. The example above uses the standard `OfType` and `Select` LINQ methods to find the names of all the variables mentioned in `expr`. It also has two cousins, `DescendantsAndSelf` and `SelfAndDescendantsBreadthFirst`, which differ in the order in which they yield nodes. All of these also have `Lazy` variants, which may be more efficient for certain traversal types.
+
+By the way, you can totally "go it alone" and write complex or performance-critical traversals without Sawmill's help. You can just use explicit recursion, as in the first example. Sawmill is intended to be _useful_, not _opinionated_.
 
 ### Transforming a tree
 
