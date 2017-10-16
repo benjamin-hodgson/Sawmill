@@ -89,10 +89,6 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(prevSiblings));
             }
-            if (focus == null)
-            {
-                throw new ArgumentNullException(nameof(focus));
-            }
             if (nextSiblings == null)
             {
                 throw new ArgumentNullException(nameof(nextSiblings));
