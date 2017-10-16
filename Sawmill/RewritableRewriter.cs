@@ -11,13 +11,38 @@ namespace Sawmill
         private RewritableRewriter() { }
 
         /// <inheritdoc/>
-        public Children<T> GetChildren(T value) => value.GetChildren();
+        public Children<T> GetChildren(T value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            return value.GetChildren();
+        }
 
         /// <inheritdoc/>
-        public T SetChildren(Children<T> newChildren, T oldValue) => oldValue.SetChildren(newChildren);
+        public T SetChildren(Children<T> newChildren, T oldValue)
+        {
+            if (oldValue == null)
+            {
+                throw new ArgumentNullException(nameof(oldValue));
+            }
+            return oldValue.SetChildren(newChildren);
+        }
 
         /// <inheritdoc/>
-        public T RewriteChildren(Func<T, T> transformer, T oldValue) => oldValue.RewriteChildren(transformer);
+        public T RewriteChildren(Func<T, T> transformer, T oldValue)
+        {
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            if (oldValue == null)
+            {
+                throw new ArgumentNullException(nameof(oldValue));
+            }
+            return oldValue.RewriteChildren(transformer);
+        }
 
         /// <inheritdoc/>
         public static RewritableRewriter<T> Instance { get; } = new RewritableRewriter<T>();
