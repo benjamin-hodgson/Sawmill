@@ -25,11 +25,7 @@ test_script:
   - cmd: dotnet test --configuration %CONFIGURATION% Sawmill.Tests\Sawmill.Tests.csproj
 
 after_test:
-  - cmd: dotnet pack Sawmill\Sawmill.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
-  - cmd: dotnet pack Sawmill.Newtonsoft.Json\Sawmill.Newtonsoft.Json.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
-  - cmd: dotnet pack Sawmill.Microsoft.CodeAnalysis\Sawmill.Microsoft.CodeAnalysis.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
-  - cmd: dotnet pack Sawmill.Microsoft.CodeAnalysis.CSharp\Sawmill.Microsoft.CodeAnalysis.CSharp.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
-  - cmd: dotnet pack Sawmill.Microsoft.CodeAnalysis.VisualBasic\Sawmill.Microsoft.CodeAnalysis.VisualBasic.csproj --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
+  - cmd: dotnet pack --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
 
 artifacts:
   - type: NuGetPackage
