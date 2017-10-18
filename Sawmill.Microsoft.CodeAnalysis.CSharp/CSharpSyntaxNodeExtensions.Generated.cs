@@ -46,6 +46,18 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> SelfAndDescendantsBreadthFirst(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> SelfAndDescendantsBreadthFirstLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsBreadthFirstLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
         public static Children<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> ChildrenInContext(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
@@ -74,6 +86,24 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// </summary>
         public static IEnumerable<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> DescendantsAndSelfInContextLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirst(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Cursor<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> Cursor(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.Cursor(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>

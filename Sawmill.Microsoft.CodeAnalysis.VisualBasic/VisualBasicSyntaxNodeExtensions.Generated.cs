@@ -46,6 +46,18 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> SelfAndDescendantsBreadthFirst(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> SelfAndDescendantsBreadthFirstLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsBreadthFirstLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
         public static Children<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> ChildrenInContext(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
@@ -74,6 +86,24 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// </summary>
         public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> DescendantsAndSelfInContextLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirst(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Cursor<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> Cursor(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
+            => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.Cursor(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>

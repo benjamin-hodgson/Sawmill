@@ -46,6 +46,18 @@ namespace Sawmill.Expressions
             => ExpressionRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<System.Linq.Expressions.Expression> SelfAndDescendantsBreadthFirst(this System.Linq.Expressions.Expression value)
+            => ExpressionRewriter.Instance.SelfAndDescendantsBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<System.Linq.Expressions.Expression> SelfAndDescendantsBreadthFirstLazy(this System.Linq.Expressions.Expression value)
+            => ExpressionRewriter.Instance.SelfAndDescendantsBreadthFirstLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
         public static Children<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> ChildrenInContext(this System.Linq.Expressions.Expression value)
@@ -74,6 +86,24 @@ namespace Sawmill.Expressions
         /// </summary>
         public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> DescendantsAndSelfInContextLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContextBreadthFirst(this System.Linq.Expressions.Expression value)
+            => ExpressionRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this System.Linq.Expressions.Expression value)
+            => ExpressionRewriter.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Cursor<System.Linq.Expressions.Expression> Cursor(this System.Linq.Expressions.Expression value)
+            => ExpressionRewriter.Instance.Cursor(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>

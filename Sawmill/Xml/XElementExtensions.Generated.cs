@@ -46,6 +46,18 @@ namespace Sawmill.Xml
             => XElementRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<System.Xml.Linq.XElement> SelfAndDescendantsBreadthFirst(this System.Xml.Linq.XElement value)
+            => XElementRewriter.Instance.SelfAndDescendantsBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<System.Xml.Linq.XElement> SelfAndDescendantsBreadthFirstLazy(this System.Xml.Linq.XElement value)
+            => XElementRewriter.Instance.SelfAndDescendantsBreadthFirstLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
         public static Children<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> ChildrenInContext(this System.Xml.Linq.XElement value)
@@ -74,6 +86,24 @@ namespace Sawmill.Xml
         /// </summary>
         public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> DescendantsAndSelfInContextLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> SelfAndDescendantsInContextBreadthFirst(this System.Xml.Linq.XElement value)
+            => XElementRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this System.Xml.Linq.XElement value)
+            => XElementRewriter.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Cursor<System.Xml.Linq.XElement> Cursor(this System.Xml.Linq.XElement value)
+            => XElementRewriter.Instance.Cursor(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>

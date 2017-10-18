@@ -23,7 +23,7 @@ namespace Sawmill
         /// The result of applying <paramref name="transformer"/> to every node in the tree
         /// represented by <paramref name="value"/> until it returns <see cref="IterResult.Done{T}"/>.
         /// </returns>
-        public static T RewriteIter<T>(this IRewriter<T> rewriter, Func<T, IterResult<T>> transformer, T value) where T : class
+        public static T RewriteIter<T>(this IRewriter<T> rewriter, Func<T, IterResult<T>> transformer, T value)
         {
             if (rewriter == null)
             {

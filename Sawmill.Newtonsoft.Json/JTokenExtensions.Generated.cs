@@ -46,6 +46,18 @@ namespace Sawmill.Newtonsoft.Json
             => JTokenRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<global::Newtonsoft.Json.Linq.JToken> SelfAndDescendantsBreadthFirst(this global::Newtonsoft.Json.Linq.JToken value)
+            => JTokenRewriter.Instance.SelfAndDescendantsBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<global::Newtonsoft.Json.Linq.JToken> SelfAndDescendantsBreadthFirstLazy(this global::Newtonsoft.Json.Linq.JToken value)
+            => JTokenRewriter.Instance.SelfAndDescendantsBreadthFirstLazy(value);
+
+        /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
         public static Children<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> ChildrenInContext(this global::Newtonsoft.Json.Linq.JToken value)
@@ -74,6 +86,24 @@ namespace Sawmill.Newtonsoft.Json
         /// </summary>
         public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> DescendantsAndSelfInContextLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirst{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> SelfAndDescendantsInContextBreadthFirst(this global::Newtonsoft.Json.Linq.JToken value)
+            => JTokenRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this global::Newtonsoft.Json.Linq.JToken value)
+            => JTokenRewriter.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
+
+        /// <summary>
+        /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>
+        /// </summary>
+        public static Cursor<global::Newtonsoft.Json.Linq.JToken> Cursor(this global::Newtonsoft.Json.Linq.JToken value)
+            => JTokenRewriter.Instance.Cursor(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>

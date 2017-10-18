@@ -106,6 +106,18 @@ namespace {ns}
             => {rewriterExpr}.SelfAndDescendantsLazy(value);
 
         /// <summary>
+        /// <seealso cref=""Rewriter.SelfAndDescendantsBreadthFirst{{T}}(IRewriter{{T}}, T)""/>
+        /// </summary>
+        public static IEnumerable<{typeName}> SelfAndDescendantsBreadthFirst(this {typeName} value)
+            => {rewriterExpr}.SelfAndDescendantsBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref=""Rewriter.SelfAndDescendantsBreadthFirstLazy{{T}}(IRewriter{{T}}, T)""/>
+        /// </summary>
+        public static IEnumerable<{typeName}> SelfAndDescendantsBreadthFirstLazy(this {typeName} value)
+            => {rewriterExpr}.SelfAndDescendantsBreadthFirstLazy(value);
+
+        /// <summary>
         /// <seealso cref=""Rewriter.ChildrenInContext{{T}}(IRewriter{{T}}, T)""/>
         /// </summary>
         public static Children<({typeName} item, Func<{typeName}, {typeName}> replace)> ChildrenInContext(this {typeName} value)
@@ -134,6 +146,24 @@ namespace {ns}
         /// </summary>
         public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> DescendantsAndSelfInContextLazy(this {typeName} value)
             => {rewriterExpr}.DescendantsAndSelfInContextLazy(value);
+
+        /// <summary>
+        /// <seealso cref=""Rewriter.SelfAndDescendantsInContextBreadthFirst{{T}}(IRewriter{{T}}, T)""/>
+        /// </summary>
+        public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> SelfAndDescendantsInContextBreadthFirst(this {typeName} value)
+            => {rewriterExpr}.SelfAndDescendantsInContextBreadthFirst(value);
+
+        /// <summary>
+        /// <seealso cref=""Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{{T}}(IRewriter{{T}}, T)""/>
+        /// </summary>
+        public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this {typeName} value)
+            => {rewriterExpr}.SelfAndDescendantsInContextBreadthFirstLazy(value);
+
+        /// <summary>
+        /// <seealso cref=""Rewriter.Cursor{{T}}(IRewriter{{T}}, T)""/>
+        /// </summary>
+        public static Cursor<{typeName}> Cursor(this {typeName} value)
+            => {rewriterExpr}.Cursor(value);
 
         /// <summary>
         /// <seealso cref=""Rewriter.Fold{{T, U}}(IRewriter{{T}}, Func{{T, Children{{U}}, U}}, T)""/>
