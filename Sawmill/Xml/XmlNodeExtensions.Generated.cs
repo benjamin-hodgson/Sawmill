@@ -1,84 +1,84 @@
+#region GeneratedCode
 using System;
 using System.Collections.Generic;
-using System.Xml;
 
 namespace Sawmill.Xml
 {
     /// <summary>
-    /// Extension methods for <see cref="XmlNode"/>s.
+    /// Extension methods for <see cref="System.Xml.XmlNode"/>s.
     /// </summary>
     public static class XmlNodeExtensions
     {
         /// <summary>
         /// <seealso cref="IRewriter{T}.GetChildren(T)"/>
         /// </summary>
-        public static Children<XmlNode> GetChildren(this XmlNode value)
+        public static Children<System.Xml.XmlNode> GetChildren(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.GetChildren(value);
 
         /// <summary>
         /// <seealso cref="IRewriter{T}.SetChildren(Children{T}, T)"/>
         /// </summary>
-        public static XmlNode SetChildren(this XmlNode value, Children<XmlNode> newChildren)
+        public static System.Xml.XmlNode SetChildren(this System.Xml.XmlNode value, Children<System.Xml.XmlNode> newChildren)
             => XmlNodeRewriter.Instance.SetChildren(newChildren, value);
 
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelf{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<XmlNode> DescendantsAndSelf(this XmlNode value)
+        public static IEnumerable<System.Xml.XmlNode> DescendantsAndSelf(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.DescendantsAndSelf(value);
         
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<XmlNode> DescendantsAndSelfLazy(this XmlNode value)
+        public static IEnumerable<System.Xml.XmlNode> DescendantsAndSelfLazy(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.DescendantsAndSelfLazy(value);
             
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<XmlNode> SelfAndDescendants(this XmlNode value)
+        public static IEnumerable<System.Xml.XmlNode> SelfAndDescendants(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.SelfAndDescendants(value);
         
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<XmlNode> SelfAndDescendantsLazy(this XmlNode value)
+        public static IEnumerable<System.Xml.XmlNode> SelfAndDescendantsLazy(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static Children<(XmlNode item, Func<XmlNode, XmlNode> replace)> ChildrenInContext(this XmlNode value)
+        public static Children<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> ChildrenInContext(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.ChildrenInContext(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> SelfAndDescendantsInContext(this XmlNode value)
+        public static IEnumerable<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> SelfAndDescendantsInContext(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.SelfAndDescendantsInContext(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> SelfAndDescendantsInContextLazy(this XmlNode value)
+        public static IEnumerable<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> SelfAndDescendantsInContextLazy(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.SelfAndDescendantsInContextLazy(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> DescendantsAndSelfInContext(this XmlNode value)
+        public static IEnumerable<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> DescendantsAndSelfInContext(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.DescendantsAndSelfInContext(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(XmlNode item, Func<XmlNode, XmlNode> replace)> DescendantsAndSelfInContextLazy(this XmlNode value)
+        public static IEnumerable<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> DescendantsAndSelfInContextLazy(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.DescendantsAndSelfInContextLazy(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>
         /// </summary>
-        public static T Fold<T>(this XmlNode value, Func<XmlNode, Children<T>, T> func)
+        public static T Fold<T>(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, Children<T>, T> func)
         {
             if (func == null)
             {
@@ -90,7 +90,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static XmlNode Rewrite(this XmlNode value, Func<XmlNode, XmlNode> transformer)
+        public static System.Xml.XmlNode Rewrite(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, System.Xml.XmlNode> transformer)
         {
             if (transformer == null)
             {
@@ -102,7 +102,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
         /// </summary>
-        public static XmlNode RewriteChildren(this XmlNode value, Func<XmlNode, XmlNode> transformer)
+        public static System.Xml.XmlNode RewriteChildren(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, System.Xml.XmlNode> transformer)
         {
             if (transformer == null)
             {
@@ -114,7 +114,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
         /// </summary>
-        public static XmlNode RewriteIter(this XmlNode value, Func<XmlNode, IterResult<XmlNode>> transformer)
+        public static System.Xml.XmlNode RewriteIter(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, IterResult<System.Xml.XmlNode>> transformer)
         {
             if (transformer == null)
             {
@@ -124,3 +124,4 @@ namespace Sawmill.Xml
         }
     }
 }
+#endregion

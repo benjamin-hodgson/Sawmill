@@ -1,84 +1,84 @@
+#region GeneratedCode
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
     /// <summary>
-    /// Extension methods for <see cref="Expression"/>s.
+    /// Extension methods for <see cref="System.Linq.Expressions.Expression"/>s.
     /// </summary>
     public static class ExpressionExtensions
     {
         /// <summary>
         /// <seealso cref="IRewriter{T}.GetChildren(T)"/>
         /// </summary>
-        public static Children<Expression> GetChildren(this Expression value)
+        public static Children<System.Linq.Expressions.Expression> GetChildren(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.GetChildren(value);
 
         /// <summary>
         /// <seealso cref="IRewriter{T}.SetChildren(Children{T}, T)"/>
         /// </summary>
-        public static Expression SetChildren(this Expression value, Children<Expression> newChildren)
+        public static System.Linq.Expressions.Expression SetChildren(this System.Linq.Expressions.Expression value, Children<System.Linq.Expressions.Expression> newChildren)
             => ExpressionRewriter.Instance.SetChildren(newChildren, value);
 
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelf{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<Expression> DescendantsAndSelf(this Expression value)
+        public static IEnumerable<System.Linq.Expressions.Expression> DescendantsAndSelf(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelf(value);
         
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<Expression> DescendantsAndSelfLazy(this Expression value)
+        public static IEnumerable<System.Linq.Expressions.Expression> DescendantsAndSelfLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelfLazy(value);
             
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<Expression> SelfAndDescendants(this Expression value)
+        public static IEnumerable<System.Linq.Expressions.Expression> SelfAndDescendants(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendants(value);
         
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<Expression> SelfAndDescendantsLazy(this Expression value)
+        public static IEnumerable<System.Linq.Expressions.Expression> SelfAndDescendantsLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsLazy(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.ChildrenInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static Children<(Expression item, Func<Expression, Expression> replace)> ChildrenInContext(this Expression value)
+        public static Children<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> ChildrenInContext(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.ChildrenInContext(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> SelfAndDescendantsInContext(this Expression value)
+        public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContext(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsInContext(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> SelfAndDescendantsInContextLazy(this Expression value)
+        public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContextLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsInContextLazy(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContext{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> DescendantsAndSelfInContext(this Expression value)
+        public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> DescendantsAndSelfInContext(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelfInContext(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
-        public static IEnumerable<(Expression item, Func<Expression, Expression> replace)> DescendantsAndSelfInContextLazy(this Expression value)
+        public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> DescendantsAndSelfInContextLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelfInContextLazy(value);
 
         /// <summary>
         /// <seealso cref="Rewriter.Fold{T, U}(IRewriter{T}, Func{T, Children{U}, U}, T)"/>
         /// </summary>
-        public static T Fold<T>(this Expression value, Func<Expression, Children<T>, T> func)
+        public static T Fold<T>(this System.Linq.Expressions.Expression value, Func<System.Linq.Expressions.Expression, Children<T>, T> func)
         {
             if (func == null)
             {
@@ -90,7 +90,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static Expression Rewrite(this Expression value, Func<Expression, Expression> transformer)
+        public static System.Linq.Expressions.Expression Rewrite(this System.Linq.Expressions.Expression value, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> transformer)
         {
             if (transformer == null)
             {
@@ -102,7 +102,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
         /// </summary>
-        public static Expression RewriteChildren(this Expression value, Func<Expression, Expression> transformer)
+        public static System.Linq.Expressions.Expression RewriteChildren(this System.Linq.Expressions.Expression value, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> transformer)
         {
             if (transformer == null)
             {
@@ -114,7 +114,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
         /// </summary>
-        public static Expression RewriteIter(this Expression value, Func<Expression, IterResult<Expression>> transformer)
+        public static System.Linq.Expressions.Expression RewriteIter(this System.Linq.Expressions.Expression value, Func<System.Linq.Expressions.Expression, IterResult<System.Linq.Expressions.Expression>> transformer)
         {
             if (transformer == null)
             {
@@ -124,3 +124,4 @@ namespace Sawmill.Expressions
         }
     }
 }
+#endregion
