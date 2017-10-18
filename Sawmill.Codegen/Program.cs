@@ -35,6 +35,20 @@ namespace Sawmill.Codegen
                 "global::Newtonsoft.Json.Linq.JToken",
                 "JTokenRewriter.Instance"
             );
+            GenerateFile(
+                "Sawmill.Microsoft.CodeAnalysis.CSharp/CSharpSyntaxNodeExtensions.Generated.cs",
+                "Sawmill.Microsoft.CodeAnalysis.CSharp",
+                "CSharpSyntaxNodeExtensions",
+                "global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode",
+                "SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance"
+            );
+            GenerateFile(
+                "Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs",
+                "Sawmill.Microsoft.CodeAnalysis.VisualBasic",
+                "VisualBasicSyntaxNodeExtensions",
+                "global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode",
+                "SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance"
+            );
         }
         private static void GenerateFile(
             string filename,

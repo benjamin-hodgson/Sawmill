@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>1.2.0</Version>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+
+    <Authors>benjamin.hodgson</Authors>
+    <Copyright>© Benjamin Hodgson, 2017</Copyright>
+    <Description>Simple tools for working with immutable trees, developed at Stack Overflow</Description>
+    <PackageTags>tree;language;compiler</PackageTags>
+
+    <PackageProjectUrl>https://github.com/benjamin-hodgson/Sawmill</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/benjamin-hodgson/Sawmill.git</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/benjamin-hodgson/Sawmill/blob/master/LICENSE</PackageLicenseUrl>
+    
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Sawmill/Sawmill.csproj"/>
+    <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="2.4.0"/>
+  </ItemGroup>
+</Project>
