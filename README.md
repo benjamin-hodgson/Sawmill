@@ -17,6 +17,8 @@ Sawmill contains functions which make it easy to work with immutable tree-shaped
 
 Sawmill is designed to be extremely simple and lightweight (it's built as a set of extension methods for a single simple interface); it works well with modern C# features like lambdas and pattern matching (the days of the clunky old visitor pattern are over!); and it doesn't get in the way when you need to go it alone and write traversals without Sawmill's help.
 
+I've written a step-by-step tutorial on the library's core idea on [my blog](https://www.benjamin.pizza/posts/2017-11-13-recursion-without-recursion.html).
+
 ### Getting started
 
 For example, suppose you're working with a simple language of arithmetic expressions featuring literal numbers, variables, addition, and unary subtraction. Each syntactic construct corresponds to a subclass of an `Expr` base type, so an expression like `(2 + x) + (-4)` would be represented as `new Add(new Add(new Lit(2), new Var(x)), new Neg(new Lit(4)))`.
