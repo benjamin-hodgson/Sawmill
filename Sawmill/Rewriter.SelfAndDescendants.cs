@@ -63,7 +63,7 @@ namespace Sawmill
         /// <summary>
         /// Lazily yields all of the nodes in the tree represented by <paramref name="value"/>, starting at the top.
         /// <para>
-        /// <see cref="SelfAndDescendants"/> will usually be faster than this method,
+        /// <see cref="SelfAndDescendants"/> will usually be faster than this method for small trees,
         /// but the lazy version can be more efficient when you only need to query part of the tree.
         /// </para>
         /// <seealso cref="SelfAndDescendants"/>
@@ -93,7 +93,7 @@ namespace Sawmill
         /// <typeparam name="T">The rewritable tree type</typeparam>
         /// <param name="rewriter">The rewriter</param>
         /// <param name="value">The value to traverse</param>
-        /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value"/>, starting at the bottom.</returns>
+        /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value"/>, starting at the top.</returns>
         public static IEnumerable<T> SelfAndDescendantsLazy<T>(this IRewriter<T> rewriter, T value)
         {
             if (rewriter == null)

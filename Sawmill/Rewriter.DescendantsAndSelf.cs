@@ -62,7 +62,7 @@ namespace Sawmill
         /// <summary>
         /// Lazily yields all of the nodes in the tree represented by <paramref name="value"/>, starting at the bottom.
         /// <para>
-        /// <see cref="DescendantsAndSelf"/> will usually be faster than this method,
+        /// <see cref="DescendantsAndSelf"/> will usually be faster than this method for small trees,
         /// but the lazy version can be more efficient when you only need to query part of the tree.
         /// </para>
         /// <seealso cref="DescendantsAndSelf"/>

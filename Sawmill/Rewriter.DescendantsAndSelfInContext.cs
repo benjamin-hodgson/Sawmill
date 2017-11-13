@@ -51,7 +51,7 @@ namespace Sawmill
         /// paired with a function to replace the node, starting at the bottom.
         /// 
         /// <para>
-        /// <see cref="DescendantsAndSelfInContext"/> will typically be faster than this method,
+        /// <see cref="DescendantsAndSelfInContext"/> will typically be faster than this method for small trees,
         /// but the lazy version can be more efficient when you only need to query part of the tree.
         /// </para>
         /// 
