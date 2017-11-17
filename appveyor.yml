@@ -25,7 +25,8 @@ test_script:
   - cmd: dotnet test --configuration %CONFIGURATION% Sawmill.Tests\Sawmill.Tests.csproj
 
 after_test:
-  - cmd: dotnet pack --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
+  - ps: dir "**\bin\$env:CONFIGURATION\*\*.xml" | foreach { dotnet run --no-build --configuration "$env:CONFIGURATION" --project Sawmill.DocMunger\Sawmill.DocMunger.csproj "Sawmill\bin\$env:CONFIGURATION\netstandard2.0\Sawmill.xml" $_.FullName }
+  - cmd: dotnet pack --no-build --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
 
 artifacts:
   - type: NuGetPackage

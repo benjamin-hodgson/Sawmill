@@ -11,6 +11,7 @@ namespace Sawmill.DocMunger
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Munging " + args[1]);
             var sawmillDoc = XDocument.Load(args[0]);
             var docToMunge = XDocument.Load(args[1]);
 
