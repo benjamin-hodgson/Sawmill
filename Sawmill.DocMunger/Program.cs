@@ -20,13 +20,15 @@ namespace Sawmill.DocMunger
                 .Rewrite(
                     el =>
                     {
-                        var cref = GetSeeAlsoCrefFromMember(el);
-                        if (cref == null)
+                        var seeAlso = GetSeeAlsoFromMember(el);
+                        if (seeAlso == null)
                         {
                             return el;
                         }
                         var replacement = new XElement(el);
-                        replacement.Element("summary").AddFirst(LookupCref(sawmillDoc, cref));
+                        var newChildren = LookupCref(sawmillDoc, seeAlso.Attribute("cref").Value).ToList();
+                        newChildren.Add(seeAlso);  // put the seealso element back
+                        replacement.Element("summary").ReplaceWith(newChildren);
                         return replacement;
                     }
                 );
@@ -35,7 +37,7 @@ namespace Sawmill.DocMunger
             docToMunge.Save(args[1]);
         }
 
-        static string GetSeeAlsoCrefFromMember(XElement el)
+        static XElement GetSeeAlsoFromMember(XElement el)
         {
             if (el.Name != "member" || el.Elements().Count() != 1)
             {
@@ -48,7 +50,7 @@ namespace Sawmill.DocMunger
                 return null;
             }
 
-            return summary.Element("seealso")?.Attribute("cref")?.Value;
+            return summary.Element("seealso");
         }
 
         static IEnumerable<XElement> LookupCref(XDocument sawmillDoc, string cref)
@@ -56,6 +58,7 @@ namespace Sawmill.DocMunger
                 .Element("doc")
                 .SelfAndDescendants()
                 .FirstOrDefault(el => el.Name == "member" && el.Attribute("name")?.Value == cref)
-                .Elements();
+                .Elements()
+                .Select(x => new XElement(x));  // clone
     }
 }
