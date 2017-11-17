@@ -11,11 +11,15 @@ namespace Sawmill.Xml
     {
         private XmlNodeRewriter() { }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<XmlNode> GetChildren(XmlNode value)
             => Children.Many<XmlNode>(value.ChildNodes.Cast<XmlNode>());
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public XmlNode SetChildren(Children<XmlNode> newChildren, XmlNode oldValue)
         {
             // XmlNode is such garbage
@@ -33,7 +37,9 @@ namespace Sawmill.Xml
             return clone;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public XmlNode RewriteChildren(Func<XmlNode, XmlNode> transformer, XmlNode oldValue)
             => this.DefaultRewriteChildren(transformer, oldValue);
 

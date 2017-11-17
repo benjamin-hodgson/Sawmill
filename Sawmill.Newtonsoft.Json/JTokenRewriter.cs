@@ -10,13 +10,17 @@ namespace Sawmill.Newtonsoft.Json
     {
         private JTokenRewriter() {}
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<JToken> GetChildren(JToken value)
             => value is JContainer c
                 ? Children.Many(c.Children())
                 : Children.None<JToken>();
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public JToken SetChildren(Children<JToken> newChildren, JToken oldValue)
         {
             if (newChildren.NumberOfChildren == NumberOfChildren.None)
@@ -28,7 +32,9 @@ namespace Sawmill.Newtonsoft.Json
             return c;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public JToken RewriteChildren(Func<JToken, JToken> transformer, JToken oldValue)
             => this.DefaultRewriteChildren(transformer, oldValue);
 

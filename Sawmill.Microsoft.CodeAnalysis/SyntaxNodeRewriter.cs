@@ -12,17 +12,23 @@ namespace Sawmill.Microsoft.CodeAnalysis
     {
         private SyntaxNodeRewriter() { }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<T> GetChildren(T value)
             => Children.Many((IEnumerable<T>)value.ChildNodes());
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public T SetChildren(Children<T> newChildren, T oldValue)
             => oldValue.ChildNodes()
                 .Zip(newChildren.Many, ValueTuple.Create)
                 .Aggregate(oldValue, (x, tup) => x.ReplaceNode(tup.Item1, tup.Item2));
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public T RewriteChildren(Func<T, T> transformer, T oldValue)
             => this.DefaultRewriteChildren(transformer, oldValue);
         

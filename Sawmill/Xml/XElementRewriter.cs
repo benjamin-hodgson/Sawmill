@@ -11,13 +11,17 @@ namespace Sawmill.Xml
     {
         private XElementRewriter() { }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<XElement> GetChildren(XElement value)
             => value is XContainer c
                 ? Children.Many(c.Elements())
                 : Children.None<XElement>();
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public XElement SetChildren(Children<XElement> newChildren, XElement oldValue)
         {
             var clone = new XElement(oldValue);
@@ -26,7 +30,9 @@ namespace Sawmill.Xml
             return clone;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public XElement RewriteChildren(Func<XElement, XElement> transformer, XElement oldValue)
             => this.DefaultRewriteChildren(transformer, oldValue);
 

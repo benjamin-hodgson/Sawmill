@@ -12,7 +12,9 @@ namespace Sawmill.Expressions
     {
         private ExpressionRewriter() {}
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<Expression> GetChildren(Expression value)
         {
             switch (value)
@@ -90,7 +92,9 @@ namespace Sawmill.Expressions
             throw new ArgumentOutOfRangeException(nameof(value));
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public Expression SetChildren(Children<Expression> newChildren, Expression oldValue)
         {
             switch (oldValue)
@@ -157,7 +161,9 @@ namespace Sawmill.Expressions
             throw new ArgumentOutOfRangeException(nameof(oldValue));
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public Expression RewriteChildren(Func<Expression, Expression> transformer, Expression value)
             => this.DefaultRewriteChildren(transformer, value);
 

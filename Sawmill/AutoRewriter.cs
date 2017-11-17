@@ -104,15 +104,21 @@ namespace Sawmill
 
         private AutoRewriter() { }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<T> GetChildren(T value)
             => _getters.GetOrAdd(value.GetType(), t => MkGetter(t))(value);
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public T SetChildren(Children<T> newChildren, T oldValue)
             => _setters.GetOrAdd(oldValue.GetType(), t => MkSetter(t))(oldValue, newChildren);
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public T RewriteChildren(Func<T, T> transformer, T oldValue)
             => this.DefaultRewriteChildren(transformer, oldValue);
 

@@ -6,11 +6,14 @@ namespace Sawmill
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for <typeparamref name="T"/>s which implement <see cref="IRewritable{T}"/>.
     /// </summary>
+    /// <typeparam name="T">The rewritable tree type</typeparam>
     public sealed class RewritableRewriter<T> : IRewriter<T> where T : IRewritable<T>
     {
         private RewritableRewriter() { }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// </summary>
         public Children<T> GetChildren(T value)
         {
             if (value == null)
@@ -20,7 +23,9 @@ namespace Sawmill
             return value.GetChildren();
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// </summary>
         public T SetChildren(Children<T> newChildren, T oldValue)
         {
             if (oldValue == null)
@@ -30,7 +35,9 @@ namespace Sawmill
             return oldValue.SetChildren(newChildren);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
+        /// </summary>
         public T RewriteChildren(Func<T, T> transformer, T oldValue)
         {
             if (transformer == null)
@@ -44,7 +51,9 @@ namespace Sawmill
             return oldValue.RewriteChildren(transformer);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets the single global instance of <see cref="RewritableRewriter{T}"/>
+        /// </summary>
         public static RewritableRewriter<T> Instance { get; } = new RewritableRewriter<T>();
     }
 }
