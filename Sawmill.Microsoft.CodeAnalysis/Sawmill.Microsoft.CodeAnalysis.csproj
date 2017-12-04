@@ -12,9 +12,17 @@
     <RepositoryUrl>https://github.com/benjamin-hodgson/Sawmill.git</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/benjamin-hodgson/Sawmill/blob/master/LICENSE</PackageLicenseUrl>
     
-    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(APPVEYOR)' == 'True'">
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(APPVEYOR)' == ''">
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="../Sawmill/Sawmill.csproj"/>
