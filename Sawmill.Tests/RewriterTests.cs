@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using Xunit;
@@ -320,16 +321,16 @@ namespace Sawmill.Tests
         
         private bool Equal(Expr left, Expr right)
             => _rewriter.ZipFold<Expr, bool>(
-                (x, y, children) =>
+                (xs, children) =>
                 {
-                    switch (x)
+                    switch (xs[0])
                     {
-                        case Lit l1 when y is Lit l2:
+                        case Lit l1 when xs[1] is Lit l2:
                             return l1.Value == l2.Value;
-                        case Neg n1 when y is Neg n2:
-                            return children.First;
-                        case Add a1 when y is Add a2:
-                            return children.First && children.Second;
+                        case Neg n1 when xs[1] is Neg n2:
+                            return children.First();
+                        case Add a1 when xs[1] is Add a2:
+                            return children.All(x => x);
                         default:
                             return false;
                     }

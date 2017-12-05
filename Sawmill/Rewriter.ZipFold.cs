@@ -1,19 +1,21 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Sawmill
 {
-    // todo: codegen-ed overloads for 3-8-ary zip?
     public static partial class Rewriter
     {
         /// <summary>
-        /// Flatten all of the nodes in the trees represented by <paramref name="value1"/>
-        /// and <paramref name="value2"/> into a single value at the same time,
-        /// using an aggregation function to combine two nodes with the results of aggregating their children.
-        /// The two trees are iterated in lock-step, much like <see cref="Enumerable.Zip"/>.
+        /// Flatten all of the nodes in the trees represented by <paramref name="values"/>
+        /// into a single value at the same time, using an aggregation function to combine
+        /// nodes with the results of aggregating their children.
+        /// The trees are iterated in lock-step, much like an n-ary <see cref="Enumerable.Zip"/>.
         /// 
-        /// The larger of the two trees is truncated both horizontally and vertically.
-        /// That is, if two nodes have a different number of children,
+        /// When trees are not the same size, the larger ones are
+        /// truncated both horizontally and vertically.
+        /// That is, if a pair of nodes have a different number of children,
         /// the rightmost children of the larger of the two nodes are discarded.
         /// </summary>
         /// <example>
@@ -22,13 +24,13 @@ namespace Sawmill
         /// static bool Equals(this Expr left, Expr right)
         ///     =&gt; left.ZipFold&lt;Expr, bool&gt;(
         ///         right,
-        ///         (x, y, results) =&gt;
+        ///         (xs, results) =&gt;
         ///         {
-        ///             switch (x)
+        ///             switch (xs[0])
         ///             {
-        ///                 case Add a1 when y is Add a2:
+        ///                 case Add a1 when xs[1] is Add a2:
         ///                     return results.All(x =&gt; x);
-        ///                 case Lit l1 when y is Lit l2:
+        ///                 case Lit l1 when xs[1] is Lit l2:
         ///                     return l1.Value == l2.Value;
         ///                 default:
         ///                     return false;
@@ -41,10 +43,13 @@ namespace Sawmill
         /// <typeparam name="U">The return type of the aggregation</typeparam>
         /// <param name="rewriter">The rewriter</param>
         /// <param name="func">The aggregation function</param>
-        /// <param name="value1">The first tree to fold</param>
-        /// <param name="value2">The second tree to fold</param>
+        /// <param name="values">The trees to fold</param>
         /// <returns>The result of aggregating the two trees</returns>
-        public static U ZipFold<T, U>(this IRewriter<T> rewriter, Func<T, T, Children<U>, U> func, T value1, T value2)
+        public static U ZipFold<T, U>(
+            this IRewriter<T> rewriter,
+            Func<ImmutableArray<T>, IEnumerable<U>, U> func,
+            params T[] values
+        )
         {
             if (rewriter == null)
             {
@@ -54,58 +59,51 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(func));
             }
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
 
-            Func<T, T, U> goDelegate = null;
+            Func<T, Children<T>> getChildrenDelegate = rewriter.GetChildren;
+
+            Func<ImmutableArray<T>, U> goDelegate = null;
             goDelegate = Go;
-            U Go(T x, T y)
+
+            U Go(ImmutableArray<T> xs)
                 => func(
-                    x,
-                    y,
-                    Zip(
-                        rewriter.GetChildren(x),
-                        rewriter.GetChildren(y),
-                        goDelegate
-                    )
+                    xs,
+                    ZipChildren(xs)
                 );
-            return Go(value1, value2);
+
+            IEnumerable<U> ZipChildren(ImmutableArray<T> xs)
+            {
+                var enumerators = new IEnumerator<T>[xs.Length];
+                for (var i = 0; i < xs.Length; i++)
+                {
+                    enumerators[i] = GetEnumerator<T, Children<T>>(rewriter.GetChildren(xs[i]));
+                }
+
+                var currents = ImmutableArray.CreateBuilder<T>(xs.Length);
+                while (true)
+                {
+                    foreach (var e in enumerators)
+                    {
+                        var hasNext = e.MoveNext();
+                        if (!hasNext)
+                        {
+                            yield break;
+                        }
+                        currents.Add(e.Current);
+                    }
+                    yield return goDelegate(currents.MoveToImmutable());
+                    currents.Capacity = xs.Length;
+                }
+            }
+
+            return Go(values.ToImmutableArray());
         }
 
-        private static Children<R> Zip<T, U, R>(Children<T> children1, Children<U> children2, Func<T, U, R> func)
-        {
-            if (children1.NumberOfChildren == NumberOfChildren.Many || children2.NumberOfChildren == NumberOfChildren.Many)
-            {
-                return Children.Many(children1.Zip(children2, func));
-            }
-            switch (children1.NumberOfChildren)
-            {
-                case NumberOfChildren.None:
-                    return Children.None<R>();
-                case NumberOfChildren.One:
-                    switch (children2.NumberOfChildren)
-                    {
-                        case NumberOfChildren.None:
-                            return Children.None<R>();
-                        case NumberOfChildren.One:
-                        case NumberOfChildren.Two:
-                            return Children.One(func(children1.First, children2.First));
-                        default:
-                            throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
-                    }
-                case NumberOfChildren.Two:
-                    switch (children2.NumberOfChildren)
-                    {
-                        case NumberOfChildren.None:
-                            return Children.None<R>();
-                        case NumberOfChildren.One:
-                            return Children.One(func(children1.First, children2.First));
-                        case NumberOfChildren.Two:
-                            return Children.Two(func(children1.First, children2.First), func(children1.Second, children2.Second));
-                        default:
-                            throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
-                    }
-                default:
-                    throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
-            }
-        }
+        static IEnumerator<T> GetEnumerator<T, TEnumerable>(TEnumerable enumerable) where TEnumerable : IEnumerable<T>
+            => enumerable.GetEnumerator();
     }
 }

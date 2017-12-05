@@ -1,6 +1,7 @@
 #region GeneratedCode
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Sawmill.Xml
 {
@@ -118,9 +119,9 @@ namespace Sawmill.Xml
         }
 
         /// <summary>
-        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{ImmutableArray{T}, IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this System.Xml.Linq.XElement value1, System.Xml.Linq.XElement value2, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement, Children<U>, U> func)
+        public static U ZipFold<U>(this System.Xml.Linq.XElement value1, System.Xml.Linq.XElement value2, Func<ImmutableArray<System.Xml.Linq.XElement>, IEnumerable<U>, U> func)
         {
             if (func == null)
             {

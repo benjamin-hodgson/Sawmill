@@ -1,6 +1,7 @@
 #region GeneratedCode
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Sawmill.Microsoft.CodeAnalysis.CSharp
 {
@@ -118,9 +119,9 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         }
 
         /// <summary>
-        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{ImmutableArray{T}, IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value1, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value2, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Children<U>, U> func)
+        public static U ZipFold<U>(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value1, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value2, Func<ImmutableArray<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>, IEnumerable<U>, U> func)
         {
             if (func == null)
             {

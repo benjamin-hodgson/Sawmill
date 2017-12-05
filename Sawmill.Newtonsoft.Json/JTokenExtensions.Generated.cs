@@ -1,6 +1,7 @@
 #region GeneratedCode
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Sawmill.Newtonsoft.Json
 {
@@ -118,9 +119,9 @@ namespace Sawmill.Newtonsoft.Json
         }
 
         /// <summary>
-        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{ImmutableArray{T}, IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this global::Newtonsoft.Json.Linq.JToken value1, global::Newtonsoft.Json.Linq.JToken value2, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken, Children<U>, U> func)
+        public static U ZipFold<U>(this global::Newtonsoft.Json.Linq.JToken value1, global::Newtonsoft.Json.Linq.JToken value2, Func<ImmutableArray<global::Newtonsoft.Json.Linq.JToken>, IEnumerable<U>, U> func)
         {
             if (func == null)
             {
