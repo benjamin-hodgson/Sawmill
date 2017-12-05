@@ -118,6 +118,19 @@ namespace Sawmill.Newtonsoft.Json
         }
 
         /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// </summary>
+        public static U ZipFold<U>(this global::Newtonsoft.Json.Linq.JToken value1, global::Newtonsoft.Json.Linq.JToken value2, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken, Children<U>, U> func)
+        {
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return JTokenRewriter.Instance.ZipFold(func, value1, value2);
+        }
+
+        /// <summary>
         /// <seealso cref="Rewriter.Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
         public static global::Newtonsoft.Json.Linq.JToken Rewrite(this global::Newtonsoft.Json.Linq.JToken value, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> transformer)

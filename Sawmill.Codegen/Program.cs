@@ -178,6 +178,19 @@ namespace {ns}
         }}
 
         /// <summary>
+        /// <seealso cref=""Rewriter.ZipFold{{T, U}}(IRewriter{{T}}, Func{{T, T, Children{{U}}, U}}, T, T)""/>
+        /// </summary>
+        public static U ZipFold<U>(this {typeName} value1, {typeName} value2, Func<{typeName}, {typeName}, Children<U>, U> func)
+        {{
+            if (func == null)
+            {{
+                throw new ArgumentNullException(nameof(func));
+            }}
+
+            return {rewriterExpr}.ZipFold(func, value1, value2);
+        }}
+
+        /// <summary>
         /// <seealso cref=""Rewriter.Rewrite{{T}}(IRewriter{{T}}, Func{{T, T}}, T)""/>
         /// </summary>
         public static {typeName} Rewrite(this {typeName} value, Func<{typeName}, {typeName}> transformer)

@@ -104,6 +104,19 @@ namespace Sawmill
 
             return RewritableRewriter<T>.Instance.Fold(func, value);
         }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// </summary>
+        public static U ZipFold<T, U>(this T value1, T value2, Func<T, T, Children<U>, U> func) where T : IRewritable<T>
+        {
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return RewritableRewriter<T>.Instance.ZipFold<T, U>(func, value1, value2);
+        }
         
         /// <summary>
         /// <seealso cref="Rewriter.Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/>

@@ -118,6 +118,19 @@ namespace Sawmill.Xml
         }
 
         /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// </summary>
+        public static U ZipFold<U>(this System.Xml.XmlNode value1, System.Xml.XmlNode value2, Func<System.Xml.XmlNode, System.Xml.XmlNode, Children<U>, U> func)
+        {
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return XmlNodeRewriter.Instance.ZipFold(func, value1, value2);
+        }
+
+        /// <summary>
         /// <seealso cref="Rewriter.Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
         public static System.Xml.XmlNode Rewrite(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, System.Xml.XmlNode> transformer)

@@ -118,6 +118,19 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         }
 
         /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T, T, Children{U}, U}, T, T)"/>
+        /// </summary>
+        public static U ZipFold<U>(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value1, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value2, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Children<U>, U> func)
+        {
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.ZipFold(func, value1, value2);
+        }
+
+        /// <summary>
         /// <seealso cref="Rewriter.Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
         public static global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode Rewrite(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> transformer)

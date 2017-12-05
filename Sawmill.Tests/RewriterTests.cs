@@ -210,6 +210,28 @@ namespace Sawmill.Tests
         }
 
         [Fact]
+        public void TestZipFold()
+        {
+            {
+                var one = new Lit(1);
+                var two = new Lit(2);
+                var minusTwo = new Neg(two);
+                var expr = new Add(one, minusTwo);
+
+                Assert.True(Equal(expr, expr));
+            }
+            {
+                var one = new Lit(1);
+                var two = new Lit(2);
+                var minusTwo = new Neg(two);
+                var left = new Add(one, minusTwo);
+                var right = new Add(two, minusTwo);
+
+                Assert.False(Equal(left, right));
+            }
+        }
+
+        [Fact]
         public void TestDefaultRewriteChildren()
         {
             var one = new Lit(1);
@@ -294,6 +316,26 @@ namespace Sawmill.Tests
                     throw new ArgumentOutOfRangeException(nameof(x));
                 },
                 expr
+            );
+        
+        private bool Equal(Expr left, Expr right)
+            => _rewriter.ZipFold<Expr, bool>(
+                (x, y, children) =>
+                {
+                    switch (x)
+                    {
+                        case Lit l1 when y is Lit l2:
+                            return l1.Value == l2.Value;
+                        case Neg n1 when y is Neg n2:
+                            return children.First;
+                        case Add a1 when y is Add a2:
+                            return children.First && children.Second;
+                        default:
+                            return false;
+                    }
+                },
+                left,
+                right
             );
     }
 }
