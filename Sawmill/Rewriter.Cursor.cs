@@ -19,13 +19,7 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(rewriter));
             }
             
-            return new Cursor<T>(
-                rewriter,
-                new Stack<Step<T>>(),
-                new Stack<T>(),
-                value,
-                new Stack<T>()
-            );
+            return new Cursor<T>(rewriter, value);
         }
     }
 }

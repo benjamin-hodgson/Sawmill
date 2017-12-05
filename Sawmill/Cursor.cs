@@ -16,7 +16,7 @@ namespace Sawmill
     /// </para>
     /// 
     /// <para>
-    /// <see cref="Cursor{T}"/> is generally not as efficient as the
+    /// <see cref="Cursor{T}"/> is generally not as efficient or useful as the
     /// <see cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/> family for replacing single nodes,
     /// but it efficiently supports longer sequences of edits to a location and its neighbours.
     /// </para>
@@ -69,36 +69,18 @@ namespace Sawmill
         
         private bool _changed;
 
-        internal Cursor(
-            IRewriter<T> rewriter,
-            Stack<Step<T>> path,
-            Stack<T> prevSiblings,
-            T focus,
-            Stack<T> nextSiblings
-        )
+        internal Cursor(IRewriter<T> rewriter, T top)
         {
             if (rewriter == null)
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-            if (prevSiblings == null)
-            {
-                throw new ArgumentNullException(nameof(prevSiblings));
-            }
-            if (nextSiblings == null)
-            {
-                throw new ArgumentNullException(nameof(nextSiblings));
-            }
 
             _rewriter = rewriter;
-            _path = path;
-            _prevSiblings = prevSiblings;
-            _focus = focus;
-            _nextSiblings = nextSiblings;
+            _path = new Stack<Step<T>>();
+            _prevSiblings = new Stack<T>();
+            _focus = top;
+            _nextSiblings = new Stack<T>();
         }
 
 
