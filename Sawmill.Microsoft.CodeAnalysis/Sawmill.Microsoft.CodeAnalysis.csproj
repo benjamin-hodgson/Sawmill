@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>1.2.5</Version>
+    <Version>1.2.6</Version>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
 
     <Authors>benjamin.hodgson</Authors>
