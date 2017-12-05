@@ -47,7 +47,7 @@ namespace Sawmill
         /// <returns>The result of aggregating the two trees</returns>
         public static U ZipFold<T, U>(
             this IRewriter<T> rewriter,
-            Func<ImmutableArray<T>, IEnumerable<U>, U> func,
+            Func<T[], IEnumerable<U>, U> func,
             params T[] values
         )
         {
@@ -66,16 +66,16 @@ namespace Sawmill
 
             Func<T, Children<T>> getChildrenDelegate = rewriter.GetChildren;
 
-            Func<ImmutableArray<T>, U> goDelegate = null;
+            Func<T[], U> goDelegate = null;
             goDelegate = Go;
 
-            U Go(ImmutableArray<T> xs)
+            U Go(T[] xs)
                 => func(
                     xs,
                     ZipChildren(xs)
                 );
 
-            IEnumerable<U> ZipChildren(ImmutableArray<T> xs)
+            IEnumerable<U> ZipChildren(T[] xs)
             {
                 var enumerators = new IEnumerator<T>[xs.Length];
                 for (var i = 0; i < xs.Length; i++)
@@ -83,24 +83,24 @@ namespace Sawmill
                     enumerators[i] = GetEnumerator<T, Children<T>>(rewriter.GetChildren(xs[i]));
                 }
 
-                var currents = ImmutableArray.CreateBuilder<T>(xs.Length);
                 while (true)
                 {
-                    foreach (var e in enumerators)
+                var currents = new T[xs.Length];
+                    for (var i = 0; i < enumerators.Length; i++)
                     {
+                        var e = enumerators[i];
                         var hasNext = e.MoveNext();
                         if (!hasNext)
                         {
                             yield break;
                         }
-                        currents.Add(e.Current);
+                        currents[i] = e.Current;
                     }
-                    yield return goDelegate(currents.MoveToImmutable());
-                    currents.Capacity = xs.Length;
+                    yield return goDelegate(currents);
                 }
             }
 
-            return Go(values.ToImmutableArray());
+            return Go(values);
         }
 
         static IEnumerator<T> GetEnumerator<T, TEnumerable>(TEnumerable enumerable) where TEnumerable : IEnumerable<T>

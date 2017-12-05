@@ -107,9 +107,9 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{ImmutableArray{T}, IEnumerable{U}, U}, T[])"/>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<T, U>(this T value1, T value2, Func<ImmutableArray<T>, IEnumerable<U>, U> func) where T : IRewritable<T>
+        public static U ZipFold<T, U>(this T value1, T value2, Func<T[], IEnumerable<U>, U> func) where T : IRewritable<T>
         {
             if (func == null)
             {

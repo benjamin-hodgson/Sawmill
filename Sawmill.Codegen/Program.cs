@@ -179,9 +179,9 @@ namespace {ns}
         }}
 
         /// <summary>
-        /// <seealso cref=""Rewriter.ZipFold{{T, U}}(IRewriter{{T}}, Func{{ImmutableArray{{T}}, IEnumerable{{U}}, U}}, T[])""/>
+        /// <seealso cref=""Rewriter.ZipFold{{T, U}}(IRewriter{{T}}, Func{{T[], IEnumerable{{U}}, U}}, T[])""/>
         /// </summary>
-        public static U ZipFold<U>(this {typeName} value1, {typeName} value2, Func<ImmutableArray<{typeName}>, IEnumerable<U>, U> func)
+        public static U ZipFold<U>(this {typeName} value1, {typeName} value2, Func<{typeName}[], IEnumerable<U>, U> func)
         {{
             if (func == null)
             {{
