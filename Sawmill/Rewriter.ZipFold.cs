@@ -64,9 +64,6 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(values));
             }
 
-            Func<T[], U> goDelegate = null;
-            goDelegate = Go;
-
             U Go(T[] xs)
                 => func(
                     xs,
@@ -94,7 +91,7 @@ namespace Sawmill
                         }
                         currents[i] = e.Current;
                     }
-                    yield return goDelegate(currents);
+                    yield return Go(currents);
                 }
             }
 
