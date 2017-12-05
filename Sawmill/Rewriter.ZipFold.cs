@@ -83,7 +83,7 @@ namespace Sawmill
 
                 while (true)
                 {
-                var currents = new T[xs.Length];
+                    var currents = new T[xs.Length];
                     for (var i = 0; i < enumerators.Length; i++)
                     {
                         var e = enumerators[i];
