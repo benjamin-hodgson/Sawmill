@@ -64,8 +64,6 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(values));
             }
 
-            Func<T, Children<T>> getChildrenDelegate = rewriter.GetChildren;
-
             Func<T[], U> goDelegate = null;
             goDelegate = Go;
 
