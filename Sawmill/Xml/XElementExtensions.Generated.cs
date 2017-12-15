@@ -121,14 +121,31 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this System.Xml.Linq.XElement value1, System.Xml.Linq.XElement value2, Func<System.Xml.Linq.XElement[], IEnumerable<U>, U> func)
+        public static U ZipFold<U>(this System.Xml.Linq.XElement[] values, Func<System.Xml.Linq.XElement[], IEnumerable<U>, U> func)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return XElementRewriter.Instance.ZipFold(func, values);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
+        /// </summary>
+        public static U ZipFold<U>(this System.Xml.Linq.XElement value1, System.Xml.Linq.XElement value2, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement, IEnumerable<U>, U> func)
         {
             if (func == null)
             {
                 throw new ArgumentNullException(nameof(func));
             }
 
-            return XElementRewriter.Instance.ZipFold(func, value1, value2);
+            return XElementRewriter.Instance.ZipFold<System.Xml.Linq.XElement, U>((xs, cs) => func(xs[0], xs[1], cs), new[] { value1, value2 });
         }
 
         /// <summary>

@@ -121,14 +121,31 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this System.Xml.XmlNode value1, System.Xml.XmlNode value2, Func<System.Xml.XmlNode[], IEnumerable<U>, U> func)
+        public static U ZipFold<U>(this System.Xml.XmlNode[] values, Func<System.Xml.XmlNode[], IEnumerable<U>, U> func)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return XmlNodeRewriter.Instance.ZipFold(func, values);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
+        /// </summary>
+        public static U ZipFold<U>(this System.Xml.XmlNode value1, System.Xml.XmlNode value2, Func<System.Xml.XmlNode, System.Xml.XmlNode, IEnumerable<U>, U> func)
         {
             if (func == null)
             {
                 throw new ArgumentNullException(nameof(func));
             }
 
-            return XmlNodeRewriter.Instance.ZipFold(func, value1, value2);
+            return XmlNodeRewriter.Instance.ZipFold<System.Xml.XmlNode, U>((xs, cs) => func(xs[0], xs[1], cs), new[] { value1, value2 });
         }
 
         /// <summary>

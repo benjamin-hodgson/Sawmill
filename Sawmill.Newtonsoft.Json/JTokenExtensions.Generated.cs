@@ -121,14 +121,31 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this global::Newtonsoft.Json.Linq.JToken value1, global::Newtonsoft.Json.Linq.JToken value2, Func<global::Newtonsoft.Json.Linq.JToken[], IEnumerable<U>, U> func)
+        public static U ZipFold<U>(this global::Newtonsoft.Json.Linq.JToken[] values, Func<global::Newtonsoft.Json.Linq.JToken[], IEnumerable<U>, U> func)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return JTokenRewriter.Instance.ZipFold(func, values);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
+        /// </summary>
+        public static U ZipFold<U>(this global::Newtonsoft.Json.Linq.JToken value1, global::Newtonsoft.Json.Linq.JToken value2, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken, IEnumerable<U>, U> func)
         {
             if (func == null)
             {
                 throw new ArgumentNullException(nameof(func));
             }
 
-            return JTokenRewriter.Instance.ZipFold(func, value1, value2);
+            return JTokenRewriter.Instance.ZipFold<global::Newtonsoft.Json.Linq.JToken, U>((xs, cs) => func(xs[0], xs[1], cs), new[] { value1, value2 });
         }
 
         /// <summary>

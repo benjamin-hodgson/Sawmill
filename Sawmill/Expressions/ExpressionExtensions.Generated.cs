@@ -121,14 +121,31 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this System.Linq.Expressions.Expression value1, System.Linq.Expressions.Expression value2, Func<System.Linq.Expressions.Expression[], IEnumerable<U>, U> func)
+        public static U ZipFold<U>(this System.Linq.Expressions.Expression[] values, Func<System.Linq.Expressions.Expression[], IEnumerable<U>, U> func)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return ExpressionRewriter.Instance.ZipFold(func, values);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
+        /// </summary>
+        public static U ZipFold<U>(this System.Linq.Expressions.Expression value1, System.Linq.Expressions.Expression value2, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, IEnumerable<U>, U> func)
         {
             if (func == null)
             {
                 throw new ArgumentNullException(nameof(func));
             }
 
-            return ExpressionRewriter.Instance.ZipFold(func, value1, value2);
+            return ExpressionRewriter.Instance.ZipFold<System.Linq.Expressions.Expression, U>((xs, cs) => func(xs[0], xs[1], cs), new[] { value1, value2 });
         }
 
         /// <summary>

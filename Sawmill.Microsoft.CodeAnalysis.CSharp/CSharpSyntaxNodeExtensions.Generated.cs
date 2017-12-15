@@ -121,14 +121,31 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
         /// </summary>
-        public static U ZipFold<U>(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value1, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value2, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode[], IEnumerable<U>, U> func)
+        public static U ZipFold<U>(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode[] values, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode[], IEnumerable<U>, U> func)
+        {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.ZipFold(func, values);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/>
+        /// </summary>
+        public static U ZipFold<U>(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value1, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value2, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, IEnumerable<U>, U> func)
         {
             if (func == null)
             {
                 throw new ArgumentNullException(nameof(func));
             }
 
-            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.ZipFold(func, value1, value2);
+            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.ZipFold<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, U>((xs, cs) => func(xs[0], xs[1], cs), new[] { value1, value2 });
         }
 
         /// <summary>
