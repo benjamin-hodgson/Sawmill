@@ -19,9 +19,7 @@ namespace Sawmill
         /// </para>
         /// 
         /// <seealso cref="SelfAndDescendantsInContext"/>
-        /// <seealso cref="SelfAndDescendantsInContextLazy"/>
         /// <seealso cref="DescendantsAndSelfInContext"/>
-        /// <seealso cref="DescendantsAndSelfInContextLazy"/>
         /// </summary>
         /// <param name="rewriter">The rewriter</param>
         /// <param name="value">The value to get the contexts for the immediate children</param>

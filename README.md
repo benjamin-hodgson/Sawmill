@@ -59,7 +59,7 @@ IEnumerable<string> GetVariables(Expr expr)
     => expr.SelfAndDescendants().OfType<Var>().Select(v => v.Name);
 ```
 
-`SelfAndDescendants` returns an enumerable containing the current node and all of the nodes in the rest of the tree. The example above uses the standard `OfType` and `Select` LINQ methods to find the names of all the variables mentioned in `expr`. It also has two cousins, `DescendantsAndSelf` and `SelfAndDescendantsBreadthFirst`, which differ in the order in which they yield nodes. All of these also have `Lazy` variants, which may be more efficient for certain traversal types.
+`SelfAndDescendants` returns an enumerable containing the current node and all of the nodes in the rest of the tree. The example above uses the standard `OfType` and `Select` LINQ methods to find the names of all the variables mentioned in `expr`. It also has two cousins, `DescendantsAndSelf` and `SelfAndDescendantsBreadthFirst`, which differ in the order in which they yield nodes.
 
 By the way, you can totally "go it alone" and write complex or performance-critical traversals without Sawmill's help. You can just use explicit recursion, as in the first example. Sawmill is intended to be _useful_, not _opinionated_.
 
@@ -167,7 +167,7 @@ string Compile(Expr expr)
 
 ### Replacing individual nodes in a tree
 
-There are several "`InContext`" extension methods, as well as `Lazy` versions of the same:
+There are several "`InContext`" extension methods:
 
   * `ChildrenInContext`
   * `SelfAndDescendantsInContext`

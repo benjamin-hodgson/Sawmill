@@ -29,7 +29,9 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(one, minusTwo);
 
+            #pragma warning disable 618
             Assert.Equal(new Expr[] { expr, one, minusTwo, two }, _rewriter.SelfAndDescendantsLazy(expr));
+            #pragma warning restore 618
         }
 
         [Fact]
@@ -51,7 +53,9 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(one, minusTwo);
 
+            #pragma warning disable 618
             Assert.Equal(new Expr[] { one, two, minusTwo, expr }, _rewriter.DescendantsAndSelfLazy(expr));
+            #pragma warning restore 618
         }
 
         [Fact]
@@ -75,7 +79,9 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(minusOne, minusTwo);
 
+            #pragma warning disable 618
             Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, _rewriter.SelfAndDescendantsBreadthFirstLazy(expr));
+            #pragma warning restore 618
         }
 
         [Fact]
@@ -120,7 +126,9 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(one, minusTwo);
 
+            #pragma warning disable 618
             var contexts = _rewriter.SelfAndDescendantsInContextLazy(expr);
+            #pragma warning restore 618
 
             Assert.Equal(new Expr[] { expr, one, minusTwo, two }, contexts.Select(x => x.item));
             
@@ -154,7 +162,9 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(one, minusTwo);
 
+            #pragma warning disable 618
             var contexts = _rewriter.DescendantsAndSelfInContextLazy(expr);
+            #pragma warning restore 618
 
             Assert.Equal(new Expr[] { one, two, minusTwo, expr }, contexts.Select(x => x.item));
             
@@ -190,7 +200,9 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(minusOne, minusTwo);
 
+            #pragma warning disable 618
             var contexts = _rewriter.SelfAndDescendantsInContextBreadthFirstLazy(expr);
+            #pragma warning restore 618
 
             Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, contexts.Select(x => x.item));
             

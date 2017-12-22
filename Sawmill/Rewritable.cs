@@ -18,6 +18,7 @@ namespace Sawmill
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelf is now lazy by default")]
         public static IEnumerable<T> DescendantsAndSelfLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.DescendantsAndSelfLazy(value);
         
@@ -30,6 +31,7 @@ namespace Sawmill
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendants is now lazy by default")]
         public static IEnumerable<T> SelfAndDescendantsLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsLazy(value);
 
@@ -42,6 +44,7 @@ namespace Sawmill
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsBreadthFirst is now lazy by default")]
         public static IEnumerable<T> SelfAndDescendantsBreadthFirstLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsBreadthFirstLazy(value);
 
@@ -60,6 +63,7 @@ namespace Sawmill
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
         public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsInContextLazy(value);
 
@@ -72,6 +76,7 @@ namespace Sawmill
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelfInContext is now lazy by default")]
         public static IEnumerable<(T item, Func<T, T> replace)> DescendantsAndSelfInContextLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.DescendantsAndSelfInContextLazy(value);
 
@@ -84,6 +89,7 @@ namespace Sawmill
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
         public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextBreadthFirstLazy<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
 

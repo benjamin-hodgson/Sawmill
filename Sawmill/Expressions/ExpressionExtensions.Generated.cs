@@ -31,6 +31,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelf is now lazy by default")]
         public static IEnumerable<System.Linq.Expressions.Expression> DescendantsAndSelfLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelfLazy(value);
             
@@ -43,6 +44,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendants is now lazy by default")]
         public static IEnumerable<System.Linq.Expressions.Expression> SelfAndDescendantsLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsLazy(value);
 
@@ -55,6 +57,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsBreadthFirst is now lazy by default")]
         public static IEnumerable<System.Linq.Expressions.Expression> SelfAndDescendantsBreadthFirstLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsBreadthFirstLazy(value);
 
@@ -73,6 +76,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
         public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContextLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsInContextLazy(value);
 
@@ -85,6 +89,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelfInContext is now lazy by default")]
         public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> DescendantsAndSelfInContextLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.DescendantsAndSelfInContextLazy(value);
 
@@ -97,6 +102,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
         public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
 

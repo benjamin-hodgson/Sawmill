@@ -31,6 +31,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelf is now lazy by default")]
         public static IEnumerable<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> DescendantsAndSelfLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.DescendantsAndSelfLazy(value);
             
@@ -43,6 +44,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendants is now lazy by default")]
         public static IEnumerable<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> SelfAndDescendantsLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsLazy(value);
 
@@ -55,6 +57,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsBreadthFirst is now lazy by default")]
         public static IEnumerable<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> SelfAndDescendantsBreadthFirstLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsBreadthFirstLazy(value);
 
@@ -73,6 +76,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
         public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> SelfAndDescendantsInContextLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsInContextLazy(value);
 
@@ -85,6 +89,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelfInContext is now lazy by default")]
         public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> DescendantsAndSelfInContextLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.DescendantsAndSelfInContextLazy(value);
 
@@ -97,6 +102,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
         public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
 

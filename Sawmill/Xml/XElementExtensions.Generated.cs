@@ -31,6 +31,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelf is now lazy by default")]
         public static IEnumerable<System.Xml.Linq.XElement> DescendantsAndSelfLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.DescendantsAndSelfLazy(value);
             
@@ -43,6 +44,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendants is now lazy by default")]
         public static IEnumerable<System.Xml.Linq.XElement> SelfAndDescendantsLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.SelfAndDescendantsLazy(value);
 
@@ -55,6 +57,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsBreadthFirst is now lazy by default")]
         public static IEnumerable<System.Xml.Linq.XElement> SelfAndDescendantsBreadthFirstLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.SelfAndDescendantsBreadthFirstLazy(value);
 
@@ -73,6 +76,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
         public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> SelfAndDescendantsInContextLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.SelfAndDescendantsInContextLazy(value);
 
@@ -85,6 +89,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelfInContext is now lazy by default")]
         public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> DescendantsAndSelfInContextLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.DescendantsAndSelfInContextLazy(value);
 
@@ -97,6 +102,7 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
         public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
 

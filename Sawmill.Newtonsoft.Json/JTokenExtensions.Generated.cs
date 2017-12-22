@@ -31,6 +31,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelf is now lazy by default")]
         public static IEnumerable<global::Newtonsoft.Json.Linq.JToken> DescendantsAndSelfLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.DescendantsAndSelfLazy(value);
             
@@ -43,6 +44,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendants is now lazy by default")]
         public static IEnumerable<global::Newtonsoft.Json.Linq.JToken> SelfAndDescendantsLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.SelfAndDescendantsLazy(value);
 
@@ -55,6 +57,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsBreadthFirst is now lazy by default")]
         public static IEnumerable<global::Newtonsoft.Json.Linq.JToken> SelfAndDescendantsBreadthFirstLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.SelfAndDescendantsBreadthFirstLazy(value);
 
@@ -73,6 +76,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
         public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> SelfAndDescendantsInContextLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.SelfAndDescendantsInContextLazy(value);
 
@@ -85,6 +89,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelfInContext is now lazy by default")]
         public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> DescendantsAndSelfInContextLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.DescendantsAndSelfInContextLazy(value);
 
@@ -97,6 +102,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
         public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
 

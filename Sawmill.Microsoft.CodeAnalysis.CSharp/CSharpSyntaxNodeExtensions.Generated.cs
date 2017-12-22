@@ -31,6 +31,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelf is now lazy by default")]
         public static IEnumerable<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> DescendantsAndSelfLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.DescendantsAndSelfLazy(value);
             
@@ -43,6 +44,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendants is now lazy by default")]
         public static IEnumerable<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> SelfAndDescendantsLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsLazy(value);
 
@@ -55,6 +57,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsBreadthFirst is now lazy by default")]
         public static IEnumerable<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> SelfAndDescendantsBreadthFirstLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsBreadthFirstLazy(value);
 
@@ -73,6 +76,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
         public static IEnumerable<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> SelfAndDescendantsInContextLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsInContextLazy(value);
 
@@ -85,6 +89,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.DescendantsAndSelfInContextLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("DescendantsAndSelfInContext is now lazy by default")]
         public static IEnumerable<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> DescendantsAndSelfInContextLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.DescendantsAndSelfInContextLazy(value);
 
@@ -97,6 +102,7 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         /// <summary>
         /// <seealso cref="Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{T}(IRewriter{T}, T)"/>
         /// </summary>
+        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
         public static IEnumerable<(global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode item, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirstLazy(value);
 
