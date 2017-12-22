@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -16,7 +17,7 @@ namespace Sawmill.Xml
         /// </summary>
         public Children<XElement> GetChildren(XElement value)
             => value is XContainer c
-                ? Children.Many(c.Elements())
+                ? Children.Many(c.Elements().ToImmutableList())
                 : Children.None<XElement>();
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
@@ -16,7 +17,7 @@ namespace Sawmill.Microsoft.CodeAnalysis
         /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
         /// </summary>
         public Children<T> GetChildren(T value)
-            => Children.Many((IEnumerable<T>)value.ChildNodes());
+            => Children.Many(((IEnumerable<T>)value.ChildNodes()).ToImmutableList());
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>

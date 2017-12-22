@@ -81,7 +81,7 @@ namespace Sawmill.Tests
             var zero = new Lit(0);
             var one = new Lit(1);
             var two = new Lit(2);
-            var list = new List(ImmutableArray.CreateRange(new Expr[]{ zero, one, two }));
+            var list = new List(ImmutableList<Expr>.Empty.Add(zero).Add(one).Add(two));
 
             Assert.Equal(new[]{ zero, one, two }, _rewriter.GetChildren(list));
         }
@@ -131,7 +131,7 @@ namespace Sawmill.Tests
             var newC = new Lit(3);
             var newL = new Lit(4);
             var newR = new Lit(5);
-            var newTern = _rewriter.SetChildren(Children.Many(new Expr[]{ newC, newL, newR }), tern);
+            var newTern = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(newC).Add(newL).Add(newR)), tern);
 
             Assert.Equal(new[]{ newC, newL, newR }, _rewriter.GetChildren(newTern));
         }
@@ -142,12 +142,12 @@ namespace Sawmill.Tests
             var zero = new Lit(0);
             var one = new Lit(1);
             var two = new Lit(2);
-            var list = new List(ImmutableArray.CreateRange(new Expr[]{ zero, one, two }));
+            var list = new List(ImmutableList<Expr>.Empty.Add(zero).Add(one).Add(two));
 
             var new0 = new Lit(3);
             var new1 = new Lit(4);
             var new2 = new Lit(5);
-            var newList = _rewriter.SetChildren(Children.Many(new Expr[]{ new0, new1, new2 }), list);
+            var newList = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(new0).Add(new1).Add(new2)), list);
 
             Assert.Equal(new[]{ new0, new1, new2 }, _rewriter.GetChildren(newList));
         }

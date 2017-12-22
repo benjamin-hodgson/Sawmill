@@ -18,14 +18,17 @@ namespace Sawmill.Tests
                 case Add a:
                     return Children.Two(a.Left, a.Right);
                 case Ternary t:
-                    return Children.Many(new[]{ t.Condition, t.ThenBranch, t.ElseBranch });
+                    return Children.Many(ImmutableList<Expr>.Empty.Add(t.Condition).Add(t.ThenBranch).Add(t.ElseBranch));
                 case List l:
                     return Children.Many(l.Exprs);
                 case IfThenElse i:
-                    var children = new List<Expr> { i.Condition };
-                    children.AddRange(i.IfTrueStmts);
-                    children.AddRange(i.IfFalseStmts);
-                    return Children.Many(children);
+                    return Children.Many(
+                        ImmutableList<Expr>
+                            .Empty
+                            .Add(i.Condition)
+                            .AddRange(i.IfTrueStmts)
+                            .AddRange(i.IfFalseStmts)
+                    );
             }
             throw new ArgumentOutOfRangeException(nameof(value));
         }
@@ -43,12 +46,12 @@ namespace Sawmill.Tests
                 case Ternary t:
                     return new Ternary(newChildren.ElementAt(0), newChildren.ElementAt(1), newChildren.ElementAt(2));
                 case List l:
-                    return new List(newChildren.ToImmutableArray());
+                    return new List(newChildren.Many);
                 case IfThenElse i:
                     return new IfThenElse(
-                        newChildren.ElementAt(0),
-                        newChildren.Skip(1).Take(i.IfTrueStmts.Length).ToImmutableArray(),
-                        newChildren.Skip(1 + i.IfTrueStmts.Length).Take(i.IfFalseStmts.Length).ToImmutableArray()
+                        newChildren.Many[0],
+                        newChildren.Many.Skip(1).Take(i.IfTrueStmts.Count).ToImmutableList(),
+                        newChildren.Many.Skip(1 + i.IfTrueStmts.Count).Take(i.IfFalseStmts.Count).ToImmutableList()
                     );
             }
             throw new ArgumentOutOfRangeException(nameof(oldValue));
@@ -67,12 +70,12 @@ namespace Sawmill.Tests
                 case Ternary t:
                     return new Ternary(transformer(t.Condition), transformer(t.ThenBranch), transformer(t.ElseBranch));
                 case List l:
-                    return new List(l.Exprs.Select(transformer).ToImmutableArray());
+                    return new List(l.Exprs.Select(transformer).ToImmutableList());
                 case IfThenElse i:
                     return new IfThenElse(
                         transformer(i.Condition),
-                        i.IfTrueStmts.Select(transformer).ToImmutableArray(),
-                        i.IfFalseStmts.Select(transformer).ToImmutableArray()
+                        i.IfTrueStmts.Select(transformer).ToImmutableList(),
+                        i.IfFalseStmts.Select(transformer).ToImmutableList()
                     );
             }
             throw new ArgumentOutOfRangeException(nameof(oldValue));

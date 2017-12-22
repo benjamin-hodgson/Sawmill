@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Immutable;
 using Newtonsoft.Json.Linq;
 
 namespace Sawmill.Newtonsoft.Json
@@ -15,7 +16,7 @@ namespace Sawmill.Newtonsoft.Json
         /// </summary>
         public Children<JToken> GetChildren(JToken value)
             => value is JContainer c
-                ? Children.Many(c.Children())
+                ? Children.Many(c.Children().ToImmutableList())
                 : Children.None<JToken>();
 
         /// <summary>

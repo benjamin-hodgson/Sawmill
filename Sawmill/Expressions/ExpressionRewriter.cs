@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -22,53 +23,44 @@ namespace Sawmill.Expressions
                 case BinaryExpression b:
                     return Children.Two(b.Left, b.Right);
                 case BlockExpression b:
-                    return Children.Many(b.Expressions);
+                    return Children.Many(b.Expressions.ToImmutableList());
                 case ConditionalExpression c:
-                    return Children.Many(new[]{ c.Test, c.IfTrue, c.IfFalse });
+                    return Children.Many(ImmutableList<Expression>.Empty.Add(c.Test).Add(c.IfTrue).Add(c.IfFalse));
                 case DynamicExpression d:
-                    return Children.Many(d.Arguments);
+                    return Children.Many(d.Arguments.ToImmutableList());
                 case GotoExpression g:
                     return Children.One(g.Value);
                 case IndexExpression i:
-                    var indexExpressionChildren = new List<Expression>(i.Arguments.Count + 1) { i.Object };
-                    indexExpressionChildren.AddRange(i.Arguments);
-                    return Children.Many(indexExpressionChildren);
+                    return Children.Many(ImmutableList<Expression>.Empty.Add(i.Object).AddRange(i.Arguments));
                 case InvocationExpression i:
-                    var invocationExpressionChildren = new List<Expression>(i.Arguments.Count + 1) { i.Expression };
-                    invocationExpressionChildren.AddRange(i.Arguments);
-                    return Children.Many(invocationExpressionChildren);
+                    return Children.Many(ImmutableList<Expression>.Empty.Add(i.Expression).AddRange(i.Arguments));
                 case LabelExpression l:
                     return Children.One(l.DefaultValue);
                 case LambdaExpression l:
                     return Children.One(l.Body);
                 case ListInitExpression l:
-                    return Children.Many(l.Initializers.SelectMany(i => i.Arguments));
+                    return Children.Many(l.Initializers.SelectMany(i => i.Arguments).ToImmutableList());
                 case LoopExpression l:
                     return Children.One(l.Body);
                 case MemberExpression m:
                     return Children.One(m.Expression);
                 case MemberInitExpression m:
-                    return Children.Many(m.Bindings.SelectMany(GetBindingExpr));
+                    return Children.Many(m.Bindings.SelectMany(GetBindingExpr).ToImmutableList());
                 case MethodCallExpression m:
-                    var methodCallExpressionChildren = new List<Expression>
-                    {
-                        m.Object
-                    };
-                    methodCallExpressionChildren.AddRange(m.Arguments);
-                    return Children.Many(methodCallExpressionChildren);
+                    return Children.Many(ImmutableList<Expression>.Empty.Add(m.Object).AddRange(m.Arguments));
                 case NewArrayExpression n:
-                    return Children.Many(n.Expressions);
+                    return Children.Many(n.Expressions.ToImmutableList());
                 case NewExpression n:
-                    return Children.Many(n.Arguments);
+                    return Children.Many(n.Arguments.ToImmutableList());
                 case SwitchExpression s:
-                    var switchExpressionChildren = new List<Expression>
-                    {
-                        s.SwitchValue
-                    };
-                    switchExpressionChildren.AddRange(s.Cases.SelectMany(GetSwitchCaseChildren));
-                    return Children.Many(switchExpressionChildren);
+                    return Children.Many(
+                        ImmutableList<Expression>
+                            .Empty
+                            .Add(s.SwitchValue)
+                            .AddRange(s.Cases.SelectMany(GetSwitchCaseChildren))
+                    );
                 case TryExpression t:
-                    var tryExpressionChildren = new List<Expression>(t.Handlers.Count * 2 + 3);
+                    var tryExpressionChildren = ImmutableList.CreateBuilder<Expression>();
                     tryExpressionChildren.Add(t.Body);
                     foreach (var h in t.Handlers)
                     {
@@ -77,7 +69,7 @@ namespace Sawmill.Expressions
                     }
                     tryExpressionChildren.Add(t.Finally);
                     tryExpressionChildren.Add(t.Fault);
-                    return Children.Many(tryExpressionChildren);
+                    return Children.Many(tryExpressionChildren.ToImmutable());
                 case TypeBinaryExpression t:
                     return Children.One(t.Expression);
                 case UnaryExpression u:
@@ -104,15 +96,15 @@ namespace Sawmill.Expressions
                 case BlockExpression b:
                     return b.Update(b.Variables, newChildren.Many);
                 case ConditionalExpression c:
-                    return c.Update(newChildren.Many.ElementAt(0), newChildren.Many.ElementAt(1), newChildren.Many.ElementAt(2));
+                    return c.Update(newChildren.Many[0], newChildren.Many[1], newChildren.Many[2]);
                 case DynamicExpression d:
                     return d.Update(d.Arguments);
                 case GotoExpression g:
                     return g.Update(g.Target, newChildren.First);
                 case IndexExpression i:
-                    return i.Update(newChildren.Many.ElementAt(0), newChildren.Many.Skip(1));
+                    return i.Update(newChildren.Many[0], newChildren.Many.Skip(1));
                 case InvocationExpression i:
-                    return i.Update(newChildren.Many.ElementAt(0), newChildren.Many.Skip(1));
+                    return i.Update(newChildren.Many[0], newChildren.Many.Skip(1));
                 case LabelExpression l:
                     return l.Update(l.Target, newChildren.First);
                 case LambdaExpression l:
@@ -126,19 +118,19 @@ namespace Sawmill.Expressions
                 case MemberInitExpression m:
                     return m.Update(m.NewExpression, UpdateBindings(m.Bindings, newChildren.Many).Item1);
                 case MethodCallExpression m:
-                    return m.Update(newChildren.Many.ElementAt(0), newChildren.Many.Skip(1));
+                    return m.Update(newChildren.Many[0], newChildren.Many.Skip(1));
                 case NewArrayExpression n:
                     return n.Update(newChildren.Many);
                 case NewExpression n:
                     return n.Update(newChildren.Many);
                 case SwitchExpression s:
                     return s.Update(
-                        newChildren.Many.ElementAt(0),
+                        newChildren.Many[0],
                         UpdateSwitchCases(s.Cases, newChildren.Many),
-                        newChildren.Many.Last()
+                        newChildren.Many[newChildren.Many.Count - 1]
                     );
                 case TryExpression t:
-                    var newTryBlock = newChildren.Many.ElementAt(0);
+                    var newTryBlock = newChildren.Many[0];
                     var updateResult = UpdateCatchBlocks(t.Handlers, newChildren.Many.Skip(1));
                     var remainingNewChildren = updateResult.Item2;
                     return t.Update(
@@ -251,7 +243,7 @@ namespace Sawmill.Expressions
             }
             return newCases;
         }
-        private (IEnumerable<CatchBlock>, IEnumerable<Expression>) UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, IEnumerable<Expression> newChildren)
+        private (IEnumerable<CatchBlock> catchBlocks, IEnumerable<Expression> remainingNewChildren) UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, IEnumerable<Expression> newChildren)
         {
             var newCatchBlocks = new List<CatchBlock>(oldCatchBlocks.Count());
             foreach (var oldCatchBlock in oldCatchBlocks)

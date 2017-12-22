@@ -70,30 +70,21 @@ namespace Sawmill
                 }
                 case NumberOfChildren.Many:
                 {
-                    var many = children.Many;
+                    var many = children.Many.ToBuilder();
 
-                    var mapped = EnumerableBuilder<T>.Map(many, transformer);
+                    for (var i = 0; i < many.Count; i++)
+                    {
+                        var oldChild = many[i];
+                        var newChild = transformer(oldChild);
 
-                    if (mapped.HasValue)
-                    {
-                        changed = mapped.Value.changed;
-                        newChildren = Children.Many(mapped.Value.result);
-                    }
-                    else  // wasn't a type we know how to rebuild. let's just build an ImmutableArray
-                    {
-                        var builder = many is ICollection<T> c
-                            ? ImmutableArray.CreateBuilder<T>(c.Count)
-                            : ImmutableArray.CreateBuilder<T>();
-                        
-                        foreach (var oldChild in many)
+                        if (!ReferenceEquals(oldChild, newChild))
                         {
-                            var newChild = transformer(oldChild);
-                            changed = changed || !ReferenceEquals(oldChild, newChild);
-                            builder.Add(newChild);
+                            changed = true;
+                            many[i] = newChild;
                         }
-
-                        newChildren = Children.Many(ToImmutableAndClear(builder));
                     }
+
+                    newChildren = Children.Many(many.ToImmutable());
 
                     break;
                 }
@@ -105,17 +96,6 @@ namespace Sawmill
 
 
             return changed ? rewriter.SetChildren(newChildren, oldValue) : oldValue;
-        }
-
-        private static ImmutableArray<T> ToImmutableAndClear<T>(ImmutableArray<T>.Builder builder)
-        {
-            if (builder.Capacity == builder.Count)
-            {
-                return builder.MoveToImmutable();
-            }
-            var array = builder.ToImmutable();
-            builder.Clear();
-            return array;
         }
     }
 }

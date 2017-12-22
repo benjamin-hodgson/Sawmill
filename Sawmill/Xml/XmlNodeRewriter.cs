@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Xml;
 
@@ -15,7 +16,7 @@ namespace Sawmill.Xml
         /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
         /// </summary>
         public Children<XmlNode> GetChildren(XmlNode value)
-            => Children.Many<XmlNode>(value.ChildNodes.Cast<XmlNode>());
+            => Children.Many<XmlNode>(value.ChildNodes.Cast<XmlNode>().ToImmutableList());
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>

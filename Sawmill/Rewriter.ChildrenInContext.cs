@@ -69,7 +69,7 @@ namespace Sawmill
                                 : rewriter.SetChildren(Children.Many(list.SetItem(i, newChild)), value)
                         )
                     );
-                    return Children.Many(contexts);
+                    return Children.Many(contexts.ToImmutableList());
                 default:
                     throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
             }

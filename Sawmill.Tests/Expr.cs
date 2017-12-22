@@ -50,9 +50,9 @@ namespace Sawmill.Tests
     }
     class List : Expr
     {
-        public ImmutableArray<Expr> Exprs { get; }
+        public ImmutableList<Expr> Exprs { get; }
 
-        public List(ImmutableArray<Expr> exprs)
+        public List(ImmutableList<Expr> exprs)
         {
             Exprs = exprs;
         }
@@ -60,10 +60,10 @@ namespace Sawmill.Tests
     class IfThenElse : Expr
     {
         public Expr Condition { get; }
-        public ImmutableArray<Expr> IfTrueStmts { get; }
-        public ImmutableArray<Expr> IfFalseStmts { get; }
+        public ImmutableList<Expr> IfTrueStmts { get; }
+        public ImmutableList<Expr> IfFalseStmts { get; }
 
-        public IfThenElse(Expr condition, ImmutableArray<Expr> ifTrueStmts, ImmutableArray<Expr> ifFalseStmts)
+        public IfThenElse(Expr condition, ImmutableList<Expr> ifTrueStmts, ImmutableList<Expr> ifFalseStmts)
         {
             Condition = condition;
             IfTrueStmts = ifTrueStmts;

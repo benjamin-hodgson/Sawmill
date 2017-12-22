@@ -110,10 +110,55 @@ namespace Sawmill
         }
     }
 
-    internal delegate Children<TBase> GetChildrenDelegate<TBase, TSub>(
-        TSub value,
-        Children<TBase> acc
-    );
+    internal class ChildrenBuilder<T>
+    {
+        private NumberOfChildren _numberOfChildren = NumberOfChildren.None;
+        private T _first;
+        private T _second;
+        private ImmutableList<T>.Builder _many;
+
+        public void Add(T child)
+        {
+            switch (_numberOfChildren)
+            {
+                case NumberOfChildren.None:
+                    _first = child;
+                    _numberOfChildren = NumberOfChildren.One;
+                    break;
+                case NumberOfChildren.One:
+                    _second = child;
+                    _numberOfChildren = NumberOfChildren.Two;
+                    break;
+                case NumberOfChildren.Two:
+                    _many = ImmutableList.CreateBuilder<T>();
+                    _many.Add(_first);
+                    _many.Add(_second);
+                    _many.Add(child);
+                    _numberOfChildren = NumberOfChildren.Many;
+                    break;
+                case NumberOfChildren.Many:
+                    _many.Add(child);
+                    break;
+            }
+        }
+
+        public Children<T> Build()
+        {
+            switch (_numberOfChildren)
+            {
+                case NumberOfChildren.None:
+                    return Children.None<T>();
+                case NumberOfChildren.One:
+                    return Children.One<T>(_first);
+                case NumberOfChildren.Two:
+                    return Children.Two<T>(_first, _second);
+                case NumberOfChildren.Many:
+                    return Children.Many<T>(_many.ToImmutable());
+            }
+            throw new InvalidOperationException("Unreachable");
+        }
+    }
+    internal delegate void GetChildrenDelegate<TBase, TSub>(TSub value, ChildrenBuilder<TBase> acc);
 
     /// <summary>
     /// Tools for building rewriters for a single subclass of a base type.
@@ -176,25 +221,7 @@ namespace Sawmill
                 GetChildrenDelegates.Add(
                     (value, acc) =>
                     {
-                        var thisChild = child(value);
-                        switch (acc.NumberOfChildren)
-                        {
-                            case NumberOfChildren.None:
-                                return Sawmill.Children.One(thisChild);
-                            case NumberOfChildren.One:
-                                return Sawmill.Children.Two(acc.First, thisChild);
-                            case NumberOfChildren.Two:
-                                var builder = ImmutableList.CreateBuilder<TBase>();
-                                builder.Add(acc.First);
-                                builder.Add(acc.Second);
-                                builder.Add(thisChild);
-                                return Sawmill.Children.Many(builder);
-                            case NumberOfChildren.Many:
-                                var many = (ImmutableList<TBase>.Builder)acc.Many;
-                                many.Add(thisChild);
-                                return Sawmill.Children.Many(many);
-                        }
-                        throw new Exception("unreachable");
+                        acc.Add(child(value));
                     }
                 ),
                 (oldValue, newChildrenEnumerator) =>
@@ -221,22 +248,23 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// Select an enumerable of children, of type <typeparamref name="TEnumerable"/>.
+        /// Select a list of children.
         /// </summary>
-        public RewriterBuilderCase<(TArgs, TEnumerable), TBase, TSub> Children<TEnumerable>(Func<TSub, TEnumerable> children) where TEnumerable : IEnumerable<TBase>
+        public RewriterBuilderCase<(TArgs, ImmutableList<TBase>), TBase, TSub> Children(Func<TSub, ImmutableList<TBase>> children)
         {
             if (children == null)
             {
                 throw new ArgumentNullException(nameof(children));
             }
 
-            return new RewriterBuilderCase<(TArgs, TEnumerable), TBase, TSub>(
+            return new RewriterBuilderCase<(TArgs, ImmutableList<TBase>), TBase, TSub>(
                 GetChildrenDelegates.Add(
                     (value, acc) =>
                     {
-                        var many = (ImmutableList<TBase>.Builder)acc.Many;
-                        many.AddRange(children(value));
-                        return Sawmill.Children.Many(many);
+                        foreach (var child in children(value))
+                        {
+                            acc.Add(child);
+                        }
                     }
                 ),
                 (oldValue, newChildrenEnumerator) =>
@@ -244,72 +272,38 @@ namespace Sawmill
                     var (changed, rest) = GetSetChildrenCtorArgs(oldValue, newChildrenEnumerator);
                     var oldChildren = children(oldValue);
 
-                    TEnumerable newChildren;
-                    if (oldChildren is ImmutableList<TBase>)
+                    var builder = oldChildren.ToBuilder();
+                    for (var i = 0; i < builder.Count; i++)
                     {
-                        var builder = ((ImmutableList<TBase>)(object)oldChildren).ToBuilder();
-                        for (var i = 0; i < builder.Count; i++)
-                        {
-                            var oldChild = builder[i];
-                            var newChild = newChildrenEnumerator.Draw1();
+                        var oldChild = builder[i];
+                        var newChild = newChildrenEnumerator.Draw1();
 
-                            if (!ReferenceEquals(oldChild, newChild))
-                            {
-                                changed = true;
-                                builder[i] = newChild;
-                            }
-                        }
-                        newChildren = (TEnumerable)(object)builder.ToImmutable();
-                    }
-                    else
-                    {
-                        var result = EnumerableBuilder<TBase>.RebuildFrom(oldChildren, newChildrenEnumerator);
-                        if (!result.HasValue)
+                        if (!ReferenceEquals(oldChild, newChild))
                         {
-                            throw new Exception("Unknown type of enumerable");
+                            changed = true;
+                            builder[i] = newChild;
                         }
-                        changed = changed || result.Value.changed;
-                        newChildren = result.Value.result;
                     }
-
-                    
-                    return (changed, (rest, newChildren));
+                    return (changed, (rest, builder.ToImmutable()));
                 },
                 (oldValue, func) =>
                 {
                     var (changed, rest) = GetRewriteChildrenCtorArgs(oldValue, func);
                     var oldChildren = children(oldValue);
 
-                    TEnumerable newChildren;
-                    if (oldChildren is ImmutableList<TBase>)
+                    var builder = oldChildren.ToBuilder();
+                    for (var i = 0; i < builder.Count; i++)
                     {
-                        var builder = ((ImmutableList<TBase>)(object)oldChildren).ToBuilder();
-                        for (var i = 0; i < builder.Count; i++)
-                        {
-                            var oldChild = builder[i];
-                            var newChild = func(oldChild);
+                        var oldChild = builder[i];
+                        var newChild = func(oldChild);
 
-                            if (!ReferenceEquals(oldChild, newChild))
-                            {
-                                changed = true;
-                                builder[i] = newChild;
-                            }
-                        }
-                        newChildren = (TEnumerable)(object)builder.ToImmutable();
-                    }
-                    else
-                    {
-                        var result = EnumerableBuilder<TBase>.Map(oldChildren, func);
-                        if (!result.HasValue)
+                        if (!ReferenceEquals(oldChild, newChild))
                         {
-                            throw new Exception("Unknown type of enumerable");
+                            changed = true;
+                            builder[i] = newChild;
                         }
-                        changed = changed || result.Value.changed;
-                        newChildren = result.Value.result;
                     }
-
-                    
-                    return (changed, (rest, newChildren));
+                    return (changed, (rest, builder.ToImmutable()));
                 },
                 null  // assume there'll be many children
             );
@@ -338,19 +332,12 @@ namespace Sawmill
 
         public Children<TBase> GetChildren(TBase value)
         {
-            var children = _childrenCount.HasValue && _childrenCount.Value <= 2
-                ? Children.None<TBase>()
-                : Children.Many(ImmutableList.CreateBuilder<TBase>());
+            var childrenBuilder = new ChildrenBuilder<TBase>();
             foreach (var action in _getChildrenDelegates)
             {
-                children = action((TSub)value, children);
+                action((TSub)value, childrenBuilder);
             }
-            if (children.NumberOfChildren == NumberOfChildren.Many)
-            {
-                // freeze the builder
-                children = Children.Many(((ImmutableList<TBase>.Builder)children.Many).ToImmutable());
-            }
-            return children;
+            return childrenBuilder.Build();
         }
 
         public TBase RewriteChildren(Func<TBase, TBase> transformer, TBase oldValue)

@@ -52,7 +52,7 @@ namespace Sawmill.Tests
             var a = new Lit(0);
             var b = new Lit(1);
             var c = new Lit(2);
-            var list = new List(ImmutableArray.CreateRange(new Expr[] { a, b, c }));
+            var list = new List(ImmutableList<Expr>.Empty.Add(a).Add(b).Add(c));
 
             Assert.Equal(new[]{ a, b, c }, _rewriter.GetChildren(list));
         }
@@ -65,7 +65,7 @@ namespace Sawmill.Tests
             var c = new Lit(2);
             var d = new Lit(3);
             var e = new Lit(4);
-            var ite = new IfThenElse(a, ImmutableArray.CreateRange(new Expr[] { b, c }), ImmutableArray.CreateRange(new Expr[] { d, e }));
+            var ite = new IfThenElse(a, ImmutableList<Expr>.Empty.Add(b).Add(c), ImmutableList<Expr>.Empty.Add(d).Add(e));
 
             Assert.Equal(new[]{ a, b, c, d ,e }, _rewriter.GetChildren(ite));
         }
@@ -115,7 +115,7 @@ namespace Sawmill.Tests
             var newC = new Lit(3);
             var newT = new Lit(4);
             var newF = new Lit(5);
-            var newTernary = _rewriter.SetChildren(Children.Many(new Expr[]{ newC, newT, newF }), ternary);
+            var newTernary = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(newC).Add(newT).Add(newF)), ternary);
 
             Assert.Equal(new[]{ c, t, f }, _rewriter.GetChildren(ternary));
         }

@@ -768,9 +768,20 @@ namespace Sawmill
                         _nextSiblings.Push(_prevSiblings.Pop());
                     }
 
-                    var newChildren = EnumerableBuilder<T>.RebuildFrom(children.Many, _nextSiblings.GetEnumerator());
-                    
-                    result = _rewriter.SetChildren(Children.Many(newChildren?.result ?? _nextSiblings.ToImmutableList()), value);
+                    var builder = children.Many.ToBuilder();
+
+                    for (var i = 0; i < builder.Count; i++)
+                    {
+                        var oldItem = builder[i];
+                        var newItem = _nextSiblings.Pop();
+
+                        if (!ReferenceEquals(oldItem, newItem))
+                        {
+                            builder[i] = newItem;
+                        }
+                    }
+
+                    result = _rewriter.SetChildren(Children.Many(builder.ToImmutable()), value);
                     break;
                 default:
                     throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");

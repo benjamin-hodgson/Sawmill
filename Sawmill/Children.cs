@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Sawmill
@@ -35,7 +36,7 @@ namespace Sawmill
         /// Creates a <see cref="Children{T}"/> with any number of elements.
         /// </summary>
         /// <returns>A <see cref="Children{T}"/> with any number of elements.</returns>
-        public static Children<T> Many<T>(IEnumerable<T> children)
+        public static Children<T> Many<T>(ImmutableList<T> children)
         {
             if (children == null)
             {
@@ -111,7 +112,7 @@ namespace Sawmill
             }
         }
 
-        private readonly IEnumerable<T> _many;
+        private readonly ImmutableList<T> _many;
         /// <summary>
         /// Gets an enumerable containing the elements, if <see cref="Children{T}.NumberOfChildren"/> is <see cref="NumberOfChildren.Many"/>.
         /// </summary>
@@ -121,7 +122,7 @@ namespace Sawmill
         /// <returns>
         /// An enumerable containing the elements, if if <see cref="Children{T}.NumberOfChildren"/> is <see cref="NumberOfChildren.Many"/>.
         /// </returns>
-        public IEnumerable<T> Many
+        public ImmutableList<T> Many
         {
             get
             {
@@ -133,7 +134,7 @@ namespace Sawmill
             }
         }
 
-        internal Children(NumberOfChildren numberOfChildren, T first, T second, IEnumerable<T> many)
+        internal Children(NumberOfChildren numberOfChildren, T first, T second, ImmutableList<T> many)
         {
             NumberOfChildren = numberOfChildren;
             _first = first;
@@ -162,7 +163,7 @@ namespace Sawmill
                 case NumberOfChildren.Two:
                     return Children.Two(func(_first), func(_second));
                 case NumberOfChildren.Many:
-                    return Children.Many(_many.Select(func));
+                    return Children.Many(_many.ConvertAll(func));
             }
             throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
         }
@@ -180,7 +181,7 @@ namespace Sawmill
             // might as well go for a simple implementation
             if (NumberOfChildren == NumberOfChildren.Many)
             {
-                return _many.GetEnumerator();
+                return ((IEnumerable<T>)_many).GetEnumerator();
             }
             return _Enumerator();
         }
