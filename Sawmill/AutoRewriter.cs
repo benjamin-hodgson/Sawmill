@@ -11,6 +11,9 @@ namespace Sawmill
 {
     /// <summary>
     /// An experimental implementation of <see cref="IRewriter{T}"/> using reflection.
+    /// 
+    /// <see cref="AutoRewriter{T}"/> looks for the subtype's constructor, and gets/sets
+    /// the <typeparamref name="T"/>-children in the order that they appear in the constructor.
     /// </summary>
     public sealed class AutoRewriter<T> : IRewriter<T>
     {

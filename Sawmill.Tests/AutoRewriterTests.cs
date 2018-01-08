@@ -87,7 +87,7 @@ namespace Sawmill.Tests
             var newLit = new Lit(4);
             var newNeg = _rewriter.SetChildren(Children.One<Expr>(newLit), neg);
 
-            Assert.Equal(new[]{ newNeg, newLit }, _rewriter.SelfAndDescendants(newNeg));
+            Assert.Equal(new[]{ newLit }, _rewriter.GetChildren(newNeg));
         }
 
         [Fact]
@@ -101,7 +101,7 @@ namespace Sawmill.Tests
             var newR = new Lit(4);
             var newAdd = _rewriter.SetChildren(Children.Two<Expr>(newL, newR), add);
 
-            Assert.Equal(new[]{ newAdd, newL, newR }, _rewriter.SelfAndDescendants(newAdd));
+            Assert.Equal(new[]{ newL, newR }, _rewriter.GetChildren(newAdd));
         }
 
         [Fact]
@@ -117,7 +117,7 @@ namespace Sawmill.Tests
             var newF = new Lit(5);
             var newTernary = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(newC).Add(newT).Add(newF)), ternary);
 
-            Assert.Equal(new[]{ c, t, f }, _rewriter.GetChildren(ternary));
+            Assert.Equal(new[]{ newC, newT, newF }, _rewriter.GetChildren(newTernary));
         }
 
         // [Fact]
