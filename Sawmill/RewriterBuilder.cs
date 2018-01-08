@@ -276,7 +276,13 @@ namespace Sawmill
                     for (var i = 0; i < builder.Count; i++)
                     {
                         var oldChild = builder[i];
-                        var newChild = newChildrenEnumerator.Draw1();
+
+                        var hasNext = newChildrenEnumerator.MoveNext();
+                        if (!hasNext)
+                        {
+                            throw new InvalidOperationException("Reached end of enumeration");
+                        }
+                        var newChild = newChildrenEnumerator.Current;
 
                         if (!ReferenceEquals(oldChild, newChild))
                         {
