@@ -369,6 +369,30 @@ namespace Sawmill
         /// <summary>
         /// Rebuild the subtype with the supplied function.
         /// </summary>
+        public static IRewriter<TBase> ConstructWith<T, TBase, TSub>(
+            this RewriterBuilderCase<T, TBase, TSub> builder,
+            Func<T, TSub> constructor
+        ) where TSub : TBase
+        {
+            if (builder == null)
+            {
+                throw new ArgumentNullException(nameof(builder));
+            }
+            if (constructor == null)
+            {
+                throw new ArgumentNullException(nameof(constructor));
+            }
+            return new CompletedRewriterBuilderCase<T, TBase, TSub>(
+                builder.GetChildrenDelegates.ToArray(),
+                builder.GetSetChildrenCtorArgs,
+                constructor,
+                builder.ChildrenCount
+            );
+        }
+
+        /// <summary>
+        /// Rebuild the subtype with the supplied function.
+        /// </summary>
         public static IRewriter<TBase> ConstructWith<TBase, TSub>(
             this RewriterBuilderCase<object, TBase, TSub> builder,
             Func<TSub> constructor
@@ -382,16 +406,13 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<object, TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
-                args => constructor(),
-                builder.ChildrenCount
+            return builder.ConstructWith(
+                args => constructor()
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, TBase, TSub>(
             this RewriterBuilderCase<(object, U1), TBase, TSub> builder,
@@ -406,18 +427,15 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<(object, U1), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, TBase, TSub>(
             this RewriterBuilderCase<((object, U1), U2), TBase, TSub> builder,
@@ -432,19 +450,16 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<((object, U1), U2), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, U3, TBase, TSub>(
             this RewriterBuilderCase<(((object, U1), U2), U3), TBase, TSub> builder,
@@ -459,20 +474,17 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<(((object, U1), U2), U3), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item1.Item2,
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, TBase, TSub>(
             this RewriterBuilderCase<((((object, U1), U2), U3), U4), TBase, TSub> builder,
@@ -487,21 +499,18 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<((((object, U1), U2), U3), U4), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item1.Item1.Item2,
                     args.Item1.Item1.Item2,
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, TBase, TSub>(
             this RewriterBuilderCase<(((((object, U1), U2), U3), U4), U5), TBase, TSub> builder,
@@ -516,22 +525,19 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<(((((object, U1), U2), U3), U4), U5), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item1.Item1.Item1.Item2,
                     args.Item1.Item1.Item1.Item2,
                     args.Item1.Item1.Item2,
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, U6, TBase, TSub>(
             this RewriterBuilderCase<((((((object, U1), U2), U3), U4), U5), U6), TBase, TSub> builder,
@@ -546,9 +552,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<((((((object, U1), U2), U3), U4), U5), U6), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item1.Item1.Item1.Item1.Item2,
                     args.Item1.Item1.Item1.Item1.Item2,
@@ -556,13 +560,12 @@ namespace Sawmill
                     args.Item1.Item1.Item2,
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, U6, U7, TBase, TSub>(
             this RewriterBuilderCase<(((((((object, U1), U2), U3), U4), U5), U6), U7), TBase, TSub> builder,
@@ -577,9 +580,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<(((((((object, U1), U2), U3), U4), U5), U6), U7), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item1.Item1.Item1.Item1.Item1.Item2,
                     args.Item1.Item1.Item1.Item1.Item1.Item2,
@@ -588,13 +589,12 @@ namespace Sawmill
                     args.Item1.Item1.Item2,
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
 
         /// <summary>
-        /// Rebuild the subtype with the supplied function.
+        /// Rebuild the subtype with the supplied function, after flattening the tuple.
         /// </summary>
         public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, U6, U7, U8, TBase, TSub>(
             this RewriterBuilderCase<((((((((object, U1), U2), U3), U4), U5), U6), U7), U8), TBase, TSub> builder,
@@ -609,9 +609,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(constructor));
             }
-            return new CompletedRewriterBuilderCase<((((((((object, U1), U2), U3), U4), U5), U6), U7), U8), TBase, TSub>(
-                builder.GetChildrenDelegates.ToArray(),
-                builder.GetSetChildrenCtorArgs,
+            return builder.ConstructWith(
                 args => constructor(
                     args.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2,
                     args.Item1.Item1.Item1.Item1.Item1.Item1.Item2,
@@ -621,8 +619,7 @@ namespace Sawmill
                     args.Item1.Item1.Item2,
                     args.Item1.Item2,
                     args.Item2
-                ),
-                builder.ChildrenCount
+                )
             );
         }
     }
