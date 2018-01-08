@@ -8,29 +8,33 @@ namespace Sawmill
     /// <summary>
     /// Tools for building rewriters.
     /// </summary>
+    public static class RewriterBuilder
+    {
+        /// <summary>
+        /// Create a new <see cref="RewriterBuilder{T}"/>.
+        /// </summary>
+        /// <typeparam name="T">The rewritable tree type</typeparam>
+        public static RewriterBuilder<T> For<T>()
+            => new RewriterBuilder<T>(ImmutableList.Create<(Type, IRewriter<T>)>());
+    }
+
+    /// <summary>
+    /// Tools for building rewriters.
+    /// </summary>
     /// <typeparam name="T">The rewritable tree type</typeparam>
     public class RewriterBuilder<T>
     {
         private readonly ImmutableList<(Type, IRewriter<T>)> _rewriters;
 
-        private RewriterBuilder(ImmutableList<(Type, IRewriter<T>)> rewriters)
+        internal RewriterBuilder(ImmutableList<(Type, IRewriter<T>)> rewriters)
         {
             _rewriters = rewriters;
         }
-
-        /// <summary>
-        /// Handle a single subclass of <typeparamref name="T"/>
-        /// </summary>
-        public static RewriterBuilder<T> Case<TSub>(
-            Func<RewriterBuilderCase<object, T, TSub>, IRewriter<T>> builderAction
-        ) where TSub : T
-            => new RewriterBuilder<T>(ImmutableList.Create<(Type, IRewriter<T>)>())
-                .And<TSub>(builderAction);
         
         /// <summary>
         /// Handle a single subclass of <typeparamref name="T"/>
         /// </summary>
-        public RewriterBuilder<T> And<TSub>(
+        public RewriterBuilder<T> Case<TSub>(
             Func<RewriterBuilderCase<object, T, TSub>, IRewriter<T>> builderAction
         ) where TSub : T
         {

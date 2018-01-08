@@ -6,31 +6,31 @@ namespace Sawmill.Tests
     public class RewriterBuilderTests
     {
         private static readonly IRewriter<Expr> _rewriter =
-            RewriterBuilder<Expr>
+            RewriterBuilder.For<Expr>()
                 .Case<Lit>(
                     c => c
                         .Field(l => l.Value)
                         .ConstructWith(x => new Lit(x))
                 )
-                .And<Neg>(
+                .Case<Neg>(
                     c => c
                         .Child(n => n.Operand)
                         .ConstructWith(o => new Neg(o))
                 )
-                .And<Add>(
+                .Case<Add>(
                     c => c
                         .Child(a => a.Left)
                         .Child(a => a.Right)
                         .ConstructWith((l, r) => new Add(l, r))
                 )
-                .And<Ternary>(
+                .Case<Ternary>(
                     c => c
                         .Child(t => t.Condition)
                         .Child(t => t.ThenBranch)
                         .Child(t => t.ElseBranch)
                         .ConstructWith((cond, tru, fls) => new Ternary(cond, tru, fls))
                 )
-                .And<List>(
+                .Case<List>(
                     c => c
                         .Children(l => l.Exprs)
                         .ConstructWith(es => new List(es))
