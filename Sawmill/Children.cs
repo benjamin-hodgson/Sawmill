@@ -57,7 +57,7 @@ namespace Sawmill
     /// rather than storing an enumerable on the heap which will quickly become garbage.
     /// </remarks>
     /// <typeparam name="T">The type of the rewritable object.</typeparam>
-    public struct Children<T> : IEnumerable<T>
+    public readonly struct Children<T> : IEnumerable<T>
     {
         /// <summary>
         /// The number of children the instance contains.
@@ -185,6 +185,7 @@ namespace Sawmill
             }
             return _Enumerator();
         }
+        IEnumerator IEnumerable.GetEnumerator() => _Enumerator();
         private IEnumerator<T> _Enumerator()
         {
             switch (NumberOfChildren)
@@ -201,13 +202,10 @@ namespace Sawmill
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-            => ((IEnumerable<T>)this).GetEnumerator();
-
         /// <summary>
         /// An implementation of <see cref="IEnumerator{T}"/> which yields the elements of the current instance.
         /// </summary>
-        public struct Enumerator : IEnumerator<T>
+        public struct Enumerator
         {
             private readonly Children<T> _children;
             private NumberOfChildren _position;
@@ -217,7 +215,7 @@ namespace Sawmill
             {
                 if (children.NumberOfChildren == NumberOfChildren.Many)
                 {
-                    _children = default(Children<T>);
+                    _children = default;
                     _position = NumberOfChildren.None;
                     _manyEnumerator = children._many.GetEnumerator();
                 }
@@ -254,14 +252,6 @@ namespace Sawmill
                 }
             }
 
-            object IEnumerator.Current => throw new NotImplementedException();
-
-            /// <inheritdoc/>
-            public void Dispose()
-            {
-                _manyEnumerator?.Dispose();
-            }
-
             /// <inheritdoc/>
             public bool MoveNext()
             {
@@ -274,10 +264,9 @@ namespace Sawmill
             }
 
             /// <inheritdoc/>
-            public void Reset()
+            public void Dispose()
             {
-                _manyEnumerator?.Reset();
-                _position = NumberOfChildren.None;
+                _manyEnumerator?.Dispose();
             }
         }
     }
