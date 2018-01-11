@@ -75,7 +75,7 @@ namespace Sawmill
                 var enumerators = new IEnumerator<T>[xs.Length];
                 for (var i = 0; i < xs.Length; i++)
                 {
-                    enumerators[i] = GetEnumerator<T, Children<T>>(rewriter.GetChildren(xs[i]));
+                    enumerators[i] = EnumerableExtensions.GetEnumerator<Children<T>, T>(rewriter.GetChildren(xs[i]));
                 }
 
                 while (true)
@@ -97,8 +97,5 @@ namespace Sawmill
 
             return Go(values);
         }
-
-        static IEnumerator<T> GetEnumerator<T, TEnumerable>(TEnumerable enumerable) where TEnumerable : IEnumerable<T>
-            => enumerable.GetEnumerator();
     }
 }

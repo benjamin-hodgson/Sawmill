@@ -185,7 +185,8 @@ namespace Sawmill
             }
             return _Enumerator();
         }
-        IEnumerator IEnumerable.GetEnumerator() => _Enumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+            => EnumerableExtensions.GetEnumerator<Children<T>, T>(this);
         private IEnumerator<T> _Enumerator()
         {
             switch (NumberOfChildren)
