@@ -179,9 +179,9 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         }
         
         /// <summary>
-        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
+        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode RewriteIter(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, IterResult<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>> transformer)
+        public static global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode RewriteIter(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> transformer)
         {
             if (transformer == null)
             {

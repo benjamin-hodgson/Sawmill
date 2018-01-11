@@ -179,9 +179,9 @@ namespace Sawmill.Xml
         }
         
         /// <summary>
-        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
+        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static System.Xml.Linq.XElement RewriteIter(this System.Xml.Linq.XElement value, Func<System.Xml.Linq.XElement, IterResult<System.Xml.Linq.XElement>> transformer)
+        public static System.Xml.Linq.XElement RewriteIter(this System.Xml.Linq.XElement value, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> transformer)
         {
             if (transformer == null)
             {

@@ -179,9 +179,9 @@ namespace Sawmill.Microsoft.CodeAnalysis.CSharp
         }
         
         /// <summary>
-        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
+        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode RewriteIter(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, IterResult<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>> transformer)
+        public static global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode RewriteIter(this global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode value, Func<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode> transformer)
         {
             if (transformer == null)
             {

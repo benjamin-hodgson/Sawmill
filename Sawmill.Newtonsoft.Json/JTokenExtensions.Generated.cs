@@ -179,9 +179,9 @@ namespace Sawmill.Newtonsoft.Json
         }
         
         /// <summary>
-        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
+        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static global::Newtonsoft.Json.Linq.JToken RewriteIter(this global::Newtonsoft.Json.Linq.JToken value, Func<global::Newtonsoft.Json.Linq.JToken, IterResult<global::Newtonsoft.Json.Linq.JToken>> transformer)
+        public static global::Newtonsoft.Json.Linq.JToken RewriteIter(this global::Newtonsoft.Json.Linq.JToken value, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> transformer)
         {
             if (transformer == null)
             {

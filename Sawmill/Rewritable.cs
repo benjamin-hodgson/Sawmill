@@ -167,9 +167,9 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, IterResult{T}}, T)"/>
+        /// <seealso cref="Rewriter.RewriteIter{T}(IRewriter{T}, Func{T, T}, T)"/>
         /// </summary>
-        public static T RewriteIter<T>(this T value, Func<T, IterResult<T>> transformer) where T : IRewritable<T>
+        public static T RewriteIter<T>(this T value, Func<T, T> transformer) where T : class, IRewritable<T>
         {
             if (transformer == null)
             {

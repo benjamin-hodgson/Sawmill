@@ -239,9 +239,9 @@ namespace {ns}
         }}
         
         /// <summary>
-        /// <seealso cref=""Rewriter.RewriteIter{{T}}(IRewriter{{T}}, Func{{T, IterResult{{T}}}}, T)""/>
+        /// <seealso cref=""Rewriter.RewriteIter{{T}}(IRewriter{{T}}, Func{{T, T}}, T)""/>
         /// </summary>
-        public static {typeName} RewriteIter(this {typeName} value, Func<{typeName}, IterResult<{typeName}>> transformer)
+        public static {typeName} RewriteIter(this {typeName} value, Func<{typeName}, {typeName}> transformer)
         {{
             if (transformer == null)
             {{

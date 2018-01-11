@@ -303,8 +303,8 @@ namespace Sawmill.Tests
 
             var rewritten = _rewriter.RewriteIter(
                 x => x is Neg n && n.Operand is Add a
-                    ? IterResult.Continue<Expr>(new Add(new Neg(a.Left), new Neg(a.Right)))
-                    : IterResult.Done<Expr>(),
+                    ? new Add(new Neg(a.Left), new Neg(a.Right))
+                    : x,
                 expr
             );
 
