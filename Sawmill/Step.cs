@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 
 namespace Sawmill
 {
-    internal struct Step<T>
+    internal readonly struct Step<T>
     {
         public Stack<T> PrevSiblings { get; }
         public T Focus { get; }
