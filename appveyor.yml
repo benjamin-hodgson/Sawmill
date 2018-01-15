@@ -12,18 +12,15 @@ before_build:
   - ps: |
       $lastTag = git describe --abbrev=0
       Update-AppveyorBuild -Version "$lastTag-$env:APPVEYOR_BUILD_NUMBER"
-  - cmd: dotnet --info
-  - cmd: dotnet restore --verbosity Minimal
+  - cmd: msbuild Sawmill.sln /t:restore /p:Configuration=%CONFIGURATION% /v:Minimal
 
-build_script:
-  - cmd: dotnet build --configuration %CONFIGURATION%
-
-test_script:
-  - cmd: dotnet test --configuration %CONFIGURATION% Sawmill.Tests\Sawmill.Tests.csproj
-
+build:
+  project: Sawmill.sln
+  verbosity: minimal
+  
 after_test:
   - ps: dir "**\bin\$env:CONFIGURATION\*\*.xml" | foreach { dotnet run --no-build --configuration "$env:CONFIGURATION" --project Sawmill.DocMunger\Sawmill.DocMunger.csproj "Sawmill\bin\$env:CONFIGURATION\netstandard2.0\Sawmill.xml" $_.FullName }
-  - cmd: dotnet pack --no-build --configuration %CONFIGURATION% --output ..\nupkgs --include-symbols --version-suffix %APPVEYOR_BUILD_NUMBER%
+  - cmd: msbuild Sawmill.sln /t:pack /p:Configuration=%CONFIGURATION% /p:IncludeSymbols=true /p:PackageOutputPath=..\nupkgs /v:Minimal
 
 artifacts:
   - type: NuGetPackage
