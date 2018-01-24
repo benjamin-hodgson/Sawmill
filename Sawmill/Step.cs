@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Runtime.InteropServices;
 
 namespace Sawmill
 {
+    [StructLayout(LayoutKind.Auto)]
     internal readonly struct Step<T>
     {
         public Stack<T> PrevSiblings { get; }

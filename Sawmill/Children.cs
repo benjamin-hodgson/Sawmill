@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Sawmill
 {
@@ -57,6 +58,7 @@ namespace Sawmill
     /// rather than storing an enumerable on the heap which will quickly become garbage.
     /// </remarks>
     /// <typeparam name="T">The type of the rewritable object.</typeparam>
+    [StructLayout(LayoutKind.Auto)]
     public readonly struct Children<T> : IEnumerable<T>
     {
         /// <summary>
@@ -206,6 +208,7 @@ namespace Sawmill
         /// <summary>
         /// An implementation of <see cref="IEnumerator{T}"/> which yields the elements of the current instance.
         /// </summary>
+        [StructLayout(LayoutKind.Auto)]
         public struct Enumerator
         {
             private readonly Children<T> _children;
