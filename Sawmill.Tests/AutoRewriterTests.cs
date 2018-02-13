@@ -120,28 +120,40 @@ namespace Sawmill.Tests
             Assert.Equal(new[]{ newC, newT, newF }, _rewriter.GetChildren(newTernary));
         }
 
-        // [Fact]
-        // public void TestSetChildren_EnumerableChildren()
-        // {
-        //     var a = new Lit(0);
-        //     var b = new Lit(1);
-        //     var c = new Lit(2);
-        //     var list = new List(ImmutableArray.CreateRange(new Expr[] { a, b, c }));
+        [Fact]
+        public void TestSetChildren_EnumerableChildren()
+        {
+            var a = new Lit(0);
+            var b = new Lit(1);
+            var c = new Lit(2);
+            var list = new List(ImmutableList<Expr>.Empty.Add(a).Add(b).Add(c));
 
-        //     Assert.Equal(new[]{ a, b, c }, _rewriter.GetChildren(list));
-        // }
+            var newA = new Lit(3);
+            var newB = new Lit(4);
+            var newC = new Lit(5);
+            var newList = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(newA).Add(newB).Add(newC)), list);
 
-        // [Fact]
-        // public void TestSetChildren_EnumerableChildren_Multiple()
-        // {
-        //     var a = new Lit(0);
-        //     var b = new Lit(1);
-        //     var c = new Lit(2);
-        //     var d = new Lit(3);
-        //     var e = new Lit(4);
-        //     var ite = new IfThenElse(a, ImmutableArray.CreateRange(new Expr[] { b, c }), ImmutableArray.CreateRange(new Expr[] { d, e }));
+            Assert.Equal(new[]{ newA, newB, newC }, _rewriter.GetChildren(newList));
+        }
 
-        //     Assert.Equal(new[]{ a, b, c, d ,e }, _rewriter.GetChildren(ite));
-        // }
+        [Fact]
+        public void TestSetChildren_EnumerableChildren_Multiple()
+        {
+            var a = new Lit(0);
+            var b = new Lit(1);
+            var c = new Lit(2);
+            var d = new Lit(3);
+            var e = new Lit(4);
+            var ite = new IfThenElse(a, ImmutableList<Expr>.Empty.Add(b).Add(c), ImmutableList<Expr>.Empty.Add(d).Add(e));
+
+            var newA = new Lit(5);
+            var newB = new Lit(6);
+            var newC = new Lit(7);
+            var newD = new Lit(8);
+            var newE = new Lit(9);
+            var newIte = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(newA).Add(newB).Add(newC).Add(newD).Add(newE)), ite);
+
+            Assert.Equal(new[]{ newA, newB, newC, newD, newE }, _rewriter.GetChildren(newIte));
+        }
     }
 }

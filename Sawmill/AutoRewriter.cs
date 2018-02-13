@@ -21,70 +21,70 @@ namespace Sawmill
         private static readonly Type[] _tArray = new[] { _t };
 
         private static readonly Type _childrenT = typeof(Children<T>);
-        private static readonly PropertyInfo _childrenTNumberOfChildren =
+        private static readonly PropertyInfo _childrenT_NumberOfChildren =
             _childrenT.GetProperty("NumberOfChildren");
-        private static readonly PropertyInfo _childrenTFirst =
+        private static readonly PropertyInfo _childrenT_First =
             _childrenT.GetProperty("First");
-        private static readonly PropertyInfo _childrenTSecond =
+        private static readonly PropertyInfo _childrenT_Second =
             _childrenT.GetProperty("Second");
-        private static readonly PropertyInfo _childrenTMany =
+        private static readonly PropertyInfo _childrenT_Many =
             _childrenT.GetProperty("Many");
 
         private static readonly Type _children = typeof(Children);
-        private static readonly MethodInfo _childrenOne =
+        private static readonly MethodInfo _children_One =
             _children
                 .GetMethod("One", BindingFlags.Public | BindingFlags.Static)
                 .MakeGenericMethod(_t);
-        private static readonly MethodInfo _childrenTwo =
+        private static readonly MethodInfo _children_Two =
             _children
                 .GetMethod("Two", BindingFlags.Public | BindingFlags.Static)
                 .MakeGenericMethod(_t);
-        private static readonly MethodInfo _childrenMany =
+        private static readonly MethodInfo _children_Many =
             _children
                 .GetMethod("Many", BindingFlags.Public | BindingFlags.Static)
                 .MakeGenericMethod(_t);
         
         private static readonly Type _immutableList = typeof(ImmutableList);
-        private static readonly MethodInfo _immutableListToImmutableList =
+        private static readonly MethodInfo _immutableList_ToImmutableList =
             _immutableList
                 .GetMethod("ToImmutableList", BindingFlags.Public | BindingFlags.Static)
                 .MakeGenericMethod(_t);
-        private static readonly MethodInfo _immutableListCreateBuilderT
+        private static readonly MethodInfo _immutableList_CreateBuilderT
             = _immutableList
                 .GetMethod("CreateBuilder", BindingFlags.Public | BindingFlags.Static)
                 .MakeGenericMethod(_t);
 
         private static readonly Type _immutableListT = typeof(ImmutableList<T>);
-        private static readonly FieldInfo _immutableListTEmpty
+        private static readonly FieldInfo _immutableListT_Empty
             = _immutableListT.GetField("Empty", BindingFlags.Public | BindingFlags.Static);
-        private static readonly MethodInfo _immutableListTAdd
+        private static readonly MethodInfo _immutableListT_Add
             = _immutableListT.GetMethod("Add");
 
-        private static readonly Type _immutableListTBuilder = typeof(ImmutableList<T>.Builder);
-        private static readonly MethodInfo _immutableListTBuilderAdd
-            = _immutableListTBuilder
+        private static readonly Type _immutableListT_Builder = typeof(ImmutableList<T>.Builder);
+        private static readonly MethodInfo _immutableListT_Builder_Add
+            = _immutableListT_Builder
                 .GetMethod("Add", new[]{ _t });
-        private static readonly MethodInfo _immutableListTBuilderToImmutable
-            = _immutableListTBuilder
+        private static readonly MethodInfo _immutableListT_Builder_ToImmutable
+            = _immutableListT_Builder
                 .GetMethod("ToImmutable");
 
         private static readonly Type _iEnumerator = typeof(IEnumerator);
-        private static readonly MethodInfo _iEnumeratorMoveNext =
+        private static readonly MethodInfo _iEnumerator_MoveNext =
             _iEnumerator
                 .GetMethod("MoveNext");
 
         private static readonly Type _iEnumeratorT = typeof(IEnumerator<T>);
-        private static readonly PropertyInfo _iEnumeratorTCurrent =
+        private static readonly PropertyInfo _iEnumeratorT_Current =
             _iEnumeratorT
                 .GetProperty("Current", _t);
         
         private static readonly Type _iEnumerable1 = typeof(IEnumerable<>);
         private static readonly Type _iEnumerableT = typeof(IEnumerable<T>);
-        private static readonly MethodInfo _iEnumerableGetEnumerator =
+        private static readonly MethodInfo _iEnumerable_GetEnumerator =
             typeof(IEnumerable<T>)
                 .GetMethods()
                 .Single(m => m.Name == "GetEnumerator" && m.ReturnType.Equals(_iEnumeratorT));
-        private static readonly MethodInfo _enumerableCount =
+        private static readonly MethodInfo _enumerable_Count =
             typeof(Enumerable)
                 .GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .Single(m => m.Name == "Count" && m.GetParameters().Length == 1)
@@ -93,9 +93,9 @@ namespace Sawmill
         
 
         private static Type _object = typeof(object);
-        private static readonly MethodInfo _objectToString = _object.GetMethod("ToString");
+        private static readonly MethodInfo _object_ToString = _object.GetMethod("ToString");
         
-        private static readonly MethodInfo _stringConcat2 =
+        private static readonly MethodInfo _string_Concat2 =
             typeof(string)
                 .GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .Single(m => m.Name == "Concat" && m.GetParameters().Select(p => p.ParameterType).SequenceEqual(new[]{ _object, _object }));
@@ -187,22 +187,22 @@ namespace Sawmill
             {
                 // Children.One<T>(node.Child)
                 var memberAccess = Expression.Property(nodeLocal, nodeType.GetProperty(propNames.Single()));
-                children = Expression.Call(_childrenOne, memberAccess);
+                children = Expression.Call(_children_One, memberAccess);
             }
             else if (numberOfChildren == 2)
             {
                 // Children.Two<T>(node.Child1, node.Child2);
                 var memberAccess1 = Expression.Property(nodeLocal, nodeType.GetProperty(propNames.First()));
                 var memberAccess2 = Expression.Property(nodeLocal, nodeType.GetProperty(propNames.ElementAt(1)));
-                children = Expression.Call(_childrenTwo, memberAccess1, memberAccess2);
+                children = Expression.Call(_children_Two, memberAccess1, memberAccess2);
             }
             else
             {
                 // Children.Many<T>(ImmutableList<T>.Empty.Add(node.Child1).Add(node.Child2).Add(node.Child3)));
                 var props = propNames.Select(nodeType.GetProperty);
                 var memberAccesses = props.Select(p => Expression.Property(nodeLocal, p));
-                var emptyList = Expression.Field(null, _immutableListTEmpty);
-                children = Expression.Call(_childrenMany, memberAccesses.Aggregate((Expression)emptyList, (listExpr, expr) => Expression.Call(listExpr, _immutableListTAdd, expr)));
+                var emptyList = Expression.Field(null, _immutableListT_Empty);
+                children = Expression.Call(_children_Many, memberAccesses.Aggregate((Expression)emptyList, (listExpr, expr) => Expression.Call(listExpr, _immutableListT_Add, expr)));
             }
             
             // param =>
@@ -236,9 +236,9 @@ namespace Sawmill
                 // param => Children.Many(((NodeType)param).Children.ToImmutableList())
                 var param1 = Expression.Parameter(_t, "param");
                 var body1 = Expression.Call(
-                    _childrenMany,
+                    _children_Many,
                     Expression.Call(
-                        _immutableListToImmutableList,
+                        _immutableList_ToImmutableList,
                         Expression.Convert(Expression.Property(Expression.Convert(param1, nodeType), property), _iEnumerableT)
                     )
                 );
@@ -259,12 +259,12 @@ namespace Sawmill
 
             var param = Expression.Parameter(_t, "param");
             var nodeLocal = Expression.Parameter(nodeType, "node");
-            var resultLocal = Expression.Parameter(_immutableListTBuilder, "result");
+            var resultLocal = Expression.Parameter(_immutableListT_Builder, "result");
             var enumeratorLocal = Expression.Parameter(_iEnumeratorT, "enumerator");
             var stmts = new List<Expression>
             {
                 Expression.Assign(nodeLocal, Expression.Convert(param, nodeType)),
-                Expression.Assign(resultLocal, Expression.Call(_immutableListCreateBuilderT, new Expression[]{}))
+                Expression.Assign(resultLocal, Expression.Call(_immutableList_CreateBuilderT, new Expression[]{}))
             };
 
             foreach (var ctorParam in ctorParams)
@@ -273,7 +273,7 @@ namespace Sawmill
                 {
                     // result.Add(node.Child1);
                     var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
-                    var stmt = Expression.Call(resultLocal, _immutableListTBuilderAdd, Expression.Property(nodeLocal, property));
+                    var stmt = Expression.Call(resultLocal, _immutableListT_Builder_Add, Expression.Property(nodeLocal, property));
                     stmts.Add(stmt);
                 }
                 else if (ImplementsIEnumerableT(ctorParam.ParameterType))
@@ -293,12 +293,12 @@ namespace Sawmill
 
                     var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
                     var enumerable = Expression.Property(nodeLocal, property);
-                    stmts.Add(Expression.Assign(enumeratorLocal, Expression.Call(enumerable, _iEnumerableGetEnumerator)));
+                    stmts.Add(Expression.Assign(enumeratorLocal, Expression.Call(enumerable, _iEnumerable_GetEnumerator)));
                     
                     var breakLbl = Expression.Label();
                     var loopBody = Expression.IfThenElse(
-                        Expression.Call(enumeratorLocal, _iEnumeratorMoveNext),
-                        Expression.Call(resultLocal, _immutableListTBuilderAdd, Expression.Property(enumeratorLocal, _iEnumeratorTCurrent)),
+                        Expression.Call(enumeratorLocal, _iEnumerator_MoveNext),
+                        Expression.Call(resultLocal, _immutableListT_Builder_Add, Expression.Property(enumeratorLocal, _iEnumeratorT_Current)),
                         Expression.Goto(breakLbl)
                     );
                     stmts.Add(Expression.Loop(loopBody, breakLbl));
@@ -309,7 +309,7 @@ namespace Sawmill
                 }
             }
 
-            stmts.Add(Expression.Call(_childrenMany, Expression.Call(resultLocal, _immutableListTBuilderToImmutable)));
+            stmts.Add(Expression.Call(_children_Many, Expression.Call(resultLocal, _immutableListT_Builder_ToImmutable)));
 
             var body = Expression.Block(new[]{ nodeLocal, resultLocal, enumeratorLocal }, stmts);
             var lam = Expression.Lambda<Func<T, Children<T>>>(body, $"GetChildren_{_t.Name}_{nodeType.Name}", new[] { param });
@@ -320,27 +320,29 @@ namespace Sawmill
         {
             var ctor = GetBestConstructor(nodeType);
             var ctorParams = ctor?.GetParameters();
-            var numberOfDirectChildren =
-                ctorParams
-                    ?.Count(p => p.ParameterType.Equals(_t))
-                    ?? 0;
 
-            if (ctor == null || ctorParams == null)
+            if (ctorParams == null)
             {
                 // if no public constructor, assume node has no children, so no rebuilding required
-                return NoChildrenSetter();
+                return NoChildrenSetter;
             }
+
+            var numberOfDirectChildren = ctorParams.Count(p => p.ParameterType.Equals(_t));
+            var enumerablesOfChildren = ctorParams
+                .Where(p => ImplementsIEnumerableT(p.ParameterType))
+                .Select(p => p.ParameterType)
+                .ToList();
 
             var nodeLocal = Expression.Parameter(nodeType, "node");
             var retLocal = Expression.Parameter(nodeType, "ret");
             var childrenParam = Expression.Parameter(_childrenT, "children");
 
             Expression body;
-            if (numberOfDirectChildren == 0)
+            if (enumerablesOfChildren.Count == 0 && numberOfDirectChildren == 0)
             {
-                return NoChildrenSetter();
+                return NoChildrenSetter;
             }
-            else if (numberOfDirectChildren == 1)
+            else if (enumerablesOfChildren.Count == 0 && numberOfDirectChildren == 1)
             {
                 // if (children.NumberOfChildren == NumberOfChildren.One)
                 // {
@@ -351,18 +353,18 @@ namespace Sawmill
                 //     throw new InvalidOperationException(/* ... */);
                 // }
                 var assertion = Expression.Equal(
-                    Expression.Property(childrenParam, _childrenTNumberOfChildren),
+                    Expression.Property(childrenParam, _childrenT_NumberOfChildren),
                     Expression.Constant(NumberOfChildren.One)
                 );
 
-                var childrenFirst = Expression.Property(childrenParam, _childrenTFirst);
+                var childrenFirst = Expression.Property(childrenParam, _childrenT_First);
                 body = Expression.IfThenElse(
                     assertion,
                     Expression.Assign(retLocal, CallNodeCtor(ctor, nodeLocal, new[]{ childrenFirst }, nodeType)),
                     ThrowNewInvalidOperationException(childrenParam, 1)
                 );
             }
-            else if (numberOfDirectChildren == 2)
+            else if (enumerablesOfChildren.Count == 0 && numberOfDirectChildren == 2)
             {
                 // if (children.NumberOfChildren == NumberOfChildren.Two)
                 // {
@@ -373,24 +375,24 @@ namespace Sawmill
                 //     throw new InvalidOperationException(/* ... */);
                 // }
                 var assertion = Expression.Equal(
-                    Expression.Property(childrenParam, _childrenTNumberOfChildren),
+                    Expression.Property(childrenParam, _childrenT_NumberOfChildren),
                     Expression.Constant(NumberOfChildren.Two)
                 );
 
-                var childrenFirst = Expression.Property(childrenParam, _childrenTFirst);
-                var childrenSecond = Expression.Property(childrenParam, _childrenTSecond);
+                var childrenFirst = Expression.Property(childrenParam, _childrenT_First);
+                var childrenSecond = Expression.Property(childrenParam, _childrenT_Second);
                 body = Expression.IfThenElse(
                     assertion,
                     Expression.Assign(retLocal, CallNodeCtor(ctor, nodeLocal, new[]{ childrenFirst, childrenSecond }, nodeType)),
-                    ThrowNewInvalidOperationException(childrenParam, 1)
+                    ThrowNewInvalidOperationException(childrenParam, 2)
                 );
             }
-            else
+            else  // has > 2 direct children, or has an enumerable of children
             {
                 // {
                 //     IEnumerator<T> enumerator;
                 //     T child0;
-                //     T child1;
+                //     T[] child1;
                 //     // etc
                 //
                 //     enumerator = children.Many.GetEnumerator();
@@ -403,6 +405,8 @@ namespace Sawmill
                 //     {
                 //         throw new InvalidOperationException(/* ... */);
                 //     }
+                //     
+                //     child1 = AutoRewriter.RebuildArray(node.Children1, enumerator);
                 //     // etc
                 //
                 //     if (enumerator.MoveNext())
@@ -413,28 +417,40 @@ namespace Sawmill
                 //     ret = new NodeType(node.Foo, child0, child1, node.Bar, child2);
                 // }
                 var enumeratorLocal = Expression.Parameter(_iEnumeratorT, "enumerator");
-                var childrenLocals = Enumerable
-                    .Repeat(_t, numberOfDirectChildren)
-                    .Select((type, i) => Expression.Parameter(type, $"child{i}"))
+                var childrenInfos = ctorParams
+                    .Where(p => p.ParameterType.Equals(_t) || ImplementsIEnumerableT(p.ParameterType))
+                    .Select((param, i) => (local: Expression.Parameter(param.ParameterType, $"child{i}"), param))
                     .ToList();
+                var childrenLocals = childrenInfos.Select(x => x.local).ToList();
 
-                var childrenManyExpr = Expression.Property(childrenParam, _childrenTMany);
+                var childrenManyExpr = Expression.Property(childrenParam, _childrenT_Many);
 
 
-                var stmts = new List<Expression>(numberOfDirectChildren + 3)
+                // var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
+                // var stmt = Expression.Call(resultLocal, _immutableListT_Builder_Add, Expression.Property(nodeLocal, property));;
+                var stmts = new List<Expression>()
                 {
-                    Expression.Assign(enumeratorLocal, Expression.Call(childrenManyExpr, _iEnumerableGetEnumerator))
+                    Expression.Assign(enumeratorLocal, Expression.Call(childrenManyExpr, _iEnumerable_GetEnumerator))
                 };
                 stmts.AddRange(
-                    childrenLocals.Select(l =>
-                        Expression.IfThenElse(
-                            Expression.Call(enumeratorLocal, _iEnumeratorMoveNext),
-                            Expression.Assign(l, Expression.Property(enumeratorLocal, _iEnumeratorTCurrent)),
-                            ThrowNewInvalidOperationException(childrenParam, numberOfDirectChildren)
-                        )
+                    childrenInfos.Select(x =>
+                        x.param.ParameterType.Equals(_t)
+                            ? (Expression)Expression.IfThenElse(
+                                Expression.Call(enumeratorLocal, _iEnumerator_MoveNext),
+                                Expression.Assign(x.local, Expression.Property(enumeratorLocal, _iEnumeratorT_Current)),
+                                ThrowNewInvalidOperationException(childrenParam, numberOfDirectChildren)
+                            )
+                            : Expression.Assign(
+                                x.local,
+                                Expression.Call(
+                                    _enumerableRebuilders[x.param.ParameterType],
+                                    Expression.Property(nodeLocal, nodeType.GetProperty(ParamNameToPropName(x.param.Name))),
+                                    enumeratorLocal
+                                )
+                            )
                     )
                 );
-                stmts.Add(Expression.IfThen(Expression.Call(enumeratorLocal, _iEnumeratorMoveNext), ThrowNewInvalidOperationException(childrenParam, numberOfDirectChildren)));
+                stmts.Add(Expression.IfThen(Expression.Call(enumeratorLocal, _iEnumerator_MoveNext), ThrowNewInvalidOperationException(childrenParam, numberOfDirectChildren)));
                 stmts.Add(Expression.Assign(retLocal, CallNodeCtor(ctor, nodeLocal, childrenLocals.Cast<Expression>().ToList(), nodeType)));
 
                 body = Expression.Block(new[]{ enumeratorLocal }.Concat(childrenLocals), stmts);
@@ -464,8 +480,8 @@ namespace Sawmill
                 .OrderByDescending(c => c.GetParameters().Length)
                 .FirstOrDefault();
 
-        private static Func<T, Children<T>, T> NoChildrenSetter()
-            => (node, children) =>
+        private static Func<T, Children<T>, T> NoChildrenSetter { get; }
+            = (node, children) =>
             {
                 if (children.NumberOfChildren != NumberOfChildren.None)
                 {
@@ -479,8 +495,8 @@ namespace Sawmill
 
         private static Expression ThrowNewInvalidOperationException(Expression childrenParam, int expected)
         {
-            var count = Expression.Call(_enumerableCount, Expression.Convert(childrenParam, _iEnumerableT));
-            var msg = Expression.Call(_stringConcat2, Expression.Constant($"Expected {expected} children but got "), Expression.Call(count, _objectToString));
+            var count = Expression.Call(_enumerable_Count, Expression.Convert(childrenParam, _iEnumerableT));
+            var msg = Expression.Call(_string_Concat2, Expression.Constant($"Expected {expected} children but got "), Expression.Call(count, _object_ToString));
             var exc = Expression.New(_newInvalidOperationException, msg);
             return Expression.Throw(exc);
         }
@@ -494,7 +510,7 @@ namespace Sawmill
             var args = new List<Expression>(ctorParams.Count());
             foreach (var param in ctorParams)
             {
-                if (param.ParameterType.Equals(_t))
+                if (param.ParameterType.Equals(_t) || ImplementsIEnumerableT(param.ParameterType))
                 {
                     args.Add(childrenExprs[numberOfTs]);
                     numberOfTs++;
@@ -552,7 +568,7 @@ namespace Sawmill
                 }
                 builder.Add(newValues.Current);
             }
-            return builder.ToImmutable();
+            return builder.ToImmutableAndClear();
         }
 
         private static ImmutableList<T> RebuildImmutableList(IEnumerable<T> oldValues, IEnumerator<T> newValues)

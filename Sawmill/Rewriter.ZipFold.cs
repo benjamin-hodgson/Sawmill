@@ -64,11 +64,7 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(values));
             }
 
-            U Go(T[] xs)
-                => func(
-                    xs,
-                    ZipChildren(xs)
-                );
+            U Go(T[] xs) => func(xs, ZipChildren(xs));
 
             IEnumerable<U> ZipChildren(T[] xs)
             {
