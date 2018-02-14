@@ -50,12 +50,5 @@ namespace Sawmill
 
             return Iterator();
         }
-
-        /// <summary>
-        /// <seealso cref="SelfAndDescendantsInContextBreadthFirst"/>
-        /// </summary>
-        [Obsolete("SelfAndDescendantsInContextBreadthFirst is now lazy by default")]
-        public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextBreadthFirstLazy<T>(this IRewriter<T> rewriter, T value)
-            => rewriter.SelfAndDescendantsInContextBreadthFirst(value);
     }
 }

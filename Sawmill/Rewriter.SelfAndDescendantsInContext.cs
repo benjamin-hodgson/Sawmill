@@ -43,12 +43,5 @@ namespace Sawmill
             }
             return Go(value);
         }
-
-        /// <summary>
-        /// <seealso cref="SelfAndDescendantsInContext"/>
-        /// </summary>
-        [Obsolete("SelfAndDescendantsInContext is now lazy by default")]
-        public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextLazy<T>(this IRewriter<T> rewriter, T value)
-            => rewriter.SelfAndDescendantsInContext(value);
     }
 }

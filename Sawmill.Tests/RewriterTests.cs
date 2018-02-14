@@ -22,19 +22,6 @@ namespace Sawmill.Tests
         }
 
         [Fact]
-        public void TestSelfAndDescendantsLazy()
-        {
-            var one = new Lit(1);
-            var two = new Lit(2);
-            var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
-
-            #pragma warning disable 618
-            Assert.Equal(new Expr[] { expr, one, minusTwo, two }, _rewriter.SelfAndDescendantsLazy(expr));
-            #pragma warning restore 618
-        }
-
-        [Fact]
         public void TestDescendantsAndSelf()
         {
             var one = new Lit(1);
@@ -43,19 +30,6 @@ namespace Sawmill.Tests
             var expr = new Add(one, minusTwo);
 
             Assert.Equal(new Expr[] { one, two, minusTwo, expr }, _rewriter.DescendantsAndSelf(expr));
-        }
-
-        [Fact]
-        public void TestDescendantsAndSelfLazy()
-        {
-            var one = new Lit(1);
-            var two = new Lit(2);
-            var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
-
-            #pragma warning disable 618
-            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, _rewriter.DescendantsAndSelfLazy(expr));
-            #pragma warning restore 618
         }
 
         [Fact]
@@ -68,20 +42,6 @@ namespace Sawmill.Tests
             var expr = new Add(minusOne, minusTwo);
 
             Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, _rewriter.SelfAndDescendantsBreadthFirst(expr));
-        }
-
-        [Fact]
-        public void TestSelfAndDescendantsBreadthFirstLazy()
-        {
-            var one = new Lit(1);
-            var minusOne = new Neg(one);
-            var two = new Lit(2);
-            var minusTwo = new Neg(two);
-            var expr = new Add(minusOne, minusTwo);
-
-            #pragma warning disable 618
-            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, _rewriter.SelfAndDescendantsBreadthFirstLazy(expr));
-            #pragma warning restore 618
         }
 
         [Fact]
@@ -119,25 +79,6 @@ namespace Sawmill.Tests
         }
 
         [Fact]
-        public void TestSelfAndDescendantsInContextLazy()
-        {
-            var one = new Lit(1);
-            var two = new Lit(2);
-            var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
-
-            #pragma warning disable 618
-            var contexts = _rewriter.SelfAndDescendantsInContextLazy(expr);
-            #pragma warning restore 618
-
-            Assert.Equal(new Expr[] { expr, one, minusTwo, two }, contexts.Select(x => x.item));
-            
-            var three = new Lit(3);
-            var newExpr = contexts.ElementAt(1).replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
-        }
-
-        [Fact]
         public void TestDescendantsAndSelfInContext()
         {
             var one = new Lit(1);
@@ -146,25 +87,6 @@ namespace Sawmill.Tests
             var expr = new Add(one, minusTwo);
 
             var contexts = _rewriter.DescendantsAndSelfInContext(expr);
-
-            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, contexts.Select(x => x.item));
-            
-            var three = new Lit(3);
-            var newExpr = contexts.ElementAt(0).replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
-        }
-
-        [Fact]
-        public void TestDescendantsAndSelfInContextLazy()
-        {
-            var one = new Lit(1);
-            var two = new Lit(2);
-            var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
-
-            #pragma warning disable 618
-            var contexts = _rewriter.DescendantsAndSelfInContextLazy(expr);
-            #pragma warning restore 618
 
             Assert.Equal(new Expr[] { one, two, minusTwo, expr }, contexts.Select(x => x.item));
             
@@ -183,26 +105,6 @@ namespace Sawmill.Tests
             var expr = new Add(minusOne, minusTwo);
 
             var contexts = _rewriter.SelfAndDescendantsInContextBreadthFirst(expr);
-
-            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, contexts.Select(x => x.item));
-            
-            var three = new Lit(3);
-            var newExpr = contexts.ElementAt(1).replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
-        }
-
-        [Fact]
-        public void TestSelfAndDescendantsInContextBreadthFirstLazy()
-        {
-            var one = new Lit(1);
-            var minusOne = new Neg(one);
-            var two = new Lit(2);
-            var minusTwo = new Neg(two);
-            var expr = new Add(minusOne, minusTwo);
-
-            #pragma warning disable 618
-            var contexts = _rewriter.SelfAndDescendantsInContextBreadthFirstLazy(expr);
-            #pragma warning restore 618
 
             Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, contexts.Select(x => x.item));
             

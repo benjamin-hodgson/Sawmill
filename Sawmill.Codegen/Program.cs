@@ -89,37 +89,16 @@ namespace {ns}
             => {rewriterExpr}.DescendantsAndSelf(value);
         
         /// <summary>
-        /// <seealso cref=""Rewriter.DescendantsAndSelfLazy{{T}}(IRewriter{{T}}, T)""/>
-        /// </summary>
-        [Obsolete(""DescendantsAndSelf is now lazy by default"")]
-        public static IEnumerable<{typeName}> DescendantsAndSelfLazy(this {typeName} value)
-            => {rewriterExpr}.DescendantsAndSelfLazy(value);
-            
-        /// <summary>
         /// <seealso cref=""Rewriter.SelfAndDescendants{{T}}(IRewriter{{T}}, T)""/>
         /// </summary>
         public static IEnumerable<{typeName}> SelfAndDescendants(this {typeName} value)
             => {rewriterExpr}.SelfAndDescendants(value);
-        
-        /// <summary>
-        /// <seealso cref=""Rewriter.SelfAndDescendantsLazy{{T}}(IRewriter{{T}}, T)""/>
-        /// </summary>
-        [Obsolete(""SelfAndDescendants is now lazy by default"")]
-        public static IEnumerable<{typeName}> SelfAndDescendantsLazy(this {typeName} value)
-            => {rewriterExpr}.SelfAndDescendantsLazy(value);
 
         /// <summary>
         /// <seealso cref=""Rewriter.SelfAndDescendantsBreadthFirst{{T}}(IRewriter{{T}}, T)""/>
         /// </summary>
         public static IEnumerable<{typeName}> SelfAndDescendantsBreadthFirst(this {typeName} value)
             => {rewriterExpr}.SelfAndDescendantsBreadthFirst(value);
-
-        /// <summary>
-        /// <seealso cref=""Rewriter.SelfAndDescendantsBreadthFirstLazy{{T}}(IRewriter{{T}}, T)""/>
-        /// </summary>
-        [Obsolete(""SelfAndDescendantsBreadthFirst is now lazy by default"")]
-        public static IEnumerable<{typeName}> SelfAndDescendantsBreadthFirstLazy(this {typeName} value)
-            => {rewriterExpr}.SelfAndDescendantsBreadthFirstLazy(value);
 
         /// <summary>
         /// <seealso cref=""Rewriter.ChildrenInContext{{T}}(IRewriter{{T}}, T)""/>
@@ -134,37 +113,16 @@ namespace {ns}
             => {rewriterExpr}.SelfAndDescendantsInContext(value);
 
         /// <summary>
-        /// <seealso cref=""Rewriter.SelfAndDescendantsInContextLazy{{T}}(IRewriter{{T}}, T)""/>
-        /// </summary>
-        [Obsolete(""SelfAndDescendantsInContext is now lazy by default"")]
-        public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> SelfAndDescendantsInContextLazy(this {typeName} value)
-            => {rewriterExpr}.SelfAndDescendantsInContextLazy(value);
-
-        /// <summary>
         /// <seealso cref=""Rewriter.DescendantsAndSelfInContext{{T}}(IRewriter{{T}}, T)""/>
         /// </summary>
         public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> DescendantsAndSelfInContext(this {typeName} value)
             => {rewriterExpr}.DescendantsAndSelfInContext(value);
 
         /// <summary>
-        /// <seealso cref=""Rewriter.DescendantsAndSelfInContextLazy{{T}}(IRewriter{{T}}, T)""/>
-        /// </summary>
-        [Obsolete(""DescendantsAndSelfInContext is now lazy by default"")]
-        public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> DescendantsAndSelfInContextLazy(this {typeName} value)
-            => {rewriterExpr}.DescendantsAndSelfInContextLazy(value);
-
-        /// <summary>
         /// <seealso cref=""Rewriter.SelfAndDescendantsInContextBreadthFirst{{T}}(IRewriter{{T}}, T)""/>
         /// </summary>
         public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> SelfAndDescendantsInContextBreadthFirst(this {typeName} value)
             => {rewriterExpr}.SelfAndDescendantsInContextBreadthFirst(value);
-
-        /// <summary>
-        /// <seealso cref=""Rewriter.SelfAndDescendantsInContextBreadthFirstLazy{{T}}(IRewriter{{T}}, T)""/>
-        /// </summary>
-        [Obsolete(""SelfAndDescendantsInContextBreadthFirst is now lazy by default"")]
-        public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> SelfAndDescendantsInContextBreadthFirstLazy(this {typeName} value)
-            => {rewriterExpr}.SelfAndDescendantsInContextBreadthFirstLazy(value);
 
         /// <summary>
         /// <seealso cref=""Rewriter.Cursor{{T}}(IRewriter{{T}}, T)""/>
