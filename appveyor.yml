@@ -12,20 +12,14 @@ nuget:
 
 install:
   - ps: |
-      $lastTag = git describe --abbrev=0
-      Set-AppveyorBuildVariable -Name 'LAST_TAG' -Value $lastTag
-      Update-AppveyorBuild -Version "$lastTag-$env:APPVEYOR_BUILD_NUMBER"
-      
+      Invoke-WebRequest https://github.com/benjamin-hodgson/BuildScripts/archive/master.zip -OutFile BuildScripts.zip
+      Expand-Archive BuildScripts.zip -Destination .
+      mv BuildScripts-master BuildScripts
+
+  - ps: .\BuildScripts\appveyor\InitBuildNumber.ps1
   - cmd: msbuild Sawmill.sln /t:restore /p:Configuration=%CONFIGURATION% /v:Minimal
-
   - cmd: cinst docfx
-
-  - ps: |
-      git config --global credential.helper store
-      Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_token):x-oauth-basic@github.com`n"
-      git config --global user.email "benhodgson91@gmail.com"
-      git config --global user.name "AppVeyor build server"
-      git config --global core.safecrlf false
+  - ps: .\BuildScripts\appveyor\ConfigureGit.ps1
 
 build:
   project: Sawmill.sln
@@ -52,15 +46,4 @@ deploy:
     appveyor_repo_tag: true
 
 on_success:
-  - ps: |
-      if ($env:APPVEYOR_REPO_BRANCH -eq 'master' -or $env:APPVEYOR_REPO_TAG -eq 'true') {
-        git clone https://github.com/benjamin-hodgson/Sawmill.git -q --depth 1 --branch gh-pages gh-pages
-        Remove-Item "gh-pages\$env:APPVEYOR_REPO_BRANCH" -Recurse -ErrorAction Ignore
-        Copy-Item Sawmill.Docs\_site -Destination "gh-pages\$env:APPVEYOR_REPO_BRANCH" -Recurse -Container
-        cd gh-pages
-        git add "$env:APPVEYOR_REPO_BRANCH"
-        (gc index.html) -replace 'https://www.benjamin.pizza/Sawmill/[^/]*/', "https://www.benjamin.pizza/Sawmill/$env:LAST_TAG/" | Out-File index.html
-        git add index.html
-        git commit --allow-empty -m "Update gh-pages"
-        git push -q
-      }
+  - ps: .\BuildScripts\appveyor\PushDocs.ps1
