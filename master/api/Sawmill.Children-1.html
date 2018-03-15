@@ -319,7 +319,7 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_GetEnumerator.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L177">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L198">View Source</a>
   </span>
   <a id="Sawmill_Children_1_GetEnumerator_" data-uid="Sawmill.Children`1.GetEnumerator*"></a>
   <h4 id="Sawmill_Children_1_GetEnumerator" data-uid="Sawmill.Children`1.GetEnumerator">GetEnumerator()</h4>
@@ -411,6 +411,155 @@ rather than storing an enumerable on the heap which will quickly become garbage.
       </tr>
     </tbody>
   </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_op_Implicit__0__Sawmill_Children__0_.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.op_Implicit(%600)~Sawmill.Children%7B%600%7D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L177">View Source</a>
+  </span>
+  <a id="Sawmill_Children_1_op_Implicit_" data-uid="Sawmill.Children`1.op_Implicit*"></a>
+  <h4 id="Sawmill_Children_1_op_Implicit__0__Sawmill_Children__0_" data-uid="Sawmill.Children`1.op_Implicit(`0)~Sawmill.Children{`0}">Implicit(T to Children&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Equivalent to <code>Children.One(item)</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Children&lt;T&gt;(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The child</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_op_Implicit_System_Collections_Immutable_ImmutableList__0___Sawmill_Children__0_.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.op_Implicit(System.Collections.Immutable.ImmutableList%7B%600%7D)~Sawmill.Children%7B%600%7D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L191">View Source</a>
+  </span>
+  <a id="Sawmill_Children_1_op_Implicit_" data-uid="Sawmill.Children`1.op_Implicit*"></a>
+  <h4 id="Sawmill_Children_1_op_Implicit_System_Collections_Immutable_ImmutableList__0___Sawmill_Children__0_" data-uid="Sawmill.Children`1.op_Implicit(System.Collections.Immutable.ImmutableList{`0})~Sawmill.Children{`0}">Implicit(ImmutableList&lt;T&gt; to Children&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Equivalent to <code>Children.Many(list)</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Children&lt;T&gt;(ImmutableList&lt;T&gt; list)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Immutable.ImmutableList</span>&lt;T&gt;</td>
+        <td><span class="parametername">list</span></td>
+        <td><p>The children</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_op_Implicit_System_ValueTuple__0__0___Sawmill_Children__0_.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.op_Implicit(System.ValueTuple%7B%600%2C%600%7D)~Sawmill.Children%7B%600%7D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L184">View Source</a>
+  </span>
+  <a id="Sawmill_Children_1_op_Implicit_" data-uid="Sawmill.Children`1.op_Implicit*"></a>
+  <h4 id="Sawmill_Children_1_op_Implicit_System_ValueTuple__0__0___Sawmill_Children__0_" data-uid="Sawmill.Children`1.op_Implicit(System.ValueTuple{`0,`0})~Sawmill.Children{`0}">Implicit( to Children&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Equivalent to <code>Children.Two(children.Item1, children.Item2)</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Children&lt;T&gt;(children)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.</span></td>
+        <td><span class="parametername">children</span></td>
+        <td><p>The children</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
   <span class="small pull-right mobile-hide">
@@ -418,7 +567,7 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.System%23Collections%23Generic%23IEnumerable%7BT%7D%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L180">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L201">View Source</a>
   </span>
   <a id="Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator_" data-uid="Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator*"></a>
   <h4 id="Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator" data-uid="Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">IEnumerable&lt;T&gt;.GetEnumerator()</h4>
@@ -448,7 +597,7 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L190">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L211">View Source</a>
   </span>
   <a id="Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator*"></a>
   <h4 id="Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>

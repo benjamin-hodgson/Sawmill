@@ -278,6 +278,42 @@ references:
   fullName.vb: Sawmill.Children(Of T).NumberOfChildren
   nameWithType: Children<T>.NumberOfChildren
   nameWithType.vb: Children(Of T).NumberOfChildren
+- uid: Sawmill.Children`1.op_Implicit(`0)~Sawmill.Children{`0}
+  name: Implicit(T to Children<T>)
+  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit__0__Sawmill_Children__0_
+  commentId: M:Sawmill.Children`1.op_Implicit(`0)~Sawmill.Children{`0}
+  name.vb: Widening(T to Children(Of T))
+  fullName: Sawmill.Children<T>.Implicit(T to Sawmill.Children<T>)
+  fullName.vb: Sawmill.Children(Of T).Widening(T to Sawmill.Children(Of T))
+  nameWithType: Children<T>.Implicit(T to Children<T>)
+  nameWithType.vb: Children(Of T).Widening(T to Children(Of T))
+- uid: Sawmill.Children`1.op_Implicit(System.Collections.Immutable.ImmutableList{`0})~Sawmill.Children{`0}
+  name: Implicit(ImmutableList<T> to Children<T>)
+  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_System_Collections_Immutable_ImmutableList__0___Sawmill_Children__0_
+  commentId: M:Sawmill.Children`1.op_Implicit(System.Collections.Immutable.ImmutableList{`0})~Sawmill.Children{`0}
+  name.vb: Widening(ImmutableList(Of T) to Children(Of T))
+  fullName: Sawmill.Children<T>.Implicit(System.Collections.Immutable.ImmutableList<T> to Sawmill.Children<T>)
+  fullName.vb: Sawmill.Children(Of T).Widening(System.Collections.Immutable.ImmutableList(Of T) to Sawmill.Children(Of T))
+  nameWithType: Children<T>.Implicit(ImmutableList<T> to Children<T>)
+  nameWithType.vb: Children(Of T).Widening(ImmutableList(Of T) to Children(Of T))
+- uid: Sawmill.Children`1.op_Implicit(System.ValueTuple{`0,`0})~Sawmill.Children{`0}
+  name: Implicit( to Children<T>)
+  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_System_ValueTuple__0__0___Sawmill_Children__0_
+  commentId: M:Sawmill.Children`1.op_Implicit(System.ValueTuple{`0,`0})~Sawmill.Children{`0}
+  name.vb: Widening( to Children(Of T))
+  fullName: Sawmill.Children<T>.Implicit(System. to Sawmill.Children<T>)
+  fullName.vb: Sawmill.Children(Of T).Widening(System. to Sawmill.Children(Of T))
+  nameWithType: Children<T>.Implicit( to Children<T>)
+  nameWithType.vb: Children(Of T).Widening( to Children(Of T))
+- uid: Sawmill.Children`1.op_Implicit*
+  name: Implicit
+  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_
+  commentId: Overload:Sawmill.Children`1.op_Implicit
+  name.vb: Widening
+  fullName: Sawmill.Children<T>.Implicit
+  fullName.vb: Sawmill.Children(Of T).Widening
+  nameWithType: Children<T>.Implicit
+  nameWithType.vb: Children(Of T).Widening
 - uid: Sawmill.Children`1.Second
   name: Second
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_Second
