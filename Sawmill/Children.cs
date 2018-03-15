@@ -171,6 +171,27 @@ namespace Sawmill
         }
 
         /// <summary>
+        /// Equivalent to <c>Children.One(item)</c>
+        /// </summary>
+        /// <param name="item">The child</param>
+        public static implicit operator Children<T>(T item)
+            => Children.One(item);
+
+        /// <summary>
+        /// Equivalent to <c>Children.Two(children.Item1, children.Item2)</c>
+        /// </summary>
+        /// <param name="children">The children</param>
+        public static implicit operator Children<T>((T, T) children)
+            => Children.Two(children.Item1, children.Item2);
+
+        /// <summary>
+        /// Equivalent to <c>Children.Many(list)</c>.
+        /// </summary>
+        /// <param name="list">The children</param>
+        public static implicit operator Children<T>(ImmutableList<T> list)
+            => Children.Many(list);
+
+        /// <summary>
         /// Returns an implementation of <see cref="IEnumerator{T}"/> which yields the elements of the current instance.
         /// </summary>
         /// <returns>An implementation of <see cref="IEnumerator{T}"/> which yields the elements of the current instance.</returns>
