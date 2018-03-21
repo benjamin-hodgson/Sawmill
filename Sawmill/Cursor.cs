@@ -38,7 +38,7 @@ namespace Sawmill
     /// Assert.Equal(new Add(new Lit(1), new Lit(10)), cursor.Focus);
     /// </code>
     /// </example>
-    public sealed class Cursor<T>
+    public sealed partial class Cursor<T>
     {
         private readonly IRewriter<T> _rewriter;
 
@@ -82,13 +82,72 @@ namespace Sawmill
             _focus = top;
             _nextSiblings = new Stack<T>();
         }
+        
+        /// <summary>
+        /// Move in a given <see cref="Direction"/>
+        /// </summary>
+        /// <param name="direction">The <see cref="Direction"/> to move in</param>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when the direction leads off the edge of the tree. The <see cref="Cursor{T}"/> is left in the last known good state.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>
+        /// </exception>
+        public void Move(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                    Up();
+                    return;
+                case Direction.Down:
+                    Down();
+                    return;
+                case Direction.Left:
+                    Left();
+                    return;
+                case Direction.Right:
+                    Right();
+                    return;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction));
+            }
+        }
+        
+        /// <summary>
+        /// Try to move in a given <see cref="Direction"/>
+        /// </summary>
+        /// <param name="direction">The <see cref="Direction"/> to move in</param>
+        /// <returns>
+        /// True if the operation was successful, false if the direction leads off the edge of the tree.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>
+        /// </exception>
+        public bool TryMove(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Up:
+                    return TryUp();
+                case Direction.Down:
+                    return TryDown();
+                case Direction.Left:
+                    return TryLeft();
+                case Direction.Right:
+                    return TryRight();
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction));
+            }
+        }
 
 
         /// <summary>
         /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
         /// 
         /// <para>
-        /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// Going <see cref="Up()"/> "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// This releases old versions of the current <see cref="Focus"/> and its children so that they can be garbage collected.
         /// </para>
         /// </summary>
         /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the root node.</exception>
@@ -104,7 +163,8 @@ namespace Sawmill
         /// Go <see cref="Up()"/> <paramref name="count"/> times.
         /// 
         /// <para>
-        /// This operation "plugs the hole" in the current node's parents, replacing the parents' children as necessary.
+        /// Going <see cref="Up(int)"/> "plugs the hole" in the ancestors, replacing their children as necessary.
+        /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
         /// </para>
         /// </summary>
         /// <exception cref="InvalidOperationException">
@@ -130,6 +190,7 @@ namespace Sawmill
         /// 
         /// <para>
         /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// This releases old versions of the current <see cref="Focus"/> and its children, so that they can be garbage collected.
         /// </para>
         /// </summary>
         /// <returns>
@@ -154,6 +215,7 @@ namespace Sawmill
         /// 
         /// <para>
         /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
+        /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
         /// </para>
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
@@ -176,10 +238,11 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// "Unzip" the <see cref="Cursor{T}"/>, moving the current <see cref="Focus"/> to the top of the tree.
+        /// Move the <see cref="Cursor{T}"/> to the top of the tree.
         /// 
         /// <para>
         /// This operation "plugs the hole" in all of the current node's ancestors, replacing their children as necessary.
+        /// Going to the <see cref="Top"/> releases old versions of the tree so that they can be garbage collected.
         /// </para>
         /// </summary>
         public void Top()
@@ -194,7 +257,13 @@ namespace Sawmill
         /// <summary>
         /// Go <see cref="Up()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
         /// In other words, find the first ancestor of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        /// 
+        /// <para>
+        /// This operation "plugs the hole" in the ancestors, replacing their children as necessary.
+        /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
+        /// </para>
         /// </summary>
+        /// 
         /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
         /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
         /// <exception cref="InvalidOperationException">
@@ -216,7 +285,13 @@ namespace Sawmill
         /// <summary>
         /// Go <see cref="Up()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the top.
         /// In other words, find the first ancestor of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
+        ///
+        /// <para>
+        /// This operation "plugs the hole" in the ancestors, replacing their children as necessary.
+        /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
+        /// </para>
         /// </summary>
+        /// 
         /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
         /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
         /// <returns>
@@ -644,6 +719,96 @@ namespace Sawmill
                 success = TryRight();
             }
             return success;
+        }
+
+        /// <summary>
+        /// Yields a sequence of <see cref="Direction"/>s describing how to get from the <see cref="Top"/>
+        /// of the tree to the current <see cref="Focus"/>.
+        /// The resulting path can be <see cref="Follow"/>ed by a <see cref="Cursor{T}"/>.
+        /// This is useful if, for example, you need to compare the nodes at a given position in two different trees.
+        /// </summary>
+        /// <returns>A sequence of <see cref="Direction"/>s</returns>
+        public IEnumerable<Direction> GetPath()
+        {
+            var prevSiblingsThisLevel = _prevSiblings.Count;
+            var prevSiblingsAncestors = _path.Select(x => x.PrevSiblings.Count).ToList();
+
+            IEnumerable<Direction> Iterator()
+            {
+                foreach (var x in prevSiblingsAncestors)
+                {
+                    for (var i = 0; i < x; i++)
+                    {
+                        yield return Direction.Right;
+                    }
+                    yield return Direction.Down;
+                }
+                for (var i = 0; i < prevSiblingsThisLevel; i++)
+                {
+                    yield return Direction.Right;
+                }
+            }
+            return Iterator();
+        }
+
+        /// <summary>
+        /// Follow a path.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when path leads off the edge of the tree. The <see cref="Cursor{T}"/> is left in the last known good state.
+        /// </exception>
+        /// <param name="path">The path to follow</param>
+        public void Follow(IEnumerable<Direction> path)
+        {
+            foreach (var direction in path)
+            {
+                Move(direction);
+            }
+        }
+
+        /// <summary>
+        /// Follow a path.
+        /// </summary>
+        /// <param name="path">The path to follow</param>
+        /// <returns>
+        /// True if the path was successfully followed in full, false if the path led off the edge of the tree.
+        /// </returns>
+        public bool TryFollow(IEnumerable<Direction> path)
+        {
+            foreach (var direction in path)
+            {
+                if (!TryMove(direction))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Release old versions of the tree for garbage collection.
+        /// The <see cref="Cursor{T}"/> is left focused on the current node.
+        /// 
+        /// <para>
+        /// Typically you won't need to call this method yourself -
+        /// just call <see cref="Top"/> at the end of your sequence of edits to get the new tree back.
+        /// (This method is equivalent to calling <see cref="Top"/> and then returning to where you were.)
+        /// </para>
+        /// 
+        /// <para>
+        /// The worst-case scenario for <see cref="Cursor{T}"/>'s memory usage is code which traverses a large tree and
+        /// alternates <see cref="Down()"/> calls with setting the <see cref="Focus"/>,
+        /// without any calls to <see cref="Up()"/> in between.
+        /// If this is a typical usage pattern for your application, and you find that <see cref="Cursor{T}"/>
+        /// is causing high memory usage because it's holding on to old trees, some infrequent calls to
+        /// this method (say, every 1000 edits) should improve the memory usage (at the cost of some speed).
+        /// </para>
+        /// </summary>
+        public void ReleaseOldVersions()
+        {
+            var path = GetPath();
+            Top();
+            Follow(path);
         }
 
         /// <summary>

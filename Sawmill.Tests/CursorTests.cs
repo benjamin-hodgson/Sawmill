@@ -134,6 +134,20 @@ namespace Sawmill.Tests
         }
 
         [Fact]
+        public void Move_DownRightLeft()
+        {
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Move(Direction.Down);
+            cursor.Move(Direction.Right);
+            cursor.Move(Direction.Left);
+            
+            var firstChild = cursor.Focus;
+            var neg = Assert.IsType<Neg>(firstChild);
+            var lit = Assert.IsType<Lit>(neg.Operand);
+            Assert.Equal(3, lit.Value);
+        }
+
+        [Fact]
         public void Edit()
         {
             var replacement = new Lit(10);
@@ -541,6 +555,44 @@ namespace Sawmill.Tests
                 Assert.False(success);
                 Assert.IsType<Neg>(cursor.Focus);
             }
+        }
+
+        [Fact]
+        public void GetPath()
+        {
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
+            
+            Assert.Equal(new[]{ Direction.Down, Direction.Right }, System.Linq.Enumerable.ToArray(cursor.GetPath()));
+        }
+
+        [Fact]
+        public void Follow_DownRightLeft()
+        {
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Follow(new[] { Direction.Down, Direction.Right, Direction.Left });
+            
+            var firstChild = cursor.Focus;
+            var neg = Assert.IsType<Neg>(firstChild);
+            var lit = Assert.IsType<Lit>(neg.Operand);
+            Assert.Equal(3, lit.Value);
+        }
+
+        [Fact]
+        public void ReleaseOldVersions()
+        {
+            var cursor = _rewriter.Cursor(_expr);
+            cursor.Down();
+            cursor.Right();
+            cursor.Left();
+
+            cursor.ReleaseOldVersions();
+
+            var firstChild = cursor.Focus;
+            var neg = Assert.IsType<Neg>(firstChild);
+            var lit = Assert.IsType<Lit>(neg.Operand);
+            Assert.Equal(3, lit.Value);
         }
 
         [Fact]
