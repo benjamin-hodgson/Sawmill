@@ -28,6 +28,7 @@ references:
   name: GetChildren
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_GetChildren_
   commentId: Overload:Sawmill.AutoRewriter`1.GetChildren
+  isSpec: "True"
   fullName: Sawmill.AutoRewriter<T>.GetChildren
   fullName.vb: Sawmill.AutoRewriter(Of T).GetChildren
   nameWithType: AutoRewriter<T>.GetChildren
@@ -44,6 +45,7 @@ references:
   name: Instance
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_Instance_
   commentId: Overload:Sawmill.AutoRewriter`1.Instance
+  isSpec: "True"
   fullName: Sawmill.AutoRewriter<T>.Instance
   fullName.vb: Sawmill.AutoRewriter(Of T).Instance
   nameWithType: AutoRewriter<T>.Instance
@@ -61,6 +63,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_RewriteChildren_
   commentId: Overload:Sawmill.AutoRewriter`1.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.AutoRewriter<T>.RewriteChildren
   fullName.vb: Sawmill.AutoRewriter(Of T).RewriteChildren
   nameWithType: AutoRewriter<T>.RewriteChildren
@@ -78,6 +81,7 @@ references:
   name: SetChildren
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_SetChildren_
   commentId: Overload:Sawmill.AutoRewriter`1.SetChildren
+  isSpec: "True"
   fullName: Sawmill.AutoRewriter<T>.SetChildren
   fullName.vb: Sawmill.AutoRewriter(Of T).SetChildren
   nameWithType: AutoRewriter<T>.SetChildren
@@ -92,6 +96,7 @@ references:
   name: Many
   href: api/Sawmill.Children.html#Sawmill_Children_Many_
   commentId: Overload:Sawmill.Children.Many
+  isSpec: "True"
   fullName: Sawmill.Children.Many
   nameWithType: Children.Many
 - uid: Sawmill.Children.Many``1(System.Collections.Immutable.ImmutableList{``0})
@@ -107,6 +112,7 @@ references:
   name: None
   href: api/Sawmill.Children.html#Sawmill_Children_None_
   commentId: Overload:Sawmill.Children.None
+  isSpec: "True"
   fullName: Sawmill.Children.None
   nameWithType: Children.None
 - uid: Sawmill.Children.None``1
@@ -122,6 +128,7 @@ references:
   name: One
   href: api/Sawmill.Children.html#Sawmill_Children_One_
   commentId: Overload:Sawmill.Children.One
+  isSpec: "True"
   fullName: Sawmill.Children.One
   nameWithType: Children.One
 - uid: Sawmill.Children.One``1(``0)
@@ -137,6 +144,7 @@ references:
   name: Two
   href: api/Sawmill.Children.html#Sawmill_Children_Two_
   commentId: Overload:Sawmill.Children.Two
+  isSpec: "True"
   fullName: Sawmill.Children.Two
   nameWithType: Children.Two
 - uid: Sawmill.Children.Two``1(``0,``0)
@@ -178,6 +186,7 @@ references:
   name: Current
   href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_Current_
   commentId: Overload:Sawmill.Children`1.Enumerator.Current
+  isSpec: "True"
   fullName: Sawmill.Children<T>.Enumerator.Current
   fullName.vb: Sawmill.Children(Of T).Enumerator.Current
   nameWithType: Children<T>.Enumerator.Current
@@ -194,6 +203,7 @@ references:
   name: Dispose
   href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_Dispose_
   commentId: Overload:Sawmill.Children`1.Enumerator.Dispose
+  isSpec: "True"
   fullName: Sawmill.Children<T>.Enumerator.Dispose
   fullName.vb: Sawmill.Children(Of T).Enumerator.Dispose
   nameWithType: Children<T>.Enumerator.Dispose
@@ -210,6 +220,7 @@ references:
   name: MoveNext
   href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_MoveNext_
   commentId: Overload:Sawmill.Children`1.Enumerator.MoveNext
+  isSpec: "True"
   fullName: Sawmill.Children<T>.Enumerator.MoveNext
   fullName.vb: Sawmill.Children(Of T).Enumerator.MoveNext
   nameWithType: Children<T>.Enumerator.MoveNext
@@ -226,6 +237,7 @@ references:
   name: First
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_First_
   commentId: Overload:Sawmill.Children`1.First
+  isSpec: "True"
   fullName: Sawmill.Children<T>.First
   fullName.vb: Sawmill.Children(Of T).First
   nameWithType: Children<T>.First
@@ -242,6 +254,7 @@ references:
   name: GetEnumerator
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_GetEnumerator_
   commentId: Overload:Sawmill.Children`1.GetEnumerator
+  isSpec: "True"
   fullName: Sawmill.Children<T>.GetEnumerator
   fullName.vb: Sawmill.Children(Of T).GetEnumerator
   nameWithType: Children<T>.GetEnumerator
@@ -258,6 +271,7 @@ references:
   name: Many
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_Many_
   commentId: Overload:Sawmill.Children`1.Many
+  isSpec: "True"
   fullName: Sawmill.Children<T>.Many
   fullName.vb: Sawmill.Children(Of T).Many
   nameWithType: Children<T>.Many
@@ -274,6 +288,7 @@ references:
   name: NumberOfChildren
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren_
   commentId: Overload:Sawmill.Children`1.NumberOfChildren
+  isSpec: "True"
   fullName: Sawmill.Children<T>.NumberOfChildren
   fullName.vb: Sawmill.Children(Of T).NumberOfChildren
   nameWithType: Children<T>.NumberOfChildren
@@ -309,6 +324,7 @@ references:
   name: Implicit
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_
   commentId: Overload:Sawmill.Children`1.op_Implicit
+  isSpec: "True"
   name.vb: Widening
   fullName: Sawmill.Children<T>.Implicit
   fullName.vb: Sawmill.Children(Of T).Widening
@@ -326,6 +342,7 @@ references:
   name: Second
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_Second_
   commentId: Overload:Sawmill.Children`1.Second
+  isSpec: "True"
   fullName: Sawmill.Children<T>.Second
   fullName.vb: Sawmill.Children(Of T).Second
   nameWithType: Children<T>.Second
@@ -334,6 +351,7 @@ references:
   name: Select
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_Select_
   commentId: Overload:Sawmill.Children`1.Select
+  isSpec: "True"
   fullName: Sawmill.Children<T>.Select
   fullName.vb: Sawmill.Children(Of T).Select
   nameWithType: Children<T>.Select
@@ -360,6 +378,7 @@ references:
   name: IEnumerable<T>.GetEnumerator
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator_
   commentId: Overload:Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
+  isSpec: "True"
   name.vb: System.Collections.Generic.IEnumerable<T>.GetEnumerator
   fullName: Sawmill.Children<T>.System.Collections.Generic.IEnumerable<T>.GetEnumerator
   fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator
@@ -378,6 +397,7 @@ references:
   name: IEnumerable.GetEnumerator
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator_
   commentId: Overload:Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
   name.vb: System.Collections.IEnumerable.GetEnumerator
   fullName: Sawmill.Children<T>.System.Collections.IEnumerable.GetEnumerator
   fullName.vb: Sawmill.Children(Of T).System.Collections.IEnumerable.GetEnumerator
@@ -404,6 +424,7 @@ references:
   name: Bottom
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Bottom_
   commentId: Overload:Sawmill.Cursor`1.Bottom
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Bottom
   fullName.vb: Sawmill.Cursor(Of T).Bottom
   nameWithType: Cursor<T>.Bottom
@@ -428,6 +449,7 @@ references:
   name: Down
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down_
   commentId: Overload:Sawmill.Cursor`1.Down
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Down
   fullName.vb: Sawmill.Cursor(Of T).Down
   nameWithType: Cursor<T>.Down
@@ -445,6 +467,7 @@ references:
   name: DownWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_DownWhile_
   commentId: Overload:Sawmill.Cursor`1.DownWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.DownWhile
   fullName.vb: Sawmill.Cursor(Of T).DownWhile
   nameWithType: Cursor<T>.DownWhile
@@ -461,10 +484,46 @@ references:
   name: Focus
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus_
   commentId: Overload:Sawmill.Cursor`1.Focus
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Focus
   fullName.vb: Sawmill.Cursor(Of T).Focus
   nameWithType: Cursor<T>.Focus
   nameWithType.vb: Cursor(Of T).Focus
+- uid: Sawmill.Cursor`1.Follow(System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: Follow(IEnumerable<Direction>)
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Follow_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Cursor`1.Follow(System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: Follow(IEnumerable(Of Direction))
+  fullName: Sawmill.Cursor<T>.Follow(System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Cursor(Of T).Follow(System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: Cursor<T>.Follow(IEnumerable<Direction>)
+  nameWithType.vb: Cursor(Of T).Follow(IEnumerable(Of Direction))
+- uid: Sawmill.Cursor`1.Follow*
+  name: Follow
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Follow_
+  commentId: Overload:Sawmill.Cursor`1.Follow
+  isSpec: "True"
+  fullName: Sawmill.Cursor<T>.Follow
+  fullName.vb: Sawmill.Cursor(Of T).Follow
+  nameWithType: Cursor<T>.Follow
+  nameWithType.vb: Cursor(Of T).Follow
+- uid: Sawmill.Cursor`1.GetPath
+  name: GetPath()
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_GetPath
+  commentId: M:Sawmill.Cursor`1.GetPath
+  fullName: Sawmill.Cursor<T>.GetPath()
+  fullName.vb: Sawmill.Cursor(Of T).GetPath()
+  nameWithType: Cursor<T>.GetPath()
+  nameWithType.vb: Cursor(Of T).GetPath()
+- uid: Sawmill.Cursor`1.GetPath*
+  name: GetPath
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_GetPath_
+  commentId: Overload:Sawmill.Cursor`1.GetPath
+  isSpec: "True"
+  fullName: Sawmill.Cursor<T>.GetPath
+  fullName.vb: Sawmill.Cursor(Of T).GetPath
+  nameWithType: Cursor<T>.GetPath
+  nameWithType.vb: Cursor(Of T).GetPath
 - uid: Sawmill.Cursor`1.Left
   name: Left()
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left
@@ -485,6 +544,7 @@ references:
   name: Left
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left_
   commentId: Overload:Sawmill.Cursor`1.Left
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Left
   fullName.vb: Sawmill.Cursor(Of T).Left
   nameWithType: Cursor<T>.Left
@@ -501,6 +561,7 @@ references:
   name: Leftmost
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Leftmost_
   commentId: Overload:Sawmill.Cursor`1.Leftmost
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Leftmost
   fullName.vb: Sawmill.Cursor(Of T).Leftmost
   nameWithType: Cursor<T>.Leftmost
@@ -518,10 +579,45 @@ references:
   name: LeftWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_LeftWhile_
   commentId: Overload:Sawmill.Cursor`1.LeftWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.LeftWhile
   fullName.vb: Sawmill.Cursor(Of T).LeftWhile
   nameWithType: Cursor<T>.LeftWhile
   nameWithType.vb: Cursor(Of T).LeftWhile
+- uid: Sawmill.Cursor`1.Move(Sawmill.Direction)
+  name: Move(Direction)
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Move_Sawmill_Direction_
+  commentId: M:Sawmill.Cursor`1.Move(Sawmill.Direction)
+  fullName: Sawmill.Cursor<T>.Move(Sawmill.Direction)
+  fullName.vb: Sawmill.Cursor(Of T).Move(Sawmill.Direction)
+  nameWithType: Cursor<T>.Move(Direction)
+  nameWithType.vb: Cursor(Of T).Move(Direction)
+- uid: Sawmill.Cursor`1.Move*
+  name: Move
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Move_
+  commentId: Overload:Sawmill.Cursor`1.Move
+  isSpec: "True"
+  fullName: Sawmill.Cursor<T>.Move
+  fullName.vb: Sawmill.Cursor(Of T).Move
+  nameWithType: Cursor<T>.Move
+  nameWithType.vb: Cursor(Of T).Move
+- uid: Sawmill.Cursor`1.ReleaseOldVersions
+  name: ReleaseOldVersions()
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_ReleaseOldVersions
+  commentId: M:Sawmill.Cursor`1.ReleaseOldVersions
+  fullName: Sawmill.Cursor<T>.ReleaseOldVersions()
+  fullName.vb: Sawmill.Cursor(Of T).ReleaseOldVersions()
+  nameWithType: Cursor<T>.ReleaseOldVersions()
+  nameWithType.vb: Cursor(Of T).ReleaseOldVersions()
+- uid: Sawmill.Cursor`1.ReleaseOldVersions*
+  name: ReleaseOldVersions
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_ReleaseOldVersions_
+  commentId: Overload:Sawmill.Cursor`1.ReleaseOldVersions
+  isSpec: "True"
+  fullName: Sawmill.Cursor<T>.ReleaseOldVersions
+  fullName.vb: Sawmill.Cursor(Of T).ReleaseOldVersions
+  nameWithType: Cursor<T>.ReleaseOldVersions
+  nameWithType.vb: Cursor(Of T).ReleaseOldVersions
 - uid: Sawmill.Cursor`1.Right
   name: Right()
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right
@@ -542,6 +638,7 @@ references:
   name: Right
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right_
   commentId: Overload:Sawmill.Cursor`1.Right
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Right
   fullName.vb: Sawmill.Cursor(Of T).Right
   nameWithType: Cursor<T>.Right
@@ -558,6 +655,7 @@ references:
   name: Rightmost
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Rightmost_
   commentId: Overload:Sawmill.Cursor`1.Rightmost
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Rightmost
   fullName.vb: Sawmill.Cursor(Of T).Rightmost
   nameWithType: Cursor<T>.Rightmost
@@ -575,6 +673,7 @@ references:
   name: RightWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_RightWhile_
   commentId: Overload:Sawmill.Cursor`1.RightWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.RightWhile
   fullName.vb: Sawmill.Cursor(Of T).RightWhile
   nameWithType: Cursor<T>.RightWhile
@@ -592,6 +691,7 @@ references:
   name: SearchDownAndRight
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_SearchDownAndRight_
   commentId: Overload:Sawmill.Cursor`1.SearchDownAndRight
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.SearchDownAndRight
   fullName.vb: Sawmill.Cursor(Of T).SearchDownAndRight
   nameWithType: Cursor<T>.SearchDownAndRight
@@ -609,6 +709,7 @@ references:
   name: SearchRightAndDown
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_SearchRightAndDown_
   commentId: Overload:Sawmill.Cursor`1.SearchRightAndDown
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.SearchRightAndDown
   fullName.vb: Sawmill.Cursor(Of T).SearchRightAndDown
   nameWithType: Cursor<T>.SearchRightAndDown
@@ -625,6 +726,7 @@ references:
   name: Top
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Top_
   commentId: Overload:Sawmill.Cursor`1.Top
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Top
   fullName.vb: Sawmill.Cursor(Of T).Top
   nameWithType: Cursor<T>.Top
@@ -649,6 +751,7 @@ references:
   name: TryDown
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryDown_
   commentId: Overload:Sawmill.Cursor`1.TryDown
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryDown
   fullName.vb: Sawmill.Cursor(Of T).TryDown
   nameWithType: Cursor<T>.TryDown
@@ -666,10 +769,29 @@ references:
   name: TryDownWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryDownWhile_
   commentId: Overload:Sawmill.Cursor`1.TryDownWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryDownWhile
   fullName.vb: Sawmill.Cursor(Of T).TryDownWhile
   nameWithType: Cursor<T>.TryDownWhile
   nameWithType.vb: Cursor(Of T).TryDownWhile
+- uid: Sawmill.Cursor`1.TryFollow(System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: TryFollow(IEnumerable<Direction>)
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryFollow_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Cursor`1.TryFollow(System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: TryFollow(IEnumerable(Of Direction))
+  fullName: Sawmill.Cursor<T>.TryFollow(System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Cursor(Of T).TryFollow(System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: Cursor<T>.TryFollow(IEnumerable<Direction>)
+  nameWithType.vb: Cursor(Of T).TryFollow(IEnumerable(Of Direction))
+- uid: Sawmill.Cursor`1.TryFollow*
+  name: TryFollow
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryFollow_
+  commentId: Overload:Sawmill.Cursor`1.TryFollow
+  isSpec: "True"
+  fullName: Sawmill.Cursor<T>.TryFollow
+  fullName.vb: Sawmill.Cursor(Of T).TryFollow
+  nameWithType: Cursor<T>.TryFollow
+  nameWithType.vb: Cursor(Of T).TryFollow
 - uid: Sawmill.Cursor`1.TryLeft
   name: TryLeft()
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryLeft
@@ -690,6 +812,7 @@ references:
   name: TryLeft
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryLeft_
   commentId: Overload:Sawmill.Cursor`1.TryLeft
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryLeft
   fullName.vb: Sawmill.Cursor(Of T).TryLeft
   nameWithType: Cursor<T>.TryLeft
@@ -707,10 +830,28 @@ references:
   name: TryLeftWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryLeftWhile_
   commentId: Overload:Sawmill.Cursor`1.TryLeftWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryLeftWhile
   fullName.vb: Sawmill.Cursor(Of T).TryLeftWhile
   nameWithType: Cursor<T>.TryLeftWhile
   nameWithType.vb: Cursor(Of T).TryLeftWhile
+- uid: Sawmill.Cursor`1.TryMove(Sawmill.Direction)
+  name: TryMove(Direction)
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryMove_Sawmill_Direction_
+  commentId: M:Sawmill.Cursor`1.TryMove(Sawmill.Direction)
+  fullName: Sawmill.Cursor<T>.TryMove(Sawmill.Direction)
+  fullName.vb: Sawmill.Cursor(Of T).TryMove(Sawmill.Direction)
+  nameWithType: Cursor<T>.TryMove(Direction)
+  nameWithType.vb: Cursor(Of T).TryMove(Direction)
+- uid: Sawmill.Cursor`1.TryMove*
+  name: TryMove
+  href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryMove_
+  commentId: Overload:Sawmill.Cursor`1.TryMove
+  isSpec: "True"
+  fullName: Sawmill.Cursor<T>.TryMove
+  fullName.vb: Sawmill.Cursor(Of T).TryMove
+  nameWithType: Cursor<T>.TryMove
+  nameWithType.vb: Cursor(Of T).TryMove
 - uid: Sawmill.Cursor`1.TryRight
   name: TryRight()
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryRight
@@ -731,6 +872,7 @@ references:
   name: TryRight
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryRight_
   commentId: Overload:Sawmill.Cursor`1.TryRight
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryRight
   fullName.vb: Sawmill.Cursor(Of T).TryRight
   nameWithType: Cursor<T>.TryRight
@@ -748,6 +890,7 @@ references:
   name: TryRightWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryRightWhile_
   commentId: Overload:Sawmill.Cursor`1.TryRightWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryRightWhile
   fullName.vb: Sawmill.Cursor(Of T).TryRightWhile
   nameWithType: Cursor<T>.TryRightWhile
@@ -772,6 +915,7 @@ references:
   name: TryUp
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryUp_
   commentId: Overload:Sawmill.Cursor`1.TryUp
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryUp
   fullName.vb: Sawmill.Cursor(Of T).TryUp
   nameWithType: Cursor<T>.TryUp
@@ -789,6 +933,7 @@ references:
   name: TryUpWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_TryUpWhile_
   commentId: Overload:Sawmill.Cursor`1.TryUpWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.TryUpWhile
   fullName.vb: Sawmill.Cursor(Of T).TryUpWhile
   nameWithType: Cursor<T>.TryUpWhile
@@ -813,6 +958,7 @@ references:
   name: Up
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up_
   commentId: Overload:Sawmill.Cursor`1.Up
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.Up
   fullName.vb: Sawmill.Cursor(Of T).Up
   nameWithType: Cursor<T>.Up
@@ -830,10 +976,41 @@ references:
   name: UpWhile
   href: api/Sawmill.Cursor-1.html#Sawmill_Cursor_1_UpWhile_
   commentId: Overload:Sawmill.Cursor`1.UpWhile
+  isSpec: "True"
   fullName: Sawmill.Cursor<T>.UpWhile
   fullName.vb: Sawmill.Cursor(Of T).UpWhile
   nameWithType: Cursor<T>.UpWhile
   nameWithType.vb: Cursor(Of T).UpWhile
+- uid: Sawmill.Direction
+  name: Direction
+  href: api/Sawmill.Direction.html
+  commentId: T:Sawmill.Direction
+  fullName: Sawmill.Direction
+  nameWithType: Direction
+- uid: Sawmill.Direction.Down
+  name: Down
+  href: api/Sawmill.Direction.html#Sawmill_Direction_Down
+  commentId: F:Sawmill.Direction.Down
+  fullName: Sawmill.Direction.Down
+  nameWithType: Direction.Down
+- uid: Sawmill.Direction.Left
+  name: Left
+  href: api/Sawmill.Direction.html#Sawmill_Direction_Left
+  commentId: F:Sawmill.Direction.Left
+  fullName: Sawmill.Direction.Left
+  nameWithType: Direction.Left
+- uid: Sawmill.Direction.Right
+  name: Right
+  href: api/Sawmill.Direction.html#Sawmill_Direction_Right
+  commentId: F:Sawmill.Direction.Right
+  fullName: Sawmill.Direction.Right
+  nameWithType: Direction.Right
+- uid: Sawmill.Direction.Up
+  name: Up
+  href: api/Sawmill.Direction.html#Sawmill_Direction_Up
+  commentId: F:Sawmill.Direction.Up
+  fullName: Sawmill.Direction.Up
+  nameWithType: Direction.Up
 - uid: Sawmill.Expressions
   name: Sawmill.Expressions
   href: api/Sawmill.Expressions.html
@@ -856,6 +1033,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ChildrenInContext_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.ChildrenInContext
   nameWithType: ExpressionExtensions.ChildrenInContext
 - uid: Sawmill.Expressions.ExpressionExtensions.Cursor(System.Linq.Expressions.Expression)
@@ -868,6 +1046,7 @@ references:
   name: Cursor
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Cursor_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.Cursor
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.Cursor
   nameWithType: ExpressionExtensions.Cursor
 - uid: Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelf(System.Linq.Expressions.Expression)
@@ -880,6 +1059,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelf
   nameWithType: ExpressionExtensions.DescendantsAndSelf
 - uid: Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelfInContext(System.Linq.Expressions.Expression)
@@ -892,12 +1072,14 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelfInContext
   nameWithType: ExpressionExtensions.DescendantsAndSelfInContext
 - uid: Sawmill.Expressions.ExpressionExtensions.Fold*
   name: Fold
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Fold_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.Fold
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.Fold
   nameWithType: ExpressionExtensions.Fold
 - uid: Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,Sawmill.Children{``0},``0})
@@ -919,6 +1101,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_GetChildren_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.GetChildren
   nameWithType: ExpressionExtensions.GetChildren
 - uid: Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
@@ -934,6 +1117,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Rewrite_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.Rewrite
   nameWithType: ExpressionExtensions.Rewrite
 - uid: Sawmill.Expressions.ExpressionExtensions.RewriteChildren(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
@@ -949,6 +1133,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteChildren_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.RewriteChildren
   nameWithType: ExpressionExtensions.RewriteChildren
 - uid: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
@@ -964,6 +1149,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteIter_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.RewriteIter
   nameWithType: ExpressionExtensions.RewriteIter
 - uid: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendants(System.Linq.Expressions.Expression)
@@ -976,6 +1162,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendants
   nameWithType: ExpressionExtensions.SelfAndDescendants
 - uid: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsBreadthFirst(System.Linq.Expressions.Expression)
@@ -988,6 +1175,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsBreadthFirst
   nameWithType: ExpressionExtensions.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContext(System.Linq.Expressions.Expression)
@@ -1000,6 +1188,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContext
   nameWithType: ExpressionExtensions.SelfAndDescendantsInContext
 - uid: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContextBreadthFirst(System.Linq.Expressions.Expression)
@@ -1012,6 +1201,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: ExpressionExtensions.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression,Sawmill.Children{System.Linq.Expressions.Expression})
@@ -1027,12 +1217,14 @@ references:
   name: SetChildren
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SetChildren_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.SetChildren
   nameWithType: ExpressionExtensions.SetChildren
 - uid: Sawmill.Expressions.ExpressionExtensions.ZipFold*
   name: ZipFold
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ZipFold_
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.ZipFold
   nameWithType: ExpressionExtensions.ZipFold
 - uid: Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{``0},``0})
@@ -1069,6 +1261,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_GetChildren_
   commentId: Overload:Sawmill.Expressions.ExpressionRewriter.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionRewriter.GetChildren
   nameWithType: ExpressionRewriter.GetChildren
 - uid: Sawmill.Expressions.ExpressionRewriter.Instance
@@ -1081,6 +1274,7 @@ references:
   name: Instance
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_Instance_
   commentId: Overload:Sawmill.Expressions.ExpressionRewriter.Instance
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionRewriter.Instance
   nameWithType: ExpressionRewriter.Instance
 - uid: Sawmill.Expressions.ExpressionRewriter.RewriteChildren(System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
@@ -1096,6 +1290,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_RewriteChildren_
   commentId: Overload:Sawmill.Expressions.ExpressionRewriter.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionRewriter.RewriteChildren
   nameWithType: ExpressionRewriter.RewriteChildren
 - uid: Sawmill.Expressions.ExpressionRewriter.SetChildren(Sawmill.Children{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
@@ -1111,6 +1306,7 @@ references:
   name: SetChildren
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_SetChildren_
   commentId: Overload:Sawmill.Expressions.ExpressionRewriter.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionRewriter.SetChildren
   nameWithType: ExpressionRewriter.SetChildren
 - uid: Sawmill.IRewritable`1
@@ -1134,6 +1330,7 @@ references:
   name: GetChildren
   href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_
   commentId: Overload:Sawmill.IRewritable`1.GetChildren
+  isSpec: "True"
   fullName: Sawmill.IRewritable<T>.GetChildren
   fullName.vb: Sawmill.IRewritable(Of T).GetChildren
   nameWithType: IRewritable<T>.GetChildren
@@ -1151,6 +1348,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_
   commentId: Overload:Sawmill.IRewritable`1.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.IRewritable<T>.RewriteChildren
   fullName.vb: Sawmill.IRewritable(Of T).RewriteChildren
   nameWithType: IRewritable<T>.RewriteChildren
@@ -1168,6 +1366,7 @@ references:
   name: SetChildren
   href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_
   commentId: Overload:Sawmill.IRewritable`1.SetChildren
+  isSpec: "True"
   fullName: Sawmill.IRewritable<T>.SetChildren
   fullName.vb: Sawmill.IRewritable(Of T).SetChildren
   nameWithType: IRewritable<T>.SetChildren
@@ -1193,6 +1392,7 @@ references:
   name: GetChildren
   href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_
   commentId: Overload:Sawmill.IRewriter`1.GetChildren
+  isSpec: "True"
   fullName: Sawmill.IRewriter<T>.GetChildren
   fullName.vb: Sawmill.IRewriter(Of T).GetChildren
   nameWithType: IRewriter<T>.GetChildren
@@ -1210,6 +1410,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_
   commentId: Overload:Sawmill.IRewriter`1.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.IRewriter<T>.RewriteChildren
   fullName.vb: Sawmill.IRewriter(Of T).RewriteChildren
   nameWithType: IRewriter<T>.RewriteChildren
@@ -1227,6 +1428,7 @@ references:
   name: SetChildren
   href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_
   commentId: Overload:Sawmill.IRewriter`1.SetChildren
+  isSpec: "True"
   fullName: Sawmill.IRewriter<T>.SetChildren
   fullName.vb: Sawmill.IRewriter(Of T).SetChildren
   nameWithType: IRewriter<T>.SetChildren
@@ -1259,6 +1461,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_ChildrenInContext_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ChildrenInContext
   nameWithType: CSharpSyntaxNodeExtensions.ChildrenInContext
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Cursor(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1271,6 +1474,7 @@ references:
   name: Cursor
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Cursor_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Cursor
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Cursor
   nameWithType: CSharpSyntaxNodeExtensions.Cursor
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelf(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1283,6 +1487,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_DescendantsAndSelf_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelf
   nameWithType: CSharpSyntaxNodeExtensions.DescendantsAndSelf
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelfInContext(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1295,12 +1500,14 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelfInContext
   nameWithType: CSharpSyntaxNodeExtensions.DescendantsAndSelfInContext
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold*
   name: Fold
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Fold_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold
   nameWithType: CSharpSyntaxNodeExtensions.Fold
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.Children{``0},``0})
@@ -1322,6 +1529,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_GetChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren
   nameWithType: CSharpSyntaxNodeExtensions.GetChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Rewrite(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
@@ -1337,6 +1545,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Rewrite_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Rewrite
   nameWithType: CSharpSyntaxNodeExtensions.Rewrite
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
@@ -1352,6 +1561,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_RewriteChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteChildren
   nameWithType: CSharpSyntaxNodeExtensions.RewriteChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteIter(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
@@ -1367,6 +1577,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_RewriteIter_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteIter
   nameWithType: CSharpSyntaxNodeExtensions.RewriteIter
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendants(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1379,6 +1590,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SelfAndDescendants_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendants
   nameWithType: CSharpSyntaxNodeExtensions.SelfAndDescendants
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1391,6 +1603,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst
   nameWithType: CSharpSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContext(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1403,6 +1616,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContext
   nameWithType: CSharpSyntaxNodeExtensions.SelfAndDescendantsInContext
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
@@ -1415,6 +1629,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: CSharpSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
@@ -1430,12 +1645,14 @@ references:
   name: SetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SetChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren
   nameWithType: CSharpSyntaxNodeExtensions.SetChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ZipFold*
   name: ZipFold
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_ZipFold_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ZipFold
   nameWithType: CSharpSyntaxNodeExtensions.ZipFold
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ZipFold``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{``0},``0})
@@ -1477,6 +1694,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_GetChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.GetChildren
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).GetChildren
   nameWithType: SyntaxNodeRewriter<T>.GetChildren
@@ -1493,6 +1711,7 @@ references:
   name: Instance
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_Instance_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.Instance
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.Instance
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).Instance
   nameWithType: SyntaxNodeRewriter<T>.Instance
@@ -1510,6 +1729,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_RewriteChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.RewriteChildren
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).RewriteChildren
   nameWithType: SyntaxNodeRewriter<T>.RewriteChildren
@@ -1527,6 +1747,7 @@ references:
   name: SetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_SetChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.SetChildren
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).SetChildren
   nameWithType: SyntaxNodeRewriter<T>.SetChildren
@@ -1553,6 +1774,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ChildrenInContext_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ChildrenInContext
   nameWithType: VisualBasicSyntaxNodeExtensions.ChildrenInContext
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1565,6 +1787,7 @@ references:
   name: Cursor
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Cursor_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor
   nameWithType: VisualBasicSyntaxNodeExtensions.Cursor
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1577,6 +1800,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf
   nameWithType: VisualBasicSyntaxNodeExtensions.DescendantsAndSelf
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1589,12 +1813,14 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext
   nameWithType: VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold*
   name: Fold
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold
   nameWithType: VisualBasicSyntaxNodeExtensions.Fold
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{``0},``0})
@@ -1616,6 +1842,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren
   nameWithType: VisualBasicSyntaxNodeExtensions.GetChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
@@ -1631,6 +1858,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite
   nameWithType: VisualBasicSyntaxNodeExtensions.Rewrite
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
@@ -1646,6 +1874,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren
   nameWithType: VisualBasicSyntaxNodeExtensions.RewriteChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
@@ -1661,6 +1890,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteIter_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter
   nameWithType: VisualBasicSyntaxNodeExtensions.RewriteIter
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendants(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1673,6 +1903,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendants_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendants
   nameWithType: VisualBasicSyntaxNodeExtensions.SelfAndDescendants
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1685,6 +1916,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst
   nameWithType: VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1697,6 +1929,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext
   nameWithType: VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
@@ -1709,6 +1942,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
@@ -1724,12 +1958,14 @@ references:
   name: SetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren
   nameWithType: VisualBasicSyntaxNodeExtensions.SetChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold*
   name: ZipFold
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold_
   commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold
   nameWithType: VisualBasicSyntaxNodeExtensions.ZipFold
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{``0},``0})
@@ -1772,6 +2008,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_ChildrenInContext_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.ChildrenInContext
   nameWithType: JTokenExtensions.ChildrenInContext
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Cursor(Newtonsoft.Json.Linq.JToken)
@@ -1784,6 +2021,7 @@ references:
   name: Cursor
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Cursor_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.Cursor
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Cursor
   nameWithType: JTokenExtensions.Cursor
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelf(Newtonsoft.Json.Linq.JToken)
@@ -1796,6 +2034,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantsAndSelf_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelf
   nameWithType: JTokenExtensions.DescendantsAndSelf
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelfInContext(Newtonsoft.Json.Linq.JToken)
@@ -1808,12 +2047,14 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelfInContext
   nameWithType: JTokenExtensions.DescendantsAndSelfInContext
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold*
   name: Fold
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Fold_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.Fold
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold
   nameWithType: JTokenExtensions.Fold
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold``1(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Sawmill.Children{``0},``0})
@@ -1835,6 +2076,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_GetChildren_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren
   nameWithType: JTokenExtensions.GetChildren
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Rewrite(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
@@ -1850,6 +2092,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Rewrite_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Rewrite
   nameWithType: JTokenExtensions.Rewrite
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteChildren(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
@@ -1865,6 +2108,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_RewriteChildren_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteChildren
   nameWithType: JTokenExtensions.RewriteChildren
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteIter(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
@@ -1880,6 +2124,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_RewriteIter_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteIter
   nameWithType: JTokenExtensions.RewriteIter
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendants(Newtonsoft.Json.Linq.JToken)
@@ -1892,6 +2137,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendants_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendants
   nameWithType: JTokenExtensions.SelfAndDescendants
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsBreadthFirst(Newtonsoft.Json.Linq.JToken)
@@ -1904,6 +2150,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsBreadthFirst
   nameWithType: JTokenExtensions.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContext(Newtonsoft.Json.Linq.JToken)
@@ -1916,6 +2163,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContext
   nameWithType: JTokenExtensions.SelfAndDescendantsInContext
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContextBreadthFirst(Newtonsoft.Json.Linq.JToken)
@@ -1928,6 +2176,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: JTokenExtensions.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken,Sawmill.Children{Newtonsoft.Json.Linq.JToken})
@@ -1943,12 +2192,14 @@ references:
   name: SetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SetChildren_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren
   nameWithType: JTokenExtensions.SetChildren
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.ZipFold*
   name: ZipFold
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_ZipFold_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.ZipFold
   nameWithType: JTokenExtensions.ZipFold
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.ZipFold``1(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{``0},``0})
@@ -1985,6 +2236,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren
   nameWithType: JTokenRewriter.GetChildren
 - uid: Sawmill.Newtonsoft.Json.JTokenRewriter.Instance
@@ -1997,6 +2249,7 @@ references:
   name: Instance
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_Instance_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.Instance
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.Instance
   nameWithType: JTokenRewriter.Instance
 - uid: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren(System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
@@ -2012,6 +2265,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_RewriteChildren_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren
   nameWithType: JTokenRewriter.RewriteChildren
 - uid: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(Sawmill.Children{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
@@ -2027,6 +2281,7 @@ references:
   name: SetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_
   commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren
   nameWithType: JTokenRewriter.SetChildren
 - uid: Sawmill.NumberOfChildren
@@ -2069,6 +2324,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_ChildrenInContext_
   commentId: Overload:Sawmill.Rewritable.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Rewritable.ChildrenInContext
   nameWithType: Rewritable.ChildrenInContext
 - uid: Sawmill.Rewritable.ChildrenInContext``1(``0)
@@ -2084,6 +2340,7 @@ references:
   name: Cursor
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_Cursor_
   commentId: Overload:Sawmill.Rewritable.Cursor
+  isSpec: "True"
   fullName: Sawmill.Rewritable.Cursor
   nameWithType: Rewritable.Cursor
 - uid: Sawmill.Rewritable.Cursor``1(``0)
@@ -2099,6 +2356,7 @@ references:
   name: DefaultRewriteChildren
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DefaultRewriteChildren_
   commentId: Overload:Sawmill.Rewritable.DefaultRewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Rewritable.DefaultRewriteChildren
   nameWithType: Rewritable.DefaultRewriteChildren
 - uid: Sawmill.Rewritable.DefaultRewriteChildren``1(``0,System.Func{``0,``0})
@@ -2114,6 +2372,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DescendantsAndSelf_
   commentId: Overload:Sawmill.Rewritable.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Rewritable.DescendantsAndSelf
   nameWithType: Rewritable.DescendantsAndSelf
 - uid: Sawmill.Rewritable.DescendantsAndSelf``1(``0)
@@ -2129,6 +2388,7 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Rewritable.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Rewritable.DescendantsAndSelfInContext
   nameWithType: Rewritable.DescendantsAndSelfInContext
 - uid: Sawmill.Rewritable.DescendantsAndSelfInContext``1(``0)
@@ -2144,6 +2404,7 @@ references:
   name: Fold
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_Fold_
   commentId: Overload:Sawmill.Rewritable.Fold
+  isSpec: "True"
   fullName: Sawmill.Rewritable.Fold
   nameWithType: Rewritable.Fold
 - uid: Sawmill.Rewritable.Fold``2(``0,System.Func{``0,Sawmill.Children{``1},``1})
@@ -2159,6 +2420,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_Rewrite_
   commentId: Overload:Sawmill.Rewritable.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Rewritable.Rewrite
   nameWithType: Rewritable.Rewrite
 - uid: Sawmill.Rewritable.Rewrite``1(``0,System.Func{``0,``0})
@@ -2174,6 +2436,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteIter_
   commentId: Overload:Sawmill.Rewritable.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Rewritable.RewriteIter
   nameWithType: Rewritable.RewriteIter
 - uid: Sawmill.Rewritable.RewriteIter``1(``0,System.Func{``0,``0})
@@ -2189,6 +2452,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_SelfAndDescendants_
   commentId: Overload:Sawmill.Rewritable.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Rewritable.SelfAndDescendants
   nameWithType: Rewritable.SelfAndDescendants
 - uid: Sawmill.Rewritable.SelfAndDescendants``1(``0)
@@ -2204,6 +2468,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Rewritable.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Rewritable.SelfAndDescendantsBreadthFirst
   nameWithType: Rewritable.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Rewritable.SelfAndDescendantsBreadthFirst``1(``0)
@@ -2219,6 +2484,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Rewritable.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Rewritable.SelfAndDescendantsInContext
   nameWithType: Rewritable.SelfAndDescendantsInContext
 - uid: Sawmill.Rewritable.SelfAndDescendantsInContext``1(``0)
@@ -2234,6 +2500,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Rewritable.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Rewritable.SelfAndDescendantsInContextBreadthFirst
   nameWithType: Rewritable.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Rewritable.SelfAndDescendantsInContextBreadthFirst``1(``0)
@@ -2249,6 +2516,7 @@ references:
   name: ZipFold
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_ZipFold_
   commentId: Overload:Sawmill.Rewritable.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Rewritable.ZipFold
   nameWithType: Rewritable.ZipFold
 - uid: Sawmill.Rewritable.ZipFold``2(``0,``0,System.Func{``0,``0,System.Collections.Generic.IEnumerable{``1},``1})
@@ -2290,6 +2558,7 @@ references:
   name: GetChildren
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_GetChildren_
   commentId: Overload:Sawmill.RewritableRewriter`1.GetChildren
+  isSpec: "True"
   fullName: Sawmill.RewritableRewriter<T>.GetChildren
   fullName.vb: Sawmill.RewritableRewriter(Of T).GetChildren
   nameWithType: RewritableRewriter<T>.GetChildren
@@ -2306,6 +2575,7 @@ references:
   name: Instance
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_Instance_
   commentId: Overload:Sawmill.RewritableRewriter`1.Instance
+  isSpec: "True"
   fullName: Sawmill.RewritableRewriter<T>.Instance
   fullName.vb: Sawmill.RewritableRewriter(Of T).Instance
   nameWithType: RewritableRewriter<T>.Instance
@@ -2323,6 +2593,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_RewriteChildren_
   commentId: Overload:Sawmill.RewritableRewriter`1.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.RewritableRewriter<T>.RewriteChildren
   fullName.vb: Sawmill.RewritableRewriter(Of T).RewriteChildren
   nameWithType: RewritableRewriter<T>.RewriteChildren
@@ -2340,6 +2611,7 @@ references:
   name: SetChildren
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_SetChildren_
   commentId: Overload:Sawmill.RewritableRewriter`1.SetChildren
+  isSpec: "True"
   fullName: Sawmill.RewritableRewriter<T>.SetChildren
   fullName.vb: Sawmill.RewritableRewriter(Of T).SetChildren
   nameWithType: RewritableRewriter<T>.SetChildren
@@ -2354,6 +2626,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext_
   commentId: Overload:Sawmill.Rewriter.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Rewriter.ChildrenInContext
   nameWithType: Rewriter.ChildrenInContext
 - uid: Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{``0},``0)
@@ -2369,6 +2642,7 @@ references:
   name: Cursor
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor_
   commentId: Overload:Sawmill.Rewriter.Cursor
+  isSpec: "True"
   fullName: Sawmill.Rewriter.Cursor
   nameWithType: Rewriter.Cursor
 - uid: Sawmill.Rewriter.Cursor``1(Sawmill.IRewriter{``0},``0)
@@ -2384,6 +2658,7 @@ references:
   name: DefaultRewriteChildren
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren_
   commentId: Overload:Sawmill.Rewriter.DefaultRewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Rewriter.DefaultRewriteChildren
   nameWithType: Rewriter.DefaultRewriteChildren
 - uid: Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
@@ -2399,6 +2674,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf_
   commentId: Overload:Sawmill.Rewriter.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Rewriter.DescendantsAndSelf
   nameWithType: Rewriter.DescendantsAndSelf
 - uid: Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{``0},``0)
@@ -2414,6 +2690,7 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Rewriter.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Rewriter.DescendantsAndSelfInContext
   nameWithType: Rewriter.DescendantsAndSelfInContext
 - uid: Sawmill.Rewriter.DescendantsAndSelfInContext``1(Sawmill.IRewriter{``0},``0)
@@ -2429,6 +2706,7 @@ references:
   name: Fold
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_Fold_
   commentId: Overload:Sawmill.Rewriter.Fold
+  isSpec: "True"
   fullName: Sawmill.Rewriter.Fold
   nameWithType: Rewriter.Fold
 - uid: Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)
@@ -2444,6 +2722,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite_
   commentId: Overload:Sawmill.Rewriter.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Rewriter.Rewrite
   nameWithType: Rewriter.Rewrite
 - uid: Sawmill.Rewriter.Rewrite``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
@@ -2459,6 +2738,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter_
   commentId: Overload:Sawmill.Rewriter.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Rewriter.RewriteIter
   nameWithType: Rewriter.RewriteIter
 - uid: Sawmill.Rewriter.RewriteIter``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
@@ -2474,6 +2754,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants_
   commentId: Overload:Sawmill.Rewriter.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Rewriter.SelfAndDescendants
   nameWithType: Rewriter.SelfAndDescendants
 - uid: Sawmill.Rewriter.SelfAndDescendants``1(Sawmill.IRewriter{``0},``0)
@@ -2489,6 +2770,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Rewriter.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Rewriter.SelfAndDescendantsBreadthFirst
   nameWithType: Rewriter.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Rewriter.SelfAndDescendantsBreadthFirst``1(Sawmill.IRewriter{``0},``0)
@@ -2504,6 +2786,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Rewriter.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Rewriter.SelfAndDescendantsInContext
   nameWithType: Rewriter.SelfAndDescendantsInContext
 - uid: Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{``0},``0)
@@ -2519,6 +2802,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst
   nameWithType: Rewriter.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst``1(Sawmill.IRewriter{``0},``0)
@@ -2534,6 +2818,7 @@ references:
   name: ZipFold
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold_
   commentId: Overload:Sawmill.Rewriter.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Rewriter.ZipFold
   nameWithType: Rewriter.ZipFold
 - uid: Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1},``0[])
@@ -2555,6 +2840,7 @@ references:
   name: For
   href: api/Sawmill.RewriterBuilder.html#Sawmill_RewriterBuilder_For_
   commentId: Overload:Sawmill.RewriterBuilder.For
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilder.For
   nameWithType: RewriterBuilder.For
 - uid: Sawmill.RewriterBuilder.For``1
@@ -2587,6 +2873,7 @@ references:
   name: Build
   href: api/Sawmill.RewriterBuilder-1.html#Sawmill_RewriterBuilder_1_Build_
   commentId: Overload:Sawmill.RewriterBuilder`1.Build
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilder<T>.Build
   fullName.vb: Sawmill.RewriterBuilder(Of T).Build
   nameWithType: RewriterBuilder<T>.Build
@@ -2595,6 +2882,7 @@ references:
   name: Case
   href: api/Sawmill.RewriterBuilder-1.html#Sawmill_RewriterBuilder_1_Case_
   commentId: Overload:Sawmill.RewriterBuilder`1.Case
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilder<T>.Case
   fullName.vb: Sawmill.RewriterBuilder(Of T).Case
   nameWithType: RewriterBuilder<T>.Case
@@ -2618,6 +2906,7 @@ references:
   name: ConstructWith
   href: api/Sawmill.RewriterBuilderCase.html#Sawmill_RewriterBuilderCase_ConstructWith_
   commentId: Overload:Sawmill.RewriterBuilderCase.ConstructWith
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilderCase.ConstructWith
   nameWithType: RewriterBuilderCase.ConstructWith
 - uid: Sawmill.RewriterBuilderCase.ConstructWith``10(Sawmill.RewriterBuilderCase{System.ValueTuple{System.ValueTuple{System.ValueTuple{System.ValueTuple{System.ValueTuple{System.ValueTuple{System.ValueTuple{System.ValueTuple{System.Object,``0},``1},``2},``3},``4},``5},``6},``7},``8,``9},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``9})
@@ -2732,6 +3021,7 @@ references:
   name: Child
   href: api/Sawmill.RewriterBuilderCase-3.html#Sawmill_RewriterBuilderCase_3_Child_
   commentId: Overload:Sawmill.RewriterBuilderCase`3.Child
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilderCase<TArgs, TBase, TSub>.Child
   fullName.vb: Sawmill.RewriterBuilderCase(Of TArgs, TBase, TSub).Child
   nameWithType: RewriterBuilderCase<TArgs, TBase, TSub>.Child
@@ -2749,6 +3039,7 @@ references:
   name: Children
   href: api/Sawmill.RewriterBuilderCase-3.html#Sawmill_RewriterBuilderCase_3_Children_
   commentId: Overload:Sawmill.RewriterBuilderCase`3.Children
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilderCase<TArgs, TBase, TSub>.Children
   fullName.vb: Sawmill.RewriterBuilderCase(Of TArgs, TBase, TSub).Children
   nameWithType: RewriterBuilderCase<TArgs, TBase, TSub>.Children
@@ -2757,6 +3048,7 @@ references:
   name: Field
   href: api/Sawmill.RewriterBuilderCase-3.html#Sawmill_RewriterBuilderCase_3_Field_
   commentId: Overload:Sawmill.RewriterBuilderCase`3.Field
+  isSpec: "True"
   fullName: Sawmill.RewriterBuilderCase<TArgs, TBase, TSub>.Field
   fullName.vb: Sawmill.RewriterBuilderCase(Of TArgs, TBase, TSub).Field
   nameWithType: RewriterBuilderCase<TArgs, TBase, TSub>.Field
@@ -2792,6 +3084,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ChildrenInContext_
   commentId: Overload:Sawmill.Xml.XElementExtensions.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.ChildrenInContext
   nameWithType: XElementExtensions.ChildrenInContext
 - uid: Sawmill.Xml.XElementExtensions.Cursor(System.Xml.Linq.XElement)
@@ -2804,6 +3097,7 @@ references:
   name: Cursor
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Cursor_
   commentId: Overload:Sawmill.Xml.XElementExtensions.Cursor
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.Cursor
   nameWithType: XElementExtensions.Cursor
 - uid: Sawmill.Xml.XElementExtensions.DescendantsAndSelf(System.Xml.Linq.XElement)
@@ -2816,6 +3110,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_DescendantsAndSelf_
   commentId: Overload:Sawmill.Xml.XElementExtensions.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.DescendantsAndSelf
   nameWithType: XElementExtensions.DescendantsAndSelf
 - uid: Sawmill.Xml.XElementExtensions.DescendantsAndSelfInContext(System.Xml.Linq.XElement)
@@ -2828,12 +3123,14 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Xml.XElementExtensions.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.DescendantsAndSelfInContext
   nameWithType: XElementExtensions.DescendantsAndSelfInContext
 - uid: Sawmill.Xml.XElementExtensions.Fold*
   name: Fold
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Fold_
   commentId: Overload:Sawmill.Xml.XElementExtensions.Fold
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.Fold
   nameWithType: XElementExtensions.Fold
 - uid: Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,Sawmill.Children{``0},``0})
@@ -2855,6 +3152,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_GetChildren_
   commentId: Overload:Sawmill.Xml.XElementExtensions.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.GetChildren
   nameWithType: XElementExtensions.GetChildren
 - uid: Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
@@ -2870,6 +3168,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Rewrite_
   commentId: Overload:Sawmill.Xml.XElementExtensions.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.Rewrite
   nameWithType: XElementExtensions.Rewrite
 - uid: Sawmill.Xml.XElementExtensions.RewriteChildren(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
@@ -2885,6 +3184,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteChildren_
   commentId: Overload:Sawmill.Xml.XElementExtensions.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.RewriteChildren
   nameWithType: XElementExtensions.RewriteChildren
 - uid: Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
@@ -2900,6 +3200,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteIter_
   commentId: Overload:Sawmill.Xml.XElementExtensions.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.RewriteIter
   nameWithType: XElementExtensions.RewriteIter
 - uid: Sawmill.Xml.XElementExtensions.SelfAndDescendants(System.Xml.Linq.XElement)
@@ -2912,6 +3213,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SelfAndDescendants_
   commentId: Overload:Sawmill.Xml.XElementExtensions.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.SelfAndDescendants
   nameWithType: XElementExtensions.SelfAndDescendants
 - uid: Sawmill.Xml.XElementExtensions.SelfAndDescendantsBreadthFirst(System.Xml.Linq.XElement)
@@ -2924,6 +3226,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Xml.XElementExtensions.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.SelfAndDescendantsBreadthFirst
   nameWithType: XElementExtensions.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContext(System.Xml.Linq.XElement)
@@ -2936,6 +3239,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContext
   nameWithType: XElementExtensions.SelfAndDescendantsInContext
 - uid: Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContextBreadthFirst(System.Xml.Linq.XElement)
@@ -2948,6 +3252,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: XElementExtensions.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement,Sawmill.Children{System.Xml.Linq.XElement})
@@ -2963,12 +3268,14 @@ references:
   name: SetChildren
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SetChildren_
   commentId: Overload:Sawmill.Xml.XElementExtensions.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.SetChildren
   nameWithType: XElementExtensions.SetChildren
 - uid: Sawmill.Xml.XElementExtensions.ZipFold*
   name: ZipFold
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ZipFold_
   commentId: Overload:Sawmill.Xml.XElementExtensions.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.ZipFold
   nameWithType: XElementExtensions.ZipFold
 - uid: Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{``0},``0})
@@ -3005,6 +3312,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_GetChildren_
   commentId: Overload:Sawmill.Xml.XElementRewriter.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementRewriter.GetChildren
   nameWithType: XElementRewriter.GetChildren
 - uid: Sawmill.Xml.XElementRewriter.Instance
@@ -3017,6 +3325,7 @@ references:
   name: Instance
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_Instance_
   commentId: Overload:Sawmill.Xml.XElementRewriter.Instance
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementRewriter.Instance
   nameWithType: XElementRewriter.Instance
 - uid: Sawmill.Xml.XElementRewriter.RewriteChildren(System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement},System.Xml.Linq.XElement)
@@ -3032,6 +3341,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_RewriteChildren_
   commentId: Overload:Sawmill.Xml.XElementRewriter.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementRewriter.RewriteChildren
   nameWithType: XElementRewriter.RewriteChildren
 - uid: Sawmill.Xml.XElementRewriter.SetChildren(Sawmill.Children{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
@@ -3047,6 +3357,7 @@ references:
   name: SetChildren
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_SetChildren_
   commentId: Overload:Sawmill.Xml.XElementRewriter.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XElementRewriter.SetChildren
   nameWithType: XElementRewriter.SetChildren
 - uid: Sawmill.Xml.XmlNodeExtensions
@@ -3065,6 +3376,7 @@ references:
   name: ChildrenInContext
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ChildrenInContext_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.ChildrenInContext
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.ChildrenInContext
   nameWithType: XmlNodeExtensions.ChildrenInContext
 - uid: Sawmill.Xml.XmlNodeExtensions.Cursor(System.Xml.XmlNode)
@@ -3077,6 +3389,7 @@ references:
   name: Cursor
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Cursor_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.Cursor
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.Cursor
   nameWithType: XmlNodeExtensions.Cursor
 - uid: Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelf(System.Xml.XmlNode)
@@ -3089,6 +3402,7 @@ references:
   name: DescendantsAndSelf
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_DescendantsAndSelf_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelf
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelf
   nameWithType: XmlNodeExtensions.DescendantsAndSelf
 - uid: Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelfInContext(System.Xml.XmlNode)
@@ -3101,12 +3415,14 @@ references:
   name: DescendantsAndSelfInContext
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_DescendantsAndSelfInContext_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelfInContext
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelfInContext
   nameWithType: XmlNodeExtensions.DescendantsAndSelfInContext
 - uid: Sawmill.Xml.XmlNodeExtensions.Fold*
   name: Fold
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Fold_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.Fold
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.Fold
   nameWithType: XmlNodeExtensions.Fold
 - uid: Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,Sawmill.Children{``0},``0})
@@ -3128,6 +3444,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_GetChildren_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.GetChildren
   nameWithType: XmlNodeExtensions.GetChildren
 - uid: Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
@@ -3143,6 +3460,7 @@ references:
   name: Rewrite
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Rewrite_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.Rewrite
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.Rewrite
   nameWithType: XmlNodeExtensions.Rewrite
 - uid: Sawmill.Xml.XmlNodeExtensions.RewriteChildren(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
@@ -3158,6 +3476,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteChildren_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.RewriteChildren
   nameWithType: XmlNodeExtensions.RewriteChildren
 - uid: Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
@@ -3173,6 +3492,7 @@ references:
   name: RewriteIter
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteIter_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.RewriteIter
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.RewriteIter
   nameWithType: XmlNodeExtensions.RewriteIter
 - uid: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendants(System.Xml.XmlNode)
@@ -3185,6 +3505,7 @@ references:
   name: SelfAndDescendants
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SelfAndDescendants_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.SelfAndDescendants
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendants
   nameWithType: XmlNodeExtensions.SelfAndDescendants
 - uid: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsBreadthFirst(System.Xml.XmlNode)
@@ -3197,6 +3518,7 @@ references:
   name: SelfAndDescendantsBreadthFirst
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SelfAndDescendantsBreadthFirst_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsBreadthFirst
   nameWithType: XmlNodeExtensions.SelfAndDescendantsBreadthFirst
 - uid: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContext(System.Xml.XmlNode)
@@ -3209,6 +3531,7 @@ references:
   name: SelfAndDescendantsInContext
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SelfAndDescendantsInContext_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContext
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContext
   nameWithType: XmlNodeExtensions.SelfAndDescendantsInContext
 - uid: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst(System.Xml.XmlNode)
@@ -3221,6 +3544,7 @@ references:
   name: SelfAndDescendantsInContextBreadthFirst
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SelfAndDescendantsInContextBreadthFirst_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: XmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
 - uid: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode,Sawmill.Children{System.Xml.XmlNode})
@@ -3236,12 +3560,14 @@ references:
   name: SetChildren
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SetChildren_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.SetChildren
   nameWithType: XmlNodeExtensions.SetChildren
 - uid: Sawmill.Xml.XmlNodeExtensions.ZipFold*
   name: ZipFold
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ZipFold_
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.ZipFold
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.ZipFold
   nameWithType: XmlNodeExtensions.ZipFold
 - uid: Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode,System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode,System.Collections.Generic.IEnumerable{``0},``0})
@@ -3278,6 +3604,7 @@ references:
   name: GetChildren
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_GetChildren_
   commentId: Overload:Sawmill.Xml.XmlNodeRewriter.GetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeRewriter.GetChildren
   nameWithType: XmlNodeRewriter.GetChildren
 - uid: Sawmill.Xml.XmlNodeRewriter.Instance
@@ -3290,6 +3617,7 @@ references:
   name: Instance
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_Instance_
   commentId: Overload:Sawmill.Xml.XmlNodeRewriter.Instance
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeRewriter.Instance
   nameWithType: XmlNodeRewriter.Instance
 - uid: Sawmill.Xml.XmlNodeRewriter.RewriteChildren(System.Func{System.Xml.XmlNode,System.Xml.XmlNode},System.Xml.XmlNode)
@@ -3305,6 +3633,7 @@ references:
   name: RewriteChildren
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_RewriteChildren_
   commentId: Overload:Sawmill.Xml.XmlNodeRewriter.RewriteChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeRewriter.RewriteChildren
   nameWithType: XmlNodeRewriter.RewriteChildren
 - uid: Sawmill.Xml.XmlNodeRewriter.SetChildren(Sawmill.Children{System.Xml.XmlNode},System.Xml.XmlNode)
@@ -3320,5 +3649,6 @@ references:
   name: SetChildren
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_SetChildren_
   commentId: Overload:Sawmill.Xml.XmlNodeRewriter.SetChildren
+  isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeRewriter.SetChildren
   nameWithType: XmlNodeRewriter.SetChildren
