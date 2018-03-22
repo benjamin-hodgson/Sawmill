@@ -38,7 +38,7 @@ namespace Sawmill
     /// Assert.Equal(new Add(new Lit(1), new Lit(10)), cursor.Focus);
     /// </code>
     /// </example>
-    public sealed partial class Cursor<T>
+    public sealed class Cursor<T>
     {
         private readonly IRewriter<T> _rewriter;
 
