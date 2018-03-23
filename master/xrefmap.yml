@@ -1049,6 +1049,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.Cursor
   nameWithType: ExpressionExtensions.Cursor
+- uid: Sawmill.Expressions.ExpressionExtensions.DescendantAt(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt(Expression, IEnumerable<Direction>)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_DescendantAt_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.DescendantAt(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(Expression, IEnumerable(Of Direction))
+  fullName: Sawmill.Expressions.ExpressionExtensions.DescendantAt(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.DescendantAt(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: ExpressionExtensions.DescendantAt(Expression, IEnumerable<Direction>)
+  nameWithType.vb: ExpressionExtensions.DescendantAt(Expression, IEnumerable(Of Direction))
+- uid: Sawmill.Expressions.ExpressionExtensions.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_DescendantAt_
+  commentId: Overload:Sawmill.Expressions.ExpressionExtensions.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Expressions.ExpressionExtensions.DescendantAt
+  nameWithType: ExpressionExtensions.DescendantAt
 - uid: Sawmill.Expressions.ExpressionExtensions.DescendantsAndSelf(System.Linq.Expressions.Expression)
   name: DescendantsAndSelf(Expression)
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression_
@@ -1104,6 +1120,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.GetChildren
   nameWithType: ExpressionExtensions.GetChildren
+- uid: Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt
+  nameWithType: ExpressionExtensions.ReplaceDescendantAt
+- uid: Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt``1(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Linq.Expressions.Expression)
+  name: ReplaceDescendantAt<T>(Expression, IEnumerable<Direction>, Expression)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ReplaceDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Linq_Expressions_Expression_
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt``1(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Linq.Expressions.Expression)
+  name.vb: ReplaceDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Expression)
+  fullName: Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt<T>(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Linq.Expressions.Expression)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.ReplaceDescendantAt(Of T)(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Linq.Expressions.Expression)
+  nameWithType: ExpressionExtensions.ReplaceDescendantAt<T>(Expression, IEnumerable<Direction>, Expression)
+  nameWithType.vb: ExpressionExtensions.ReplaceDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Expression)
 - uid: Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
   name: Rewrite(Expression, Func<Expression, Expression>)
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Rewrite_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__
@@ -1136,6 +1168,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.RewriteChildren
   nameWithType: ExpressionExtensions.RewriteChildren
+- uid: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt
+  nameWithType: ExpressionExtensions.RewriteDescendantAt
+- uid: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt``1(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
+  name: RewriteDescendantAt<T>(Expression, IEnumerable<Direction>, Func<Expression, Expression>)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt``1(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
+  name.vb: RewriteDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Func(Of Expression, Expression))
+  fullName: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt<T>(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt(Of T)(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression))
+  nameWithType: ExpressionExtensions.RewriteDescendantAt<T>(Expression, IEnumerable<Direction>, Func<Expression, Expression>)
+  nameWithType.vb: ExpressionExtensions.RewriteDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Func(Of Expression, Expression))
 - uid: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
   name: RewriteIter(Expression, Func<Expression, Expression>)
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteIter_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__
@@ -1477,6 +1525,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Cursor
   nameWithType: CSharpSyntaxNodeExtensions.Cursor
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt(CSharpSyntaxNode, IEnumerable<Direction>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_DescendantAt_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(CSharpSyntaxNode, IEnumerable(Of Direction))
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: CSharpSyntaxNodeExtensions.DescendantAt(CSharpSyntaxNode, IEnumerable<Direction>)
+  nameWithType.vb: CSharpSyntaxNodeExtensions.DescendantAt(CSharpSyntaxNode, IEnumerable(Of Direction))
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_DescendantAt_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantAt
+  nameWithType: CSharpSyntaxNodeExtensions.DescendantAt
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.DescendantsAndSelf(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
   name: DescendantsAndSelf(CSharpSyntaxNode)
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_
@@ -1532,6 +1596,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren
   nameWithType: CSharpSyntaxNodeExtensions.GetChildren
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt
+  nameWithType: CSharpSyntaxNodeExtensions.ReplaceDescendantAt
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  name: ReplaceDescendantAt<T>(CSharpSyntaxNode, IEnumerable<Direction>, CSharpSyntaxNode)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_ReplaceDescendantAt__1_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  name.vb: ReplaceDescendantAt(Of T)(CSharpSyntaxNode, IEnumerable(Of Direction), CSharpSyntaxNode)
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt<T>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ReplaceDescendantAt(Of T)(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  nameWithType: CSharpSyntaxNodeExtensions.ReplaceDescendantAt<T>(CSharpSyntaxNode, IEnumerable<Direction>, CSharpSyntaxNode)
+  nameWithType.vb: CSharpSyntaxNodeExtensions.ReplaceDescendantAt(Of T)(CSharpSyntaxNode, IEnumerable(Of Direction), CSharpSyntaxNode)
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Rewrite(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
   name: Rewrite(CSharpSyntaxNode, Func<CSharpSyntaxNode, CSharpSyntaxNode>)
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Rewrite_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Func_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__
@@ -1564,6 +1644,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteChildren
   nameWithType: CSharpSyntaxNodeExtensions.RewriteChildren
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt
+  nameWithType: CSharpSyntaxNodeExtensions.RewriteDescendantAt
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
+  name: RewriteDescendantAt<T>(CSharpSyntaxNode, IEnumerable<Direction>, Func<CSharpSyntaxNode, CSharpSyntaxNode>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_RewriteDescendantAt__1_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
+  name.vb: RewriteDescendantAt(Of T)(CSharpSyntaxNode, IEnumerable(Of Direction), Func(Of CSharpSyntaxNode, CSharpSyntaxNode))
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt<T>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteDescendantAt(Of T)(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode))
+  nameWithType: CSharpSyntaxNodeExtensions.RewriteDescendantAt<T>(CSharpSyntaxNode, IEnumerable<Direction>, Func<CSharpSyntaxNode, CSharpSyntaxNode>)
+  nameWithType.vb: CSharpSyntaxNodeExtensions.RewriteDescendantAt(Of T)(CSharpSyntaxNode, IEnumerable(Of Direction), Func(Of CSharpSyntaxNode, CSharpSyntaxNode))
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.RewriteIter(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
   name: RewriteIter(CSharpSyntaxNode, Func<CSharpSyntaxNode, CSharpSyntaxNode>)
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_RewriteIter_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Func_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__
@@ -1790,6 +1886,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor
   nameWithType: VisualBasicSyntaxNodeExtensions.Cursor
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt(VisualBasicSyntaxNode, IEnumerable<Direction>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantAt_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(VisualBasicSyntaxNode, IEnumerable(Of Direction))
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: VisualBasicSyntaxNodeExtensions.DescendantAt(VisualBasicSyntaxNode, IEnumerable<Direction>)
+  nameWithType.vb: VisualBasicSyntaxNodeExtensions.DescendantAt(VisualBasicSyntaxNode, IEnumerable(Of Direction))
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantAt_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt
+  nameWithType: VisualBasicSyntaxNodeExtensions.DescendantAt
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
   name: DescendantsAndSelf(VisualBasicSyntaxNode)
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_
@@ -1845,6 +1957,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren
   nameWithType: VisualBasicSyntaxNodeExtensions.GetChildren
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt
+  nameWithType: VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  name: ReplaceDescendantAt<T>(VisualBasicSyntaxNode, IEnumerable<Direction>, VisualBasicSyntaxNode)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  name.vb: ReplaceDescendantAt(Of T)(VisualBasicSyntaxNode, IEnumerable(Of Direction), VisualBasicSyntaxNode)
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt<T>(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt(Of T)(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  nameWithType: VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt<T>(VisualBasicSyntaxNode, IEnumerable<Direction>, VisualBasicSyntaxNode)
+  nameWithType.vb: VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt(Of T)(VisualBasicSyntaxNode, IEnumerable(Of Direction), VisualBasicSyntaxNode)
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
   name: Rewrite(VisualBasicSyntaxNode, Func<VisualBasicSyntaxNode, VisualBasicSyntaxNode>)
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__
@@ -1877,6 +2005,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren
   nameWithType: VisualBasicSyntaxNodeExtensions.RewriteChildren
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt
+  nameWithType: VisualBasicSyntaxNodeExtensions.RewriteDescendantAt
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
+  name: RewriteDescendantAt<T>(VisualBasicSyntaxNode, IEnumerable<Direction>, Func<VisualBasicSyntaxNode, VisualBasicSyntaxNode>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
+  name.vb: RewriteDescendantAt(Of T)(VisualBasicSyntaxNode, IEnumerable(Of Direction), Func(Of VisualBasicSyntaxNode, VisualBasicSyntaxNode))
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt<T>(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt(Of T)(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode))
+  nameWithType: VisualBasicSyntaxNodeExtensions.RewriteDescendantAt<T>(VisualBasicSyntaxNode, IEnumerable<Direction>, Func<VisualBasicSyntaxNode, VisualBasicSyntaxNode>)
+  nameWithType.vb: VisualBasicSyntaxNodeExtensions.RewriteDescendantAt(Of T)(VisualBasicSyntaxNode, IEnumerable(Of Direction), Func(Of VisualBasicSyntaxNode, VisualBasicSyntaxNode))
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
   name: RewriteIter(VisualBasicSyntaxNode, Func<VisualBasicSyntaxNode, VisualBasicSyntaxNode>)
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteIter_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__
@@ -2024,6 +2168,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Cursor
   nameWithType: JTokenExtensions.Cursor
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt(JToken, IEnumerable<Direction>)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantAt_Newtonsoft_Json_Linq_JToken_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(JToken, IEnumerable(Of Direction))
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt(Newtonsoft.Json.Linq.JToken, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt(Newtonsoft.Json.Linq.JToken, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: JTokenExtensions.DescendantAt(JToken, IEnumerable<Direction>)
+  nameWithType.vb: JTokenExtensions.DescendantAt(JToken, IEnumerable(Of Direction))
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantAt_
+  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantAt
+  nameWithType: JTokenExtensions.DescendantAt
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.DescendantsAndSelf(Newtonsoft.Json.Linq.JToken)
   name: DescendantsAndSelf(JToken)
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantsAndSelf_Newtonsoft_Json_Linq_JToken_
@@ -2079,6 +2239,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren
   nameWithType: JTokenExtensions.GetChildren
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt
+  nameWithType: JTokenExtensions.ReplaceDescendantAt
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt``1(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{Sawmill.Direction},Newtonsoft.Json.Linq.JToken)
+  name: ReplaceDescendantAt<T>(JToken, IEnumerable<Direction>, JToken)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_ReplaceDescendantAt__1_Newtonsoft_Json_Linq_JToken_System_Collections_Generic_IEnumerable_Sawmill_Direction__Newtonsoft_Json_Linq_JToken_
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt``1(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{Sawmill.Direction},Newtonsoft.Json.Linq.JToken)
+  name.vb: ReplaceDescendantAt(Of T)(JToken, IEnumerable(Of Direction), JToken)
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt<T>(Newtonsoft.Json.Linq.JToken, System.Collections.Generic.IEnumerable<Sawmill.Direction>, Newtonsoft.Json.Linq.JToken)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.ReplaceDescendantAt(Of T)(Newtonsoft.Json.Linq.JToken, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), Newtonsoft.Json.Linq.JToken)
+  nameWithType: JTokenExtensions.ReplaceDescendantAt<T>(JToken, IEnumerable<Direction>, JToken)
+  nameWithType.vb: JTokenExtensions.ReplaceDescendantAt(Of T)(JToken, IEnumerable(Of Direction), JToken)
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Rewrite(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
   name: Rewrite(JToken, Func<JToken, JToken>)
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Rewrite_Newtonsoft_Json_Linq_JToken_System_Func_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Linq_JToken__
@@ -2111,6 +2287,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteChildren
   nameWithType: JTokenExtensions.RewriteChildren
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt
+  nameWithType: JTokenExtensions.RewriteDescendantAt
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt``1(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
+  name: RewriteDescendantAt<T>(JToken, IEnumerable<Direction>, Func<JToken, JToken>)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_RewriteDescendantAt__1_Newtonsoft_Json_Linq_JToken_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Linq_JToken__
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt``1(Newtonsoft.Json.Linq.JToken,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
+  name.vb: RewriteDescendantAt(Of T)(JToken, IEnumerable(Of Direction), Func(Of JToken, JToken))
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt<T>(Newtonsoft.Json.Linq.JToken, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<Newtonsoft.Json.Linq.JToken, Newtonsoft.Json.Linq.JToken>)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteDescendantAt(Of T)(Newtonsoft.Json.Linq.JToken, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of Newtonsoft.Json.Linq.JToken, Newtonsoft.Json.Linq.JToken))
+  nameWithType: JTokenExtensions.RewriteDescendantAt<T>(JToken, IEnumerable<Direction>, Func<JToken, JToken>)
+  nameWithType.vb: JTokenExtensions.RewriteDescendantAt(Of T)(JToken, IEnumerable(Of Direction), Func(Of JToken, JToken))
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.RewriteIter(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken})
   name: RewriteIter(JToken, Func<JToken, JToken>)
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_RewriteIter_Newtonsoft_Json_Linq_JToken_System_Func_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Linq_JToken__
@@ -2368,6 +2560,22 @@ references:
   fullName.vb: Sawmill.Rewritable.DefaultRewriteChildren(Of T)(T, System.Func(Of T, T))
   nameWithType: Rewritable.DefaultRewriteChildren<T>(T, Func<T, T>)
   nameWithType.vb: Rewritable.DefaultRewriteChildren(Of T)(T, Func(Of T, T))
+- uid: Sawmill.Rewritable.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DescendantAt_
+  commentId: Overload:Sawmill.Rewritable.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Rewritable.DescendantAt
+  nameWithType: Rewritable.DescendantAt
+- uid: Sawmill.Rewritable.DescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt<T>(T, IEnumerable<Direction>)
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Rewritable.DescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(Of T)(T, IEnumerable(Of Direction))
+  fullName: Sawmill.Rewritable.DescendantAt<T>(T, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Rewritable.DescendantAt(Of T)(T, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: Rewritable.DescendantAt<T>(T, IEnumerable<Direction>)
+  nameWithType.vb: Rewritable.DescendantAt(Of T)(T, IEnumerable(Of Direction))
 - uid: Sawmill.Rewritable.DescendantsAndSelf*
   name: DescendantsAndSelf
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DescendantsAndSelf_
@@ -2416,6 +2624,22 @@ references:
   fullName.vb: Sawmill.Rewritable.Fold(Of T, U)(T, System.Func(Of T, Sawmill.Children(Of U), U))
   nameWithType: Rewritable.Fold<T, U>(T, Func<T, Children<U>, U>)
   nameWithType.vb: Rewritable.Fold(Of T, U)(T, Func(Of T, Children(Of U), U))
+- uid: Sawmill.Rewritable.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Rewritable.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Rewritable.ReplaceDescendantAt
+  nameWithType: Rewritable.ReplaceDescendantAt
+- uid: Sawmill.Rewritable.ReplaceDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},``0)
+  name: ReplaceDescendantAt<T>(T, IEnumerable<Direction>, T)
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_ReplaceDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction____0_
+  commentId: M:Sawmill.Rewritable.ReplaceDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},``0)
+  name.vb: ReplaceDescendantAt(Of T)(T, IEnumerable(Of Direction), T)
+  fullName: Sawmill.Rewritable.ReplaceDescendantAt<T>(T, System.Collections.Generic.IEnumerable<Sawmill.Direction>, T)
+  fullName.vb: Sawmill.Rewritable.ReplaceDescendantAt(Of T)(T, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), T)
+  nameWithType: Rewritable.ReplaceDescendantAt<T>(T, IEnumerable<Direction>, T)
+  nameWithType.vb: Rewritable.ReplaceDescendantAt(Of T)(T, IEnumerable(Of Direction), T)
 - uid: Sawmill.Rewritable.Rewrite*
   name: Rewrite
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_Rewrite_
@@ -2432,6 +2656,22 @@ references:
   fullName.vb: Sawmill.Rewritable.Rewrite(Of T)(T, System.Func(Of T, T))
   nameWithType: Rewritable.Rewrite<T>(T, Func<T, T>)
   nameWithType.vb: Rewritable.Rewrite(Of T)(T, Func(Of T, T))
+- uid: Sawmill.Rewritable.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Rewritable.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Rewritable.RewriteDescendantAt
+  nameWithType: Rewritable.RewriteDescendantAt
+- uid: Sawmill.Rewritable.RewriteDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,``0})
+  name: RewriteDescendantAt<T>(T, IEnumerable<Direction>, Func<T, T>)
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0__
+  commentId: M:Sawmill.Rewritable.RewriteDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,``0})
+  name.vb: RewriteDescendantAt(Of T)(T, IEnumerable(Of Direction), Func(Of T, T))
+  fullName: Sawmill.Rewritable.RewriteDescendantAt<T>(T, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<T, T>)
+  fullName.vb: Sawmill.Rewritable.RewriteDescendantAt(Of T)(T, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of T, T))
+  nameWithType: Rewritable.RewriteDescendantAt<T>(T, IEnumerable<Direction>, Func<T, T>)
+  nameWithType.vb: Rewritable.RewriteDescendantAt(Of T)(T, IEnumerable(Of Direction), Func(Of T, T))
 - uid: Sawmill.Rewritable.RewriteIter*
   name: RewriteIter
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteIter_
@@ -2670,6 +2910,22 @@ references:
   fullName.vb: Sawmill.Rewriter.DefaultRewriteChildren(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
   nameWithType: Rewriter.DefaultRewriteChildren<T>(IRewriter<T>, Func<T, T>, T)
   nameWithType.vb: Rewriter.DefaultRewriteChildren(Of T)(IRewriter(Of T), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt_
+  commentId: Overload:Sawmill.Rewriter.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Rewriter.DescendantAt
+  nameWithType: Rewriter.DescendantAt
+- uid: Sawmill.Rewriter.DescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},``0)
+  name: DescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, T)
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0_
+  commentId: M:Sawmill.Rewriter.DescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},``0)
+  name.vb: DescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), T)
+  fullName: Sawmill.Rewriter.DescendantAt<T>(Sawmill.IRewriter<T>, System.Collections.Generic.IEnumerable<Sawmill.Direction>, T)
+  fullName.vb: Sawmill.Rewriter.DescendantAt(Of T)(Sawmill.IRewriter(Of T), System.Collections.Generic.IEnumerable(Of Sawmill.Direction), T)
+  nameWithType: Rewriter.DescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, T)
+  nameWithType.vb: Rewriter.DescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), T)
 - uid: Sawmill.Rewriter.DescendantsAndSelf*
   name: DescendantsAndSelf
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf_
@@ -2718,6 +2974,22 @@ references:
   fullName.vb: Sawmill.Rewriter.Fold(Of T, U)(Sawmill.IRewriter(Of T), System.Func(Of T, Sawmill.Children(Of U), U), T)
   nameWithType: Rewriter.Fold<T, U>(IRewriter<T>, Func<T, Children<U>, U>, T)
   nameWithType.vb: Rewriter.Fold(Of T, U)(IRewriter(Of T), Func(Of T, Children(Of U), U), T)
+- uid: Sawmill.Rewriter.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Rewriter.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Rewriter.ReplaceDescendantAt
+  nameWithType: Rewriter.ReplaceDescendantAt
+- uid: Sawmill.Rewriter.ReplaceDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},``0,``0)
+  name: ReplaceDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, T, T)
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0___0_
+  commentId: M:Sawmill.Rewriter.ReplaceDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},``0,``0)
+  name.vb: ReplaceDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), T, T)
+  fullName: Sawmill.Rewriter.ReplaceDescendantAt<T>(Sawmill.IRewriter<T>, System.Collections.Generic.IEnumerable<Sawmill.Direction>, T, T)
+  fullName.vb: Sawmill.Rewriter.ReplaceDescendantAt(Of T)(Sawmill.IRewriter(Of T), System.Collections.Generic.IEnumerable(Of Sawmill.Direction), T, T)
+  nameWithType: Rewriter.ReplaceDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, T, T)
+  nameWithType.vb: Rewriter.ReplaceDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), T, T)
 - uid: Sawmill.Rewriter.Rewrite*
   name: Rewrite
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite_
@@ -2734,6 +3006,22 @@ references:
   fullName.vb: Sawmill.Rewriter.Rewrite(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
   nameWithType: Rewriter.Rewrite<T>(IRewriter<T>, Func<T, T>, T)
   nameWithType.vb: Rewriter.Rewrite(Of T)(IRewriter(Of T), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Rewriter.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Rewriter.RewriteDescendantAt
+  nameWithType: Rewriter.RewriteDescendantAt
+- uid: Sawmill.Rewriter.RewriteDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,``0},``0)
+  name: RewriteDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, Func<T, T>, T)
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0____0_
+  commentId: M:Sawmill.Rewriter.RewriteDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,``0},``0)
+  name.vb: RewriteDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), Func(Of T, T), T)
+  fullName: Sawmill.Rewriter.RewriteDescendantAt<T>(Sawmill.IRewriter<T>, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<T, T>, T)
+  fullName.vb: Sawmill.Rewriter.RewriteDescendantAt(Of T)(Sawmill.IRewriter(Of T), System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of T, T), T)
+  nameWithType: Rewriter.RewriteDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, Func<T, T>, T)
+  nameWithType.vb: Rewriter.RewriteDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), Func(Of T, T), T)
 - uid: Sawmill.Rewriter.RewriteIter*
   name: RewriteIter
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter_
@@ -3100,6 +3388,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.Cursor
   nameWithType: XElementExtensions.Cursor
+- uid: Sawmill.Xml.XElementExtensions.DescendantAt(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt(XElement, IEnumerable<Direction>)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_DescendantAt_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Xml.XElementExtensions.DescendantAt(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(XElement, IEnumerable(Of Direction))
+  fullName: Sawmill.Xml.XElementExtensions.DescendantAt(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.DescendantAt(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: XElementExtensions.DescendantAt(XElement, IEnumerable<Direction>)
+  nameWithType.vb: XElementExtensions.DescendantAt(XElement, IEnumerable(Of Direction))
+- uid: Sawmill.Xml.XElementExtensions.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_DescendantAt_
+  commentId: Overload:Sawmill.Xml.XElementExtensions.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Xml.XElementExtensions.DescendantAt
+  nameWithType: XElementExtensions.DescendantAt
 - uid: Sawmill.Xml.XElementExtensions.DescendantsAndSelf(System.Xml.Linq.XElement)
   name: DescendantsAndSelf(XElement)
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_DescendantsAndSelf_System_Xml_Linq_XElement_
@@ -3155,6 +3459,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.GetChildren
   nameWithType: XElementExtensions.GetChildren
+- uid: Sawmill.Xml.XElementExtensions.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Xml.XElementExtensions.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Xml.XElementExtensions.ReplaceDescendantAt
+  nameWithType: XElementExtensions.ReplaceDescendantAt
+- uid: Sawmill.Xml.XElementExtensions.ReplaceDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Xml.Linq.XElement)
+  name: ReplaceDescendantAt<T>(XElement, IEnumerable<Direction>, XElement)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ReplaceDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Xml_Linq_XElement_
+  commentId: M:Sawmill.Xml.XElementExtensions.ReplaceDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Xml.Linq.XElement)
+  name.vb: ReplaceDescendantAt(Of T)(XElement, IEnumerable(Of Direction), XElement)
+  fullName: Sawmill.Xml.XElementExtensions.ReplaceDescendantAt<T>(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Xml.Linq.XElement)
+  fullName.vb: Sawmill.Xml.XElementExtensions.ReplaceDescendantAt(Of T)(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Xml.Linq.XElement)
+  nameWithType: XElementExtensions.ReplaceDescendantAt<T>(XElement, IEnumerable<Direction>, XElement)
+  nameWithType.vb: XElementExtensions.ReplaceDescendantAt(Of T)(XElement, IEnumerable(Of Direction), XElement)
 - uid: Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
   name: Rewrite(XElement, Func<XElement, XElement>)
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
@@ -3187,6 +3507,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.RewriteChildren
   nameWithType: XElementExtensions.RewriteChildren
+- uid: Sawmill.Xml.XElementExtensions.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Xml.XElementExtensions.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Xml.XElementExtensions.RewriteDescendantAt
+  nameWithType: XElementExtensions.RewriteDescendantAt
+- uid: Sawmill.Xml.XElementExtensions.RewriteDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
+  name: RewriteDescendantAt<T>(XElement, IEnumerable<Direction>, Func<XElement, XElement>)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
+  commentId: M:Sawmill.Xml.XElementExtensions.RewriteDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
+  name.vb: RewriteDescendantAt(Of T)(XElement, IEnumerable(Of Direction), Func(Of XElement, XElement))
+  fullName: Sawmill.Xml.XElementExtensions.RewriteDescendantAt<T>(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.RewriteDescendantAt(Of T)(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Xml.Linq.XElement, System.Xml.Linq.XElement))
+  nameWithType: XElementExtensions.RewriteDescendantAt<T>(XElement, IEnumerable<Direction>, Func<XElement, XElement>)
+  nameWithType.vb: XElementExtensions.RewriteDescendantAt(Of T)(XElement, IEnumerable(Of Direction), Func(Of XElement, XElement))
 - uid: Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
   name: RewriteIter(XElement, Func<XElement, XElement>)
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
@@ -3392,6 +3728,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.Cursor
   nameWithType: XmlNodeExtensions.Cursor
+- uid: Sawmill.Xml.XmlNodeExtensions.DescendantAt(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name: DescendantAt(XmlNode, IEnumerable<Direction>)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_DescendantAt_System_Xml_XmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.DescendantAt(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})
+  name.vb: DescendantAt(XmlNode, IEnumerable(Of Direction))
+  fullName: Sawmill.Xml.XmlNodeExtensions.DescendantAt(System.Xml.XmlNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.DescendantAt(System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction))
+  nameWithType: XmlNodeExtensions.DescendantAt(XmlNode, IEnumerable<Direction>)
+  nameWithType.vb: XmlNodeExtensions.DescendantAt(XmlNode, IEnumerable(Of Direction))
+- uid: Sawmill.Xml.XmlNodeExtensions.DescendantAt*
+  name: DescendantAt
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_DescendantAt_
+  commentId: Overload:Sawmill.Xml.XmlNodeExtensions.DescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Xml.XmlNodeExtensions.DescendantAt
+  nameWithType: XmlNodeExtensions.DescendantAt
 - uid: Sawmill.Xml.XmlNodeExtensions.DescendantsAndSelf(System.Xml.XmlNode)
   name: DescendantsAndSelf(XmlNode)
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_DescendantsAndSelf_System_Xml_XmlNode_
@@ -3447,6 +3799,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.GetChildren
   nameWithType: XmlNodeExtensions.GetChildren
+- uid: Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt*
+  name: ReplaceDescendantAt
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ReplaceDescendantAt_
+  commentId: Overload:Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt
+  nameWithType: XmlNodeExtensions.ReplaceDescendantAt
+- uid: Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Xml.XmlNode)
+  name: ReplaceDescendantAt<T>(XmlNode, IEnumerable<Direction>, XmlNode)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ReplaceDescendantAt__1_System_Xml_XmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Xml_XmlNode_
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Xml.XmlNode)
+  name.vb: ReplaceDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), XmlNode)
+  fullName: Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt<T>(System.Xml.XmlNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Xml.XmlNode)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt(Of T)(System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Xml.XmlNode)
+  nameWithType: XmlNodeExtensions.ReplaceDescendantAt<T>(XmlNode, IEnumerable<Direction>, XmlNode)
+  nameWithType.vb: XmlNodeExtensions.ReplaceDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), XmlNode)
 - uid: Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
   name: Rewrite(XmlNode, Func<XmlNode, XmlNode>)
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Rewrite_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
@@ -3479,6 +3847,22 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.RewriteChildren
   nameWithType: XmlNodeExtensions.RewriteChildren
+- uid: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt*
+  name: RewriteDescendantAt
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteDescendantAt_
+  commentId: Overload:Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt
+  isSpec: "True"
+  fullName: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt
+  nameWithType: XmlNodeExtensions.RewriteDescendantAt
+- uid: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
+  name: RewriteDescendantAt<T>(XmlNode, IEnumerable<Direction>, Func<XmlNode, XmlNode>)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteDescendantAt__1_System_Xml_XmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
+  name.vb: RewriteDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), Func(Of XmlNode, XmlNode))
+  fullName: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt<T>(System.Xml.XmlNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<System.Xml.XmlNode, System.Xml.XmlNode>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt(Of T)(System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Xml.XmlNode, System.Xml.XmlNode))
+  nameWithType: XmlNodeExtensions.RewriteDescendantAt<T>(XmlNode, IEnumerable<Direction>, Func<XmlNode, XmlNode>)
+  nameWithType.vb: XmlNodeExtensions.RewriteDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), Func(Of XmlNode, XmlNode))
 - uid: Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
   name: RewriteIter(XmlNode, Func<XmlNode, XmlNode>)
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteIter_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
