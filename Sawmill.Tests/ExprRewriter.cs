@@ -58,27 +58,6 @@ namespace Sawmill.Tests
         }
 
         public Expr RewriteChildren(Func<Expr, Expr> transformer, Expr oldValue)
-        {
-            switch (oldValue)
-            {
-                case Lit l:
-                    return l;
-                case Neg n:
-                    return new Neg(transformer(n.Operand));
-                case Add a:
-                    return new Add(transformer(a.Left), transformer(a.Right));
-                case Ternary t:
-                    return new Ternary(transformer(t.Condition), transformer(t.ThenBranch), transformer(t.ElseBranch));
-                case List l:
-                    return new List(l.Exprs.Select(transformer).ToImmutableList());
-                case IfThenElse i:
-                    return new IfThenElse(
-                        transformer(i.Condition),
-                        i.IfTrueStmts.Select(transformer).ToImmutableList(),
-                        i.IfFalseStmts.Select(transformer).ToImmutableList()
-                    );
-            }
-            throw new ArgumentOutOfRangeException(nameof(oldValue));
-        }
+            => this.DefaultRewriteChildren(transformer, oldValue);
     }
 }

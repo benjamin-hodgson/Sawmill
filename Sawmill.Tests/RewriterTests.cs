@@ -154,9 +154,16 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(one, minusTwo);
 
-            var rewritten = _rewriter.DefaultRewriteChildren(_ => new Lit(3), expr);
+            {
+                var rewritten = _rewriter.DefaultRewriteChildren(_ => new Lit(3), expr);
 
-            Assert.Equal(6, Eval(rewritten));
+                Assert.Equal(6, Eval(rewritten));
+            }
+            {
+                var result = _rewriter.DefaultRewriteChildren(x => x, expr);
+
+                Assert.Same(expr, result);
+            }
         }
 
         [Fact]
@@ -184,9 +191,16 @@ namespace Sawmill.Tests
             var minusTwo = new Neg(two);
             var expr = new Add(one, minusTwo);
 
-            var rewritten = _rewriter.Rewrite(x => x is Lit l ? new Lit(l.Value * 2) : x, expr);
+            {
+                var rewritten = _rewriter.Rewrite(x => x is Lit l ? new Lit(l.Value * 2) : x, expr);
 
-            Assert.Equal(-2, Eval(rewritten));
+                Assert.Equal(-2, Eval(rewritten));
+            }
+            {
+                var result = _rewriter.Rewrite(x => x, expr);
+
+                Assert.Same(expr, result);
+            }
         }
 
         [Fact]
@@ -203,16 +217,23 @@ namespace Sawmill.Tests
                 )
             );
 
-            var rewritten = _rewriter.RewriteIter(
-                x => x is Neg n && n.Operand is Add a
-                    ? new Add(new Neg(a.Left), new Neg(a.Right))
-                    : x,
-                expr
-            );
+            {
+                var rewritten = _rewriter.RewriteIter(
+                    x => x is Neg n && n.Operand is Add a
+                        ? new Add(new Neg(a.Left), new Neg(a.Right))
+                        : x,
+                    expr
+                );
 
-            Assert.Equal(-6, Eval(rewritten));
-            // find the -1
-            Assert.Equal(1, ((Lit)((Neg)((Add)((Add)rewritten).Left).Left).Operand).Value);
+                Assert.Equal(-6, Eval(rewritten));
+                // find the -1
+                Assert.Equal(1, ((Lit)((Neg)((Add)((Add)rewritten).Left).Left).Operand).Value);
+            }
+            {
+                var result = _rewriter.RewriteIter(x => x, expr);
+
+                Assert.Same(expr, result);
+            }
         }
 
         private int Eval(Expr expr)
