@@ -14,10 +14,10 @@ namespace Sawmill
         /// </summary>
         /// <typeparam name="T">The rewritable tree type</typeparam>
         /// <param name="rewriter">The rewriter</param>
-        /// <param name="transformer">A transformation function to apply to each of <paramref name="oldValue"/>'s immediate children.</param>
-        /// <param name="oldValue">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
-        /// <returns>A copy of <paramref name="oldValue"/> with updated children.</returns>
-        public static T DefaultRewriteChildren<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T oldValue)
+        /// <param name="transformer">A transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
+        /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
+        /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
+        public static T DefaultRewriteChildren<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
         {
             if (rewriter == null)
             {
@@ -29,14 +29,14 @@ namespace Sawmill
             }
 
 
-            var children = rewriter.GetChildren(oldValue);
+            var children = rewriter.GetChildren(value);
             var changed = false;
             Children<T> newChildren;
 
             switch (children.NumberOfChildren)
             {
                 case NumberOfChildren.None:
-                    return oldValue;
+                    return value;
                 case NumberOfChildren.One:
                 {
                     var child = children.First;
@@ -95,7 +95,7 @@ namespace Sawmill
             }
 
 
-            return changed ? rewriter.SetChildren(newChildren, oldValue) : oldValue;
+            return changed ? rewriter.SetChildren(newChildren, value) : value;
         }
     }
 }

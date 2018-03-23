@@ -16,8 +16,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sawmill.Microsoft.CodeAnaly
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sawmill.Microsoft.CodeAnalysis.VisualBasic", "Sawmill.Microsoft.CodeAnalysis.VisualBasic\Sawmill.Microsoft.CodeAnalysis.VisualBasic.csproj", "{32092D6A-B9DB-48F9-A52E-E1E9525D1050}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sawmill.DocMunger", "Sawmill.DocMunger\Sawmill.DocMunger.csproj", "{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sawmill.Analyzers", "Sawmill.Analyzers\Sawmill.Analyzers\Sawmill.Analyzers.csproj", "{6C0B80BD-338E-4EFA-B5F8-7C34FB69A51C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sawmill.Analyzers.Vsix", "Sawmill.Analyzers\Sawmill.Analyzers.Vsix\Sawmill.Analyzers.Vsix.csproj", "{4AE99DB2-EE0D-474F-B7CF-A3731EEAAB51}"
@@ -161,24 +159,6 @@ Global
 		{32092D6A-B9DB-48F9-A52E-E1E9525D1050}.Release|x64.Build.0 = Release|Any CPU
 		{32092D6A-B9DB-48F9-A52E-E1E9525D1050}.Release|x86.ActiveCfg = Release|Any CPU
 		{32092D6A-B9DB-48F9-A52E-E1E9525D1050}.Release|x86.Build.0 = Release|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Debug|x64.Build.0 = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Debug|x86.Build.0 = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.DebugBuildVsix|Any CPU.ActiveCfg = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.DebugBuildVsix|Any CPU.Build.0 = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.DebugBuildVsix|x64.ActiveCfg = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.DebugBuildVsix|x64.Build.0 = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.DebugBuildVsix|x86.ActiveCfg = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.DebugBuildVsix|x86.Build.0 = Debug|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Release|x64.ActiveCfg = Release|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Release|x64.Build.0 = Release|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Release|x86.ActiveCfg = Release|Any CPU
-		{7428A83E-F7A3-4D63-BB60-F54E74EBC0E2}.Release|x86.Build.0 = Release|Any CPU
 		{6C0B80BD-338E-4EFA-B5F8-7C34FB69A51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C0B80BD-338E-4EFA-B5F8-7C34FB69A51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C0B80BD-338E-4EFA-B5F8-7C34FB69A51C}.Debug|x64.ActiveCfg = Debug|Any CPU

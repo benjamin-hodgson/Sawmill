@@ -79,9 +79,9 @@ namespace Sawmill
         /// </code>
         /// </example>
         /// <param name="newChildren">The new children</param>
-        /// <param name="oldValue">The old value, whose immediate children should be replaced</param>
-        /// <returns>A copy of <paramref name="oldValue"/> with updated children.</returns>
-        T SetChildren(Children<T> newChildren, T oldValue);
+        /// <param name="value">The old value, whose immediate children should be replaced</param>
+        /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
+        T SetChildren(Children<T> newChildren, T value);
 
         /// <summary>
         /// Update the immediate children of the value by applying a transformation function to each one.
@@ -94,7 +94,7 @@ namespace Sawmill
         /// than <see cref="Rewriter.DefaultRewriteChildren{T}(IRewriter{T}, Func{T, T}, T)"/>.
         /// If your type has a fixed number of children, and that number is greater than two,
         /// you may see some performance improvements from implementing this method yourself.
-        /// Be careful not to rebuild <paramref name="oldValue"/> if none of the children have changed.
+        /// Be careful not to rebuild <paramref name="value"/> if none of the children have changed.
         /// </para>
         /// <seealso cref="IRewritable{T}.RewriteChildren(Func{T, T})"/>
         /// </summary>
@@ -121,9 +121,9 @@ namespace Sawmill
         /// Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));
         /// </code>
         /// </example>
-        /// <param name="transformer">A transformation function to apply to each of <paramref name="oldValue"/>'s immediate children.</param>
-        /// <param name="oldValue">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
-        /// <returns>A copy of <paramref name="oldValue"/> with updated children.</returns>
-        T RewriteChildren(Func<T, T> transformer, T oldValue);
+        /// <param name="transformer">A transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
+        /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
+        /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
+        T RewriteChildren(Func<T, T> transformer, T value);
     }
 }

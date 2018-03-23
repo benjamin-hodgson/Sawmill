@@ -26,7 +26,6 @@ build:
   verbosity: minimal
   
 after_test:
-  - ps: dir "**\bin\$env:CONFIGURATION\*\*.xml" | foreach { dotnet run --no-build --configuration "$env:CONFIGURATION" --project Sawmill.DocMunger\Sawmill.DocMunger.csproj "Sawmill\bin\$env:CONFIGURATION\netstandard2.0\Sawmill.xml" $_.FullName }
   - cmd: msbuild Sawmill.sln /t:pack /p:Configuration=%CONFIGURATION% /p:IncludeSymbols=true /p:PackageOutputPath=..\nupkgs /v:Minimal
   - cmd: docfx Sawmill.Docs/docfx.json
 
