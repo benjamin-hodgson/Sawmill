@@ -63,6 +63,49 @@ namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
         /// </summary>
         public static IEnumerable<(global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode item, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> replace)> SelfAndDescendantsInContextBreadthFirst(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value)
             => SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantAt"/>
+        /// </summary>
+        public static global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode DescendantAt(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value, IEnumerable<Direction> path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.DescendantAt(path, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ReplaceDescendantAt"/>
+        /// </summary>
+        public static global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode ReplaceDescendantAt<T>(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value, IEnumerable<Direction> path, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode newDescendant)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.ReplaceDescendantAt(path, newDescendant, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.RewriteDescendantAt"/>
+        /// </summary>
+        public static global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode RewriteDescendantAt<T>(this global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode value, IEnumerable<Direction> path, Func<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode> transformer)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            
+            return SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance.RewriteDescendantAt(path, transformer, value);
+        }
 
         /// <summary>
         /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>

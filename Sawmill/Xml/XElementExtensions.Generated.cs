@@ -63,6 +63,49 @@ namespace Sawmill.Xml
         /// </summary>
         public static IEnumerable<(System.Xml.Linq.XElement item, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> replace)> SelfAndDescendantsInContextBreadthFirst(this System.Xml.Linq.XElement value)
             => XElementRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantAt"/>
+        /// </summary>
+        public static System.Xml.Linq.XElement DescendantAt(this System.Xml.Linq.XElement value, IEnumerable<Direction> path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return XElementRewriter.Instance.DescendantAt(path, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ReplaceDescendantAt"/>
+        /// </summary>
+        public static System.Xml.Linq.XElement ReplaceDescendantAt<T>(this System.Xml.Linq.XElement value, IEnumerable<Direction> path, System.Xml.Linq.XElement newDescendant)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return XElementRewriter.Instance.ReplaceDescendantAt(path, newDescendant, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.RewriteDescendantAt"/>
+        /// </summary>
+        public static System.Xml.Linq.XElement RewriteDescendantAt<T>(this System.Xml.Linq.XElement value, IEnumerable<Direction> path, Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement> transformer)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            
+            return XElementRewriter.Instance.RewriteDescendantAt(path, transformer, value);
+        }
 
         /// <summary>
         /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>

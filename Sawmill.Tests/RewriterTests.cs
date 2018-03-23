@@ -114,6 +114,78 @@ namespace Sawmill.Tests
         }
 
         [Fact]
+        public void TestDescendantAt()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+            {
+                var result = _rewriter.DescendantAt( new[] { Direction.Down, Direction.Right }, expr);
+
+                Assert.Same(minusTwo, result);
+            }
+            {
+                var result = _rewriter.DescendantAt(new Direction[] { }, expr);
+
+                Assert.Same(expr, result);
+            }
+            {
+                Assert.Throws<InvalidOperationException>(() => _rewriter.DescendantAt(new[] { Direction.Down, Direction.Left }, expr));
+                Assert.Throws<InvalidOperationException>(() => _rewriter.DescendantAt(new[] { Direction.Right }, expr));
+                Assert.Throws<InvalidOperationException>(() => _rewriter.DescendantAt(new[] { Direction.Up }, expr));
+            }
+        }
+
+        [Fact]
+        public void TestReplaceDescendantAt()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+            {
+                var result = _rewriter.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, one, expr);
+
+                Assert.Equal(2, Eval(result));
+            }
+            {
+                var result = _rewriter.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, minusTwo, expr);
+
+                Assert.Same(expr, result);
+            }
+            {
+                Assert.Throws<InvalidOperationException>(() => _rewriter.ReplaceDescendantAt(new[] { Direction.Down, Direction.Left }, one, expr));
+                Assert.Throws<InvalidOperationException>(() => _rewriter.ReplaceDescendantAt(new[] { Direction.Right }, one, expr));
+                Assert.Throws<InvalidOperationException>(() => _rewriter.ReplaceDescendantAt(new[] { Direction.Up }, one, expr));
+            }
+        }
+
+        [Fact]
+        public void TestRewriteDescendantAt()
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            var expr = new Add(one, minusTwo);
+            {
+                var result = _rewriter.RewriteDescendantAt(new[] { Direction.Down }, x => x is Lit l ? new Lit(l.Value + 1) : x, expr);
+
+                Assert.Equal(0, Eval(result));
+            }
+            {
+                var result = _rewriter.RewriteDescendantAt(new[] { Direction.Down }, x => x, expr);
+
+                Assert.Same(expr, result);
+            }
+            {
+                Assert.Throws<InvalidOperationException>(() => _rewriter.RewriteDescendantAt(new[] { Direction.Down, Direction.Left }, x => x, expr));
+                Assert.Throws<InvalidOperationException>(() => _rewriter.RewriteDescendantAt(new[] { Direction.Right }, x => x, expr));
+                Assert.Throws<InvalidOperationException>(() => _rewriter.RewriteDescendantAt(new[] { Direction.Up }, x => x, expr));
+            }
+        }
+
+        [Fact]
         public void TestFold()
         {
             var one = new Lit(1);

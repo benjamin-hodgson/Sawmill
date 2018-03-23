@@ -63,6 +63,49 @@ namespace Sawmill.Newtonsoft.Json
         /// </summary>
         public static IEnumerable<(global::Newtonsoft.Json.Linq.JToken item, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> replace)> SelfAndDescendantsInContextBreadthFirst(this global::Newtonsoft.Json.Linq.JToken value)
             => JTokenRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantAt"/>
+        /// </summary>
+        public static global::Newtonsoft.Json.Linq.JToken DescendantAt(this global::Newtonsoft.Json.Linq.JToken value, IEnumerable<Direction> path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return JTokenRewriter.Instance.DescendantAt(path, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ReplaceDescendantAt"/>
+        /// </summary>
+        public static global::Newtonsoft.Json.Linq.JToken ReplaceDescendantAt<T>(this global::Newtonsoft.Json.Linq.JToken value, IEnumerable<Direction> path, global::Newtonsoft.Json.Linq.JToken newDescendant)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return JTokenRewriter.Instance.ReplaceDescendantAt(path, newDescendant, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.RewriteDescendantAt"/>
+        /// </summary>
+        public static global::Newtonsoft.Json.Linq.JToken RewriteDescendantAt<T>(this global::Newtonsoft.Json.Linq.JToken value, IEnumerable<Direction> path, Func<global::Newtonsoft.Json.Linq.JToken, global::Newtonsoft.Json.Linq.JToken> transformer)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            
+            return JTokenRewriter.Instance.RewriteDescendantAt(path, transformer, value);
+        }
 
         /// <summary>
         /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>

@@ -63,6 +63,49 @@ namespace Sawmill.Xml
         /// </summary>
         public static IEnumerable<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> SelfAndDescendantsInContextBreadthFirst(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantAt"/>
+        /// </summary>
+        public static System.Xml.XmlNode DescendantAt(this System.Xml.XmlNode value, IEnumerable<Direction> path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return XmlNodeRewriter.Instance.DescendantAt(path, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ReplaceDescendantAt"/>
+        /// </summary>
+        public static System.Xml.XmlNode ReplaceDescendantAt<T>(this System.Xml.XmlNode value, IEnumerable<Direction> path, System.Xml.XmlNode newDescendant)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return XmlNodeRewriter.Instance.ReplaceDescendantAt(path, newDescendant, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.RewriteDescendantAt"/>
+        /// </summary>
+        public static System.Xml.XmlNode RewriteDescendantAt<T>(this System.Xml.XmlNode value, IEnumerable<Direction> path, Func<System.Xml.XmlNode, System.Xml.XmlNode> transformer)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            
+            return XmlNodeRewriter.Instance.RewriteDescendantAt(path, transformer, value);
+        }
 
         /// <summary>
         /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>

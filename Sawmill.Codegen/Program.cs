@@ -123,6 +123,49 @@ namespace {ns}
         /// </summary>
         public static IEnumerable<({typeName} item, Func<{typeName}, {typeName}> replace)> SelfAndDescendantsInContextBreadthFirst(this {typeName} value)
             => {rewriterExpr}.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref=""Rewriter.DescendantAt""/>
+        /// </summary>
+        public static {typeName} DescendantAt(this {typeName} value, IEnumerable<Direction> path)
+        {{
+            if (path == null)
+            {{
+                throw new ArgumentNullException(nameof(path));
+            }}
+            
+            return {rewriterExpr}.DescendantAt(path, value);
+        }}
+
+        /// <summary>
+        /// <seealso cref=""Rewriter.ReplaceDescendantAt""/>
+        /// </summary>
+        public static {typeName} ReplaceDescendantAt<T>(this {typeName} value, IEnumerable<Direction> path, {typeName} newDescendant)
+        {{
+            if (path == null)
+            {{
+                throw new ArgumentNullException(nameof(path));
+            }}
+            
+            return {rewriterExpr}.ReplaceDescendantAt(path, newDescendant, value);
+        }}
+
+        /// <summary>
+        /// <seealso cref=""Rewriter.RewriteDescendantAt""/>
+        /// </summary>
+        public static {typeName} RewriteDescendantAt<T>(this {typeName} value, IEnumerable<Direction> path, Func<{typeName}, {typeName}> transformer)
+        {{
+            if (path == null)
+            {{
+                throw new ArgumentNullException(nameof(path));
+            }}
+            if (transformer == null)
+            {{
+                throw new ArgumentNullException(nameof(transformer));
+            }}
+            
+            return {rewriterExpr}.RewriteDescendantAt(path, transformer, value);
+        }}
 
         /// <summary>
         /// <seealso cref=""Rewriter.Cursor{{T}}(IRewriter{{T}}, T)""/>

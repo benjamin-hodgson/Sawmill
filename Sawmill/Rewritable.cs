@@ -50,6 +50,49 @@ namespace Sawmill
         /// </summary>
         public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextBreadthFirst<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantAt"/>
+        /// </summary>
+        public static T DescendantAt<T>(this T value, IEnumerable<Direction> path) where T : IRewritable<T>
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return RewritableRewriter<T>.Instance.DescendantAt(path, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ReplaceDescendantAt"/>
+        /// </summary>
+        public static T ReplaceDescendantAt<T>(this T value, IEnumerable<Direction> path, T newDescendant) where T : IRewritable<T>
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return RewritableRewriter<T>.Instance.ReplaceDescendantAt(path, newDescendant, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.RewriteDescendantAt"/>
+        /// </summary>
+        public static T RewriteDescendantAt<T>(this T value, IEnumerable<Direction> path, Func<T, T> transformer) where T : IRewritable<T>
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            
+            return RewritableRewriter<T>.Instance.RewriteDescendantAt(path, transformer, value);
+        }
 
         /// <summary>
         /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>

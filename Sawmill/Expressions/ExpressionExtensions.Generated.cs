@@ -63,6 +63,49 @@ namespace Sawmill.Expressions
         /// </summary>
         public static IEnumerable<(System.Linq.Expressions.Expression item, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> replace)> SelfAndDescendantsInContextBreadthFirst(this System.Linq.Expressions.Expression value)
             => ExpressionRewriter.Instance.SelfAndDescendantsInContextBreadthFirst(value);
+        
+        /// <summary>
+        /// <seealso cref="Rewriter.DescendantAt"/>
+        /// </summary>
+        public static System.Linq.Expressions.Expression DescendantAt(this System.Linq.Expressions.Expression value, IEnumerable<Direction> path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return ExpressionRewriter.Instance.DescendantAt(path, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.ReplaceDescendantAt"/>
+        /// </summary>
+        public static System.Linq.Expressions.Expression ReplaceDescendantAt<T>(this System.Linq.Expressions.Expression value, IEnumerable<Direction> path, System.Linq.Expressions.Expression newDescendant)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            
+            return ExpressionRewriter.Instance.ReplaceDescendantAt(path, newDescendant, value);
+        }
+
+        /// <summary>
+        /// <seealso cref="Rewriter.RewriteDescendantAt"/>
+        /// </summary>
+        public static System.Linq.Expressions.Expression RewriteDescendantAt<T>(this System.Linq.Expressions.Expression value, IEnumerable<Direction> path, Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression> transformer)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+            if (transformer == null)
+            {
+                throw new ArgumentNullException(nameof(transformer));
+            }
+            
+            return ExpressionRewriter.Instance.RewriteDescendantAt(path, transformer, value);
+        }
 
         /// <summary>
         /// <seealso cref="Rewriter.Cursor{T}(IRewriter{T}, T)"/>
