@@ -8,17 +8,15 @@ namespace Sawmill.Tests
 {
     public class RewriterTests
     {
-        readonly IRewriter<Expr> _rewriter = new ExprRewriter();
-
         [Fact]
         public void TestSelfAndDescendants()
         {
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
-            Assert.Equal(new Expr[] { expr, one, minusTwo, two }, _rewriter.SelfAndDescendants(expr));
+            Assert.Equal(new Expr[] { expr, one, minusTwo, two }, expr.SelfAndDescendants());
         }
 
         [Fact]
@@ -27,9 +25,9 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
-            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, _rewriter.DescendantsAndSelf(expr));
+            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, expr.DescendantsAndSelf());
         }
 
         [Fact]
@@ -39,9 +37,9 @@ namespace Sawmill.Tests
             var minusOne = new Neg(one);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(minusOne, minusTwo);
+            Expr expr = new Add(minusOne, minusTwo);
 
-            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, _rewriter.SelfAndDescendantsBreadthFirst(expr));
+            Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, expr.SelfAndDescendantsBreadthFirst());
         }
 
         [Fact]
@@ -50,15 +48,15 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
-            var childrenInContext = _rewriter.ChildrenInContext(expr);
+            var childrenInContext = expr.ChildrenInContext();
 
             Assert.Equal(new Expr[] { one, minusTwo }, childrenInContext.Select(x => x.item));
             
             var three = new Lit(3);
             var newExpr = childrenInContext.First.replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+            Assert.Equal(new Expr[] { three, minusTwo }, newExpr.GetChildren());
         }
 
         [Fact]
@@ -67,15 +65,15 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
-            var contexts = _rewriter.SelfAndDescendantsInContext(expr);
+            var contexts = expr.SelfAndDescendantsInContext();
 
             Assert.Equal(new Expr[] { expr, one, minusTwo, two }, contexts.Select(x => x.item));
             
             var three = new Lit(3);
             var newExpr = contexts.ElementAt(1).replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+            Assert.Equal(new Expr[] { three, minusTwo }, newExpr.GetChildren());
         }
 
         [Fact]
@@ -84,15 +82,15 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
-            var contexts = _rewriter.DescendantsAndSelfInContext(expr);
+            var contexts = expr.DescendantsAndSelfInContext();
 
             Assert.Equal(new Expr[] { one, two, minusTwo, expr }, contexts.Select(x => x.item));
             
             var three = new Lit(3);
             var newExpr = contexts.ElementAt(0).replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+            Assert.Equal(new Expr[] { three, minusTwo }, newExpr.GetChildren());
         }
 
         [Fact]
@@ -102,15 +100,15 @@ namespace Sawmill.Tests
             var minusOne = new Neg(one);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(minusOne, minusTwo);
+            Expr expr = new Add(minusOne, minusTwo);
 
-            var contexts = _rewriter.SelfAndDescendantsInContextBreadthFirst(expr);
+            var contexts = expr.SelfAndDescendantsInContextBreadthFirst();
 
             Assert.Equal(new Expr[] { expr, minusOne, minusTwo, one, two }, contexts.Select(x => x.item));
             
             var three = new Lit(3);
             var newExpr = contexts.ElementAt(1).replace(three);
-            Assert.Equal(new Expr[] { three, minusTwo }, _rewriter.GetChildren(newExpr));
+            Assert.Equal(new Expr[] { three, minusTwo }, newExpr.GetChildren());
         }
 
         [Fact]
@@ -119,21 +117,21 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
             {
-                var result = _rewriter.DescendantAt( new[] { Direction.Down, Direction.Right }, expr);
+                var result = expr.DescendantAt(new[] { Direction.Down, Direction.Right });
 
                 Assert.Same(minusTwo, result);
             }
             {
-                var result = _rewriter.DescendantAt(new Direction[] { }, expr);
+                var result = expr.DescendantAt(new Direction[] { });
 
                 Assert.Same(expr, result);
             }
             {
-                Assert.Throws<InvalidOperationException>(() => _rewriter.DescendantAt(new[] { Direction.Down, Direction.Left }, expr));
-                Assert.Throws<InvalidOperationException>(() => _rewriter.DescendantAt(new[] { Direction.Right }, expr));
-                Assert.Throws<InvalidOperationException>(() => _rewriter.DescendantAt(new[] { Direction.Up }, expr));
+                Assert.Throws<InvalidOperationException>(() => expr.DescendantAt(new[] { Direction.Down, Direction.Left }));
+                Assert.Throws<InvalidOperationException>(() => expr.DescendantAt(new[] { Direction.Right }));
+                Assert.Throws<InvalidOperationException>(() => expr.DescendantAt(new[] { Direction.Up }));
             }
         }
 
@@ -143,21 +141,21 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
             {
-                var result = _rewriter.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, one, expr);
+                var result = expr.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, one);
 
                 Assert.Equal(2, Eval(result));
             }
             {
-                var result = _rewriter.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, minusTwo, expr);
+                var result = expr.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, minusTwo);
 
                 Assert.Same(expr, result);
             }
             {
-                Assert.Throws<InvalidOperationException>(() => _rewriter.ReplaceDescendantAt(new[] { Direction.Down, Direction.Left }, one, expr));
-                Assert.Throws<InvalidOperationException>(() => _rewriter.ReplaceDescendantAt(new[] { Direction.Right }, one, expr));
-                Assert.Throws<InvalidOperationException>(() => _rewriter.ReplaceDescendantAt(new[] { Direction.Up }, one, expr));
+                Assert.Throws<InvalidOperationException>(() => expr.ReplaceDescendantAt(new[] { Direction.Down, Direction.Left }, one));
+                Assert.Throws<InvalidOperationException>(() => expr.ReplaceDescendantAt(new[] { Direction.Right }, one));
+                Assert.Throws<InvalidOperationException>(() => expr.ReplaceDescendantAt(new[] { Direction.Up }, one));
             }
         }
 
@@ -167,21 +165,21 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
             {
-                var result = _rewriter.RewriteDescendantAt(new[] { Direction.Down }, x => x is Lit l ? new Lit(l.Value + 1) : x, expr);
+                var result = expr.RewriteDescendantAt(new[] { Direction.Down }, x => x is Lit l ? new Lit(l.Value + 1) : x);
 
                 Assert.Equal(0, Eval(result));
             }
             {
-                var result = _rewriter.RewriteDescendantAt(new[] { Direction.Down }, x => x, expr);
+                var result = expr.RewriteDescendantAt(new[] { Direction.Down }, x => x);
 
                 Assert.Same(expr, result);
             }
             {
-                Assert.Throws<InvalidOperationException>(() => _rewriter.RewriteDescendantAt(new[] { Direction.Down, Direction.Left }, x => x, expr));
-                Assert.Throws<InvalidOperationException>(() => _rewriter.RewriteDescendantAt(new[] { Direction.Right }, x => x, expr));
-                Assert.Throws<InvalidOperationException>(() => _rewriter.RewriteDescendantAt(new[] { Direction.Up }, x => x, expr));
+                Assert.Throws<InvalidOperationException>(() => expr.RewriteDescendantAt(new[] { Direction.Down, Direction.Left }, x => x));
+                Assert.Throws<InvalidOperationException>(() => expr.RewriteDescendantAt(new[] { Direction.Right }, x => x));
+                Assert.Throws<InvalidOperationException>(() => expr.RewriteDescendantAt(new[] { Direction.Up }, x => x));
             }
         }
 
@@ -191,7 +189,7 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
             Assert.Equal(-1, Eval(expr));
         }
@@ -224,15 +222,15 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
             {
-                var rewritten = _rewriter.DefaultRewriteChildren(_ => new Lit(3), expr);
+                var rewritten = expr.DefaultRewriteChildren(_ => new Lit(3));
 
                 Assert.Equal(6, Eval(rewritten));
             }
             {
-                var result = _rewriter.DefaultRewriteChildren(x => x, expr);
+                var result = expr.DefaultRewriteChildren(x => x);
 
                 Assert.Same(expr, result);
             }
@@ -261,15 +259,15 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            var expr = new Add(one, minusTwo);
+            Expr expr = new Add(one, minusTwo);
 
             {
-                var rewritten = _rewriter.Rewrite(x => x is Lit l ? new Lit(l.Value * 2) : x, expr);
+                var rewritten = expr.Rewrite(x => x is Lit l ? new Lit(l.Value * 2) : x);
 
                 Assert.Equal(-2, Eval(rewritten));
             }
             {
-                var result = _rewriter.Rewrite(x => x, expr);
+                var result = expr.Rewrite(x => x);
 
                 Assert.Same(expr, result);
             }
@@ -279,7 +277,7 @@ namespace Sawmill.Tests
         public void TestRewriteIter()
         {
             // -((1+2)+3) --> ((-1)+(-2))+(-3)
-            var expr = new Neg(
+            Expr expr = new Neg(
                 new Add(
                     new Add(
                         new Lit(1),
@@ -290,11 +288,10 @@ namespace Sawmill.Tests
             );
 
             {
-                var rewritten = _rewriter.RewriteIter(
+                var rewritten = expr.RewriteIter(
                     x => x is Neg n && n.Operand is Add a
                         ? new Add(new Neg(a.Left), new Neg(a.Right))
-                        : x,
-                    expr
+                        : x
                 );
 
                 Assert.Equal(-6, Eval(rewritten));
@@ -302,14 +299,14 @@ namespace Sawmill.Tests
                 Assert.Equal(1, ((Lit)((Neg)((Add)((Add)rewritten).Left).Left).Operand).Value);
             }
             {
-                var result = _rewriter.RewriteIter(x => x, expr);
+                var result = expr.RewriteIter(x => x);
 
                 Assert.Same(expr, result);
             }
         }
 
         private int Eval(Expr expr)
-            => _rewriter.Fold<Expr, int>(
+            => expr.Fold<Expr, int>(
                 (x, next) =>
                 {
                     switch (x)
@@ -322,28 +319,26 @@ namespace Sawmill.Tests
                             return next.First + next.Second;
                     }
                     throw new ArgumentOutOfRangeException(nameof(x));
-                },
-                expr
+                }
             );
         
         private bool Equal(Expr left, Expr right)
-            => _rewriter.ZipFold<Expr, bool>(
-                (xs, children) =>
+            => left.ZipFold<Expr, bool>(
+                right,
+                (x, y, children) =>
                 {
-                    switch (xs[0])
+                    switch (x)
                     {
-                        case Lit l1 when xs[1] is Lit l2:
+                        case Lit l1 when y is Lit l2:
                             return l1.Value == l2.Value;
-                        case Neg n1 when xs[1] is Neg n2:
+                        case Neg n1 when y is Neg n2:
                             return children.First();
-                        case Add a1 when xs[1] is Add a2:
-                            return children.All(x => x);
+                        case Add a1 when y is Add a2:
+                            return children.All(n => n);
                         default:
                             return false;
                     }
-                },
-                left,
-                right
+                }
             );
     }
 }

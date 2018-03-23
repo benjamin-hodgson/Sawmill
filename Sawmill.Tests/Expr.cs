@@ -5,7 +5,13 @@ using System.Linq;
 
 namespace Sawmill.Tests
 {
-    abstract class Expr { }
+    abstract class Expr : IRewritable<Expr>
+    {
+        public abstract Children<Expr> GetChildren();
+        public abstract Expr SetChildren(Children<Expr> newChildren);
+        public Expr RewriteChildren(Func<Expr, Expr> transformer)
+            => this.DefaultRewriteChildren(transformer);
+    }
     class Lit : Expr
     {
         public int Value { get; }
@@ -14,6 +20,10 @@ namespace Sawmill.Tests
         {
             Value = value;
         }
+
+        public override Children<Expr> GetChildren() => Children.None<Expr>();
+
+        public override Expr SetChildren(Children<Expr> newChildren) => this;
     }
     class Neg : Expr
     {
@@ -23,6 +33,10 @@ namespace Sawmill.Tests
         {
             Operand = operand;
         }
+
+        public override Children<Expr> GetChildren() => (Operand);
+
+        public override Expr SetChildren(Children<Expr> newChildren) => new Neg(newChildren.First);
     }
     class Add : Expr
     {
@@ -34,6 +48,10 @@ namespace Sawmill.Tests
             Left = left;
             Right = right;
         }
+
+        public override Children<Expr> GetChildren() => (Left, Right);
+
+        public override Expr SetChildren(Children<Expr> newChildren) => new Add(newChildren.First, newChildren.Second);
     }
     class Ternary : Expr
     {
@@ -47,6 +65,12 @@ namespace Sawmill.Tests
             ThenBranch = thenBranch;
             ElseBranch = elseBranch;
         }
+
+        public override Children<Expr> GetChildren()
+            => new[] { Condition, ThenBranch, ElseBranch }.ToImmutableList();
+
+        public override Expr SetChildren(Children<Expr> newChildren)
+            => new Ternary(newChildren.Many[0], newChildren.Many[1], newChildren.Many[2]);
     }
     class List : Expr
     {
@@ -56,6 +80,10 @@ namespace Sawmill.Tests
         {
             Exprs = exprs;
         }
+
+        public override Children<Expr> GetChildren() => Exprs;
+
+        public override Expr SetChildren(Children<Expr> newChildren) => new List(newChildren.Many);
     }
     class IfThenElse : Expr
     {
@@ -69,5 +97,18 @@ namespace Sawmill.Tests
             IfTrueStmts = ifTrueStmts;
             IfFalseStmts = ifFalseStmts;
         }
+
+        public override Children<Expr> GetChildren()
+            => ImmutableList
+                .Create(Condition)
+                .AddRange(IfTrueStmts)
+                .AddRange(IfFalseStmts);
+
+        public override Expr SetChildren(Children<Expr> newChildren)
+            => new IfThenElse(
+                newChildren.Many[0],
+                newChildren.Many.GetRange(1, IfTrueStmts.Count),
+                newChildren.Many.GetRange(IfTrueStmts.Count + 1, IfFalseStmts.Count)
+            );
     }
 }

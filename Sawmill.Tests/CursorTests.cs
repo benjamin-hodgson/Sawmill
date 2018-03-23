@@ -10,12 +10,10 @@ namespace Sawmill.Tests
             new Lit(4)
         );
 
-        private readonly IRewriter<Expr> _rewriter = new ExprRewriter();
-
         [Fact]
         public void UpFromTop()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
 
             Assert.Throws<InvalidOperationException>(() => cursor.Up());
             Assert.False(cursor.TryUp());
@@ -24,7 +22,7 @@ namespace Sawmill.Tests
         [Fact]
         public void LeftFromStart()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
 
             Assert.Throws<InvalidOperationException>(() => cursor.Left());
             Assert.False(cursor.TryLeft());
@@ -33,7 +31,7 @@ namespace Sawmill.Tests
         [Fact]
         public void RightFromEnd()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
 
             Assert.Throws<InvalidOperationException>(() => cursor.Right());
             Assert.False(cursor.TryRight());
@@ -42,7 +40,7 @@ namespace Sawmill.Tests
         [Fact]
         public void DownFromBottom()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Down();
 
@@ -53,7 +51,7 @@ namespace Sawmill.Tests
         [Fact]
         public void Down()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             
             cursor.Down();
 
@@ -66,7 +64,7 @@ namespace Sawmill.Tests
         [Fact]
         public void DownUp()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Up();
 
@@ -79,7 +77,7 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRight()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
 
@@ -94,7 +92,7 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRightUp()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
             cursor.Up();
@@ -107,7 +105,7 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRightUpDown()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
             cursor.Up();
@@ -122,7 +120,7 @@ namespace Sawmill.Tests
         [Fact]
         public void DownRightLeft()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
             cursor.Left();
@@ -136,7 +134,7 @@ namespace Sawmill.Tests
         [Fact]
         public void Move_DownRightLeft()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Move(Direction.Down);
             cursor.Move(Direction.Right);
             cursor.Move(Direction.Left);
@@ -152,7 +150,7 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Focus = replacement;
 
             Assert.Same(replacement, cursor.Focus);
@@ -163,7 +161,7 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Focus = replacement;
             cursor.Up();
@@ -179,7 +177,7 @@ namespace Sawmill.Tests
         {
             var replacement = new Lit(10);
 
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
             cursor.Focus = replacement;
@@ -194,7 +192,7 @@ namespace Sawmill.Tests
         [Fact]
         public void Top()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Down();
             cursor.Top();
@@ -204,7 +202,7 @@ namespace Sawmill.Tests
         [Fact]
         public void Leftmost()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Leftmost();
 
@@ -214,7 +212,7 @@ namespace Sawmill.Tests
         [Fact]
         public void Rightmost()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Rightmost();
 
@@ -225,7 +223,7 @@ namespace Sawmill.Tests
         public void UpN()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Down();
 
@@ -234,7 +232,7 @@ namespace Sawmill.Tests
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Down();
 
@@ -244,21 +242,21 @@ namespace Sawmill.Tests
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<InvalidOperationException>(() => cursor.Up(5));
 
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.False(cursor.TryUp(5));
 
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Up(-1));
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryUp(-1));
@@ -269,7 +267,7 @@ namespace Sawmill.Tests
         public void DownN()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 cursor.Down(2);
 
@@ -277,7 +275,7 @@ namespace Sawmill.Tests
                 Assert.Equal(3, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 var success = cursor.TryDown(2);
 
@@ -286,7 +284,7 @@ namespace Sawmill.Tests
                 Assert.Equal(3, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<InvalidOperationException>(() => cursor.Down(5));
 
@@ -294,7 +292,7 @@ namespace Sawmill.Tests
                 Assert.Equal(3, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.False(cursor.TryDown(5));
 
@@ -302,7 +300,7 @@ namespace Sawmill.Tests
                 Assert.Equal(3, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Down(-1));
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryDown(-1));
@@ -313,7 +311,7 @@ namespace Sawmill.Tests
         public void RightN()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 cursor.Right(1);
@@ -322,7 +320,7 @@ namespace Sawmill.Tests
                 Assert.Equal(4, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 var success = cursor.TryRight(1);
@@ -332,7 +330,7 @@ namespace Sawmill.Tests
                 Assert.Equal(4, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 Assert.Throws<InvalidOperationException>(() => cursor.Right(5));
@@ -341,7 +339,7 @@ namespace Sawmill.Tests
                 Assert.Equal(4, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 Assert.False(cursor.TryRight(5));
@@ -350,7 +348,7 @@ namespace Sawmill.Tests
                 Assert.Equal(4, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Right(-1));
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryRight(-1));
@@ -361,7 +359,7 @@ namespace Sawmill.Tests
         public void LeftN()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -370,7 +368,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -380,7 +378,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -389,7 +387,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -398,7 +396,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.Left(-1));
                 Assert.Throws<ArgumentOutOfRangeException>(() => cursor.TryLeft(-1));
@@ -409,7 +407,7 @@ namespace Sawmill.Tests
         public void UpWhile()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 cursor.UpWhile(e => e is Neg);
@@ -417,7 +415,7 @@ namespace Sawmill.Tests
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 var success = cursor.TryUpWhile(e => e is Neg);
@@ -426,14 +424,14 @@ namespace Sawmill.Tests
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 Assert.Throws<InvalidOperationException>(() => cursor.UpWhile(e => true));
                 Assert.Same(_expr, cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 var success = cursor.TryUpWhile(e => true);
@@ -447,14 +445,14 @@ namespace Sawmill.Tests
         public void DownWhile()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 cursor.DownWhile(e => e is Add);
 
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 var success = cursor.TryDownWhile(e => e is Add);
 
@@ -462,13 +460,13 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 Assert.Throws<InvalidOperationException>(() => cursor.DownWhile(e => true));
                 Assert.IsType<Lit>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
 
                 var success = cursor.TryDownWhile(e => true);
 
@@ -481,7 +479,7 @@ namespace Sawmill.Tests
         public void RightWhile()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 cursor.RightWhile(e => e is Neg);
@@ -489,7 +487,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Lit>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 var success = cursor.TryRightWhile(e => e is Neg);
@@ -498,14 +496,14 @@ namespace Sawmill.Tests
                 Assert.IsType<Lit>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 Assert.Throws<InvalidOperationException>(() => cursor.RightWhile(e => true));
                 Assert.IsType<Lit>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
 
                 var success = cursor.TryRightWhile(e => true);
@@ -519,7 +517,7 @@ namespace Sawmill.Tests
         public void LeftWhile()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -528,7 +526,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -538,7 +536,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -546,7 +544,7 @@ namespace Sawmill.Tests
                 Assert.IsType<Neg>(cursor.Focus);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 cursor.Down();
                 cursor.Right();
 
@@ -560,7 +558,7 @@ namespace Sawmill.Tests
         [Fact]
         public void GetPath()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
             
@@ -570,7 +568,7 @@ namespace Sawmill.Tests
         [Fact]
         public void Follow_DownRightLeft()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Follow(new[] { Direction.Down, Direction.Right, Direction.Left });
             
             var firstChild = cursor.Focus;
@@ -582,7 +580,7 @@ namespace Sawmill.Tests
         [Fact]
         public void ReleaseOldVersions()
         {
-            var cursor = _rewriter.Cursor(_expr);
+            var cursor = _expr.Cursor();
             cursor.Down();
             cursor.Right();
             cursor.Left();
@@ -599,7 +597,7 @@ namespace Sawmill.Tests
         public void SearchDownAndRight()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 var success = cursor.SearchDownAndRight(n => n is Lit);
 
                 Assert.True(success);
@@ -607,7 +605,7 @@ namespace Sawmill.Tests
                 Assert.Equal(3, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 var success = cursor.SearchDownAndRight(n => false);
 
                 Assert.False(success);
@@ -619,7 +617,7 @@ namespace Sawmill.Tests
         public void SearchRightAndDown()
         {
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 var success = cursor.SearchRightAndDown(n => n is Lit);
 
                 Assert.True(success);
@@ -627,7 +625,7 @@ namespace Sawmill.Tests
                 Assert.Equal(4, lit.Value);
             }
             {
-                var cursor = _rewriter.Cursor(_expr);
+                var cursor = _expr.Cursor();
                 var success = cursor.SearchRightAndDown(n => false);
 
                 Assert.False(success);
