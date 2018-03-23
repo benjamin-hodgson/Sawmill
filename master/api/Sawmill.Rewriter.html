@@ -281,7 +281,7 @@ Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_I
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T DefaultRewriteChildren&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, T&gt; transformer, T oldValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T DefaultRewriteChildren&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, T&gt; transformer, T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -302,12 +302,12 @@ Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_I
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
         <td><span class="parametername">transformer</span></td>
-        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">oldValue</code>&apos;s immediate children.</p>
+        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">oldValue</span></td>
+        <td><span class="parametername">value</span></td>
         <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
 </td>
       </tr>
@@ -324,7 +324,7 @@ Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_I
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">oldValue</code> with updated children.</p>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
 </td>
       </tr>
     </tbody>
