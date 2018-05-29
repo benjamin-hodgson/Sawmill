@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IRewriter&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.33.1.0">
+    <meta name="generator" content="docfx 2.36.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -181,26 +181,26 @@ Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
 
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_.md&amp;value=---%0Auid%3A%20Sawmill.IRewriter%601.RewriteChildren(System.Func%7B%600%2C%600%7D%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewriter_1_RewriteChildren_Func__0__0___0_.md&amp;value=---%0Auid%3A%20Sawmill.IRewriter%601.RewriteChildren(Func%7B%600%2C%600%7D%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewriter.cs/#L127">View Source</a>
   </span>
   <a id="Sawmill_IRewriter_1_RewriteChildren_" data-uid="Sawmill.IRewriter`1.RewriteChildren*"></a>
-  <h4 id="Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_" data-uid="Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)">RewriteChildren(Func&lt;T, T&gt;, T)</h4>
+  <h4 id="Sawmill_IRewriter_1_RewriteChildren_Func__0__0___0_" data-uid="Sawmill.IRewriter`1.RewriteChildren(Func{`0,`0},`0)">RewriteChildren(Func&lt;T, T&gt;, T)</h4>
   <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.
 <p>
-Implementations of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> can use <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>,
+Implementations of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> can use <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>,
 or you can write your own.
 </p>
 <p>
 NB: A hand-written implementation will not usually be faster
-than <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>.
+than <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>.
 If your type has a fixed number of children, and that number is greater than two,
 you may see some performance improvements from implementing this method yourself.
 Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref">value</code> if none of the children have changed.
 </p>
-<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__">RewriteChildren(Func&lt;T, T&gt;)</a></p>
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_Func__0__0__">RewriteChildren(Func&lt;T, T&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -218,7 +218,7 @@ Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, T&gt;</td>
         <td><span class="parametername">transformer</span></td>
         <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
 </td>
@@ -247,7 +247,7 @@ Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0__examples">Examples</h5>
+  <h5 id="Sawmill_IRewriter_1_RewriteChildren_Func__0__0___0__examples">Examples</h5>
   <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
 <pre><code>Expr expr = new Add(
     new Add(
@@ -256,7 +256,7 @@ Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref
     ),
     new Lit(3)
 );</code></pre>
-<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a> only affects the immediate children of the topmost node.</p>
+<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a> only affects the immediate children of the topmost node.</p>
 <pre><code>Expr expected = new Add(
     transformer(new Add(
         new Lit(1),
@@ -351,16 +351,16 @@ Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5))
       <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Rewriter.Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewriter.DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__Func___0___0____0_">Rewriter.DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0_">Rewriter.DescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, T)</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt__1_Sawmill_IRewriter___0__IEnumerable_Sawmill_Direction____0_">Rewriter.DescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0___0_">Rewriter.ReplaceDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, T, T)</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__IEnumerable_Sawmill_Direction____0___0_">Rewriter.ReplaceDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, T, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0____0_">Rewriter.RewriteDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, Func&lt;T, T&gt;, T)</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__IEnumerable_Sawmill_Direction__Func___0___0____0_">Rewriter.RewriteDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, Func&lt;T, T&gt;, T)</a>
   </div>
   <div>
       <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">Rewriter.DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
@@ -369,10 +369,10 @@ Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5))
       <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">Rewriter.DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_">Rewriter.Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T, Children&lt;U&gt;, U&gt;, T)</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Func___0_Sawmill_Children___1____1____0_">Rewriter.Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T, Children&lt;U&gt;, U&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewriter.Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__Func___0___0____0_">Rewriter.Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>
   </div>
   <div>
       <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">Rewriter.SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
@@ -387,7 +387,7 @@ Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5))
       <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0_">Rewriter.SelfAndDescendantsInContextBreadthFirst&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
   </div>
   <div>
-      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">Rewriter.ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;, T[])</a>
+      <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__Func___0___IEnumerable___1____1____0___">Rewriter.ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;, T[])</a>
   </div>
 </article>
           </div>

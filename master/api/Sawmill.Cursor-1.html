@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Cursor&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.33.1.0">
+    <meta name="generator" content="docfx 2.36.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -93,35 +93,11 @@ but it efficiently supports longer sequences of edits to a location and its neig
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">Cursor&lt;T&gt;</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Sawmill.html">Sawmill</a></h6>
   <h6><strong>Assembly</strong>: Sawmill.dll</h6>
   <h5 id="Sawmill_Cursor_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Cursor&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class Cursor&lt;T&gt; : object</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -224,22 +200,6 @@ This operation &quot;opens a hole&quot; in the current node, descending to the c
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Down()</code></pre>
   </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>&apos;s has no children.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Down_System_Int32_.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Down(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -276,37 +236,15 @@ This operation &quot;opens a hole&quot; in the current node and its <code data-d
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached a node with no children.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, at the bottom of the tree.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_DownWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.DownWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_DownWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.DownWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L428">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_DownWhile_" data-uid="Sawmill.Cursor`1.DownWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_DownWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.DownWhile(System.Func{`0,System.Boolean})">DownWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_DownWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.DownWhile(Func{`0,System.Boolean})">DownWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>.
 In other words, find the first leftmost descendant of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 </div>
@@ -326,39 +264,22 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its leftmost descendants</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the root node.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, at the bottom of the tree.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Follow_System_Collections_Generic_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Follow(System.Collections.Generic.IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Follow_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Follow(IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L761">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_Follow_" data-uid="Sawmill.Cursor`1.Follow*"></a>
-  <h4 id="Sawmill_Cursor_1_Follow_System_Collections_Generic_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.Cursor`1.Follow(System.Collections.Generic.IEnumerable{Sawmill.Direction})">Follow(IEnumerable&lt;Direction&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_Follow_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.Cursor`1.Follow(IEnumerable{Sawmill.Direction})">Follow(IEnumerable&lt;Direction&gt;)</h4>
   <div class="markdown level1 summary"><p>Follow a path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -377,25 +298,9 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
         <td><span class="parametername">path</span></td>
         <td><p>The path to follow</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when path leads off the edge of the tree. The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last known good state.</p>
 </td>
       </tr>
     </tbody>
@@ -411,7 +316,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
   <h4 id="Sawmill_Cursor_1_GetPath" data-uid="Sawmill.Cursor`1.GetPath">GetPath()</h4>
   <div class="markdown level1 summary"><p>Yields a sequence of <a class="xref" href="Sawmill.Direction.html">Direction</a>s describing how to get from the <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Top">Top()</a>
 of the tree to the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>.
-The resulting path can be <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Follow_System_Collections_Generic_IEnumerable_Sawmill_Direction__">Follow(IEnumerable&lt;Direction&gt;)</a>ed by a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a>.
+The resulting path can be <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Follow_IEnumerable_Sawmill_Direction__">Follow(IEnumerable&lt;Direction&gt;)</a>ed by a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a>.
 This is useful if, for example, you need to compare the nodes at a given position in two different trees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -429,7 +334,7 @@ This is useful if, for example, you need to compare the nodes at a given positio
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
         <td><p>A sequence of <a class="xref" href="Sawmill.Direction.html">Direction</a>s</p>
 </td>
       </tr>
@@ -451,22 +356,6 @@ This is useful if, for example, you need to compare the nodes at a given positio
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Left()</code></pre>
   </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the leftmost sibling</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Left_System_Int32_.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Left(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -500,28 +389,6 @@ This is useful if, for example, you need to compare the nodes at a given positio
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the leftmost sibling.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, focused on the leftmost sibling.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Leftmost.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Leftmost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -541,13 +408,13 @@ Do nothing if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_LeftWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.LeftWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_LeftWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.LeftWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L559">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_LeftWhile_" data-uid="Sawmill.Cursor`1.LeftWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_LeftWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.LeftWhile(System.Func{`0,System.Boolean})">LeftWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_LeftWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.LeftWhile(Func{`0,System.Boolean})">LeftWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left">Left()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>.
 In other words, find the first left sibling of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 </div>
@@ -567,26 +434,9 @@ In other words, find the first left sibling of <a class="xref" href="Sawmill.Cur
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its ancestors</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the root node.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, at the leftmost sibling.</p>
 </td>
       </tr>
     </tbody>
@@ -621,27 +471,6 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
         <td><a class="xref" href="Sawmill.Direction.html">Direction</a></td>
         <td><span class="parametername">direction</span></td>
         <td><p>The <a class="xref" href="Sawmill.Direction.html">Direction</a> to move in</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when the direction leads off the edge of the tree. The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last known good state.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">direction</code> is not a valid <a class="xref" href="Sawmill.Direction.html">Direction</a></p>
 </td>
       </tr>
     </tbody>
@@ -693,22 +522,6 @@ this method (say, every 1000 edits) should improve the memory usage (at the cost
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Right()</code></pre>
   </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the rightmost sibling</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Right_System_Int32_.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Right(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -742,28 +555,6 @@ this method (say, every 1000 edits) should improve the memory usage (at the cost
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the rightmost sibling.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, focused on the rightmost sibling.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Rightmost.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Rightmost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -783,13 +574,13 @@ Do nothing if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_RightWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.RightWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_RightWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.RightWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L688">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_RightWhile_" data-uid="Sawmill.Cursor`1.RightWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_RightWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.RightWhile(System.Func{`0,System.Boolean})">RightWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_RightWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.RightWhile(Func{`0,System.Boolean})">RightWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right">Right()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>.
 In other words, find the first Right sibling of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 </div>
@@ -809,43 +600,26 @@ In other words, find the first Right sibling of <a class="xref" href="Sawmill.Cu
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its ancestors</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the root node.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is Right in the last good state, that is, at the Rightmost sibling.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_SearchDownAndRight_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.SearchDownAndRight(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_SearchDownAndRight_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.SearchDownAndRight(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L826">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_SearchDownAndRight_" data-uid="Sawmill.Cursor`1.SearchDownAndRight*"></a>
-  <h4 id="Sawmill_Cursor_1_SearchDownAndRight_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.SearchDownAndRight(System.Func{`0,System.Boolean})">SearchDownAndRight(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_SearchDownAndRight_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.SearchDownAndRight(Func{`0,System.Boolean})">SearchDownAndRight(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Focus the current focus&apos;s first descendant or right sibling&apos;s descendant which satisfies <see paramref="predicate"></see>,
 searching descendants before siblings and ending at the current node&apos;s rightmost sibling.</p>
 <p>
-This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_SearchRightAndDown_System_Func__0_System_Boolean__">SearchRightAndDown(Func&lt;T, Boolean&gt;)</a>.
+This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_SearchRightAndDown_Func__0_System_Boolean__">SearchRightAndDown(Func&lt;T, Boolean&gt;)</a>.
 </p>
 
 <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
@@ -866,7 +640,7 @@ This function searches the bottom-left part of the tree first, so will typically
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>A predicate which returns true when the search should stop</p>
 </td>
@@ -891,17 +665,17 @@ This function searches the bottom-left part of the tree first, so will typically
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_SearchRightAndDown_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.SearchRightAndDown(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_SearchRightAndDown_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.SearchRightAndDown(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L869">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_SearchRightAndDown_" data-uid="Sawmill.Cursor`1.SearchRightAndDown*"></a>
-  <h4 id="Sawmill_Cursor_1_SearchRightAndDown_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.SearchRightAndDown(System.Func{`0,System.Boolean})">SearchRightAndDown(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_SearchRightAndDown_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.SearchRightAndDown(Func{`0,System.Boolean})">SearchRightAndDown(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Focus the current focus&apos;s first descendant or right sibling&apos;s descendant which satisfies <see paramref="predicate"></see>,
 searching siblings before descendants and ending at the current node&apos;s lowest leftmost descendant.</p>
 <p>
-This function searches the top-right part of the tree first, so will typically end up focusing a node higher up than <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_SearchDownAndRight_System_Func__0_System_Boolean__">SearchDownAndRight(Func&lt;T, Boolean&gt;)</a>.
+This function searches the top-right part of the tree first, so will typically end up focusing a node higher up than <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_SearchDownAndRight_Func__0_System_Boolean__">SearchDownAndRight(Func&lt;T, Boolean&gt;)</a>.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -920,7 +694,7 @@ This function searches the top-right part of the tree first, so will typically e
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>A predicate which returns true when the search should stop</p>
 </td>
@@ -1050,31 +824,15 @@ This operation &quot;opens a hole&quot; in the current node and its <code data-d
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryDownWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryDownWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryDownWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryDownWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L449">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_TryDownWhile_" data-uid="Sawmill.Cursor`1.TryDownWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_TryDownWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryDownWhile(System.Func{`0,System.Boolean})">TryDownWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_TryDownWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryDownWhile(Func{`0,System.Boolean})">TryDownWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>, stopping if you reach the bottom.
 In other words, find the first leftmost descendant of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 </div>
@@ -1094,7 +852,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its leftmost descendants</p>
 </td>
@@ -1119,13 +877,13 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryFollow_System_Collections_Generic_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryFollow(System.Collections.Generic.IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryFollow_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryFollow(IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L776">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_TryFollow_" data-uid="Sawmill.Cursor`1.TryFollow*"></a>
-  <h4 id="Sawmill_Cursor_1_TryFollow_System_Collections_Generic_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.Cursor`1.TryFollow(System.Collections.Generic.IEnumerable{Sawmill.Direction})">TryFollow(IEnumerable&lt;Direction&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_TryFollow_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.Cursor`1.TryFollow(IEnumerable{Sawmill.Direction})">TryFollow(IEnumerable&lt;Direction&gt;)</h4>
   <div class="markdown level1 summary"><p>Follow a path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1144,7 +902,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
         <td><span class="parametername">path</span></td>
         <td><p>The path to follow</p>
 </td>
@@ -1248,31 +1006,15 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryLeftWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryLeftWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryLeftWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryLeftWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L580">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_TryLeftWhile_" data-uid="Sawmill.Cursor`1.TryLeftWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_TryLeftWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryLeftWhile(System.Func{`0,System.Boolean})">TryLeftWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_TryLeftWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryLeftWhile(Func{`0,System.Boolean})">TryLeftWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left">Left()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>, stopping if you reach the leftmost sibling.
 In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 </div>
@@ -1292,7 +1034,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its ancestors</p>
 </td>
@@ -1361,22 +1103,6 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><p>True if the operation was successful, false if the direction leads off the edge of the tree.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">direction</code> is not a valid <a class="xref" href="Sawmill.Direction.html">Direction</a></p>
 </td>
       </tr>
     </tbody>
@@ -1462,31 +1188,15 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryRightWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryRightWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryRightWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryRightWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L709">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_TryRightWhile_" data-uid="Sawmill.Cursor`1.TryRightWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_TryRightWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryRightWhile(System.Func{`0,System.Boolean})">TryRightWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_TryRightWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryRightWhile(Func{`0,System.Boolean})">TryRightWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right">Right()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>, stopping if you reach the Rightmost sibling.
 In other words, find the Right sibling of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 </div>
@@ -1506,7 +1216,7 @@ In other words, find the Right sibling of <a class="xref" href="Sawmill.Cursor-1
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its ancestors</p>
 </td>
@@ -1618,31 +1328,15 @@ This releases old versions of the ancestors and their children, so that they can
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryUpWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryUpWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_TryUpWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.TryUpWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L300">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_TryUpWhile_" data-uid="Sawmill.Cursor`1.TryUpWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_TryUpWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryUpWhile(System.Func{`0,System.Boolean})">TryUpWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_TryUpWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.TryUpWhile(Func{`0,System.Boolean})">TryUpWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>, stopping if you reach the top.
 In other words, find the first ancestor of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 <p>
@@ -1666,7 +1360,7 @@ This releases old versions of the ancestors and their children, so that they can
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its ancestors</p>
 </td>
@@ -1709,22 +1403,6 @@ This releases old versions of the current <a class="xref" href="Sawmill.Cursor-1
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Up()</code></pre>
   </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the root node.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_Up_System_Int32_.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.Up(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1762,37 +1440,15 @@ This releases old versions of the ancestors and their children, so that they can
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the root node.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, at the top of the tree.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_UpWhile_System_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.UpWhile(System.Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Cursor_1_UpWhile_Func__0_System_Boolean__.md&amp;value=---%0Auid%3A%20Sawmill.Cursor%601.UpWhile(Func%7B%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Cursor.cs/#L273">View Source</a>
   </span>
   <a id="Sawmill_Cursor_1_UpWhile_" data-uid="Sawmill.Cursor`1.UpWhile*"></a>
-  <h4 id="Sawmill_Cursor_1_UpWhile_System_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.UpWhile(System.Func{`0,System.Boolean})">UpWhile(Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="Sawmill_Cursor_1_UpWhile_Func__0_System_Boolean__" data-uid="Sawmill.Cursor`1.UpWhile(Func{`0,System.Boolean})">UpWhile(Func&lt;T, Boolean&gt;)</h4>
   <div class="markdown level1 summary"><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a> as long as <code data-dev-comment-type="paramref" class="paramref">predicate</code> returns true for the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>.
 In other words, find the first ancestor of <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> (including itself) which does not satisfy <code data-dev-comment-type="paramref" class="paramref">predicate</code>.</p>
 <p>
@@ -1816,26 +1472,9 @@ This releases old versions of the ancestors and their children, so that they can
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to invoke on the current focus and its ancestors</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> reached the root node.
-The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in the last good state, that is, at the top of the tree.</p>
 </td>
       </tr>
     </tbody>

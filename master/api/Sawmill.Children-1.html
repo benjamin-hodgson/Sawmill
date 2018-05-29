@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Struct Children&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.33.1.0">
+    <meta name="generator" content="docfx 2.36.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -22,7 +22,7 @@
     
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -78,35 +78,13 @@
   <div class="markdown level0 conceptual"></div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.equals#System_ValueType_Equals_System_Object_">ValueType.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.gethashcode#System_ValueType_GetHashCode">ValueType.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.tostring#System_ValueType_ToString">ValueType.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
+    <div><span class="xref">IEnumerable</span>&lt;T&gt;</div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Sawmill.html">Sawmill</a></h6>
   <h6><strong>Assembly</strong>: Sawmill.dll</h6>
   <h5 id="Sawmill_Children_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct Children&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public struct Children&lt;T&gt; : IEnumerable&lt;T&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,8 +103,8 @@
     </tbody>
   </table>
   <h5 id="Sawmill_Children_1_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Why not just use <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>? <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> is a value type,
-whereas <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> is a reference type.
+  <div class="markdown level0 remarks"><p>Why not just use <see cref="!:IEnumerable&lt;T>"></see>? <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> is a value type,
+whereas <see cref="!:IEnumerable&lt;T>"></see> is a reference type.
 In cases where a node has a small, fixed number of children (fewer than three),
 it&apos;s much more efficient to pass those children around on the stack,
 rather than storing an enumerable on the heap which will quickly become garbage.</p>
@@ -167,23 +145,6 @@ rather than storing an enumerable on the heap which will quickly become garbage.
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when <a class="xref" href="Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren">NumberOfChildren</a> is not
-<a class="xref" href="Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_One">One</a> or <a class="xref" href="Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_Two">Two</a></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_Many.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.Many%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -210,24 +171,8 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.immutable.immutablelist-1">ImmutableList</a>&lt;T&gt;</td>
+        <td><span class="xref">ImmutableList</span>&lt;T&gt;</td>
         <td><p>An enumerable containing the elements, if if <a class="xref" href="Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren">NumberOfChildren</a> is <a class="xref" href="Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_Many">Many</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when <a class="xref" href="Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren">NumberOfChildren</a> is not <a class="xref" href="Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_Many">Many</a></p>
 </td>
       </tr>
     </tbody>
@@ -296,22 +241,6 @@ rather than storing an enumerable on the heap which will quickly become garbage.
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>Thrown when <a class="xref" href="Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren">NumberOfChildren</a> is not <a class="xref" href="Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_Two">Two</a></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -323,7 +252,7 @@ rather than storing an enumerable on the heap which will quickly become garbage.
   </span>
   <a id="Sawmill_Children_1_GetEnumerator_" data-uid="Sawmill.Children`1.GetEnumerator*"></a>
   <h4 id="Sawmill_Children_1_GetEnumerator" data-uid="Sawmill.Children`1.GetEnumerator">GetEnumerator()</h4>
-  <div class="markdown level1 summary"><p>Returns an implementation of <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator&lt;T&gt;</a> which yields the elements of the current instance.</p>
+  <div class="markdown level1 summary"><p>Returns an implementation of <see cref="!:IEnumerator&lt;T>"></see> which yields the elements of the current instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -341,20 +270,20 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     <tbody>
       <tr>
         <td><a class="xref" href="Sawmill.Children-1.Enumerator.html">Children.Enumerator</a>&lt;&gt;</td>
-        <td><p>An implementation of <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator&lt;T&gt;</a> which yields the elements of the current instance.</p>
+        <td><p>An implementation of <see cref="!:IEnumerator&lt;T>"></see> which yields the elements of the current instance.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_Select__1_System_Func__0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.Select%60%601(System.Func%7B%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_Select__1_Func__0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.Select%60%601(Func%7B%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L153">View Source</a>
   </span>
   <a id="Sawmill_Children_1_Select_" data-uid="Sawmill.Children`1.Select*"></a>
-  <h4 id="Sawmill_Children_1_Select__1_System_Func__0___0__" data-uid="Sawmill.Children`1.Select``1(System.Func{`0,``0})">Select&lt;U&gt;(Func&lt;T, U&gt;)</h4>
+  <h4 id="Sawmill_Children_1_Select__1_Func__0___0__" data-uid="Sawmill.Children`1.Select``1(Func{`0,``0})">Select&lt;U&gt;(Func&lt;T, U&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a new <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> containing the result of applying a transformation function to the elements of the current instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -373,7 +302,7 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, U&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, U&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>A transformation function to apply to the elements of the current instance</p>
 </td>
@@ -464,13 +393,13 @@ rather than storing an enumerable on the heap which will quickly become garbage.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_op_Implicit_System_Collections_Immutable_ImmutableList__0___Sawmill_Children__0_.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.op_Implicit(System.Collections.Immutable.ImmutableList%7B%600%7D)~Sawmill.Children%7B%600%7D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_op_Implicit_ImmutableList__0___Sawmill_Children__0_.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.op_Implicit(ImmutableList%7B%600%7D)~Sawmill.Children%7B%600%7D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L191">View Source</a>
   </span>
   <a id="Sawmill_Children_1_op_Implicit_" data-uid="Sawmill.Children`1.op_Implicit*"></a>
-  <h4 id="Sawmill_Children_1_op_Implicit_System_Collections_Immutable_ImmutableList__0___Sawmill_Children__0_" data-uid="Sawmill.Children`1.op_Implicit(System.Collections.Immutable.ImmutableList{`0})~Sawmill.Children{`0}">Implicit(ImmutableList&lt;T&gt; to Children&lt;T&gt;)</h4>
+  <h4 id="Sawmill_Children_1_op_Implicit_ImmutableList__0___Sawmill_Children__0_" data-uid="Sawmill.Children`1.op_Implicit(ImmutableList{`0})~Sawmill.Children{`0}">Implicit(ImmutableList&lt;T&gt; to Children&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Equivalent to <code>Children.Many(list)</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -489,7 +418,7 @@ rather than storing an enumerable on the heap which will quickly become garbage.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.immutable.immutablelist-1">ImmutableList</a>&lt;T&gt;</td>
+        <td><span class="xref">ImmutableList</span>&lt;T&gt;</td>
         <td><span class="parametername">list</span></td>
         <td><p>The children</p>
 </td>
@@ -560,74 +489,9 @@ rather than storing an enumerable on the heap which will quickly become garbage.
       </tr>
     </tbody>
   </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.System%23Collections%23Generic%23IEnumerable%7BT%7D%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L201">View Source</a>
-  </span>
-  <a id="Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator_" data-uid="Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator*"></a>
-  <h4 id="Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator" data-uid="Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator">IEnumerable&lt;T&gt;.GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerator&lt;T&gt; IEnumerable&lt;T&gt;.GetEnumerator()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Sawmill.Children%601.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Children.cs/#L211">View Source</a>
-  </span>
-  <a id="Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator*"></a>
-  <h4 id="Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+      <span class="xref">IEnumerable&lt;&gt;</span>
   </div>
 </article>
           </div>
