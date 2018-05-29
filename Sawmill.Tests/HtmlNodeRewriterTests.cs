@@ -1,0 +1,57 @@
+using Xunit;
+using System.Linq;
+using System.Collections.Immutable;
+using System.IO;
+using HtmlAgilityPack;
+using Sawmill.HtmlAgilityPack;
+
+namespace Sawmill.Tests
+{
+    public class HtmlNodeRewriterTests
+    {
+        private static readonly string exampleHtml = "<p class=\"baz\"><br/><span>nobble</span></p>";
+
+        [Fact]
+        public void TestGetChildren()
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(exampleHtml);
+
+            var pNode = doc.DocumentNode.GetChildren().Single();
+            Assert.Equal("p", pNode.Name);
+
+            var children = pNode.GetChildren().Many;
+            
+            Assert.Equal(2, children.Count());
+            Assert.Equal("br", children.ElementAt(0).Name);
+            Assert.Equal("span", children.ElementAt(1).Name);
+        }
+
+        [Fact]
+        public void TestSetChildren()
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(exampleHtml);
+
+            var pNode = doc.DocumentNode.GetChildren().Single();
+            var children = pNode.GetChildren().Many.ToImmutableList();
+            
+            var newChildren = children.SetItem(0, HtmlNode.CreateNode("<div></div>"));
+            var newPNode = pNode.SetChildren(Children.Many(newChildren));
+
+            Assert.Equal("p", newPNode.Name);
+            Assert.Equal(1, newPNode.Attributes.Count());
+            Assert.Equal("baz", newPNode.Attributes["class"].Value);
+            Assert.Equal(2, newPNode.GetChildren().Count());
+            Assert.Equal("div", newPNode.GetChildren().ElementAt(0).Name);
+            Assert.Equal("span", newPNode.GetChildren().ElementAt(1).Name);
+
+
+            // fooNode should not have changed
+            Assert.Equal(1, pNode.Attributes.Count());
+            Assert.Equal(2, pNode.GetChildren().Count());
+            Assert.Equal("br", pNode.GetChildren().ElementAt(0).Name);
+            Assert.Equal("span", pNode.GetChildren().ElementAt(1).Name);
+        }
+    }
+}

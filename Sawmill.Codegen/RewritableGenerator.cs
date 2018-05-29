@@ -35,6 +35,13 @@ namespace Sawmill.Codegen
                 "JTokenRewriter.Instance"
             );
             GenerateFile(
+                "Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs",
+                "Sawmill.HtmlAgilityPack",
+                "HtmlNodeExtensions",
+                "global::HtmlAgilityPack.HtmlNode",
+                "HtmlNodeRewriter.Instance"
+            );
+            GenerateFile(
                 "Sawmill.Microsoft.CodeAnalysis.CSharp/CSharpSyntaxNodeExtensions.Generated.cs",
                 "Sawmill.Microsoft.CodeAnalysis.CSharp",
                 "CSharpSyntaxNodeExtensions",

@@ -8,7 +8,8 @@
             "Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj",
             "Sawmill.Microsoft.CodeAnalysis.CSharp/Sawmill.Microsoft.CodeAnalysis.CSharp.csproj",
             "Sawmill.Microsoft.CodeAnalysis.VisualBasic/Sawmill.Microsoft.CodeAnalysis.VisualBasic.csproj",
-            "Sawmill.Newtonsoft.Json/Sawmill.Newtonsoft.Json.csproj"
+            "Sawmill.Newtonsoft.Json/Sawmill.Newtonsoft.Json.csproj",
+            "Sawmill.HtmlAgilityPack/Sawmill.HtmlAgilityPack.csproj"
           ],
           "src": ".."
         }

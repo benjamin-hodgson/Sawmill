@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>2.0.0</Version>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+
+    <Authors>benjamin.hodgson</Authors>
+    <Copyright>© Benjamin Hodgson, 2017</Copyright>
+    <Description>Simple tools for working with immutable trees, developed at Stack Overflow</Description>
+    <PackageTags>tree;language;compiler</PackageTags>
+
+    <PackageProjectUrl>https://github.com/benjamin-hodgson/Sawmill</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/benjamin-hodgson/Sawmill.git</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/benjamin-hodgson/Sawmill/blob/master/LICENSE</PackageLicenseUrl>
+    
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(APPVEYOR)' == 'True'">
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(APPVEYOR)' == ''">
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sawmill\Sawmill.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.8.4" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.2.0" />
+  </ItemGroup>
+
+</Project>
