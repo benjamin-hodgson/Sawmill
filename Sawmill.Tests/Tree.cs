@@ -18,6 +18,8 @@ namespace Sawmill.Tests
             Children = children;
         }
 
+        public override string ToString() => Value.ToString();
+
         public Children<Tree<T>> GetChildren() => Sawmill.Children.Many(Children);
 
         public Tree<T> RewriteChildren(Func<Tree<T>, Tree<T>> transformer)
