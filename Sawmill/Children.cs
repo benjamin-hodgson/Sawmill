@@ -59,7 +59,7 @@ namespace Sawmill
     /// </remarks>
     /// <typeparam name="T">The type of the rewritable object.</typeparam>
     [StructLayout(LayoutKind.Auto)]
-    public readonly struct Children<T> : IEnumerable<T>
+    public readonly struct Children<T> : IImmutableList<T>
     {
         /// <summary>
         /// The number of children the instance contains.
@@ -136,6 +136,47 @@ namespace Sawmill
             }
         }
 
+        public int Count
+        {
+            get
+            {
+                switch (NumberOfChildren)
+                {
+                    case NumberOfChildren.None:
+                        return 0;
+                    case NumberOfChildren.One:
+                        return 1;
+                    case NumberOfChildren.Two:
+                        return 2;
+                    case NumberOfChildren.Many:
+                        return _many.Count;
+                }
+                throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
+            }
+        }
+
+        int IReadOnlyCollection<T>.Count => Count;
+
+
+        public T this[int index]
+        {
+            get
+            {
+                switch (NumberOfChildren)
+                {
+                    case NumberOfChildren.One when index == 0:
+                    case NumberOfChildren.Two when index == 0:
+                        return _first;
+                    case NumberOfChildren.Two when index == 1:
+                        return _second;
+                    case NumberOfChildren.Many:
+                        return _many[index];
+                }
+                throw new IndexOutOfRangeException();
+            }
+        }
+        T IReadOnlyList<T>.this[int index] => this[index];
+
         internal Children(NumberOfChildren numberOfChildren, T first, T second, ImmutableList<T> many)
         {
             NumberOfChildren = numberOfChildren;
@@ -170,6 +211,22 @@ namespace Sawmill
             throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
         }
 
+        public ImmutableList<T> ToImmutableList()
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.None:
+                    return ImmutableList<T>.Empty;
+                case NumberOfChildren.One:
+                    return ImmutableList.Create(_first);
+                case NumberOfChildren.Two:
+                    return ImmutableList.Create(_first, _second);
+                case NumberOfChildren.Many:
+                    return _many;
+            }
+            throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
+        }
+
         /// <summary>
         /// Equivalent to <c>Children.One(item)</c>
         /// </summary>
@@ -190,6 +247,185 @@ namespace Sawmill
         /// <param name="list">The children</param>
         public static implicit operator Children<T>(ImmutableList<T> list)
             => Children.Many(list);
+
+        public int IndexOf(T item, int index, int count, IEqualityComparer<T> equalityComparer)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.One when index == 0:
+                    return count > 0 && equalityComparer.Equals(item, _first) ? 0 : -1;
+                case NumberOfChildren.Two when index == 0:
+                    return count > 0 && equalityComparer.Equals(item, _first) ? 0
+                        : count > 1 && equalityComparer.Equals(item, _second) ? 1
+                        : -1;
+                case NumberOfChildren.Two when index == 1:
+                    return count > 0 && equalityComparer.Equals(item, _first) ? 1 : -1;
+                case NumberOfChildren.Many:
+                    return _many.IndexOf(item, index, count, equalityComparer);
+            }
+            return -1;
+        }
+
+        public int LastIndexOf(T item, int index, int count, IEqualityComparer<T> equalityComparer)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.One when index == 0:
+                    return count > 0 && equalityComparer.Equals(item, _first) ? 0 : -1;
+                case NumberOfChildren.Two when index == 0:
+                    return count > 1 && equalityComparer.Equals(item, _second) ? 1
+                        : count > 0 && equalityComparer.Equals(item, _first) ? 0
+                        : -1;
+                case NumberOfChildren.Two when index == 1:
+                    return count > 0 && equalityComparer.Equals(item, _first) ? 1 : -1;
+                case NumberOfChildren.Many:
+                    return _many.LastIndexOf(item, index, count, equalityComparer);
+            }
+            return -1;
+        }
+
+        public Children<T> Clear() => Children.None<T>();
+        IImmutableList<T> IImmutableList<T>.Clear() => Clear();
+
+        public Children<T> Add(T value)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.None:
+                    return Children.One(value);
+                case NumberOfChildren.One:
+                    return Children.Two(_first, value);
+                case NumberOfChildren.Two:
+                    return Children.Many(ImmutableList.Create(_first, _second, value));
+                case NumberOfChildren.Many:
+                    return Children.Many(_many.Add(value));
+            }
+            throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
+        }
+        IImmutableList<T> IImmutableList<T>.Add(T value) => Add(value);
+
+        public Children<T> AddRange(IEnumerable<T> items)
+            => Children.Many(this.ToImmutableList().AddRange(items));
+        IImmutableList<T> IImmutableList<T>.AddRange(IEnumerable<T> items) => AddRange(items);
+
+        public Children<T> Insert(int index, T element)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.None when index == 0:
+                    return Children.One(element);
+                case NumberOfChildren.One when index == 0:
+                    return Children.Two(element, _first);
+                case NumberOfChildren.One when index == 1:
+                    return Children.Two(_first, element);
+                case NumberOfChildren.Two:
+                    return Children.Many(ImmutableList.Create(_first, _second).Insert(index, element));
+                case NumberOfChildren.Many:
+                    return Children.Many(_many.Insert(index, element));
+            }
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+        IImmutableList<T> IImmutableList<T>.Insert(int index, T element) => Insert(index, element);
+
+        public Children<T> InsertRange(int index, IEnumerable<T> items)
+            => Children.Many(this.ToImmutableList().InsertRange(index, items));
+        IImmutableList<T> IImmutableList<T>.InsertRange(int index, IEnumerable<T> items) => InsertRange(index, items);
+
+        public Children<T> Remove(T value) => Remove(value, EqualityComparer<T>.Default);
+        public Children<T> Remove(T value, IEqualityComparer<T> equalityComparer)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.One when equalityComparer.Equals(value, _first):
+                    return Children.None<T>();
+                case NumberOfChildren.Two when equalityComparer.Equals(value, _first):
+                    return Children.One(_second);
+                case NumberOfChildren.Two when equalityComparer.Equals(value, _second):
+                    return Children.One(_first);
+                case NumberOfChildren.Many:
+                    return Children.Many(_many.Remove(value, equalityComparer));
+            }
+            return this;
+        }
+        IImmutableList<T> IImmutableList<T>.Remove(T value, IEqualityComparer<T> equalityComparer) => Remove(value, equalityComparer);
+
+        public Children<T> RemoveAll(Predicate<T> match)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.One when match(_first):
+                    return Children.None<T>();
+                case NumberOfChildren.Two when match(_first):
+                    return Children.One(_second);
+                case NumberOfChildren.Two when match(_first):
+                    return Children.One(_first);
+                case NumberOfChildren.Many:
+                    return Children.Many(_many.RemoveAll(match));
+            }
+            return this;
+        }
+        IImmutableList<T> IImmutableList<T>.RemoveAll(Predicate<T> match) => RemoveAll(match);
+
+        public Children<T> RemoveRange(IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
+        {
+            var result = this;
+            foreach (var item in items)
+            {
+                result = result.Remove(item, equalityComparer);
+            }
+            return result;
+        }
+        IImmutableList<T> IImmutableList<T>.RemoveRange(IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
+            => RemoveRange(items, equalityComparer);
+
+        public Children<T> RemoveRange(int index, int count)
+            => Children.Many(this.ToImmutableList().RemoveRange(index, count));
+        IImmutableList<T> IImmutableList<T>.RemoveRange(int index, int count)
+            => RemoveRange(index, count);
+
+        public Children<T> RemoveAt(int index)
+            => Children.Many(this.ToImmutableList().RemoveAt(index));
+        IImmutableList<T> IImmutableList<T>.RemoveAt(int index)
+            => RemoveAt(index);
+
+        public Children<T> SetItem(int index, T value)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.One when index == 0:
+                    return Children.One(value);
+                case NumberOfChildren.Two when index == 0:
+                    return Children.Two(value, _second);
+                case NumberOfChildren.Two when index == 1:
+                    return Children.Two(_first, value);
+                case NumberOfChildren.Many:
+                    return Children.Many(_many.SetItem(index, value));
+            }
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+        IImmutableList<T> IImmutableList<T>.SetItem(int index, T value)
+            => SetItem(index, value);
+
+        public Children<T> Replace(T oldValue, T newValue)
+            => Replace(oldValue, newValue, EqualityComparer<T>.Default);
+        public Children<T> Replace(T oldValue, T newValue, IEqualityComparer<T> equalityComparer)
+        {
+            switch (NumberOfChildren)
+            {
+                case NumberOfChildren.One when equalityComparer.Equals(oldValue, _first):
+                    return Children.One(newValue);
+                case NumberOfChildren.Two when equalityComparer.Equals(oldValue, _first):
+                    return Children.Two(newValue, _second);
+                case NumberOfChildren.Two when equalityComparer.Equals(oldValue, _second):
+                    return Children.Two(_first, newValue);
+                case NumberOfChildren.Many:
+                    return Children.Many(_many.Replace(oldValue, newValue, equalityComparer));
+            }
+            return this;
+        }
+        IImmutableList<T> IImmutableList<T>.Replace(T oldValue, T newValue, IEqualityComparer<T> equalityComparer)
+            => Replace(oldValue, newValue, equalityComparer);
+
 
         /// <summary>
         /// Returns an implementation of <see cref="IEnumerator{T}"/> which yields the elements of the current instance.
