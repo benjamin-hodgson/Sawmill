@@ -34,7 +34,27 @@ namespace Sawmill.Tests
                 )
             );
 
-            Console.WriteLine(t.ToTreeString());
+            var expected = string.Join(
+                Environment.NewLine,
+                new[]
+                {
+                    "               Foo               ",
+                    "                |                ",
+                    "     +-------------+----------+  ",
+                    "     |             |          |  ",
+                    "    Bar           Baz       Quux ",
+                    "     |             |             ",
+                    "  +-----+      +-------+         ",
+                    "  |     |      |       |         ",
+                    "Clonk Bonk  Nabble  Wubble       ",
+                    "        |                        ",
+                    "        +                        ",
+                    "        |                        ",
+                    "      Ploop                      "
+                }
+            );
+
+            Assert.Equal(expected, t.ToTreeString());
         }
     }
 }
