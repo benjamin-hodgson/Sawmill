@@ -21,24 +21,26 @@ namespace Sawmill
                         return thisTile;
                     }
 
-                    var subtree = children
-                        .Select(
-                            (t, i) =>
-                            {
-                                var leftChar = i == 0 ? ' ' : '-';
-                                var rightChar = i == children.Count - 1 ? ' ' : '-';
-                                var leftLen = (t.Width - 1) / 2;
-                                var topLine = new string(leftChar, leftLen) + '+' + new string(rightChar, t.Width - 1 - leftLen);
-                                var tileWithTopLine = Tile.Content(topLine)
-                                    .Above(
-                                        Tile.Content("|").Above(t, HAlignment.Centre),
-                                        HAlignment.Centre
-                                    );
-                                return i == children.Count - 1
-                                    ? tileWithTopLine
-                                    : tileWithTopLine.Beside(Tile.Content("-"));
-                            })
-                        .Aggregate(Tile.Empty, (t1, t2) => t1.Beside(t2));
+                    var subtree = children.Count == 1
+                        ? children.Single()
+                        : children
+                            .Select(
+                                (t, i) =>
+                                {
+                                    var leftChar = i == 0 ? ' ' : '-';
+                                    var rightChar = i == children.Count - 1 ? ' ' : '-';
+                                    var leftLen = (t.Width - 1) / 2;
+                                    var topLine = new string(leftChar, leftLen) + '+' + new string(rightChar, t.Width - 1 - leftLen);
+                                    var tileWithTopLine = Tile.Content(topLine)
+                                        .Above(
+                                            Tile.Content("|").Above(t, HAlignment.Centre),
+                                            HAlignment.Centre
+                                        );
+                                    return i == children.Count - 1
+                                        ? tileWithTopLine
+                                        : tileWithTopLine.Beside(Tile.Content("-"));
+                                })
+                            .Aggregate(Tile.Empty, (t1, t2) => t1.Beside(t2));
 
                     return thisTile
                         .Above(

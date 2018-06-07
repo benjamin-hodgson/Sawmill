@@ -48,8 +48,6 @@ namespace Sawmill.Tests
                     "  |     |     |      |        ",
                     "Clonk Bonk  Nabble Wubble     ",
                     "        |                     ",
-                    "        +                     ",
-                    "        |                     ",
                     "      Ploop                   "
                 }
             );
