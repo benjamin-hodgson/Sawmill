@@ -13,7 +13,7 @@ namespace Sawmill.Tests
                 "Foo",
                 ImmutableList.Create(
                     new Tree<string>(
-                        "Bar",
+                        "Barp",
                         ImmutableList.Create(
                             new Tree<string>("Clonk", ImmutableList<Tree<string>>.Empty),
                             new Tree<string>("Bonk", 
@@ -38,19 +38,19 @@ namespace Sawmill.Tests
                 Environment.NewLine,
                 new[]
                 {
-                    "               Foo               ",
-                    "                |                ",
-                    "     +-------------+----------+  ",
-                    "     |             |          |  ",
-                    "    Bar           Baz       Quux ",
-                    "     |             |             ",
-                    "  +-----+      +-------+         ",
-                    "  |     |      |       |         ",
-                    "Clonk Bonk  Nabble  Wubble       ",
-                    "        |                        ",
-                    "        +                        ",
-                    "        |                        ",
-                    "      Ploop                      "
+                    "             Foo              ",
+                    "              |               ",
+                    "     +------------+--------+  ",
+                    "     |            |        |  ",
+                    "   Barp          Baz      Quux",
+                    "     |            |           ",
+                    "  +-----+     +------+        ",
+                    "  |     |     |      |        ",
+                    "Clonk Bonk  Nabble Wubble     ",
+                    "        |                     ",
+                    "        +                     ",
+                    "        |                     ",
+                    "      Ploop                   "
                 }
             );
 

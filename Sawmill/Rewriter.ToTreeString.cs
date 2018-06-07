@@ -12,104 +12,284 @@ namespace Sawmill
             => RewritableRewriter<T>.Instance.ToTreeString(value);
             
         public static string ToTreeString<T>(this IRewriter<T> rewriter, T value)
-        {
-            string Twigs(IEnumerable<TreeString> children)
-                => string.Join(" ", children.Select(t => new string(' ', t.Width / 2) + '|' + new string(' ', t.Width / 2)));
-            string Branches(IEnumerable<TreeString> children)
-            {
-                var sb = new StringBuilder();
-                if (children.Count() == 1)
+            => rewriter.Fold<T, Tile>(
+                (n, children) =>
                 {
-                    sb.Append(' ', children.First().Width / 2);
-                    sb.Append('+');
-                    sb.Append(' ', children.First().Width / 2);
-                    return sb.ToString();
-                }
-
-                sb.Append(' ', children.First().Width / 2);
-                sb.Append('+');
-                sb.Append('-', children.First().Width / 2);
-                sb.Append('-');
-
-                for (var i = 1; i < children.Count() - 1; i++)
-                {
-                    sb.Append('-', children.ElementAt(i).Width / 2);
-                    sb.Append('+');
-                    sb.Append('-', children.ElementAt(i).Width / 2);
-                    sb.Append('-');
-                }
-
-                sb.Append('-', children.Last().Width / 2);
-                sb.Append('+');
-                sb.Append(' ', children.Last().Width / 2);
-
-                return sb.ToString();
-            }
-
-            IEnumerable<string> ZipRows(IEnumerable<TreeString> xs)
-            {
-                var enumerators = xs.Select(x => (exhausted: false, enumerator: x.Rows.GetEnumerator())).ToArray();
-
-                while (true)
-                {
-                    var currents = new string[enumerators.Length];
-                    for (var i = 0; i < enumerators.Length; i++)
-                    {
-                        var (exhausted, e) = enumerators[i];
-                        var hasNext = e.MoveNext();
-                        if (exhausted || !hasNext)
-                        {
-                            enumerators[i].exhausted = true;
-                            currents[i] = new string(' ', xs.ElementAt(i).Width);
-                        }
-                        else
-                        {
-                            currents[i] = e.Current;
-                        }
-                    }
-                    if (enumerators.All(x => x.exhausted))
-                    {
-                        yield break;
-                    }
-                    yield return string.Join(" ", currents);
-                }
-            }
-
-            var ts = rewriter.Fold<T, TreeString>(
-                (t, children) =>
-                {
-                    var tString = t.ToString();
-                    var name = tString.Length % 2 == 0 ? tString + ' ' : tString;
-                    var totalWidth = Math.Max(children.Sum(c => c.Width) + children.Count() - 1, name.Length);
-
+                    var thisTile = Tile.Content(n.ToString());
                     if (!children.Any())
                     {
-                        return new TreeString(totalWidth, new[] { name });
+                        return thisTile;
                     }
 
-                    var namePadding = totalWidth - name.Length;
-                    var nameRow = new string(' ', namePadding / 2) + name + new string(' ', namePadding / 2);
+                    var subtree = children
+                        .Select(
+                            (t, i) =>
+                            {
+                                var leftChar = i == 0 ? ' ' : '-';
+                                var rightChar = i == children.Count - 1 ? ' ' : '-';
+                                var leftLen = (t.Width - 1) / 2;
+                                var topLine = new string(leftChar, leftLen) + '+' + new string(rightChar, t.Width - 1 - leftLen);
+                                var tileWithTopLine = Tile.Content(topLine)
+                                    .Above(
+                                        Tile.Content("|").Above(t, HAlignment.Centre),
+                                        HAlignment.Centre
+                                    );
+                                return i == children.Count - 1
+                                    ? tileWithTopLine
+                                    : tileWithTopLine.Beside(Tile.Content("-"));
+                            })
+                        .Aggregate(Tile.Empty, (t1, t2) => t1.Beside(t2));
 
-                    var trunk = new string(' ', totalWidth / 2) + "|" + new string(' ', totalWidth / 2);
-                    var branches = Branches(children);
-                    var twigs = Twigs(children);
-                    
-                    return new TreeString(totalWidth, new[] { nameRow, trunk, branches, twigs }.Concat(ZipRows(children)));
+                    return thisTile
+                        .Above(
+                            Tile.Content("|").Above(subtree, HAlignment.Centre),
+                            HAlignment.Centre
+                        );
                 },
                 value
-            );
-            return string.Join(Environment.NewLine, ts.Rows);
+            )
+            .ToString();
+
+
+        private enum HAlignment
+        {
+            Left,
+            Centre,
+            Right
+        }
+        private enum VAlignment
+        {
+            Top,
+            Centre,
+            Bottom
+        }
+        private enum Alignment : byte
+        {
+            TopLeft,
+            Top,
+            TopRight,
+            Left,
+            Centre,
+            Right,
+            BottomLeft,
+            Bottom,
+            BottomRight
         }
         
-        private class TreeString
+        private class Tile
         {
             public int Width { get; }
+            public int Height { get; }
             public IEnumerable<string> Rows { get; }
 
-            public TreeString(int width, IEnumerable<string> rows)
+            public Tile(int width, IEnumerable<string> rows)
             {
                 Width = width;
+                Height = rows.Count();
                 Rows = rows;
+            }
+
+            public static Tile Empty { get; } = new Tile(0, new string[]{});
+
+            public static Tile Content(string content)
+                => new Tile(content.Length, new[]{ content });
+
+            public override string ToString()
+                => string.Join(Environment.NewLine, Rows);
+
+            public Tile Above(Tile other, HAlignment alignment = HAlignment.Left)
+            {
+                Alignment a;
+                switch (alignment)
+                {
+                    case HAlignment.Left:
+                        a = Alignment.Left;
+                        break;
+                    case HAlignment.Centre:
+                        a = Alignment.Centre;
+                        break;
+                    case HAlignment.Right:
+                        a = Alignment.Right;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(alignment));
+                }
+
+                var newWidth = Math.Max(this.Width, other.Width);
+                var newThis = this.Resize(newWidth, this.Height, a);
+                var newOther = other.Resize(newWidth, other.Height, a);
+                return new Tile(Math.Max(this.Width, other.Width), newThis.Rows.Concat(newOther.Rows));
+            }
+
+            public Tile Beside(Tile other, VAlignment alignment = VAlignment.Top)
+            {
+                Alignment a;
+                switch (alignment)
+                {
+                    case VAlignment.Top:
+                        a = Alignment.Top;
+                        break;
+                    case VAlignment.Centre:
+                        a = Alignment.Centre;
+                        break;
+                    case VAlignment.Bottom:
+                        a = Alignment.Bottom;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(alignment));
+                }
+
+                var newHeight = Math.Max(this.Height, other.Height);
+                var newThis = this.Resize(this.Width, newHeight, a);
+                var newOther = other.Resize(other.Width, newHeight, a);
+                return new Tile(this.Width + other.Width, newThis.Rows.Zip(newOther.Rows, string.Concat));
+            }
+
+            public Tile Resize(int newWidth, int newHeight, Alignment alignment)
+            {
+                if (newWidth < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(newWidth), $"{nameof(newWidth)} cannot be negative.");
+                }
+                if (newHeight < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(newHeight), $"{nameof(newHeight)} cannot be negative.");
+                }
+                switch (alignment)
+                {
+                    case Alignment.TopLeft:
+                        return this.ResizeWLeft(newWidth).ResizeHTop(newHeight);
+                    case Alignment.Top:
+                        return this.ResizeWCentre(newWidth).ResizeHTop(newHeight);
+                    case Alignment.TopRight:
+                        return this.ResizeWRight(newWidth).ResizeHTop(newHeight);
+                    case Alignment.Left:
+                        return this.ResizeWLeft(newWidth).ResizeHCentre(newHeight);
+                    case Alignment.Centre:
+                        return this.ResizeWCentre(newWidth).ResizeHCentre(newHeight);
+                    case Alignment.Right:
+                        return this.ResizeWRight(newWidth).ResizeHCentre(newHeight);
+                    case Alignment.BottomLeft:
+                        return this.ResizeWLeft(newWidth).ResizeHBottom(newHeight);
+                    case Alignment.Bottom:
+                        return this.ResizeWCentre(newWidth).ResizeHBottom(newHeight);
+                    case Alignment.BottomRight:
+                        return this.ResizeWRight(newWidth).ResizeHBottom(newHeight);
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(alignment));
+                }
+            }
+
+            private Tile ResizeWLeft(int newWidth)
+            {
+                if (newWidth == Width)
+                {
+                    return this;
+                }
+                IEnumerable<string> rows;
+                if (newWidth > Width)
+                {
+                    rows = Rows.Select(r => r + new string(' ', newWidth - Width));
+                }
+                else // newWidth < Width
+                {
+                    rows = Rows.Select(r => r.Substring(0, newWidth));
+                }
+                return new Tile(newWidth, rows);
+            }
+            private Tile ResizeWRight(int newWidth)
+            {
+                if (newWidth == Width)
+                {
+                    return this;
+                }
+
+                IEnumerable<string> rows;
+                if (newWidth > Width)
+                {
+                    rows = Rows.Select(r => new string(' ', newWidth - Width) + r);
+                }
+                else  // newWidth < Width
+                {
+                    rows = Rows.Select(r => r.Substring(Width - newWidth, newWidth));
+                }
+                return new Tile(newWidth, rows);
+            }
+            private Tile ResizeWCentre(int newWidth)
+            {
+                if (newWidth == Width)
+                {
+                    return this;
+                }
+
+                IEnumerable<string> rows;
+                if (newWidth > Width)
+                {
+                    var left = (newWidth - Width) / 2;
+                    var right = (newWidth - Width) - left;
+                    rows = Rows.Select(r => new string(' ', left) + r + new string(' ', right));
+                }
+                else  // newWidth < Width
+                {
+                    var left = (Width - newWidth) / 2;
+                    rows = Rows.Select(r => r.Substring(left, newWidth));
+                }
+                return new Tile(newWidth, rows);
+            }
+            private Tile ResizeHTop(int newHeight)
+            {
+                if (newHeight == Height)
+                {
+                    return this;
+                }
+
+                IEnumerable<string> rows;
+                if (newHeight > Height)
+                {
+                    rows = Rows.Concat(Enumerable.Repeat(new string(' ', Width), newHeight - Height));
+                }
+                else  // newHeight < Height
+                {
+                    rows = Rows.Take(newHeight);
+                }
+                return new Tile(Width, rows);
+            }
+            private Tile ResizeHBottom(int newHeight)
+            {
+                if (newHeight == Height)
+                {
+                    return this;
+                }
+                IEnumerable<string> rows;
+                if (newHeight > Height)
+                {
+                    rows = Enumerable.Repeat(new string(' ', Width), newHeight - Height).Concat(Rows);
+                }
+                else  // newHeight < Height
+                {
+                    rows = Rows.Skip(Height - newHeight);
+                }
+                return new Tile(Width, rows);
+            }
+            private Tile ResizeHCentre(int newHeight)
+            {
+                if (newHeight == Height)
+                {
+                    return this;
+                }
+                IEnumerable<string> rows;
+                if (newHeight > Height)
+                {
+                    var top = (newHeight - Height) / 2;
+                    var bottom = newHeight - top;
+                    var blank = new string(' ', Width);
+                    rows = Enumerable.Repeat(blank, top).Concat(Rows).Concat(Enumerable.Repeat(blank, bottom));
+                }
+                else  // newHeight < Height
+                {
+                    rows = Rows.Skip((newHeight - Height) / 2).Take(newHeight);
+                }
+                return new Tile(Width, rows);
             }
         }
     }
