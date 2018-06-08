@@ -8,13 +8,13 @@ namespace Sawmill.TextLayout
     {
         public int Width { get; }
         public int Height { get; }
-        public IEnumerable<string> Rows { get; }
+        private readonly IEnumerable<string> _rows;
 
-        public Tile(int width, IEnumerable<string> rows)
+        private Tile(int width, IEnumerable<string> rows)
         {
             Width = width;
             Height = rows.Count();
-            Rows = rows;
+            _rows = rows;
         }
 
         public static Tile Empty { get; } = new Tile(0, new string[]{});
@@ -23,7 +23,7 @@ namespace Sawmill.TextLayout
             => new Tile(content.Length, new[]{ content });
 
         public override string ToString()
-            => string.Join(Environment.NewLine, Rows);
+            => string.Join(Environment.NewLine, _rows);
 
         public Tile Above(Tile other, HAlignment alignment = HAlignment.Left)
         {
@@ -46,7 +46,7 @@ namespace Sawmill.TextLayout
             var newWidth = Math.Max(this.Width, other.Width);
             var newThis = this.Resize(newWidth, this.Height, a);
             var newOther = other.Resize(newWidth, other.Height, a);
-            return new Tile(Math.Max(this.Width, other.Width), newThis.Rows.Concat(newOther.Rows));
+            return new Tile(Math.Max(this.Width, other.Width), newThis._rows.Concat(newOther._rows));
         }
 
         public Tile Beside(Tile other, VAlignment alignment = VAlignment.Top)
@@ -70,7 +70,7 @@ namespace Sawmill.TextLayout
             var newHeight = Math.Max(this.Height, other.Height);
             var newThis = this.Resize(this.Width, newHeight, a);
             var newOther = other.Resize(other.Width, newHeight, a);
-            return new Tile(this.Width + other.Width, newThis.Rows.Zip(newOther.Rows, string.Concat));
+            return new Tile(this.Width + other.Width, newThis._rows.Zip(newOther._rows, string.Concat));
         }
 
         public Tile Resize(int newWidth, int newHeight, Alignment alignment)
@@ -117,11 +117,11 @@ namespace Sawmill.TextLayout
             IEnumerable<string> rows;
             if (newWidth > Width)
             {
-                rows = Rows.Select(r => r + new string(' ', newWidth - Width));
+                rows = _rows.Select(r => r + new string(' ', newWidth - Width));
             }
             else // newWidth < Width
             {
-                rows = Rows.Select(r => r.Substring(0, newWidth));
+                rows = _rows.Select(r => r.Substring(0, newWidth));
             }
             return new Tile(newWidth, rows);
         }
@@ -135,11 +135,11 @@ namespace Sawmill.TextLayout
             IEnumerable<string> rows;
             if (newWidth > Width)
             {
-                rows = Rows.Select(r => new string(' ', newWidth - Width) + r);
+                rows = _rows.Select(r => new string(' ', newWidth - Width) + r);
             }
             else  // newWidth < Width
             {
-                rows = Rows.Select(r => r.Substring(Width - newWidth, newWidth));
+                rows = _rows.Select(r => r.Substring(Width - newWidth, newWidth));
             }
             return new Tile(newWidth, rows);
         }
@@ -155,12 +155,12 @@ namespace Sawmill.TextLayout
             {
                 var left = (newWidth - Width) / 2;
                 var right = (newWidth - Width) - left;
-                rows = Rows.Select(r => new string(' ', left) + r + new string(' ', right));
+                rows = _rows.Select(r => new string(' ', left) + r + new string(' ', right));
             }
             else  // newWidth < Width
             {
                 var left = (Width - newWidth) / 2;
-                rows = Rows.Select(r => r.Substring(left, newWidth));
+                rows = _rows.Select(r => r.Substring(left, newWidth));
             }
             return new Tile(newWidth, rows);
         }
@@ -174,11 +174,11 @@ namespace Sawmill.TextLayout
             IEnumerable<string> rows;
             if (newHeight > Height)
             {
-                rows = Rows.Concat(Enumerable.Repeat(new string(' ', Width), newHeight - Height));
+                rows = _rows.Concat(Enumerable.Repeat(new string(' ', Width), newHeight - Height));
             }
             else  // newHeight < Height
             {
-                rows = Rows.Take(newHeight);
+                rows = _rows.Take(newHeight);
             }
             return new Tile(Width, rows);
         }
@@ -191,11 +191,11 @@ namespace Sawmill.TextLayout
             IEnumerable<string> rows;
             if (newHeight > Height)
             {
-                rows = Enumerable.Repeat(new string(' ', Width), newHeight - Height).Concat(Rows);
+                rows = Enumerable.Repeat(new string(' ', Width), newHeight - Height).Concat(_rows);
             }
             else  // newHeight < Height
             {
-                rows = Rows.Skip(Height - newHeight);
+                rows = _rows.Skip(Height - newHeight);
             }
             return new Tile(Width, rows);
         }
@@ -211,11 +211,11 @@ namespace Sawmill.TextLayout
                 var top = (newHeight - Height) / 2;
                 var bottom = newHeight - top;
                 var blank = new string(' ', Width);
-                rows = Enumerable.Repeat(blank, top).Concat(Rows).Concat(Enumerable.Repeat(blank, bottom));
+                rows = Enumerable.Repeat(blank, top).Concat(_rows).Concat(Enumerable.Repeat(blank, bottom));
             }
             else  // newHeight < Height
             {
-                rows = Rows.Skip((newHeight - Height) / 2).Take(newHeight);
+                rows = _rows.Skip((newHeight - Height) / 2).Take(newHeight);
             }
             return new Tile(Width, rows);
         }
