@@ -4009,31 +4009,6 @@ references:
   fullName.vb: Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst(Of T)(Sawmill.IRewriter(Of T), T)
   nameWithType: Rewriter.SelfAndDescendantsInContextBreadthFirst<T>(IRewriter<T>, T)
   nameWithType.vb: Rewriter.SelfAndDescendantsInContextBreadthFirst(Of T)(IRewriter(Of T), T)
-- uid: Sawmill.Rewriter.ToTreeString*
-  name: ToTreeString
-  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ToTreeString_
-  commentId: Overload:Sawmill.Rewriter.ToTreeString
-  isSpec: "True"
-  fullName: Sawmill.Rewriter.ToTreeString
-  nameWithType: Rewriter.ToTreeString
-- uid: Sawmill.Rewriter.ToTreeString``1(``0)
-  name: ToTreeString<T>(T)
-  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ToTreeString__1___0_
-  commentId: M:Sawmill.Rewriter.ToTreeString``1(``0)
-  name.vb: ToTreeString(Of T)(T)
-  fullName: Sawmill.Rewriter.ToTreeString<T>(T)
-  fullName.vb: Sawmill.Rewriter.ToTreeString(Of T)(T)
-  nameWithType: Rewriter.ToTreeString<T>(T)
-  nameWithType.vb: Rewriter.ToTreeString(Of T)(T)
-- uid: Sawmill.Rewriter.ToTreeString``1(Sawmill.IRewriter{``0},``0)
-  name: ToTreeString<T>(IRewriter<T>, T)
-  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ToTreeString__1_Sawmill_IRewriter___0____0_
-  commentId: M:Sawmill.Rewriter.ToTreeString``1(Sawmill.IRewriter{``0},``0)
-  name.vb: ToTreeString(Of T)(IRewriter(Of T), T)
-  fullName: Sawmill.Rewriter.ToTreeString<T>(Sawmill.IRewriter<T>, T)
-  fullName.vb: Sawmill.Rewriter.ToTreeString(Of T)(Sawmill.IRewriter(Of T), T)
-  nameWithType: Rewriter.ToTreeString<T>(IRewriter<T>, T)
-  nameWithType.vb: Rewriter.ToTreeString(Of T)(IRewriter(Of T), T)
 - uid: Sawmill.Rewriter.ZipFold*
   name: ZipFold
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold_
