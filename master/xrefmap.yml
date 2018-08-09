@@ -549,6 +549,15 @@ references:
   fullName.vb: Sawmill.Children(Of T).RemoveAt
   nameWithType: Children<T>.RemoveAt
   nameWithType.vb: Children(Of T).RemoveAt
+- uid: Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  name: RemoveRange(IEnumerable<T>)
+  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  commentId: M:Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  name.vb: RemoveRange(IEnumerable(Of T))
+  fullName: Sawmill.Children<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: Sawmill.Children(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: Children<T>.RemoveRange(IEnumerable<T>)
+  nameWithType.vb: Children(Of T).RemoveRange(IEnumerable(Of T))
 - uid: Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
   name: RemoveRange(IEnumerable<T>, IEqualityComparer<T>)
   href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveRange_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEqualityComparer__0__
