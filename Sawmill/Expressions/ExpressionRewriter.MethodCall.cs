@@ -7,9 +7,21 @@ namespace Sawmill.Expressions
     public sealed partial class ExpressionRewriter
     {
         private static Children<Expression> GetChildren(MethodCallExpression m)
-            => Children.Many(ImmutableList<Expression>.Empty.Add(m.Object).AddRange(m.Arguments));
+        {
+            if (m.Object == null)
+            {
+                return m.Arguments.ToImmutableList();
+            }
+            return ImmutableList<Expression>.Empty.Add(m.Object).AddRange(m.Arguments);
+        }
             
         private static Expression SetChildren(Children<Expression> newChildren, MethodCallExpression m)
-            => m.Update(newChildren.Many[0], newChildren.Many.Skip(1));
+        {
+            if (m.Object == null)
+            {
+                return m.Update(m.Object, newChildren.Many.Skip(1));
+            }
+            return m.Update(newChildren.Many[0], newChildren.Many.Skip(1));
+        }
     }
 }
