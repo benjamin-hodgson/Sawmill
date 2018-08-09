@@ -136,6 +136,10 @@ namespace Sawmill
             }
         }
 
+        /// <summary>
+        /// Gets the number of values in the <see cref="Children{T}"/>.
+        /// </summary>
+        /// <value>The number of values in the <see cref="Children{T}"/>.</value>
         public int Count
         {
             get
@@ -158,6 +162,10 @@ namespace Sawmill
         int IReadOnlyCollection<T>.Count => Count;
 
 
+        /// <summary>
+        /// Returns the element of the <see cref="Children{T}"/> at index <paramref name="index"/>.
+        /// </summary>
+        /// <value>The element of the <see cref="Children{T}"/> at index <paramref name="index"/>.</value>
         public T this[int index]
         {
             get
@@ -211,6 +219,10 @@ namespace Sawmill
             throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
         }
 
+        /// <summary>
+        /// Returns an <see cref="ImmutableList{T}"/> containing the elements of this <see cref="Children{T}"/>.
+        /// </summary>
+        /// <returns>An <see cref="ImmutableList{T}"/> containing the elements of this <see cref="Children{T}"/>.</returns>
         public ImmutableList<T> ToImmutableList()
         {
             switch (NumberOfChildren)
@@ -248,6 +260,15 @@ namespace Sawmill
         public static implicit operator Children<T>(ImmutableList<T> list)
             => Children.Many(list);
 
+        /// <summary>
+        /// Finds the first occurence of <paramref name="item"/> in the <paramref name="count"/> items starting from <paramref name="index"/> using the specified <see cref="IEqualityComparer{T}"/>.
+        /// Returns the index of the item, if found; otherwise, -1.
+        /// </summary>
+        /// <param name="item">The item to search for</param>
+        /// <param name="index">The index at which to start the search</param>
+        /// <param name="count">The number of items from <paramref name="index"/> to search</param>
+        /// <param name="equalityComparer">The equality comparer</param>
+        /// <returns>The index of the item, if found; otherwise, -1.</returns>
         public int IndexOf(T item, int index, int count, IEqualityComparer<T> equalityComparer)
         {
             switch (NumberOfChildren)
@@ -266,6 +287,15 @@ namespace Sawmill
             return -1;
         }
 
+        /// <summary>
+        /// Finds the last occurence of <paramref name="item"/> in the <paramref name="count"/> items ending at <paramref name="index"/> using the specified <see cref="IEqualityComparer{T}"/>.
+        /// Returns the index of the item, if found; otherwise, -1.
+        /// </summary>
+        /// <param name="item">The item to search for</param>
+        /// <param name="index">The index at which to start the search</param>
+        /// <param name="count">The number of items before <paramref name="index"/> to search</param>
+        /// <param name="equalityComparer">The equality comparer</param>
+        /// <returns>The index of the item, if found; otherwise, -1.</returns>
         public int LastIndexOf(T item, int index, int count, IEqualityComparer<T> equalityComparer)
         {
             switch (NumberOfChildren)
@@ -284,9 +314,18 @@ namespace Sawmill
             return -1;
         }
 
+        /// <summary>
+        /// Returns an empty <see cref="Children{T}"/>.
+        /// </summary>
+        /// <returns>An empty <see cref="Children{T}"/>.</returns>
         public Children<T> Clear() => Children.None<T>();
         IImmutableList<T> IImmutableList<T>.Clear() => Clear();
 
+        /// <summary>
+        /// Adds <paramref name="value"/> to the end of this <see cref="Children{T}"/>.
+        /// </summary>
+        /// <param name="value">The value to add</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with <paramref name="value"/> added at the end.</returns>
         public Children<T> Add(T value)
         {
             switch (NumberOfChildren)
@@ -304,10 +343,21 @@ namespace Sawmill
         }
         IImmutableList<T> IImmutableList<T>.Add(T value) => Add(value);
 
+        /// <summary>
+        /// Adds <paramref name="items"/> to the end of this <see cref="Children{T}"/>.
+        /// </summary>
+        /// <param name="items">The items to add</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with <paramref name="items"/> added at the end.</returns>
         public Children<T> AddRange(IEnumerable<T> items)
             => Children.Many(this.ToImmutableList().AddRange(items));
         IImmutableList<T> IImmutableList<T>.AddRange(IEnumerable<T> items) => AddRange(items);
 
+        /// <summary>
+        /// Inserts <paramref name="element"/> into this <see cref="Children{T}"/> at <paramref name="index"/>, moving later items rightward.
+        /// </summary>
+        /// <param name="index">The index at which to insert <paramref name="element"/></param>
+        /// <param name="element">The element to insert</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with <paramref name="element"/> inserted at <paramref name="index"/>.</returns>
         public Children<T> Insert(int index, T element)
         {
             switch (NumberOfChildren)
@@ -327,11 +377,28 @@ namespace Sawmill
         }
         IImmutableList<T> IImmutableList<T>.Insert(int index, T element) => Insert(index, element);
 
+        /// <summary>
+        /// Inserts <paramref name="items"/> into this <see cref="Children{T}"/> at <paramref name="index"/>, moving later items rightward.
+        /// </summary>
+        /// <param name="index">The index at which to insert <paramref name="items"/></param>
+        /// <param name="items">The items to insert</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with <paramref name="items"/> inserted at <paramref name="index"/>.</returns>
         public Children<T> InsertRange(int index, IEnumerable<T> items)
             => Children.Many(this.ToImmutableList().InsertRange(index, items));
         IImmutableList<T> IImmutableList<T>.InsertRange(int index, IEnumerable<T> items) => InsertRange(index, items);
 
+        /// <summary>
+        /// Removes the first occurence of <paramref name="value"/> from this <see cref="Children{T}"/>.
+        /// </summary>
+        /// <param name="value">The value to remove</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with the first occurence of <paramref name="value"/> removed.</returns>
         public Children<T> Remove(T value) => Remove(value, EqualityComparer<T>.Default);
+        /// <summary>
+        /// Removes the first occurence of <paramref name="value"/> from this <see cref="Children{T}"/>, using the specified <see cref="IEqualityComparer{T}"/>.
+        /// </summary>
+        /// <param name="value">The value to remove</param>
+        /// <param name="equalityComparer">The equality comparer</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with the first occurence of <paramref name="value"/> removed.</returns>
         public Children<T> Remove(T value, IEqualityComparer<T> equalityComparer)
         {
             switch (NumberOfChildren)
@@ -349,15 +416,21 @@ namespace Sawmill
         }
         IImmutableList<T> IImmutableList<T>.Remove(T value, IEqualityComparer<T> equalityComparer) => Remove(value, equalityComparer);
 
+        /// <summary>
+        /// Removes all the items for which <paramref name="match"/> returns true.
+        /// </summary>
+        /// <param name="match">A predicate to apply to each item in the <see cref="Children{T}"/></param>
+        /// <returns>A copy of the <see cref="Children{T}"/> with all the matching items removed.</returns>
         public Children<T> RemoveAll(Predicate<T> match)
         {
             switch (NumberOfChildren)
             {
                 case NumberOfChildren.One when match(_first):
+                case NumberOfChildren.Two when match(_first) && match(_second):
                     return Children.None<T>();
                 case NumberOfChildren.Two when match(_first):
                     return Children.One(_second);
-                case NumberOfChildren.Two when match(_first):
+                case NumberOfChildren.Two when match(_second):
                     return Children.One(_first);
                 case NumberOfChildren.Many:
                     return Children.Many(_many.RemoveAll(match));
@@ -366,6 +439,19 @@ namespace Sawmill
         }
         IImmutableList<T> IImmutableList<T>.RemoveAll(Predicate<T> match) => RemoveAll(match);
 
+        /// <summary>
+        /// Remove the first occurence of each item in <paramref name="items"/>
+        /// </summary>
+        /// <param name="items">The items to remove</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with <paramref name="items"/> removed.</returns>
+        public Children<T> RemoveRange(IEnumerable<T> items)
+            => RemoveRange(items, EqualityComparer<T>.Default);
+        /// <summary>
+        /// Remove the first occurence of each item in <paramref name="items"/>, using the specified using the specified <see cref="IEqualityComparer{T}"/>.
+        /// </summary>
+        /// <param name="items">The items to remove</param>
+        /// <param name="equalityComparer">The equality comparer</param>
+        /// <returns>A copy of this <see cref="Children{T}"/> with <paramref name="items"/> removed.</returns>
         public Children<T> RemoveRange(IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
         {
             var result = this;
@@ -378,16 +464,33 @@ namespace Sawmill
         IImmutableList<T> IImmutableList<T>.RemoveRange(IEnumerable<T> items, IEqualityComparer<T> equalityComparer)
             => RemoveRange(items, equalityComparer);
 
+        /// <summary>
+        /// Removes the <paramref name="count"/> items starting at <paramref name="index"/>
+        /// </summary>
+        /// <param name="index">The starting index</param>
+        /// <param name="count">The number of items to remove</param>
+        /// <returns>A copy of the <see cref="Children{T}"/> with the <paramref name="count"/> items starting at <paramref name="index"/> removed.</returns>
         public Children<T> RemoveRange(int index, int count)
             => Children.Many(this.ToImmutableList().RemoveRange(index, count));
         IImmutableList<T> IImmutableList<T>.RemoveRange(int index, int count)
             => RemoveRange(index, count);
 
+        /// <summary>
+        /// Removes the item at <paramref name="index"/>
+        /// </summary>
+        /// <param name="index">The index of the item to remove</param>
+        /// <returns>A copy of the <see cref="Children{T}"/> with the item at <paramref name="index"/> removed.</returns>
         public Children<T> RemoveAt(int index)
             => Children.Many(this.ToImmutableList().RemoveAt(index));
         IImmutableList<T> IImmutableList<T>.RemoveAt(int index)
             => RemoveAt(index);
 
+        /// <summary>
+        /// Replaces the item at <paramref name="index"/>
+        /// </summary>
+        /// <param name="index">The index of the item to replace with <paramref name="value"/></param>
+        /// <param name="value">The value with which to replace the item at <paramref name="index"/></param>
+        /// <returns>A copy of the <see cref="Children{T}"/> with the item at <paramref name="index"/> replaced with <paramref name="value"/>.</returns>
         public Children<T> SetItem(int index, T value)
         {
             switch (NumberOfChildren)
@@ -406,8 +509,21 @@ namespace Sawmill
         IImmutableList<T> IImmutableList<T>.SetItem(int index, T value)
             => SetItem(index, value);
 
+        /// <summary>
+        /// Replaced the first occurence of <paramref name="oldValue"/> with <paramref name="newValue"/>
+        /// </summary>
+        /// <param name="oldValue">The value to search for</param>
+        /// <param name="newValue">The value with which to replace <paramref name="oldValue"/></param>
+        /// <returns>A copy of the <see cref="Children{T}"/> with the first occurence of <paramref name="oldValue"/> replaced with <paramref name="newValue"/>.</returns>
         public Children<T> Replace(T oldValue, T newValue)
             => Replace(oldValue, newValue, EqualityComparer<T>.Default);
+        /// <summary>
+        /// Replaced the first occurence of <paramref name="oldValue"/> with <paramref name="newValue"/>, using the specified <see cref="IEqualityComparer{T}"/>.
+        /// </summary>
+        /// <param name="oldValue">The value to search for</param>
+        /// <param name="newValue">The value with which to replace <paramref name="oldValue"/></param>
+        /// <param name="equalityComparer">The equality comparer</param>
+        /// <returns>A copy of the <see cref="Children{T}"/> with the first occurence of <paramref name="oldValue"/> replaced with <paramref name="newValue"/>.</returns>
         public Children<T> Replace(T oldValue, T newValue, IEqualityComparer<T> equalityComparer)
         {
             switch (NumberOfChildren)
