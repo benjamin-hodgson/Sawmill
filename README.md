@@ -8,7 +8,7 @@ Simple tools for working with immutable trees, based on [_Uniform Boilerplate an
 Installing
 ----------
 
-Sawmill is [available on Nuget](https://www.nuget.org/packages/Sawmill/). Dev builds can be found on [our AppVeyor Nuget feed](https://ci.appveyor.com/nuget/sawmill-2d8cq9lwy37i).
+Sawmill is [available on Nuget](https://www.nuget.org/packages/Sawmill/). API docs are hosted [on my website](https://www.benjamin.pizza/Sawmill).
 
 Tutorial
 --------
