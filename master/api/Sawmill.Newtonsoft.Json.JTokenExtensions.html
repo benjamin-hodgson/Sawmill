@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class JTokenExtensions
    ">
-    <meta name="generator" content="docfx 2.38.0.0">
+    <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -134,7 +134,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Children&lt;&gt; ChildrenInContext(this JToken value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Children&lt;(JToken item, Func&lt;JToken, JToken&gt; replace)&gt; ChildrenInContext(this JToken value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -164,7 +164,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <span class="xref">Newtonsoft.Json.Linq.JToken</span>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -397,7 +397,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;&gt; DescendantsAndSelfInContext(this JToken value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(JToken item, Func&lt;JToken, JToken&gt; replace)&gt; DescendantsAndSelfInContext(this JToken value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -427,7 +427,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <span class="xref">Newtonsoft.Json.Linq.JToken</span>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1161,7 +1161,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;&gt; SelfAndDescendantsInContext(this JToken value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(JToken item, Func&lt;JToken, JToken&gt; replace)&gt; SelfAndDescendantsInContext(this JToken value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1191,7 +1191,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <span class="xref">Newtonsoft.Json.Linq.JToken</span>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1221,7 +1221,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;&gt; SelfAndDescendantsInContextBreadthFirst(this JToken value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(JToken item, Func&lt;JToken, JToken&gt; replace)&gt; SelfAndDescendantsInContextBreadthFirst(this JToken value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1251,7 +1251,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">Newtonsoft.Json.Linq.JToken</span>, <span class="xref">Newtonsoft.Json.Linq.JToken</span>&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>

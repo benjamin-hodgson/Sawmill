@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Rewritable
    ">
-    <meta name="generator" content="docfx 2.38.0.0">
+    <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -134,7 +134,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Children&lt;&gt; ChildrenInContext&lt;T&gt;(this T value)
+    <pre><code class="lang-csharp hljs">public static Children&lt;(T item, Func&lt;T, T&gt; replace)&gt; ChildrenInContext&lt;T&gt;(this T value)
     where T : IRewritable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -165,7 +165,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -540,7 +540,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;&gt; DescendantsAndSelfInContext&lt;T&gt;(this T value)
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(T item, Func&lt;T, T&gt; replace)&gt; DescendantsAndSelfInContext&lt;T&gt;(this T value)
     where T : IRewritable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -571,7 +571,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1231,7 +1231,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;&gt; SelfAndDescendantsInContext&lt;T&gt;(this T value)
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(T item, Func&lt;T, T&gt; replace)&gt; SelfAndDescendantsInContext&lt;T&gt;(this T value)
     where T : IRewritable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1262,7 +1262,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1307,7 +1307,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;&gt; SelfAndDescendantsInContextBreadthFirst&lt;T&gt;(this T value)
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(T item, Func&lt;T, T&gt; replace)&gt; SelfAndDescendantsInContextBreadthFirst&lt;T&gt;(this T value)
     where T : IRewritable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1338,7 +1338,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">System.</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>

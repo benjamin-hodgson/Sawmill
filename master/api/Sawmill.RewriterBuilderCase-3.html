@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;
    ">
-    <meta name="generator" content="docfx 2.38.0.0">
+    <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -150,7 +150,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RewriterBuilderCase&lt;, TBase, TSub&gt; Child(Func&lt;TSub, TBase&gt; child)</code></pre>
+    <pre><code class="lang-csharp hljs">public RewriterBuilderCase&lt;(TArgs, TBase), TBase, TSub&gt; Child(Func&lt;TSub, TBase&gt; child)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -179,7 +179,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;<span class="xref">System.</span>, TBase, TSub&gt;</td>
+        <td><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;TArgs, TBase&gt;, TBase, TSub&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -198,7 +198,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RewriterBuilderCase&lt;, TBase, TSub&gt; Children(Func&lt;TSub, ImmutableList&lt;TBase&gt;&gt; children)</code></pre>
+    <pre><code class="lang-csharp hljs">public RewriterBuilderCase&lt;(TArgs, ImmutableList&lt;TBase&gt;), TBase, TSub&gt; Children(Func&lt;TSub, ImmutableList&lt;TBase&gt;&gt; children)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -227,7 +227,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;<span class="xref">System.</span>, TBase, TSub&gt;</td>
+        <td><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;TArgs, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.immutable.immutablelist-1">ImmutableList</a>&lt;TBase&gt;&gt;, TBase, TSub&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -246,7 +246,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RewriterBuilderCase&lt;, TBase, TSub&gt; Field&lt;U&gt;(Func&lt;TSub, U&gt; field)</code></pre>
+    <pre><code class="lang-csharp hljs">public RewriterBuilderCase&lt;(TArgs, U), TBase, TSub&gt; Field&lt;U&gt;(Func&lt;TSub, U&gt; field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -275,7 +275,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;<span class="xref">System.</span>, TBase, TSub&gt;</td>
+        <td><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;TArgs, U&gt;, TBase, TSub&gt;</td>
         <td></td>
       </tr>
     </tbody>
