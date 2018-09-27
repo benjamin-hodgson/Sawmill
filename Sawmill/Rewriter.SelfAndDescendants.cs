@@ -41,20 +41,23 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(rewriter));
             }
 
-            IEnumerable<T> Iterator(T x)
+            IEnumerable<T> Iterator()
             {
-                yield return x;
+                var stack = new Stack<T>();
+                stack.Push(value);
 
-                foreach (var child in rewriter.GetChildren(x))
+                while (stack.Count != 0)
                 {
-                    foreach (var descendant in Iterator(child))
+                    var x = stack.Pop();
+                    yield return x;
+                    var children = rewriter.GetChildren(x);
+                    for (var i = children.Count - 1; i >= 0; i--)
                     {
-                        yield return descendant;
+                        stack.Push(children[i]);
                     }
                 }
             }
-
-            return Iterator(value);
+            return Iterator();
         }
     }
 }
