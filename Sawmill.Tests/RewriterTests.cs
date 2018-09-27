@@ -25,9 +25,9 @@ namespace Sawmill.Tests
             var one = new Lit(1);
             var two = new Lit(2);
             var minusTwo = new Neg(two);
-            Expr expr = new Add(minusTwo, one);
+            Expr expr = new Add(one, minusTwo);
 
-            Assert.Equal(new Expr[] { two, minusTwo, one, expr }, expr.DescendantsAndSelf());
+            Assert.Equal(new Expr[] { one, two, minusTwo, expr }, expr.DescendantsAndSelf());
         }
 
         [Fact]
