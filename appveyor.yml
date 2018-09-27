@@ -26,7 +26,7 @@ build:
   verbosity: minimal
   
 after_test:
-  - cmd: dotnet run --configuration %CONFIGURATION% --project Pidgin.Bench\Pidgin.Bench.csproj
+  - cmd: dotnet run --configuration %CONFIGURATION% --project Sawmill.Bench\Sawmill.Bench.csproj
   - cmd: msbuild Sawmill.sln /t:pack /p:Configuration=%CONFIGURATION% /p:IncludeSymbols=true /p:PackageOutputPath=..\nupkgs /v:Minimal
   - cmd: docfx Sawmill.Docs/docfx.json
 
