@@ -18,7 +18,7 @@ namespace Sawmill.Bench
     {
         private BinTree _tree = CreateBinTree(20);
 
-        [Benchmark(Baseline = true)]
+        [Benchmark]
         public void SelfAndDescendants()
         {
             _tree.SelfAndDescendants().Count();
