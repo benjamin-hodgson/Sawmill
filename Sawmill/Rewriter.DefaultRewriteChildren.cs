@@ -70,21 +70,23 @@ namespace Sawmill
                 }
                 case NumberOfChildren.Many:
                 {
-                    var many = children.Many.ToBuilder();
+                    var many = children.Many;
+                    var builder = many.ToBuilder();
 
-                    for (var i = 0; i < many.Count; i++)
+                    var i = 0;
+                    foreach (var oldChild in many)
                     {
-                        var oldChild = many[i];
                         var newChild = transformer(oldChild);
 
                         if (!ReferenceEquals(oldChild, newChild))
                         {
                             changed = true;
-                            many[i] = newChild;
+                            builder[i] = newChild;
                         }
+                        i++;
                     }
 
-                    newChildren = Children.Many(many.ToImmutable());
+                    newChildren = Children.Many(builder.ToImmutable());
 
                     break;
                 }
