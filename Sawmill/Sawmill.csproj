@@ -13,7 +13,7 @@
     <PackageLicenseUrl>https://github.com/benjamin-hodgson/Sawmill/blob/master/LICENSE</PackageLicenseUrl>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(APPVEYOR)' == 'True'">

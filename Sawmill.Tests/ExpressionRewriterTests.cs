@@ -14,17 +14,17 @@ namespace Sawmill.Tests
             {
                 var expr = _callInstanceMethod.Body;
 
-                Assert.Equal(new[]{ expr, ((MethodCallExpression)expr).Object }, ExpressionExtensions.SelfAndDescendants(expr).ToArray());
+                Assert.Equal(new[]{ expr, ((MethodCallExpression)expr).Object }, expr.SelfAndDescendants().ToArray());
             }
             {
                 var expr = _callStaticMethod.Body;
 
-                Assert.Equal(new[]{ expr }, ExpressionExtensions.SelfAndDescendants(expr).ToArray());
+                Assert.Equal(new[]{ expr }, expr.SelfAndDescendants().ToArray());
             }
         }
 
         private static readonly Expression<Action> _callStaticMethod = () => ExpressionRewriterTests.Static();
-        public static void Static() {}
+        private static void Static() {}
 
         private static readonly Expression<Action> _callInstanceMethod = () => "foo".ToString();
     }

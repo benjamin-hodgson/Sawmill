@@ -1,7 +1,6 @@
 using Xunit;
 using System.Linq;
 using System.Collections.Immutable;
-using System.IO;
 using HtmlAgilityPack;
 using Sawmill.HtmlAgilityPack;
 
