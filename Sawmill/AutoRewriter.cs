@@ -47,7 +47,8 @@ namespace Sawmill
         private static readonly Type _immutableList = typeof(ImmutableList);
         private static readonly MethodInfo _immutableList_ToImmutableList =
             _immutableList
-                .GetMethod("ToImmutableList", BindingFlags.Public | BindingFlags.Static)
+                .GetMethods()
+                .Single(m => m.Name == "ToImmutableList" && m.GetParameters().Single().ParameterType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
                 .MakeGenericMethod(_t);
         private static readonly MethodInfo _immutableList_CreateBuilderT
             = _immutableList
