@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,7 +17,7 @@ namespace Sawmill
         /// <param name="func">The aggregation function</param>
         /// <param name="value">The value to fold</param>
         /// <returns>The result of aggregating the tree represented by <paramref name="value"/>.</returns>
-        public static U Fold<T, U>(this IRewriter<T> rewriter, Func<T, Children<U>, U> func, T value)
+        public static U Fold<T, U>(this IRewriter<T> rewriter, SpanFunc<U, T, U> func, T value)
         {
             if (rewriter == null)
             {
@@ -27,10 +28,22 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(func));
             }
 
-            Func<T, U> goDelegate = null;
-            goDelegate = Go;
-            U Go(T x) => func(x, rewriter.GetChildren(x).Select(goDelegate));
-            return Go(value);
+            T[] buffer = null;
+            var result = rewriter.WithChildren(
+                children =>
+                {
+                    var array = ArrayPool<U>.Shared.Rent(children.Length);
+                    for (var i = 0; i < children.Length; i++)
+                    {
+                        array[i] = rewriter.Fold(func, children[i]);
+                    }
+                    return func(array.AsSpan().Slice(0, children.Length), value);
+                },
+                value,
+                ref buffer
+            );
+            ArrayPool<T>.Shared.Return(buffer);
+            return result;
         }
     }
 }

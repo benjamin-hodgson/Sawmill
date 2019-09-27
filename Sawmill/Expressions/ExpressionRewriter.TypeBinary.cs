@@ -1,13 +1,18 @@
+using System;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private static Children<Expression> GetChildren(TypeBinaryExpression t)
-            => Children.One(t.Expression);
+        private static int CountChildren(TypeBinaryExpression t) => 1;
 
-        private static Expression SetChildren(Children<Expression> newChildren, TypeBinaryExpression t)
-            => t.Update(newChildren.First);
+        private static void GetChildren(Span<Expression> children, TypeBinaryExpression t)
+        {
+            children[0] = t.Expression;
+        }
+
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, TypeBinaryExpression t)
+            => t.Update(newChildren[0]);
     }
 }

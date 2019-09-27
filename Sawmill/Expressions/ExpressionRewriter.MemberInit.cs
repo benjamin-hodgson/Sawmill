@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -8,9 +7,28 @@ namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private Children<Expression> GetChildren(MemberInitExpression m)
+        private static int CountChildren(MemberInitExpression m)
         {
-            IEnumerable<Expression> GetBindingExpr(MemberBinding binding)
+            int CountBindingExprs(MemberBinding binding)
+            {
+                switch (binding)
+                {
+                    case MemberAssignment a:
+                        return 1;
+                    case MemberListBinding l:
+                        return l.Initializers.Select(i => i.Arguments.Count).Sum();
+                    case MemberMemberBinding mm:
+                        return mm.Bindings.Select(CountBindingExprs).Sum();
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(binding));
+                }
+            }
+            return m.Bindings.Select(CountBindingExprs).Sum();
+        }
+
+        private static void GetChildren(Span<Expression> children, MemberInitExpression m)
+        {
+            IEnumerable<Expression> GetBindingExprs(MemberBinding binding)
             {
                 switch (binding)
                 {
@@ -19,18 +37,18 @@ namespace Sawmill.Expressions
                     case MemberListBinding l:
                         return l.Initializers.SelectMany(i => i.Arguments);
                     case MemberMemberBinding mm:
-                        return mm.Bindings.SelectMany(GetBindingExpr);
+                        return mm.Bindings.SelectMany(GetBindingExprs);
                     default:
                         throw new ArgumentOutOfRangeException(nameof(binding));
                 }
             }
-            
-            return Children.Many(m.Bindings.SelectMany(GetBindingExpr).ToImmutableList());
+
+            Copy(m.Bindings.SelectMany(GetBindingExprs), children);
         }
 
-        private Expression SetChildren(Children<Expression> newChildren, MemberInitExpression m)
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MemberInitExpression m)
         {
-            (IEnumerable<MemberBinding>, IEnumerable<Expression>) UpdateBindings(IEnumerable<MemberBinding> oldBindings, IEnumerable<Expression> newArgs)
+            MemberBindingUpdateResult UpdateBindings(IEnumerable<MemberBinding> oldBindings, ReadOnlySpan<Expression> newArgs)
             {
                 var newBindings = new List<MemberBinding>();
                 foreach (var binding in oldBindings)
@@ -39,32 +57,43 @@ namespace Sawmill.Expressions
                     switch (binding)
                     {
                         case MemberAssignment a:
-                            newBinding = a.Update(newArgs.First());
-                            newArgs = newArgs.Skip(1);
+                            newBinding = a.Update(newArgs[0]);
+                            newArgs = newArgs.Slice(1);
                             break;
                         case MemberListBinding l:
                             var newInits = new List<ElementInit>(l.Initializers.Count);
                             foreach (var oldInit in l.Initializers)
                             {
-                                newInits.Add(oldInit.Update(newArgs.Take(oldInit.Arguments.Count)));
-                                newArgs = newArgs.Skip(oldInit.Arguments.Count);
+                                newInits.Add(oldInit.Update(newArgs.Slice(0, oldInit.Arguments.Count).ToArray()));
+                                newArgs = newArgs.Slice(oldInit.Arguments.Count);
                             }
                             newBinding = l.Update(newInits);
                             break;
                         case MemberMemberBinding mm:
                             var updatedBindings = UpdateBindings(mm.Bindings, newArgs);
-                            newBinding = mm.Update(updatedBindings.Item1);
-                            newArgs = updatedBindings.Item2;
+                            newBinding = mm.Update(updatedBindings.Bindings);
+                            newArgs = updatedBindings.Remainder;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(binding));
                     }
                     newBindings.Add(newBinding);
                 }
-                return (newBindings, newArgs);
+                return new MemberBindingUpdateResult(newBindings, newArgs);
             }
         
-            return m.Update(m.NewExpression, UpdateBindings(m.Bindings, newChildren.Many).Item1);
+            return m.Update(m.NewExpression, UpdateBindings(m.Bindings, newChildren).Bindings);
+        }
+
+        private readonly ref struct MemberBindingUpdateResult
+        {
+            public IEnumerable<MemberBinding> Bindings { get; }
+            public ReadOnlySpan<Expression> Remainder { get; }
+            public MemberBindingUpdateResult(IEnumerable<MemberBinding> bindings, ReadOnlySpan<Expression> remainder)
+            {
+                Bindings = bindings;
+                Remainder = remainder;
+            }
         }
     }
 }

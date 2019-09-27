@@ -43,10 +43,9 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(builderAction));
             }
             var builder = new RewriterBuilderCase<object, T, TSub>(
+                ImmutableList.Create<Func<TSub, int>>(),
                 ImmutableList.Create<GetChildrenDelegate<T, TSub>>(),
-                (oldValue, newChildrenEnumerator) => (false, new object()),
-                (oldValue, func) => (false, new object()),
-                0        
+                (oldValue, newChildrenEnumerator) => (false, 0, new object())
             );
             var completedBuilder = builderAction(builder);
             return new RewriterBuilder<T>(_rewriters.Add((typeof(TSub), completedBuilder)));
@@ -67,13 +66,13 @@ namespace Sawmill
                 _rewriters = rewriters;
             }
 
-            public Children<T> GetChildren(T value)
+            public int CountChildren(T value)
             {
                 foreach (var kv in _rewriters)
                 {
                     if (kv.Item1.IsAssignableFrom(value.GetType()))
                     {
-                        return kv.Item2.GetChildren(value);
+                        return kv.Item2.CountChildren(value);
                     }
                 }
                 throw new ArgumentOutOfRangeException(
@@ -82,22 +81,23 @@ namespace Sawmill
                 );
             }
 
-            public T RewriteChildren(Func<T, T> transformer, T oldValue)
+            public void GetChildren(Span<T> children, T value)
             {
                 foreach (var kv in _rewriters)
                 {
-                    if (kv.Item1.IsAssignableFrom(oldValue.GetType()))
+                    if (kv.Item1.IsAssignableFrom(value.GetType()))
                     {
-                        return kv.Item2.RewriteChildren(transformer, oldValue);
+                        kv.Item2.GetChildren(children, value);
+                        return;
                     }
                 }
                 throw new ArgumentOutOfRangeException(
-                    $"Unknown type {oldValue.GetType()}. Are you missing an And clause from your RewriterBuilder?",
-                    nameof(oldValue)
+                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?",
+                    nameof(value)
                 );
             }
 
-            public T SetChildren(Children<T> newChildren, T oldValue)
+            public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
             {
                 foreach (var kv in _rewriters)
                 {
@@ -114,77 +114,27 @@ namespace Sawmill
         }
     }
 
-    internal class ChildrenBuilder<T>
-    {
-        private NumberOfChildren _numberOfChildren = NumberOfChildren.None;
-        private T _first;
-        private T _second;
-        private ImmutableList<T>.Builder _many;
-
-        public void Add(T child)
-        {
-            switch (_numberOfChildren)
-            {
-                case NumberOfChildren.None:
-                    _first = child;
-                    _numberOfChildren = NumberOfChildren.One;
-                    break;
-                case NumberOfChildren.One:
-                    _second = child;
-                    _numberOfChildren = NumberOfChildren.Two;
-                    break;
-                case NumberOfChildren.Two:
-                    _many = ImmutableList.CreateBuilder<T>();
-                    _many.Add(_first);
-                    _many.Add(_second);
-                    _many.Add(child);
-                    _numberOfChildren = NumberOfChildren.Many;
-                    break;
-                case NumberOfChildren.Many:
-                    _many.Add(child);
-                    break;
-            }
-        }
-
-        public Children<T> Build()
-        {
-            switch (_numberOfChildren)
-            {
-                case NumberOfChildren.None:
-                    return Children.None<T>();
-                case NumberOfChildren.One:
-                    return Children.One<T>(_first);
-                case NumberOfChildren.Two:
-                    return Children.Two<T>(_first, _second);
-                case NumberOfChildren.Many:
-                    return Children.Many<T>(_many.ToImmutable());
-            }
-            throw new InvalidOperationException("Unreachable");
-        }
-    }
-    internal delegate void GetChildrenDelegate<TBase, TSub>(TSub value, ChildrenBuilder<TBase> acc);
+    internal delegate int GetChildrenDelegate<TBase, TSub>(Span<TBase> children, int position, TSub value);
+    internal delegate (bool changed, int consumed, TArgs args) GetCtorArgsDelegate<TBase, TSub, TArgs>(ReadOnlySpan<TBase> newChildren, TSub oldValue);
 
     /// <summary>
     /// Tools for building rewriters for a single subclass of a base type.
     /// </summary>
     public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     {
+        internal ImmutableList<Func<TSub, int>> CountChildrenDelegates { get; }
         internal ImmutableList<GetChildrenDelegate<TBase, TSub>> GetChildrenDelegates { get; }
-        internal Func<TSub, IEnumerator<TBase>, (bool, TArgs)> GetSetChildrenCtorArgs { get; }
-        internal Func<TSub, Func<TBase, TBase>, (bool, TArgs)> GetRewriteChildrenCtorArgs { get; }
-        internal int? ChildrenCount { get; }
+        internal GetCtorArgsDelegate<TBase, TSub, TArgs> GetSetChildrenCtorArgs { get; }
 
         internal RewriterBuilderCase(
+            ImmutableList<Func<TSub, int>> countChildrenDelegates,
             ImmutableList<GetChildrenDelegate<TBase, TSub>> getChildrenDelegates,
-            Func<TSub, IEnumerator<TBase>, (bool, TArgs)> getSetChildrenCtorArgs,
-            Func<TSub, Func<TBase, TBase>, (bool, TArgs)> getRewriteChildrenCtorArgs,
-            int? childrenCount
+            GetCtorArgsDelegate<TBase, TSub, TArgs> getSetChildrenCtorArgs
         )
         {
+            CountChildrenDelegates = countChildrenDelegates;
             GetChildrenDelegates = getChildrenDelegates;
             GetSetChildrenCtorArgs = getSetChildrenCtorArgs;
-            GetRewriteChildrenCtorArgs = getRewriteChildrenCtorArgs;
-            ChildrenCount = childrenCount;
         }
 
         /// <summary>
@@ -197,18 +147,13 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(field));
             }
             return new RewriterBuilderCase<(TArgs, U), TBase, TSub>(
+                CountChildrenDelegates,
                 GetChildrenDelegates,
-                (oldValue, newChildrenEnumerator) =>
+                (newChildren, oldValue) =>
                 {
-                    var (changed, rest) = GetSetChildrenCtorArgs(oldValue, newChildrenEnumerator);
-                    return (changed, (rest, field(oldValue)));
-                },
-                (oldValue, func) =>
-                {
-                    var (changed, rest) = GetRewriteChildrenCtorArgs(oldValue, func);
-                    return (changed, (rest, field(oldValue)));
-                },
-                ChildrenCount
+                    var (changed, consumed, rest) = GetSetChildrenCtorArgs(newChildren, oldValue);
+                    return (changed, consumed, (rest, field(oldValue)));
+                }
             );
         }
 
@@ -222,32 +167,24 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(child));
             }
             return new RewriterBuilderCase<(TArgs, TBase), TBase, TSub>(
+                CountChildrenDelegates.Add(value => 1),
                 GetChildrenDelegates.Add(
-                    (value, acc) =>
+                    (receiver, index, value) =>
                     {
-                        acc.Add(child(value));
+                        receiver[index] = child(value);
+                        return 1;
                     }
                 ),
-                (oldValue, newChildrenEnumerator) =>
+                (newChildren, oldValue) =>
                 {
-                    var (changed, rest) = GetSetChildrenCtorArgs(oldValue, newChildrenEnumerator);
+                    var (changed, consumed, rest) = GetSetChildrenCtorArgs(newChildren, oldValue);
                     var oldChild = child(oldValue);
 
-                    newChildrenEnumerator.MoveNext();
-                    var newChild = newChildrenEnumerator.Current;
+                    var newChild = newChildren[consumed];
+                    consumed++;
                     
-                    return (changed || !ReferenceEquals(oldChild, newChild), (rest, newChild));
-                },
-                (oldValue, func) =>
-                {
-                    var (changed, rest) = GetRewriteChildrenCtorArgs(oldValue, func);
-                    var oldChild = child(oldValue);
-
-                    var newChild = func(oldChild);
-                    
-                    return (changed || !ReferenceEquals(oldChild, newChild), (rest, newChild));
-                },
-                ChildrenCount.HasValue ? ChildrenCount.Value + 1 : ChildrenCount
+                    return (changed || !ReferenceEquals(oldChild, newChild), consumed, (rest, newChild));
+                }
             );
         }
 
@@ -262,18 +199,22 @@ namespace Sawmill
             }
 
             return new RewriterBuilderCase<(TArgs, ImmutableList<TBase>), TBase, TSub>(
+                CountChildrenDelegates.Add(value => children(value).Count),
                 GetChildrenDelegates.Add(
-                    (value, acc) =>
+                    (receiver, index, value) =>
                     {
+                        var total = 0;
                         foreach (var child in children(value))
                         {
-                            acc.Add(child);
+                            receiver[index + total] = child;
+                            total++;
                         }
+                        return total;
                     }
                 ),
-                (oldValue, newChildrenEnumerator) =>
+                (newChildren, oldValue) =>
                 {
-                    var (changed, rest) = GetSetChildrenCtorArgs(oldValue, newChildrenEnumerator);
+                    var (changed, consumed, rest) = GetSetChildrenCtorArgs(newChildren, oldValue);
                     var oldChildren = children(oldValue);
 
                     var builder = oldChildren.ToBuilder();
@@ -281,12 +222,12 @@ namespace Sawmill
                     {
                         var oldChild = builder[i];
 
-                        var hasNext = newChildrenEnumerator.MoveNext();
-                        if (!hasNext)
+                        if (consumed >= newChildren.Length)
                         {
                             throw new InvalidOperationException("Reached end of enumeration");
                         }
-                        var newChild = newChildrenEnumerator.Current;
+                        var newChild = newChildren[consumed];
+                        consumed++;
 
                         if (!ReferenceEquals(oldChild, newChild))
                         {
@@ -294,69 +235,47 @@ namespace Sawmill
                             builder[i] = newChild;
                         }
                     }
-                    return (changed, (rest, builder.ToImmutable()));
-                },
-                (oldValue, func) =>
-                {
-                    var (changed, rest) = GetRewriteChildrenCtorArgs(oldValue, func);
-                    var oldChildren = children(oldValue);
-
-                    var builder = oldChildren.ToBuilder();
-                    for (var i = 0; i < builder.Count; i++)
-                    {
-                        var oldChild = builder[i];
-                        var newChild = func(oldChild);
-
-                        if (!ReferenceEquals(oldChild, newChild))
-                        {
-                            changed = true;
-                            builder[i] = newChild;
-                        }
-                    }
-                    return (changed, (rest, builder.ToImmutable()));
-                },
-                null  // assume there'll be many children
+                    return (changed, consumed, (rest, builder.ToImmutable()));
+                }
             );
         }
     }
 
     internal class CompletedRewriterBuilderCase<TArgs, TBase, TSub> : IRewriter<TBase> where TSub : TBase
     {
+        private readonly Func<TSub, int>[] _countChildrenDelegates;
         private readonly GetChildrenDelegate<TBase, TSub>[] _getChildrenDelegates;
-        private readonly Func<TSub, IEnumerator<TBase>, (bool, TArgs)> _getSetChildrenCtorArgs;
+        private readonly GetCtorArgsDelegate<TBase, TSub, TArgs> _getSetChildrenCtorArgs;
         private readonly Func<TArgs, TSub> _ctor;
-        private readonly int? _childrenCount;
 
         internal CompletedRewriterBuilderCase(
+            Func<TSub, int>[] countChildrenDelegates,
             GetChildrenDelegate<TBase, TSub>[] getChildrenDelegates,
-            Func<TSub, IEnumerator<TBase>, (bool, TArgs)> getSetChildrenCtorArgs,
-            Func<TArgs, TSub> ctor,
-            int? childrenCount
+            GetCtorArgsDelegate<TBase, TSub, TArgs> getSetChildrenCtorArgs,
+            Func<TArgs, TSub> ctor
         )
         {
+            _countChildrenDelegates = countChildrenDelegates;
             _getChildrenDelegates = getChildrenDelegates;
             _getSetChildrenCtorArgs = getSetChildrenCtorArgs;
             _ctor = ctor;
-            _childrenCount = childrenCount;
         }
 
-        public Children<TBase> GetChildren(TBase value)
+        public int CountChildren(TBase value)
+            => _countChildrenDelegates.Select(f => f((TSub)value)).Sum();
+
+        public void GetChildren(Span<TBase> children, TBase value)
         {
-            var childrenBuilder = new ChildrenBuilder<TBase>();
+            var index = 0;
             foreach (var action in _getChildrenDelegates)
             {
-                action((TSub)value, childrenBuilder);
+                index += action(children, index, (TSub)value);
             }
-            return childrenBuilder.Build();
         }
 
-        public TBase RewriteChildren(Func<TBase, TBase> transformer, TBase oldValue)
-            => this.DefaultRewriteChildren(transformer, oldValue);
-
-        public TBase SetChildren(Children<TBase> newChildren, TBase oldValue)
+        public TBase SetChildren(ReadOnlySpan<TBase> newChildren, TBase oldValue)
         {
-            var enumerator = newChildren.AsEnumerable().GetEnumerator();
-            var (changed, args) = _getSetChildrenCtorArgs((TSub)oldValue, enumerator);
+            var (changed, _, args) = _getSetChildrenCtorArgs(newChildren, (TSub)oldValue);
             if (changed)
             {
                 return _ctor(args);
@@ -387,10 +306,10 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(constructor));
             }
             return new CompletedRewriterBuilderCase<T, TBase, TSub>(
+                builder.CountChildrenDelegates.ToArray(),
                 builder.GetChildrenDelegates.ToArray(),
                 builder.GetSetChildrenCtorArgs,
-                constructor,
-                builder.ChildrenCount
+                constructor
             );
         }
 

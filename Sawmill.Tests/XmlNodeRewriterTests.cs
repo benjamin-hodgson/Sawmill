@@ -16,10 +16,10 @@ namespace Sawmill.Tests
             var doc = new XmlDocument();
             doc.LoadXml(exampleXml);
 
-            var fooNode = doc.GetChildren().Many.Single();
+            var fooNode = doc.GetChildren().Single();
             Assert.Equal("foo", fooNode.Name);
 
-            var children = fooNode.GetChildren().Many;
+            var children = fooNode.GetChildren();
             
             Assert.Equal(2, children.Count());
             Assert.Equal("quux", children.ElementAt(0).Name);
@@ -32,11 +32,11 @@ namespace Sawmill.Tests
             var doc = new XmlDocument();
             doc.LoadXml(exampleXml);
 
-            var fooNode = doc.GetChildren().Many.Single();
-            var children = fooNode.GetChildren().Many.ToImmutableList();
+            var fooNode = doc.GetChildren().Single();
+            var children = fooNode.GetChildren().ToImmutableList();
             
             var newChildren = children.SetItem(0, doc.CreateElement("ploop"));
-            var newFooNode = fooNode.SetChildren(Children.Many(newChildren));
+            var newFooNode = fooNode.SetChildren(newChildren.ToArray());
 
             Assert.Equal("foo", newFooNode.Name);
             Assert.Equal(1, newFooNode.Attributes.Count);

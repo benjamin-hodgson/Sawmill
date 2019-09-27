@@ -91,7 +91,7 @@ namespace Sawmill.Tests
         {
             var lit = new Lit(3);
 
-            Assert.Same(lit, _rewriter.SetChildren(Children.None<Expr>(), lit));
+            Assert.Same(lit, _rewriter.SetChildren(new Expr[]{}, lit));
         }
 
         [Fact]
@@ -101,7 +101,7 @@ namespace Sawmill.Tests
             var neg = new Neg(lit);
 
             var newLit = new Lit(4);
-            var newNeg = _rewriter.SetChildren(Children.One<Expr>(newLit), neg);
+            var newNeg = _rewriter.SetChildren(new[] { newLit }, neg);
 
             Assert.Equal(new[]{ newLit }, _rewriter.GetChildren(newNeg));
         }
@@ -115,7 +115,7 @@ namespace Sawmill.Tests
 
             var newL = new Lit(3);
             var newR = new Lit(4);
-            var newAdd = _rewriter.SetChildren(Children.Two<Expr>(newL, newR), add);
+            var newAdd = _rewriter.SetChildren(new[] { newL, newR }, add);
 
             Assert.Equal(new[]{ newL, newR }, _rewriter.GetChildren(newAdd));
         }
@@ -131,7 +131,7 @@ namespace Sawmill.Tests
             var newC = new Lit(3);
             var newL = new Lit(4);
             var newR = new Lit(5);
-            var newTern = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(newC).Add(newL).Add(newR)), tern);
+            var newTern = _rewriter.SetChildren(new[] { newC, newL, newR }, tern);
 
             Assert.Equal(new[]{ newC, newL, newR }, _rewriter.GetChildren(newTern));
         }
@@ -147,7 +147,7 @@ namespace Sawmill.Tests
             var new0 = new Lit(3);
             var new1 = new Lit(4);
             var new2 = new Lit(5);
-            var newList = _rewriter.SetChildren(Children.Many(ImmutableList<Expr>.Empty.Add(new0).Add(new1).Add(new2)), list);
+            var newList = _rewriter.SetChildren(new[] { new0, new1, new2 }, list);
 
             Assert.Equal(new[]{ new0, new1, new2 }, _rewriter.GetChildren(newList));
         }

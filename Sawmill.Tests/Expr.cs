@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -7,10 +6,9 @@ namespace Sawmill.Tests
 {
     abstract class Expr : IRewritable<Expr>
     {
-        public abstract Children<Expr> GetChildren();
-        public abstract Expr SetChildren(Children<Expr> newChildren);
-        public Expr RewriteChildren(Func<Expr, Expr> transformer)
-            => this.DefaultRewriteChildren(transformer);
+        public abstract int CountChildren();
+        public abstract void GetChildren(Span<Expr> children);
+        public abstract Expr SetChildren(ReadOnlySpan<Expr> newChildren);
     }
     class Lit : Expr
     {
@@ -21,9 +19,18 @@ namespace Sawmill.Tests
             Value = value;
         }
 
-        public override Children<Expr> GetChildren() => Children.None<Expr>();
+        public override int CountChildren() => 0;
 
-        public override Expr SetChildren(Children<Expr> newChildren) => this;
+        public override void GetChildren(Span<Expr> children) { }
+
+        public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => this;
+
+        public override bool Equals(object obj)
+            => obj is Lit l
+            && l.Value == this.Value;
+
+        public override int GetHashCode()
+            => HashCode.Combine(Value);
     }
     class Neg : Expr
     {
@@ -34,9 +41,21 @@ namespace Sawmill.Tests
             Operand = operand;
         }
 
-        public override Children<Expr> GetChildren() => (Operand);
+        public override int CountChildren() => 1;
 
-        public override Expr SetChildren(Children<Expr> newChildren) => new Neg(newChildren.First);
+        public override void GetChildren(Span<Expr> children)
+        {
+            children[0] = Operand;
+        }
+
+        public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new Neg(newChildren[0]);
+
+        public override bool Equals(object obj)
+            => obj is Neg n
+            && n.Operand == this.Operand;
+
+        public override int GetHashCode()
+            => HashCode.Combine(Operand);
     }
     class Add : Expr
     {
@@ -49,9 +68,23 @@ namespace Sawmill.Tests
             Right = right;
         }
 
-        public override Children<Expr> GetChildren() => (Left, Right);
+        public override int CountChildren() => 2;
 
-        public override Expr SetChildren(Children<Expr> newChildren) => new Add(newChildren.First, newChildren.Second);
+        public override void GetChildren(Span<Expr> children)
+        {
+            children[0] = Left;
+            children[1] = Right;
+        }
+
+        public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new Add(newChildren[0], newChildren[1]);
+
+        public override bool Equals(object obj)
+            => obj is Add a
+            && a.Left == this.Left
+            && a.Right == this.Right;
+
+        public override int GetHashCode()
+            => HashCode.Combine(Left, Right);
     }
     class Ternary : Expr
     {
@@ -66,11 +99,26 @@ namespace Sawmill.Tests
             ElseBranch = elseBranch;
         }
 
-        public override Children<Expr> GetChildren()
-            => new[] { Condition, ThenBranch, ElseBranch }.ToImmutableList();
+        public override int CountChildren() => 3;
 
-        public override Expr SetChildren(Children<Expr> newChildren)
-            => new Ternary(newChildren.Many[0], newChildren.Many[1], newChildren.Many[2]);
+        public override void GetChildren(Span<Expr> children)
+        {
+            children[0] = Condition;
+            children[1] = ThenBranch;
+            children[2] = ElseBranch;
+        }
+
+        public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
+            => new Ternary(newChildren[0], newChildren[1], newChildren[2]);
+
+        public override bool Equals(object obj)
+            => obj is Ternary t
+            && t.Condition == this.Condition
+            && t.ThenBranch == this.ThenBranch
+            && t.ElseBranch == this.ElseBranch;
+
+        public override int GetHashCode()
+            => HashCode.Combine(Condition, ThenBranch, ElseBranch);
     }
     class List : Expr
     {
@@ -81,9 +129,31 @@ namespace Sawmill.Tests
             Exprs = exprs;
         }
 
-        public override Children<Expr> GetChildren() => Exprs;
+        public override int CountChildren() => Exprs.Count;
 
-        public override Expr SetChildren(Children<Expr> newChildren) => new List(newChildren.Many);
+        public override void GetChildren(Span<Expr> children)
+        {
+            for (var i = 0; i < Exprs.Count; i++)
+            {
+                children[i] = Exprs[i];
+            }
+        }
+
+        public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new List(newChildren.ToArray().ToImmutableList());
+
+        public override bool Equals(object obj)
+            => obj is List l
+            && l.Exprs.SequenceEqual(this.Exprs);
+
+        public override int GetHashCode()
+        {
+            var x = new HashCode();
+            foreach (var expr in Exprs)
+            {
+                x.Add(expr);
+            }
+            return x.ToHashCode();
+        }
     }
     class IfThenElse : Expr
     {
@@ -98,17 +168,49 @@ namespace Sawmill.Tests
             IfFalseStmts = ifFalseStmts;
         }
 
-        public override Children<Expr> GetChildren()
-            => ImmutableList
-                .Create(Condition)
-                .AddRange(IfTrueStmts)
-                .AddRange(IfFalseStmts);
+        public override int CountChildren() => 1 + IfTrueStmts.Count + IfFalseStmts.Count;
 
-        public override Expr SetChildren(Children<Expr> newChildren)
+        public override void GetChildren(Span<Expr> children)
+        {
+            children[0] = Condition;
+            var t = children.Slice(1);
+            for (var i = 0; i < IfTrueStmts.Count; i++)
+            {
+                t[i] = IfTrueStmts[i];
+            }
+            var f = t.Slice(IfTrueStmts.Count);
+            for (var i = 0; i < IfFalseStmts.Count; i++)
+            {
+                t[i] = IfFalseStmts[i];
+            }
+        }
+
+        public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
             => new IfThenElse(
-                newChildren.Many[0],
-                newChildren.Many.GetRange(1, IfTrueStmts.Count),
-                newChildren.Many.GetRange(IfTrueStmts.Count + 1, IfFalseStmts.Count)
+                newChildren[0],
+                newChildren.Slice(1, IfTrueStmts.Count).ToArray().ToImmutableList(),
+                newChildren.Slice(IfTrueStmts.Count + 1, IfFalseStmts.Count).ToArray().ToImmutableList()
             );
+
+        public override bool Equals(object obj)
+            => obj is IfThenElse i
+            && i.Condition == this.Condition
+            && i.IfTrueStmts.SequenceEqual(this.IfTrueStmts)
+            && i.IfFalseStmts.SequenceEqual(this.IfFalseStmts);
+
+        public override int GetHashCode()
+        {
+            var x = new HashCode();
+            x.Add(Condition);
+            foreach (var expr in IfTrueStmts)
+            {
+                x.Add(expr);
+            }
+            foreach (var expr in IfFalseStmts)
+            {
+                x.Add(expr);
+            }
+            return x.ToHashCode();
+        }
     }
 }

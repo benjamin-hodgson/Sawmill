@@ -68,7 +68,6 @@ namespace Sawmill.Codegen
             var result = $@"#region GeneratedCode
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 
 namespace {ns}
 {{
@@ -77,12 +76,20 @@ namespace {ns}
     /// </summary>
     public static class {className}
     {{
-        //!pastedoc M:Sawmill.IRewriter`1.GetChildren(`0)
-        public static Children<{typeName}> GetChildren(this {typeName} value)
+        //!pastedoc M:Sawmill.IRewriter`1.CountChildren(`0)
+        public static int CountChildren(this {typeName} value)
+            => {rewriterExpr}.CountChildren(value);
+
+        //!pastedoc M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{{``0}},``0)
+        public static {typeName}[] GetChildren(this {typeName} value)
             => {rewriterExpr}.GetChildren(value);
 
-        //!pastedoc M:Sawmill.IRewriter`1.SetChildren(Sawmill.Children{{`0}},`0)
-        public static {typeName} SetChildren(this {typeName} value, Children<{typeName}> newChildren)
+        //!pastedoc M:Sawmill.IRewriter`1.GetChildren(System.Span{{`0}},`0)
+        public static void GetChildren(this {typeName} value, Span<{typeName}> childrenReceiver)
+            => {rewriterExpr}.GetChildren(childrenReceiver, value);
+
+        //!pastedoc M:Sawmill.IRewriter`1.SetChildren(System.ReadOnlySpan{{`0}},`0)
+        public static {typeName} SetChildren(this {typeName} value, ReadOnlySpan<{typeName}> newChildren)
             => {rewriterExpr}.SetChildren(newChildren, value);
 
         //!pastedoc M:Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{{``0}},``0)
@@ -98,7 +105,7 @@ namespace {ns}
             => {rewriterExpr}.SelfAndDescendantsBreadthFirst(value);
 
         //!pastedoc M:Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{{``0}},``0)
-        public static Children<({typeName} item, Func<{typeName}, {typeName}> replace)> ChildrenInContext(this {typeName} value)
+        public static ({typeName} item, Func<{typeName}, {typeName}> replace)[] ChildrenInContext(this {typeName} value)
             => {rewriterExpr}.ChildrenInContext(value);
 
         //!pastedoc M:Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{{``0}},``0)
@@ -154,8 +161,8 @@ namespace {ns}
         public static Cursor<{typeName}> Cursor(this {typeName} value)
             => {rewriterExpr}.Cursor(value);
 
-        //!pastedoc M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{{``0}},System.Func{{``0,Sawmill.Children{{``1}},``1}},``0)
-        public static T Fold<T>(this {typeName} value, Func<{typeName}, Children<T>, T> func)
+        //!pastedoc M:Sawmill.Rewritable.Fold``2(``0,Sawmill.SpanFunc{{``1,``0,``1}})
+        public static T Fold<T>(this {typeName} value, SpanFunc<T, {typeName}, T> func)
         {{
             if (func == null)
             {{
@@ -202,7 +209,7 @@ namespace {ns}
             return {rewriterExpr}.Rewrite(transformer, value);
         }}
         
-        //!pastedoc M:Sawmill.IRewriter`1.RewriteChildren(System.Func{{`0,`0}},`0)
+        //!pastedoc M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{{``0}},System.Func{{``0,``0}},``0)
         public static {typeName} RewriteChildren(this {typeName} value, Func<{typeName}, {typeName}> transformer)
         {{
             if (transformer == null)

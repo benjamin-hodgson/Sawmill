@@ -12,15 +12,25 @@ namespace Sawmill.HtmlAgilityPack
         private HtmlNodeRewriter() {}
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public Children<HtmlNode> GetChildren(HtmlNode value)
-            => value.ChildNodes.ToImmutableList();
+        public int CountChildren(HtmlNode value) => value.ChildNodes.Count;
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public HtmlNode SetChildren(Children<HtmlNode> newChildren, HtmlNode value)
+        public void GetChildren(Span<HtmlNode> children, HtmlNode value)
+        {
+            for (var i = 0; i < value.ChildNodes.Count; i++)
+            {
+                children[i] = value.ChildNodes[i];
+            }
+        }
+
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// </summary>
+        public HtmlNode SetChildren(ReadOnlySpan<HtmlNode> newChildren, HtmlNode value)
         {
             var clone = value.Clone();
             clone.ChildNodes.Clear();
@@ -30,12 +40,6 @@ namespace Sawmill.HtmlAgilityPack
             }
             return clone;
         }
-
-        /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
-        /// </summary>
-        public HtmlNode RewriteChildren(Func<HtmlNode, HtmlNode> transformer, HtmlNode value)
-            => this.DefaultRewriteChildren(transformer, value);
 
         /// <summary>
         /// Gets the single global instance of <see cref="HtmlNodeRewriter"/>.

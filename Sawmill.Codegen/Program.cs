@@ -1,5 +1,3 @@
-using System;
-
 namespace Sawmill.Codegen
 {
     class Program

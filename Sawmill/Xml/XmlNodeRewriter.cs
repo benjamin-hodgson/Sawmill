@@ -13,15 +13,25 @@ namespace Sawmill.Xml
         private XmlNodeRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public Children<XmlNode> GetChildren(XmlNode value)
-            => Children.Many<XmlNode>(value.ChildNodes.Cast<XmlNode>().ToImmutableList());
+        public int CountChildren(XmlNode value) => value.ChildNodes.Count;
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public XmlNode SetChildren(Children<XmlNode> newChildren, XmlNode oldValue)
+        public void GetChildren(Span<XmlNode> children, XmlNode value)
+        {
+            for (var i = 0; i < value.ChildNodes.Count; i++)
+            {
+                children[i] = value.ChildNodes[i];
+            }
+        }
+
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// </summary>
+        public XmlNode SetChildren(ReadOnlySpan<XmlNode> newChildren, XmlNode oldValue)
         {
             // XmlNode is such garbage
             var oldAttrs = oldValue.Attributes;
@@ -37,12 +47,6 @@ namespace Sawmill.Xml
             }
             return clone;
         }
-
-        /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
-        /// </summary>
-        public XmlNode RewriteChildren(Func<XmlNode, XmlNode> transformer, XmlNode oldValue)
-            => this.DefaultRewriteChildren(transformer, oldValue);
 
         /// <summary>
         /// Gets the single global instance of <see cref="XElementRewriter"/>.

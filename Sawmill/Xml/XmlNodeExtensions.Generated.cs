@@ -1,7 +1,6 @@
 #region GeneratedCode
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 
 namespace Sawmill.Xml
 {
@@ -10,10 +9,10 @@ namespace Sawmill.Xml
     /// </summary>
     public static class XmlNodeExtensions
     {
-        //!pastedoc M:Sawmill.IRewriter`1.GetChildren(`0)
+        //!pastedoc M:Sawmill.IRewriter`1.CountChildren(`0)
         /// <summary>
-        ///     Get the immediate children of the value.
-        ///     <seealso cref="M:Sawmill.IRewritable`1.GetChildren" /></summary>
+        ///     Count the immediate children of the value.
+        ///     <seealso cref="M:Sawmill.IRewritable`1.CountChildren" /></summary>
         /// <example>
         ///     Given a representation of the expression <c>(1+2)+3</c>,
         ///     <code>
@@ -24,7 +23,32 @@ namespace Sawmill.Xml
         ///         ),
         ///         new Lit(3)
         ///     );
-        ///     </code><see cref="M:Sawmill.IRewriter`1.GetChildren(`0)" /> returns the immediate children of the topmost node.
+        ///     </code><see cref="M:Sawmill.IRewriter`1.CountChildren(`0)" /> counts the immediate children of the topmost (Add) node.
+        ///     <code>
+        ///     Assert.Equal(2, rewriter.CountChildren(expr));
+        ///     </code></example>
+        /// <param name="value">The value</param>
+        /// <returns>
+        ///   <paramref name="value" />'s number of immediate children</returns>
+        /// <seealso cref="M:Sawmill.IRewriter`1.CountChildren(`0)"/>
+        public static int CountChildren(this System.Xml.XmlNode value)
+            => XmlNodeRewriter.Instance.CountChildren(value);
+
+        //!pastedoc M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)
+        /// <summary>
+        ///     Get the immediate children of the value.
+        ///     <seealso cref="M:Sawmill.IRewritable`1.GetChildren(System.Span{`0})" /></summary>
+        /// <example>
+        ///     Given a representation of the expression <c>(1+2)+3</c>,
+        ///     <code>
+        ///     Expr expr = new Add(
+        ///         new Add(
+        ///             new Lit(1),
+        ///             new Lit(2)
+        ///         ),
+        ///         new Lit(3)
+        ///     );
+        ///     </code><see cref="M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)" /> returns the immediate children of the topmost node.
         ///     <code>
         ///     Expr[] expected = new[]
         ///         {
@@ -38,17 +62,14 @@ namespace Sawmill.Xml
         ///     </code></example>
         /// <param name="value">The value</param>
         /// <returns>The immediate children of <paramref name="value" /></returns>
-        /// <seealso cref="M:Sawmill.IRewriter`1.GetChildren(`0)"/>
-        public static Children<System.Xml.XmlNode> GetChildren(this System.Xml.XmlNode value)
+        /// <seealso cref="M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)"/>
+        public static System.Xml.XmlNode[] GetChildren(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.GetChildren(value);
 
-        //!pastedoc M:Sawmill.IRewriter`1.SetChildren(Sawmill.Children{`0},`0)
+        //!pastedoc M:Sawmill.IRewriter`1.GetChildren(System.Span{`0},`0)
         /// <summary>
-        ///     Set the immediate children of the value.
-        ///     <para>
-        ///     Callers should ensure that <paramref name="newChildren" /> contains the same number of children as was returned by
-        ///     <see cref="M:Sawmill.IRewriter`1.GetChildren(`0)" />.
-        ///     </para><seealso cref="M:Sawmill.IRewritable`1.SetChildren(Sawmill.Children{`0})" /></summary>
+        ///     Copy the immediate children of the value into <paramref name="childrenReceiver" />.
+        ///     <seealso cref="M:Sawmill.IRewritable`1.GetChildren(System.Span{`0})" /></summary>
         /// <example>
         ///     Given a representation of the expression <c>(1+2)+3</c>,
         ///     <code>
@@ -59,7 +80,47 @@ namespace Sawmill.Xml
         ///         ),
         ///         new Lit(3)
         ///     );
-        ///     </code><see cref="M:Sawmill.IRewriter`1.SetChildren(Sawmill.Children{`0},`0)" /> replaces the immediate children of the topmost node.
+        ///     </code><see cref="M:Sawmill.IRewriter`1.GetChildren(System.Span{`0},`0)" /> copies the immediate children of the topmost node into the span.
+        ///     <code>
+        ///     Expr[] expected = new[]
+        ///         {
+        ///             new Add(
+        ///                 new Lit(1),
+        ///                 new Lit(2)
+        ///             ),
+        ///             new Lit(3)
+        ///         };
+        ///     var array = new Expr[rewriter.CountChildren(expr)];
+        ///     rewriter.GetChildren(array, expr);
+        ///     Assert.Equal(expected, array);
+        ///     </code></example>
+        /// <param name="childrenReceiver">
+        ///     A <see cref="T:System.Span`1" /> to copy <paramref name="value" />'s immediate children into.
+        ///     The <see cref="T:System.Span`1" />'s <see cref="P:System.Span`1.Length" /> will be equal to the number returned by <see cref="M:Sawmill.IRewriter`1.CountChildren(`0)" />.
+        ///     </param>
+        /// <param name="value">The value</param>
+        /// <seealso cref="M:Sawmill.IRewriter`1.GetChildren(System.Span{`0},`0)"/>
+        public static void GetChildren(this System.Xml.XmlNode value, Span<System.Xml.XmlNode> childrenReceiver)
+            => XmlNodeRewriter.Instance.GetChildren(childrenReceiver, value);
+
+        //!pastedoc M:Sawmill.IRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+        /// <summary>
+        ///     Set the immediate children of the value.
+        ///     <para>
+        ///     Callers should ensure that <paramref name="newChildren" /> contains the same number of children as was returned by
+        ///     <see cref="M:Sawmill.IRewriter`1.GetChildren(System.Span{`0},`0)" />.
+        ///     </para><seealso cref="M:Sawmill.IRewritable`1.SetChildren(System.ReadOnlySpan{`0})" /></summary>
+        /// <example>
+        ///     Given a representation of the expression <c>(1+2)+3</c>,
+        ///     <code>
+        ///     Expr expr = new Add(
+        ///         new Add(
+        ///             new Lit(1),
+        ///             new Lit(2)
+        ///         ),
+        ///         new Lit(3)
+        ///     );
+        ///     </code><see cref="M:Sawmill.IRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)" /> replaces the immediate children of the topmost node.
         ///     <code>
         ///     Expr expected = new Add(
         ///         new Lit(4),
@@ -70,8 +131,8 @@ namespace Sawmill.Xml
         /// <param name="newChildren">The new children</param>
         /// <param name="value">The old value, whose immediate children should be replaced</param>
         /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
-        /// <seealso cref="M:Sawmill.IRewriter`1.SetChildren(Sawmill.Children{`0},`0)"/>
-        public static System.Xml.XmlNode SetChildren(this System.Xml.XmlNode value, Children<System.Xml.XmlNode> newChildren)
+        /// <seealso cref="M:Sawmill.IRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)"/>
+        public static System.Xml.XmlNode SetChildren(this System.Xml.XmlNode value, ReadOnlySpan<System.Xml.XmlNode> newChildren)
             => XmlNodeRewriter.Instance.SetChildren(newChildren, value);
 
         //!pastedoc M:Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{``0},``0)
@@ -146,7 +207,7 @@ namespace Sawmill.Xml
 
         //!pastedoc M:Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{``0},``0)
         /// <summary>
-        ///     Returns an instance of <see cref="T:Sawmill.Children`1" /> containing each immediate child of
+        ///     Returns an array containing each immediate child of
         ///     <paramref name="value" /> paired with a function to replace the child.
         ///     This is typically useful when you need to replace a node's children one at a time,
         ///     such as during mutation testing.
@@ -157,7 +218,7 @@ namespace Sawmill.Xml
         ///     </para><seealso cref="M:Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{``0},``0)" /><seealso cref="M:Sawmill.Rewriter.DescendantsAndSelfInContext``1(Sawmill.IRewriter{``0},``0)" /></summary>
         /// <param name="value">The value to get the contexts for the immediate children</param>
         /// <seealso cref="M:Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{``0},``0)"/>
-        public static Children<(System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)> ChildrenInContext(this System.Xml.XmlNode value)
+        public static (System.Xml.XmlNode item, Func<System.Xml.XmlNode, System.Xml.XmlNode> replace)[] ChildrenInContext(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.ChildrenInContext(value);
 
         //!pastedoc M:Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{``0},``0)
@@ -286,16 +347,17 @@ namespace Sawmill.Xml
         public static Cursor<System.Xml.XmlNode> Cursor(this System.Xml.XmlNode value)
             => XmlNodeRewriter.Instance.Cursor(value);
 
-        //!pastedoc M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)
+        //!pastedoc M:Sawmill.Rewritable.Fold``2(``0,Sawmill.SpanFunc{``1,``0,``1})
         /// <summary>
-        ///     Flattens all the nodes in the tree represented by <paramref name="value" /> into a single result,
-        ///     using an aggregation function to combine each node with the results of folding its children.
-        ///     </summary>
+        ///         Flattens all the nodes in the tree represented by <paramref name="value" /> into a single result,
+        ///         using an aggregation function to combine each node with the results of folding its children.
+        ///         </summary>
         /// <param name="func">The aggregation function</param>
         /// <param name="value">The value to fold</param>
         /// <returns>The result of aggregating the tree represented by <paramref name="value" />.</returns>
-        /// <seealso cref="M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)"/>
-        public static T Fold<T>(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, Children<T>, T> func)
+        /// <seealso cref="M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},Sawmill.SpanFunc{``1,``0,``1},``0)" />
+        /// <seealso cref="M:Sawmill.Rewritable.Fold``2(``0,Sawmill.SpanFunc{``1,``0,``1})"/>
+        public static T Fold<T>(this System.Xml.XmlNode value, SpanFunc<T, System.Xml.XmlNode, T> func)
         {
             if (func == null)
             {
@@ -427,7 +489,7 @@ namespace Sawmill.Xml
         ///         )),
         ///         transformer(new Lit(3))
         ///     ));
-        ///     Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));
+        ///     Assert.Equal(expected, rewriter.Rewrite(transformer, expr));
         ///     </code></example>
         /// <param name="transformer">The transformation function to apply to every node in the tree</param>
         /// <param name="value">The value to rewrite</param>
@@ -444,44 +506,14 @@ namespace Sawmill.Xml
             return XmlNodeRewriter.Instance.Rewrite(transformer, value);
         }
         
-        //!pastedoc M:Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
+        //!pastedoc M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
         /// <summary>
         ///     Update the immediate children of the value by applying a transformation function to each one.
-        ///     <para>
-        ///     Implementations of <see cref="T:Sawmill.IRewriter`1" /> can use <see cref="M:Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)" />,
-        ///     or you can write your own.
-        ///     </para><para>
-        ///     NB: A hand-written implementation will not usually be faster
-        ///     than <see cref="M:Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)" />.
-        ///     If your type has a fixed number of children, and that number is greater than two,
-        ///     you may see some performance improvements from implementing this method yourself.
-        ///     Be careful not to rebuild <paramref name="value" /> if none of the children have changed.
-        ///     </para><seealso cref="M:Sawmill.IRewritable`1.RewriteChildren(System.Func{`0,`0})" /></summary>
-        /// <example>
-        ///     Given a representation of the expression <c>(1+2)+3</c>,
-        ///     <code>
-        ///     Expr expr = new Add(
-        ///         new Add(
-        ///             new Lit(1),
-        ///             new Lit(2)
-        ///         ),
-        ///         new Lit(3)
-        ///     );
-        ///     </code><see cref="M:Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)" /> only affects the immediate children of the topmost node.
-        ///     <code>
-        ///     Expr expected = new Add(
-        ///         transformer(new Add(
-        ///             new Lit(1),
-        ///             new Lit(2)
-        ///         )),
-        ///         transformer(new Lit(3))
-        ///     );
-        ///     Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));
-        ///     </code></example>
+        ///     </summary>
         /// <param name="transformer">A transformation function to apply to each of <paramref name="value" />'s immediate children.</param>
         /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer" />.</param>
         /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
-        /// <seealso cref="M:Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)"/>
+        /// <seealso cref="M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)"/>
         public static System.Xml.XmlNode RewriteChildren(this System.Xml.XmlNode value, Func<System.Xml.XmlNode, System.Xml.XmlNode> transformer)
         {
             if (transformer == null)

@@ -1,14 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+using System.Buffers;
 
 namespace Sawmill
 {
     public static partial class Rewriter
     {
         /// <summary>
-        /// Returns an instance of <see cref="Children{T}"/> containing each immediate child of
+        /// Returns an array containing each immediate child of
         /// <paramref name="value"/> paired with a function to replace the child.
         /// This is typically useful when you need to replace a node's children one at a time,
         /// such as during mutation testing.
@@ -23,56 +21,51 @@ namespace Sawmill
         /// </summary>
         /// <param name="rewriter">The rewriter</param>
         /// <param name="value">The value to get the contexts for the immediate children</param>
-        public static Children<(T item, Func<T, T> replace)> ChildrenInContext<T>(this IRewriter<T> rewriter, T value)
+        public static (T item, Func<T, T> replace)[] ChildrenInContext<T>(this IRewriter<T> rewriter, T value)
         {
             if (rewriter == null)
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
 
-            var children = rewriter.GetChildren(value);
-            switch (children.NumberOfChildren)
+            T[] buffer = null;
+            var result = rewriter.WithChildren(
+                (children, tup) =>
+                {
+                    var (r, v) = tup;
+
+                    var array = new (T item, Func<T, T> replace)[children.Length];
+
+                    for (var i = 0; i < children.Length; i++)
+                    {
+                        var j = i;
+                        array[i] = (children[i], newChild => r.ReplaceChild(j, newChild, v));
+                    }
+                    return array;
+                },
+                (rewriter, value),
+                value,
+                ref buffer
+            );
+            ArrayPool<T>.Shared.Return(buffer);
+            return result;
+        }
+
+        private static T ReplaceChild<T>(this IRewriter<T> rewriter, int position, T newChild, T value)
+        {
+            var count = rewriter.CountChildren(value);
+
+            if (position >= count)
             {
-                case NumberOfChildren.None:
-                    return Children.None<(T, Func<T, T>)>();
-                case NumberOfChildren.One:
-                    return Children.One<(T, Func<T, T>)>(
-                        (
-                            children.First,
-                            newChild => ReferenceEquals(newChild, children.First)
-                                ? value
-                                : rewriter.SetChildren(Children.One(newChild), value)
-                        )
-                    );
-                case NumberOfChildren.Two:
-                    return Children.Two<(T, Func<T, T>)>(
-                        (
-                            children.First,
-                            newChild => ReferenceEquals(newChild, children.First)
-                                ? value
-                                : rewriter.SetChildren(Children.Two(newChild, children.Second), value)
-                        ),
-                        (
-                            children.Second,
-                            newChild => ReferenceEquals(newChild, children.Second)
-                                ? value
-                                : rewriter.SetChildren(Children.Two(children.First, newChild), value)
-                        )
-                    );
-                case NumberOfChildren.Many:
-                    var list = children.Many.ToImmutableList();
-                    var contexts = list.Select<T, (T, Func<T, T>)>(
-                        (child, i) => (
-                            child,
-                            newChild => ReferenceEquals(child, newChild)
-                                ? value
-                                : rewriter.SetChildren(Children.Many(list.SetItem(i, newChild)), value)
-                        )
-                    );
-                    return Children.Many(contexts.ToImmutableList());
-                default:
-                    throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
+                throw new ArgumentOutOfRangeException(nameof(position), position, "Index was out of bounds");
             }
+
+            var array = ArrayPool<T>.Shared.Rent(count);
+            var span = array.AsSpan().Slice(0, count);
+            
+            rewriter.GetChildren(span, value);
+            array[position] = newChild;
+            return rewriter.SetChildren(span, value);
         }
     }
 }

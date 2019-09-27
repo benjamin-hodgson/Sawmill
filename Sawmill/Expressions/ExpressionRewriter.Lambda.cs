@@ -1,13 +1,18 @@
+using System;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private static Children<Expression> GetChildren(LambdaExpression l)
-            => Children.One(l.Body);
+        private static int CountChildren(LambdaExpression l) => 1;
 
-        private static Expression SetChildren(Children<Expression> newChildren, LambdaExpression l)
-            => Expression.Lambda(newChildren.First, l.Name, l.TailCall, l.Parameters);
+        private static void GetChildren(Span<Expression> children, LambdaExpression l)
+        {
+            children[0] = l.Body;
+        }
+
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, LambdaExpression l)
+            => Expression.Lambda(newChildren[0], l.Name, l.TailCall, l.Parameters);
     }
 }

@@ -20,11 +20,16 @@ namespace Sawmill.Tests
 
         public override string ToString() => Value.ToString();
 
-        public Children<Tree<T>> GetChildren() => Sawmill.Children.Many(Children);
+        public int CountChildren() => Children.Count;
 
-        public Tree<T> RewriteChildren(Func<Tree<T>, Tree<T>> transformer)
-            => this.DefaultRewriteChildren(transformer);
+        public void GetChildren(Span<Tree<T>> children)
+        {
+            for (var i = 0; i < Children.Count; i++)
+            {
+                children[i] = Children[i];
+            }
+        }
 
-        public Tree<T> SetChildren(Children<Tree<T>> newChildren) => new Tree<T>(Value, newChildren.Many.ToImmutableList());
+        public Tree<T> SetChildren(ReadOnlySpan<Tree<T>> newChildren) => new Tree<T>(Value, newChildren.ToArray().ToImmutableList());
     }
 }

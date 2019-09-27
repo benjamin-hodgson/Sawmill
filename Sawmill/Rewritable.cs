@@ -9,6 +9,38 @@ namespace Sawmill
     /// </summary>
     public static class Rewritable
     {
+        //!pastedoc M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)
+        /// <summary>
+        ///     Get the immediate children of the value.
+        ///     <seealso cref="M:Sawmill.IRewritable`1.GetChildren(System.Span{`0})" /></summary>
+        /// <example>
+        ///     Given a representation of the expression <c>(1+2)+3</c>,
+        ///     <code>
+        ///     Expr expr = new Add(
+        ///         new Add(
+        ///             new Lit(1),
+        ///             new Lit(2)
+        ///         ),
+        ///         new Lit(3)
+        ///     );
+        ///     </code><see cref="M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)" /> returns the immediate children of the topmost node.
+        ///     <code>
+        ///     Expr[] expected = new[]
+        ///         {
+        ///             new Add(
+        ///                 new Lit(1),
+        ///                 new Lit(2)
+        ///             ),
+        ///             new Lit(3)
+        ///         };
+        ///     Assert.Equal(expected, rewriter.GetChildren(expr));
+        ///     </code></example>
+        /// <param name="value">The value</param>
+        /// <returns>The immediate children of <paramref name="value" /></returns>
+        /// <seealso cref="M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)"/>
+        public static T[] GetChildren<T>(this T value) where T : IRewritable<T>
+            => RewritableRewriter<T>.Instance.GetChildren(value);
+
         //!pastedoc M:Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{``0},``0)
         /// <summary>
         ///     Yields all of the nodes in the tree represented by <paramref name="value" />, starting at the bottom.
@@ -81,7 +113,7 @@ namespace Sawmill
 
         //!pastedoc M:Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{``0},``0)
         /// <summary>
-        ///     Returns an instance of <see cref="T:Sawmill.Children`1" /> containing each immediate child of
+        ///     Returns an array containing each immediate child of
         ///     <paramref name="value" /> paired with a function to replace the child.
         ///     This is typically useful when you need to replace a node's children one at a time,
         ///     such as during mutation testing.
@@ -92,7 +124,7 @@ namespace Sawmill
         ///     </para><seealso cref="M:Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{``0},``0)" /><seealso cref="M:Sawmill.Rewriter.DescendantsAndSelfInContext``1(Sawmill.IRewriter{``0},``0)" /></summary>
         /// <param name="value">The value to get the contexts for the immediate children</param>
         /// <seealso cref="M:Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{``0},``0)"/>
-        public static Children<(T item, Func<T, T> replace)> ChildrenInContext<T>(this T value) where T : IRewritable<T>
+        public static (T item, Func<T, T> replace)[] ChildrenInContext<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.ChildrenInContext(value);
 
         //!pastedoc M:Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{``0},``0)
@@ -221,7 +253,7 @@ namespace Sawmill
         public static Cursor<T> Cursor<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.Cursor(value);
 
-        //!pastedoc M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)
+        //!pastedoc M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},Sawmill.SpanFunc{``1,``0,``1},``0)
         /// <summary>
         ///     Flattens all the nodes in the tree represented by <paramref name="value" /> into a single result,
         ///     using an aggregation function to combine each node with the results of folding its children.
@@ -229,8 +261,8 @@ namespace Sawmill
         /// <param name="func">The aggregation function</param>
         /// <param name="value">The value to fold</param>
         /// <returns>The result of aggregating the tree represented by <paramref name="value" />.</returns>
-        /// <seealso cref="M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)"/>
-        public static U Fold<T, U>(this T value, Func<T, Children<U>, U> func) where T : IRewritable<T>
+        /// <seealso cref="M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},Sawmill.SpanFunc{``1,``0,``1},``0)"/>
+        public static U Fold<T, U>(this T value, SpanFunc<U, T, U> func) where T : IRewritable<T>
         {
             if (func == null)
             {
@@ -363,7 +395,7 @@ namespace Sawmill
         ///         )),
         ///         transformer(new Lit(3))
         ///     ));
-        ///     Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));
+        ///     Assert.Equal(expected, rewriter.Rewrite(transformer, expr));
         ///     </code></example>
         /// <param name="transformer">The transformation function to apply to every node in the tree</param>
         /// <param name="value">The value to rewrite</param>
@@ -380,23 +412,21 @@ namespace Sawmill
             return RewritableRewriter<T>.Instance.Rewrite(transformer, value);
         }
         
-        //!pastedoc M:Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
+        //!pastedoc M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
         /// <summary>
         ///     Update the immediate children of the value by applying a transformation function to each one.
-        ///     <para>
-        ///     Most implementations of <see cref="M:Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)" /> will simply delegate to this method.
-        ///     </para></summary>
+        ///     </summary>
         /// <param name="transformer">A transformation function to apply to each of <paramref name="value" />'s immediate children.</param>
         /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer" />.</param>
         /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
-        /// <seealso cref="M:Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)"/>
-        public static T DefaultRewriteChildren<T>(this T value, Func<T, T> transformer) where T : IRewritable<T>
+        /// <seealso cref="M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)"/>
+        public static T RewriteChildren<T>(this T value, Func<T, T> transformer) where T : IRewritable<T>
         {
             if (transformer == null)
             {
                 throw new ArgumentNullException(nameof(transformer));
             }
-            return RewritableRewriter<T>.Instance.DefaultRewriteChildren(transformer, value);
+            return RewritableRewriter<T>.Instance.RewriteChildren(transformer, value);
         }
 
         //!pastedoc M:Sawmill.Rewriter.RewriteIter``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)

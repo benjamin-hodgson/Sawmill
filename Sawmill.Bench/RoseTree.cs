@@ -5,9 +5,9 @@ namespace Sawmill.Bench
 {
     public class RoseTree : IRewritable<RoseTree>
     {
-        public ImmutableList<RoseTree> Children { get; }
+        public ImmutableArray<RoseTree> Children { get; }
 
-        public RoseTree(ImmutableList<RoseTree> children)
+        public RoseTree(ImmutableArray<RoseTree> children)
         {
             if (children == null)
             {
@@ -16,12 +16,24 @@ namespace Sawmill.Bench
             Children = children;
         }
 
-        public Children<RoseTree> GetChildren() => Children;
+        public int CountChildren() => Children.Length;
 
-        public RoseTree SetChildren(Children<RoseTree> newChildren)
-            => new RoseTree(newChildren.Many);
+        public void GetChildren(Span<RoseTree> children)
+        {
+            for (var i = 0; i < Children.Length; i++)
+            {
+                children[i] = Children[i];
+            }
+        }
 
-        public RoseTree RewriteChildren(Func<RoseTree, RoseTree> transformer)
-            => this.DefaultRewriteChildren(transformer);
+        public RoseTree SetChildren(ReadOnlySpan<RoseTree> newChildren)
+        {
+            var builder = ImmutableArray.CreateBuilder<RoseTree>(newChildren.Length);
+            foreach (var child in newChildren)
+            {
+                builder.Add(child);
+            }
+            return new RoseTree(builder.ToImmutable());
+        }
     }
 }

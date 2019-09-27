@@ -55,7 +55,7 @@ namespace Sawmill.Tests
             Assert.Equal(new Expr[] { one, minusTwo }, childrenInContext.Select(x => x.item));
             
             var three = new Lit(3);
-            var newExpr = childrenInContext.First.replace(three);
+            var newExpr = childrenInContext[0].replace(three);
             Assert.Equal(new Expr[] { three, minusTwo }, newExpr.GetChildren());
         }
 
@@ -217,7 +217,7 @@ namespace Sawmill.Tests
         }
 
         [Fact]
-        public void TestDefaultRewriteChildren()
+        public void TestRewriteChildren()
         {
             var one = new Lit(1);
             var two = new Lit(2);
@@ -225,19 +225,19 @@ namespace Sawmill.Tests
             Expr expr = new Add(one, minusTwo);
 
             {
-                var rewritten = expr.DefaultRewriteChildren(_ => new Lit(3));
+                var rewritten = expr.RewriteChildren(_ => new Lit(3));
 
                 Assert.Equal(6, Eval(rewritten));
             }
             {
-                var result = expr.DefaultRewriteChildren(x => x);
+                var result = expr.RewriteChildren(x => x);
 
                 Assert.Same(expr, result);
             }
         }
 
         [Fact]
-        public void TestDefaultRewriteChildren_ImmutableList_NoOp()
+        public void TestRewriteChildren_NoOp()
         {
             var t = new Tree<int>(
                 1,
@@ -248,7 +248,7 @@ namespace Sawmill.Tests
                 }.ToImmutableList()
             );
 
-            var rewritten = t.DefaultRewriteChildren(x => x);
+            var rewritten = t.RewriteChildren(x => x);
 
             Assert.Same(t.Children, rewritten.Children);
         }
@@ -307,16 +307,16 @@ namespace Sawmill.Tests
 
         private int Eval(Expr expr)
             => expr.Fold<Expr, int>(
-                (x, next) =>
+                (next, x) =>
                 {
                     switch (x)
                     {
                         case Lit l:
                             return l.Value;
                         case Neg n:
-                            return -next.First;
+                            return -next[0];
                         case Add a:
-                            return next.First + next.Second;
+                            return next[0] + next[1];
                     }
                     throw new ArgumentOutOfRangeException(nameof(x));
                 }

@@ -19,7 +19,7 @@ namespace Sawmill.Tests
             var pNode = doc.DocumentNode.GetChildren().Single();
             Assert.Equal("p", pNode.Name);
 
-            var children = pNode.GetChildren().Many;
+            var children = pNode.GetChildren();
             
             Assert.Equal(2, children.Count());
             Assert.Equal("br", children.ElementAt(0).Name);
@@ -33,10 +33,10 @@ namespace Sawmill.Tests
             doc.LoadHtml(exampleHtml);
 
             var pNode = doc.DocumentNode.GetChildren().Single();
-            var children = pNode.GetChildren().Many.ToImmutableList();
+            var children = pNode.GetChildren().ToImmutableList();
             
             var newChildren = children.SetItem(0, HtmlNode.CreateNode("<div></div>"));
-            var newPNode = pNode.SetChildren(Children.Many(newChildren));
+            var newPNode = pNode.SetChildren(newChildren.ToArray());
 
             Assert.Equal("p", newPNode.Name);
             Assert.Equal(1, newPNode.Attributes.Count());

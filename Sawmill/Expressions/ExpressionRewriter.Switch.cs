@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -7,7 +8,9 @@ namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private Children<Expression> GetChildren(SwitchExpression s)
+        private static int CountChildren(SwitchExpression s) => s.Cases.Select(c => c.TestValues.Count + 1).Sum() + 1;
+
+        private static void GetChildren(Span<Expression> children, SwitchExpression s)
         {
             IEnumerable<Expression> GetSwitchCaseChildren(SwitchCase switchCase)
             {
@@ -17,34 +20,30 @@ namespace Sawmill.Expressions
                 return list;
             }
             
-            return Children.Many(
-                ImmutableList<Expression>
-                    .Empty
-                    .Add(s.SwitchValue)
-                    .AddRange(s.Cases.SelectMany(GetSwitchCaseChildren))
-            );
+            children[0] = s.SwitchValue;
+            Copy(s.Cases.SelectMany(GetSwitchCaseChildren), children.Slice(1));
         }
 
-        private Expression SetChildren(Children<Expression> newChildren, SwitchExpression s)
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, SwitchExpression s)
         {
-            IEnumerable<SwitchCase> UpdateSwitchCases(IEnumerable<SwitchCase> oldCases, IEnumerable<Expression> c)
+            IEnumerable<SwitchCase> UpdateSwitchCases(IEnumerable<SwitchCase> oldCases, ReadOnlySpan<Expression> c)
             {
                 var newCases = new List<SwitchCase>(oldCases.Count());
                 foreach (var oldCase in oldCases)
                 {
-                    var newTestValues = c.Take(oldCase.TestValues.Count);
-                    c = c.Skip(oldCase.TestValues.Count);
-                    var newBody = c.ElementAt(0);
-                    c = c.Skip(1);
-                    newCases.Add(oldCase.Update(newTestValues, newBody));
+                    var newTestValues = c.Slice(0, oldCase.TestValues.Count);
+                    c = c.Slice(oldCase.TestValues.Count);
+                    var newBody = c[0];
+                    c = c.Slice(1);
+                    newCases.Add(oldCase.Update(newTestValues.ToArray(), newBody));
                 }
                 return newCases;
             }
 
             return s.Update(
-                newChildren.Many[0],
-                UpdateSwitchCases(s.Cases, newChildren.Many),
-                newChildren.Many[newChildren.Many.Count - 1]
+                newChildren[0],
+                UpdateSwitchCases(s.Cases, newChildren.Slice(1)),
+                newChildren[newChildren.Length - 1]
             );
         }
     }

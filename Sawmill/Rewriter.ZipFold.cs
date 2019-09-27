@@ -47,7 +47,7 @@ namespace Sawmill
         /// <returns>The result of aggregating the two trees</returns>
         public static U ZipFold<T, U>(
             this IRewriter<T> rewriter,
-            Func<T[], IEnumerable<U>, U> func,
+            Func<T[], IEnumerable<U>, U> func,  // todo: should this be a ReadOnlySpanFunc?
             params T[] values
         )
         {
@@ -71,7 +71,7 @@ namespace Sawmill
                 var enumerators = new IEnumerator<T>[xs.Length];
                 for (var i = 0; i < xs.Length; i++)
                 {
-                    enumerators[i] = EnumerableExtensions.GetEnumerator<Children<T>, T>(rewriter.GetChildren(xs[i]));
+                    enumerators[i] = rewriter.GetChildren(xs[i]).AsEnumerable().GetEnumerator();
                 }
 
                 while (true)

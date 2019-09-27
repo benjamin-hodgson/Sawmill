@@ -1,14 +1,18 @@
-using System.Collections.Immutable;
+using System;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private static Children<Expression> GetChildren(NewArrayExpression n)
-            => Children.Many(n.Expressions.ToImmutableList());
+        private static int CountChildren(NewArrayExpression n) => n.Expressions.Count;
 
-        private static Expression SetChildren(Children<Expression> newChildren, NewArrayExpression n)
-            => n.Update(newChildren.Many);
+        private static void GetChildren(Span<Expression> children, NewArrayExpression n)
+        {
+            Copy(n.Expressions, children);
+        }
+
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, NewArrayExpression n)
+            => n.Update(newChildren.ToArray());
     }
 }

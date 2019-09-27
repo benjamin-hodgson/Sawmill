@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using BenchmarkDotNet.Running;
 
 namespace Sawmill.Bench
@@ -7,8 +7,7 @@ namespace Sawmill.Bench
     {
         static void Main(string[] args)
         {
-            BenchmarkRunner.Run<DescendantsBench>();
-            BenchmarkRunner.Run<DefaultRewriteChildrenBench>();
+            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).RunAll();
         }
     }
 }

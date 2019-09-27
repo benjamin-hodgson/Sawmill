@@ -902,55 +902,36 @@ namespace Sawmill
         private T SetChildren(T value)
         {
             var children = _rewriter.GetChildren(value);
-            T result;
-            switch (children.NumberOfChildren)
+
+            _nextSiblings.Push(Focus);
+            while (_prevSiblings.Any())
             {
-                case NumberOfChildren.None:
-                    result = value;
-                    break;
-                case NumberOfChildren.One:
-                    result = _rewriter.SetChildren(Children.One(Focus), value);
-                    break;
-                case NumberOfChildren.Two:
-                    T first;
-                    T second;
-                    if (!_prevSiblings.Any())
-                    {
-                        first = Focus;
-                        second = _nextSiblings.Peek();
-                    }
-                    else  // !_nextSiblings.Any()
-                    {
-                        first = _prevSiblings.Peek();
-                        second = Focus;
-                    }
-                    result = _rewriter.SetChildren(Children.Two(first, second), value);
-                    break;
-                case NumberOfChildren.Many:
-                    _nextSiblings.Push(Focus);
-                    while (_prevSiblings.Any())
-                    {
-                        _nextSiblings.Push(_prevSiblings.Pop());
-                    }
-
-                    var builder = children.Many.ToBuilder();
-
-                    for (var i = 0; i < builder.Count; i++)
-                    {
-                        var oldItem = builder[i];
-                        var newItem = _nextSiblings.Pop();
-
-                        if (!ReferenceEquals(oldItem, newItem))
-                        {
-                            builder[i] = newItem;
-                        }
-                    }
-
-                    result = _rewriter.SetChildren(Children.Many(builder.ToImmutable()), value);
-                    break;
-                default:
-                    throw new InvalidOperationException($"Unknown {nameof(NumberOfChildren)}. Please report this as a bug!");
+                _nextSiblings.Push(_prevSiblings.Pop());
             }
+
+            var changed = false;
+            for (var i = 0; i < children.Length; i++)
+            {
+                var oldItem = children[i];
+                var newItem = _nextSiblings.Pop();
+
+                if (!ReferenceEquals(oldItem, newItem))
+                {
+                    children[i] = newItem;
+                    changed = true;
+                }
+            }
+
+            T result;
+            if (changed)
+            {
+                result = _rewriter.SetChildren(children, value);
+            }
+            else
+            {
+                result = value;
+            }
+
             _nextSiblings = null;
             _prevSiblings = null;
             _focus = default(T);

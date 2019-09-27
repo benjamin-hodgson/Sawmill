@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -7,42 +8,61 @@ namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private static Children<Expression> GetChildren(TryExpression t)
+        private static int GetChildren(TryExpression t) => t.Handlers.Count * 2 + 3;
+
+        private static void GetChildren(Span<Expression> children, TryExpression t)
         {
-            var tryExpressionChildren = ImmutableList.CreateBuilder<Expression>();
-            tryExpressionChildren.Add(t.Body);
+            var i = 0;
+            children[i] = t.Body;
+            i++;
+
             foreach (var h in t.Handlers)
             {
-                tryExpressionChildren.Add(h.Filter);
-                tryExpressionChildren.Add(h.Body);
+                children[i] = h.Filter;
+                i++;
+                children[i] = h.Body;
+                i++;
             }
-            tryExpressionChildren.Add(t.Finally);
-            tryExpressionChildren.Add(t.Fault);
-            return Children.Many(tryExpressionChildren.ToImmutable());
+            children[i] = t.Finally;
+            i++;
+            children[i] = t.Fault;
+            i++;
         }
 
-        private Expression SetChildren(Children<Expression> newChildren, TryExpression t)
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, TryExpression t)
         {
-            (IEnumerable<CatchBlock> catchBlocks, IEnumerable<Expression> remainingNewChildren) UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, IEnumerable<Expression> c)
+            CatchBlockUpdateResult UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, ReadOnlySpan<Expression> c)
             {
                 var newCatchBlocks = new List<CatchBlock>(oldCatchBlocks.Count());
                 foreach (var oldCatchBlock in oldCatchBlocks)
                 {
-                    newCatchBlocks.Add(oldCatchBlock.Update(oldCatchBlock.Variable, c.ElementAt(0), c.ElementAt(1)));
-                    c = c.Skip(2);
+                    newCatchBlocks.Add(oldCatchBlock.Update(oldCatchBlock.Variable, c[0], c[1]));
+                    c = c.Slice(2);
                 }
-                return (newCatchBlocks, c);
+                return new CatchBlockUpdateResult(newCatchBlocks, c);
             }
 
-            var newTryBlock = newChildren.Many[0];
-            var updateResult = UpdateCatchBlocks(t.Handlers, newChildren.Many.Skip(1));
-            var remainingNewChildren = updateResult.Item2;
+            var newTryBlock = newChildren[0];
+            var updateResult = UpdateCatchBlocks(t.Handlers, newChildren.Slice(1));
+            var remainingNewChildren = updateResult.RemainingNewChildren;
             return t.Update(
                 newTryBlock,
-                updateResult.Item1,
-                remainingNewChildren.ElementAt(0),
-                remainingNewChildren.ElementAt(1)
+                updateResult.CatchBlocks,
+                remainingNewChildren[0],
+                remainingNewChildren[1]
             );
+        }
+
+        private readonly ref struct CatchBlockUpdateResult
+        {
+            public IEnumerable<CatchBlock> CatchBlocks { get; }
+            public ReadOnlySpan<Expression> RemainingNewChildren { get; }
+
+            public CatchBlockUpdateResult(IEnumerable<CatchBlock> catchBlocks, ReadOnlySpan<Expression> remainingNewChildren)
+            {
+                CatchBlocks = catchBlocks;
+                RemainingNewChildren = remainingNewChildren;
+            }
         }
     }
 }

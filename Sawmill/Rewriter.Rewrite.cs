@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Buffers;
 
 namespace Sawmill
 {
@@ -30,7 +30,7 @@ namespace Sawmill
         ///     )),
         ///     transformer(new Lit(3))
         /// ));
-        /// Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));
+        /// Assert.Equal(expected, rewriter.Rewrite(transformer, expr));
         /// </code>
         /// </example>
         /// <typeparam name="T">The rewritable tree type</typeparam>
@@ -51,6 +51,8 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
+            // todo: can we use a shared stack for the intermediate children
+            // so that RewriteChildren doesn't have to repeatedly rent arrays from the pool?
             Func<T, T> goDelegate = null;
             goDelegate = Go;
             T Go(T x) => transformer(rewriter.RewriteChildren(goDelegate, x));

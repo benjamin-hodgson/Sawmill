@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,19 +23,35 @@ namespace Sawmill
 
             IEnumerable<T> Iterator()
             {
-                var q = new Queue<T>();
-                q.Enqueue(value);
+                T[] buffer = null;
+                var queue = new Queue<T>();
+                queue.Enqueue(value);
 
-                while (q.Any())
+                try
                 {
-                    var node = q.Dequeue();
-                    
-                    yield return node;
-
-                    foreach (var child in rewriter.GetChildren(node))
+                    while (queue.Any())
                     {
-                        q.Enqueue(child);
+                        var node = queue.Dequeue();
+                        
+                        yield return node;
+
+                        rewriter.WithChildren_(
+                            (children, q) =>
+                            {
+                                foreach (var child in children)
+                                {
+                                    q.Enqueue(child);
+                                }
+                            },
+                            queue,
+                            node,
+                            ref buffer
+                        );
                     }
+                }
+                finally
+                {
+                    ArrayPool<T>.Shared.Return(buffer);
                 }
             }
 

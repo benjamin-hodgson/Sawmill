@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Sawmill
 {
@@ -19,7 +18,31 @@ namespace Sawmill
     public interface IRewriter<T>
     {
         /// <summary>
-        /// Get the immediate children of the value.
+        /// Count the immediate children of the value.
+        /// <seealso cref="IRewritable{T}.CountChildren"/>
+        /// </summary>
+        /// <example>
+        /// Given a representation of the expression <c>(1+2)+3</c>,
+        /// <code>
+        /// Expr expr = new Add(
+        ///     new Add(
+        ///         new Lit(1),
+        ///         new Lit(2)
+        ///     ),
+        ///     new Lit(3)
+        /// );
+        /// </code>
+        /// <see cref="CountChildren"/> counts the immediate children of the topmost (Add) node.
+        /// <code>
+        /// Assert.Equal(2, rewriter.CountChildren(expr));
+        /// </code>
+        /// </example>
+        /// <param name="value">The value</param>
+        /// <returns><paramref name="value"/>'s number of immediate children</returns>
+        int CountChildren(T value);
+
+        /// <summary>
+        /// Copy the immediate children of the value into <paramref name="childrenReceiver"/>.
         /// <seealso cref="IRewritable{T}.GetChildren"/>
         /// </summary>
         /// <example>
@@ -33,7 +56,7 @@ namespace Sawmill
         ///     new Lit(3)
         /// );
         /// </code>
-        /// <see cref="GetChildren"/> returns the immediate children of the topmost node.
+        /// <see cref="GetChildren"/> copies the immediate children of the topmost node into the span.
         /// <code>
         /// Expr[] expected = new[]
         ///     {
@@ -43,12 +66,17 @@ namespace Sawmill
         ///         ),
         ///         new Lit(3)
         ///     };
-        /// Assert.Equal(expected, rewriter.GetChildren(expr));
+        /// var array = new Expr[rewriter.CountChildren(expr)];
+        /// rewriter.GetChildren(array, expr);
+        /// Assert.Equal(expected, array);
         /// </code>
         /// </example>
+        /// <param name="childrenReceiver">
+        /// A <see cref="Span{T}"/> to copy <paramref name="value"/>'s immediate children into.
+        /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren"/>.
+        /// </param>
         /// <param name="value">The value</param>
-        /// <returns>The immediate children of <paramref name="value"/></returns>
-        Children<T> GetChildren(T value);
+        void GetChildren(Span<T> childrenReceiver, T value);
 
         /// <summary>
         /// Set the immediate children of the value.
@@ -56,7 +84,7 @@ namespace Sawmill
         /// Callers should ensure that <paramref name="newChildren"/> contains the same number of children as was returned by
         /// <see cref="GetChildren"/>.
         /// </para>
-        /// <seealso cref="IRewritable{T}.SetChildren(Children{T})"/>
+        /// <seealso cref="IRewritable{T}.SetChildren(ReadOnlySpan{T})"/>
         /// </summary>
         /// <example>
         /// Given a representation of the expression <c>(1+2)+3</c>,
@@ -81,49 +109,6 @@ namespace Sawmill
         /// <param name="newChildren">The new children</param>
         /// <param name="value">The old value, whose immediate children should be replaced</param>
         /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
-        T SetChildren(Children<T> newChildren, T value);
-
-        /// <summary>
-        /// Update the immediate children of the value by applying a transformation function to each one.
-        /// <para>
-        /// Implementations of <see cref="IRewriter{T}"/> can use <see cref="Rewriter.DefaultRewriteChildren{T}(IRewriter{T}, Func{T, T}, T)"/>,
-        /// or you can write your own.
-        /// </para>
-        /// <para>
-        /// NB: A hand-written implementation will not usually be faster
-        /// than <see cref="Rewriter.DefaultRewriteChildren{T}(IRewriter{T}, Func{T, T}, T)"/>.
-        /// If your type has a fixed number of children, and that number is greater than two,
-        /// you may see some performance improvements from implementing this method yourself.
-        /// Be careful not to rebuild <paramref name="value"/> if none of the children have changed.
-        /// </para>
-        /// <seealso cref="IRewritable{T}.RewriteChildren(Func{T, T})"/>
-        /// </summary>
-        /// <example>
-        /// Given a representation of the expression <c>(1+2)+3</c>,
-        /// <code>
-        /// Expr expr = new Add(
-        ///     new Add(
-        ///         new Lit(1),
-        ///         new Lit(2)
-        ///     ),
-        ///     new Lit(3)
-        /// );
-        /// </code>
-        /// <see cref="RewriteChildren"/> only affects the immediate children of the topmost node.
-        /// <code>
-        /// Expr expected = new Add(
-        ///     transformer(new Add(
-        ///         new Lit(1),
-        ///         new Lit(2)
-        ///     )),
-        ///     transformer(new Lit(3))
-        /// );
-        /// Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));
-        /// </code>
-        /// </example>
-        /// <param name="transformer">A transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
-        /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
-        /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
-        T RewriteChildren(Func<T, T> transformer, T value);
+        T SetChildren(ReadOnlySpan<T> newChildren, T value);
     }
 }

@@ -13,24 +13,28 @@ namespace Sawmill.Bench
             Right = right;
         }
 
-        public Children<BinTree> GetChildren()
+        public int CountChildren()
         {
-            if (Left == null && Right == null)
-            {
-                return Children.None<BinTree>();
-            }
-            if (Left == null)
-            {
-                return Right;
-            }
-            if (Right == null)
-            {
-                return Left;
-            }
-            return (Left, Right);
+            static int For(BinTree x) => x == null ? 0 : 1;
+            return For(Left) + For(Right);
         }
 
-        public BinTree SetChildren(Children<BinTree> newChildren)
+        public void GetChildren(Span<BinTree> children)
+        {
+            var i = 0;
+            if (Left != null)
+            {
+                children[i] = Left;
+                i++;
+            }
+            if (Right != null)
+            {
+                children[i] = Right;
+                i++;
+            }
+        }
+
+        public BinTree SetChildren(ReadOnlySpan<BinTree> newChildren)
         {
             if (Left == null && Right == null)
             {
@@ -38,16 +42,13 @@ namespace Sawmill.Bench
             }
             if (Left == null)
             {
-                return new BinTree(Left, newChildren.First);
+                return new BinTree(Left, newChildren[0]);
             }
             if (Right == null)
             {
-                return new BinTree(newChildren.First, Right);
+                return new BinTree(newChildren[0], Right);
             }
-            return new BinTree(newChildren.First, newChildren.Second);
+            return new BinTree(newChildren[0], newChildren[1]);
         }
-
-        public BinTree RewriteChildren(Func<BinTree, BinTree> transformer)
-            => this.DefaultRewriteChildren(transformer);
     }
 }

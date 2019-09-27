@@ -13,29 +13,36 @@ namespace Sawmill.Xml
         private XElementRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public Children<XElement> GetChildren(XElement value)
-            => value is XContainer c
-                ? Children.Many(c.Elements().ToImmutableList())
-                : Children.None<XElement>();
+        public int CountChildren(XElement value) => value is XContainer c ? c.Elements().Count() : 0;
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public XElement SetChildren(Children<XElement> newChildren, XElement oldValue)
+        public void GetChildren(Span<XElement> children, XElement value)
+        {
+            if (value is XContainer c)
+            {
+                var i = 0;
+                foreach (var e in c.Elements())
+                {
+                    children[i] = e;
+                    i++;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// </summary>
+        public XElement SetChildren(ReadOnlySpan<XElement> newChildren, XElement oldValue)
         {
             var clone = new XElement(oldValue);
             clone.RemoveNodes();
             clone.Add(newChildren.ToArray());
             return clone;
         }
-
-        /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
-        /// </summary>
-        public XElement RewriteChildren(Func<XElement, XElement> transformer, XElement oldValue)
-            => this.DefaultRewriteChildren(transformer, oldValue);
 
         /// <summary>
         /// Gets the single global instance of <see cref="XElementRewriter"/>.

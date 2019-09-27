@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,18 +44,34 @@ namespace Sawmill
 
             IEnumerable<T> Iterator()
             {
+                T[] buffer = null;
                 var stack = new Stack<T>();
                 stack.Push(value);
 
-                while (stack.Count != 0)
+                try
                 {
-                    var x = stack.Pop();
-                    yield return x;
-                    var children = rewriter.GetChildren(x);
-                    for (var i = children.Count - 1; i >= 0; i--)
+                    while (stack.Count != 0)
                     {
-                        stack.Push(children[i]);
+                        var x = stack.Pop();
+                        yield return x;
+
+                        rewriter.WithChildren_(
+                            (children, s) =>
+                            {
+                                for (var i = children.Length - 1; i >= 0; i--)
+                                {
+                                    s.Push(children[i]);
+                                }
+                            },
+                            stack,
+                            x,
+                            ref buffer
+                        );
                     }
+                }
+                finally
+                {
+                    ArrayPool<T>.Shared.Return(buffer);
                 }
             }
             return Iterator();

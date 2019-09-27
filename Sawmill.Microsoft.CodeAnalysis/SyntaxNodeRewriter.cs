@@ -14,25 +14,31 @@ namespace Sawmill.Microsoft.CodeAnalysis
         private SyntaxNodeRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public Children<T> GetChildren(T value)
-            => Children.Many(((IEnumerable<T>)value.ChildNodes()).ToImmutableList());
+        public int CountChildren(T value) => value.ChildNodes().Count();
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public T SetChildren(Children<T> newChildren, T oldValue)
+        public void GetChildren(Span<T> children, T value)
+        {
+            var i = 0;
+            foreach (var child in (IEnumerable<T>)value.ChildNodes())
+            {
+                children[i] = child;
+                i++;
+            }
+        }
+
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// </summary>
+        public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
             => oldValue.ChildNodes()
-                .Zip(newChildren.Many, ValueTuple.Create)
+                .Zip(newChildren.ToArray(), ValueTuple.Create)
                 .Aggregate(oldValue, (x, tup) => x.ReplaceNode(tup.Item1, tup.Item2));
 
-        /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
-        /// </summary>
-        public T RewriteChildren(Func<T, T> transformer, T oldValue)
-            => this.DefaultRewriteChildren(transformer, oldValue);
-        
         /// <summary>
         /// Gets the single global instance of <see cref="SyntaxNodeRewriter{T}"/>.
         /// </summary>

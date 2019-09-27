@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Immutable;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace Sawmill.Newtonsoft.Json
@@ -12,32 +13,42 @@ namespace Sawmill.Newtonsoft.Json
         private JTokenRewriter() {}
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public Children<JToken> GetChildren(JToken value)
+        public int CountChildren(JToken value)
             => value is JContainer c
-                ? Children.Many(c.Children().ToImmutableList())
-                : Children.None<JToken>();
+                ? c.Children().Count()
+                : 0;
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public JToken SetChildren(Children<JToken> newChildren, JToken oldValue)
+        public void GetChildren(Span<JToken> children, JToken value)
         {
-            if (newChildren.NumberOfChildren == NumberOfChildren.None)
+            if (value is JContainer c)
+            {
+                var i = 0;
+                foreach (var child in value.Children())
+                {
+                    children[i] = child;
+                    i++;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// </summary>
+        public JToken SetChildren(ReadOnlySpan<JToken> newChildren, JToken oldValue)
+        {
+            if (newChildren.Length == 0)
             {
                 return oldValue;
             }
             var c = (JContainer)oldValue.DeepClone();
-            c.ReplaceAll(newChildren.Many);
+            c.ReplaceAll(newChildren.ToArray());
             return c;
         }
-
-        /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
-        /// </summary>
-        public JToken RewriteChildren(Func<JToken, JToken> transformer, JToken oldValue)
-            => this.DefaultRewriteChildren(transformer, oldValue);
 
         /// <summary>
         /// Gets the single global instance of <see cref="JTokenRewriter"/>.

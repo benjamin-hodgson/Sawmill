@@ -1,4 +1,5 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,16 +44,25 @@ namespace Sawmill
 
             IEnumerable<T> Iterator()
             {
-                var stack = new Stack<Children<T>.Enumerator>();
+                var stack = new Stack<DescendantsAndSelfFrame<T>>();
 
-                var enumerator = Children.One(value).GetEnumerator();
+                var initialArray = ArrayPool<T>.Shared.Rent(1);
+                initialArray[0] = value;
+                var enumerator = new DescendantsAndSelfFrame<T>(initialArray, 1);
                 do
                 {
                     while (enumerator.MoveNext())
                     {
                         stack.Push(enumerator);
-                        enumerator = rewriter.GetChildren(enumerator.Current).GetEnumerator();
+                        
+                        var count = rewriter.CountChildren(enumerator.Current);
+                        var array = ArrayPool<T>.Shared.Rent(count);
+                        
+                        rewriter.GetChildren(array.AsSpan().Slice(0, count), enumerator.Current);
+
+                        enumerator = new DescendantsAndSelfFrame<T>(array, count);
                     }
+                    enumerator.Dispose();
                     enumerator = stack.Pop();
                     yield return enumerator.Current;
                 }
@@ -60,6 +70,37 @@ namespace Sawmill
             }
 
             return Iterator();
+        }
+
+        private struct DescendantsAndSelfFrame<T>
+        {
+            private T[] _array;
+            private readonly int _count;
+            private int _position;
+
+            public DescendantsAndSelfFrame(T[] array, int count)
+            {
+                _array = array;
+                _count = count;
+                _position = -1;
+            }
+
+            public T Current => _array[_position];
+
+            public bool MoveNext()
+            {
+                _position++;
+                return _position < _count;
+            }
+
+            public void Dispose()
+            {
+                if (_array != null)
+                {
+                    ArrayPool<T>.Shared.Return(_array);
+                    _array = null;
+                }
+            }
         }
     }
 }

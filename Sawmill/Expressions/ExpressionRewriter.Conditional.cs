@@ -1,14 +1,20 @@
-using System.Collections.Immutable;
+using System;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
     public sealed partial class ExpressionRewriter
     {
-        private static Children<Expression> GetChildren(ConditionalExpression c)
-            => Children.Many(ImmutableList<Expression>.Empty.Add(c.Test).Add(c.IfTrue).Add(c.IfFalse));
+        private static int CountChildren(ConditionalExpression c) => 3;
 
-        private static ConditionalExpression SetChildren(Children<Expression> newChildren, ConditionalExpression c)
-            => c.Update(newChildren.Many[0], newChildren.Many[1], newChildren.Many[2]);
+        private static void GetChildren(Span<Expression> children, ConditionalExpression c)
+        {
+            children[0] = c.Test;
+            children[1] = c.IfTrue;
+            children[2] = c.IfFalse;
+        }
+
+        private static ConditionalExpression SetChildren(ReadOnlySpan<Expression> newChildren, ConditionalExpression c)
+            => c.Update(newChildren[0], newChildren[1], newChildren[2]);
     }
 }

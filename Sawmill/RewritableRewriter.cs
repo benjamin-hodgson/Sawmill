@@ -12,43 +12,39 @@ namespace Sawmill
         private RewritableRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public Children<T> GetChildren(T value)
+        public int CountChildren(T value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException(nameof(value));
             }
-            return value.GetChildren();
+            return value.CountChildren();
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(Children{T}, T)"/>
+        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public T SetChildren(Children<T> newChildren, T oldValue)
+        public void GetChildren(Span<T> childrenReceiver, T value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            value.GetChildren(childrenReceiver);
+        }
+
+        /// <summary>
+        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// </summary>
+        public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
         {
             if (oldValue == null)
             {
                 throw new ArgumentNullException(nameof(oldValue));
             }
             return oldValue.SetChildren(newChildren);
-        }
-
-        /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.RewriteChildren(Func{T, T}, T)"/>
-        /// </summary>
-        public T RewriteChildren(Func<T, T> transformer, T oldValue)
-        {
-            if (transformer == null)
-            {
-                throw new ArgumentNullException(nameof(transformer));
-            }
-            if (oldValue == null)
-            {
-                throw new ArgumentNullException(nameof(oldValue));
-            }
-            return oldValue.RewriteChildren(transformer);
         }
 
         /// <summary>
