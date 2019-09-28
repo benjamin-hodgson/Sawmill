@@ -44,9 +44,12 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(rewriter));
             }
             
-            T[] buffer = null;
-            var result = rewriter.WithChildren(children => children.ToArray(), value, ref buffer);
-            ArrayPool<T>.Shared.Return(buffer);
+            var stack = new ChunkStack<T>();
+
+            var result = rewriter.WithChildren(children => children.ToArray(), value, ref stack);
+
+            stack.Dispose();
+            
             return result;
         }
     }

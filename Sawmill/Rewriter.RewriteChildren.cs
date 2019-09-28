@@ -24,8 +24,17 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            T[] buffer = null;
-            var result = rewriter.WithChildren(
+            var stack = new ChunkStack<T>();
+
+            var result = rewriter.RewriteChildrenInternal(transformer, value, ref stack);
+
+            stack.Dispose();
+
+            return result;
+        }
+
+        internal static T RewriteChildrenInternal<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value, ref ChunkStack<T> stack)
+            => rewriter.WithChildren(
                 (children, t) =>
                 {
                     var (r, v, f) = t;
@@ -46,10 +55,7 @@ namespace Sawmill
                 },
                 (rewriter, value, transformer),
                 value,
-                ref buffer
+                ref stack
             );
-            ArrayPool<T>.Shared.Return(buffer);
-            return result;
-        }
     }
 }

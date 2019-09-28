@@ -23,7 +23,7 @@ namespace Sawmill
 
             IEnumerable<T> Iterator()
             {
-                T[] buffer = null;
+                var stack = new ChunkStack<T>();
                 var queue = new Queue<T>();
                 queue.Enqueue(value);
 
@@ -45,13 +45,13 @@ namespace Sawmill
                             },
                             queue,
                             node,
-                            ref buffer
+                            ref stack
                         );
                     }
                 }
                 finally
                 {
-                    ArrayPool<T>.Shared.Return(buffer);
+                    stack.Dispose();
                 }
             }
 

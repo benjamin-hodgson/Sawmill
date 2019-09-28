@@ -35,19 +35,27 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            Func<T, T> transformerDelegate = null;
-            transformerDelegate = Transformer;
-            T Transformer(T x)
+            using (var traversal = new RewriteIterTraversal<T>(rewriter, transformer))
             {
-                var newX = transformer(x);
-                if (!ReferenceEquals(x, newX))
-                {
-                    return Go(newX);
-                }
-                return x;
+                return traversal.Go(value);
             }
-            T Go(T x) => rewriter.Rewrite(transformerDelegate, x);
-            return Go(value);
+        }
+
+        private class RewriteIterTraversal<T> : RewriteTraversal<T>
+        {
+            public RewriteIterTraversal(IRewriter<T> rewriter, Func<T, T> transformer) : base(rewriter, transformer)
+            {
+            }
+
+            protected override T Transform(T value)
+            {
+                var newValue = Transformer(value);
+                if (!ReferenceEquals(value, newValue))
+                {
+                    return Go(newValue);
+                }
+                return value;
+            }
         }
     }
 }

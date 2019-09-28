@@ -1,7 +1,4 @@
 using System;
-using System.Buffers;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Sawmill
 {
@@ -28,22 +25,47 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(func));
             }
 
-            T[] buffer = null;
-            var result = rewriter.WithChildren(
-                children =>
-                {
-                    var array = ArrayPool<U>.Shared.Rent(children.Length);
-                    for (var i = 0; i < children.Length; i++)
-                    {
-                        array[i] = rewriter.Fold(func, children[i]);
-                    }
-                    return func(array.AsSpan().Slice(0, children.Length), value);
-                },
-                value,
-                ref buffer
-            );
-            ArrayPool<T>.Shared.Return(buffer);
+            var closure = new FoldClosure<T, U>(rewriter, func);
+
+            var result = closure.Go(value);
+
+            closure.Dispose();
+            
             return result;
+        }
+
+        private class FoldClosure<T, U> : Traversal<T>
+        {
+            private ChunkStack<U> _results = new ChunkStack<U>();
+            private readonly SpanFunc<U, T, U> _func;
+
+            public FoldClosure(IRewriter<T> rewriter, SpanFunc<U, T, U> func) : base(rewriter)
+            {
+                _func = func;
+            }
+
+            public U Go(T value)
+                => WithChildren(
+                    children =>
+                    {
+                        var span = _results.Allocate(children.Length);
+                        for (var i = 0; i < children.Length; i++)
+                        {
+                            span[i] = Go(children[i]);
+                        }
+                        var result = _func(span, value);
+                        _results.Free(span);
+                        return result;
+                    },
+                    value
+                );
+
+            public override void Dispose()
+            {
+                _results.Dispose();
+                _results = default;
+                base.Dispose();
+            }
         }
     }
 }

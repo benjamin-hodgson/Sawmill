@@ -44,7 +44,7 @@ namespace Sawmill
 
             IEnumerable<T> Iterator()
             {
-                T[] buffer = null;
+                var chunkStack = new ChunkStack<T>();
                 var stack = new Stack<T>();
                 stack.Push(value);
 
@@ -65,13 +65,13 @@ namespace Sawmill
                             },
                             stack,
                             x,
-                            ref buffer
+                            ref chunkStack
                         );
                     }
                 }
                 finally
                 {
-                    ArrayPool<T>.Shared.Return(buffer);
+                    chunkStack.Dispose();
                 }
             }
             return Iterator();

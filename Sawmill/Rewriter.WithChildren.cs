@@ -1,91 +1,52 @@
-using System;
-using System.Buffers;
-
 namespace Sawmill
 {
     public static partial class Rewriter
     {
-        private static void WithChildren_<T>(this IRewriter<T> rewriter, SpanAction<T> action, T value, ref T[] buffer)
+        internal static void WithChildren_<T>(this IRewriter<T> rewriter, SpanAction<T> action, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-
-            if (buffer == null)
-            {
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            if (buffer.Length < count)
-            {
-                ArrayPool<T>.Shared.Return(buffer);
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            var span = buffer.AsSpan().Slice(0, count);
+            var span = chunks.Allocate(count);
 
             rewriter.GetChildren(span, value);
-
             action(span);
+
+            chunks.Free(span);
         }
 
-        private static void WithChildren_<T, U>(this IRewriter<T> rewriter, SpanAction<T, U> action, U ctx, T value, ref T[] buffer)
+        internal static void WithChildren_<T, U>(this IRewriter<T> rewriter, SpanAction<T, U> action, U ctx, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-
-            if (buffer == null)
-            {
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            if (buffer.Length < count)
-            {
-                ArrayPool<T>.Shared.Return(buffer);
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            var span = buffer.AsSpan().Slice(0, count);
+            var span = chunks.Allocate(count);
 
             rewriter.GetChildren(span, value);
-
             action(span, ctx);
+            
+            chunks.Free(span);
         }
 
-        
 
-
-        private static R WithChildren<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, ref T[] buffer)
+        internal static R WithChildren<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-
-            if (buffer == null)
-            {
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            if (buffer.Length < count)
-            {
-                ArrayPool<T>.Shared.Return(buffer);
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            var span = buffer.AsSpan().Slice(0, count);
+            var span = chunks.Allocate(count);
 
             rewriter.GetChildren(span, value);
+            var result = action(span);
 
-            return action(span);
+            chunks.Free(span);
+            return result;
         }
 
-        private static R WithChildren<T, U,R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, ref T[] buffer)
+        internal static R WithChildren<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-
-            if (buffer == null)
-            {
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            if (buffer.Length < count)
-            {
-                ArrayPool<T>.Shared.Return(buffer);
-                buffer = ArrayPool<T>.Shared.Rent(count);
-            }
-            var span = buffer.AsSpan().Slice(0, count);
+            var span = chunks.Allocate(count);
 
             rewriter.GetChildren(span, value);
+            var result = action(span, ctx);
 
-            return action(span, ctx);
+            chunks.Free(span);
+            return result;
         }
     }
 }

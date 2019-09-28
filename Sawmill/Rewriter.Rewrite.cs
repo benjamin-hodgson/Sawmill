@@ -51,13 +51,26 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            // todo: can we use a shared stack for the intermediate children
-            // so that RewriteChildren doesn't have to repeatedly rent arrays from the pool?
-            Func<T, T> goDelegate = null;
-            goDelegate = Go;
-            T Go(T x) => transformer(rewriter.RewriteChildren(goDelegate, x));
+            using (var traversal = new RewriteTraversal<T>(rewriter, transformer))
+            {
+                return traversal.Go(value);
+            }
+        }
 
-            return Go(value);
+        private class RewriteTraversal<T> : Traversal<T>
+        {
+            protected Func<T, T> Transformer { get; }
+
+            public RewriteTraversal(IRewriter<T> rewriter, Func<T, T> transformer) : base(rewriter)
+            {
+                Transformer = transformer;
+            }
+
+            public T Go(T value)
+                => Transform(RewriteChildren(Go, value));
+            
+            protected virtual T Transform(T value)
+                => Transformer(value);
         }
     }
 }

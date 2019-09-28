@@ -28,7 +28,8 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(rewriter));
             }
 
-            T[] buffer = null;
+            var stack = new ChunkStack<T>();
+
             var result = rewriter.WithChildren(
                 (children, tup) =>
                 {
@@ -45,9 +46,11 @@ namespace Sawmill
                 },
                 (rewriter, value),
                 value,
-                ref buffer
+                ref stack
             );
-            ArrayPool<T>.Shared.Return(buffer);
+
+            stack.Dispose();
+            
             return result;
         }
 
