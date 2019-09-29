@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 
 namespace Sawmill
 {
@@ -17,7 +18,8 @@ namespace Sawmill
             rewriter.GetChildren(span, value);
             action(span);
 
-            ReturnSpan(span, ref chunks, ref four);
+            ReleaseSpan(span, ref chunks);
+            KeepAlive(ref four);
         }
 
         internal static void WithChildren_<T, U>(this IRewriter<T> rewriter, SpanAction<T, U> action, U ctx, T value, ref ChunkStack<T> chunks)
@@ -30,7 +32,8 @@ namespace Sawmill
             rewriter.GetChildren(span, value);
             action(span, ctx);
             
-            ReturnSpan(span, ref chunks, ref four);
+            ReleaseSpan(span, ref chunks);
+            KeepAlive(ref four);
         }
 
 
@@ -44,7 +47,8 @@ namespace Sawmill
             rewriter.GetChildren(span, value);
             var result = action(span);
 
-            ReturnSpan(span, ref chunks, ref four);
+            ReleaseSpan(span, ref chunks);
+            KeepAlive(ref four);
             return result;
         }
 
@@ -58,7 +62,8 @@ namespace Sawmill
             rewriter.GetChildren(span, value);
             var result = action(span, ctx);
 
-            ReturnSpan(span, ref chunks, ref four);
+            ReleaseSpan(span, ref chunks);
+            KeepAlive(ref four);
             return result;
         }
 
@@ -79,26 +84,30 @@ namespace Sawmill
             }
             else if (count <= 4)
             {
-                return SpanConstructor<T>.Create(ref four.First, count);
+                return SpanFactory<T>.Create(ref four.First, count);
             }
             else
             {
                 return chunks.Allocate(count);
             }
         }
-        private static void ReturnSpan<T>(Span<T> span, ref ChunkStack<T> chunks, ref StackallocFour<T> four)
+        private static void ReleaseSpan<T>(Span<T> span, ref ChunkStack<T> chunks)
         {
             if (span.Length > 4)
             {
                 chunks.Free(span);
             }
         }
-        private static class SpanConstructor<T>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static void KeepAlive<T>(ref StackallocFour<T> four)
+        {
+        }
+        private static class SpanFactory<T>
         {
             private delegate Span<T> SpanCtor(ref T value, int length);
             private static readonly SpanCtor _spanCtor;
 
-            static SpanConstructor()
+            static SpanFactory()
             {
                 var ctor = typeof(Span<T>)
                     .GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
@@ -115,6 +124,7 @@ namespace Sawmill
                 _spanCtor = (SpanCtor)method.CreateDelegate(typeof(SpanCtor));
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static Span<T> Create(ref T value, int length)
                 => _spanCtor(ref value, length);
         }
