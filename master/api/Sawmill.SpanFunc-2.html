@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Sawmill.Expressions
+    <title>Delegate SpanFunc&lt;T, R&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Sawmill.Expressions
+    <meta name="title" content="Delegate SpanFunc&lt;T, R&gt;
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -68,21 +68,74 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Sawmill.Expressions">
+            <article class="content wrap" id="_content" data-uid="Sawmill.SpanFunc`2">
   
-  <h1 id="Sawmill_Expressions" data-uid="Sawmill.Expressions" class="text-break">Namespace Sawmill.Expressions
+  
+  <h1 id="Sawmill_SpanFunc_2" data-uid="Sawmill.SpanFunc`2" class="text-break">Delegate SpanFunc&lt;T, R&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func&lt;T,TResult&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
-  </h3>
-      <h4><a class="xref" href="Sawmill.Expressions.ExpressionExtensions.html">ExpressionExtensions</a></h4>
-      <section><p>Extension methods for <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>s.</p>
-</section>
-      <h4><a class="xref" href="Sawmill.Expressions.ExpressionRewriter.html">ExpressionRewriter</a></h4>
-      <section><p>An implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> for <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>s.</p>
-</section>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Sawmill.html">Sawmill</a></h6>
+  <h6><strong>Assembly</strong>: Sawmill.dll</h6>
+  <h5 id="Sawmill_SpanFunc_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public delegate R SpanFunc&lt;T, out R&gt;(Span&lt;T&gt; span);</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</td>
+        <td><span class="parametername">span</span></td>
+        <td><p>The span</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">R</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of elements in the span</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">R</span></td>
+        <td><p>The return type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -90,6 +143,12 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_SpanFunc_2.md&amp;value=---%0Auid%3A%20Sawmill.SpanFunc%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/SpanFunc.cs/#L28" class="contribution-link">View Source</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

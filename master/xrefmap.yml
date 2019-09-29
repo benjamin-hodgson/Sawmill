@@ -16,14 +16,32 @@ references:
   fullName.vb: Sawmill.AutoRewriter(Of T)
   nameWithType: AutoRewriter<T>
   nameWithType.vb: AutoRewriter(Of T)
-- uid: Sawmill.AutoRewriter`1.GetChildren(`0)
-  name: GetChildren(T)
-  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_GetChildren__0_
-  commentId: M:Sawmill.AutoRewriter`1.GetChildren(`0)
-  fullName: Sawmill.AutoRewriter<T>.GetChildren(T)
-  fullName.vb: Sawmill.AutoRewriter(Of T).GetChildren(T)
-  nameWithType: AutoRewriter<T>.GetChildren(T)
-  nameWithType.vb: AutoRewriter(Of T).GetChildren(T)
+- uid: Sawmill.AutoRewriter`1.CountChildren(`0)
+  name: CountChildren(T)
+  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_CountChildren__0_
+  commentId: M:Sawmill.AutoRewriter`1.CountChildren(`0)
+  fullName: Sawmill.AutoRewriter<T>.CountChildren(T)
+  fullName.vb: Sawmill.AutoRewriter(Of T).CountChildren(T)
+  nameWithType: AutoRewriter<T>.CountChildren(T)
+  nameWithType.vb: AutoRewriter(Of T).CountChildren(T)
+- uid: Sawmill.AutoRewriter`1.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_CountChildren_
+  commentId: Overload:Sawmill.AutoRewriter`1.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.AutoRewriter<T>.CountChildren
+  fullName.vb: Sawmill.AutoRewriter(Of T).CountChildren
+  nameWithType: AutoRewriter<T>.CountChildren
+  nameWithType.vb: AutoRewriter(Of T).CountChildren
+- uid: Sawmill.AutoRewriter`1.GetChildren(System.Span{`0},`0)
+  name: GetChildren(Span<T>, T)
+  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_GetChildren_System_Span__0___0_
+  commentId: M:Sawmill.AutoRewriter`1.GetChildren(System.Span{`0},`0)
+  name.vb: GetChildren(Span(Of T), T)
+  fullName: Sawmill.AutoRewriter<T>.GetChildren(System.Span<T>, T)
+  fullName.vb: Sawmill.AutoRewriter(Of T).GetChildren(System.Span(Of T), T)
+  nameWithType: AutoRewriter<T>.GetChildren(Span<T>, T)
+  nameWithType.vb: AutoRewriter(Of T).GetChildren(Span(Of T), T)
 - uid: Sawmill.AutoRewriter`1.GetChildren*
   name: GetChildren
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_GetChildren_
@@ -50,33 +68,15 @@ references:
   fullName.vb: Sawmill.AutoRewriter(Of T).Instance
   nameWithType: AutoRewriter<T>.Instance
   nameWithType.vb: AutoRewriter(Of T).Instance
-- uid: Sawmill.AutoRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name: RewriteChildren(Func<T, T>, T)
-  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_RewriteChildren_System_Func__0__0___0_
-  commentId: M:Sawmill.AutoRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name.vb: RewriteChildren(Func(Of T, T), T)
-  fullName: Sawmill.AutoRewriter<T>.RewriteChildren(System.Func<T, T>, T)
-  fullName.vb: Sawmill.AutoRewriter(Of T).RewriteChildren(System.Func(Of T, T), T)
-  nameWithType: AutoRewriter<T>.RewriteChildren(Func<T, T>, T)
-  nameWithType.vb: AutoRewriter(Of T).RewriteChildren(Func(Of T, T), T)
-- uid: Sawmill.AutoRewriter`1.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_RewriteChildren_
-  commentId: Overload:Sawmill.AutoRewriter`1.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.AutoRewriter<T>.RewriteChildren
-  fullName.vb: Sawmill.AutoRewriter(Of T).RewriteChildren
-  nameWithType: AutoRewriter<T>.RewriteChildren
-  nameWithType.vb: AutoRewriter(Of T).RewriteChildren
-- uid: Sawmill.AutoRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name: SetChildren(Children<T>, T)
-  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_SetChildren_Sawmill_Children__0___0_
-  commentId: M:Sawmill.AutoRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name.vb: SetChildren(Children(Of T), T)
-  fullName: Sawmill.AutoRewriter<T>.SetChildren(Sawmill.Children<T>, T)
-  fullName.vb: Sawmill.AutoRewriter(Of T).SetChildren(Sawmill.Children(Of T), T)
-  nameWithType: AutoRewriter<T>.SetChildren(Children<T>, T)
-  nameWithType.vb: AutoRewriter(Of T).SetChildren(Children(Of T), T)
+- uid: Sawmill.AutoRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name: SetChildren(ReadOnlySpan<T>, T)
+  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_SetChildren_System_ReadOnlySpan__0___0_
+  commentId: M:Sawmill.AutoRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name.vb: SetChildren(ReadOnlySpan(Of T), T)
+  fullName: Sawmill.AutoRewriter<T>.SetChildren(System.ReadOnlySpan<T>, T)
+  fullName.vb: Sawmill.AutoRewriter(Of T).SetChildren(System.ReadOnlySpan(Of T), T)
+  nameWithType: AutoRewriter<T>.SetChildren(ReadOnlySpan<T>, T)
+  nameWithType.vb: AutoRewriter(Of T).SetChildren(ReadOnlySpan(Of T), T)
 - uid: Sawmill.AutoRewriter`1.SetChildren*
   name: SetChildren
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_SetChildren_
@@ -86,893 +86,6 @@ references:
   fullName.vb: Sawmill.AutoRewriter(Of T).SetChildren
   nameWithType: AutoRewriter<T>.SetChildren
   nameWithType.vb: AutoRewriter(Of T).SetChildren
-- uid: Sawmill.Children
-  name: Children
-  href: api/Sawmill.Children.html
-  commentId: T:Sawmill.Children
-  fullName: Sawmill.Children
-  nameWithType: Children
-- uid: Sawmill.Children.Many*
-  name: Many
-  href: api/Sawmill.Children.html#Sawmill_Children_Many_
-  commentId: Overload:Sawmill.Children.Many
-  isSpec: "True"
-  fullName: Sawmill.Children.Many
-  nameWithType: Children.Many
-- uid: Sawmill.Children.Many``1(System.Collections.Immutable.ImmutableList{``0})
-  name: Many<T>(ImmutableList<T>)
-  href: api/Sawmill.Children.html#Sawmill_Children_Many__1_System_Collections_Immutable_ImmutableList___0__
-  commentId: M:Sawmill.Children.Many``1(System.Collections.Immutable.ImmutableList{``0})
-  name.vb: Many(Of T)(ImmutableList(Of T))
-  fullName: Sawmill.Children.Many<T>(System.Collections.Immutable.ImmutableList<T>)
-  fullName.vb: Sawmill.Children.Many(Of T)(System.Collections.Immutable.ImmutableList(Of T))
-  nameWithType: Children.Many<T>(ImmutableList<T>)
-  nameWithType.vb: Children.Many(Of T)(ImmutableList(Of T))
-- uid: Sawmill.Children.None*
-  name: None
-  href: api/Sawmill.Children.html#Sawmill_Children_None_
-  commentId: Overload:Sawmill.Children.None
-  isSpec: "True"
-  fullName: Sawmill.Children.None
-  nameWithType: Children.None
-- uid: Sawmill.Children.None``1
-  name: None<T>()
-  href: api/Sawmill.Children.html#Sawmill_Children_None__1
-  commentId: M:Sawmill.Children.None``1
-  name.vb: None(Of T)()
-  fullName: Sawmill.Children.None<T>()
-  fullName.vb: Sawmill.Children.None(Of T)()
-  nameWithType: Children.None<T>()
-  nameWithType.vb: Children.None(Of T)()
-- uid: Sawmill.Children.One*
-  name: One
-  href: api/Sawmill.Children.html#Sawmill_Children_One_
-  commentId: Overload:Sawmill.Children.One
-  isSpec: "True"
-  fullName: Sawmill.Children.One
-  nameWithType: Children.One
-- uid: Sawmill.Children.One``1(``0)
-  name: One<T>(T)
-  href: api/Sawmill.Children.html#Sawmill_Children_One__1___0_
-  commentId: M:Sawmill.Children.One``1(``0)
-  name.vb: One(Of T)(T)
-  fullName: Sawmill.Children.One<T>(T)
-  fullName.vb: Sawmill.Children.One(Of T)(T)
-  nameWithType: Children.One<T>(T)
-  nameWithType.vb: Children.One(Of T)(T)
-- uid: Sawmill.Children.Two*
-  name: Two
-  href: api/Sawmill.Children.html#Sawmill_Children_Two_
-  commentId: Overload:Sawmill.Children.Two
-  isSpec: "True"
-  fullName: Sawmill.Children.Two
-  nameWithType: Children.Two
-- uid: Sawmill.Children.Two``1(``0,``0)
-  name: Two<T>(T, T)
-  href: api/Sawmill.Children.html#Sawmill_Children_Two__1___0___0_
-  commentId: M:Sawmill.Children.Two``1(``0,``0)
-  name.vb: Two(Of T)(T, T)
-  fullName: Sawmill.Children.Two<T>(T, T)
-  fullName.vb: Sawmill.Children.Two(Of T)(T, T)
-  nameWithType: Children.Two<T>(T, T)
-  nameWithType.vb: Children.Two(Of T)(T, T)
-- uid: Sawmill.Children`1
-  name: Children<T>
-  href: api/Sawmill.Children-1.html
-  commentId: T:Sawmill.Children`1
-  name.vb: Children(Of T)
-  fullName: Sawmill.Children<T>
-  fullName.vb: Sawmill.Children(Of T)
-  nameWithType: Children<T>
-  nameWithType.vb: Children(Of T)
-- uid: Sawmill.Children`1.Add(`0)
-  name: Add(T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Add__0_
-  commentId: M:Sawmill.Children`1.Add(`0)
-  fullName: Sawmill.Children<T>.Add(T)
-  fullName.vb: Sawmill.Children(Of T).Add(T)
-  nameWithType: Children<T>.Add(T)
-  nameWithType.vb: Children(Of T).Add(T)
-- uid: Sawmill.Children`1.Add*
-  name: Add
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Add_
-  commentId: Overload:Sawmill.Children`1.Add
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Add
-  fullName.vb: Sawmill.Children(Of T).Add
-  nameWithType: Children<T>.Add
-  nameWithType.vb: Children(Of T).Add
-- uid: Sawmill.Children`1.AddRange(System.Collections.Generic.IEnumerable{`0})
-  name: AddRange(IEnumerable<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_AddRange_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Sawmill.Children`1.AddRange(System.Collections.Generic.IEnumerable{`0})
-  name.vb: AddRange(IEnumerable(Of T))
-  fullName: Sawmill.Children<T>.AddRange(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Sawmill.Children(Of T).AddRange(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: Children<T>.AddRange(IEnumerable<T>)
-  nameWithType.vb: Children(Of T).AddRange(IEnumerable(Of T))
-- uid: Sawmill.Children`1.AddRange*
-  name: AddRange
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_AddRange_
-  commentId: Overload:Sawmill.Children`1.AddRange
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.AddRange
-  fullName.vb: Sawmill.Children(Of T).AddRange
-  nameWithType: Children<T>.AddRange
-  nameWithType.vb: Children(Of T).AddRange
-- uid: Sawmill.Children`1.Clear
-  name: Clear()
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Clear
-  commentId: M:Sawmill.Children`1.Clear
-  fullName: Sawmill.Children<T>.Clear()
-  fullName.vb: Sawmill.Children(Of T).Clear()
-  nameWithType: Children<T>.Clear()
-  nameWithType.vb: Children(Of T).Clear()
-- uid: Sawmill.Children`1.Clear*
-  name: Clear
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Clear_
-  commentId: Overload:Sawmill.Children`1.Clear
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Clear
-  fullName.vb: Sawmill.Children(Of T).Clear
-  nameWithType: Children<T>.Clear
-  nameWithType.vb: Children(Of T).Clear
-- uid: Sawmill.Children`1.Count
-  name: Count
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Count
-  commentId: P:Sawmill.Children`1.Count
-  fullName: Sawmill.Children<T>.Count
-  fullName.vb: Sawmill.Children(Of T).Count
-  nameWithType: Children<T>.Count
-  nameWithType.vb: Children(Of T).Count
-- uid: Sawmill.Children`1.Count*
-  name: Count
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Count_
-  commentId: Overload:Sawmill.Children`1.Count
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Count
-  fullName.vb: Sawmill.Children(Of T).Count
-  nameWithType: Children<T>.Count
-  nameWithType.vb: Children(Of T).Count
-- uid: Sawmill.Children`1.Enumerator
-  name: Children<T>.Enumerator
-  href: api/Sawmill.Children-1.Enumerator.html
-  commentId: T:Sawmill.Children`1.Enumerator
-  name.vb: Children(Of T).Enumerator
-  fullName: Sawmill.Children<T>.Enumerator
-  fullName.vb: Sawmill.Children(Of T).Enumerator
-  nameWithType: Children<T>.Enumerator
-  nameWithType.vb: Children(Of T).Enumerator
-- uid: Sawmill.Children`1.Enumerator.Current
-  name: Current
-  href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_Current
-  commentId: P:Sawmill.Children`1.Enumerator.Current
-  fullName: Sawmill.Children<T>.Enumerator.Current
-  fullName.vb: Sawmill.Children(Of T).Enumerator.Current
-  nameWithType: Children<T>.Enumerator.Current
-  nameWithType.vb: Children(Of T).Enumerator.Current
-- uid: Sawmill.Children`1.Enumerator.Current*
-  name: Current
-  href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_Current_
-  commentId: Overload:Sawmill.Children`1.Enumerator.Current
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Enumerator.Current
-  fullName.vb: Sawmill.Children(Of T).Enumerator.Current
-  nameWithType: Children<T>.Enumerator.Current
-  nameWithType.vb: Children(Of T).Enumerator.Current
-- uid: Sawmill.Children`1.Enumerator.Dispose
-  name: Dispose()
-  href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_Dispose
-  commentId: M:Sawmill.Children`1.Enumerator.Dispose
-  fullName: Sawmill.Children<T>.Enumerator.Dispose()
-  fullName.vb: Sawmill.Children(Of T).Enumerator.Dispose()
-  nameWithType: Children<T>.Enumerator.Dispose()
-  nameWithType.vb: Children(Of T).Enumerator.Dispose()
-- uid: Sawmill.Children`1.Enumerator.Dispose*
-  name: Dispose
-  href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_Dispose_
-  commentId: Overload:Sawmill.Children`1.Enumerator.Dispose
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Enumerator.Dispose
-  fullName.vb: Sawmill.Children(Of T).Enumerator.Dispose
-  nameWithType: Children<T>.Enumerator.Dispose
-  nameWithType.vb: Children(Of T).Enumerator.Dispose
-- uid: Sawmill.Children`1.Enumerator.MoveNext
-  name: MoveNext()
-  href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_MoveNext
-  commentId: M:Sawmill.Children`1.Enumerator.MoveNext
-  fullName: Sawmill.Children<T>.Enumerator.MoveNext()
-  fullName.vb: Sawmill.Children(Of T).Enumerator.MoveNext()
-  nameWithType: Children<T>.Enumerator.MoveNext()
-  nameWithType.vb: Children(Of T).Enumerator.MoveNext()
-- uid: Sawmill.Children`1.Enumerator.MoveNext*
-  name: MoveNext
-  href: api/Sawmill.Children-1.Enumerator.html#Sawmill_Children_1_Enumerator_MoveNext_
-  commentId: Overload:Sawmill.Children`1.Enumerator.MoveNext
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Enumerator.MoveNext
-  fullName.vb: Sawmill.Children(Of T).Enumerator.MoveNext
-  nameWithType: Children<T>.Enumerator.MoveNext
-  nameWithType.vb: Children(Of T).Enumerator.MoveNext
-- uid: Sawmill.Children`1.First
-  name: First
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_First
-  commentId: P:Sawmill.Children`1.First
-  fullName: Sawmill.Children<T>.First
-  fullName.vb: Sawmill.Children(Of T).First
-  nameWithType: Children<T>.First
-  nameWithType.vb: Children(Of T).First
-- uid: Sawmill.Children`1.First*
-  name: First
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_First_
-  commentId: Overload:Sawmill.Children`1.First
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.First
-  fullName.vb: Sawmill.Children(Of T).First
-  nameWithType: Children<T>.First
-  nameWithType.vb: Children(Of T).First
-- uid: Sawmill.Children`1.GetEnumerator
-  name: GetEnumerator()
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_GetEnumerator
-  commentId: M:Sawmill.Children`1.GetEnumerator
-  fullName: Sawmill.Children<T>.GetEnumerator()
-  fullName.vb: Sawmill.Children(Of T).GetEnumerator()
-  nameWithType: Children<T>.GetEnumerator()
-  nameWithType.vb: Children(Of T).GetEnumerator()
-- uid: Sawmill.Children`1.GetEnumerator*
-  name: GetEnumerator
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_GetEnumerator_
-  commentId: Overload:Sawmill.Children`1.GetEnumerator
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.GetEnumerator
-  fullName.vb: Sawmill.Children(Of T).GetEnumerator
-  nameWithType: Children<T>.GetEnumerator
-  nameWithType.vb: Children(Of T).GetEnumerator
-- uid: Sawmill.Children`1.IndexOf(`0,System.Int32,System.Int32,System.Collections.Generic.IEqualityComparer{`0})
-  name: IndexOf(T, Int32, Int32, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_IndexOf__0_System_Int32_System_Int32_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.IndexOf(`0,System.Int32,System.Int32,System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: IndexOf(T, Int32, Int32, IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.IndexOf(T, System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).IndexOf(T, System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.IndexOf(T, Int32, Int32, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).IndexOf(T, Int32, Int32, IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.IndexOf*
-  name: IndexOf
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_IndexOf_
-  commentId: Overload:Sawmill.Children`1.IndexOf
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.IndexOf
-  fullName.vb: Sawmill.Children(Of T).IndexOf
-  nameWithType: Children<T>.IndexOf
-  nameWithType.vb: Children(Of T).IndexOf
-- uid: Sawmill.Children`1.Insert(System.Int32,`0)
-  name: Insert(Int32, T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Insert_System_Int32__0_
-  commentId: M:Sawmill.Children`1.Insert(System.Int32,`0)
-  fullName: Sawmill.Children<T>.Insert(System.Int32, T)
-  fullName.vb: Sawmill.Children(Of T).Insert(System.Int32, T)
-  nameWithType: Children<T>.Insert(Int32, T)
-  nameWithType.vb: Children(Of T).Insert(Int32, T)
-- uid: Sawmill.Children`1.Insert*
-  name: Insert
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Insert_
-  commentId: Overload:Sawmill.Children`1.Insert
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Insert
-  fullName.vb: Sawmill.Children(Of T).Insert
-  nameWithType: Children<T>.Insert
-  nameWithType.vb: Children(Of T).Insert
-- uid: Sawmill.Children`1.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{`0})
-  name: InsertRange(Int32, IEnumerable<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_InsertRange_System_Int32_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Sawmill.Children`1.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{`0})
-  name.vb: InsertRange(Int32, IEnumerable(Of T))
-  fullName: Sawmill.Children<T>.InsertRange(System.Int32, System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Sawmill.Children(Of T).InsertRange(System.Int32, System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: Children<T>.InsertRange(Int32, IEnumerable<T>)
-  nameWithType.vb: Children(Of T).InsertRange(Int32, IEnumerable(Of T))
-- uid: Sawmill.Children`1.InsertRange*
-  name: InsertRange
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_InsertRange_
-  commentId: Overload:Sawmill.Children`1.InsertRange
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.InsertRange
-  fullName.vb: Sawmill.Children(Of T).InsertRange
-  nameWithType: Children<T>.InsertRange
-  nameWithType.vb: Children(Of T).InsertRange
-- uid: Sawmill.Children`1.Item(System.Int32)
-  name: Item[Int32]
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Item_System_Int32_
-  commentId: P:Sawmill.Children`1.Item(System.Int32)
-  name.vb: Item(Int32)
-  fullName: Sawmill.Children<T>.Item[System.Int32]
-  fullName.vb: Sawmill.Children(Of T).Item(System.Int32)
-  nameWithType: Children<T>.Item[Int32]
-  nameWithType.vb: Children(Of T).Item(Int32)
-- uid: Sawmill.Children`1.Item*
-  name: Item
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Item_
-  commentId: Overload:Sawmill.Children`1.Item
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Item
-  fullName.vb: Sawmill.Children(Of T).Item
-  nameWithType: Children<T>.Item
-  nameWithType.vb: Children(Of T).Item
-- uid: Sawmill.Children`1.LastIndexOf(`0,System.Int32,System.Int32,System.Collections.Generic.IEqualityComparer{`0})
-  name: LastIndexOf(T, Int32, Int32, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_LastIndexOf__0_System_Int32_System_Int32_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.LastIndexOf(`0,System.Int32,System.Int32,System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: LastIndexOf(T, Int32, Int32, IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.LastIndexOf(T, System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).LastIndexOf(T, System.Int32, System.Int32, System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.LastIndexOf(T, Int32, Int32, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).LastIndexOf(T, Int32, Int32, IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.LastIndexOf*
-  name: LastIndexOf
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_LastIndexOf_
-  commentId: Overload:Sawmill.Children`1.LastIndexOf
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.LastIndexOf
-  fullName.vb: Sawmill.Children(Of T).LastIndexOf
-  nameWithType: Children<T>.LastIndexOf
-  nameWithType.vb: Children(Of T).LastIndexOf
-- uid: Sawmill.Children`1.Many
-  name: Many
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Many
-  commentId: P:Sawmill.Children`1.Many
-  fullName: Sawmill.Children<T>.Many
-  fullName.vb: Sawmill.Children(Of T).Many
-  nameWithType: Children<T>.Many
-  nameWithType.vb: Children(Of T).Many
-- uid: Sawmill.Children`1.Many*
-  name: Many
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Many_
-  commentId: Overload:Sawmill.Children`1.Many
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Many
-  fullName.vb: Sawmill.Children(Of T).Many
-  nameWithType: Children<T>.Many
-  nameWithType.vb: Children(Of T).Many
-- uid: Sawmill.Children`1.NumberOfChildren
-  name: NumberOfChildren
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren
-  commentId: P:Sawmill.Children`1.NumberOfChildren
-  fullName: Sawmill.Children<T>.NumberOfChildren
-  fullName.vb: Sawmill.Children(Of T).NumberOfChildren
-  nameWithType: Children<T>.NumberOfChildren
-  nameWithType.vb: Children(Of T).NumberOfChildren
-- uid: Sawmill.Children`1.NumberOfChildren*
-  name: NumberOfChildren
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren_
-  commentId: Overload:Sawmill.Children`1.NumberOfChildren
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.NumberOfChildren
-  fullName.vb: Sawmill.Children(Of T).NumberOfChildren
-  nameWithType: Children<T>.NumberOfChildren
-  nameWithType.vb: Children(Of T).NumberOfChildren
-- uid: Sawmill.Children`1.op_Implicit(`0)~Sawmill.Children{`0}
-  name: Implicit(T to Children<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit__0__Sawmill_Children__0_
-  commentId: M:Sawmill.Children`1.op_Implicit(`0)~Sawmill.Children{`0}
-  name.vb: Widening(T to Children(Of T))
-  fullName: Sawmill.Children<T>.Implicit(T to Sawmill.Children<T>)
-  fullName.vb: Sawmill.Children(Of T).Widening(T to Sawmill.Children(Of T))
-  nameWithType: Children<T>.Implicit(T to Children<T>)
-  nameWithType.vb: Children(Of T).Widening(T to Children(Of T))
-- uid: Sawmill.Children`1.op_Implicit(System.Collections.Immutable.ImmutableList{`0})~Sawmill.Children{`0}
-  name: Implicit(ImmutableList<T> to Children<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_System_Collections_Immutable_ImmutableList__0___Sawmill_Children__0_
-  commentId: M:Sawmill.Children`1.op_Implicit(System.Collections.Immutable.ImmutableList{`0})~Sawmill.Children{`0}
-  name.vb: Widening(ImmutableList(Of T) to Children(Of T))
-  fullName: Sawmill.Children<T>.Implicit(System.Collections.Immutable.ImmutableList<T> to Sawmill.Children<T>)
-  fullName.vb: Sawmill.Children(Of T).Widening(System.Collections.Immutable.ImmutableList(Of T) to Sawmill.Children(Of T))
-  nameWithType: Children<T>.Implicit(ImmutableList<T> to Children<T>)
-  nameWithType.vb: Children(Of T).Widening(ImmutableList(Of T) to Children(Of T))
-- uid: Sawmill.Children`1.op_Implicit(System.ValueTuple{`0,`0})~Sawmill.Children{`0}
-  name: Implicit((T, T) to Children<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_System_ValueTuple__0__0___Sawmill_Children__0_
-  commentId: M:Sawmill.Children`1.op_Implicit(System.ValueTuple{`0,`0})~Sawmill.Children{`0}
-  name.vb: Widening((T, T) to Children(Of T))
-  fullName: Sawmill.Children<T>.Implicit(System.ValueTuple<T, T> to Sawmill.Children<T>)
-  fullName.vb: Sawmill.Children(Of T).Widening(System.ValueTuple(Of T, T) to Sawmill.Children(Of T))
-  nameWithType: Children<T>.Implicit((T, T) to Children<T>)
-  nameWithType.vb: Children(Of T).Widening((T, T) to Children(Of T))
-- uid: Sawmill.Children`1.op_Implicit*
-  name: Implicit
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_op_Implicit_
-  commentId: Overload:Sawmill.Children`1.op_Implicit
-  isSpec: "True"
-  name.vb: Widening
-  fullName: Sawmill.Children<T>.Implicit
-  fullName.vb: Sawmill.Children(Of T).Widening
-  nameWithType: Children<T>.Implicit
-  nameWithType.vb: Children(Of T).Widening
-- uid: Sawmill.Children`1.Remove(`0)
-  name: Remove(T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Remove__0_
-  commentId: M:Sawmill.Children`1.Remove(`0)
-  fullName: Sawmill.Children<T>.Remove(T)
-  fullName.vb: Sawmill.Children(Of T).Remove(T)
-  nameWithType: Children<T>.Remove(T)
-  nameWithType.vb: Children(Of T).Remove(T)
-- uid: Sawmill.Children`1.Remove(`0,System.Collections.Generic.IEqualityComparer{`0})
-  name: Remove(T, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Remove__0_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.Remove(`0,System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: Remove(T, IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.Remove(T, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).Remove(T, System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.Remove(T, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).Remove(T, IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.Remove*
-  name: Remove
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Remove_
-  commentId: Overload:Sawmill.Children`1.Remove
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Remove
-  fullName.vb: Sawmill.Children(Of T).Remove
-  nameWithType: Children<T>.Remove
-  nameWithType.vb: Children(Of T).Remove
-- uid: Sawmill.Children`1.RemoveAll(System.Predicate{`0})
-  name: RemoveAll(Predicate<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveAll_System_Predicate__0__
-  commentId: M:Sawmill.Children`1.RemoveAll(System.Predicate{`0})
-  name.vb: RemoveAll(Predicate(Of T))
-  fullName: Sawmill.Children<T>.RemoveAll(System.Predicate<T>)
-  fullName.vb: Sawmill.Children(Of T).RemoveAll(System.Predicate(Of T))
-  nameWithType: Children<T>.RemoveAll(Predicate<T>)
-  nameWithType.vb: Children(Of T).RemoveAll(Predicate(Of T))
-- uid: Sawmill.Children`1.RemoveAll*
-  name: RemoveAll
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveAll_
-  commentId: Overload:Sawmill.Children`1.RemoveAll
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.RemoveAll
-  fullName.vb: Sawmill.Children(Of T).RemoveAll
-  nameWithType: Children<T>.RemoveAll
-  nameWithType.vb: Children(Of T).RemoveAll
-- uid: Sawmill.Children`1.RemoveAt(System.Int32)
-  name: RemoveAt(Int32)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveAt_System_Int32_
-  commentId: M:Sawmill.Children`1.RemoveAt(System.Int32)
-  fullName: Sawmill.Children<T>.RemoveAt(System.Int32)
-  fullName.vb: Sawmill.Children(Of T).RemoveAt(System.Int32)
-  nameWithType: Children<T>.RemoveAt(Int32)
-  nameWithType.vb: Children(Of T).RemoveAt(Int32)
-- uid: Sawmill.Children`1.RemoveAt*
-  name: RemoveAt
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveAt_
-  commentId: Overload:Sawmill.Children`1.RemoveAt
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.RemoveAt
-  fullName.vb: Sawmill.Children(Of T).RemoveAt
-  nameWithType: Children<T>.RemoveAt
-  nameWithType.vb: Children(Of T).RemoveAt
-- uid: Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
-  name: RemoveRange(IEnumerable<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
-  name.vb: RemoveRange(IEnumerable(Of T))
-  fullName: Sawmill.Children<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Sawmill.Children(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: Children<T>.RemoveRange(IEnumerable<T>)
-  nameWithType.vb: Children(Of T).RemoveRange(IEnumerable(Of T))
-- uid: Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
-  name: RemoveRange(IEnumerable<T>, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveRange_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.RemoveRange(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: RemoveRange(IEnumerable(Of T), IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.RemoveRange(IEnumerable<T>, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).RemoveRange(IEnumerable(Of T), IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.RemoveRange(System.Int32,System.Int32)
-  name: RemoveRange(Int32, Int32)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveRange_System_Int32_System_Int32_
-  commentId: M:Sawmill.Children`1.RemoveRange(System.Int32,System.Int32)
-  fullName: Sawmill.Children<T>.RemoveRange(System.Int32, System.Int32)
-  fullName.vb: Sawmill.Children(Of T).RemoveRange(System.Int32, System.Int32)
-  nameWithType: Children<T>.RemoveRange(Int32, Int32)
-  nameWithType.vb: Children(Of T).RemoveRange(Int32, Int32)
-- uid: Sawmill.Children`1.RemoveRange*
-  name: RemoveRange
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_RemoveRange_
-  commentId: Overload:Sawmill.Children`1.RemoveRange
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.RemoveRange
-  fullName.vb: Sawmill.Children(Of T).RemoveRange
-  nameWithType: Children<T>.RemoveRange
-  nameWithType.vb: Children(Of T).RemoveRange
-- uid: Sawmill.Children`1.Replace(`0,`0)
-  name: Replace(T, T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Replace__0__0_
-  commentId: M:Sawmill.Children`1.Replace(`0,`0)
-  fullName: Sawmill.Children<T>.Replace(T, T)
-  fullName.vb: Sawmill.Children(Of T).Replace(T, T)
-  nameWithType: Children<T>.Replace(T, T)
-  nameWithType.vb: Children(Of T).Replace(T, T)
-- uid: Sawmill.Children`1.Replace(`0,`0,System.Collections.Generic.IEqualityComparer{`0})
-  name: Replace(T, T, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Replace__0__0_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.Replace(`0,`0,System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: Replace(T, T, IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.Replace(T, T, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).Replace(T, T, System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.Replace(T, T, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).Replace(T, T, IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.Replace*
-  name: Replace
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Replace_
-  commentId: Overload:Sawmill.Children`1.Replace
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Replace
-  fullName.vb: Sawmill.Children(Of T).Replace
-  nameWithType: Children<T>.Replace
-  nameWithType.vb: Children(Of T).Replace
-- uid: Sawmill.Children`1.Second
-  name: Second
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Second
-  commentId: P:Sawmill.Children`1.Second
-  fullName: Sawmill.Children<T>.Second
-  fullName.vb: Sawmill.Children(Of T).Second
-  nameWithType: Children<T>.Second
-  nameWithType.vb: Children(Of T).Second
-- uid: Sawmill.Children`1.Second*
-  name: Second
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Second_
-  commentId: Overload:Sawmill.Children`1.Second
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Second
-  fullName.vb: Sawmill.Children(Of T).Second
-  nameWithType: Children<T>.Second
-  nameWithType.vb: Children(Of T).Second
-- uid: Sawmill.Children`1.Select*
-  name: Select
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Select_
-  commentId: Overload:Sawmill.Children`1.Select
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.Select
-  fullName.vb: Sawmill.Children(Of T).Select
-  nameWithType: Children<T>.Select
-  nameWithType.vb: Children(Of T).Select
-- uid: Sawmill.Children`1.Select``1(System.Func{`0,``0})
-  name: Select<U>(Func<T, U>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_Select__1_System_Func__0___0__
-  commentId: M:Sawmill.Children`1.Select``1(System.Func{`0,``0})
-  name.vb: Select(Of U)(Func(Of T, U))
-  fullName: Sawmill.Children<T>.Select<U>(System.Func<T, U>)
-  fullName.vb: Sawmill.Children(Of T).Select(Of U)(System.Func(Of T, U))
-  nameWithType: Children<T>.Select<U>(Func<T, U>)
-  nameWithType.vb: Children(Of T).Select(Of U)(Func(Of T, U))
-- uid: Sawmill.Children`1.SetItem(System.Int32,`0)
-  name: SetItem(Int32, T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_SetItem_System_Int32__0_
-  commentId: M:Sawmill.Children`1.SetItem(System.Int32,`0)
-  fullName: Sawmill.Children<T>.SetItem(System.Int32, T)
-  fullName.vb: Sawmill.Children(Of T).SetItem(System.Int32, T)
-  nameWithType: Children<T>.SetItem(Int32, T)
-  nameWithType.vb: Children(Of T).SetItem(Int32, T)
-- uid: Sawmill.Children`1.SetItem*
-  name: SetItem
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_SetItem_
-  commentId: Overload:Sawmill.Children`1.SetItem
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.SetItem
-  fullName.vb: Sawmill.Children(Of T).SetItem
-  nameWithType: Children<T>.SetItem
-  nameWithType.vb: Children(Of T).SetItem
-- uid: Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
-  name: IEnumerable<T>.GetEnumerator()
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator
-  commentId: M:Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
-  name.vb: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-  fullName: Sawmill.Children<T>.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-  nameWithType: Children<T>.IEnumerable<T>.GetEnumerator()
-  nameWithType.vb: Children(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-- uid: Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator*
-  name: IEnumerable<T>.GetEnumerator
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IEnumerable_T__GetEnumerator_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.Generic.IEnumerable<T>.GetEnumerator
-  fullName: Sawmill.Children<T>.System.Collections.Generic.IEnumerable<T>.GetEnumerator
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator
-  nameWithType: Children<T>.IEnumerable<T>.GetEnumerator
-  nameWithType.vb: Children(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator
-- uid: Sawmill.Children`1.System#Collections#Generic#IReadOnlyCollection{T}#Count
-  name: IReadOnlyCollection<T>.Count
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IReadOnlyCollection_T__Count
-  commentId: P:Sawmill.Children`1.System#Collections#Generic#IReadOnlyCollection{T}#Count
-  name.vb: System.Collections.Generic.IReadOnlyCollection<T>.Count
-  fullName: Sawmill.Children<T>.System.Collections.Generic.IReadOnlyCollection<T>.Count
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IReadOnlyCollection<T>.Count
-  nameWithType: Children<T>.IReadOnlyCollection<T>.Count
-  nameWithType.vb: Children(Of T).System.Collections.Generic.IReadOnlyCollection<T>.Count
-- uid: Sawmill.Children`1.System#Collections#Generic#IReadOnlyCollection{T}#Count*
-  name: IReadOnlyCollection<T>.Count
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IReadOnlyCollection_T__Count_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Generic#IReadOnlyCollection{T}#Count
-  isSpec: "True"
-  name.vb: System.Collections.Generic.IReadOnlyCollection<T>.Count
-  fullName: Sawmill.Children<T>.System.Collections.Generic.IReadOnlyCollection<T>.Count
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IReadOnlyCollection<T>.Count
-  nameWithType: Children<T>.IReadOnlyCollection<T>.Count
-  nameWithType.vb: Children(Of T).System.Collections.Generic.IReadOnlyCollection<T>.Count
-- uid: Sawmill.Children`1.System#Collections#Generic#IReadOnlyList{T}#Item(System.Int32)
-  name: IReadOnlyList<T>.Item[Int32]
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IReadOnlyList_T__Item_System_Int32_
-  commentId: P:Sawmill.Children`1.System#Collections#Generic#IReadOnlyList{T}#Item(System.Int32)
-  name.vb: System.Collections.Generic.IReadOnlyList<T>.Item(Int32)
-  fullName: Sawmill.Children<T>.System.Collections.Generic.IReadOnlyList<T>.Item[System.Int32]
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IReadOnlyList<T>.Item(System.Int32)
-  nameWithType: Children<T>.IReadOnlyList<T>.Item[Int32]
-  nameWithType.vb: Children(Of T).System.Collections.Generic.IReadOnlyList<T>.Item(Int32)
-- uid: Sawmill.Children`1.System#Collections#Generic#IReadOnlyList{T}#Item*
-  name: IReadOnlyList<T>.Item
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Generic_IReadOnlyList_T__Item_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Generic#IReadOnlyList{T}#Item
-  isSpec: "True"
-  name.vb: System.Collections.Generic.IReadOnlyList<T>.Item
-  fullName: Sawmill.Children<T>.System.Collections.Generic.IReadOnlyList<T>.Item
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Generic.IReadOnlyList<T>.Item
-  nameWithType: Children<T>.IReadOnlyList<T>.Item
-  nameWithType.vb: Children(Of T).System.Collections.Generic.IReadOnlyList<T>.Item
-- uid: Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Sawmill.Children<T>.System.Collections.IEnumerable.GetEnumerator()
-  fullName.vb: Sawmill.Children(Of T).System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: Children<T>.IEnumerable.GetEnumerator()
-  nameWithType.vb: Children(Of T).System.Collections.IEnumerable.GetEnumerator()
-- uid: Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Sawmill.Children`1.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Sawmill.Children<T>.System.Collections.IEnumerable.GetEnumerator
-  fullName.vb: Sawmill.Children(Of T).System.Collections.IEnumerable.GetEnumerator
-  nameWithType: Children<T>.IEnumerable.GetEnumerator
-  nameWithType.vb: Children(Of T).System.Collections.IEnumerable.GetEnumerator
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Add(`0)
-  name: IImmutableList<T>.Add(T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Add__0_
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Add(`0)
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Add(T)
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Add(T)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Add(T)
-  nameWithType: Children<T>.IImmutableList<T>.Add(T)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Add(T)
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Add*
-  name: IImmutableList<T>.Add
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Add_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Add
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Add
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Add
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Add
-  nameWithType: Children<T>.IImmutableList<T>.Add
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Add
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#AddRange(System.Collections.Generic.IEnumerable{`0})
-  name: IImmutableList<T>.AddRange(IEnumerable<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__AddRange_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#AddRange(System.Collections.Generic.IEnumerable{`0})
-  name.vb: System.Collections.Immutable.IImmutableList<T>.AddRange(IEnumerable(Of T))
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.AddRange(System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.AddRange(System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: Children<T>.IImmutableList<T>.AddRange(IEnumerable<T>)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.AddRange(IEnumerable(Of T))
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#AddRange*
-  name: IImmutableList<T>.AddRange
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__AddRange_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#AddRange
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.AddRange
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.AddRange
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.AddRange
-  nameWithType: Children<T>.IImmutableList<T>.AddRange
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.AddRange
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Clear
-  name: IImmutableList<T>.Clear()
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Clear
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Clear
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Clear()
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Clear()
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Clear()
-  nameWithType: Children<T>.IImmutableList<T>.Clear()
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Clear()
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Clear*
-  name: IImmutableList<T>.Clear
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Clear_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Clear
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Clear
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Clear
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Clear
-  nameWithType: Children<T>.IImmutableList<T>.Clear
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Clear
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Insert(System.Int32,`0)
-  name: IImmutableList<T>.Insert(Int32, T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Insert_System_Int32__0_
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Insert(System.Int32,`0)
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Insert(Int32, T)
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Insert(System.Int32, T)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Insert(System.Int32, T)
-  nameWithType: Children<T>.IImmutableList<T>.Insert(Int32, T)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Insert(Int32, T)
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Insert*
-  name: IImmutableList<T>.Insert
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Insert_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Insert
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Insert
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Insert
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Insert
-  nameWithType: Children<T>.IImmutableList<T>.Insert
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Insert
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#InsertRange(System.Int32,System.Collections.Generic.IEnumerable{`0})
-  name: IImmutableList<T>.InsertRange(Int32, IEnumerable<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__InsertRange_System_Int32_System_Collections_Generic_IEnumerable__0__
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#InsertRange(System.Int32,System.Collections.Generic.IEnumerable{`0})
-  name.vb: System.Collections.Immutable.IImmutableList<T>.InsertRange(Int32, IEnumerable(Of T))
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.InsertRange(System.Int32, System.Collections.Generic.IEnumerable<T>)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.InsertRange(System.Int32, System.Collections.Generic.IEnumerable(Of T))
-  nameWithType: Children<T>.IImmutableList<T>.InsertRange(Int32, IEnumerable<T>)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.InsertRange(Int32, IEnumerable(Of T))
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#InsertRange*
-  name: IImmutableList<T>.InsertRange
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__InsertRange_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#InsertRange
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.InsertRange
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.InsertRange
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.InsertRange
-  nameWithType: Children<T>.IImmutableList<T>.InsertRange
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.InsertRange
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Remove(`0,System.Collections.Generic.IEqualityComparer{`0})
-  name: IImmutableList<T>.Remove(T, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Remove__0_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Remove(`0,System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Remove(T, IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Remove(T, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Remove(T, System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.IImmutableList<T>.Remove(T, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Remove(T, IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Remove*
-  name: IImmutableList<T>.Remove
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Remove_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Remove
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Remove
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Remove
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Remove
-  nameWithType: Children<T>.IImmutableList<T>.Remove
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Remove
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAll(System.Predicate{`0})
-  name: IImmutableList<T>.RemoveAll(Predicate<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveAll_System_Predicate__0__
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAll(System.Predicate{`0})
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveAll(Predicate(Of T))
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveAll(System.Predicate<T>)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAll(System.Predicate(Of T))
-  nameWithType: Children<T>.IImmutableList<T>.RemoveAll(Predicate<T>)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAll(Predicate(Of T))
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAll*
-  name: IImmutableList<T>.RemoveAll
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveAll_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAll
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveAll
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveAll
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAll
-  nameWithType: Children<T>.IImmutableList<T>.RemoveAll
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAll
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAt(System.Int32)
-  name: IImmutableList<T>.RemoveAt(Int32)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveAt_System_Int32_
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAt(System.Int32)
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveAt(Int32)
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveAt(System.Int32)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAt(System.Int32)
-  nameWithType: Children<T>.IImmutableList<T>.RemoveAt(Int32)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAt(Int32)
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAt*
-  name: IImmutableList<T>.RemoveAt
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveAt_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveAt
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveAt
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveAt
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAt
-  nameWithType: Children<T>.IImmutableList<T>.RemoveAt
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveAt
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveRange(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
-  name: IImmutableList<T>.RemoveRange(IEnumerable<T>, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveRange_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveRange(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveRange(IEnumerable(Of T), IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveRange(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.IImmutableList<T>.RemoveRange(IEnumerable<T>, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveRange(IEnumerable(Of T), IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveRange(System.Int32,System.Int32)
-  name: IImmutableList<T>.RemoveRange(Int32, Int32)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveRange_System_Int32_System_Int32_
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveRange(System.Int32,System.Int32)
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveRange(Int32, Int32)
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveRange(System.Int32, System.Int32)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveRange(System.Int32, System.Int32)
-  nameWithType: Children<T>.IImmutableList<T>.RemoveRange(Int32, Int32)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveRange(Int32, Int32)
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveRange*
-  name: IImmutableList<T>.RemoveRange
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__RemoveRange_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#RemoveRange
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.RemoveRange
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.RemoveRange
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveRange
-  nameWithType: Children<T>.IImmutableList<T>.RemoveRange
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.RemoveRange
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Replace(`0,`0,System.Collections.Generic.IEqualityComparer{`0})
-  name: IImmutableList<T>.Replace(T, T, IEqualityComparer<T>)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Replace__0__0_System_Collections_Generic_IEqualityComparer__0__
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Replace(`0,`0,System.Collections.Generic.IEqualityComparer{`0})
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Replace(T, T, IEqualityComparer(Of T))
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Replace(T, T, System.Collections.Generic.IEqualityComparer<T>)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Replace(T, T, System.Collections.Generic.IEqualityComparer(Of T))
-  nameWithType: Children<T>.IImmutableList<T>.Replace(T, T, IEqualityComparer<T>)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Replace(T, T, IEqualityComparer(Of T))
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Replace*
-  name: IImmutableList<T>.Replace
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__Replace_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#Replace
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.Replace
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.Replace
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.Replace
-  nameWithType: Children<T>.IImmutableList<T>.Replace
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.Replace
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#SetItem(System.Int32,`0)
-  name: IImmutableList<T>.SetItem(Int32, T)
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__SetItem_System_Int32__0_
-  commentId: M:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#SetItem(System.Int32,`0)
-  name.vb: System.Collections.Immutable.IImmutableList<T>.SetItem(Int32, T)
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.SetItem(System.Int32, T)
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.SetItem(System.Int32, T)
-  nameWithType: Children<T>.IImmutableList<T>.SetItem(Int32, T)
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.SetItem(Int32, T)
-- uid: Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#SetItem*
-  name: IImmutableList<T>.SetItem
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_System_Collections_Immutable_IImmutableList_T__SetItem_
-  commentId: Overload:Sawmill.Children`1.System#Collections#Immutable#IImmutableList{T}#SetItem
-  isSpec: "True"
-  name.vb: System.Collections.Immutable.IImmutableList<T>.SetItem
-  fullName: Sawmill.Children<T>.System.Collections.Immutable.IImmutableList<T>.SetItem
-  fullName.vb: Sawmill.Children(Of T).System.Collections.Immutable.IImmutableList<T>.SetItem
-  nameWithType: Children<T>.IImmutableList<T>.SetItem
-  nameWithType.vb: Children(Of T).System.Collections.Immutable.IImmutableList<T>.SetItem
-- uid: Sawmill.Children`1.ToImmutableList
-  name: ToImmutableList()
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_ToImmutableList
-  commentId: M:Sawmill.Children`1.ToImmutableList
-  fullName: Sawmill.Children<T>.ToImmutableList()
-  fullName.vb: Sawmill.Children(Of T).ToImmutableList()
-  nameWithType: Children<T>.ToImmutableList()
-  nameWithType.vb: Children(Of T).ToImmutableList()
-- uid: Sawmill.Children`1.ToImmutableList*
-  name: ToImmutableList
-  href: api/Sawmill.Children-1.html#Sawmill_Children_1_ToImmutableList_
-  commentId: Overload:Sawmill.Children`1.ToImmutableList
-  isSpec: "True"
-  fullName: Sawmill.Children<T>.ToImmutableList
-  fullName.vb: Sawmill.Children(Of T).ToImmutableList
-  nameWithType: Children<T>.ToImmutableList
-  nameWithType.vb: Children(Of T).ToImmutableList
 - uid: Sawmill.Cursor`1
   name: Cursor<T>
   href: api/Sawmill.Cursor-1.html
@@ -1606,6 +719,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.ChildrenInContext
   nameWithType: ExpressionExtensions.ChildrenInContext
+- uid: Sawmill.Expressions.ExpressionExtensions.CountChildren(System.Linq.Expressions.Expression)
+  name: CountChildren(Expression)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_CountChildren_System_Linq_Expressions_Expression_
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.CountChildren(System.Linq.Expressions.Expression)
+  fullName: Sawmill.Expressions.ExpressionExtensions.CountChildren(System.Linq.Expressions.Expression)
+  nameWithType: ExpressionExtensions.CountChildren(Expression)
+- uid: Sawmill.Expressions.ExpressionExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_CountChildren_
+  commentId: Overload:Sawmill.Expressions.ExpressionExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Expressions.ExpressionExtensions.CountChildren
+  nameWithType: ExpressionExtensions.CountChildren
 - uid: Sawmill.Expressions.ExpressionExtensions.Cursor(System.Linq.Expressions.Expression)
   name: Cursor(Expression)
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Cursor_System_Linq_Expressions_Expression_
@@ -1668,21 +794,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.Fold
   nameWithType: ExpressionExtensions.Fold
-- uid: Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,Sawmill.Children{``0},``0})
-  name: Fold<T>(Expression, Func<Expression, Children<T>, T>)
-  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_Sawmill_Children___0____0__
-  commentId: M:Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(Expression, Func(Of Expression, Children(Of T), T))
-  fullName: Sawmill.Expressions.ExpressionExtensions.Fold<T>(System.Linq.Expressions.Expression, System.Func<System.Linq.Expressions.Expression, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.Expressions.ExpressionExtensions.Fold(Of T)(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, Sawmill.Children(Of T), T))
-  nameWithType: ExpressionExtensions.Fold<T>(Expression, Func<Expression, Children<T>, T>)
-  nameWithType.vb: ExpressionExtensions.Fold(Of T)(Expression, Func(Of Expression, Children(Of T), T))
+- uid: Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,Sawmill.SpanFunc{``0,System.Linq.Expressions.Expression,``0})
+  name: Fold<T>(Expression, SpanFunc<T, Expression, T>)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_Sawmill_SpanFunc___0_System_Linq_Expressions_Expression___0__
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,Sawmill.SpanFunc{``0,System.Linq.Expressions.Expression,``0})
+  name.vb: Fold(Of T)(Expression, SpanFunc(Of T, Expression, T))
+  fullName: Sawmill.Expressions.ExpressionExtensions.Fold<T>(System.Linq.Expressions.Expression, Sawmill.SpanFunc<T, System.Linq.Expressions.Expression, T>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.Fold(Of T)(System.Linq.Expressions.Expression, Sawmill.SpanFunc(Of T, System.Linq.Expressions.Expression, T))
+  nameWithType: ExpressionExtensions.Fold<T>(Expression, SpanFunc<T, Expression, T>)
+  nameWithType.vb: ExpressionExtensions.Fold(Of T)(Expression, SpanFunc(Of T, Expression, T))
 - uid: Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression)
   name: GetChildren(Expression)
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_
   commentId: M:Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression)
   fullName: Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression)
   nameWithType: ExpressionExtensions.GetChildren(Expression)
+- uid: Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression,System.Span{System.Linq.Expressions.Expression})
+  name: GetChildren(Expression, Span<Expression>)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_System_Span_System_Linq_Expressions_Expression__
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression,System.Span{System.Linq.Expressions.Expression})
+  name.vb: GetChildren(Expression, Span(Of Expression))
+  fullName: Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression, System.Span<System.Linq.Expressions.Expression>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression, System.Span(Of System.Linq.Expressions.Expression))
+  nameWithType: ExpressionExtensions.GetChildren(Expression, Span<Expression>)
+  nameWithType.vb: ExpressionExtensions.GetChildren(Expression, Span(Of Expression))
 - uid: Sawmill.Expressions.ExpressionExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_GetChildren_
@@ -1822,15 +957,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: ExpressionExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression,Sawmill.Children{System.Linq.Expressions.Expression})
-  name: SetChildren(Expression, Children<Expression>)
-  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_Sawmill_Children_System_Linq_Expressions_Expression__
-  commentId: M:Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression,Sawmill.Children{System.Linq.Expressions.Expression})
-  name.vb: SetChildren(Expression, Children(Of Expression))
-  fullName: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression, Sawmill.Children<System.Linq.Expressions.Expression>)
-  fullName.vb: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression, Sawmill.Children(Of System.Linq.Expressions.Expression))
-  nameWithType: ExpressionExtensions.SetChildren(Expression, Children<Expression>)
-  nameWithType.vb: ExpressionExtensions.SetChildren(Expression, Children(Of Expression))
+- uid: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression,System.ReadOnlySpan{System.Linq.Expressions.Expression})
+  name: SetChildren(Expression, ReadOnlySpan<Expression>)
+  href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression__
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression,System.ReadOnlySpan{System.Linq.Expressions.Expression})
+  name.vb: SetChildren(Expression, ReadOnlySpan(Of Expression))
+  fullName: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression, System.ReadOnlySpan<System.Linq.Expressions.Expression>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.SetChildren(System.Linq.Expressions.Expression, System.ReadOnlySpan(Of System.Linq.Expressions.Expression))
+  nameWithType: ExpressionExtensions.SetChildren(Expression, ReadOnlySpan<Expression>)
+  nameWithType.vb: ExpressionExtensions.SetChildren(Expression, ReadOnlySpan(Of Expression))
 - uid: Sawmill.Expressions.ExpressionExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_SetChildren_
@@ -1869,12 +1004,28 @@ references:
   commentId: T:Sawmill.Expressions.ExpressionRewriter
   fullName: Sawmill.Expressions.ExpressionRewriter
   nameWithType: ExpressionRewriter
-- uid: Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Linq.Expressions.Expression)
-  name: GetChildren(Expression)
-  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_GetChildren_System_Linq_Expressions_Expression_
-  commentId: M:Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Linq.Expressions.Expression)
-  fullName: Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Linq.Expressions.Expression)
-  nameWithType: ExpressionRewriter.GetChildren(Expression)
+- uid: Sawmill.Expressions.ExpressionRewriter.CountChildren(System.Linq.Expressions.Expression)
+  name: CountChildren(Expression)
+  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_CountChildren_System_Linq_Expressions_Expression_
+  commentId: M:Sawmill.Expressions.ExpressionRewriter.CountChildren(System.Linq.Expressions.Expression)
+  fullName: Sawmill.Expressions.ExpressionRewriter.CountChildren(System.Linq.Expressions.Expression)
+  nameWithType: ExpressionRewriter.CountChildren(Expression)
+- uid: Sawmill.Expressions.ExpressionRewriter.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_CountChildren_
+  commentId: Overload:Sawmill.Expressions.ExpressionRewriter.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Expressions.ExpressionRewriter.CountChildren
+  nameWithType: ExpressionRewriter.CountChildren
+- uid: Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Span{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
+  name: GetChildren(Span<Expression>, Expression)
+  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_GetChildren_System_Span_System_Linq_Expressions_Expression__System_Linq_Expressions_Expression_
+  commentId: M:Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Span{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
+  name.vb: GetChildren(Span(Of Expression), Expression)
+  fullName: Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Span<System.Linq.Expressions.Expression>, System.Linq.Expressions.Expression)
+  fullName.vb: Sawmill.Expressions.ExpressionRewriter.GetChildren(System.Span(Of System.Linq.Expressions.Expression), System.Linq.Expressions.Expression)
+  nameWithType: ExpressionRewriter.GetChildren(Span<Expression>, Expression)
+  nameWithType.vb: ExpressionRewriter.GetChildren(Span(Of Expression), Expression)
 - uid: Sawmill.Expressions.ExpressionRewriter.GetChildren*
   name: GetChildren
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_GetChildren_
@@ -1895,31 +1046,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Expressions.ExpressionRewriter.Instance
   nameWithType: ExpressionRewriter.Instance
-- uid: Sawmill.Expressions.ExpressionRewriter.RewriteChildren(System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
-  name: RewriteChildren(Func<Expression, Expression>, Expression)
-  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_RewriteChildren_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__System_Linq_Expressions_Expression_
-  commentId: M:Sawmill.Expressions.ExpressionRewriter.RewriteChildren(System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
-  name.vb: RewriteChildren(Func(Of Expression, Expression), Expression)
-  fullName: Sawmill.Expressions.ExpressionRewriter.RewriteChildren(System.Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression>, System.Linq.Expressions.Expression)
-  fullName.vb: Sawmill.Expressions.ExpressionRewriter.RewriteChildren(System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression), System.Linq.Expressions.Expression)
-  nameWithType: ExpressionRewriter.RewriteChildren(Func<Expression, Expression>, Expression)
-  nameWithType.vb: ExpressionRewriter.RewriteChildren(Func(Of Expression, Expression), Expression)
-- uid: Sawmill.Expressions.ExpressionRewriter.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_RewriteChildren_
-  commentId: Overload:Sawmill.Expressions.ExpressionRewriter.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Expressions.ExpressionRewriter.RewriteChildren
-  nameWithType: ExpressionRewriter.RewriteChildren
-- uid: Sawmill.Expressions.ExpressionRewriter.SetChildren(Sawmill.Children{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
-  name: SetChildren(Children<Expression>, Expression)
-  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_SetChildren_Sawmill_Children_System_Linq_Expressions_Expression__System_Linq_Expressions_Expression_
-  commentId: M:Sawmill.Expressions.ExpressionRewriter.SetChildren(Sawmill.Children{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
-  name.vb: SetChildren(Children(Of Expression), Expression)
-  fullName: Sawmill.Expressions.ExpressionRewriter.SetChildren(Sawmill.Children<System.Linq.Expressions.Expression>, System.Linq.Expressions.Expression)
-  fullName.vb: Sawmill.Expressions.ExpressionRewriter.SetChildren(Sawmill.Children(Of System.Linq.Expressions.Expression), System.Linq.Expressions.Expression)
-  nameWithType: ExpressionRewriter.SetChildren(Children<Expression>, Expression)
-  nameWithType.vb: ExpressionRewriter.SetChildren(Children(Of Expression), Expression)
+- uid: Sawmill.Expressions.ExpressionRewriter.SetChildren(System.ReadOnlySpan{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
+  name: SetChildren(ReadOnlySpan<Expression>, Expression)
+  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_SetChildren_System_ReadOnlySpan_System_Linq_Expressions_Expression__System_Linq_Expressions_Expression_
+  commentId: M:Sawmill.Expressions.ExpressionRewriter.SetChildren(System.ReadOnlySpan{System.Linq.Expressions.Expression},System.Linq.Expressions.Expression)
+  name.vb: SetChildren(ReadOnlySpan(Of Expression), Expression)
+  fullName: Sawmill.Expressions.ExpressionRewriter.SetChildren(System.ReadOnlySpan<System.Linq.Expressions.Expression>, System.Linq.Expressions.Expression)
+  fullName.vb: Sawmill.Expressions.ExpressionRewriter.SetChildren(System.ReadOnlySpan(Of System.Linq.Expressions.Expression), System.Linq.Expressions.Expression)
+  nameWithType: ExpressionRewriter.SetChildren(ReadOnlySpan<Expression>, Expression)
+  nameWithType.vb: ExpressionRewriter.SetChildren(ReadOnlySpan(Of Expression), Expression)
 - uid: Sawmill.Expressions.ExpressionRewriter.SetChildren*
   name: SetChildren
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_SetChildren_
@@ -1952,6 +1087,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ChildrenInContext
   nameWithType: HtmlNodeExtensions.ChildrenInContext
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren(HtmlAgilityPack.HtmlNode)
+  name: CountChildren(HtmlNode)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_HtmlAgilityPack_HtmlNode_
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren(HtmlAgilityPack.HtmlNode)
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren(HtmlAgilityPack.HtmlNode)
+  nameWithType: HtmlNodeExtensions.CountChildren(HtmlNode)
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_
+  commentId: Overload:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren
+  nameWithType: HtmlNodeExtensions.CountChildren
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Cursor(HtmlAgilityPack.HtmlNode)
   name: Cursor(HtmlNode)
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Cursor_HtmlAgilityPack_HtmlNode_
@@ -2014,21 +1162,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold
   nameWithType: HtmlNodeExtensions.Fold
-- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold``1(HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,Sawmill.Children{``0},``0})
-  name: Fold<T>(HtmlNode, Func<HtmlNode, Children<T>, T>)
-  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_Sawmill_Children___0____0__
-  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold``1(HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(HtmlNode, Func(Of HtmlNode, Children(Of T), T))
-  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold<T>(HtmlAgilityPack.HtmlNode, System.Func<HtmlAgilityPack.HtmlNode, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold(Of T)(HtmlAgilityPack.HtmlNode, System.Func(Of HtmlAgilityPack.HtmlNode, Sawmill.Children(Of T), T))
-  nameWithType: HtmlNodeExtensions.Fold<T>(HtmlNode, Func<HtmlNode, Children<T>, T>)
-  nameWithType.vb: HtmlNodeExtensions.Fold(Of T)(HtmlNode, Func(Of HtmlNode, Children(Of T), T))
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold``1(HtmlAgilityPack.HtmlNode,Sawmill.SpanFunc{``0,HtmlAgilityPack.HtmlNode,``0})
+  name: Fold<T>(HtmlNode, SpanFunc<T, HtmlNode, T>)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_Sawmill_SpanFunc___0_HtmlAgilityPack_HtmlNode___0__
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold``1(HtmlAgilityPack.HtmlNode,Sawmill.SpanFunc{``0,HtmlAgilityPack.HtmlNode,``0})
+  name.vb: Fold(Of T)(HtmlNode, SpanFunc(Of T, HtmlNode, T))
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold<T>(HtmlAgilityPack.HtmlNode, Sawmill.SpanFunc<T, HtmlAgilityPack.HtmlNode, T>)
+  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold(Of T)(HtmlAgilityPack.HtmlNode, Sawmill.SpanFunc(Of T, HtmlAgilityPack.HtmlNode, T))
+  nameWithType: HtmlNodeExtensions.Fold<T>(HtmlNode, SpanFunc<T, HtmlNode, T>)
+  nameWithType.vb: HtmlNodeExtensions.Fold(Of T)(HtmlNode, SpanFunc(Of T, HtmlNode, T))
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode)
   name: GetChildren(HtmlNode)
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_
   commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode)
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode)
   nameWithType: HtmlNodeExtensions.GetChildren(HtmlNode)
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode,System.Span{HtmlAgilityPack.HtmlNode})
+  name: GetChildren(HtmlNode, Span<HtmlNode>)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_System_Span_HtmlAgilityPack_HtmlNode__
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode,System.Span{HtmlAgilityPack.HtmlNode})
+  name.vb: GetChildren(HtmlNode, Span(Of HtmlNode))
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode, System.Span<HtmlAgilityPack.HtmlNode>)
+  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode, System.Span(Of HtmlAgilityPack.HtmlNode))
+  nameWithType: HtmlNodeExtensions.GetChildren(HtmlNode, Span<HtmlNode>)
+  nameWithType.vb: HtmlNodeExtensions.GetChildren(HtmlNode, Span(Of HtmlNode))
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_
@@ -2168,15 +1325,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: HtmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode,Sawmill.Children{HtmlAgilityPack.HtmlNode})
-  name: SetChildren(HtmlNode, Children<HtmlNode>)
-  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_Sawmill_Children_HtmlAgilityPack_HtmlNode__
-  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode,Sawmill.Children{HtmlAgilityPack.HtmlNode})
-  name.vb: SetChildren(HtmlNode, Children(Of HtmlNode))
-  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode, Sawmill.Children<HtmlAgilityPack.HtmlNode>)
-  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode, Sawmill.Children(Of HtmlAgilityPack.HtmlNode))
-  nameWithType: HtmlNodeExtensions.SetChildren(HtmlNode, Children<HtmlNode>)
-  nameWithType.vb: HtmlNodeExtensions.SetChildren(HtmlNode, Children(Of HtmlNode))
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode,System.ReadOnlySpan{HtmlAgilityPack.HtmlNode})
+  name: SetChildren(HtmlNode, ReadOnlySpan<HtmlNode>)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_System_ReadOnlySpan_HtmlAgilityPack_HtmlNode__
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode,System.ReadOnlySpan{HtmlAgilityPack.HtmlNode})
+  name.vb: SetChildren(HtmlNode, ReadOnlySpan(Of HtmlNode))
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode, System.ReadOnlySpan<HtmlAgilityPack.HtmlNode>)
+  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode, System.ReadOnlySpan(Of HtmlAgilityPack.HtmlNode))
+  nameWithType: HtmlNodeExtensions.SetChildren(HtmlNode, ReadOnlySpan<HtmlNode>)
+  nameWithType.vb: HtmlNodeExtensions.SetChildren(HtmlNode, ReadOnlySpan(Of HtmlNode))
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html#Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_
@@ -2215,12 +1372,28 @@ references:
   commentId: T:Sawmill.HtmlAgilityPack.HtmlNodeRewriter
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter
   nameWithType: HtmlNodeRewriter
-- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(HtmlAgilityPack.HtmlNode)
-  name: GetChildren(HtmlNode)
-  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_GetChildren_HtmlAgilityPack_HtmlNode_
-  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(HtmlAgilityPack.HtmlNode)
-  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(HtmlAgilityPack.HtmlNode)
-  nameWithType: HtmlNodeRewriter.GetChildren(HtmlNode)
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren(HtmlAgilityPack.HtmlNode)
+  name: CountChildren(HtmlNode)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_CountChildren_HtmlAgilityPack_HtmlNode_
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren(HtmlAgilityPack.HtmlNode)
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren(HtmlAgilityPack.HtmlNode)
+  nameWithType: HtmlNodeRewriter.CountChildren(HtmlNode)
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_CountChildren_
+  commentId: Overload:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren
+  nameWithType: HtmlNodeRewriter.CountChildren
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(System.Span{HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
+  name: GetChildren(Span<HtmlNode>, HtmlNode)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_GetChildren_System_Span_HtmlAgilityPack_HtmlNode__HtmlAgilityPack_HtmlNode_
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(System.Span{HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
+  name.vb: GetChildren(Span(Of HtmlNode), HtmlNode)
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(System.Span<HtmlAgilityPack.HtmlNode>, HtmlAgilityPack.HtmlNode)
+  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren(System.Span(Of HtmlAgilityPack.HtmlNode), HtmlAgilityPack.HtmlNode)
+  nameWithType: HtmlNodeRewriter.GetChildren(Span<HtmlNode>, HtmlNode)
+  nameWithType.vb: HtmlNodeRewriter.GetChildren(Span(Of HtmlNode), HtmlNode)
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.GetChildren*
   name: GetChildren
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_GetChildren_
@@ -2241,31 +1414,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.Instance
   nameWithType: HtmlNodeRewriter.Instance
-- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren(System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
-  name: RewriteChildren(Func<HtmlNode, HtmlNode>, HtmlNode)
-  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_RewriteChildren_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__HtmlAgilityPack_HtmlNode_
-  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren(System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
-  name.vb: RewriteChildren(Func(Of HtmlNode, HtmlNode), HtmlNode)
-  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren(System.Func<HtmlAgilityPack.HtmlNode, HtmlAgilityPack.HtmlNode>, HtmlAgilityPack.HtmlNode)
-  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren(System.Func(Of HtmlAgilityPack.HtmlNode, HtmlAgilityPack.HtmlNode), HtmlAgilityPack.HtmlNode)
-  nameWithType: HtmlNodeRewriter.RewriteChildren(Func<HtmlNode, HtmlNode>, HtmlNode)
-  nameWithType.vb: HtmlNodeRewriter.RewriteChildren(Func(Of HtmlNode, HtmlNode), HtmlNode)
-- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_RewriteChildren_
-  commentId: Overload:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.RewriteChildren
-  nameWithType: HtmlNodeRewriter.RewriteChildren
-- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(Sawmill.Children{HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
-  name: SetChildren(Children<HtmlNode>, HtmlNode)
-  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_SetChildren_Sawmill_Children_HtmlAgilityPack_HtmlNode__HtmlAgilityPack_HtmlNode_
-  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(Sawmill.Children{HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
-  name.vb: SetChildren(Children(Of HtmlNode), HtmlNode)
-  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(Sawmill.Children<HtmlAgilityPack.HtmlNode>, HtmlAgilityPack.HtmlNode)
-  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(Sawmill.Children(Of HtmlAgilityPack.HtmlNode), HtmlAgilityPack.HtmlNode)
-  nameWithType: HtmlNodeRewriter.SetChildren(Children<HtmlNode>, HtmlNode)
-  nameWithType.vb: HtmlNodeRewriter.SetChildren(Children(Of HtmlNode), HtmlNode)
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(System.ReadOnlySpan{HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
+  name: SetChildren(ReadOnlySpan<HtmlNode>, HtmlNode)
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_SetChildren_System_ReadOnlySpan_HtmlAgilityPack_HtmlNode__HtmlAgilityPack_HtmlNode_
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(System.ReadOnlySpan{HtmlAgilityPack.HtmlNode},HtmlAgilityPack.HtmlNode)
+  name.vb: SetChildren(ReadOnlySpan(Of HtmlNode), HtmlNode)
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(System.ReadOnlySpan<HtmlAgilityPack.HtmlNode>, HtmlAgilityPack.HtmlNode)
+  fullName.vb: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren(System.ReadOnlySpan(Of HtmlAgilityPack.HtmlNode), HtmlAgilityPack.HtmlNode)
+  nameWithType: HtmlNodeRewriter.SetChildren(ReadOnlySpan<HtmlNode>, HtmlNode)
+  nameWithType.vb: HtmlNodeRewriter.SetChildren(ReadOnlySpan(Of HtmlNode), HtmlNode)
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.SetChildren*
   name: SetChildren
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_SetChildren_
@@ -2282,14 +1439,32 @@ references:
   fullName.vb: Sawmill.IRewritable(Of T)
   nameWithType: IRewritable<T>
   nameWithType.vb: IRewritable(Of T)
-- uid: Sawmill.IRewritable`1.GetChildren
-  name: GetChildren()
-  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren
-  commentId: M:Sawmill.IRewritable`1.GetChildren
-  fullName: Sawmill.IRewritable<T>.GetChildren()
-  fullName.vb: Sawmill.IRewritable(Of T).GetChildren()
-  nameWithType: IRewritable<T>.GetChildren()
-  nameWithType.vb: IRewritable(Of T).GetChildren()
+- uid: Sawmill.IRewritable`1.CountChildren
+  name: CountChildren()
+  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren
+  commentId: M:Sawmill.IRewritable`1.CountChildren
+  fullName: Sawmill.IRewritable<T>.CountChildren()
+  fullName.vb: Sawmill.IRewritable(Of T).CountChildren()
+  nameWithType: IRewritable<T>.CountChildren()
+  nameWithType.vb: IRewritable(Of T).CountChildren()
+- uid: Sawmill.IRewritable`1.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren_
+  commentId: Overload:Sawmill.IRewritable`1.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.IRewritable<T>.CountChildren
+  fullName.vb: Sawmill.IRewritable(Of T).CountChildren
+  nameWithType: IRewritable<T>.CountChildren
+  nameWithType.vb: IRewritable(Of T).CountChildren
+- uid: Sawmill.IRewritable`1.GetChildren(System.Span{`0})
+  name: GetChildren(Span<T>)
+  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__
+  commentId: M:Sawmill.IRewritable`1.GetChildren(System.Span{`0})
+  name.vb: GetChildren(Span(Of T))
+  fullName: Sawmill.IRewritable<T>.GetChildren(System.Span<T>)
+  fullName.vb: Sawmill.IRewritable(Of T).GetChildren(System.Span(Of T))
+  nameWithType: IRewritable<T>.GetChildren(Span<T>)
+  nameWithType.vb: IRewritable(Of T).GetChildren(Span(Of T))
 - uid: Sawmill.IRewritable`1.GetChildren*
   name: GetChildren
   href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_
@@ -2299,33 +1474,15 @@ references:
   fullName.vb: Sawmill.IRewritable(Of T).GetChildren
   nameWithType: IRewritable<T>.GetChildren
   nameWithType.vb: IRewritable(Of T).GetChildren
-- uid: Sawmill.IRewritable`1.RewriteChildren(System.Func{`0,`0})
-  name: RewriteChildren(Func<T, T>)
-  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__
-  commentId: M:Sawmill.IRewritable`1.RewriteChildren(System.Func{`0,`0})
-  name.vb: RewriteChildren(Func(Of T, T))
-  fullName: Sawmill.IRewritable<T>.RewriteChildren(System.Func<T, T>)
-  fullName.vb: Sawmill.IRewritable(Of T).RewriteChildren(System.Func(Of T, T))
-  nameWithType: IRewritable<T>.RewriteChildren(Func<T, T>)
-  nameWithType.vb: IRewritable(Of T).RewriteChildren(Func(Of T, T))
-- uid: Sawmill.IRewritable`1.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_
-  commentId: Overload:Sawmill.IRewritable`1.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.IRewritable<T>.RewriteChildren
-  fullName.vb: Sawmill.IRewritable(Of T).RewriteChildren
-  nameWithType: IRewritable<T>.RewriteChildren
-  nameWithType.vb: IRewritable(Of T).RewriteChildren
-- uid: Sawmill.IRewritable`1.SetChildren(Sawmill.Children{`0})
-  name: SetChildren(Children<T>)
-  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0__
-  commentId: M:Sawmill.IRewritable`1.SetChildren(Sawmill.Children{`0})
-  name.vb: SetChildren(Children(Of T))
-  fullName: Sawmill.IRewritable<T>.SetChildren(Sawmill.Children<T>)
-  fullName.vb: Sawmill.IRewritable(Of T).SetChildren(Sawmill.Children(Of T))
-  nameWithType: IRewritable<T>.SetChildren(Children<T>)
-  nameWithType.vb: IRewritable(Of T).SetChildren(Children(Of T))
+- uid: Sawmill.IRewritable`1.SetChildren(System.ReadOnlySpan{`0})
+  name: SetChildren(ReadOnlySpan<T>)
+  href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__
+  commentId: M:Sawmill.IRewritable`1.SetChildren(System.ReadOnlySpan{`0})
+  name.vb: SetChildren(ReadOnlySpan(Of T))
+  fullName: Sawmill.IRewritable<T>.SetChildren(System.ReadOnlySpan<T>)
+  fullName.vb: Sawmill.IRewritable(Of T).SetChildren(System.ReadOnlySpan(Of T))
+  nameWithType: IRewritable<T>.SetChildren(ReadOnlySpan<T>)
+  nameWithType.vb: IRewritable(Of T).SetChildren(ReadOnlySpan(Of T))
 - uid: Sawmill.IRewritable`1.SetChildren*
   name: SetChildren
   href: api/Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_
@@ -2344,14 +1501,32 @@ references:
   fullName.vb: Sawmill.IRewriter(Of T)
   nameWithType: IRewriter<T>
   nameWithType.vb: IRewriter(Of T)
-- uid: Sawmill.IRewriter`1.GetChildren(`0)
-  name: GetChildren(T)
-  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_
-  commentId: M:Sawmill.IRewriter`1.GetChildren(`0)
-  fullName: Sawmill.IRewriter<T>.GetChildren(T)
-  fullName.vb: Sawmill.IRewriter(Of T).GetChildren(T)
-  nameWithType: IRewriter<T>.GetChildren(T)
-  nameWithType.vb: IRewriter(Of T).GetChildren(T)
+- uid: Sawmill.IRewriter`1.CountChildren(`0)
+  name: CountChildren(T)
+  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_
+  commentId: M:Sawmill.IRewriter`1.CountChildren(`0)
+  fullName: Sawmill.IRewriter<T>.CountChildren(T)
+  fullName.vb: Sawmill.IRewriter(Of T).CountChildren(T)
+  nameWithType: IRewriter<T>.CountChildren(T)
+  nameWithType.vb: IRewriter(Of T).CountChildren(T)
+- uid: Sawmill.IRewriter`1.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren_
+  commentId: Overload:Sawmill.IRewriter`1.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.IRewriter<T>.CountChildren
+  fullName.vb: Sawmill.IRewriter(Of T).CountChildren
+  nameWithType: IRewriter<T>.CountChildren
+  nameWithType.vb: IRewriter(Of T).CountChildren
+- uid: Sawmill.IRewriter`1.GetChildren(System.Span{`0},`0)
+  name: GetChildren(Span<T>, T)
+  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_
+  commentId: M:Sawmill.IRewriter`1.GetChildren(System.Span{`0},`0)
+  name.vb: GetChildren(Span(Of T), T)
+  fullName: Sawmill.IRewriter<T>.GetChildren(System.Span<T>, T)
+  fullName.vb: Sawmill.IRewriter(Of T).GetChildren(System.Span(Of T), T)
+  nameWithType: IRewriter<T>.GetChildren(Span<T>, T)
+  nameWithType.vb: IRewriter(Of T).GetChildren(Span(Of T), T)
 - uid: Sawmill.IRewriter`1.GetChildren*
   name: GetChildren
   href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_
@@ -2361,33 +1536,15 @@ references:
   fullName.vb: Sawmill.IRewriter(Of T).GetChildren
   nameWithType: IRewriter<T>.GetChildren
   nameWithType.vb: IRewriter(Of T).GetChildren
-- uid: Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name: RewriteChildren(Func<T, T>, T)
-  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_
-  commentId: M:Sawmill.IRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name.vb: RewriteChildren(Func(Of T, T), T)
-  fullName: Sawmill.IRewriter<T>.RewriteChildren(System.Func<T, T>, T)
-  fullName.vb: Sawmill.IRewriter(Of T).RewriteChildren(System.Func(Of T, T), T)
-  nameWithType: IRewriter<T>.RewriteChildren(Func<T, T>, T)
-  nameWithType.vb: IRewriter(Of T).RewriteChildren(Func(Of T, T), T)
-- uid: Sawmill.IRewriter`1.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_
-  commentId: Overload:Sawmill.IRewriter`1.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.IRewriter<T>.RewriteChildren
-  fullName.vb: Sawmill.IRewriter(Of T).RewriteChildren
-  nameWithType: IRewriter<T>.RewriteChildren
-  nameWithType.vb: IRewriter(Of T).RewriteChildren
-- uid: Sawmill.IRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name: SetChildren(Children<T>, T)
-  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_Sawmill_Children__0___0_
-  commentId: M:Sawmill.IRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name.vb: SetChildren(Children(Of T), T)
-  fullName: Sawmill.IRewriter<T>.SetChildren(Sawmill.Children<T>, T)
-  fullName.vb: Sawmill.IRewriter(Of T).SetChildren(Sawmill.Children(Of T), T)
-  nameWithType: IRewriter<T>.SetChildren(Children<T>, T)
-  nameWithType.vb: IRewriter(Of T).SetChildren(Children(Of T), T)
+- uid: Sawmill.IRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name: SetChildren(ReadOnlySpan<T>, T)
+  href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_
+  commentId: M:Sawmill.IRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name.vb: SetChildren(ReadOnlySpan(Of T), T)
+  fullName: Sawmill.IRewriter<T>.SetChildren(System.ReadOnlySpan<T>, T)
+  fullName.vb: Sawmill.IRewriter(Of T).SetChildren(System.ReadOnlySpan(Of T), T)
+  nameWithType: IRewriter<T>.SetChildren(ReadOnlySpan<T>, T)
+  nameWithType.vb: IRewriter(Of T).SetChildren(ReadOnlySpan(Of T), T)
 - uid: Sawmill.IRewriter`1.SetChildren*
   name: SetChildren
   href: api/Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_
@@ -2428,6 +1585,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.ChildrenInContext
   nameWithType: CSharpSyntaxNodeExtensions.ChildrenInContext
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.CountChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  name: CountChildren(CSharpSyntaxNode)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_CountChildren_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.CountChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.CountChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
+  nameWithType: CSharpSyntaxNodeExtensions.CountChildren(CSharpSyntaxNode)
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_CountChildren_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.CountChildren
+  nameWithType: CSharpSyntaxNodeExtensions.CountChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Cursor(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
   name: Cursor(CSharpSyntaxNode)
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Cursor_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_
@@ -2490,21 +1660,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold
   nameWithType: CSharpSyntaxNodeExtensions.Fold
-- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.Children{``0},``0})
-  name: Fold<T>(CSharpSyntaxNode, Func<CSharpSyntaxNode, Children<T>, T>)
-  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Func_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Sawmill_Children___0____0__
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Func{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(CSharpSyntaxNode, Func(Of CSharpSyntaxNode, Children(Of T), T))
-  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold<T>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Func<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold(Of T)(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Func(Of Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Sawmill.Children(Of T), T))
-  nameWithType: CSharpSyntaxNodeExtensions.Fold<T>(CSharpSyntaxNode, Func<CSharpSyntaxNode, Children<T>, T>)
-  nameWithType.vb: CSharpSyntaxNodeExtensions.Fold(Of T)(CSharpSyntaxNode, Func(Of CSharpSyntaxNode, Children(Of T), T))
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.SpanFunc{``0,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,``0})
+  name: Fold<T>(CSharpSyntaxNode, SpanFunc<T, CSharpSyntaxNode, T>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Sawmill_SpanFunc___0_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode___0__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.SpanFunc{``0,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,``0})
+  name.vb: Fold(Of T)(CSharpSyntaxNode, SpanFunc(Of T, CSharpSyntaxNode, T))
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold<T>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Sawmill.SpanFunc<T, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, T>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.Fold(Of T)(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Sawmill.SpanFunc(Of T, Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, T))
+  nameWithType: CSharpSyntaxNodeExtensions.Fold<T>(CSharpSyntaxNode, SpanFunc<T, CSharpSyntaxNode, T>)
+  nameWithType.vb: CSharpSyntaxNodeExtensions.Fold(Of T)(CSharpSyntaxNode, SpanFunc(Of T, CSharpSyntaxNode, T))
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
   name: GetChildren(CSharpSyntaxNode)
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_
   commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode)
   nameWithType: CSharpSyntaxNodeExtensions.GetChildren(CSharpSyntaxNode)
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Span{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
+  name: GetChildren(CSharpSyntaxNode, Span<CSharpSyntaxNode>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_Span_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.Span{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
+  name.vb: GetChildren(CSharpSyntaxNode, Span(Of CSharpSyntaxNode))
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Span<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.Span(Of Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode))
+  nameWithType: CSharpSyntaxNodeExtensions.GetChildren(CSharpSyntaxNode, Span<CSharpSyntaxNode>)
+  nameWithType.vb: CSharpSyntaxNodeExtensions.GetChildren(CSharpSyntaxNode, Span(Of CSharpSyntaxNode))
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_GetChildren_
@@ -2644,15 +1823,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: CSharpSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
-  name: SetChildren(CSharpSyntaxNode, Children<CSharpSyntaxNode>)
-  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_Sawmill_Children_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
-  name.vb: SetChildren(CSharpSyntaxNode, Children(Of CSharpSyntaxNode))
-  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Sawmill.Children<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, Sawmill.Children(Of Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode))
-  nameWithType: CSharpSyntaxNodeExtensions.SetChildren(CSharpSyntaxNode, Children<CSharpSyntaxNode>)
-  nameWithType.vb: CSharpSyntaxNodeExtensions.SetChildren(CSharpSyntaxNode, Children(Of CSharpSyntaxNode))
+- uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.ReadOnlySpan{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
+  name: SetChildren(CSharpSyntaxNode, ReadOnlySpan<CSharpSyntaxNode>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode_System_ReadOnlySpan_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNode__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,System.ReadOnlySpan{Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode})
+  name.vb: SetChildren(CSharpSyntaxNode, ReadOnlySpan(Of CSharpSyntaxNode))
+  fullName: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.ReadOnlySpan<Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode, System.ReadOnlySpan(Of Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode))
+  nameWithType: CSharpSyntaxNodeExtensions.SetChildren(CSharpSyntaxNode, ReadOnlySpan<CSharpSyntaxNode>)
+  nameWithType.vb: CSharpSyntaxNodeExtensions.SetChildren(CSharpSyntaxNode, ReadOnlySpan(Of CSharpSyntaxNode))
 - uid: Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions_SetChildren_
@@ -2694,14 +1873,32 @@ references:
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T)
   nameWithType: SyntaxNodeRewriter<T>
   nameWithType.vb: SyntaxNodeRewriter(Of T)
-- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.GetChildren(`0)
-  name: GetChildren(T)
-  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_GetChildren__0_
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.GetChildren(`0)
-  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.GetChildren(T)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).GetChildren(T)
-  nameWithType: SyntaxNodeRewriter<T>.GetChildren(T)
-  nameWithType.vb: SyntaxNodeRewriter(Of T).GetChildren(T)
+- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.CountChildren(`0)
+  name: CountChildren(T)
+  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_CountChildren__0_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.CountChildren(`0)
+  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.CountChildren(T)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).CountChildren(T)
+  nameWithType: SyntaxNodeRewriter<T>.CountChildren(T)
+  nameWithType.vb: SyntaxNodeRewriter(Of T).CountChildren(T)
+- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_CountChildren_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.CountChildren
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).CountChildren
+  nameWithType: SyntaxNodeRewriter<T>.CountChildren
+  nameWithType.vb: SyntaxNodeRewriter(Of T).CountChildren
+- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.GetChildren(System.Span{`0},`0)
+  name: GetChildren(Span<T>, T)
+  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_GetChildren_System_Span__0___0_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.GetChildren(System.Span{`0},`0)
+  name.vb: GetChildren(Span(Of T), T)
+  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.GetChildren(System.Span<T>, T)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).GetChildren(System.Span(Of T), T)
+  nameWithType: SyntaxNodeRewriter<T>.GetChildren(Span<T>, T)
+  nameWithType.vb: SyntaxNodeRewriter(Of T).GetChildren(Span(Of T), T)
 - uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.GetChildren*
   name: GetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_GetChildren_
@@ -2728,33 +1925,15 @@ references:
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).Instance
   nameWithType: SyntaxNodeRewriter<T>.Instance
   nameWithType.vb: SyntaxNodeRewriter(Of T).Instance
-- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name: RewriteChildren(Func<T, T>, T)
-  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_RewriteChildren_System_Func__0__0___0_
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name.vb: RewriteChildren(Func(Of T, T), T)
-  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.RewriteChildren(System.Func<T, T>, T)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).RewriteChildren(System.Func(Of T, T), T)
-  nameWithType: SyntaxNodeRewriter<T>.RewriteChildren(Func<T, T>, T)
-  nameWithType.vb: SyntaxNodeRewriter(Of T).RewriteChildren(Func(Of T, T), T)
-- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_RewriteChildren_
-  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.RewriteChildren
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).RewriteChildren
-  nameWithType: SyntaxNodeRewriter<T>.RewriteChildren
-  nameWithType.vb: SyntaxNodeRewriter(Of T).RewriteChildren
-- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name: SetChildren(Children<T>, T)
-  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_SetChildren_Sawmill_Children__0___0_
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name.vb: SetChildren(Children(Of T), T)
-  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.SetChildren(Sawmill.Children<T>, T)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).SetChildren(Sawmill.Children(Of T), T)
-  nameWithType: SyntaxNodeRewriter<T>.SetChildren(Children<T>, T)
-  nameWithType.vb: SyntaxNodeRewriter(Of T).SetChildren(Children(Of T), T)
+- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name: SetChildren(ReadOnlySpan<T>, T)
+  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_SetChildren_System_ReadOnlySpan__0___0_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name.vb: SetChildren(ReadOnlySpan(Of T), T)
+  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.SetChildren(System.ReadOnlySpan<T>, T)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).SetChildren(System.ReadOnlySpan(Of T), T)
+  nameWithType: SyntaxNodeRewriter<T>.SetChildren(ReadOnlySpan<T>, T)
+  nameWithType.vb: SyntaxNodeRewriter(Of T).SetChildren(ReadOnlySpan(Of T), T)
 - uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.SetChildren*
   name: SetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_SetChildren_
@@ -2789,6 +1968,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ChildrenInContext
   nameWithType: VisualBasicSyntaxNodeExtensions.ChildrenInContext
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.CountChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  name: CountChildren(VisualBasicSyntaxNode)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_CountChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.CountChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.CountChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
+  nameWithType: VisualBasicSyntaxNodeExtensions.CountChildren(VisualBasicSyntaxNode)
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_CountChildren_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.CountChildren
+  nameWithType: VisualBasicSyntaxNodeExtensions.CountChildren
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
   name: Cursor(VisualBasicSyntaxNode)
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Cursor_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_
@@ -2851,21 +2043,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold
   nameWithType: VisualBasicSyntaxNodeExtensions.Fold
-- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{``0},``0})
-  name: Fold<T>(VisualBasicSyntaxNode, Func<VisualBasicSyntaxNode, Children<T>, T>)
-  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children___0____0__
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(VisualBasicSyntaxNode, Func(Of VisualBasicSyntaxNode, Children(Of T), T))
-  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold<T>(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Func<Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold(Of T)(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Func(Of Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Sawmill.Children(Of T), T))
-  nameWithType: VisualBasicSyntaxNodeExtensions.Fold<T>(VisualBasicSyntaxNode, Func<VisualBasicSyntaxNode, Children<T>, T>)
-  nameWithType.vb: VisualBasicSyntaxNodeExtensions.Fold(Of T)(VisualBasicSyntaxNode, Func(Of VisualBasicSyntaxNode, Children(Of T), T))
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.SpanFunc{``0,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,``0})
+  name: Fold<T>(VisualBasicSyntaxNode, SpanFunc<T, VisualBasicSyntaxNode, T>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_SpanFunc___0_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___0__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.SpanFunc{``0,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,``0})
+  name.vb: Fold(Of T)(VisualBasicSyntaxNode, SpanFunc(Of T, VisualBasicSyntaxNode, T))
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold<T>(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Sawmill.SpanFunc<T, Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, T>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold(Of T)(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Sawmill.SpanFunc(Of T, Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, T))
+  nameWithType: VisualBasicSyntaxNodeExtensions.Fold<T>(VisualBasicSyntaxNode, SpanFunc<T, VisualBasicSyntaxNode, T>)
+  nameWithType.vb: VisualBasicSyntaxNodeExtensions.Fold(Of T)(VisualBasicSyntaxNode, SpanFunc(Of T, VisualBasicSyntaxNode, T))
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
   name: GetChildren(VisualBasicSyntaxNode)
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_
   commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)
   nameWithType: VisualBasicSyntaxNodeExtensions.GetChildren(VisualBasicSyntaxNode)
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Span{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
+  name: GetChildren(VisualBasicSyntaxNode, Span<VisualBasicSyntaxNode>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Span_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Span{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
+  name.vb: GetChildren(VisualBasicSyntaxNode, Span(Of VisualBasicSyntaxNode))
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Span<Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.Span(Of Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode))
+  nameWithType: VisualBasicSyntaxNodeExtensions.GetChildren(VisualBasicSyntaxNode, Span<VisualBasicSyntaxNode>)
+  nameWithType.vb: VisualBasicSyntaxNodeExtensions.GetChildren(VisualBasicSyntaxNode, Span(Of VisualBasicSyntaxNode))
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_
@@ -3005,15 +2206,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
-  name: SetChildren(VisualBasicSyntaxNode, Children<VisualBasicSyntaxNode>)
-  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__
-  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
-  name.vb: SetChildren(VisualBasicSyntaxNode, Children(Of VisualBasicSyntaxNode))
-  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Sawmill.Children<Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>)
-  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, Sawmill.Children(Of Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode))
-  nameWithType: VisualBasicSyntaxNodeExtensions.SetChildren(VisualBasicSyntaxNode, Children<VisualBasicSyntaxNode>)
-  nameWithType.vb: VisualBasicSyntaxNodeExtensions.SetChildren(VisualBasicSyntaxNode, Children(Of VisualBasicSyntaxNode))
+- uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.ReadOnlySpan{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
+  name: SetChildren(VisualBasicSyntaxNode, ReadOnlySpan<VisualBasicSyntaxNode>)
+  href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_ReadOnlySpan_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.ReadOnlySpan{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})
+  name.vb: SetChildren(VisualBasicSyntaxNode, ReadOnlySpan(Of VisualBasicSyntaxNode))
+  fullName: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.ReadOnlySpan<Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>)
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode, System.ReadOnlySpan(Of Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode))
+  nameWithType: VisualBasicSyntaxNodeExtensions.SetChildren(VisualBasicSyntaxNode, ReadOnlySpan<VisualBasicSyntaxNode>)
+  nameWithType.vb: VisualBasicSyntaxNodeExtensions.SetChildren(VisualBasicSyntaxNode, ReadOnlySpan(Of VisualBasicSyntaxNode))
 - uid: Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_
@@ -3071,6 +2272,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.ChildrenInContext
   nameWithType: JTokenExtensions.ChildrenInContext
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.CountChildren(Newtonsoft.Json.Linq.JToken)
+  name: CountChildren(JToken)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_CountChildren_Newtonsoft_Json_Linq_JToken_
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.CountChildren(Newtonsoft.Json.Linq.JToken)
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.CountChildren(Newtonsoft.Json.Linq.JToken)
+  nameWithType: JTokenExtensions.CountChildren(JToken)
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_CountChildren_
+  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.CountChildren
+  nameWithType: JTokenExtensions.CountChildren
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Cursor(Newtonsoft.Json.Linq.JToken)
   name: Cursor(JToken)
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Cursor_Newtonsoft_Json_Linq_JToken_
@@ -3133,21 +2347,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold
   nameWithType: JTokenExtensions.Fold
-- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold``1(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Sawmill.Children{``0},``0})
-  name: Fold<T>(JToken, Func<JToken, Children<T>, T>)
-  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Fold__1_Newtonsoft_Json_Linq_JToken_System_Func_Newtonsoft_Json_Linq_JToken_Sawmill_Children___0____0__
-  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.Fold``1(Newtonsoft.Json.Linq.JToken,System.Func{Newtonsoft.Json.Linq.JToken,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(JToken, Func(Of JToken, Children(Of T), T))
-  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold<T>(Newtonsoft.Json.Linq.JToken, System.Func<Newtonsoft.Json.Linq.JToken, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold(Of T)(Newtonsoft.Json.Linq.JToken, System.Func(Of Newtonsoft.Json.Linq.JToken, Sawmill.Children(Of T), T))
-  nameWithType: JTokenExtensions.Fold<T>(JToken, Func<JToken, Children<T>, T>)
-  nameWithType.vb: JTokenExtensions.Fold(Of T)(JToken, Func(Of JToken, Children(Of T), T))
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold``1(Newtonsoft.Json.Linq.JToken,Sawmill.SpanFunc{``0,Newtonsoft.Json.Linq.JToken,``0})
+  name: Fold<T>(JToken, SpanFunc<T, JToken, T>)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_Fold__1_Newtonsoft_Json_Linq_JToken_Sawmill_SpanFunc___0_Newtonsoft_Json_Linq_JToken___0__
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.Fold``1(Newtonsoft.Json.Linq.JToken,Sawmill.SpanFunc{``0,Newtonsoft.Json.Linq.JToken,``0})
+  name.vb: Fold(Of T)(JToken, SpanFunc(Of T, JToken, T))
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold<T>(Newtonsoft.Json.Linq.JToken, Sawmill.SpanFunc<T, Newtonsoft.Json.Linq.JToken, T>)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.Fold(Of T)(Newtonsoft.Json.Linq.JToken, Sawmill.SpanFunc(Of T, Newtonsoft.Json.Linq.JToken, T))
+  nameWithType: JTokenExtensions.Fold<T>(JToken, SpanFunc<T, JToken, T>)
+  nameWithType.vb: JTokenExtensions.Fold(Of T)(JToken, SpanFunc(Of T, JToken, T))
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken)
   name: GetChildren(JToken)
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_GetChildren_Newtonsoft_Json_Linq_JToken_
   commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken)
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken)
   nameWithType: JTokenExtensions.GetChildren(JToken)
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken,System.Span{Newtonsoft.Json.Linq.JToken})
+  name: GetChildren(JToken, Span<JToken>)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_GetChildren_Newtonsoft_Json_Linq_JToken_System_Span_Newtonsoft_Json_Linq_JToken__
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken,System.Span{Newtonsoft.Json.Linq.JToken})
+  name.vb: GetChildren(JToken, Span(Of JToken))
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken, System.Span<Newtonsoft.Json.Linq.JToken>)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren(Newtonsoft.Json.Linq.JToken, System.Span(Of Newtonsoft.Json.Linq.JToken))
+  nameWithType: JTokenExtensions.GetChildren(JToken, Span<JToken>)
+  nameWithType.vb: JTokenExtensions.GetChildren(JToken, Span(Of JToken))
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_GetChildren_
@@ -3287,15 +2510,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: JTokenExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken,Sawmill.Children{Newtonsoft.Json.Linq.JToken})
-  name: SetChildren(JToken, Children<JToken>)
-  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SetChildren_Newtonsoft_Json_Linq_JToken_Sawmill_Children_Newtonsoft_Json_Linq_JToken__
-  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken,Sawmill.Children{Newtonsoft.Json.Linq.JToken})
-  name.vb: SetChildren(JToken, Children(Of JToken))
-  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken, Sawmill.Children<Newtonsoft.Json.Linq.JToken>)
-  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken, Sawmill.Children(Of Newtonsoft.Json.Linq.JToken))
-  nameWithType: JTokenExtensions.SetChildren(JToken, Children<JToken>)
-  nameWithType.vb: JTokenExtensions.SetChildren(JToken, Children(Of JToken))
+- uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken,System.ReadOnlySpan{Newtonsoft.Json.Linq.JToken})
+  name: SetChildren(JToken, ReadOnlySpan<JToken>)
+  href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SetChildren_Newtonsoft_Json_Linq_JToken_System_ReadOnlySpan_Newtonsoft_Json_Linq_JToken__
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken,System.ReadOnlySpan{Newtonsoft.Json.Linq.JToken})
+  name.vb: SetChildren(JToken, ReadOnlySpan(Of JToken))
+  fullName: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken, System.ReadOnlySpan<Newtonsoft.Json.Linq.JToken>)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren(Newtonsoft.Json.Linq.JToken, System.ReadOnlySpan(Of Newtonsoft.Json.Linq.JToken))
+  nameWithType: JTokenExtensions.SetChildren(JToken, ReadOnlySpan<JToken>)
+  nameWithType.vb: JTokenExtensions.SetChildren(JToken, ReadOnlySpan(Of JToken))
 - uid: Sawmill.Newtonsoft.Json.JTokenExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenExtensions.html#Sawmill_Newtonsoft_Json_JTokenExtensions_SetChildren_
@@ -3334,12 +2557,28 @@ references:
   commentId: T:Sawmill.Newtonsoft.Json.JTokenRewriter
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter
   nameWithType: JTokenRewriter
-- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(Newtonsoft.Json.Linq.JToken)
-  name: GetChildren(JToken)
-  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_Newtonsoft_Json_Linq_JToken_
-  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(Newtonsoft.Json.Linq.JToken)
-  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(Newtonsoft.Json.Linq.JToken)
-  nameWithType: JTokenRewriter.GetChildren(JToken)
+- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren(Newtonsoft.Json.Linq.JToken)
+  name: CountChildren(JToken)
+  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_Newtonsoft_Json_Linq_JToken_
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren(Newtonsoft.Json.Linq.JToken)
+  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren(Newtonsoft.Json.Linq.JToken)
+  nameWithType: JTokenRewriter.CountChildren(JToken)
+- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_
+  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren
+  nameWithType: JTokenRewriter.CountChildren
+- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(System.Span{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
+  name: GetChildren(Span<JToken>, JToken)
+  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_System_Span_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(System.Span{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
+  name.vb: GetChildren(Span(Of JToken), JToken)
+  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(System.Span<Newtonsoft.Json.Linq.JToken>, Newtonsoft.Json.Linq.JToken)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren(System.Span(Of Newtonsoft.Json.Linq.JToken), Newtonsoft.Json.Linq.JToken)
+  nameWithType: JTokenRewriter.GetChildren(Span<JToken>, JToken)
+  nameWithType.vb: JTokenRewriter.GetChildren(Span(Of JToken), JToken)
 - uid: Sawmill.Newtonsoft.Json.JTokenRewriter.GetChildren*
   name: GetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_
@@ -3360,31 +2599,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.Instance
   nameWithType: JTokenRewriter.Instance
-- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren(System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
-  name: RewriteChildren(Func<JToken, JToken>, JToken)
-  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_RewriteChildren_System_Func_Newtonsoft_Json_Linq_JToken_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_
-  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren(System.Func{Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
-  name.vb: RewriteChildren(Func(Of JToken, JToken), JToken)
-  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren(System.Func<Newtonsoft.Json.Linq.JToken, Newtonsoft.Json.Linq.JToken>, Newtonsoft.Json.Linq.JToken)
-  fullName.vb: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren(System.Func(Of Newtonsoft.Json.Linq.JToken, Newtonsoft.Json.Linq.JToken), Newtonsoft.Json.Linq.JToken)
-  nameWithType: JTokenRewriter.RewriteChildren(Func<JToken, JToken>, JToken)
-  nameWithType.vb: JTokenRewriter.RewriteChildren(Func(Of JToken, JToken), JToken)
-- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_RewriteChildren_
-  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.RewriteChildren
-  nameWithType: JTokenRewriter.RewriteChildren
-- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(Sawmill.Children{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
-  name: SetChildren(Children<JToken>, JToken)
-  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_Sawmill_Children_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_
-  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(Sawmill.Children{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
-  name.vb: SetChildren(Children(Of JToken), JToken)
-  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(Sawmill.Children<Newtonsoft.Json.Linq.JToken>, Newtonsoft.Json.Linq.JToken)
-  fullName.vb: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(Sawmill.Children(Of Newtonsoft.Json.Linq.JToken), Newtonsoft.Json.Linq.JToken)
-  nameWithType: JTokenRewriter.SetChildren(Children<JToken>, JToken)
-  nameWithType.vb: JTokenRewriter.SetChildren(Children(Of JToken), JToken)
+- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(System.ReadOnlySpan{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
+  name: SetChildren(ReadOnlySpan<JToken>, JToken)
+  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_System_ReadOnlySpan_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(System.ReadOnlySpan{Newtonsoft.Json.Linq.JToken},Newtonsoft.Json.Linq.JToken)
+  name.vb: SetChildren(ReadOnlySpan(Of JToken), JToken)
+  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(System.ReadOnlySpan<Newtonsoft.Json.Linq.JToken>, Newtonsoft.Json.Linq.JToken)
+  fullName.vb: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren(System.ReadOnlySpan(Of Newtonsoft.Json.Linq.JToken), Newtonsoft.Json.Linq.JToken)
+  nameWithType: JTokenRewriter.SetChildren(ReadOnlySpan<JToken>, JToken)
+  nameWithType.vb: JTokenRewriter.SetChildren(ReadOnlySpan(Of JToken), JToken)
 - uid: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren*
   name: SetChildren
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_
@@ -3392,36 +2615,42 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren
   nameWithType: JTokenRewriter.SetChildren
-- uid: Sawmill.NumberOfChildren
-  name: NumberOfChildren
-  href: api/Sawmill.NumberOfChildren.html
-  commentId: T:Sawmill.NumberOfChildren
-  fullName: Sawmill.NumberOfChildren
-  nameWithType: NumberOfChildren
-- uid: Sawmill.NumberOfChildren.Many
-  name: Many
-  href: api/Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_Many
-  commentId: F:Sawmill.NumberOfChildren.Many
-  fullName: Sawmill.NumberOfChildren.Many
-  nameWithType: NumberOfChildren.Many
-- uid: Sawmill.NumberOfChildren.None
-  name: None
-  href: api/Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_None
-  commentId: F:Sawmill.NumberOfChildren.None
-  fullName: Sawmill.NumberOfChildren.None
-  nameWithType: NumberOfChildren.None
-- uid: Sawmill.NumberOfChildren.One
-  name: One
-  href: api/Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_One
-  commentId: F:Sawmill.NumberOfChildren.One
-  fullName: Sawmill.NumberOfChildren.One
-  nameWithType: NumberOfChildren.One
-- uid: Sawmill.NumberOfChildren.Two
-  name: Two
-  href: api/Sawmill.NumberOfChildren.html#Sawmill_NumberOfChildren_Two
-  commentId: F:Sawmill.NumberOfChildren.Two
-  fullName: Sawmill.NumberOfChildren.Two
-  nameWithType: NumberOfChildren.Two
+- uid: Sawmill.ReadOnlySpanAction`1
+  name: ReadOnlySpanAction<T>
+  href: api/Sawmill.ReadOnlySpanAction-1.html
+  commentId: T:Sawmill.ReadOnlySpanAction`1
+  name.vb: ReadOnlySpanAction(Of T)
+  fullName: Sawmill.ReadOnlySpanAction<T>
+  fullName.vb: Sawmill.ReadOnlySpanAction(Of T)
+  nameWithType: ReadOnlySpanAction<T>
+  nameWithType.vb: ReadOnlySpanAction(Of T)
+- uid: Sawmill.ReadOnlySpanAction`2
+  name: ReadOnlySpanAction<T, U>
+  href: api/Sawmill.ReadOnlySpanAction-2.html
+  commentId: T:Sawmill.ReadOnlySpanAction`2
+  name.vb: ReadOnlySpanAction(Of T, U)
+  fullName: Sawmill.ReadOnlySpanAction<T, U>
+  fullName.vb: Sawmill.ReadOnlySpanAction(Of T, U)
+  nameWithType: ReadOnlySpanAction<T, U>
+  nameWithType.vb: ReadOnlySpanAction(Of T, U)
+- uid: Sawmill.ReadOnlySpanFunc`2
+  name: ReadOnlySpanFunc<T, R>
+  href: api/Sawmill.ReadOnlySpanFunc-2.html
+  commentId: T:Sawmill.ReadOnlySpanFunc`2
+  name.vb: ReadOnlySpanFunc(Of T, R)
+  fullName: Sawmill.ReadOnlySpanFunc<T, R>
+  fullName.vb: Sawmill.ReadOnlySpanFunc(Of T, R)
+  nameWithType: ReadOnlySpanFunc<T, R>
+  nameWithType.vb: ReadOnlySpanFunc(Of T, R)
+- uid: Sawmill.ReadOnlySpanFunc`3
+  name: ReadOnlySpanFunc<T, U, R>
+  href: api/Sawmill.ReadOnlySpanFunc-3.html
+  commentId: T:Sawmill.ReadOnlySpanFunc`3
+  name.vb: ReadOnlySpanFunc(Of T, U, R)
+  fullName: Sawmill.ReadOnlySpanFunc<T, U, R>
+  fullName.vb: Sawmill.ReadOnlySpanFunc(Of T, U, R)
+  nameWithType: ReadOnlySpanFunc<T, U, R>
+  nameWithType.vb: ReadOnlySpanFunc(Of T, U, R)
 - uid: Sawmill.Rewritable
   name: Rewritable
   href: api/Sawmill.Rewritable.html
@@ -3460,22 +2689,6 @@ references:
   fullName.vb: Sawmill.Rewritable.Cursor(Of T)(T)
   nameWithType: Rewritable.Cursor<T>(T)
   nameWithType.vb: Rewritable.Cursor(Of T)(T)
-- uid: Sawmill.Rewritable.DefaultRewriteChildren*
-  name: DefaultRewriteChildren
-  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DefaultRewriteChildren_
-  commentId: Overload:Sawmill.Rewritable.DefaultRewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Rewritable.DefaultRewriteChildren
-  nameWithType: Rewritable.DefaultRewriteChildren
-- uid: Sawmill.Rewritable.DefaultRewriteChildren``1(``0,System.Func{``0,``0})
-  name: DefaultRewriteChildren<T>(T, Func<T, T>)
-  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DefaultRewriteChildren__1___0_System_Func___0___0__
-  commentId: M:Sawmill.Rewritable.DefaultRewriteChildren``1(``0,System.Func{``0,``0})
-  name.vb: DefaultRewriteChildren(Of T)(T, Func(Of T, T))
-  fullName: Sawmill.Rewritable.DefaultRewriteChildren<T>(T, System.Func<T, T>)
-  fullName.vb: Sawmill.Rewritable.DefaultRewriteChildren(Of T)(T, System.Func(Of T, T))
-  nameWithType: Rewritable.DefaultRewriteChildren<T>(T, Func<T, T>)
-  nameWithType.vb: Rewritable.DefaultRewriteChildren(Of T)(T, Func(Of T, T))
 - uid: Sawmill.Rewritable.DescendantAt*
   name: DescendantAt
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_DescendantAt_
@@ -3531,15 +2744,31 @@ references:
   isSpec: "True"
   fullName: Sawmill.Rewritable.Fold
   nameWithType: Rewritable.Fold
-- uid: Sawmill.Rewritable.Fold``2(``0,System.Func{``0,Sawmill.Children{``1},``1})
-  name: Fold<T, U>(T, Func<T, Children<U>, U>)
-  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_Fold__2___0_System_Func___0_Sawmill_Children___1____1__
-  commentId: M:Sawmill.Rewritable.Fold``2(``0,System.Func{``0,Sawmill.Children{``1},``1})
-  name.vb: Fold(Of T, U)(T, Func(Of T, Children(Of U), U))
-  fullName: Sawmill.Rewritable.Fold<T, U>(T, System.Func<T, Sawmill.Children<U>, U>)
-  fullName.vb: Sawmill.Rewritable.Fold(Of T, U)(T, System.Func(Of T, Sawmill.Children(Of U), U))
-  nameWithType: Rewritable.Fold<T, U>(T, Func<T, Children<U>, U>)
-  nameWithType.vb: Rewritable.Fold(Of T, U)(T, Func(Of T, Children(Of U), U))
+- uid: Sawmill.Rewritable.Fold``2(``0,Sawmill.SpanFunc{``1,``0,``1})
+  name: Fold<T, U>(T, SpanFunc<U, T, U>)
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_Fold__2___0_Sawmill_SpanFunc___1___0___1__
+  commentId: M:Sawmill.Rewritable.Fold``2(``0,Sawmill.SpanFunc{``1,``0,``1})
+  name.vb: Fold(Of T, U)(T, SpanFunc(Of U, T, U))
+  fullName: Sawmill.Rewritable.Fold<T, U>(T, Sawmill.SpanFunc<U, T, U>)
+  fullName.vb: Sawmill.Rewritable.Fold(Of T, U)(T, Sawmill.SpanFunc(Of U, T, U))
+  nameWithType: Rewritable.Fold<T, U>(T, SpanFunc<U, T, U>)
+  nameWithType.vb: Rewritable.Fold(Of T, U)(T, SpanFunc(Of U, T, U))
+- uid: Sawmill.Rewritable.GetChildren*
+  name: GetChildren
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_GetChildren_
+  commentId: Overload:Sawmill.Rewritable.GetChildren
+  isSpec: "True"
+  fullName: Sawmill.Rewritable.GetChildren
+  nameWithType: Rewritable.GetChildren
+- uid: Sawmill.Rewritable.GetChildren``1(``0)
+  name: GetChildren<T>(T)
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_GetChildren__1___0_
+  commentId: M:Sawmill.Rewritable.GetChildren``1(``0)
+  name.vb: GetChildren(Of T)(T)
+  fullName: Sawmill.Rewritable.GetChildren<T>(T)
+  fullName.vb: Sawmill.Rewritable.GetChildren(Of T)(T)
+  nameWithType: Rewritable.GetChildren<T>(T)
+  nameWithType.vb: Rewritable.GetChildren(Of T)(T)
 - uid: Sawmill.Rewritable.ReplaceDescendantAt*
   name: ReplaceDescendantAt
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_ReplaceDescendantAt_
@@ -3572,6 +2801,22 @@ references:
   fullName.vb: Sawmill.Rewritable.Rewrite(Of T)(T, System.Func(Of T, T))
   nameWithType: Rewritable.Rewrite<T>(T, Func<T, T>)
   nameWithType.vb: Rewritable.Rewrite(Of T)(T, Func(Of T, T))
+- uid: Sawmill.Rewritable.RewriteChildren*
+  name: RewriteChildren
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteChildren_
+  commentId: Overload:Sawmill.Rewritable.RewriteChildren
+  isSpec: "True"
+  fullName: Sawmill.Rewritable.RewriteChildren
+  nameWithType: Rewritable.RewriteChildren
+- uid: Sawmill.Rewritable.RewriteChildren``1(``0,System.Func{``0,``0})
+  name: RewriteChildren<T>(T, Func<T, T>)
+  href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteChildren__1___0_System_Func___0___0__
+  commentId: M:Sawmill.Rewritable.RewriteChildren``1(``0,System.Func{``0,``0})
+  name.vb: RewriteChildren(Of T)(T, Func(Of T, T))
+  fullName: Sawmill.Rewritable.RewriteChildren<T>(T, System.Func<T, T>)
+  fullName.vb: Sawmill.Rewritable.RewriteChildren(Of T)(T, System.Func(Of T, T))
+  nameWithType: Rewritable.RewriteChildren<T>(T, Func<T, T>)
+  nameWithType.vb: Rewritable.RewriteChildren(Of T)(T, Func(Of T, T))
 - uid: Sawmill.Rewritable.RewriteDescendantAt*
   name: RewriteDescendantAt
   href: api/Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteDescendantAt_
@@ -3702,14 +2947,32 @@ references:
   fullName.vb: Sawmill.RewritableRewriter(Of T)
   nameWithType: RewritableRewriter<T>
   nameWithType.vb: RewritableRewriter(Of T)
-- uid: Sawmill.RewritableRewriter`1.GetChildren(`0)
-  name: GetChildren(T)
-  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_GetChildren__0_
-  commentId: M:Sawmill.RewritableRewriter`1.GetChildren(`0)
-  fullName: Sawmill.RewritableRewriter<T>.GetChildren(T)
-  fullName.vb: Sawmill.RewritableRewriter(Of T).GetChildren(T)
-  nameWithType: RewritableRewriter<T>.GetChildren(T)
-  nameWithType.vb: RewritableRewriter(Of T).GetChildren(T)
+- uid: Sawmill.RewritableRewriter`1.CountChildren(`0)
+  name: CountChildren(T)
+  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_CountChildren__0_
+  commentId: M:Sawmill.RewritableRewriter`1.CountChildren(`0)
+  fullName: Sawmill.RewritableRewriter<T>.CountChildren(T)
+  fullName.vb: Sawmill.RewritableRewriter(Of T).CountChildren(T)
+  nameWithType: RewritableRewriter<T>.CountChildren(T)
+  nameWithType.vb: RewritableRewriter(Of T).CountChildren(T)
+- uid: Sawmill.RewritableRewriter`1.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_CountChildren_
+  commentId: Overload:Sawmill.RewritableRewriter`1.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.RewritableRewriter<T>.CountChildren
+  fullName.vb: Sawmill.RewritableRewriter(Of T).CountChildren
+  nameWithType: RewritableRewriter<T>.CountChildren
+  nameWithType.vb: RewritableRewriter(Of T).CountChildren
+- uid: Sawmill.RewritableRewriter`1.GetChildren(System.Span{`0},`0)
+  name: GetChildren(Span<T>, T)
+  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_GetChildren_System_Span__0___0_
+  commentId: M:Sawmill.RewritableRewriter`1.GetChildren(System.Span{`0},`0)
+  name.vb: GetChildren(Span(Of T), T)
+  fullName: Sawmill.RewritableRewriter<T>.GetChildren(System.Span<T>, T)
+  fullName.vb: Sawmill.RewritableRewriter(Of T).GetChildren(System.Span(Of T), T)
+  nameWithType: RewritableRewriter<T>.GetChildren(Span<T>, T)
+  nameWithType.vb: RewritableRewriter(Of T).GetChildren(Span(Of T), T)
 - uid: Sawmill.RewritableRewriter`1.GetChildren*
   name: GetChildren
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_GetChildren_
@@ -3736,33 +2999,15 @@ references:
   fullName.vb: Sawmill.RewritableRewriter(Of T).Instance
   nameWithType: RewritableRewriter<T>.Instance
   nameWithType.vb: RewritableRewriter(Of T).Instance
-- uid: Sawmill.RewritableRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name: RewriteChildren(Func<T, T>, T)
-  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_RewriteChildren_System_Func__0__0___0_
-  commentId: M:Sawmill.RewritableRewriter`1.RewriteChildren(System.Func{`0,`0},`0)
-  name.vb: RewriteChildren(Func(Of T, T), T)
-  fullName: Sawmill.RewritableRewriter<T>.RewriteChildren(System.Func<T, T>, T)
-  fullName.vb: Sawmill.RewritableRewriter(Of T).RewriteChildren(System.Func(Of T, T), T)
-  nameWithType: RewritableRewriter<T>.RewriteChildren(Func<T, T>, T)
-  nameWithType.vb: RewritableRewriter(Of T).RewriteChildren(Func(Of T, T), T)
-- uid: Sawmill.RewritableRewriter`1.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_RewriteChildren_
-  commentId: Overload:Sawmill.RewritableRewriter`1.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.RewritableRewriter<T>.RewriteChildren
-  fullName.vb: Sawmill.RewritableRewriter(Of T).RewriteChildren
-  nameWithType: RewritableRewriter<T>.RewriteChildren
-  nameWithType.vb: RewritableRewriter(Of T).RewriteChildren
-- uid: Sawmill.RewritableRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name: SetChildren(Children<T>, T)
-  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_SetChildren_Sawmill_Children__0___0_
-  commentId: M:Sawmill.RewritableRewriter`1.SetChildren(Sawmill.Children{`0},`0)
-  name.vb: SetChildren(Children(Of T), T)
-  fullName: Sawmill.RewritableRewriter<T>.SetChildren(Sawmill.Children<T>, T)
-  fullName.vb: Sawmill.RewritableRewriter(Of T).SetChildren(Sawmill.Children(Of T), T)
-  nameWithType: RewritableRewriter<T>.SetChildren(Children<T>, T)
-  nameWithType.vb: RewritableRewriter(Of T).SetChildren(Children(Of T), T)
+- uid: Sawmill.RewritableRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name: SetChildren(ReadOnlySpan<T>, T)
+  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_SetChildren_System_ReadOnlySpan__0___0_
+  commentId: M:Sawmill.RewritableRewriter`1.SetChildren(System.ReadOnlySpan{`0},`0)
+  name.vb: SetChildren(ReadOnlySpan(Of T), T)
+  fullName: Sawmill.RewritableRewriter<T>.SetChildren(System.ReadOnlySpan<T>, T)
+  fullName.vb: Sawmill.RewritableRewriter(Of T).SetChildren(System.ReadOnlySpan(Of T), T)
+  nameWithType: RewritableRewriter<T>.SetChildren(ReadOnlySpan<T>, T)
+  nameWithType.vb: RewritableRewriter(Of T).SetChildren(ReadOnlySpan(Of T), T)
 - uid: Sawmill.RewritableRewriter`1.SetChildren*
   name: SetChildren
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_SetChildren_
@@ -3810,22 +3055,6 @@ references:
   fullName.vb: Sawmill.Rewriter.Cursor(Of T)(Sawmill.IRewriter(Of T), T)
   nameWithType: Rewriter.Cursor<T>(IRewriter<T>, T)
   nameWithType.vb: Rewriter.Cursor(Of T)(IRewriter(Of T), T)
-- uid: Sawmill.Rewriter.DefaultRewriteChildren*
-  name: DefaultRewriteChildren
-  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren_
-  commentId: Overload:Sawmill.Rewriter.DefaultRewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Rewriter.DefaultRewriteChildren
-  nameWithType: Rewriter.DefaultRewriteChildren
-- uid: Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
-  name: DefaultRewriteChildren<T>(IRewriter<T>, Func<T, T>, T)
-  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_
-  commentId: M:Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
-  name.vb: DefaultRewriteChildren(Of T)(IRewriter(Of T), Func(Of T, T), T)
-  fullName: Sawmill.Rewriter.DefaultRewriteChildren<T>(Sawmill.IRewriter<T>, System.Func<T, T>, T)
-  fullName.vb: Sawmill.Rewriter.DefaultRewriteChildren(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
-  nameWithType: Rewriter.DefaultRewriteChildren<T>(IRewriter<T>, Func<T, T>, T)
-  nameWithType.vb: Rewriter.DefaultRewriteChildren(Of T)(IRewriter(Of T), Func(Of T, T), T)
 - uid: Sawmill.Rewriter.DescendantAt*
   name: DescendantAt
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt_
@@ -3881,15 +3110,31 @@ references:
   isSpec: "True"
   fullName: Sawmill.Rewriter.Fold
   nameWithType: Rewriter.Fold
-- uid: Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)
-  name: Fold<T, U>(IRewriter<T>, Func<T, Children<U>, U>, T)
-  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_
-  commentId: M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)
-  name.vb: Fold(Of T, U)(IRewriter(Of T), Func(Of T, Children(Of U), U), T)
-  fullName: Sawmill.Rewriter.Fold<T, U>(Sawmill.IRewriter<T>, System.Func<T, Sawmill.Children<U>, U>, T)
-  fullName.vb: Sawmill.Rewriter.Fold(Of T, U)(Sawmill.IRewriter(Of T), System.Func(Of T, Sawmill.Children(Of U), U), T)
-  nameWithType: Rewriter.Fold<T, U>(IRewriter<T>, Func<T, Children<U>, U>, T)
-  nameWithType.vb: Rewriter.Fold(Of T, U)(IRewriter(Of T), Func(Of T, Children(Of U), U), T)
+- uid: Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},Sawmill.SpanFunc{``1,``0,``1},``0)
+  name: Fold<T, U>(IRewriter<T>, SpanFunc<U, T, U>, T)
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_
+  commentId: M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},Sawmill.SpanFunc{``1,``0,``1},``0)
+  name.vb: Fold(Of T, U)(IRewriter(Of T), SpanFunc(Of U, T, U), T)
+  fullName: Sawmill.Rewriter.Fold<T, U>(Sawmill.IRewriter<T>, Sawmill.SpanFunc<U, T, U>, T)
+  fullName.vb: Sawmill.Rewriter.Fold(Of T, U)(Sawmill.IRewriter(Of T), Sawmill.SpanFunc(Of U, T, U), T)
+  nameWithType: Rewriter.Fold<T, U>(IRewriter<T>, SpanFunc<U, T, U>, T)
+  nameWithType.vb: Rewriter.Fold(Of T, U)(IRewriter(Of T), SpanFunc(Of U, T, U), T)
+- uid: Sawmill.Rewriter.GetChildren*
+  name: GetChildren
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren_
+  commentId: Overload:Sawmill.Rewriter.GetChildren
+  isSpec: "True"
+  fullName: Sawmill.Rewriter.GetChildren
+  nameWithType: Rewriter.GetChildren
+- uid: Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)
+  name: GetChildren<T>(IRewriter<T>, T)
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_
+  commentId: M:Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)
+  name.vb: GetChildren(Of T)(IRewriter(Of T), T)
+  fullName: Sawmill.Rewriter.GetChildren<T>(Sawmill.IRewriter<T>, T)
+  fullName.vb: Sawmill.Rewriter.GetChildren(Of T)(Sawmill.IRewriter(Of T), T)
+  nameWithType: Rewriter.GetChildren<T>(IRewriter<T>, T)
+  nameWithType.vb: Rewriter.GetChildren(Of T)(IRewriter(Of T), T)
 - uid: Sawmill.Rewriter.ReplaceDescendantAt*
   name: ReplaceDescendantAt
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt_
@@ -3922,6 +3167,22 @@ references:
   fullName.vb: Sawmill.Rewriter.Rewrite(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
   nameWithType: Rewriter.Rewrite<T>(IRewriter<T>, Func<T, T>, T)
   nameWithType.vb: Rewriter.Rewrite(Of T)(IRewriter(Of T), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.RewriteChildren*
+  name: RewriteChildren
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren_
+  commentId: Overload:Sawmill.Rewriter.RewriteChildren
+  isSpec: "True"
+  fullName: Sawmill.Rewriter.RewriteChildren
+  nameWithType: Rewriter.RewriteChildren
+- uid: Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
+  name: RewriteChildren<T>(IRewriter<T>, Func<T, T>, T)
+  href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_
+  commentId: M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
+  name.vb: RewriteChildren(Of T)(IRewriter(Of T), Func(Of T, T), T)
+  fullName: Sawmill.Rewriter.RewriteChildren<T>(Sawmill.IRewriter<T>, System.Func<T, T>, T)
+  fullName.vb: Sawmill.Rewriter.RewriteChildren(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
+  nameWithType: Rewriter.RewriteChildren<T>(IRewriter<T>, Func<T, T>, T)
+  nameWithType.vb: Rewriter.RewriteChildren(Of T)(IRewriter(Of T), Func(Of T, T), T)
 - uid: Sawmill.Rewriter.RewriteDescendantAt*
   name: RewriteDescendantAt
   href: api/Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt_
@@ -4266,6 +3527,42 @@ references:
   fullName.vb: Sawmill.RewriterBuilderCase(Of TArgs, TBase, TSub).Field(Of U)(System.Func(Of TSub, U))
   nameWithType: RewriterBuilderCase<TArgs, TBase, TSub>.Field<U>(Func<TSub, U>)
   nameWithType.vb: RewriterBuilderCase(Of TArgs, TBase, TSub).Field(Of U)(Func(Of TSub, U))
+- uid: Sawmill.SpanAction`1
+  name: SpanAction<T>
+  href: api/Sawmill.SpanAction-1.html
+  commentId: T:Sawmill.SpanAction`1
+  name.vb: SpanAction(Of T)
+  fullName: Sawmill.SpanAction<T>
+  fullName.vb: Sawmill.SpanAction(Of T)
+  nameWithType: SpanAction<T>
+  nameWithType.vb: SpanAction(Of T)
+- uid: Sawmill.SpanAction`2
+  name: SpanAction<T, U>
+  href: api/Sawmill.SpanAction-2.html
+  commentId: T:Sawmill.SpanAction`2
+  name.vb: SpanAction(Of T, U)
+  fullName: Sawmill.SpanAction<T, U>
+  fullName.vb: Sawmill.SpanAction(Of T, U)
+  nameWithType: SpanAction<T, U>
+  nameWithType.vb: SpanAction(Of T, U)
+- uid: Sawmill.SpanFunc`2
+  name: SpanFunc<T, R>
+  href: api/Sawmill.SpanFunc-2.html
+  commentId: T:Sawmill.SpanFunc`2
+  name.vb: SpanFunc(Of T, R)
+  fullName: Sawmill.SpanFunc<T, R>
+  fullName.vb: Sawmill.SpanFunc(Of T, R)
+  nameWithType: SpanFunc<T, R>
+  nameWithType.vb: SpanFunc(Of T, R)
+- uid: Sawmill.SpanFunc`3
+  name: SpanFunc<T, U, R>
+  href: api/Sawmill.SpanFunc-3.html
+  commentId: T:Sawmill.SpanFunc`3
+  name.vb: SpanFunc(Of T, U, R)
+  fullName: Sawmill.SpanFunc<T, U, R>
+  fullName.vb: Sawmill.SpanFunc(Of T, U, R)
+  nameWithType: SpanFunc<T, U, R>
+  nameWithType.vb: SpanFunc(Of T, U, R)
 - uid: Sawmill.Xml
   name: Sawmill.Xml
   href: api/Sawmill.Xml.html
@@ -4291,6 +3588,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.ChildrenInContext
   nameWithType: XElementExtensions.ChildrenInContext
+- uid: Sawmill.Xml.XElementExtensions.CountChildren(System.Xml.Linq.XElement)
+  name: CountChildren(XElement)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_CountChildren_System_Xml_Linq_XElement_
+  commentId: M:Sawmill.Xml.XElementExtensions.CountChildren(System.Xml.Linq.XElement)
+  fullName: Sawmill.Xml.XElementExtensions.CountChildren(System.Xml.Linq.XElement)
+  nameWithType: XElementExtensions.CountChildren(XElement)
+- uid: Sawmill.Xml.XElementExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_CountChildren_
+  commentId: Overload:Sawmill.Xml.XElementExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Xml.XElementExtensions.CountChildren
+  nameWithType: XElementExtensions.CountChildren
 - uid: Sawmill.Xml.XElementExtensions.Cursor(System.Xml.Linq.XElement)
   name: Cursor(XElement)
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Cursor_System_Xml_Linq_XElement_
@@ -4353,21 +3663,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.Fold
   nameWithType: XElementExtensions.Fold
-- uid: Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,Sawmill.Children{``0},``0})
-  name: Fold<T>(XElement, Func<XElement, Children<T>, T>)
-  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_Sawmill_Children___0____0__
-  commentId: M:Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(XElement, Func(Of XElement, Children(Of T), T))
-  fullName: Sawmill.Xml.XElementExtensions.Fold<T>(System.Xml.Linq.XElement, System.Func<System.Xml.Linq.XElement, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.Xml.XElementExtensions.Fold(Of T)(System.Xml.Linq.XElement, System.Func(Of System.Xml.Linq.XElement, Sawmill.Children(Of T), T))
-  nameWithType: XElementExtensions.Fold<T>(XElement, Func<XElement, Children<T>, T>)
-  nameWithType.vb: XElementExtensions.Fold(Of T)(XElement, Func(Of XElement, Children(Of T), T))
+- uid: Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,Sawmill.SpanFunc{``0,System.Xml.Linq.XElement,``0})
+  name: Fold<T>(XElement, SpanFunc<T, XElement, T>)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_Sawmill_SpanFunc___0_System_Xml_Linq_XElement___0__
+  commentId: M:Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,Sawmill.SpanFunc{``0,System.Xml.Linq.XElement,``0})
+  name.vb: Fold(Of T)(XElement, SpanFunc(Of T, XElement, T))
+  fullName: Sawmill.Xml.XElementExtensions.Fold<T>(System.Xml.Linq.XElement, Sawmill.SpanFunc<T, System.Xml.Linq.XElement, T>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.Fold(Of T)(System.Xml.Linq.XElement, Sawmill.SpanFunc(Of T, System.Xml.Linq.XElement, T))
+  nameWithType: XElementExtensions.Fold<T>(XElement, SpanFunc<T, XElement, T>)
+  nameWithType.vb: XElementExtensions.Fold(Of T)(XElement, SpanFunc(Of T, XElement, T))
 - uid: Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement)
   name: GetChildren(XElement)
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_
   commentId: M:Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement)
   fullName: Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement)
   nameWithType: XElementExtensions.GetChildren(XElement)
+- uid: Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement,System.Span{System.Xml.Linq.XElement})
+  name: GetChildren(XElement, Span<XElement>)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_System_Span_System_Xml_Linq_XElement__
+  commentId: M:Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement,System.Span{System.Xml.Linq.XElement})
+  name.vb: GetChildren(XElement, Span(Of XElement))
+  fullName: Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement, System.Span<System.Xml.Linq.XElement>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement, System.Span(Of System.Xml.Linq.XElement))
+  nameWithType: XElementExtensions.GetChildren(XElement, Span<XElement>)
+  nameWithType.vb: XElementExtensions.GetChildren(XElement, Span(Of XElement))
 - uid: Sawmill.Xml.XElementExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_GetChildren_
@@ -4507,15 +3826,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: XElementExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement,Sawmill.Children{System.Xml.Linq.XElement})
-  name: SetChildren(XElement, Children<XElement>)
-  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_Sawmill_Children_System_Xml_Linq_XElement__
-  commentId: M:Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement,Sawmill.Children{System.Xml.Linq.XElement})
-  name.vb: SetChildren(XElement, Children(Of XElement))
-  fullName: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement, Sawmill.Children<System.Xml.Linq.XElement>)
-  fullName.vb: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement, Sawmill.Children(Of System.Xml.Linq.XElement))
-  nameWithType: XElementExtensions.SetChildren(XElement, Children<XElement>)
-  nameWithType.vb: XElementExtensions.SetChildren(XElement, Children(Of XElement))
+- uid: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement,System.ReadOnlySpan{System.Xml.Linq.XElement})
+  name: SetChildren(XElement, ReadOnlySpan<XElement>)
+  href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_System_ReadOnlySpan_System_Xml_Linq_XElement__
+  commentId: M:Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement,System.ReadOnlySpan{System.Xml.Linq.XElement})
+  name.vb: SetChildren(XElement, ReadOnlySpan(Of XElement))
+  fullName: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement, System.ReadOnlySpan<System.Xml.Linq.XElement>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.SetChildren(System.Xml.Linq.XElement, System.ReadOnlySpan(Of System.Xml.Linq.XElement))
+  nameWithType: XElementExtensions.SetChildren(XElement, ReadOnlySpan<XElement>)
+  nameWithType.vb: XElementExtensions.SetChildren(XElement, ReadOnlySpan(Of XElement))
 - uid: Sawmill.Xml.XElementExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_SetChildren_
@@ -4554,12 +3873,28 @@ references:
   commentId: T:Sawmill.Xml.XElementRewriter
   fullName: Sawmill.Xml.XElementRewriter
   nameWithType: XElementRewriter
-- uid: Sawmill.Xml.XElementRewriter.GetChildren(System.Xml.Linq.XElement)
-  name: GetChildren(XElement)
-  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_GetChildren_System_Xml_Linq_XElement_
-  commentId: M:Sawmill.Xml.XElementRewriter.GetChildren(System.Xml.Linq.XElement)
-  fullName: Sawmill.Xml.XElementRewriter.GetChildren(System.Xml.Linq.XElement)
-  nameWithType: XElementRewriter.GetChildren(XElement)
+- uid: Sawmill.Xml.XElementRewriter.CountChildren(System.Xml.Linq.XElement)
+  name: CountChildren(XElement)
+  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_CountChildren_System_Xml_Linq_XElement_
+  commentId: M:Sawmill.Xml.XElementRewriter.CountChildren(System.Xml.Linq.XElement)
+  fullName: Sawmill.Xml.XElementRewriter.CountChildren(System.Xml.Linq.XElement)
+  nameWithType: XElementRewriter.CountChildren(XElement)
+- uid: Sawmill.Xml.XElementRewriter.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_CountChildren_
+  commentId: Overload:Sawmill.Xml.XElementRewriter.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Xml.XElementRewriter.CountChildren
+  nameWithType: XElementRewriter.CountChildren
+- uid: Sawmill.Xml.XElementRewriter.GetChildren(System.Span{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
+  name: GetChildren(Span<XElement>, XElement)
+  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_GetChildren_System_Span_System_Xml_Linq_XElement__System_Xml_Linq_XElement_
+  commentId: M:Sawmill.Xml.XElementRewriter.GetChildren(System.Span{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
+  name.vb: GetChildren(Span(Of XElement), XElement)
+  fullName: Sawmill.Xml.XElementRewriter.GetChildren(System.Span<System.Xml.Linq.XElement>, System.Xml.Linq.XElement)
+  fullName.vb: Sawmill.Xml.XElementRewriter.GetChildren(System.Span(Of System.Xml.Linq.XElement), System.Xml.Linq.XElement)
+  nameWithType: XElementRewriter.GetChildren(Span<XElement>, XElement)
+  nameWithType.vb: XElementRewriter.GetChildren(Span(Of XElement), XElement)
 - uid: Sawmill.Xml.XElementRewriter.GetChildren*
   name: GetChildren
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_GetChildren_
@@ -4580,31 +3915,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XElementRewriter.Instance
   nameWithType: XElementRewriter.Instance
-- uid: Sawmill.Xml.XElementRewriter.RewriteChildren(System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement},System.Xml.Linq.XElement)
-  name: RewriteChildren(Func<XElement, XElement>, XElement)
-  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_RewriteChildren_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__System_Xml_Linq_XElement_
-  commentId: M:Sawmill.Xml.XElementRewriter.RewriteChildren(System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement},System.Xml.Linq.XElement)
-  name.vb: RewriteChildren(Func(Of XElement, XElement), XElement)
-  fullName: Sawmill.Xml.XElementRewriter.RewriteChildren(System.Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement>, System.Xml.Linq.XElement)
-  fullName.vb: Sawmill.Xml.XElementRewriter.RewriteChildren(System.Func(Of System.Xml.Linq.XElement, System.Xml.Linq.XElement), System.Xml.Linq.XElement)
-  nameWithType: XElementRewriter.RewriteChildren(Func<XElement, XElement>, XElement)
-  nameWithType.vb: XElementRewriter.RewriteChildren(Func(Of XElement, XElement), XElement)
-- uid: Sawmill.Xml.XElementRewriter.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_RewriteChildren_
-  commentId: Overload:Sawmill.Xml.XElementRewriter.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Xml.XElementRewriter.RewriteChildren
-  nameWithType: XElementRewriter.RewriteChildren
-- uid: Sawmill.Xml.XElementRewriter.SetChildren(Sawmill.Children{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
-  name: SetChildren(Children<XElement>, XElement)
-  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_SetChildren_Sawmill_Children_System_Xml_Linq_XElement__System_Xml_Linq_XElement_
-  commentId: M:Sawmill.Xml.XElementRewriter.SetChildren(Sawmill.Children{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
-  name.vb: SetChildren(Children(Of XElement), XElement)
-  fullName: Sawmill.Xml.XElementRewriter.SetChildren(Sawmill.Children<System.Xml.Linq.XElement>, System.Xml.Linq.XElement)
-  fullName.vb: Sawmill.Xml.XElementRewriter.SetChildren(Sawmill.Children(Of System.Xml.Linq.XElement), System.Xml.Linq.XElement)
-  nameWithType: XElementRewriter.SetChildren(Children<XElement>, XElement)
-  nameWithType.vb: XElementRewriter.SetChildren(Children(Of XElement), XElement)
+- uid: Sawmill.Xml.XElementRewriter.SetChildren(System.ReadOnlySpan{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
+  name: SetChildren(ReadOnlySpan<XElement>, XElement)
+  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_SetChildren_System_ReadOnlySpan_System_Xml_Linq_XElement__System_Xml_Linq_XElement_
+  commentId: M:Sawmill.Xml.XElementRewriter.SetChildren(System.ReadOnlySpan{System.Xml.Linq.XElement},System.Xml.Linq.XElement)
+  name.vb: SetChildren(ReadOnlySpan(Of XElement), XElement)
+  fullName: Sawmill.Xml.XElementRewriter.SetChildren(System.ReadOnlySpan<System.Xml.Linq.XElement>, System.Xml.Linq.XElement)
+  fullName.vb: Sawmill.Xml.XElementRewriter.SetChildren(System.ReadOnlySpan(Of System.Xml.Linq.XElement), System.Xml.Linq.XElement)
+  nameWithType: XElementRewriter.SetChildren(ReadOnlySpan<XElement>, XElement)
+  nameWithType.vb: XElementRewriter.SetChildren(ReadOnlySpan(Of XElement), XElement)
 - uid: Sawmill.Xml.XElementRewriter.SetChildren*
   name: SetChildren
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_SetChildren_
@@ -4631,6 +3950,19 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.ChildrenInContext
   nameWithType: XmlNodeExtensions.ChildrenInContext
+- uid: Sawmill.Xml.XmlNodeExtensions.CountChildren(System.Xml.XmlNode)
+  name: CountChildren(XmlNode)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_CountChildren_System_Xml_XmlNode_
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.CountChildren(System.Xml.XmlNode)
+  fullName: Sawmill.Xml.XmlNodeExtensions.CountChildren(System.Xml.XmlNode)
+  nameWithType: XmlNodeExtensions.CountChildren(XmlNode)
+- uid: Sawmill.Xml.XmlNodeExtensions.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_CountChildren_
+  commentId: Overload:Sawmill.Xml.XmlNodeExtensions.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Xml.XmlNodeExtensions.CountChildren
+  nameWithType: XmlNodeExtensions.CountChildren
 - uid: Sawmill.Xml.XmlNodeExtensions.Cursor(System.Xml.XmlNode)
   name: Cursor(XmlNode)
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Cursor_System_Xml_XmlNode_
@@ -4693,21 +4025,30 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.Fold
   nameWithType: XmlNodeExtensions.Fold
-- uid: Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,Sawmill.Children{``0},``0})
-  name: Fold<T>(XmlNode, Func<XmlNode, Children<T>, T>)
-  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Fold__1_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_Sawmill_Children___0____0__
-  commentId: M:Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,Sawmill.Children{``0},``0})
-  name.vb: Fold(Of T)(XmlNode, Func(Of XmlNode, Children(Of T), T))
-  fullName: Sawmill.Xml.XmlNodeExtensions.Fold<T>(System.Xml.XmlNode, System.Func<System.Xml.XmlNode, Sawmill.Children<T>, T>)
-  fullName.vb: Sawmill.Xml.XmlNodeExtensions.Fold(Of T)(System.Xml.XmlNode, System.Func(Of System.Xml.XmlNode, Sawmill.Children(Of T), T))
-  nameWithType: XmlNodeExtensions.Fold<T>(XmlNode, Func<XmlNode, Children<T>, T>)
-  nameWithType.vb: XmlNodeExtensions.Fold(Of T)(XmlNode, Func(Of XmlNode, Children(Of T), T))
+- uid: Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,Sawmill.SpanFunc{``0,System.Xml.XmlNode,``0})
+  name: Fold<T>(XmlNode, SpanFunc<T, XmlNode, T>)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Fold__1_System_Xml_XmlNode_Sawmill_SpanFunc___0_System_Xml_XmlNode___0__
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,Sawmill.SpanFunc{``0,System.Xml.XmlNode,``0})
+  name.vb: Fold(Of T)(XmlNode, SpanFunc(Of T, XmlNode, T))
+  fullName: Sawmill.Xml.XmlNodeExtensions.Fold<T>(System.Xml.XmlNode, Sawmill.SpanFunc<T, System.Xml.XmlNode, T>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.Fold(Of T)(System.Xml.XmlNode, Sawmill.SpanFunc(Of T, System.Xml.XmlNode, T))
+  nameWithType: XmlNodeExtensions.Fold<T>(XmlNode, SpanFunc<T, XmlNode, T>)
+  nameWithType.vb: XmlNodeExtensions.Fold(Of T)(XmlNode, SpanFunc(Of T, XmlNode, T))
 - uid: Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode)
   name: GetChildren(XmlNode)
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_GetChildren_System_Xml_XmlNode_
   commentId: M:Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode)
   fullName: Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode)
   nameWithType: XmlNodeExtensions.GetChildren(XmlNode)
+- uid: Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode,System.Span{System.Xml.XmlNode})
+  name: GetChildren(XmlNode, Span<XmlNode>)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_GetChildren_System_Xml_XmlNode_System_Span_System_Xml_XmlNode__
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode,System.Span{System.Xml.XmlNode})
+  name.vb: GetChildren(XmlNode, Span(Of XmlNode))
+  fullName: Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode, System.Span<System.Xml.XmlNode>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode, System.Span(Of System.Xml.XmlNode))
+  nameWithType: XmlNodeExtensions.GetChildren(XmlNode, Span<XmlNode>)
+  nameWithType.vb: XmlNodeExtensions.GetChildren(XmlNode, Span(Of XmlNode))
 - uid: Sawmill.Xml.XmlNodeExtensions.GetChildren*
   name: GetChildren
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_GetChildren_
@@ -4847,15 +4188,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
   nameWithType: XmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst
-- uid: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode,Sawmill.Children{System.Xml.XmlNode})
-  name: SetChildren(XmlNode, Children<XmlNode>)
-  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SetChildren_System_Xml_XmlNode_Sawmill_Children_System_Xml_XmlNode__
-  commentId: M:Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode,Sawmill.Children{System.Xml.XmlNode})
-  name.vb: SetChildren(XmlNode, Children(Of XmlNode))
-  fullName: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode, Sawmill.Children<System.Xml.XmlNode>)
-  fullName.vb: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode, Sawmill.Children(Of System.Xml.XmlNode))
-  nameWithType: XmlNodeExtensions.SetChildren(XmlNode, Children<XmlNode>)
-  nameWithType.vb: XmlNodeExtensions.SetChildren(XmlNode, Children(Of XmlNode))
+- uid: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode,System.ReadOnlySpan{System.Xml.XmlNode})
+  name: SetChildren(XmlNode, ReadOnlySpan<XmlNode>)
+  href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SetChildren_System_Xml_XmlNode_System_ReadOnlySpan_System_Xml_XmlNode__
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode,System.ReadOnlySpan{System.Xml.XmlNode})
+  name.vb: SetChildren(XmlNode, ReadOnlySpan(Of XmlNode))
+  fullName: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode, System.ReadOnlySpan<System.Xml.XmlNode>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.SetChildren(System.Xml.XmlNode, System.ReadOnlySpan(Of System.Xml.XmlNode))
+  nameWithType: XmlNodeExtensions.SetChildren(XmlNode, ReadOnlySpan<XmlNode>)
+  nameWithType.vb: XmlNodeExtensions.SetChildren(XmlNode, ReadOnlySpan(Of XmlNode))
 - uid: Sawmill.Xml.XmlNodeExtensions.SetChildren*
   name: SetChildren
   href: api/Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_SetChildren_
@@ -4894,12 +4235,28 @@ references:
   commentId: T:Sawmill.Xml.XmlNodeRewriter
   fullName: Sawmill.Xml.XmlNodeRewriter
   nameWithType: XmlNodeRewriter
-- uid: Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Xml.XmlNode)
-  name: GetChildren(XmlNode)
-  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_GetChildren_System_Xml_XmlNode_
-  commentId: M:Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Xml.XmlNode)
-  fullName: Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Xml.XmlNode)
-  nameWithType: XmlNodeRewriter.GetChildren(XmlNode)
+- uid: Sawmill.Xml.XmlNodeRewriter.CountChildren(System.Xml.XmlNode)
+  name: CountChildren(XmlNode)
+  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_CountChildren_System_Xml_XmlNode_
+  commentId: M:Sawmill.Xml.XmlNodeRewriter.CountChildren(System.Xml.XmlNode)
+  fullName: Sawmill.Xml.XmlNodeRewriter.CountChildren(System.Xml.XmlNode)
+  nameWithType: XmlNodeRewriter.CountChildren(XmlNode)
+- uid: Sawmill.Xml.XmlNodeRewriter.CountChildren*
+  name: CountChildren
+  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_CountChildren_
+  commentId: Overload:Sawmill.Xml.XmlNodeRewriter.CountChildren
+  isSpec: "True"
+  fullName: Sawmill.Xml.XmlNodeRewriter.CountChildren
+  nameWithType: XmlNodeRewriter.CountChildren
+- uid: Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Span{System.Xml.XmlNode},System.Xml.XmlNode)
+  name: GetChildren(Span<XmlNode>, XmlNode)
+  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_GetChildren_System_Span_System_Xml_XmlNode__System_Xml_XmlNode_
+  commentId: M:Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Span{System.Xml.XmlNode},System.Xml.XmlNode)
+  name.vb: GetChildren(Span(Of XmlNode), XmlNode)
+  fullName: Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Span<System.Xml.XmlNode>, System.Xml.XmlNode)
+  fullName.vb: Sawmill.Xml.XmlNodeRewriter.GetChildren(System.Span(Of System.Xml.XmlNode), System.Xml.XmlNode)
+  nameWithType: XmlNodeRewriter.GetChildren(Span<XmlNode>, XmlNode)
+  nameWithType.vb: XmlNodeRewriter.GetChildren(Span(Of XmlNode), XmlNode)
 - uid: Sawmill.Xml.XmlNodeRewriter.GetChildren*
   name: GetChildren
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_GetChildren_
@@ -4920,31 +4277,15 @@ references:
   isSpec: "True"
   fullName: Sawmill.Xml.XmlNodeRewriter.Instance
   nameWithType: XmlNodeRewriter.Instance
-- uid: Sawmill.Xml.XmlNodeRewriter.RewriteChildren(System.Func{System.Xml.XmlNode,System.Xml.XmlNode},System.Xml.XmlNode)
-  name: RewriteChildren(Func<XmlNode, XmlNode>, XmlNode)
-  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_RewriteChildren_System_Func_System_Xml_XmlNode_System_Xml_XmlNode__System_Xml_XmlNode_
-  commentId: M:Sawmill.Xml.XmlNodeRewriter.RewriteChildren(System.Func{System.Xml.XmlNode,System.Xml.XmlNode},System.Xml.XmlNode)
-  name.vb: RewriteChildren(Func(Of XmlNode, XmlNode), XmlNode)
-  fullName: Sawmill.Xml.XmlNodeRewriter.RewriteChildren(System.Func<System.Xml.XmlNode, System.Xml.XmlNode>, System.Xml.XmlNode)
-  fullName.vb: Sawmill.Xml.XmlNodeRewriter.RewriteChildren(System.Func(Of System.Xml.XmlNode, System.Xml.XmlNode), System.Xml.XmlNode)
-  nameWithType: XmlNodeRewriter.RewriteChildren(Func<XmlNode, XmlNode>, XmlNode)
-  nameWithType.vb: XmlNodeRewriter.RewriteChildren(Func(Of XmlNode, XmlNode), XmlNode)
-- uid: Sawmill.Xml.XmlNodeRewriter.RewriteChildren*
-  name: RewriteChildren
-  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_RewriteChildren_
-  commentId: Overload:Sawmill.Xml.XmlNodeRewriter.RewriteChildren
-  isSpec: "True"
-  fullName: Sawmill.Xml.XmlNodeRewriter.RewriteChildren
-  nameWithType: XmlNodeRewriter.RewriteChildren
-- uid: Sawmill.Xml.XmlNodeRewriter.SetChildren(Sawmill.Children{System.Xml.XmlNode},System.Xml.XmlNode)
-  name: SetChildren(Children<XmlNode>, XmlNode)
-  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_SetChildren_Sawmill_Children_System_Xml_XmlNode__System_Xml_XmlNode_
-  commentId: M:Sawmill.Xml.XmlNodeRewriter.SetChildren(Sawmill.Children{System.Xml.XmlNode},System.Xml.XmlNode)
-  name.vb: SetChildren(Children(Of XmlNode), XmlNode)
-  fullName: Sawmill.Xml.XmlNodeRewriter.SetChildren(Sawmill.Children<System.Xml.XmlNode>, System.Xml.XmlNode)
-  fullName.vb: Sawmill.Xml.XmlNodeRewriter.SetChildren(Sawmill.Children(Of System.Xml.XmlNode), System.Xml.XmlNode)
-  nameWithType: XmlNodeRewriter.SetChildren(Children<XmlNode>, XmlNode)
-  nameWithType.vb: XmlNodeRewriter.SetChildren(Children(Of XmlNode), XmlNode)
+- uid: Sawmill.Xml.XmlNodeRewriter.SetChildren(System.ReadOnlySpan{System.Xml.XmlNode},System.Xml.XmlNode)
+  name: SetChildren(ReadOnlySpan<XmlNode>, XmlNode)
+  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_SetChildren_System_ReadOnlySpan_System_Xml_XmlNode__System_Xml_XmlNode_
+  commentId: M:Sawmill.Xml.XmlNodeRewriter.SetChildren(System.ReadOnlySpan{System.Xml.XmlNode},System.Xml.XmlNode)
+  name.vb: SetChildren(ReadOnlySpan(Of XmlNode), XmlNode)
+  fullName: Sawmill.Xml.XmlNodeRewriter.SetChildren(System.ReadOnlySpan<System.Xml.XmlNode>, System.Xml.XmlNode)
+  fullName.vb: Sawmill.Xml.XmlNodeRewriter.SetChildren(System.ReadOnlySpan(Of System.Xml.XmlNode), System.Xml.XmlNode)
+  nameWithType: XmlNodeRewriter.SetChildren(ReadOnlySpan<XmlNode>, XmlNode)
+  nameWithType.vb: XmlNodeRewriter.SetChildren(ReadOnlySpan(Of XmlNode), XmlNode)
 - uid: Sawmill.Xml.XmlNodeRewriter.SetChildren*
   name: SetChildren
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_SetChildren_

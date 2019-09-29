@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IRewritable&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.40.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -111,20 +111,20 @@ and that successive sets overwrite the earlier operation
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1_GetChildren.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601.GetChildren%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1_CountChildren.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601.CountChildren%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L50">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L41">View Source</a>
   </span>
-  <a id="Sawmill_IRewritable_1_GetChildren_" data-uid="Sawmill.IRewritable`1.GetChildren*"></a>
-  <h4 id="Sawmill_IRewritable_1_GetChildren" data-uid="Sawmill.IRewritable`1.GetChildren">GetChildren()</h4>
-  <div class="markdown level1 summary"><p>Get the immediate children of the current instance.
-<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren(T)</a></p>
+  <a id="Sawmill_IRewritable_1_CountChildren_" data-uid="Sawmill.IRewritable`1.CountChildren*"></a>
+  <h4 id="Sawmill_IRewritable_1_CountChildren" data-uid="Sawmill.IRewritable`1.CountChildren">CountChildren()</h4>
+  <div class="markdown level1 summary"><p>Count the immediate children of the value.
+<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Children&lt;T&gt; GetChildren()</code></pre>
+    <pre><code class="lang-csharp hljs">int CountChildren()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,13 +136,13 @@ and that successive sets overwrite the earlier operation
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;</td>
-        <td><p>The immediate children of the current instance</p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p>The current instance&apos;s number of immediate children</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_IRewritable_1_GetChildren_examples">Examples</h5>
+  <h5 id="Sawmill_IRewritable_1_CountChildren_examples">Examples</h5>
   <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
 <pre><code>Expr expr = new Add(
     new Add(
@@ -151,7 +151,55 @@ and that successive sets overwrite the earlier operation
     ),
     new Lit(3)
 );</code></pre>
-<p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren">GetChildren()</a> returns the immediate children of the topmost node.</p>
+<p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a> counts the immediate children of the topmost (Add) node.</p>
+<pre><code>Assert.Equal(2, expr.CountChildren());</code></pre>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1_GetChildren_System_Span__0__.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601.GetChildren(System.Span%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L77">View Source</a>
+  </span>
+  <a id="Sawmill_IRewritable_1_GetChildren_" data-uid="Sawmill.IRewritable`1.GetChildren*"></a>
+  <h4 id="Sawmill_IRewritable_1_GetChildren_System_Span__0__" data-uid="Sawmill.IRewritable`1.GetChildren(System.Span{`0})">GetChildren(Span&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.
+<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void GetChildren(Span&lt;T&gt; childrenReceiver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</td>
+        <td><span class="parametername">childrenReceiver</span></td>
+        <td><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy the current instance&apos;s immediate children into.
+The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1.length#System_Span_1_Length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_IRewritable_1_GetChildren_System_Span__0___examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre>
+<p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a> copies the immediate children of the topmost node into the span.</p>
 <pre><code>Expr[] expected = new[]
     {
         new Add(
@@ -160,109 +208,30 @@ and that successive sets overwrite the earlier operation
         ),
         new Lit(3)
     };
-Assert.Equal(expected, expr.GetChildren());</code></pre>
+var array = new Expr[expr.CountChildren()];
+expr.GetChildren(array);
+Assert.Equal(expected, array);</code></pre>
 
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601.RewriteChildren(System.Func%7B%600%2C%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601.SetChildren(System.ReadOnlySpan%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L124">View Source</a>
-  </span>
-  <a id="Sawmill_IRewritable_1_RewriteChildren_" data-uid="Sawmill.IRewritable`1.RewriteChildren*"></a>
-  <h4 id="Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__" data-uid="Sawmill.IRewritable`1.RewriteChildren(System.Func{`0,`0})">RewriteChildren(Func&lt;T, T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Update the immediate children of the current instance by applying a transformation function to each one.
-<p>
-Implementations of <a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a> can use <a class="xref" href="Sawmill.Rewritable.html#Sawmill_Rewritable_DefaultRewriteChildren__1___0_System_Func___0___0__">DefaultRewriteChildren&lt;T&gt;(T, Func&lt;T, T&gt;)</a>,
-or you can write your own.
-</p>
-<p>
-NB: A hand-written implementation will not usually be faster
-than <a class="xref" href="Sawmill.Rewritable.html#Sawmill_Rewritable_DefaultRewriteChildren__1___0_System_Func___0___0__">DefaultRewriteChildren&lt;T&gt;(T, Func&lt;T, T&gt;)</a>.
-If your type has a fixed number of children, and that number is greater than two,
-you may see some performance improvements from implementing this method yourself.
-Be careful not to rebuild the object if none of the children have changed.
-</p>
-<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">T RewriteChildren(Func&lt;T, T&gt; transformer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
-        <td><span class="parametername">transformer</span></td>
-        <td><p>A transformation function to apply to each of the current instance&apos;s immediate children.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>A copy of the current instance with updated children.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0___examples">Examples</h5>
-  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
-<pre><code>Expr expr = new Add(
-    new Add(
-        new Lit(1),
-        new Lit(2)
-    ),
-    new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__">RewriteChildren(Func&lt;T, T&gt;)</a> only affects the immediate children of the topmost node.</p>
-<pre><code>Expr expected = new Add(
-    transformer(new Add(
-        new Lit(1),
-        new Lit(2)
-    )),
-    transformer(new Lit(3))
-);
-Assert.Equal(expected, expr.RewriteChildren(transformer));</code></pre>
-
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0__.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601.SetChildren(Sawmill.Children%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L82">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L109">View Source</a>
   </span>
   <a id="Sawmill_IRewritable_1_SetChildren_" data-uid="Sawmill.IRewritable`1.SetChildren*"></a>
-  <h4 id="Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0__" data-uid="Sawmill.IRewritable`1.SetChildren(Sawmill.Children{`0})">SetChildren(Children&lt;T&gt;)</h4>
+  <h4 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__" data-uid="Sawmill.IRewritable`1.SetChildren(System.ReadOnlySpan{`0})">SetChildren(ReadOnlySpan&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Set the immediate children of the currentInstance.
 <p>
 Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
-<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren">GetChildren()</a>.
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a>.
 </p>
-<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_Sawmill_Children__0___0_">SetChildren(Children&lt;T&gt;, T)</a></p>
+<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">T SetChildren(Children&lt;T&gt; newChildren)</code></pre>
+    <pre><code class="lang-csharp hljs">T SetChildren(ReadOnlySpan&lt;T&gt; newChildren)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -275,7 +244,7 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</td>
         <td><span class="parametername">newChildren</span></td>
         <td><p>The new children</p>
 </td>
@@ -298,7 +267,7 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0___examples">Examples</h5>
+  <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___examples">Examples</h5>
   <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
 <pre><code>Expr expr = new Add(
     new Add(
@@ -307,7 +276,7 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
     ),
     new Lit(3)
 );</code></pre>
-<p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0__">SetChildren(Children&lt;T&gt;)</a> replaces the immediate children of the topmost node.</p>
+<p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a> replaces the immediate children of the topmost node.</p>
 <pre><code>Expr expected = new Add(
     new Lit(4),
     new Lit(5)
@@ -325,7 +294,7 @@ Assert.Equal(expected, expr.SetChildren(Children.Two(new Lit(4), new Lit(5))));<
                     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_IRewritable_1.md&amp;value=---%0Auid%3A%20Sawmill.IRewritable%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L19" class="contribution-link">View Source</a>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/IRewritable.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

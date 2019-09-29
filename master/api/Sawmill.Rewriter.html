@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Rewriter
    ">
-    <meta name="generator" content="docfx 2.40.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -118,11 +118,11 @@
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.ChildrenInContext%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.ChildrenInContext.cs/#L26">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.ChildrenInContext.cs/#L24">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_ChildrenInContext_" data-uid="Sawmill.Rewriter.ChildrenInContext*"></a>
   <h4 id="Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.ChildrenInContext``1(Sawmill.IRewriter{``0},``0)">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
-  <div class="markdown level1 summary"><p>Returns an instance of <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> containing each immediate child of
+  <div class="markdown level1 summary"><p>Returns an array containing each immediate child of
 <code data-dev-comment-type="paramref" class="paramref">value</code> paired with a function to replace the child.
 This is typically useful when you need to replace a node&apos;s children one at a time,
 such as during mutation testing.</p>
@@ -137,7 +137,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Children&lt;(T item, Func&lt;T, T&gt; replace)&gt; ChildrenInContext&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static (T item, Func&lt;T, T&gt; replace)[] ChildrenInContext&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -173,7 +173,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -261,87 +261,6 @@ function with a new child &quot;plugs the hole&quot; in the context.
       <tr>
         <td><span class="parametername">T</span></td>
         <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.DefaultRewriteChildren%60%601(Sawmill.IRewriter%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DefaultRewriteChildren.cs/#L20">View Source</a>
-  </span>
-  <a id="Sawmill_Rewriter_DefaultRewriteChildren_" data-uid="Sawmill.Rewriter.DefaultRewriteChildren*"></a>
-  <h4 id="Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_" data-uid="Sawmill.Rewriter.DefaultRewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</h4>
-  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.
-<p>
-Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a> will simply delegate to this method.
-</p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T DefaultRewriteChildren&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, T&gt; transformer, T value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</td>
-        <td><span class="parametername">rewriter</span></td>
-        <td><p>The rewriter</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
-        <td><span class="parametername">transformer</span></td>
-        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The rewritable tree type</p>
-</td>
       </tr>
     </tbody>
   </table>
@@ -443,7 +362,7 @@ Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_I
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.DescendantsAndSelf%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DescendantsAndSelf.cs/#L37">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DescendantsAndSelf.cs/#L38">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_DescendantsAndSelf_" data-uid="Sawmill.Rewriter.DescendantsAndSelf*"></a>
   <h4 id="Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{``0},``0)">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
@@ -612,20 +531,20 @@ function with a new node &quot;plugs the hole&quot; in the context.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.Fold%60%602(Sawmill.IRewriter%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSawmill.Children%7B%60%601%7D%2C%60%601%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.Fold%60%602(Sawmill.IRewriter%7B%60%600%7D%2CSawmill.SpanFunc%7B%60%601%2C%60%600%2C%60%601%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.Fold.cs/#L19">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.Fold.cs/#L17">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_Fold_" data-uid="Sawmill.Rewriter.Fold*"></a>
-  <h4 id="Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_" data-uid="Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{``0,Sawmill.Children{``1},``1},``0)">Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T, Children&lt;U&gt;, U&gt;, T)</h4>
+  <h4 id="Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_" data-uid="Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},Sawmill.SpanFunc{``1,``0,``1},``0)">Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, SpanFunc&lt;U, T, U&gt;, T)</h4>
   <div class="markdown level1 summary"><p>Flattens all the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> into a single result,
 using an aggregation function to combine each node with the results of folding its children.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static U Fold&lt;T, U&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, Children&lt;U&gt;, U&gt; func, T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static U Fold&lt;T, U&gt;(this IRewriter&lt;T&gt; rewriter, SpanFunc&lt;U, T, U&gt; func, T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -644,7 +563,7 @@ using an aggregation function to combine each node with the results of folding i
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;U&gt;, U&gt;</td>
+        <td><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;U, T, U&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>The aggregation function</p>
 </td>
@@ -694,6 +613,99 @@ using an aggregation function to combine each node with the results of folding i
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.GetChildren%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.GetChildren.cs/#L39">View Source</a>
+  </span>
+  <a id="Sawmill_Rewriter_GetChildren_" data-uid="Sawmill.Rewriter.GetChildren*"></a>
+  <h4 id="Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.GetChildren``1(Sawmill.IRewriter{``0},``0)">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Get the immediate children of the value.
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T[] GetChildren&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</td>
+        <td><span class="parametername">rewriter</span></td>
+        <td><p>The rewriter</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The rewritable tree type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0__examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre>
+<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.</p>
+<pre><code>Expr[] expected = new[]
+    {
+        new Add(
+            new Lit(1),
+            new Lit(2)
+        ),
+        new Lit(3)
+    };
+Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
+
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.ReplaceDescendantAt%60%601(Sawmill.IRewriter%7B%60%600%7D%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2C%60%600%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -890,8 +902,86 @@ By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite
     )),
     transformer(new Lit(3))
 ));
-Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre>
+Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
 
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.RewriteChildren%60%601(Sawmill.IRewriter%7B%60%600%7D%2CSystem.Func%7B%60%600%2C%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.RewriteChildren.cs/#L16">View Source</a>
+  </span>
+  <a id="Sawmill_Rewriter_RewriteChildren_" data-uid="Sawmill.Rewriter.RewriteChildren*"></a>
+  <h4 id="Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_" data-uid="Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)">RewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T RewriteChildren&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, T&gt; transformer, T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</td>
+        <td><span class="parametername">rewriter</span></td>
+        <td><p>The rewriter</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The rewritable tree type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.RewriteDescendantAt%60%601(Sawmill.IRewriter%7B%60%600%7D%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2CSystem.Func%7B%60%600%2C%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1083,7 +1173,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.SelfAndDescendants%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendants.cs/#L37">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendants.cs/#L38">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_SelfAndDescendants_" data-uid="Sawmill.Rewriter.SelfAndDescendants*"></a>
   <h4 id="Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.SelfAndDescendants``1(Sawmill.IRewriter{``0},``0)">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
@@ -1174,7 +1264,7 @@ Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.SelfAndDescendantsBreadthFirst%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsBreadthFirst.cs/#L16">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsBreadthFirst.cs/#L17">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_SelfAndDescendantsBreadthFirst_" data-uid="Sawmill.Rewriter.SelfAndDescendantsBreadthFirst*"></a>
   <h4 id="Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.SelfAndDescendantsBreadthFirst``1(Sawmill.IRewriter{``0},``0)">SelfAndDescendantsBreadthFirst&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
@@ -1415,7 +1505,8 @@ function with a new node &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 summary"><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
-The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#System_Linq_Enumerable_Zip__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___1___2__">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
+The trees are iterated in lock-step, much like an n-ary
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#System_Linq_Enumerable_Zip__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___1___2__">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
@@ -1523,7 +1614,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.ZipFold.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.ZipFold.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

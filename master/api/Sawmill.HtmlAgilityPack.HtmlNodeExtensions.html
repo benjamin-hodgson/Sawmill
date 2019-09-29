@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class HtmlNodeExtensions
    ">
-    <meta name="generator" content="docfx 2.40.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -118,11 +118,11 @@
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ChildrenInContext_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ChildrenInContext(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L160">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L221">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ChildrenInContext_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ChildrenInContext*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ChildrenInContext_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ChildrenInContext(HtmlAgilityPack.HtmlNode)">ChildrenInContext(HtmlNode)</h4>
-  <div class="markdown level1 summary"><p>Returns an instance of <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> containing each immediate child of
+  <div class="markdown level1 summary"><p>Returns an array containing each immediate child of
 <code data-dev-comment-type="paramref" class="paramref">value</code> paired with a function to replace the child.
 This is typically useful when you need to replace a node&apos;s children one at a time,
 such as during mutation testing.</p>
@@ -134,7 +134,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Children&lt;(HtmlNode item, Func&lt;HtmlNode, HtmlNode&gt; replace)&gt; ChildrenInContext(this HtmlNode value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static (HtmlNode item, Func&lt;HtmlNode, HtmlNode&gt; replace)[] ChildrenInContext(this HtmlNode value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -164,7 +164,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>, <span class="xref">HtmlAgilityPack.HtmlNode</span>&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>, <span class="xref">HtmlAgilityPack.HtmlNode</span>&gt;&gt;[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -175,10 +175,75 @@ function with a new child &quot;plugs the hole&quot; in the context.
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L34">View Source</a>
+  </span>
+  <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren*"></a>
+  <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.CountChildren(HtmlAgilityPack.HtmlNode)">CountChildren(HtmlNode)</h4>
+  <div class="markdown level1 summary"><p>Count the immediate children of the value.
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountChildren(this HtmlNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HtmlAgilityPack.HtmlNode</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_HtmlAgilityPack_HtmlNode__examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a> counts the immediate children of the topmost (Add) node.
+<pre><code>Assert.Equal(2, rewriter.CountChildren(expr));</code></pre>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_CountChildren_HtmlAgilityPack_HtmlNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren</a>(T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Cursor_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Cursor(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L286">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L347">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Cursor_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Cursor*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Cursor_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Cursor(HtmlAgilityPack.HtmlNode)">Cursor(HtmlNode)</h4>
@@ -232,7 +297,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantAt_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantAt(HtmlAgilityPack.HtmlNode%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L221">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L282">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantAt_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantAt*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantAt_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantAt(HtmlAgilityPack.HtmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})">DescendantAt(HtmlNode, IEnumerable&lt;Direction&gt;)</h4>
@@ -308,7 +373,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantsAndSelf_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantsAndSelf(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L104">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L165">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantsAndSelf_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantsAndSelf*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantsAndSelf_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantsAndSelf(HtmlAgilityPack.HtmlNode)">DescendantsAndSelf(HtmlNode)</h4>
@@ -381,7 +446,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantsAndSelfInContext_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantsAndSelfInContext(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L192">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L253">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantsAndSelfInContext_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantsAndSelfInContext*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_DescendantsAndSelfInContext_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.DescendantsAndSelfInContext(HtmlAgilityPack.HtmlNode)">DescendantsAndSelfInContext(HtmlNode)</h4>
@@ -438,20 +503,20 @@ function with a new node &quot;plugs the hole&quot; in the context.
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_Sawmill_Children___0____0__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold%60%601(HtmlAgilityPack.HtmlNode%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%2CSawmill.Children%7B%60%600%7D%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_Sawmill_SpanFunc___0_HtmlAgilityPack_HtmlNode___0__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold%60%601(HtmlAgilityPack.HtmlNode%2CSawmill.SpanFunc%7B%60%600%2CHtmlAgilityPack.HtmlNode%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L298">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L360">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold*"></a>
-  <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_Sawmill_Children___0____0__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold``1(HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,Sawmill.Children{``0},``0})">Fold&lt;T&gt;(HtmlNode, Func&lt;HtmlNode, Children&lt;T&gt;, T&gt;)</h4>
+  <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_Sawmill_SpanFunc___0_HtmlAgilityPack_HtmlNode___0__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Fold``1(HtmlAgilityPack.HtmlNode,Sawmill.SpanFunc{``0,HtmlAgilityPack.HtmlNode,``0})">Fold&lt;T&gt;(HtmlNode, SpanFunc&lt;T, HtmlNode, T&gt;)</h4>
   <div class="markdown level1 summary"><p>Flattens all the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> into a single result,
 using an aggregation function to combine each node with the results of folding its children.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T Fold&lt;T&gt;(this HtmlNode value, Func&lt;HtmlNode, Children&lt;T&gt;, T&gt; func)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T Fold&lt;T&gt;(this HtmlNode value, SpanFunc&lt;T, HtmlNode, T&gt; func)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -470,7 +535,7 @@ using an aggregation function to combine each node with the results of folding i
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;, T&gt;</td>
+        <td><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;T, <span class="xref">HtmlAgilityPack.HtmlNode</span>, T&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>The aggregation function</p>
 </td>
@@ -508,26 +573,27 @@ using an aggregation function to combine each node with the results of folding i
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_Sawmill_Children___0____0___seealso">See Also</h5>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Fold__1_HtmlAgilityPack_HtmlNode_Sawmill_SpanFunc___0_HtmlAgilityPack_HtmlNode___0___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;U&gt;, U&gt;, T)</div>
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;U, T, U&gt;, T)</div>
+      <div><a class="xref" href="Sawmill.Rewritable.html#Sawmill_Rewritable_Fold__2___0_Sawmill_SpanFunc___1___0___1__">Fold&lt;T, U&gt;(T, SpanFunc&lt;U, T, U&gt;)</a></div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L42">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L66">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode)">GetChildren(HtmlNode)</h4>
   <div class="markdown level1 summary"><p>Get the immediate children of the value.
-<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren">GetChildren()</a></p>
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Children&lt;HtmlNode&gt; GetChildren(this HtmlNode value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static HtmlNode[] GetChildren(this HtmlNode value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -557,7 +623,7 @@ using an aggregation function to combine each node with the results of folding i
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>&gt;</td>
+        <td><span class="xref">HtmlAgilityPack.HtmlNode</span>[]</td>
         <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
 </td>
       </tr>
@@ -571,7 +637,7 @@ using an aggregation function to combine each node with the results of folding i
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren(T)</a> returns the immediate children of the topmost node.
+);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.
 <pre><code>Expr[] expected = new[]
     {
         new Add(
@@ -583,14 +649,80 @@ using an aggregation function to combine each node with the results of folding i
 Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
   <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode__seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren</a>(T)</div>
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_System_Span_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode%2CSystem.Span%7BHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L103">View Source</a>
+  </span>
+  <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren*"></a>
+  <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_System_Span_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.GetChildren(HtmlAgilityPack.HtmlNode,System.Span{HtmlAgilityPack.HtmlNode})">GetChildren(HtmlNode, Span&lt;HtmlNode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetChildren(this HtmlNode value, Span&lt;HtmlNode&gt; childrenReceiver)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HtmlAgilityPack.HtmlNode</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>&gt;</td>
+        <td><span class="parametername">childrenReceiver</span></td>
+        <td><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children into.
+The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1.length#System_Span_1_Length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_System_Span_HtmlAgilityPack_HtmlNode___examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a> copies the immediate children of the topmost node into the span.
+<pre><code>Expr[] expected = new[]
+    {
+        new Add(
+            new Lit(1),
+            new Lit(2)
+        ),
+        new Lit(3)
+    };
+var array = new Expr[rewriter.CountChildren(expr)];
+rewriter.GetChildren(array, expr);
+Assert.Equal(expected, array);</code></pre>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_GetChildren_HtmlAgilityPack_HtmlNode_System_Span_HtmlAgilityPack_HtmlNode___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren</a>(<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;, T)</div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ReplaceDescendantAt__1_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ReplaceDescendantAt%60%601(HtmlAgilityPack.HtmlNode%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2CHtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L243">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L304">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ReplaceDescendantAt_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ReplaceDescendantAt*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ReplaceDescendantAt__1_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ReplaceDescendantAt``1(HtmlAgilityPack.HtmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},HtmlAgilityPack.HtmlNode)">ReplaceDescendantAt&lt;T&gt;(HtmlNode, IEnumerable&lt;Direction&gt;, HtmlNode)</h4>
@@ -687,7 +819,7 @@ Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Rewrite_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Rewrite(HtmlAgilityPack.HtmlNode%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%2CHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L438">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L500">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Rewrite_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Rewrite*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Rewrite_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.Rewrite(HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode})">Rewrite(HtmlNode, Func&lt;HtmlNode, HtmlNode&gt;)</h4>
@@ -756,7 +888,7 @@ By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite
     )),
     transformer(new Lit(3))
 ));
-Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre>
+Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
   <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_Rewrite_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode___seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
@@ -766,21 +898,11 @@ Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteChildren_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteChildren(HtmlAgilityPack.HtmlNode%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%2CHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L485">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L517">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteChildren_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteChildren*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteChildren_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteChildren(HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode})">RewriteChildren(HtmlNode, Func&lt;HtmlNode, HtmlNode&gt;)</h4>
-  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.
-<p>
-Implementations of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> can use <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>,
-or you can write your own.
-</p><p>
-NB: A hand-written implementation will not usually be faster
-than <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>.
-If your type has a fixed number of children, and that number is greater than two,
-you may see some performance improvements from implementing this method yourself.
-Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref">value</code> if none of the children have changed.
-</p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__">RewriteChildren(Func&lt;T, T&gt;)</a></p>
+  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -827,33 +949,16 @@ Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteChildren_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode___examples">Examples</h5>
-  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
-<pre><code>Expr expr = new Add(
-    new Add(
-        new Lit(1),
-        new Lit(2)
-    ),
-    new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a> only affects the immediate children of the topmost node.
-<pre><code>Expr expected = new Add(
-    transformer(new Add(
-        new Lit(1),
-        new Lit(2)
-    )),
-    transformer(new Lit(3))
-);
-Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre>
   <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteChildren_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren</a>(<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteDescendantAt__1_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteDescendantAt%60%601(HtmlAgilityPack.HtmlNode%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%2CHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L265">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L326">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteDescendantAt_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteDescendantAt*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteDescendantAt__1_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteDescendantAt``1(HtmlAgilityPack.HtmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode})">RewriteDescendantAt&lt;T&gt;(HtmlNode, IEnumerable&lt;Direction&gt;, Func&lt;HtmlNode, HtmlNode&gt;)</h4>
@@ -950,7 +1055,7 @@ Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteIter_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteIter(HtmlAgilityPack.HtmlNode%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%2CHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L513">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L545">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteIter_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteIter*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_RewriteIter_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.RewriteIter(HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode})">RewriteIter(HtmlNode, Func&lt;HtmlNode, HtmlNode&gt;)</h4>
@@ -1018,7 +1123,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendants_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendants(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L134">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L195">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendants_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendants*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendants_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendants(HtmlAgilityPack.HtmlNode)">SelfAndDescendants(HtmlNode)</h4>
@@ -1091,7 +1196,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsBreadthFirst_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsBreadthFirst(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L144">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L205">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsBreadthFirst_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsBreadthFirst*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsBreadthFirst_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsBreadthFirst(HtmlAgilityPack.HtmlNode)">SelfAndDescendantsBreadthFirst(HtmlNode)</h4>
@@ -1145,7 +1250,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsInContext_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContext(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L176">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L237">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsInContext_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContext*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsInContext_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContext(HtmlAgilityPack.HtmlNode)">SelfAndDescendantsInContext(HtmlNode)</h4>
@@ -1205,7 +1310,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsInContextBreadthFirst_HtmlAgilityPack_HtmlNode_.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst(HtmlAgilityPack.HtmlNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L208">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L269">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsInContextBreadthFirst_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SelfAndDescendantsInContextBreadthFirst_HtmlAgilityPack_HtmlNode_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SelfAndDescendantsInContextBreadthFirst(HtmlAgilityPack.HtmlNode)">SelfAndDescendantsInContextBreadthFirst(HtmlNode)</h4>
@@ -1262,23 +1367,23 @@ function with a new node &quot;plugs the hole&quot; in the context.
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_Sawmill_Children_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode%2CSawmill.Children%7BHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_System_ReadOnlySpan_HtmlAgilityPack_HtmlNode__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode%2CSystem.ReadOnlySpan%7BHtmlAgilityPack.HtmlNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L74">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L135">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren*"></a>
-  <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_Sawmill_Children_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode,Sawmill.Children{HtmlAgilityPack.HtmlNode})">SetChildren(HtmlNode, Children&lt;HtmlNode&gt;)</h4>
+  <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_System_ReadOnlySpan_HtmlAgilityPack_HtmlNode__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.SetChildren(HtmlAgilityPack.HtmlNode,System.ReadOnlySpan{HtmlAgilityPack.HtmlNode})">SetChildren(HtmlNode, ReadOnlySpan&lt;HtmlNode&gt;)</h4>
   <div class="markdown level1 summary"><p>Set the immediate children of the value.
 <p>
 Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
-<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren(T)</a>.
-</p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0__">SetChildren(Children&lt;T&gt;)</a></p>
+<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>.
+</p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static HtmlNode SetChildren(this HtmlNode value, Children&lt;HtmlNode&gt; newChildren)</code></pre>
+    <pre><code class="lang-csharp hljs">public static HtmlNode SetChildren(this HtmlNode value, ReadOnlySpan&lt;HtmlNode&gt; newChildren)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1297,7 +1402,7 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<span class="xref">HtmlAgilityPack.HtmlNode</span>&gt;</td>
         <td><span class="parametername">newChildren</span></td>
         <td><p>The new children</p>
 </td>
@@ -1320,7 +1425,7 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_Sawmill_Children_HtmlAgilityPack_HtmlNode___examples">Examples</h5>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_System_ReadOnlySpan_HtmlAgilityPack_HtmlNode___examples">Examples</h5>
   <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
 <pre><code>Expr expr = new Add(
     new Add(
@@ -1328,22 +1433,22 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_Sawmill_Children__0___0_">SetChildren(Children&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.
 <pre><code>Expr expected = new Add(
     new Lit(4),
     new Lit(5)
 );
 Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5)), expr));</code></pre>
-  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_Sawmill_Children_HtmlAgilityPack_HtmlNode___seealso">See Also</h5>
+  <h5 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_SetChildren_HtmlAgilityPack_HtmlNode_System_ReadOnlySpan_HtmlAgilityPack_HtmlNode___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_Sawmill_Children__0___0_">SetChildren</a>(<a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;, T)</div>
+      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren</a>(<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;, T)</div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ZipFold__1_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable___0____0__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ZipFold%60%601(HtmlAgilityPack.HtmlNode%2CHtmlAgilityPack.HtmlNode%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%2CHtmlAgilityPack.HtmlNode%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L394">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L456">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ZipFold_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ZipFold*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ZipFold__1_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode_System_Func_HtmlAgilityPack_HtmlNode_HtmlAgilityPack_HtmlNode_System_Collections_Generic_IEnumerable___0____0__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ZipFold``1(HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode,System.Func{HtmlAgilityPack.HtmlNode,HtmlAgilityPack.HtmlNode,System.Collections.Generic.IEnumerable{``0},``0})">ZipFold&lt;U&gt;(HtmlNode, HtmlNode, Func&lt;HtmlNode, HtmlNode, IEnumerable&lt;U&gt;, U&gt;)</h4>
@@ -1447,7 +1552,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ZipFold__1_HtmlAgilityPack_HtmlNode___System_Func_HtmlAgilityPack_HtmlNode___System_Collections_Generic_IEnumerable___0____0__.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ZipFold%60%601(HtmlAgilityPack.HtmlNode%5B%5D%2CSystem.Func%7BHtmlAgilityPack.HtmlNode%5B%5D%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L343">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L405">View Source</a>
   </span>
   <a id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ZipFold_" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ZipFold*"></a>
   <h4 id="Sawmill_HtmlAgilityPack_HtmlNodeExtensions_ZipFold__1_HtmlAgilityPack_HtmlNode___System_Func_HtmlAgilityPack_HtmlNode___System_Collections_Generic_IEnumerable___0____0__" data-uid="Sawmill.HtmlAgilityPack.HtmlNodeExtensions.ZipFold``1(HtmlAgilityPack.HtmlNode[],System.Func{HtmlAgilityPack.HtmlNode[],System.Collections.Generic.IEnumerable{``0},``0})">ZipFold&lt;U&gt;(HtmlNode[], Func&lt;HtmlNode[], IEnumerable&lt;U&gt;, U&gt;)</h4>
@@ -1553,7 +1658,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_HtmlAgilityPack_HtmlNodeExtensions.md&amp;value=---%0Auid%3A%20Sawmill.HtmlAgilityPack.HtmlNodeExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

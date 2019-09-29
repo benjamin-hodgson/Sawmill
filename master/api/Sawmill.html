@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace Sawmill
    ">
-    <meta name="generator" content="docfx 2.40.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -82,9 +82,6 @@
 <p><a class="xref" href="Sawmill.AutoRewriter-1.html">AutoRewriter&lt;T&gt;</a> looks for the subtype&apos;s constructor, and gets/sets
 the <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>-children in the order that they appear in the constructor.</p>
 </section>
-      <h4><a class="xref" href="Sawmill.Children.html">Children</a></h4>
-      <section><p>Factory methods for <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a>.</p>
-</section>
       <h4><a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a></h4>
       <section><p>A <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is a mutable view of a location in a <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>-structure,
 allowing efficient access to (and editing of) a node and its parent, siblings, and immediate children.</p>
@@ -121,14 +118,6 @@ but it efficiently supports longer sequences of edits to a location and its neig
       <h4><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;</a></h4>
       <section><p>Tools for building rewriters for a single subclass of a base type.</p>
 </section>
-    <h3 id="structs">Structs
-  </h3>
-      <h4><a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a></h4>
-      <section><p>An enumerable type representing the children of a node of type <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
-</section>
-      <h4><a class="xref" href="Sawmill.Children-1.Enumerator.html">Children&lt;T&gt;.Enumerator</a></h4>
-      <section><p>An implementation of <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator&lt;T&gt;</a> which yields the elements of the current instance.</p>
-</section>
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a></h4>
@@ -158,9 +147,31 @@ and that successive sets overwrite the earlier operation
       <h4><a class="xref" href="Sawmill.Direction.html">Direction</a></h4>
       <section><p>Represents a direction that a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> can move in</p>
 </section>
-      <h4><a class="xref" href="Sawmill.NumberOfChildren.html">NumberOfChildren</a></h4>
-      <section><p>The various possible states of an instance of <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a>
-<a class="xref" href="Sawmill.Children-1.html#Sawmill_Children_1_NumberOfChildren">NumberOfChildren</a></p>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="Sawmill.ReadOnlySpanAction-1.html">ReadOnlySpanAction&lt;T&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action&lt;T&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.ReadOnlySpanAction-2.html">ReadOnlySpanAction&lt;T, U&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-2">Action&lt;T1,T2&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.ReadOnlySpanFunc-2.html">ReadOnlySpanFunc&lt;T, R&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func&lt;T,TResult&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.ReadOnlySpanFunc-3.html">ReadOnlySpanFunc&lt;T, U, R&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func&lt;T1,T2,TResult&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.SpanAction-1.html">SpanAction&lt;T&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action&lt;T&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.SpanAction-2.html">SpanAction&lt;T, U&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-2">Action&lt;T1,T2&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.SpanFunc-2.html">SpanFunc&lt;T, R&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func&lt;T,TResult&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc&lt;T, U, R&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func&lt;T1,T2,TResult&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
 </section>
 </article>
           </div>

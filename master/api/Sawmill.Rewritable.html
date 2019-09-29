@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Rewritable
    ">
-    <meta name="generator" content="docfx 2.40.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -118,11 +118,11 @@
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_ChildrenInContext__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.ChildrenInContext%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L95">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L127">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_ChildrenInContext_" data-uid="Sawmill.Rewritable.ChildrenInContext*"></a>
   <h4 id="Sawmill_Rewritable_ChildrenInContext__1___0_" data-uid="Sawmill.Rewritable.ChildrenInContext``1(``0)">ChildrenInContext&lt;T&gt;(T)</h4>
-  <div class="markdown level1 summary"><p>Returns an instance of <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> containing each immediate child of
+  <div class="markdown level1 summary"><p>Returns an array containing each immediate child of
 <code data-dev-comment-type="paramref" class="paramref">value</code> paired with a function to replace the child.
 This is typically useful when you need to replace a node&apos;s children one at a time,
 such as during mutation testing.</p>
@@ -134,7 +134,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Children&lt;(T item, Func&lt;T, T&gt; replace)&gt; ChildrenInContext&lt;T&gt;(this T value)
+    <pre><code class="lang-csharp hljs">public static (T item, Func&lt;T, T&gt; replace)[] ChildrenInContext&lt;T&gt;(this T value)
     where T : IRewritable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -165,7 +165,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;&gt;[]</td>
         <td></td>
       </tr>
     </tbody>
@@ -194,7 +194,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_Cursor__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.Cursor%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L221">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L253">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_Cursor_" data-uid="Sawmill.Rewritable.Cursor*"></a>
   <h4 id="Sawmill_Rewritable_Cursor__1___0_" data-uid="Sawmill.Rewritable.Cursor``1(``0)">Cursor&lt;T&gt;(T)</h4>
@@ -261,89 +261,10 @@ function with a new child &quot;plugs the hole&quot; in the context.
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_DefaultRewriteChildren__1___0_System_Func___0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.DefaultRewriteChildren%60%601(%60%600%2CSystem.Func%7B%60%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L393">View Source</a>
-  </span>
-  <a id="Sawmill_Rewritable_DefaultRewriteChildren_" data-uid="Sawmill.Rewritable.DefaultRewriteChildren*"></a>
-  <h4 id="Sawmill_Rewritable_DefaultRewriteChildren__1___0_System_Func___0___0__" data-uid="Sawmill.Rewritable.DefaultRewriteChildren``1(``0,System.Func{``0,``0})">DefaultRewriteChildren&lt;T&gt;(T, Func&lt;T, T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.
-<p>
-Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a> will simply delegate to this method.
-</p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T DefaultRewriteChildren&lt;T&gt;(this T value, Func&lt;T, T&gt; transformer)
-    where T : IRewritable&lt;T&gt;</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
-        <td><span class="parametername">transformer</span></td>
-        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Sawmill_Rewritable_DefaultRewriteChildren__1___0_System_Func___0___0___seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_DescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.DescendantAt%60%601(%60%600%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L156">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L188">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_DescendantAt_" data-uid="Sawmill.Rewritable.DescendantAt*"></a>
   <h4 id="Sawmill_Rewritable_DescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.Rewritable.DescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction})">DescendantAt&lt;T&gt;(T, IEnumerable&lt;Direction&gt;)</h4>
@@ -435,7 +356,7 @@ Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_I
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_DescendantsAndSelf__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.DescendantsAndSelf%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L39">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L71">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_DescendantsAndSelf_" data-uid="Sawmill.Rewritable.DescendantsAndSelf*"></a>
   <h4 id="Sawmill_Rewritable_DescendantsAndSelf__1___0_" data-uid="Sawmill.Rewritable.DescendantsAndSelf``1(``0)">DescendantsAndSelf&lt;T&gt;(T)</h4>
@@ -524,7 +445,7 @@ Most implementations of <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_I
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_DescendantsAndSelfInContext__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.DescendantsAndSelfInContext%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L127">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L159">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_DescendantsAndSelfInContext_" data-uid="Sawmill.Rewritable.DescendantsAndSelfInContext*"></a>
   <h4 id="Sawmill_Rewritable_DescendantsAndSelfInContext__1___0_" data-uid="Sawmill.Rewritable.DescendantsAndSelfInContext``1(``0)">DescendantsAndSelfInContext&lt;T&gt;(T)</h4>
@@ -597,20 +518,20 @@ function with a new node &quot;plugs the hole&quot; in the context.
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_Fold__2___0_System_Func___0_Sawmill_Children___1____1__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.Fold%60%602(%60%600%2CSystem.Func%7B%60%600%2CSawmill.Children%7B%60%601%7D%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_Fold__2___0_Sawmill_SpanFunc___1___0___1__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.Fold%60%602(%60%600%2CSawmill.SpanFunc%7B%60%601%2C%60%600%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L233">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L265">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_Fold_" data-uid="Sawmill.Rewritable.Fold*"></a>
-  <h4 id="Sawmill_Rewritable_Fold__2___0_System_Func___0_Sawmill_Children___1____1__" data-uid="Sawmill.Rewritable.Fold``2(``0,System.Func{``0,Sawmill.Children{``1},``1})">Fold&lt;T, U&gt;(T, Func&lt;T, Children&lt;U&gt;, U&gt;)</h4>
+  <h4 id="Sawmill_Rewritable_Fold__2___0_Sawmill_SpanFunc___1___0___1__" data-uid="Sawmill.Rewritable.Fold``2(``0,Sawmill.SpanFunc{``1,``0,``1})">Fold&lt;T, U&gt;(T, SpanFunc&lt;U, T, U&gt;)</h4>
   <div class="markdown level1 summary"><p>Flattens all the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> into a single result,
 using an aggregation function to combine each node with the results of folding its children.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static U Fold&lt;T, U&gt;(this T value, Func&lt;T, Children&lt;U&gt;, U&gt; func)
+    <pre><code class="lang-csharp hljs">public static U Fold&lt;T, U&gt;(this T value, SpanFunc&lt;U, T, U&gt; func)
     where T : IRewritable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -630,7 +551,7 @@ using an aggregation function to combine each node with the results of folding i
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;U&gt;, U&gt;</td>
+        <td><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;U, T, U&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>The aggregation function</p>
 </td>
@@ -672,16 +593,105 @@ using an aggregation function to combine each node with the results of folding i
       </tr>
     </tbody>
   </table>
-  <h5 id="Sawmill_Rewritable_Fold__2___0_System_Func___0_Sawmill_Children___1____1___seealso">See Also</h5>
+  <h5 id="Sawmill_Rewritable_Fold__2___0_Sawmill_SpanFunc___1___0___1___seealso">See Also</h5>
   <div class="seealso">
-      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;U&gt;, U&gt;, T)</div>
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;U, T, U&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_GetChildren__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.GetChildren%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L41">View Source</a>
+  </span>
+  <a id="Sawmill_Rewritable_GetChildren_" data-uid="Sawmill.Rewritable.GetChildren*"></a>
+  <h4 id="Sawmill_Rewritable_GetChildren__1___0_" data-uid="Sawmill.Rewritable.GetChildren``1(``0)">GetChildren&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Get the immediate children of the value.
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T[] GetChildren&lt;T&gt;(this T value)
+    where T : IRewritable&lt;T&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Rewritable_GetChildren__1___0__examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.
+<pre><code>Expr[] expected = new[]
+    {
+        new Add(
+            new Lit(1),
+            new Lit(2)
+        ),
+        new Lit(3)
+    };
+Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
+  <h5 id="Sawmill_Rewritable_GetChildren__1___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_ReplaceDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.ReplaceDescendantAt%60%601(%60%600%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L178">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L210">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_ReplaceDescendantAt_" data-uid="Sawmill.Rewritable.ReplaceDescendantAt*"></a>
   <h4 id="Sawmill_Rewritable_ReplaceDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction____0_" data-uid="Sawmill.Rewritable.ReplaceDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},``0)">ReplaceDescendantAt&lt;T&gt;(T, IEnumerable&lt;Direction&gt;, T)</h4>
@@ -779,7 +789,7 @@ using an aggregation function to combine each node with the results of folding i
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_Rewrite__1___0_System_Func___0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.Rewrite%60%601(%60%600%2CSystem.Func%7B%60%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L374">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L406">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_Rewrite_" data-uid="Sawmill.Rewritable.Rewrite*"></a>
   <h4 id="Sawmill_Rewritable_Rewrite__1___0_System_Func___0___0__" data-uid="Sawmill.Rewritable.Rewrite``1(``0,System.Func{``0,``0})">Rewrite&lt;T&gt;(T, Func&lt;T, T&gt;)</h4>
@@ -864,17 +874,93 @@ By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite
     )),
     transformer(new Lit(3))
 ));
-Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre>
+Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
   <h5 id="Sawmill_Rewritable_Rewrite__1___0_System_Func___0___0___seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_RewriteChildren__1___0_System_Func___0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.RewriteChildren%60%601(%60%600%2CSystem.Func%7B%60%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L423">View Source</a>
+  </span>
+  <a id="Sawmill_Rewritable_RewriteChildren_" data-uid="Sawmill.Rewritable.RewriteChildren*"></a>
+  <h4 id="Sawmill_Rewritable_RewriteChildren__1___0_System_Func___0___0__" data-uid="Sawmill.Rewritable.RewriteChildren``1(``0,System.Func{``0,``0})">RewriteChildren&lt;T&gt;(T, Func&lt;T, T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T RewriteChildren&lt;T&gt;(this T value, Func&lt;T, T&gt; transformer)
+    where T : IRewritable&lt;T&gt;</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;</td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Rewritable_RewriteChildren__1___0_System_Func___0___0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_RewriteDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.RewriteDescendantAt%60%601(%60%600%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2CSystem.Func%7B%60%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L200">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L232">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_RewriteDescendantAt_" data-uid="Sawmill.Rewritable.RewriteDescendantAt*"></a>
   <h4 id="Sawmill_Rewritable_RewriteDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0__" data-uid="Sawmill.Rewritable.RewriteDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,``0})">RewriteDescendantAt&lt;T&gt;(T, IEnumerable&lt;Direction&gt;, Func&lt;T, T&gt;)</h4>
@@ -972,7 +1058,7 @@ Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_RewriteIter__1___0_System_Func___0___0__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.RewriteIter%60%601(%60%600%2CSystem.Func%7B%60%600%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L421">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L451">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_RewriteIter_" data-uid="Sawmill.Rewritable.RewriteIter*"></a>
   <h4 id="Sawmill_Rewritable_RewriteIter__1___0_System_Func___0___0__" data-uid="Sawmill.Rewritable.RewriteIter``1(``0,System.Func{``0,``0})">RewriteIter&lt;T&gt;(T, Func&lt;T, T&gt;)</h4>
@@ -1056,7 +1142,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_SelfAndDescendants__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.SelfAndDescendants%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L69">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L101">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_SelfAndDescendants_" data-uid="Sawmill.Rewritable.SelfAndDescendants*"></a>
   <h4 id="Sawmill_Rewritable_SelfAndDescendants__1___0_" data-uid="Sawmill.Rewritable.SelfAndDescendants``1(``0)">SelfAndDescendants&lt;T&gt;(T)</h4>
@@ -1145,7 +1231,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_SelfAndDescendantsBreadthFirst__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.SelfAndDescendantsBreadthFirst%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L79">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L111">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_SelfAndDescendantsBreadthFirst_" data-uid="Sawmill.Rewritable.SelfAndDescendantsBreadthFirst*"></a>
   <h4 id="Sawmill_Rewritable_SelfAndDescendantsBreadthFirst__1___0_" data-uid="Sawmill.Rewritable.SelfAndDescendantsBreadthFirst``1(``0)">SelfAndDescendantsBreadthFirst&lt;T&gt;(T)</h4>
@@ -1215,7 +1301,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_SelfAndDescendantsInContext__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.SelfAndDescendantsInContext%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L111">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L143">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_SelfAndDescendantsInContext_" data-uid="Sawmill.Rewritable.SelfAndDescendantsInContext*"></a>
   <h4 id="Sawmill_Rewritable_SelfAndDescendantsInContext__1___0_" data-uid="Sawmill.Rewritable.SelfAndDescendantsInContext``1(``0)">SelfAndDescendantsInContext&lt;T&gt;(T)</h4>
@@ -1291,7 +1377,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_SelfAndDescendantsInContextBreadthFirst__1___0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.SelfAndDescendantsInContextBreadthFirst%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L143">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L175">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_SelfAndDescendantsInContextBreadthFirst_" data-uid="Sawmill.Rewritable.SelfAndDescendantsInContextBreadthFirst*"></a>
   <h4 id="Sawmill_Rewritable_SelfAndDescendantsInContextBreadthFirst__1___0_" data-uid="Sawmill.Rewritable.SelfAndDescendantsInContextBreadthFirst``1(``0)">SelfAndDescendantsInContextBreadthFirst&lt;T&gt;(T)</h4>
@@ -1367,7 +1453,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_ZipFold__2___0___0_System_Func___0___0_System_Collections_Generic_IEnumerable___1____1__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.ZipFold%60%602(%60%600%2C%60%600%2CSystem.Func%7B%60%600%2C%60%600%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L330">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L362">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_ZipFold_" data-uid="Sawmill.Rewritable.ZipFold*"></a>
   <h4 id="Sawmill_Rewritable_ZipFold__2___0___0_System_Func___0___0_System_Collections_Generic_IEnumerable___1____1__" data-uid="Sawmill.Rewritable.ZipFold``2(``0,``0,System.Func{``0,``0,System.Collections.Generic.IEnumerable{``1},``1})">ZipFold&lt;T, U&gt;(T, T, Func&lt;T, T, IEnumerable&lt;U&gt;, U&gt;)</h4>
@@ -1476,7 +1562,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewritable_ZipFold__2___0___System_Func___0___System_Collections_Generic_IEnumerable___1____1__.md&amp;value=---%0Auid%3A%20Sawmill.Rewritable.ZipFold%60%602(%60%600%5B%5D%2CSystem.Func%7B%60%600%5B%5D%2CSystem.Collections.Generic.IEnumerable%7B%60%601%7D%2C%60%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L279">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewritable.cs/#L311">View Source</a>
   </span>
   <a id="Sawmill_Rewritable_ZipFold_" data-uid="Sawmill.Rewritable.ZipFold*"></a>
   <h4 id="Sawmill_Rewritable_ZipFold__2___0___System_Func___0___System_Collections_Generic_IEnumerable___1____1__" data-uid="Sawmill.Rewritable.ZipFold``2(``0[],System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1})">ZipFold&lt;T, U&gt;(T[], Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;)</h4>
