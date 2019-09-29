@@ -1,4 +1,3 @@
-using System;
 using BenchmarkDotNet.Running;
 
 namespace Sawmill.Bench

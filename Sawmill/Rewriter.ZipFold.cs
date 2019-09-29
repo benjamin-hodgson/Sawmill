@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 
 namespace Sawmill
@@ -11,7 +10,8 @@ namespace Sawmill
         /// Flatten all of the nodes in the trees represented by <paramref name="values"/>
         /// into a single value at the same time, using an aggregation function to combine
         /// nodes with the results of aggregating their children.
-        /// The trees are iterated in lock-step, much like an n-ary <see cref="Enumerable.Zip"/>.
+        /// The trees are iterated in lock-step, much like an n-ary
+        /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})"/>.
         /// 
         /// When trees are not the same size, the larger ones are
         /// truncated both horizontally and vertically.

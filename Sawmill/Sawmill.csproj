@@ -14,20 +14,26 @@
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(APPVEYOR)' == 'True'">
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net461;netcoreapp3.0</TargetFrameworks>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(APPVEYOR)' == ''">
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+    <DefineConstants>$(DefineConstants);NETCOREAPP</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Buffers" Version="4.5.0" />
     <PackageReference Include="System.Collections.Immutable" Version="1.2.0" />
     <PackageReference Include="System.Memory" Version="4.5.3" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.6.0" />
     <PackageReference Include="System.ValueTuple" Version="4.3.0" />
   </ItemGroup>
 </Project>
