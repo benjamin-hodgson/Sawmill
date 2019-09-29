@@ -96,7 +96,7 @@ namespace Sawmill
         private static class SpanConstructor<T>
         {
             private delegate Span<T> SpanCtor(ref T value, int length);
-            private static SpanCtor _spanCtor;
+            private static readonly SpanCtor _spanCtor;
 
             static SpanConstructor()
             {
