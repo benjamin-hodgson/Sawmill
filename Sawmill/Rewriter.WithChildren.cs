@@ -71,7 +71,7 @@ namespace Sawmill
             public T Fourth;
 #pragma warning restore CS0649
         }
-        private static unsafe Span<T> GetSpan<T>(int count, ref ChunkStack<T> chunks, ref StackallocFour<T> four)
+        private static Span<T> GetSpan<T>(int count, ref ChunkStack<T> chunks, ref StackallocFour<T> four)
         {
             if (count == 0)
             {
@@ -96,7 +96,7 @@ namespace Sawmill
         private static class SpanConstructor<T>
         {
             private delegate Span<T> SpanCtor(ref T value, int length);
-            private static SpanCtor _callSpanCtor;
+            private static SpanCtor _spanCtor;
 
             static SpanConstructor()
             {
@@ -112,11 +112,11 @@ namespace Sawmill
                 il.Emit(OpCodes.Newobj, ctor);
                 il.Emit(OpCodes.Ret);
 
-                _callSpanCtor = (SpanCtor)method.CreateDelegate(typeof(SpanCtor));
+                _spanCtor = (SpanCtor)method.CreateDelegate(typeof(SpanCtor));
             }
 
             public static Span<T> Create(ref T value, int length)
-                => _callSpanCtor(ref value, length);
+                => _spanCtor(ref value, length);
         }
     }
 }
