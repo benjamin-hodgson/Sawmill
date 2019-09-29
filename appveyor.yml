@@ -1,4 +1,4 @@
-image: Visual Studio 2017
+image: Visual Studio 2019
 configuration: Release
 
 environment:
@@ -17,7 +17,6 @@ install:
       mv BuildScripts-master BuildScripts
 
   - ps: .\BuildScripts\appveyor\InitBuildNumber.ps1
-  - cmd: cinst dotnetcore-sdk
   - cmd: msbuild Sawmill.sln /t:restore /p:Configuration=%CONFIGURATION% /v:Minimal
   - cmd: cinst docfx
   - ps: .\BuildScripts\appveyor\ConfigureGit.ps1
