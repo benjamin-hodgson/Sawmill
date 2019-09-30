@@ -25,7 +25,7 @@ namespace Sawmill.Tests
 
         public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => this;
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is Lit l
             && l.Value == this.Value;
 
@@ -50,7 +50,7 @@ namespace Sawmill.Tests
 
         public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new Neg(newChildren[0]);
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is Neg n
             && n.Operand == this.Operand;
 
@@ -78,7 +78,7 @@ namespace Sawmill.Tests
 
         public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new Add(newChildren[0], newChildren[1]);
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is Add a
             && a.Left == this.Left
             && a.Right == this.Right;
@@ -111,7 +111,7 @@ namespace Sawmill.Tests
         public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
             => new Ternary(newChildren[0], newChildren[1], newChildren[2]);
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is Ternary t
             && t.Condition == this.Condition
             && t.ThenBranch == this.ThenBranch
@@ -141,7 +141,7 @@ namespace Sawmill.Tests
 
         public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new List(newChildren.ToArray().ToImmutableList());
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is List l
             && l.Exprs.SequenceEqual(this.Exprs);
 
@@ -192,7 +192,7 @@ namespace Sawmill.Tests
                 newChildren.Slice(IfTrueStmts.Count + 1, IfFalseStmts.Count).ToArray().ToImmutableList()
             );
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is IfThenElse i
             && i.Condition == this.Condition
             && i.IfTrueStmts.SequenceEqual(this.IfTrueStmts)

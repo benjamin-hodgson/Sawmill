@@ -6,7 +6,7 @@ namespace Sawmill.Bench
     [MemoryDiagnoser]
     public class DescendantsBench
     {
-        private readonly BinTree _tree = CreateBinTree(20);
+        private readonly BinTree _tree = CreateBinTree(20)!;
 
         [Benchmark]
         public int SelfAndDescendants()
@@ -27,7 +27,7 @@ namespace Sawmill.Bench
         }
 
 
-        private static BinTree CreateBinTree(int depth)
+        private static BinTree? CreateBinTree(int depth)
             => depth == 0
                 ? null
                 : new BinTree(CreateBinTree(depth - 1), CreateBinTree(depth - 1));

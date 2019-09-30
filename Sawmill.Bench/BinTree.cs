@@ -4,10 +4,10 @@ namespace Sawmill.Bench
 {
     public class BinTree : IRewritable<BinTree>
     {
-        public BinTree Left { get; }
-        public BinTree Right { get; }
+        public BinTree? Left { get; }
+        public BinTree? Right { get; }
 
-        public BinTree(BinTree left, BinTree right)
+        public BinTree(BinTree? left, BinTree? right)
         {
             Left = left;
             Right = right;
@@ -15,7 +15,7 @@ namespace Sawmill.Bench
 
         public int CountChildren()
         {
-            static int For(BinTree x) => x == null ? 0 : 1;
+            static int For(BinTree? x) => x == null ? 0 : 1;
             return For(Left) + For(Right);
         }
 
