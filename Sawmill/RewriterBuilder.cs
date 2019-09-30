@@ -68,6 +68,10 @@ namespace Sawmill
 
             public int CountChildren(T value)
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
                 foreach (var kv in _rewriters)
                 {
                     if (kv.Item1.IsAssignableFrom(value.GetType()))
@@ -83,6 +87,10 @@ namespace Sawmill
 
             public void GetChildren(Span<T> children, T value)
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
                 foreach (var kv in _rewriters)
                 {
                     if (kv.Item1.IsAssignableFrom(value.GetType()))
@@ -99,6 +107,10 @@ namespace Sawmill
 
             public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
             {
+                if (oldValue == null)
+                {
+                    throw new ArgumentNullException(nameof(oldValue));
+                }
                 foreach (var kv in _rewriters)
                 {
                     if (kv.Item1.IsAssignableFrom(oldValue.GetType()))
@@ -262,20 +274,20 @@ namespace Sawmill
         }
 
         public int CountChildren(TBase value)
-            => _countChildrenDelegates.Select(f => f((TSub)value)).Sum();
+            => _countChildrenDelegates.Select(f => f((TSub)value!)).Sum();
 
         public void GetChildren(Span<TBase> children, TBase value)
         {
             var index = 0;
             foreach (var action in _getChildrenDelegates)
             {
-                index += action(children, index, (TSub)value);
+                index += action(children, index, (TSub)value!);
             }
         }
 
         public TBase SetChildren(ReadOnlySpan<TBase> newChildren, TBase oldValue)
         {
-            var (changed, _, args) = _getSetChildrenCtorArgs(newChildren, (TSub)oldValue);
+            var (changed, _, args) = _getSetChildrenCtorArgs(newChildren, (TSub)oldValue!);
             if (changed)
             {
                 return _ctor(args);

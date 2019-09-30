@@ -921,20 +921,9 @@ namespace Sawmill
                 }
             }
 
-            T result;
-            if (changed)
-            {
-                result = _rewriter.SetChildren(children, value);
-            }
-            else
-            {
-                result = value;
-            }
-
-            _nextSiblings = null;
-            _prevSiblings = null;
-            _focus = default(T);
-            return result;
+            return changed
+                ? _rewriter.SetChildren(children, value)
+                : value;
         }
     }
 }

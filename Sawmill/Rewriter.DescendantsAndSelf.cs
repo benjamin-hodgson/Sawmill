@@ -74,7 +74,7 @@ namespace Sawmill
 
         private struct DescendantsAndSelfFrame<T>
         {
-            private T[] _array;
+            private T[]? _array;
             private readonly int _count;
             private int _position;
 
@@ -85,7 +85,7 @@ namespace Sawmill
                 _position = -1;
             }
 
-            public T Current => _array[_position];
+            public T Current => _array![_position];
 
             public bool MoveNext()
             {

@@ -13,7 +13,7 @@ namespace Sawmill
 #endif
 
         private Region _topRegion;
-        private Region[] _regions;
+        private Region[]? _regions;
         private int _regionCount;
 
         public Span<T> Allocate(int size)
@@ -86,7 +86,7 @@ namespace Sawmill
             if (_regionCount > 0)
             {
                 _regionCount--;
-                _topRegion = _regions[_regionCount];
+                _topRegion = _regions![_regionCount];
                 _regions[_regionCount] = default;
             }
             else
@@ -97,7 +97,7 @@ namespace Sawmill
 
         private struct Region
         {
-            private T[] _array;
+            private T[]? _array;
             private int _used;
 
             public bool IsDefault => _array == null;
@@ -110,7 +110,7 @@ namespace Sawmill
             }
 
             public bool HasSpace(int size)
-                => _array.Length - _used >= size;
+                => _array!.Length - _used >= size;
 
             public Span<T> Allocate(int size)
             {
@@ -130,7 +130,7 @@ namespace Sawmill
 
             public void Dispose()
             {
-                ArrayPool<T>.Shared.Return(_array, _needsClear);
+                ArrayPool<T>.Shared.Return(_array!, _needsClear);
                 _array = null;
             }
         }

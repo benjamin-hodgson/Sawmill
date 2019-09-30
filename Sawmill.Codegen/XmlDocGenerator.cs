@@ -14,7 +14,7 @@ namespace Sawmill.Codegen
     {
         public static void Go()
         {
-            var repoRoot = Path.GetDirectoryName(Path.GetDirectoryName(ThisFile()));
+            var repoRoot = Path.GetDirectoryName(Path.GetDirectoryName(ThisFile()))!;
             var sawmillDoc = GetSourceXmlDocFile(repoRoot);
 
             foreach (var sourceFile in Directory.EnumerateFiles(repoRoot, "*.cs", SearchOption.AllDirectories).Where(p => !p.Contains("Sawmill.Codegen")))
@@ -82,6 +82,6 @@ namespace Sawmill.Codegen
                     .First()
             );
 
-        private static string ThisFile([CallerFilePath] string path = null) => path;
+        private static string ThisFile([CallerFilePath] string? path = null) => path!;
     }
 }

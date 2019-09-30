@@ -20,7 +20,7 @@ namespace Sawmill
         private static readonly Type _t = typeof(T);
 
         private static readonly Type _spanT = typeof(Span<T>);
-        private static readonly PropertyInfo _spanT_Indexer = _spanT.GetProperty("Item");
+        private static readonly PropertyInfo _spanT_Indexer = _spanT.GetProperty("Item")!;
         private static readonly Type _readOnlySpanT = typeof(ReadOnlySpan<T>);
         private static readonly MethodInfo _readOnlySpanT_Slice = _readOnlySpanT
             .GetMethods()
@@ -28,11 +28,11 @@ namespace Sawmill
 
         private static readonly Type _iEnumerator = typeof(IEnumerator);
         private static readonly MethodInfo _iEnumerator_MoveNext =
-            _iEnumerator.GetMethod("MoveNext");
+            _iEnumerator.GetMethod("MoveNext")!;
 
         private static readonly Type _iEnumeratorT = typeof(IEnumerator<T>);
         private static readonly PropertyInfo _iEnumeratorT_Current =
-            _iEnumeratorT.GetProperty("Current", _t);
+            _iEnumeratorT.GetProperty("Current", _t)!;
 
         private static readonly Type _iEnumerable1 = typeof(IEnumerable<>);
         private static readonly Type _iEnumerableT = typeof(IEnumerable<T>);
@@ -52,23 +52,23 @@ namespace Sawmill
         private static readonly IReadOnlyDictionary<Type, MethodInfo> _enumerableRebuilders
             = new Dictionary<Type, MethodInfo>
             {
-                { typeof(IEnumerable<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(IList<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(IReadOnlyList<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(ICollection<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(IReadOnlyCollection<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic) },
+                { typeof(IEnumerable<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(IList<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(IReadOnlyList<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(ICollection<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(IReadOnlyCollection<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
 
-                { typeof(ImmutableArray<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(ImmutableList<T>), _autoRewriterT.GetMethod("RebuildImmutableList", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(List<T>), _autoRewriterT.GetMethod("RebuildList", BindingFlags.Static | BindingFlags.NonPublic) },
-                { typeof(T[]), _autoRewriterT.GetMethod("RebuildArray", BindingFlags.Static | BindingFlags.NonPublic) },
+                { typeof(ImmutableArray<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(ImmutableList<T>), _autoRewriterT.GetMethod("RebuildImmutableList", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(List<T>), _autoRewriterT.GetMethod("RebuildList", BindingFlags.Static | BindingFlags.NonPublic)! },
+                { typeof(T[]), _autoRewriterT.GetMethod("RebuildArray", BindingFlags.Static | BindingFlags.NonPublic)! },
             };
         private static readonly MethodInfo _getSpanElement =
-            _autoRewriterT.GetMethod("GetSpanElement", BindingFlags.Static | BindingFlags.NonPublic);
+            _autoRewriterT.GetMethod("GetSpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
         private static readonly MethodInfo _getReadOnlySpanElement =
-            _autoRewriterT.GetMethod("GetReadOnlySpanElement", BindingFlags.Static | BindingFlags.NonPublic);
+            _autoRewriterT.GetMethod("GetReadOnlySpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
         private static readonly MethodInfo _assignSpanElement =
-            _autoRewriterT.GetMethod("AssignSpanElement", BindingFlags.Static | BindingFlags.NonPublic);
+            _autoRewriterT.GetMethod("AssignSpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
 
         private readonly ConcurrentDictionary<Type, Func<T, int>> _counters
             = new ConcurrentDictionary<Type, Func<T, int>>();
@@ -83,13 +83,23 @@ namespace Sawmill
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(T value)
-            => _counters.GetOrAdd(value.GetType(), t => MkCounter(t))(value);
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            return _counters.GetOrAdd(value.GetType(), t => MkCounter(t))(value);
+        }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
         public void GetChildren(Span<T> children, T value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             _getters.GetOrAdd(value.GetType(), t => MkGetter(t))(children, value);
         }
 
@@ -97,7 +107,13 @@ namespace Sawmill
         /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
         public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
-            => _setters.GetOrAdd(oldValue.GetType(), t => MkSetter(t))(newChildren, oldValue);
+        {
+            if (oldValue == null)
+            {
+                throw new ArgumentNullException(nameof(oldValue));
+            }
+            return _setters.GetOrAdd(oldValue.GetType(), t => MkSetter(t))(newChildren, oldValue);
+        }
 
         /// <summary>
         /// Gets the single global instance of <see cref="AutoRewriter{T}"/>.
@@ -135,14 +151,14 @@ namespace Sawmill
                 if (ctorParam.ParameterType.Equals(_t))
                 {
                     // i++;
-                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
+                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     stmts.Add(Expression.Assign(countLocal, Expression.Increment(countLocal)));
                 }
                 else if (ImplementsIEnumerableT(ctorParam.ParameterType))
                 {
                     // i += Enumerable.Count(node.Children);
 
-                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
+                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     var enumerable = Expression.Property(nodeLocal, property);
                     stmts.Add(Expression.AddAssign(countLocal, Expression.Call(_enumerable_Count, enumerable)));
                 }
@@ -191,7 +207,7 @@ namespace Sawmill
                 {
                     // children[i] = node.Child;
                     // i++;
-                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
+                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     stmts.Add(Expression.Call(_assignSpanElement, childrenParam, indexLocal, Expression.Property(nodeLocal, property)));
                     stmts.Add(Expression.Assign(indexLocal, Expression.Increment(indexLocal)));
                 }
@@ -211,7 +227,7 @@ namespace Sawmill
                     //     }
                     // }
 
-                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name));
+                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     var enumerable = Expression.Property(nodeLocal, property);
                     stmts.Add(Expression.Assign(enumeratorLocal, Expression.Call(enumerable, _iEnumerable_GetEnumerator)));
                     
@@ -305,7 +321,7 @@ namespace Sawmill
                                 x.local,
                                 Expression.Call(
                                     _enumerableRebuilders[x.param.ParameterType],
-                                    Expression.Property(nodeLocal, nodeType.GetProperty(ParamNameToPropName(x.param.Name))),
+                                    Expression.Property(nodeLocal, nodeType.GetProperty(ParamNameToPropName(x.param.Name!))),
                                     childrenParam
                                 )
                             ),
@@ -313,7 +329,7 @@ namespace Sawmill
                         }
                 )
             );
-            stmts.Add(Expression.Assign(retLocal, CallNodeCtor(ctor, nodeLocal, childrenLocals.Cast<Expression>().ToList(), nodeType)));
+            stmts.Add(Expression.Assign(retLocal, CallNodeCtor(ctor!, nodeLocal, childrenLocals.Cast<Expression>().ToList(), nodeType)));
             stmts.Add(retLocal);
 
             var block = Expression.Block(
@@ -335,7 +351,7 @@ namespace Sawmill
                 .FirstOrDefault();
 
         private static Expression AccessNodeProperty(Expression expression, Type nodeType, ParameterInfo ctorParam)
-            => Expression.Property(expression, nodeType.GetProperty(ParamNameToPropName(ctorParam.Name)));
+            => Expression.Property(expression, nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!)));
 
         private static Expression CallNodeCtor(ConstructorInfo ctor, ParameterExpression nodeParam, IList<Expression> childrenExprs, Type nodeType)
             => Expression.New(ctor, NodeCtorArgs(nodeParam, ctor.GetParameters(), childrenExprs, nodeType));

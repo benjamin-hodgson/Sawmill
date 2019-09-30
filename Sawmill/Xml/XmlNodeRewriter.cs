@@ -15,13 +15,24 @@ namespace Sawmill.Xml
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public int CountChildren(XmlNode value) => value.ChildNodes.Count;
+        public int CountChildren(XmlNode value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            return value.ChildNodes.Count;
+        }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
         public void GetChildren(Span<XmlNode> children, XmlNode value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             for (var i = 0; i < value.ChildNodes.Count; i++)
             {
                 children[i] = value.ChildNodes[i];
@@ -33,13 +44,17 @@ namespace Sawmill.Xml
         /// </summary>
         public XmlNode SetChildren(ReadOnlySpan<XmlNode> newChildren, XmlNode oldValue)
         {
+            if (oldValue == null)
+            {
+                throw new ArgumentNullException(nameof(oldValue));
+            }
             // XmlNode is such garbage
             var oldAttrs = oldValue.Attributes;
             var clone = oldValue.Clone();
             clone.RemoveAll();
-            foreach (XmlAttribute attr in oldAttrs)
+            foreach (XmlAttribute? attr in oldAttrs)
             {
-                clone.Attributes.Append((XmlAttribute)attr.Clone());
+                clone.Attributes.Append((XmlAttribute)attr!.Clone());
             }
             foreach (var newChild in newChildren)
             {
