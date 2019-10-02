@@ -8,35 +8,6 @@ namespace Sawmill
 {
     public static partial class Rewriter
     {
-        internal static void WithChildren_<T>(this IRewriter<T> rewriter, SpanAction<T> action, T value, ref ChunkStack<T> chunks)
-        {
-            var four = new StackallocFour<T>();
-
-            var count = rewriter.CountChildren(value);
-            var span = GetSpan(count, ref chunks, ref four);
-
-            rewriter.GetChildren(span, value);
-            action(span);
-
-            ReleaseSpan(span, ref chunks);
-            KeepAlive(ref four);
-        }
-
-        internal static void WithChildren_<T, U>(this IRewriter<T> rewriter, SpanAction<T, U> action, U ctx, T value, ref ChunkStack<T> chunks)
-        {
-            var four = new StackallocFour<T>();
-
-            var count = rewriter.CountChildren(value);
-            var span = GetSpan(count, ref chunks, ref four);
-
-            rewriter.GetChildren(span, value);
-            action(span, ctx);
-            
-            ReleaseSpan(span, ref chunks);
-            KeepAlive(ref four);
-        }
-
-
         internal static R WithChildren<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, ref ChunkStack<T> chunks)
         {
             var four = new StackallocFour<T>();
