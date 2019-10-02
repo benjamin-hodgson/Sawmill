@@ -16,6 +16,8 @@ namespace Sawmill
         private Region[]? _regions;
         private int _regionCount;
 
+        public bool IsEmpty => _topRegion.IsUnused;
+
         public Span<T> Allocate(int size)
         {
             if (size == 0)
@@ -40,6 +42,15 @@ namespace Sawmill
                 FreeTopRegion();
             }
             _topRegion.Free(span);
+        }
+
+        public T Pop()
+        {
+            if (!_topRegion.IsDefault && _topRegion.IsUnused)
+            {
+                FreeTopRegion();
+            }
+            return _topRegion.Pop();
         }
 
         public void Dispose()
@@ -126,6 +137,16 @@ namespace Sawmill
                     throw new InvalidOperationException("Chunk was freed in the wrong order. Please report this as a bug in Sawmill!");
                 }
                 _used -= span.Length;
+            }
+
+            public T Pop()
+            {
+                if (_used == 0)
+                {
+                    throw new InvalidOperationException("Chunk was freed in the wrong order. Please report this as a bug in Sawmill!");
+                }
+                _used--;
+                return _array![_used];
             }
 
             public void Dispose()

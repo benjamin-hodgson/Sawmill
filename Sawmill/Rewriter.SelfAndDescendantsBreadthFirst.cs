@@ -23,35 +23,25 @@ namespace Sawmill
 
             IEnumerable<T> Iterator()
             {
-                var stack = new ChunkStack<T>();
-                var queue = new Queue<T>();
-                queue.Enqueue(value);
+                var queue = new PooledQueue<T>();
+                queue.AllocateRight(1)[0] = (value);
 
                 try
                 {
-                    while (queue.Any())
+                    while (queue.Count != 0)
                     {
-                        var node = queue.Dequeue();
+                        var x = queue.PopLeft();
                         
-                        yield return node;
+                        yield return x;
 
-                        rewriter.WithChildren_(
-                            (children, q) =>
-                            {
-                                foreach (var child in children)
-                                {
-                                    q.Enqueue(child);
-                                }
-                            },
-                            queue,
-                            node,
-                            ref stack
-                        );
+                        var count = rewriter.CountChildren(x);
+                        var span = queue.AllocateRight(count);
+                        rewriter.GetChildren(span, x);
                     }
                 }
                 finally
                 {
-                    stack.Dispose();
+                    queue.Dispose();
                 }
             }
 

@@ -17,14 +17,12 @@ namespace Sawmill.Bench
         {
             return _binTree.SelfAndDescendants().Count();
         }
-
         [Benchmark]
         [BenchmarkCategory("BinTree")]
         public int BinTree_DescendantsAndSelf()
         {
             return _binTree.DescendantsAndSelf().Count();
         }
-
         [Benchmark]
         [BenchmarkCategory("BinTree")]
         public int BinTree_SelfAndDescendantsBreadthFirst()
@@ -38,14 +36,12 @@ namespace Sawmill.Bench
         {
             return _ternTree.SelfAndDescendants().Count();
         }
-
         [Benchmark]
         [BenchmarkCategory("TernTree")]
         public int TernTree_DescendantsAndSelf()
         {
             return _ternTree.DescendantsAndSelf().Count();
         }
-
         [Benchmark]
         [BenchmarkCategory("TernTree")]
         public int TernTree_SelfAndDescendantsBreadthFirst()

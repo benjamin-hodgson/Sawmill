@@ -43,13 +43,10 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(rewriter));
             }
             
-            var stack = new ChunkStack<T>();
-
-            var result = rewriter.WithChildren(children => children.ToArray(), value, ref stack);
-
-            stack.Dispose();
-            
-            return result;
+            var count = rewriter.CountChildren(value);
+            var array = new T[count];
+            rewriter.GetChildren(array, value);
+            return array;
         }
     }
 }
