@@ -1,6 +1,14 @@
 Changelog
 =========
 
+3.0.1
+-----
+
+### Changed
+
+* Fixed a bug in `SpanFactory`
+
+
 3.0.0
 -----
 
