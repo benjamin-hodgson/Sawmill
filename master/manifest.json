@@ -245,54 +245,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.ReadOnlySpanAction-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.ReadOnlySpanAction-1.html",
-          "hash": "EPWHvxwi04mfoLOMIsieaA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.ReadOnlySpanAction-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.ReadOnlySpanAction-2.html",
-          "hash": "wjsB43eD0Lsftv1OGgGGTQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.ReadOnlySpanFunc-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.ReadOnlySpanFunc-2.html",
-          "hash": "chO9z2DljsIXBkQ63wq5pQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.ReadOnlySpanFunc-3.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.ReadOnlySpanFunc-3.html",
-          "hash": "EK4xWz8Qojpr+RnV6KqvUA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Sawmill.Rewritable.yml",
       "output": {
         ".html": {
@@ -377,47 +329,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.SpanAction-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.SpanAction-1.html",
-          "hash": "1jeIKiijMyctwVh9KqXSUA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.SpanAction-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.SpanAction-2.html",
-          "hash": "23/mFwLcBhpaeNZVHtOvuw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Sawmill.SpanFunc-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Sawmill.SpanFunc-2.html",
-          "hash": "s9iyfK7yWyzk1Zu3OvCKQw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Sawmill.SpanFunc-3.yml",
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.SpanFunc-3.html",
-          "hash": "udlgAC2oPTw62LbT9nppLw=="
+          "hash": "u3YkAHsfUwLl737EDsIKeQ=="
         }
       },
       "is_incremental": false,
@@ -489,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.html",
-          "hash": "lLs6a6b7G6YNHZByQaTFZg=="
+          "hash": "m2EzWjkBjMGu8h5hiKWlwg=="
         }
       },
       "is_incremental": false,
@@ -513,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "4kJ2HB/WrIQqpH/Oq9cQWg=="
+          "hash": "ahbXn/AkN9r8btOhpRlJIA=="
         }
       },
       "is_incremental": false,
@@ -562,16 +478,16 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 34,
+          "skipped_file_count": 0
+        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 2,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 41,
           "skipped_file_count": 0
         }
       }

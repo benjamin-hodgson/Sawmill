@@ -2615,42 +2615,6 @@ references:
   isSpec: "True"
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.SetChildren
   nameWithType: JTokenRewriter.SetChildren
-- uid: Sawmill.ReadOnlySpanAction`1
-  name: ReadOnlySpanAction<T>
-  href: api/Sawmill.ReadOnlySpanAction-1.html
-  commentId: T:Sawmill.ReadOnlySpanAction`1
-  name.vb: ReadOnlySpanAction(Of T)
-  fullName: Sawmill.ReadOnlySpanAction<T>
-  fullName.vb: Sawmill.ReadOnlySpanAction(Of T)
-  nameWithType: ReadOnlySpanAction<T>
-  nameWithType.vb: ReadOnlySpanAction(Of T)
-- uid: Sawmill.ReadOnlySpanAction`2
-  name: ReadOnlySpanAction<T, U>
-  href: api/Sawmill.ReadOnlySpanAction-2.html
-  commentId: T:Sawmill.ReadOnlySpanAction`2
-  name.vb: ReadOnlySpanAction(Of T, U)
-  fullName: Sawmill.ReadOnlySpanAction<T, U>
-  fullName.vb: Sawmill.ReadOnlySpanAction(Of T, U)
-  nameWithType: ReadOnlySpanAction<T, U>
-  nameWithType.vb: ReadOnlySpanAction(Of T, U)
-- uid: Sawmill.ReadOnlySpanFunc`2
-  name: ReadOnlySpanFunc<T, R>
-  href: api/Sawmill.ReadOnlySpanFunc-2.html
-  commentId: T:Sawmill.ReadOnlySpanFunc`2
-  name.vb: ReadOnlySpanFunc(Of T, R)
-  fullName: Sawmill.ReadOnlySpanFunc<T, R>
-  fullName.vb: Sawmill.ReadOnlySpanFunc(Of T, R)
-  nameWithType: ReadOnlySpanFunc<T, R>
-  nameWithType.vb: ReadOnlySpanFunc(Of T, R)
-- uid: Sawmill.ReadOnlySpanFunc`3
-  name: ReadOnlySpanFunc<T, U, R>
-  href: api/Sawmill.ReadOnlySpanFunc-3.html
-  commentId: T:Sawmill.ReadOnlySpanFunc`3
-  name.vb: ReadOnlySpanFunc(Of T, U, R)
-  fullName: Sawmill.ReadOnlySpanFunc<T, U, R>
-  fullName.vb: Sawmill.ReadOnlySpanFunc(Of T, U, R)
-  nameWithType: ReadOnlySpanFunc<T, U, R>
-  nameWithType.vb: ReadOnlySpanFunc(Of T, U, R)
 - uid: Sawmill.Rewritable
   name: Rewritable
   href: api/Sawmill.Rewritable.html
@@ -3527,33 +3491,6 @@ references:
   fullName.vb: Sawmill.RewriterBuilderCase(Of TArgs, TBase, TSub).Field(Of U)(System.Func(Of TSub, U))
   nameWithType: RewriterBuilderCase<TArgs, TBase, TSub>.Field<U>(Func<TSub, U>)
   nameWithType.vb: RewriterBuilderCase(Of TArgs, TBase, TSub).Field(Of U)(Func(Of TSub, U))
-- uid: Sawmill.SpanAction`1
-  name: SpanAction<T>
-  href: api/Sawmill.SpanAction-1.html
-  commentId: T:Sawmill.SpanAction`1
-  name.vb: SpanAction(Of T)
-  fullName: Sawmill.SpanAction<T>
-  fullName.vb: Sawmill.SpanAction(Of T)
-  nameWithType: SpanAction<T>
-  nameWithType.vb: SpanAction(Of T)
-- uid: Sawmill.SpanAction`2
-  name: SpanAction<T, U>
-  href: api/Sawmill.SpanAction-2.html
-  commentId: T:Sawmill.SpanAction`2
-  name.vb: SpanAction(Of T, U)
-  fullName: Sawmill.SpanAction<T, U>
-  fullName.vb: Sawmill.SpanAction(Of T, U)
-  nameWithType: SpanAction<T, U>
-  nameWithType.vb: SpanAction(Of T, U)
-- uid: Sawmill.SpanFunc`2
-  name: SpanFunc<T, R>
-  href: api/Sawmill.SpanFunc-2.html
-  commentId: T:Sawmill.SpanFunc`2
-  name.vb: SpanFunc(Of T, R)
-  fullName: Sawmill.SpanFunc<T, R>
-  fullName.vb: Sawmill.SpanFunc(Of T, R)
-  nameWithType: SpanFunc<T, R>
-  nameWithType.vb: SpanFunc(Of T, R)
 - uid: Sawmill.SpanFunc`3
   name: SpanFunc<T, U, R>
   href: api/Sawmill.SpanFunc-3.html
