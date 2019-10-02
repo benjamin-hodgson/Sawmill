@@ -53,7 +53,7 @@ namespace Sawmill
             {
                 return new Span<T>();
             }
-            else if (count <= 4)
+            else if (count <= 4 && SpanFactory<T>.CanCreate)
             {
                 return SpanFactory<T>.Create(ref four.First, count);
             }
@@ -64,7 +64,7 @@ namespace Sawmill
         }
         private static void ReleaseSpan<T>(Span<T> span, ref ChunkStack<T> chunks)
         {
-            if (span.Length > 4)
+            if (span.Length > 4 || !SpanFactory<T>.CanCreate)
             {
                 chunks.Free(span);
             }
@@ -76,13 +76,19 @@ namespace Sawmill
         private static class SpanFactory<T>
         {
             private delegate Span<T> SpanCtor(ref T value, int length);
-            private static readonly SpanCtor _spanCtor;
+            private static readonly SpanCtor? _spanCtor;
+            public static bool CanCreate => _spanCtor != null;
 
             static SpanFactory()
             {
                 var ctor = typeof(Span<T>)
                     .GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance)
-                    .Single(c => c.GetParameters().Length == 2 && c.GetParameters()[0].ParameterType.IsByRef);
+                    .SingleOrDefault(c => c.GetParameters().Length == 2 && c.GetParameters()[0].ParameterType.IsByRef);
+
+                if (ctor == null)
+                {
+                    return;
+                }
 
                 var method = new DynamicMethod("", typeof(Span<T>), new[] { typeof(T).MakeByRefType(), typeof(int) });
 
@@ -97,7 +103,7 @@ namespace Sawmill
 
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public static Span<T> Create(ref T value, int length)
-                => _spanCtor(ref value, length);
+                => _spanCtor!(ref value, length);
         }
     }
 }
