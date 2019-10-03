@@ -27,12 +27,12 @@ build:
   
 after_test:
   - cmd: dotnet run --configuration %CONFIGURATION% --project Sawmill.Bench\Sawmill.Bench.csproj
-  - cmd: msbuild Sawmill.sln /t:pack /p:Configuration=%CONFIGURATION% /p:IncludeSymbols=true /p:PackageOutputPath=..\nupkgs /v:Minimal
+  - cmd: msbuild Sawmill.sln /t:pack /p:Configuration=%CONFIGURATION% /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg /p:PackageOutputPath=..\nupkgs /v:Minimal
   - cmd: docfx Sawmill.Docs/docfx.json
 
 artifacts:
   - type: NuGetPackage
-    path: nupkgs/*.nupkg
+    path: nupkgs/*nupkg
   - path: BenchmarkDotNet.Artifacts
   - path: Sawmill.Docs/_site
 
