@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Sawmill
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Sawmill
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Sawmill">
+  
+  <h1 id="Sawmill" data-uid="Sawmill" class="text-break">Namespace Sawmill
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Sawmill.AutoRewriter-1.html">AutoRewriter&lt;T&gt;</a></h4>
+      <section><p>An experimental implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> using reflection.</p>
+<p><a class="xref" href="Sawmill.AutoRewriter-1.html">AutoRewriter&lt;T&gt;</a> looks for the subtype&apos;s constructor, and gets/sets
+the <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>-children in the order that they appear in the constructor.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a></h4>
+      <section><p>A <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is a mutable view of a location in a <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>-structure,
+allowing efficient access to (and editing of) a node and its parent, siblings, and immediate children.</p>
+<p>
+You can think of a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> as being focused on a particular node.
+After zooming in on a node, you can efficiently go up to the node&apos;s parent, down to the node&apos;s first child,
+or left or right to the node&apos;s immediate siblings.
+</p>
+
+<p>
+<a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is generally not as efficient or useful as the
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> family for replacing single nodes,
+but it efficiently supports longer sequences of edits to a location and its neighbours.
+</p>
+</section>
+      <h4><a class="xref" href="Sawmill.Rewritable.html">Rewritable</a></h4>
+      <section><p>Extension methods for <a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a> implementations.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.RewritableRewriter-1.html">RewritableRewriter&lt;T&gt;</a></h4>
+      <section><p>An implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>s which implement <a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.Rewriter.html">Rewriter</a></h4>
+      <section><p>Extension methods for <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> implementations.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.RewriterBuilder.html">RewriterBuilder</a></h4>
+      <section><p>Tools for building rewriters.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.RewriterBuilder-1.html">RewriterBuilder&lt;T&gt;</a></h4>
+      <section><p>Tools for building rewriters.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.RewriterBuilderCase.html">RewriterBuilderCase</a></h4>
+      <section><p>Tools for building rewriters for a single subclass of a base type.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;</a></h4>
+      <section><p>Tools for building rewriters for a single subclass of a base type.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a></h4>
+      <section><p>A object is rewriterable if it knows how to access its immediate children.</p>
+<p>
+Implementations should ensure that you always get the children you just set
+(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
+and that successive sets overwrite the earlier operation
+(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).
+</p>
+
+<p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a></h4>
+      <section><p>A rewriter is an object which knows how to access the immediate children of a value of type <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+<p>
+Implementations should ensure that you always get the children you just set
+(<code>rewriter.GetChildren(rewriter.SetChildren(children, expr)) == children</code>),
+and that successive sets overwrite the earlier operation
+(<code>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</code>).
+</p>
+
+<p><a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a>.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Sawmill.Direction.html">Direction</a></h4>
+      <section><p>Represents a direction that a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> can move in</p>
+</section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc&lt;T, U, R&gt;</a></h4>
+      <section><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func&lt;T1,T2,TResult&gt;</a> whose first argument is a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
