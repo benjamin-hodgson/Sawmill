@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace Sawmill
 {
@@ -7,10 +8,12 @@ namespace Sawmill
         internal static R WithChildren<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-            if (count <= 4 && SpanFactory<T>.CanCreate)
+#if NETCOREAPP
+            if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, value, count);
             }
+#endif
 
             var span = chunks.Allocate(count);
 
@@ -24,10 +27,12 @@ namespace Sawmill
         internal static R WithChildren<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-            if (count <= 4 && SpanFactory<T>.CanCreate)
+#if NETCOREAPP
+            if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, ctx, value, count);
             }
+#endif
 
             var span = chunks.Allocate(count);
 
@@ -38,10 +43,11 @@ namespace Sawmill
             return result;
         }
 
+#if NETCOREAPP
         private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
         {
             var four = new StackallocFour<T>();
-            var span = SpanFactory<T>.Create(ref four.First, count);
+            var span = MemoryMarshal.CreateSpan(ref four.First, count);
 
             rewriter.GetChildren(span, value);
             var result = action(span);
@@ -53,7 +59,7 @@ namespace Sawmill
         private static R WithChildren_Fast<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, int count)
         {
             var four = new StackallocFour<T>();
-            var span = SpanFactory<T>.Create(ref four.First, count);
+            var span = MemoryMarshal.CreateSpan(ref four.First, count);
 
             rewriter.GetChildren(span, value);
             var result = action(span, ctx);
@@ -75,5 +81,6 @@ namespace Sawmill
         private static void KeepAlive<T>(ref StackallocFour<T> four)
         {
         }
+#endif
     }
 }
