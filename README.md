@@ -187,10 +187,9 @@ To use Sawmill with your own expression types, you implement the `IRewritable` i
 ```csharp
 abstract class Expr : IRewritable<Expr>
 {
-    public abstract Children<Expr> GetChildren();
-    public abstract Expr SetChildren(Children<Expr> newChildren);
-    public Expr RewriteChildren(Func<Expr, Expr> transformer)
-        => this.DefaultRewriteChildren(transformer);  // RewriteChildren will usually be implemented using DefaultRewriteChildren, but can be overridden for efficiency
+    public abstract int CountChildren();
+    public abstract void GetChildren(Span<Expr> span);
+    public abstract Expr SetChildren(ReadOnlySpan<Expr> newChildren);
 }
 // literal numbers are leaf nodes; they have no children
 class Lit : Expr
@@ -202,9 +201,11 @@ class Lit : Expr
         Value = value;
     }
 
-    public override Children<Expr> GetChildren()
-        => Children.None<Expr>();
-    public override Expr SetChildren(Children<Expr> newChildren)
+    public override int CountChildren() => 0;
+    public override void GetChildren(Span<Expr> span)
+    {
+    }
+    public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
         => this;
 }
 // variables also have no children
@@ -217,9 +218,11 @@ class Var : Expr
         Name = name;
     }
 
-    public override Children<Expr> GetChildren()
-        => Children.None<Expr>();
-    public override Expr SetChildren(Children<Expr> newChildren)
+    public override int CountChildren() => 0;
+    public override void GetChildren(Span<Expr> span)
+    {
+    }
+    public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
         => this;
 }
 class Neg : Expr
@@ -231,10 +234,13 @@ class Neg : Expr
         Operand = operand;
     }
 
-    public override Children<Expr> GetChildren()
-        => Children.One(this.Operand);
-    public override Expr SetChildren(Children<Expr> newChildren)
-        => new Neg(newChildren.First);
+    public override int CountChildren() => 1;
+    public override void GetChildren(Span<Expr> span)
+    {
+        span[0] = Operand;
+    }
+    public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
+        => new Neg(newChildren[0]);
 }
 class Add : Expr
 {
@@ -247,16 +253,16 @@ class Add : Expr
         Right = right;
     }
 
-    public override Children<Expr> GetChildren()
-        => Children.Two(this.Left, this.Right);
-    public override Expr SetChildren(Children<Expr> newChildren)
-        => new Add(newChildren.First, newChildren.Second);
+    public override int CountChildren() => 2;
+    public override void GetChildren(Span<Expr> span)
+    {
+        span[0] = Left;
+        span[1] = Right;
+    }
+    public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
+        => new Add(newChildren[0], newChildren[1]);
 }
 ```
-
-#### About `RewriteChildren`
-
-`RewriteChildren` is part of the `IRewritable` interface, but most of the time you'll just want to delegate to the `DefaultRewriteChildren` extension method. It's there so that you can override it with a more efficient implementation if necessary. The typical scenario where this makes a significant difference to performance is when your node has a fixed number of children and that number is greater than two.
 
 #### If you can't implement `IRewritable`
 
