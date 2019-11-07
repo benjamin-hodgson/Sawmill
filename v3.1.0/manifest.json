@@ -1,0 +1,512 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/projects/sawmill/Sawmill.Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.AutoRewriter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.AutoRewriter-1.html",
+          "hash": "7xQV0E0gZaDbZ1gkaHcFyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Cursor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Cursor-1.html",
+          "hash": "JYe/r1j9wSlma6cKy6H7hQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Direction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Direction.html",
+          "hash": "YxNnvT+ix1wwgx1/wqYiMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Expressions.ExpressionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Expressions.ExpressionExtensions.html",
+          "hash": "ZSeBod1ccWSROXEVeMWB4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Expressions.ExpressionRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Expressions.ExpressionRewriter.html",
+          "hash": "Zt2o/YyjfGCoxOkemDH00Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Expressions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Expressions.html",
+          "hash": "0ZUrI3DvNiPgbhcUv5r3Cw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html",
+          "hash": "3VBiR3yghbShpQzWtRD/Og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html",
+          "hash": "XUN/3W0Y9IccsOdYKBMvCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.HtmlAgilityPack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.HtmlAgilityPack.html",
+          "hash": "UBHGwv0Jdhdv9aU8kZ9BvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.IRewritable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.IRewritable-1.html",
+          "hash": "QRjp26wnkaKBqP70ElnpBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.IRewriter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.IRewriter-1.html",
+          "hash": "k3wPoLkD9Sw1ufZpVCDaXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html",
+          "hash": "JMbD3VSLaBTabJb0tiMEzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Microsoft.CodeAnalysis.CSharp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.CSharp.html",
+          "hash": "KP/RAPMXK8hlW0YME6w4rw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html",
+          "hash": "P27fk2oxqlrSv1Xp31tBOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html",
+          "hash": "C9eORM/x9ISbcqMrz02WZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.html",
+          "hash": "hc2g1KQfli7obDuBrU2y3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Microsoft.CodeAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.html",
+          "hash": "b4UPebx1ym/ABT67Y05tUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Newtonsoft.Json.JTokenExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Newtonsoft.Json.JTokenExtensions.html",
+          "hash": "vGpMB2KZZgE/CdFnxJMJ3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Newtonsoft.Json.JTokenRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Newtonsoft.Json.JTokenRewriter.html",
+          "hash": "B2aksCQg4EJi63HjVCwcng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Newtonsoft.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Newtonsoft.Json.html",
+          "hash": "n/yMvEILP9+s3ZgjSgznkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Rewritable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Rewritable.html",
+          "hash": "6d1ycaguITl3xhgAEaJ9IA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.RewritableRewriter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.RewritableRewriter-1.html",
+          "hash": "aAquwqUuDdnvxQq5cYKTrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Rewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Rewriter.html",
+          "hash": "3MpHObhT7GiKjojOWFuHWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.RewriterBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.RewriterBuilder-1.html",
+          "hash": "0sk/IKmEzk98hIgwJRxPow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.RewriterBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.RewriterBuilder.html",
+          "hash": "emliaQidhdx1RcBPv4somQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.RewriterBuilderCase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.RewriterBuilderCase-3.html",
+          "hash": "0ffNVs64EaugTdsnWOLfFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.RewriterBuilderCase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.RewriterBuilderCase.html",
+          "hash": "Prk8hacwU+bBS6TJruqGwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.SpanFunc-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.SpanFunc-3.html",
+          "hash": "THE9OzpkmGNACW7GF0Cokg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Xml.XElementExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Xml.XElementExtensions.html",
+          "hash": "bRN83DtkLHcTLYUTS5tcJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Xml.XElementRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Xml.XElementRewriter.html",
+          "hash": "GQvVOFP77vmwzgFgCw+BXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Xml.XmlNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Xml.XmlNodeExtensions.html",
+          "hash": "WDCCKoQI0t9fkQMou6xyzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Xml.XmlNodeRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Xml.XmlNodeRewriter.html",
+          "hash": "n/nZ697dqx1y5c5luBRuOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.Xml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.Xml.html",
+          "hash": "1FZMk5WfxyEhBIx4lyWjRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sawmill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sawmill.html",
+          "hash": "gjLluVhaPOF5AkzNQ/fVrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "FAdBirycBI0rks4iWeIVGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "kn14jsB3DwgcFCJLJAb+Sg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "120SAcpR/JFVV4zGCJaP+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "wDgNr2bQ8qpIdquWeq5zSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 34,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
