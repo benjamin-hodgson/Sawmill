@@ -1,10 +1,9 @@
 using System;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
-    public sealed partial class ExpressionRewriter
+    public partial class ExpressionRewriter
     {
         private static int CountChildren(MethodCallExpression m) => (m.Object == null ? 0 : 1) + m.Arguments.Count;
 

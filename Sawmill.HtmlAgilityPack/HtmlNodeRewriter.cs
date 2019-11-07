@@ -8,7 +8,10 @@ namespace Sawmill.HtmlAgilityPack
     /// </summary>
     public class HtmlNodeRewriter : IRewriter<HtmlNode>
     {
-        private HtmlNodeRewriter() {}
+        /// <summary>
+        /// Create a new instance of <see cref="HtmlNodeRewriter"/>
+        /// </summary>
+        protected HtmlNodeRewriter() {}
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
-    public sealed partial class ExpressionRewriter
+    public partial class ExpressionRewriter
     {
         private static int GetChildren(TryExpression t) => t.Handlers.Count * 2 + 3;
 

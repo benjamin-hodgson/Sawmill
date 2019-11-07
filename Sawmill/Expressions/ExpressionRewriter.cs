@@ -8,9 +8,12 @@ namespace Sawmill.Expressions
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for <see cref="Expression"/>s.
     /// </summary>
-    public sealed partial class ExpressionRewriter : IRewriter<Expression>
+    public partial class ExpressionRewriter : IRewriter<Expression>
     {
-        private ExpressionRewriter() {}
+        /// <summary>
+        /// Create a new instance of <see cref="ExpressionRewriter"/>
+        /// </summary>
+        protected ExpressionRewriter() {}
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

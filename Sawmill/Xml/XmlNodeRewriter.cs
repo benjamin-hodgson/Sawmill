@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Immutable;
-using System.Linq;
 using System.Xml;
 
 namespace Sawmill.Xml
@@ -8,9 +6,12 @@ namespace Sawmill.Xml
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for <see cref="XmlNode"/>s.
     /// </summary>
-    public sealed class XmlNodeRewriter : IRewriter<XmlNode>
+    public class XmlNodeRewriter : IRewriter<XmlNode>
     {
-        private XmlNodeRewriter() { }
+        /// <summary>
+        /// Create a new instance of <see cref="XmlNodeRewriter"/>.
+        /// </summary>
+        protected XmlNodeRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

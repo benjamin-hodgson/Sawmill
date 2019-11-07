@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Sawmill
 {
@@ -7,9 +6,12 @@ namespace Sawmill
     /// An implementation of <see cref="IRewriter{T}"/> for <typeparamref name="T"/>s which implement <see cref="IRewritable{T}"/>.
     /// </summary>
     /// <typeparam name="T">The rewritable tree type</typeparam>
-    public sealed class RewritableRewriter<T> : IRewriter<T> where T : IRewritable<T>
+    public class RewritableRewriter<T> : IRewriter<T> where T : IRewritable<T>
     {
-        private RewritableRewriter() { }
+        /// <summary>
+        /// Create an instance of <see cref="RewritableRewriter{T}"/>.
+        /// </summary>
+        protected RewritableRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
-    public sealed partial class ExpressionRewriter
+    public partial class ExpressionRewriter
     {
         private static int CountChildren(SwitchExpression s) => s.Cases.Select(c => c.TestValues.Count + 1).Sum() + 1;
 

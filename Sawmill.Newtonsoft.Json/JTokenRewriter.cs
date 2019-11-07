@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Immutable;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
@@ -8,9 +7,12 @@ namespace Sawmill.Newtonsoft.Json
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for <see cref="JToken"/>s.
     /// </summary>
-    public sealed class JTokenRewriter : IRewriter<JToken>
+    public class JTokenRewriter : IRewriter<JToken>
     {
-        private JTokenRewriter() {}
+        /// <summary>
+        /// Create a new instance of <see cref="JTokenRewriter"/>
+        /// </summary>
+        protected JTokenRewriter() {}
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

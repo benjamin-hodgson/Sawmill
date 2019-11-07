@@ -15,7 +15,7 @@ namespace Sawmill
     /// <see cref="AutoRewriter{T}"/> looks for the subtype's constructor, and gets/sets
     /// the <typeparamref name="T"/>-children in the order that they appear in the constructor.
     /// </summary>
-    public sealed class AutoRewriter<T> : IRewriter<T>
+    public class AutoRewriter<T> : IRewriter<T>
     {
         private static readonly Type _t = typeof(T);
 
@@ -77,7 +77,10 @@ namespace Sawmill
         private readonly ConcurrentDictionary<Type, ReadOnlySpanFunc<T, T, T>> _setters
             = new ConcurrentDictionary<Type, ReadOnlySpanFunc<T, T, T>>();
 
-        private AutoRewriter() { }
+        /// <summary>
+        /// Create a new instance of <see cref="AutoRewriter{T}"/>
+        /// </summary>
+        protected AutoRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

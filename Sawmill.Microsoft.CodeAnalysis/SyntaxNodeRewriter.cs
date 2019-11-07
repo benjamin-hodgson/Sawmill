@@ -9,9 +9,12 @@ namespace Sawmill.Microsoft.CodeAnalysis
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for sublcasses of <see cref="SyntaxNode"/>.
     /// </summary>
-    public sealed class SyntaxNodeRewriter<T> : IRewriter<T> where T : SyntaxNode
+    public class SyntaxNodeRewriter<T> : IRewriter<T> where T : SyntaxNode
     {
-        private SyntaxNodeRewriter() { }
+        /// <summary>
+        /// create a new instance of <see cref="SyntaxNodeRewriter{T}"/>
+        /// </summary>
+        protected SyntaxNodeRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

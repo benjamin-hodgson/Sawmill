@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -8,9 +7,12 @@ namespace Sawmill.Xml
     /// <summary>
     /// An implementation of <see cref="IRewriter{T}"/> for <see cref="XElement"/>s.
     /// </summary>
-    public sealed class XElementRewriter : IRewriter<XElement>
+    public class XElementRewriter : IRewriter<XElement>
     {
-        private XElementRewriter() { }
+        /// <summary>
+        /// Create a new instance of <see cref="XElementRewriter"/>.
+        /// </summary>
+        protected XElementRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
