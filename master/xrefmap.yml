@@ -16,6 +16,23 @@ references:
   fullName.vb: Sawmill.AutoRewriter(Of T)
   nameWithType: AutoRewriter<T>
   nameWithType.vb: AutoRewriter(Of T)
+- uid: Sawmill.AutoRewriter`1.#ctor
+  name: AutoRewriter()
+  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1__ctor
+  commentId: M:Sawmill.AutoRewriter`1.#ctor
+  fullName: Sawmill.AutoRewriter<T>.AutoRewriter()
+  fullName.vb: Sawmill.AutoRewriter(Of T).AutoRewriter()
+  nameWithType: AutoRewriter<T>.AutoRewriter()
+  nameWithType.vb: AutoRewriter(Of T).AutoRewriter()
+- uid: Sawmill.AutoRewriter`1.#ctor*
+  name: AutoRewriter
+  href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1__ctor_
+  commentId: Overload:Sawmill.AutoRewriter`1.#ctor
+  isSpec: "True"
+  fullName: Sawmill.AutoRewriter<T>.AutoRewriter
+  fullName.vb: Sawmill.AutoRewriter(Of T).AutoRewriter
+  nameWithType: AutoRewriter<T>.AutoRewriter
+  nameWithType.vb: AutoRewriter(Of T).AutoRewriter
 - uid: Sawmill.AutoRewriter`1.CountChildren(`0)
   name: CountChildren(T)
   href: api/Sawmill.AutoRewriter-1.html#Sawmill_AutoRewriter_1_CountChildren__0_
@@ -1004,6 +1021,19 @@ references:
   commentId: T:Sawmill.Expressions.ExpressionRewriter
   fullName: Sawmill.Expressions.ExpressionRewriter
   nameWithType: ExpressionRewriter
+- uid: Sawmill.Expressions.ExpressionRewriter.#ctor
+  name: ExpressionRewriter()
+  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter__ctor
+  commentId: M:Sawmill.Expressions.ExpressionRewriter.#ctor
+  fullName: Sawmill.Expressions.ExpressionRewriter.ExpressionRewriter()
+  nameWithType: ExpressionRewriter.ExpressionRewriter()
+- uid: Sawmill.Expressions.ExpressionRewriter.#ctor*
+  name: ExpressionRewriter
+  href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter__ctor_
+  commentId: Overload:Sawmill.Expressions.ExpressionRewriter.#ctor
+  isSpec: "True"
+  fullName: Sawmill.Expressions.ExpressionRewriter.ExpressionRewriter
+  nameWithType: ExpressionRewriter.ExpressionRewriter
 - uid: Sawmill.Expressions.ExpressionRewriter.CountChildren(System.Linq.Expressions.Expression)
   name: CountChildren(Expression)
   href: api/Sawmill.Expressions.ExpressionRewriter.html#Sawmill_Expressions_ExpressionRewriter_CountChildren_System_Linq_Expressions_Expression_
@@ -1372,6 +1402,19 @@ references:
   commentId: T:Sawmill.HtmlAgilityPack.HtmlNodeRewriter
   fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter
   nameWithType: HtmlNodeRewriter
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.#ctor
+  name: HtmlNodeRewriter()
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter__ctor
+  commentId: M:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.#ctor
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.HtmlNodeRewriter()
+  nameWithType: HtmlNodeRewriter.HtmlNodeRewriter()
+- uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.#ctor*
+  name: HtmlNodeRewriter
+  href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter__ctor_
+  commentId: Overload:Sawmill.HtmlAgilityPack.HtmlNodeRewriter.#ctor
+  isSpec: "True"
+  fullName: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.HtmlNodeRewriter
+  nameWithType: HtmlNodeRewriter.HtmlNodeRewriter
 - uid: Sawmill.HtmlAgilityPack.HtmlNodeRewriter.CountChildren(HtmlAgilityPack.HtmlNode)
   name: CountChildren(HtmlNode)
   href: api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html#Sawmill_HtmlAgilityPack_HtmlNodeRewriter_CountChildren_HtmlAgilityPack_HtmlNode_
@@ -1873,6 +1916,23 @@ references:
   fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T)
   nameWithType: SyntaxNodeRewriter<T>
   nameWithType.vb: SyntaxNodeRewriter(Of T)
+- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.#ctor
+  name: SyntaxNodeRewriter()
+  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1__ctor
+  commentId: M:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.#ctor
+  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.SyntaxNodeRewriter()
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).SyntaxNodeRewriter()
+  nameWithType: SyntaxNodeRewriter<T>.SyntaxNodeRewriter()
+  nameWithType.vb: SyntaxNodeRewriter(Of T).SyntaxNodeRewriter()
+- uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.#ctor*
+  name: SyntaxNodeRewriter
+  href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1__ctor_
+  commentId: Overload:Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.#ctor
+  isSpec: "True"
+  fullName: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter<T>.SyntaxNodeRewriter
+  fullName.vb: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter(Of T).SyntaxNodeRewriter
+  nameWithType: SyntaxNodeRewriter<T>.SyntaxNodeRewriter
+  nameWithType.vb: SyntaxNodeRewriter(Of T).SyntaxNodeRewriter
 - uid: Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter`1.CountChildren(`0)
   name: CountChildren(T)
   href: api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1_CountChildren__0_
@@ -2557,6 +2617,19 @@ references:
   commentId: T:Sawmill.Newtonsoft.Json.JTokenRewriter
   fullName: Sawmill.Newtonsoft.Json.JTokenRewriter
   nameWithType: JTokenRewriter
+- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.#ctor
+  name: JTokenRewriter()
+  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter__ctor
+  commentId: M:Sawmill.Newtonsoft.Json.JTokenRewriter.#ctor
+  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.JTokenRewriter()
+  nameWithType: JTokenRewriter.JTokenRewriter()
+- uid: Sawmill.Newtonsoft.Json.JTokenRewriter.#ctor*
+  name: JTokenRewriter
+  href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter__ctor_
+  commentId: Overload:Sawmill.Newtonsoft.Json.JTokenRewriter.#ctor
+  isSpec: "True"
+  fullName: Sawmill.Newtonsoft.Json.JTokenRewriter.JTokenRewriter
+  nameWithType: JTokenRewriter.JTokenRewriter
 - uid: Sawmill.Newtonsoft.Json.JTokenRewriter.CountChildren(Newtonsoft.Json.Linq.JToken)
   name: CountChildren(JToken)
   href: api/Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_Newtonsoft_Json_Linq_JToken_
@@ -2911,6 +2984,23 @@ references:
   fullName.vb: Sawmill.RewritableRewriter(Of T)
   nameWithType: RewritableRewriter<T>
   nameWithType.vb: RewritableRewriter(Of T)
+- uid: Sawmill.RewritableRewriter`1.#ctor
+  name: RewritableRewriter()
+  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1__ctor
+  commentId: M:Sawmill.RewritableRewriter`1.#ctor
+  fullName: Sawmill.RewritableRewriter<T>.RewritableRewriter()
+  fullName.vb: Sawmill.RewritableRewriter(Of T).RewritableRewriter()
+  nameWithType: RewritableRewriter<T>.RewritableRewriter()
+  nameWithType.vb: RewritableRewriter(Of T).RewritableRewriter()
+- uid: Sawmill.RewritableRewriter`1.#ctor*
+  name: RewritableRewriter
+  href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1__ctor_
+  commentId: Overload:Sawmill.RewritableRewriter`1.#ctor
+  isSpec: "True"
+  fullName: Sawmill.RewritableRewriter<T>.RewritableRewriter
+  fullName.vb: Sawmill.RewritableRewriter(Of T).RewritableRewriter
+  nameWithType: RewritableRewriter<T>.RewritableRewriter
+  nameWithType.vb: RewritableRewriter(Of T).RewritableRewriter
 - uid: Sawmill.RewritableRewriter`1.CountChildren(`0)
   name: CountChildren(T)
   href: api/Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_CountChildren__0_
@@ -3810,6 +3900,19 @@ references:
   commentId: T:Sawmill.Xml.XElementRewriter
   fullName: Sawmill.Xml.XElementRewriter
   nameWithType: XElementRewriter
+- uid: Sawmill.Xml.XElementRewriter.#ctor
+  name: XElementRewriter()
+  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter__ctor
+  commentId: M:Sawmill.Xml.XElementRewriter.#ctor
+  fullName: Sawmill.Xml.XElementRewriter.XElementRewriter()
+  nameWithType: XElementRewriter.XElementRewriter()
+- uid: Sawmill.Xml.XElementRewriter.#ctor*
+  name: XElementRewriter
+  href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter__ctor_
+  commentId: Overload:Sawmill.Xml.XElementRewriter.#ctor
+  isSpec: "True"
+  fullName: Sawmill.Xml.XElementRewriter.XElementRewriter
+  nameWithType: XElementRewriter.XElementRewriter
 - uid: Sawmill.Xml.XElementRewriter.CountChildren(System.Xml.Linq.XElement)
   name: CountChildren(XElement)
   href: api/Sawmill.Xml.XElementRewriter.html#Sawmill_Xml_XElementRewriter_CountChildren_System_Xml_Linq_XElement_
@@ -4172,6 +4275,19 @@ references:
   commentId: T:Sawmill.Xml.XmlNodeRewriter
   fullName: Sawmill.Xml.XmlNodeRewriter
   nameWithType: XmlNodeRewriter
+- uid: Sawmill.Xml.XmlNodeRewriter.#ctor
+  name: XmlNodeRewriter()
+  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter__ctor
+  commentId: M:Sawmill.Xml.XmlNodeRewriter.#ctor
+  fullName: Sawmill.Xml.XmlNodeRewriter.XmlNodeRewriter()
+  nameWithType: XmlNodeRewriter.XmlNodeRewriter()
+- uid: Sawmill.Xml.XmlNodeRewriter.#ctor*
+  name: XmlNodeRewriter
+  href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter__ctor_
+  commentId: Overload:Sawmill.Xml.XmlNodeRewriter.#ctor
+  isSpec: "True"
+  fullName: Sawmill.Xml.XmlNodeRewriter.XmlNodeRewriter
+  nameWithType: XmlNodeRewriter.XmlNodeRewriter
 - uid: Sawmill.Xml.XmlNodeRewriter.CountChildren(System.Xml.XmlNode)
   name: CountChildren(XmlNode)
   href: api/Sawmill.Xml.XmlNodeRewriter.html#Sawmill_Xml_XmlNodeRewriter_CountChildren_System_Xml_XmlNode_

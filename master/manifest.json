@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.AutoRewriter-1.html",
-          "hash": "+EIDfbVGud2N9O86KU7mgg=="
+          "hash": "eEO4ce59I+S3+xDUuosGNw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Expressions.ExpressionRewriter.html",
-          "hash": "XOcjfiDzROXDiWrSdJsxjA=="
+          "hash": "Agj2lM5YynjvqlIjY5ILSA=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html",
-          "hash": "JOo5lzpo2NY7THq5YpZxKQ=="
+          "hash": "DbFpJqzXoxbWWgLGMLw7gg=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html",
-          "hash": "FnQN/LVKJy3nblEwyrF0Qg=="
+          "hash": "dLrkbvrhaE08z6FxGGLJtA=="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Newtonsoft.Json.JTokenRewriter.html",
-          "hash": "Y6MS824PhFBJo4g+rRSQBQ=="
+          "hash": "fuoHrn9ma+sI08HeECR1xQ=="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.RewritableRewriter-1.html",
-          "hash": "5xvlYxZ+xVWcuxdwCHvZ3Q=="
+          "hash": "Xya2PCNTe+pfjB2O2N50lA=="
         }
       },
       "is_incremental": false,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.XElementRewriter.html",
-          "hash": "OTvhX+1pF1x03kF84zCRgQ=="
+          "hash": "wljTUVElx3Cqd+yj/fDUKg=="
         }
       },
       "is_incremental": false,
@@ -381,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.XmlNodeRewriter.html",
-          "hash": "nHRypA8J1Vi0Qa75q0x2OQ=="
+          "hash": "S6FT03VJWh9zPxC+fHCI6w=="
         }
       },
       "is_incremental": false,
