@@ -1,6 +1,15 @@
 Changelog
 =========
 
+3.1.0
+-----
+
+### Changed
+
+* Provided implementations of `IRewriter` are no longer sealed.
+* Symbol packages are now shipped as `snupkg` files.
+
+
 3.0.1
 -----
 
