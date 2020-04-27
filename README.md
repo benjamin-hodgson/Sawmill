@@ -124,14 +124,14 @@ Normalising an expression typically involves repeatedly applying a set of rewrit
 
 For example, to put an arithmetic expression into [_negation normal form_](https://en.wikipedia.org/wiki/Negation_normal_form), so that all of the minus signs appear only next to variables or literal numbers, you distribute `-` over `+` (so `-(3+2)` becomes `(-3)+(-2)`). Since performing this distribution might produce more places where the result of an addition is negated (consider `-((1+2)+3) -> (-(1+2))+(-3)`), you need to do so repeatedly until you can't do it any more.
 
-`RewriteIter` packages up this pattern. It applies a transformation function to every node in the tree from bottom to top, repeating this until the function returns `IterResult.Done<T>()` for every node in the output. (In other words, `x.RewriteIter(f).DescendantsAndSelf().Any(n => f(n).Continue) == false`.)
+`RewriteIter` packages up this pattern. It applies a transformation function to every node in the tree from bottom to top, repeating this until the function is a no-op for each node in the tree. (In other words, `x.RewriteIter(f).DescendantsAndSelf().All(n => f(n) == n) == true`.)
 
 ```csharp
 Expr ToNegationNormalForm(Expr expr)
     => expr.RewriteIter(node => 
         node is Neg n && n.Operand is Add a
-            ? IterResult.Continue<Expr>(new Add(new Neg(a.Left), new Neg(a.Right)))
-            : IterResult.Done<Expr>()
+            ? new Add(new Neg(a.Left), new Neg(a.Right))
+            : n
     );
 ```
 
