@@ -1,5 +1,7 @@
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+#if NETSTANDARD21
+using FixedSizeBuffers;
+#endif
+
 
 namespace Sawmill
 {
@@ -8,7 +10,7 @@ namespace Sawmill
         internal static R WithChildren<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-#if NETCOREAPP
+#if NETSTANDARD21
             if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, value, count);
@@ -27,7 +29,7 @@ namespace Sawmill
         internal static R WithChildren<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-#if NETCOREAPP
+#if NETSTANDARD21
             if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, ctx, value, count);
@@ -43,43 +45,29 @@ namespace Sawmill
             return result;
         }
 
-#if NETCOREAPP
+#if NETSTANDARD21
         private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
         {
-            var four = new StackallocFour<T>();
-            var span = MemoryMarshal.CreateSpan(ref four.First, count);
+            var buffer = new FixedSizeBuffer4<T>();
+            var span = buffer.AsSpan().Slice(0, count);
 
             rewriter.GetChildren(span, value);
             var result = action(span);
 
-            KeepAlive(ref four);
+            buffer.Dispose();
             return result;
         }
 
         private static R WithChildren_Fast<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, int count)
         {
-            var four = new StackallocFour<T>();
-            var span = MemoryMarshal.CreateSpan(ref four.First, count);
+            var buffer = new FixedSizeBuffer4<T>();
+            var span = buffer.AsSpan().Slice(0, count);
 
             rewriter.GetChildren(span, value);
             var result = action(span, ctx);
 
-            KeepAlive(ref four);
+            buffer.Dispose();
             return result;
-        }
-
-        private struct StackallocFour<T>
-        {
-#pragma warning disable CS0649  // Field 'FieldName' is never assigned to, and will always have its default value
-            public T First;
-            public T Second;
-            public T Third;
-            public T Fourth;
-#pragma warning restore CS0649
-        }
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static void KeepAlive<T>(ref StackallocFour<T> four)
-        {
         }
 #endif
     }

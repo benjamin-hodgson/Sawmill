@@ -6,7 +6,7 @@ namespace Sawmill
     internal struct PooledQueue<T>
     {
         private static readonly bool _needsClear =
-#if NETCOREAPP
+#if NETSTANDARD21
             System.Runtime.CompilerServices.RuntimeHelpers.IsReferenceOrContainsReferences<T>();
 #else
             !typeof(T).IsPrimitive;
