@@ -1,7 +1,5 @@
 using System;
-using System.Buffers;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Sawmill
 {
@@ -9,6 +7,11 @@ namespace Sawmill
     {
         /// <summary>
         /// Yields all of the nodes in the tree represented by <paramref name="value"/> in a breadth-first traversal order.
+        /// 
+        /// <para>
+        /// This is a breadth-first pre-order traversal.
+        /// </para>
+        /// 
         /// </summary>
         /// <typeparam name="T">The rewritable tree type</typeparam>
         /// <param name="rewriter">The rewriter</param>
@@ -24,7 +27,7 @@ namespace Sawmill
             IEnumerable<T> Iterator()
             {
                 var queue = new PooledQueue<T>();
-                queue.AllocateRight(1)[0] = (value);
+                queue.AllocateRight(1)[0] = value;
 
                 try
                 {

@@ -15,6 +15,10 @@ namespace Sawmill
         /// The replacement function can be seen as the "context" of the node; calling the
         /// function with a new node "plugs the hole" in the context.
         /// </para>
+        ///
+        /// <para>
+        /// This is a depth-first pre-order traversal.
+        /// </para>
         /// 
         /// <seealso cref="SelfAndDescendants"/>
         /// <seealso cref="ChildrenInContext"/>

@@ -16,6 +16,10 @@ namespace Sawmill
         /// function with a new node "plugs the hole" in the context.
         /// </para>
         /// 
+        /// <para>
+        /// This is a depth-first post-order traversal.
+        /// </para>
+        /// 
         /// <seealso cref="DescendantsAndSelf"/>
         /// <seealso cref="ChildrenInContext"/>
         /// <seealso cref="SelfAndDescendantsInContext"/>

@@ -7,6 +7,11 @@ namespace Sawmill
     {
         /// <summary>
         /// Yields all of the nodes in the tree represented by <paramref name="value"/>, starting at the top.
+        /// 
+        /// <para>
+        /// This is a depth-first pre-order traversal.
+        /// </para>
+        /// 
         /// <seealso cref="DescendantsAndSelf"/>
         /// </summary>
         /// <example>
