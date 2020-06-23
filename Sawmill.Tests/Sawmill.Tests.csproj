@@ -8,6 +8,9 @@
     <NoWarn>xUnit2013</NoWarn>
     <LangVersion>8.0</LangVersion>
     <Nullable>Enable</Nullable>
+
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Sawmill.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
