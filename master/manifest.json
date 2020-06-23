@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.AutoRewriter-1.html",
-          "hash": "Nf1X3mGn+9RddMwlZSzLtw=="
+          "hash": "/t97RuTlxAwSL33noPKdFQ=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Cursor-1.html",
-          "hash": "fk4ULD8K7g8dosQ7K7iWqg=="
+          "hash": "GBTPn39NYu1NTtMv5b/h0Q=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Direction.html",
-          "hash": "W277NilnIALPaU0eeZ3mfw=="
+          "hash": "3Sr0CGtKtKrOx1WUWsUf2A=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Expressions.ExpressionExtensions.html",
-          "hash": "U3hA1B8b8LKoC1wAyIP66g=="
+          "hash": "sROEYgGLhg7iMqm/HUQc9Q=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Expressions.ExpressionRewriter.html",
-          "hash": "VL3RVI1NLU7aRxGU2abmNg=="
+          "hash": "QAu1g4eB2Se2+GJxMyrxug=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Expressions.html",
-          "hash": "yKEXqnqWul747Hq0PwHFdA=="
+          "hash": "mC1wUQXKvxejxJ00UoMsGA=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html",
-          "hash": "7Vrp4Rk5dXO6iwRxk/9mbw=="
+          "hash": "6Tgwd221fZY/tORwRFeY9g=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html",
-          "hash": "NH4spQm1QEKPS/dY53csKA=="
+          "hash": "o4fiabSkk9pHYA34fFxscQ=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.HtmlAgilityPack.html",
-          "hash": "oWYcVpTZq9mPG/TADKjOTw=="
+          "hash": "k/Rw6Awq9ahV/CB+w4AdKQ=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.IRewritable-1.html",
-          "hash": "H5EHwnZ9huhXa7zN3qMiog=="
+          "hash": "Yga4M/Of/dZLxXnZ05m9pg=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.IRewriter-1.html",
-          "hash": "aLFfh9Huqgqh3sMHx6STlA=="
+          "hash": "T0Stc8rJXBXd83jsS2n8aQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html",
-          "hash": "PE48LqtwVJrWikZCH6MHIw=="
+          "hash": "LlyLsbHhSVxog0BikUAaDQ=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.CSharp.html",
-          "hash": "JN9P9mLmS4DqVZ98mB/beg=="
+          "hash": "shm3hdcfZUwtJLXVNQQn1g=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html",
-          "hash": "8uWBJa8/S5O39+PIcVKv2g=="
+          "hash": "HQ2BTMOIJkrMA7HixdLARw=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html",
-          "hash": "TbRVaAW/EJYoltn/FeS0Hw=="
+          "hash": "nfcfvkzCsUdYdIMYxbATRA=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.VisualBasic.html",
-          "hash": "s1oTetahv0DTg7qp7QOnOw=="
+          "hash": "F/E4m2BHk4PvN2P+JLWEzQ=="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Microsoft.CodeAnalysis.html",
-          "hash": "S2fu9pNvrBpBYbpu1ka0FA=="
+          "hash": "FIjhQt6rCqNlvbOXu8WnIA=="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Newtonsoft.Json.JTokenExtensions.html",
-          "hash": "7p4b2BWqIP8bkQDEoJZQrw=="
+          "hash": "GBi5kd+qLFHT9Pr+QJpH8Q=="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Newtonsoft.Json.JTokenRewriter.html",
-          "hash": "A219GqeS9x9VY5WHWcTiAQ=="
+          "hash": "Kd66/x8KjkjTV+HFzSWooA=="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Newtonsoft.Json.html",
-          "hash": "ImyhEz2qhxi6SsMuKUbBpg=="
+          "hash": "SNiMTPIdfgJ4uABeWkOUMg=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Rewritable.html",
-          "hash": "k/O206BLjOvEeZhGiHMHfg=="
+          "hash": "RLh5e0eb5OlJ3CZbmew46Q=="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.RewritableRewriter-1.html",
-          "hash": "qho8Y1ZG+KXk7XxY6/bdPA=="
+          "hash": "6uT5A0lKt/RepUjSRmiwWA=="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Rewriter.html",
-          "hash": "jVWxhUp+PFVzPV3ABnuWBw=="
+          "hash": "g9vR3Nu4Rwzb4yLEzG8hrw=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.RewriterBuilder-1.html",
-          "hash": "H4t7pubst6v//WqNc6O2uA=="
+          "hash": "6I6BTtnDdk3eRNurlf25QQ=="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.RewriterBuilder.html",
-          "hash": "PlrqpdpPAQA99GV0j9h/hA=="
+          "hash": "neXYTyegxY++pUOBmGSH3g=="
         }
       },
       "is_incremental": false,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.RewriterBuilderCase-3.html",
-          "hash": "rb+E3rxaneHlNQcQcPq/ew=="
+          "hash": "cBEiVoXluWbCd0+/wfZXwA=="
         }
       },
       "is_incremental": false,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.RewriterBuilderCase.html",
-          "hash": "75azvHjmXpQbQahRLhBtbA=="
+          "hash": "VBggfSri+d/Gv7rmZMwwQg=="
         }
       },
       "is_incremental": false,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.SpanFunc-3.html",
-          "hash": "3QrmRv7FjNz5KHR7+16Ifw=="
+          "hash": "7iVfbChqZ6G8fXmyKtDOQw=="
         }
       },
       "is_incremental": false,
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.XElementExtensions.html",
-          "hash": "nOHl45ZB/UrLPEDX7MvMOg=="
+          "hash": "ewnwsihyLn/xVmiy1JKhZQ=="
         }
       },
       "is_incremental": false,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.XElementRewriter.html",
-          "hash": "6ym++v/CIZrYJDn1ynL13w=="
+          "hash": "Y0cGis2T7jECF3cfZMqb1Q=="
         }
       },
       "is_incremental": false,
@@ -369,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.XmlNodeExtensions.html",
-          "hash": "HmbvFUgXlEzwQRKUckphfA=="
+          "hash": "Yel/kp4vW5pLwU9KVLFimQ=="
         }
       },
       "is_incremental": false,
@@ -381,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.XmlNodeRewriter.html",
-          "hash": "rcfn9RnxUmj+fLiCY6J3jQ=="
+          "hash": "ayOA6HgXaddK2wMwE6zQkg=="
         }
       },
       "is_incremental": false,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.Xml.html",
-          "hash": "UEUJdXiync7cOwSgu+oY4Q=="
+          "hash": "BMXNpXOsv32maA2lCAr+tA=="
         }
       },
       "is_incremental": false,
@@ -405,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Sawmill.html",
-          "hash": "llxksdBxsN1MMiMpYce1Fw=="
+          "hash": "uwRZKFJlhoA0rB3iP3N2Qw=="
         }
       },
       "is_incremental": false,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "+mNgzlPXBvcFGVH2OscLQg=="
+          "hash": "xX/9x8fIQoqmUq2kcaqiEw=="
         }
       },
       "is_incremental": false,
@@ -441,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "yhOE0cOZu04XYdMtI7x8nw=="
+          "hash": "nU+EMaATK7JGSLFtp6bUSg=="
         }
       },
       "is_incremental": false,
