@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Rewriter
    ">
-    <meta name="generator" content="docfx 2.55.0.0">
+    <meta name="generator" content="docfx 2.56.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -362,12 +362,16 @@ function with a new child &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.DescendantsAndSelf%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DescendantsAndSelf.cs/#L38">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DescendantsAndSelf.cs/#L43">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_DescendantsAndSelf_" data-uid="Sawmill.Rewriter.DescendantsAndSelf*"></a>
   <h4 id="Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{``0},``0)">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
-  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.
-<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.</p>
+<p>
+This is a depth-first post-order traversal.
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -453,7 +457,7 @@ Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.DescendantsAndSelfInContext%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DescendantsAndSelfInContext.cs/#L25">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.DescendantsAndSelfInContext.cs/#L29">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_DescendantsAndSelfInContext_" data-uid="Sawmill.Rewriter.DescendantsAndSelfInContext*"></a>
   <h4 id="Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.DescendantsAndSelfInContext``1(Sawmill.IRewriter{``0},``0)">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
@@ -464,6 +468,10 @@ such as during mutation testing.</p>
 <p>
 The replacement function can be seen as the &quot;context&quot; of the node; calling the
 function with a new node &quot;plugs the hole&quot; in the context.
+</p>
+
+<p>
+This is a depth-first post-order traversal.
 </p>
 
 <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
@@ -1173,12 +1181,16 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.SelfAndDescendants%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendants.cs/#L36">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendants.cs/#L41">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_SelfAndDescendants_" data-uid="Sawmill.Rewriter.SelfAndDescendants*"></a>
   <h4 id="Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.SelfAndDescendants``1(Sawmill.IRewriter{``0},``0)">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
-  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.
-<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.</p>
+<p>
+This is a depth-first pre-order traversal.
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1264,11 +1276,15 @@ Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.SelfAndDescendantsBreadthFirst%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsBreadthFirst.cs/#L17">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsBreadthFirst.cs/#L20">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_SelfAndDescendantsBreadthFirst_" data-uid="Sawmill.Rewriter.SelfAndDescendantsBreadthFirst*"></a>
   <h4 id="Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.SelfAndDescendantsBreadthFirst``1(Sawmill.IRewriter{``0},``0)">SelfAndDescendantsBreadthFirst&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
   <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> in a breadth-first traversal order.</p>
+<p>
+This is a breadth-first pre-order traversal.
+</p>
+
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1336,7 +1352,7 @@ Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.SelfAndDescendantsInContext%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsInContext.cs/#L25">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsInContext.cs/#L29">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_SelfAndDescendantsInContext_" data-uid="Sawmill.Rewriter.SelfAndDescendantsInContext*"></a>
   <h4 id="Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.SelfAndDescendantsInContext``1(Sawmill.IRewriter{``0},``0)">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
@@ -1347,6 +1363,10 @@ such as during mutation testing.</p>
 <p>
 The replacement function can be seen as the &quot;context&quot; of the node; calling the
 function with a new node &quot;plugs the hole&quot; in the context.
+</p>
+
+<p>
+This is a depth-first pre-order traversal.
 </p>
 
 <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
@@ -1417,7 +1437,7 @@ function with a new node &quot;plugs the hole&quot; in the context.
     <a href="https://github.com/benjamin-hodgson/Sawmill/new/master/apiSpec/new?filename=Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0_.md&amp;value=---%0Auid%3A%20Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst%60%601(Sawmill.IRewriter%7B%60%600%7D%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsInContextBreadthFirst.cs/#L26">View Source</a>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/master/Sawmill/Rewriter.SelfAndDescendantsInContextBreadthFirst.cs/#L30">View Source</a>
   </span>
   <a id="Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst_" data-uid="Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst*"></a>
   <h4 id="Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0_" data-uid="Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst``1(Sawmill.IRewriter{``0},``0)">SelfAndDescendantsInContextBreadthFirst&lt;T&gt;(IRewriter&lt;T&gt;, T)</h4>
@@ -1428,6 +1448,10 @@ such as during mutation testing.</p>
 <p>
 The replacement function can be seen as the &quot;context&quot; of the node; calling the
 function with a new node &quot;plugs the hole&quot; in the context.
+</p>
+
+<p>
+This is a breadth-first pre-order traversal.
 </p>
 
 <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
