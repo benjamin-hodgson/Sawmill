@@ -1,8 +1,5 @@
 Sawmill
 =======
-
-[![Build status](https://ci.appveyor.com/api/projects/status/cc2fnul624198x02?svg=true)](https://ci.appveyor.com/project/benjamin-hodgson/sawmill)
-
 Simple tools for working with immutable trees, based on [_Uniform Boilerplate and List Processing_](http://ndmitchell.com/downloads/paper-uniform_boilerplate_and_list_processing-30_sep_2007.pdf) and developed at Stack Overflow.
 
 Installing
