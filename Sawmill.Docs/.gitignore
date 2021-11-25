@@ -1,9 +1,6 @@
-###############
-#    folder   #
-###############
-/**/DROP/
-/**/TEMP/
-/**/packages/
-/**/bin/
-/**/obj/
-_site
+
+   
+*
+!.gitignore
+!docfx.json
+!index.md
