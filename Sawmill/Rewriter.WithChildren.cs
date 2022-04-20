@@ -1,4 +1,4 @@
-#if NETSTANDARD21
+#if NETSTANDARD2_1_OR_GREATER
 using FixedSizeBuffers;
 #endif
 
@@ -10,7 +10,7 @@ namespace Sawmill
         internal static R WithChildren<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-#if NETSTANDARD21
+#if NETSTANDARD2_1_OR_GREATER
             if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, value, count);
@@ -29,7 +29,7 @@ namespace Sawmill
         internal static R WithChildren<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, ref ChunkStack<T> chunks)
         {
             var count = rewriter.CountChildren(value);
-#if NETSTANDARD21
+#if NETSTANDARD2_1_OR_GREATER
             if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, ctx, value, count);
@@ -45,7 +45,7 @@ namespace Sawmill
             return result;
         }
 
-#if NETSTANDARD21
+#if NETSTANDARD2_1_OR_GREATER
         private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
         {
             var buffer = new FixedSizeBuffer4<T>();
