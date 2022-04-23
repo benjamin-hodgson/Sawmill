@@ -785,6 +785,15 @@ references:
   fullName.vb: Sawmill.Expressions.ExpressionExtensions.Fold(Of T)(System.Linq.Expressions.Expression, Sawmill.SpanFunc(Of T, System.Linq.Expressions.Expression, T))
   nameWithType: ExpressionExtensions.Fold<T>(Expression, SpanFunc<T, Expression, T>)
   nameWithType.vb: ExpressionExtensions.Fold(Of T)(Expression, SpanFunc(Of T, Expression, T))
+- uid: Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,System.Func{System.Memory{``0},System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{``0}})
+  name: Fold<T>(Expression, Func<Memory<T>, Expression, ValueTask<T>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_System_Func_System_Memory___0__System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.Fold``1(System.Linq.Expressions.Expression,System.Func{System.Memory{``0},System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: Fold(Of T)(Expression, Func(Of Memory(Of T), Expression, ValueTask(Of T)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.Fold<T>(System.Linq.Expressions.Expression, System.Func<System.Memory<T>, System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.Fold(Of T)(System.Linq.Expressions.Expression, System.Func(Of System.Memory(Of T), System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: ExpressionExtensions.Fold<T>(Expression, Func<Memory<T>, Expression, ValueTask<T>>)
+  nameWithType.vb: ExpressionExtensions.Fold(Of T)(Expression, Func(Of Memory(Of T), Expression, ValueTask(Of T)))
 - uid: Sawmill.Expressions.ExpressionExtensions.GetChildren(System.Linq.Expressions.Expression)
   name: GetChildren(Expression)
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_
@@ -830,6 +839,15 @@ references:
   fullName.vb: Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression))
   nameWithType: ExpressionExtensions.Rewrite(Expression, Func<Expression, Expression>)
   nameWithType.vb: ExpressionExtensions.Rewrite(Expression, Func(Of Expression, Expression))
+- uid: Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name: Rewrite(Expression, Func<Expression, ValueTask<Expression>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Rewrite_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name.vb: Rewrite(Expression, Func(Of Expression, ValueTask(Of Expression)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression, System.Func<System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask<System.Linq.Expressions.Expression>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.Rewrite(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask(Of System.Linq.Expressions.Expression)))
+  nameWithType: ExpressionExtensions.Rewrite(Expression, Func<Expression, ValueTask<Expression>>)
+  nameWithType.vb: ExpressionExtensions.Rewrite(Expression, Func(Of Expression, ValueTask(Of Expression)))
 - uid: Sawmill.Expressions.ExpressionExtensions.Rewrite*
   name: Rewrite
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_Rewrite_
@@ -845,6 +863,15 @@ references:
   fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteChildren(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression))
   nameWithType: ExpressionExtensions.RewriteChildren(Expression, Func<Expression, Expression>)
   nameWithType.vb: ExpressionExtensions.RewriteChildren(Expression, Func(Of Expression, Expression))
+- uid: Sawmill.Expressions.ExpressionExtensions.RewriteChildren(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name: RewriteChildren(Expression, Func<Expression, ValueTask<Expression>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteChildren_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.RewriteChildren(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name.vb: RewriteChildren(Expression, Func(Of Expression, ValueTask(Of Expression)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.RewriteChildren(System.Linq.Expressions.Expression, System.Func<System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask<System.Linq.Expressions.Expression>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteChildren(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask(Of System.Linq.Expressions.Expression)))
+  nameWithType: ExpressionExtensions.RewriteChildren(Expression, Func<Expression, ValueTask<Expression>>)
+  nameWithType.vb: ExpressionExtensions.RewriteChildren(Expression, Func(Of Expression, ValueTask(Of Expression)))
 - uid: Sawmill.Expressions.ExpressionExtensions.RewriteChildren*
   name: RewriteChildren
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteChildren_
@@ -866,6 +893,15 @@ references:
   fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt(Of T)(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression))
   nameWithType: ExpressionExtensions.RewriteDescendantAt<T>(Expression, IEnumerable<Direction>, Func<Expression, Expression>)
   nameWithType.vb: ExpressionExtensions.RewriteDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Func(Of Expression, Expression))
+- uid: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt``1(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name: RewriteDescendantAt<T>(Expression, IEnumerable<Direction>, Func<Expression, ValueTask<Expression>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt``1(System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name.vb: RewriteDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Func(Of Expression, ValueTask(Of Expression)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt<T>(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask<System.Linq.Expressions.Expression>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteDescendantAt(Of T)(System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask(Of System.Linq.Expressions.Expression)))
+  nameWithType: ExpressionExtensions.RewriteDescendantAt<T>(Expression, IEnumerable<Direction>, Func<Expression, ValueTask<Expression>>)
+  nameWithType.vb: ExpressionExtensions.RewriteDescendantAt(Of T)(Expression, IEnumerable(Of Direction), Func(Of Expression, ValueTask(Of Expression)))
 - uid: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})
   name: RewriteIter(Expression, Func<Expression, Expression>)
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteIter_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression__
@@ -875,6 +911,15 @@ references:
   fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression))
   nameWithType: ExpressionExtensions.RewriteIter(Expression, Func<Expression, Expression>)
   nameWithType.vb: ExpressionExtensions.RewriteIter(Expression, Func(Of Expression, Expression))
+- uid: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name: RewriteIter(Expression, Func<Expression, ValueTask<Expression>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteIter_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Threading.Tasks.ValueTask{System.Linq.Expressions.Expression}})
+  name.vb: RewriteIter(Expression, Func(Of Expression, ValueTask(Of Expression)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression, System.Func<System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask<System.Linq.Expressions.Expression>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.RewriteIter(System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Threading.Tasks.ValueTask(Of System.Linq.Expressions.Expression)))
+  nameWithType: ExpressionExtensions.RewriteIter(Expression, Func<Expression, ValueTask<Expression>>)
+  nameWithType.vb: ExpressionExtensions.RewriteIter(Expression, Func(Of Expression, ValueTask(Of Expression)))
 - uid: Sawmill.Expressions.ExpressionExtensions.RewriteIter*
   name: RewriteIter
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_RewriteIter_
@@ -950,6 +995,15 @@ references:
   commentId: Overload:Sawmill.Expressions.ExpressionExtensions.ZipFold
   fullName: Sawmill.Expressions.ExpressionExtensions.ZipFold
   nameWithType: ExpressionExtensions.ZipFold
+- uid: Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name: ZipFold<U>(Expression, Expression, Func<Expression, Expression, IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name.vb: ZipFold(Of U)(Expression, Expression, Func(Of Expression, Expression, IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.ZipFold<U>(System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, System.Func<System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.ZipFold(Of U)(System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: ExpressionExtensions.ZipFold<U>(Expression, Expression, Func<Expression, Expression, IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: ExpressionExtensions.ZipFold(Of U)(Expression, Expression, Func(Of Expression, Expression, IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{``0},``0})
   name: ZipFold<U>(Expression, Expression, Func<Expression, Expression, IEnumerable<U>, U>)
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable___0____0__
@@ -959,6 +1013,15 @@ references:
   fullName.vb: Sawmill.Expressions.ExpressionExtensions.ZipFold(Of U)(System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, System.Func(Of System.Linq.Expressions.Expression, System.Linq.Expressions.Expression, System.Collections.Generic.IEnumerable(Of U), U))
   nameWithType: ExpressionExtensions.ZipFold<U>(Expression, Expression, Func<Expression, Expression, IEnumerable<U>, U>)
   nameWithType.vb: ExpressionExtensions.ZipFold(Of U)(Expression, Expression, Func(Of Expression, Expression, IEnumerable(Of U), U))
+- uid: Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression[],System.Func{System.Linq.Expressions.Expression[],System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name: ZipFold<U>(Expression[], Func<Expression[], IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression___System_Func_System_Linq_Expressions_Expression___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression[],System.Func{System.Linq.Expressions.Expression[],System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name.vb: ZipFold(Of U)(Expression(), Func(Of Expression(), IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Expressions.ExpressionExtensions.ZipFold<U>(System.Linq.Expressions.Expression[], System.Func<System.Linq.Expressions.Expression[], System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Expressions.ExpressionExtensions.ZipFold(Of U)(System.Linq.Expressions.Expression(), System.Func(Of System.Linq.Expressions.Expression(), System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: ExpressionExtensions.ZipFold<U>(Expression[], Func<Expression[], IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: ExpressionExtensions.ZipFold(Of U)(Expression(), Func(Of Expression(), IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Expressions.ExpressionExtensions.ZipFold``1(System.Linq.Expressions.Expression[],System.Func{System.Linq.Expressions.Expression[],System.Collections.Generic.IEnumerable{``0},``0})
   name: ZipFold<U>(Expression[], Func<Expression[], IEnumerable<U>, U>)
   href: Sawmill.Expressions.ExpressionExtensions.html#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression___System_Func_System_Linq_Expressions_Expression___System_Collections_Generic_IEnumerable___0____0__
@@ -1921,6 +1984,15 @@ references:
   fullName.vb: Sawmill.Rewritable.Fold(Of T, U)(T, Sawmill.SpanFunc(Of U, T, U))
   nameWithType: Rewritable.Fold<T, U>(T, SpanFunc<U, T, U>)
   nameWithType.vb: Rewritable.Fold(Of T, U)(T, SpanFunc(Of U, T, U))
+- uid: Sawmill.Rewritable.Fold``2(``0,System.Func{System.Memory{``1},``0,System.Threading.Tasks.ValueTask{``1}})
+  name: Fold<T, U>(T, Func<Memory<U>, T, ValueTask<U>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_Fold__2___0_System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1___
+  commentId: M:Sawmill.Rewritable.Fold``2(``0,System.Func{System.Memory{``1},``0,System.Threading.Tasks.ValueTask{``1}})
+  name.vb: Fold(Of T, U)(T, Func(Of Memory(Of U), T, ValueTask(Of U)))
+  fullName: Sawmill.Rewritable.Fold<T, U>(T, System.Func<System.Memory<U>, T, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Rewritable.Fold(Of T, U)(T, System.Func(Of System.Memory(Of U), T, System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: Rewritable.Fold<T, U>(T, Func<Memory<U>, T, ValueTask<U>>)
+  nameWithType.vb: Rewritable.Fold(Of T, U)(T, Func(Of Memory(Of U), T, ValueTask(Of U)))
 - uid: Sawmill.Rewritable.GetChildren*
   name: GetChildren
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_GetChildren_
@@ -1966,6 +2038,15 @@ references:
   fullName.vb: Sawmill.Rewritable.Rewrite(Of T)(T, System.Func(Of T, T))
   nameWithType: Rewritable.Rewrite<T>(T, Func<T, T>)
   nameWithType.vb: Rewritable.Rewrite(Of T)(T, Func(Of T, T))
+- uid: Sawmill.Rewritable.Rewrite``1(``0,System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name: Rewrite<T>(T, Func<T, ValueTask<T>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_Rewrite__1___0_System_Func___0_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Rewritable.Rewrite``1(``0,System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: Rewrite(Of T)(T, Func(Of T, ValueTask(Of T)))
+  fullName: Sawmill.Rewritable.Rewrite<T>(T, System.Func<T, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Rewritable.Rewrite(Of T)(T, System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: Rewritable.Rewrite<T>(T, Func<T, ValueTask<T>>)
+  nameWithType.vb: Rewritable.Rewrite(Of T)(T, Func(Of T, ValueTask(Of T)))
 - uid: Sawmill.Rewritable.RewriteChildren*
   name: RewriteChildren
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteChildren_
@@ -1981,6 +2062,15 @@ references:
   fullName.vb: Sawmill.Rewritable.RewriteChildren(Of T)(T, System.Func(Of T, T))
   nameWithType: Rewritable.RewriteChildren<T>(T, Func<T, T>)
   nameWithType.vb: Rewritable.RewriteChildren(Of T)(T, Func(Of T, T))
+- uid: Sawmill.Rewritable.RewriteChildren``1(``0,System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name: RewriteChildren<T>(T, Func<T, ValueTask<T>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteChildren__1___0_System_Func___0_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Rewritable.RewriteChildren``1(``0,System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: RewriteChildren(Of T)(T, Func(Of T, ValueTask(Of T)))
+  fullName: Sawmill.Rewritable.RewriteChildren<T>(T, System.Func<T, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Rewritable.RewriteChildren(Of T)(T, System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: Rewritable.RewriteChildren<T>(T, Func<T, ValueTask<T>>)
+  nameWithType.vb: Rewritable.RewriteChildren(Of T)(T, Func(Of T, ValueTask(Of T)))
 - uid: Sawmill.Rewritable.RewriteDescendantAt*
   name: RewriteDescendantAt
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteDescendantAt_
@@ -1996,6 +2086,15 @@ references:
   fullName.vb: Sawmill.Rewritable.RewriteDescendantAt(Of T)(T, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of T, T))
   nameWithType: Rewritable.RewriteDescendantAt<T>(T, IEnumerable<Direction>, Func<T, T>)
   nameWithType.vb: Rewritable.RewriteDescendantAt(Of T)(T, IEnumerable(Of Direction), Func(Of T, T))
+- uid: Sawmill.Rewritable.RewriteDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name: RewriteDescendantAt<T>(T, IEnumerable<Direction>, Func<T, ValueTask<T>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteDescendantAt__1___0_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Rewritable.RewriteDescendantAt``1(``0,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: RewriteDescendantAt(Of T)(T, IEnumerable(Of Direction), Func(Of T, ValueTask(Of T)))
+  fullName: Sawmill.Rewritable.RewriteDescendantAt<T>(T, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<T, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Rewritable.RewriteDescendantAt(Of T)(T, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: Rewritable.RewriteDescendantAt<T>(T, IEnumerable<Direction>, Func<T, ValueTask<T>>)
+  nameWithType.vb: Rewritable.RewriteDescendantAt(Of T)(T, IEnumerable(Of Direction), Func(Of T, ValueTask(Of T)))
 - uid: Sawmill.Rewritable.RewriteIter*
   name: RewriteIter
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteIter_
@@ -2011,6 +2110,15 @@ references:
   fullName.vb: Sawmill.Rewritable.RewriteIter(Of T)(T, System.Func(Of T, T))
   nameWithType: Rewritable.RewriteIter<T>(T, Func<T, T>)
   nameWithType.vb: Rewritable.RewriteIter(Of T)(T, Func(Of T, T))
+- uid: Sawmill.Rewritable.RewriteIter``1(``0,System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name: RewriteIter<T>(T, Func<T, ValueTask<T>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_RewriteIter__1___0_System_Func___0_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Rewritable.RewriteIter``1(``0,System.Func{``0,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: RewriteIter(Of T)(T, Func(Of T, ValueTask(Of T)))
+  fullName: Sawmill.Rewritable.RewriteIter<T>(T, System.Func<T, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Rewritable.RewriteIter(Of T)(T, System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: Rewritable.RewriteIter<T>(T, Func<T, ValueTask<T>>)
+  nameWithType.vb: Rewritable.RewriteIter(Of T)(T, Func(Of T, ValueTask(Of T)))
 - uid: Sawmill.Rewritable.SelfAndDescendants*
   name: SelfAndDescendants
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_SelfAndDescendants_
@@ -2077,6 +2185,15 @@ references:
   commentId: Overload:Sawmill.Rewritable.ZipFold
   fullName: Sawmill.Rewritable.ZipFold
   nameWithType: Rewritable.ZipFold
+- uid: Sawmill.Rewritable.ZipFold``2(``0,``0,System.Func{``0,``0,System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}})
+  name: ZipFold<T, U>(T, T, Func<T, T, IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_ZipFold__2___0___0_System_Func___0___0_System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1___
+  commentId: M:Sawmill.Rewritable.ZipFold``2(``0,``0,System.Func{``0,``0,System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}})
+  name.vb: ZipFold(Of T, U)(T, T, Func(Of T, T, IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Rewritable.ZipFold<T, U>(T, T, System.Func<T, T, System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Rewritable.ZipFold(Of T, U)(T, T, System.Func(Of T, T, System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: Rewritable.ZipFold<T, U>(T, T, Func<T, T, IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: Rewritable.ZipFold(Of T, U)(T, T, Func(Of T, T, IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Rewritable.ZipFold``2(``0,``0,System.Func{``0,``0,System.Collections.Generic.IEnumerable{``1},``1})
   name: ZipFold<T, U>(T, T, Func<T, T, IEnumerable<U>, U>)
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_ZipFold__2___0___0_System_Func___0___0_System_Collections_Generic_IEnumerable___1____1__
@@ -2086,6 +2203,15 @@ references:
   fullName.vb: Sawmill.Rewritable.ZipFold(Of T, U)(T, T, System.Func(Of T, T, System.Collections.Generic.IEnumerable(Of U), U))
   nameWithType: Rewritable.ZipFold<T, U>(T, T, Func<T, T, IEnumerable<U>, U>)
   nameWithType.vb: Rewritable.ZipFold(Of T, U)(T, T, Func(Of T, T, IEnumerable(Of U), U))
+- uid: Sawmill.Rewritable.ZipFold``2(``0[],System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}})
+  name: ZipFold<T, U>(T[], Func<T[], IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Rewritable.html#Sawmill_Rewritable_ZipFold__2___0___System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1___
+  commentId: M:Sawmill.Rewritable.ZipFold``2(``0[],System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}})
+  name.vb: ZipFold(Of T, U)(T(), Func(Of T(), IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Rewritable.ZipFold<T, U>(T[], System.Func<T[], System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Rewritable.ZipFold(Of T, U)(T(), System.Func(Of T(), System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: Rewritable.ZipFold<T, U>(T[], Func<T[], IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: Rewritable.ZipFold(Of T, U)(T(), Func(Of T(), IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Rewritable.ZipFold``2(``0[],System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1})
   name: ZipFold<T, U>(T[], Func<T[], IEnumerable<U>, U>)
   href: Sawmill.Rewritable.html#Sawmill_Rewritable_ZipFold__2___0___System_Func___0___System_Collections_Generic_IEnumerable___1____1__
@@ -2282,6 +2408,15 @@ references:
   fullName.vb: Sawmill.Rewriter.Fold(Of T, U)(Sawmill.IRewriter(Of T), Sawmill.SpanFunc(Of U, T, U), T)
   nameWithType: Rewriter.Fold<T, U>(IRewriter<T>, SpanFunc<U, T, U>, T)
   nameWithType.vb: Rewriter.Fold(Of T, U)(IRewriter(Of T), SpanFunc(Of U, T, U), T)
+- uid: Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{System.Memory{``1},``0,System.Threading.Tasks.ValueTask{``1}},``0)
+  name: Fold<T, U>(IRewriter<T>, Func<Memory<U>, T, ValueTask<U>>, T)
+  href: Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0_
+  commentId: M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{System.Memory{``1},``0,System.Threading.Tasks.ValueTask{``1}},``0)
+  name.vb: Fold(Of T, U)(IRewriter(Of T), Func(Of Memory(Of U), T, ValueTask(Of U)), T)
+  fullName: Sawmill.Rewriter.Fold<T, U>(Sawmill.IRewriter<T>, System.Func<System.Memory<U>, T, System.Threading.Tasks.ValueTask<U>>, T)
+  fullName.vb: Sawmill.Rewriter.Fold(Of T, U)(Sawmill.IRewriter(Of T), System.Func(Of System.Memory(Of U), T, System.Threading.Tasks.ValueTask(Of U)), T)
+  nameWithType: Rewriter.Fold<T, U>(IRewriter<T>, Func<Memory<U>, T, ValueTask<U>>, T)
+  nameWithType.vb: Rewriter.Fold(Of T, U)(IRewriter(Of T), Func(Of Memory(Of U), T, ValueTask(Of U)), T)
 - uid: Sawmill.Rewriter.GetChildren*
   name: GetChildren
   href: Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren_
@@ -2327,6 +2462,15 @@ references:
   fullName.vb: Sawmill.Rewriter.Rewrite(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
   nameWithType: Rewriter.Rewrite<T>(IRewriter<T>, Func<T, T>, T)
   nameWithType.vb: Rewriter.Rewrite(Of T)(IRewriter(Of T), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.Rewrite``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name: Rewrite<T>(IRewriter<T>, Func<T, ValueTask<T>>, T)
+  href: Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_
+  commentId: M:Sawmill.Rewriter.Rewrite``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name.vb: Rewrite(Of T)(IRewriter(Of T), Func(Of T, ValueTask(Of T)), T)
+  fullName: Sawmill.Rewriter.Rewrite<T>(Sawmill.IRewriter<T>, System.Func<T, System.Threading.Tasks.ValueTask<T>>, T)
+  fullName.vb: Sawmill.Rewriter.Rewrite(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)), T)
+  nameWithType: Rewriter.Rewrite<T>(IRewriter<T>, Func<T, ValueTask<T>>, T)
+  nameWithType.vb: Rewriter.Rewrite(Of T)(IRewriter(Of T), Func(Of T, ValueTask(Of T)), T)
 - uid: Sawmill.Rewriter.RewriteChildren*
   name: RewriteChildren
   href: Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren_
@@ -2342,6 +2486,15 @@ references:
   fullName.vb: Sawmill.Rewriter.RewriteChildren(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
   nameWithType: Rewriter.RewriteChildren<T>(IRewriter<T>, Func<T, T>, T)
   nameWithType.vb: Rewriter.RewriteChildren(Of T)(IRewriter(Of T), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name: RewriteChildren<T>(IRewriter<T>, Func<T, ValueTask<T>>, T)
+  href: Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_
+  commentId: M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name.vb: RewriteChildren(Of T)(IRewriter(Of T), Func(Of T, ValueTask(Of T)), T)
+  fullName: Sawmill.Rewriter.RewriteChildren<T>(Sawmill.IRewriter<T>, System.Func<T, System.Threading.Tasks.ValueTask<T>>, T)
+  fullName.vb: Sawmill.Rewriter.RewriteChildren(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)), T)
+  nameWithType: Rewriter.RewriteChildren<T>(IRewriter<T>, Func<T, ValueTask<T>>, T)
+  nameWithType.vb: Rewriter.RewriteChildren(Of T)(IRewriter(Of T), Func(Of T, ValueTask(Of T)), T)
 - uid: Sawmill.Rewriter.RewriteDescendantAt*
   name: RewriteDescendantAt
   href: Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt_
@@ -2357,6 +2510,15 @@ references:
   fullName.vb: Sawmill.Rewriter.RewriteDescendantAt(Of T)(Sawmill.IRewriter(Of T), System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of T, T), T)
   nameWithType: Rewriter.RewriteDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, Func<T, T>, T)
   nameWithType.vb: Rewriter.RewriteDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.RewriteDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name: RewriteDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, Func<T, ValueTask<T>>, T)
+  href: Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_
+  commentId: M:Sawmill.Rewriter.RewriteDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name.vb: RewriteDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), Func(Of T, ValueTask(Of T)), T)
+  fullName: Sawmill.Rewriter.RewriteDescendantAt<T>(Sawmill.IRewriter<T>, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<T, System.Threading.Tasks.ValueTask<T>>, T)
+  fullName.vb: Sawmill.Rewriter.RewriteDescendantAt(Of T)(Sawmill.IRewriter(Of T), System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)), T)
+  nameWithType: Rewriter.RewriteDescendantAt<T>(IRewriter<T>, IEnumerable<Direction>, Func<T, ValueTask<T>>, T)
+  nameWithType.vb: Rewriter.RewriteDescendantAt(Of T)(IRewriter(Of T), IEnumerable(Of Direction), Func(Of T, ValueTask(Of T)), T)
 - uid: Sawmill.Rewriter.RewriteIter*
   name: RewriteIter
   href: Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter_
@@ -2372,6 +2534,15 @@ references:
   fullName.vb: Sawmill.Rewriter.RewriteIter(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, T), T)
   nameWithType: Rewriter.RewriteIter<T>(IRewriter<T>, Func<T, T>, T)
   nameWithType.vb: Rewriter.RewriteIter(Of T)(IRewriter(Of T), Func(Of T, T), T)
+- uid: Sawmill.Rewriter.RewriteIter``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name: RewriteIter<T>(IRewriter<T>, Func<T, ValueTask<T>>, T)
+  href: Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_
+  commentId: M:Sawmill.Rewriter.RewriteIter``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
+  name.vb: RewriteIter(Of T)(IRewriter(Of T), Func(Of T, ValueTask(Of T)), T)
+  fullName: Sawmill.Rewriter.RewriteIter<T>(Sawmill.IRewriter<T>, System.Func<T, System.Threading.Tasks.ValueTask<T>>, T)
+  fullName.vb: Sawmill.Rewriter.RewriteIter(Of T)(Sawmill.IRewriter(Of T), System.Func(Of T, System.Threading.Tasks.ValueTask(Of T)), T)
+  nameWithType: Rewriter.RewriteIter<T>(IRewriter<T>, Func<T, ValueTask<T>>, T)
+  nameWithType.vb: Rewriter.RewriteIter(Of T)(IRewriter(Of T), Func(Of T, ValueTask(Of T)), T)
 - uid: Sawmill.Rewriter.SelfAndDescendants*
   name: SelfAndDescendants
   href: Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants_
@@ -2438,6 +2609,15 @@ references:
   commentId: Overload:Sawmill.Rewriter.ZipFold
   fullName: Sawmill.Rewriter.ZipFold
   nameWithType: Rewriter.ZipFold
+- uid: Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}},``0[])
+  name: ZipFold<T, U>(IRewriter<T>, Func<T[], IAsyncEnumerable<U>, ValueTask<U>>, T[])
+  href: Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___
+  commentId: M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}},``0[])
+  name.vb: ZipFold(Of T, U)(IRewriter(Of T), Func(Of T(), IAsyncEnumerable(Of U), ValueTask(Of U)), T())
+  fullName: Sawmill.Rewriter.ZipFold<T, U>(Sawmill.IRewriter<T>, System.Func<T[], System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>, T[])
+  fullName.vb: Sawmill.Rewriter.ZipFold(Of T, U)(Sawmill.IRewriter(Of T), System.Func(Of T(), System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)), T())
+  nameWithType: Rewriter.ZipFold<T, U>(IRewriter<T>, Func<T[], IAsyncEnumerable<U>, ValueTask<U>>, T[])
+  nameWithType.vb: Rewriter.ZipFold(Of T, U)(IRewriter(Of T), Func(Of T(), IAsyncEnumerable(Of U), ValueTask(Of U)), T())
 - uid: Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1},``0[])
   name: ZipFold<T, U>(IRewriter<T>, Func<T[], IEnumerable<U>, U>, T[])
   href: Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___
@@ -2849,6 +3029,15 @@ references:
   fullName.vb: Sawmill.Xml.XElementExtensions.Fold(Of T)(System.Xml.Linq.XElement, Sawmill.SpanFunc(Of T, System.Xml.Linq.XElement, T))
   nameWithType: XElementExtensions.Fold<T>(XElement, SpanFunc<T, XElement, T>)
   nameWithType.vb: XElementExtensions.Fold(Of T)(XElement, SpanFunc(Of T, XElement, T))
+- uid: Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,System.Func{System.Memory{``0},System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{``0}})
+  name: Fold<T>(XElement, Func<Memory<T>, XElement, ValueTask<T>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_System_Func_System_Memory___0__System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Xml.XElementExtensions.Fold``1(System.Xml.Linq.XElement,System.Func{System.Memory{``0},System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: Fold(Of T)(XElement, Func(Of Memory(Of T), XElement, ValueTask(Of T)))
+  fullName: Sawmill.Xml.XElementExtensions.Fold<T>(System.Xml.Linq.XElement, System.Func<System.Memory<T>, System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.Fold(Of T)(System.Xml.Linq.XElement, System.Func(Of System.Memory(Of T), System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: XElementExtensions.Fold<T>(XElement, Func<Memory<T>, XElement, ValueTask<T>>)
+  nameWithType.vb: XElementExtensions.Fold(Of T)(XElement, Func(Of Memory(Of T), XElement, ValueTask(Of T)))
 - uid: Sawmill.Xml.XElementExtensions.GetChildren(System.Xml.Linq.XElement)
   name: GetChildren(XElement)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_
@@ -2885,6 +3074,15 @@ references:
   fullName.vb: Sawmill.Xml.XElementExtensions.ReplaceDescendantAt(Of T)(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Xml.Linq.XElement)
   nameWithType: XElementExtensions.ReplaceDescendantAt<T>(XElement, IEnumerable<Direction>, XElement)
   nameWithType.vb: XElementExtensions.ReplaceDescendantAt(Of T)(XElement, IEnumerable(Of Direction), XElement)
+- uid: Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name: Rewrite(XElement, Func<XElement, ValueTask<XElement>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___
+  commentId: M:Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name.vb: Rewrite(XElement, Func(Of XElement, ValueTask(Of XElement)))
+  fullName: Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement, System.Func<System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask<System.Xml.Linq.XElement>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement, System.Func(Of System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask(Of System.Xml.Linq.XElement)))
+  nameWithType: XElementExtensions.Rewrite(XElement, Func<XElement, ValueTask<XElement>>)
+  nameWithType.vb: XElementExtensions.Rewrite(XElement, Func(Of XElement, ValueTask(Of XElement)))
 - uid: Sawmill.Xml.XElementExtensions.Rewrite(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
   name: Rewrite(XElement, Func<XElement, XElement>)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
@@ -2900,6 +3098,15 @@ references:
   commentId: Overload:Sawmill.Xml.XElementExtensions.Rewrite
   fullName: Sawmill.Xml.XElementExtensions.Rewrite
   nameWithType: XElementExtensions.Rewrite
+- uid: Sawmill.Xml.XElementExtensions.RewriteChildren(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name: RewriteChildren(XElement, Func<XElement, ValueTask<XElement>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___
+  commentId: M:Sawmill.Xml.XElementExtensions.RewriteChildren(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name.vb: RewriteChildren(XElement, Func(Of XElement, ValueTask(Of XElement)))
+  fullName: Sawmill.Xml.XElementExtensions.RewriteChildren(System.Xml.Linq.XElement, System.Func<System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask<System.Xml.Linq.XElement>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.RewriteChildren(System.Xml.Linq.XElement, System.Func(Of System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask(Of System.Xml.Linq.XElement)))
+  nameWithType: XElementExtensions.RewriteChildren(XElement, Func<XElement, ValueTask<XElement>>)
+  nameWithType.vb: XElementExtensions.RewriteChildren(XElement, Func(Of XElement, ValueTask(Of XElement)))
 - uid: Sawmill.Xml.XElementExtensions.RewriteChildren(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
   name: RewriteChildren(XElement, Func<XElement, XElement>)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
@@ -2921,6 +3128,15 @@ references:
   commentId: Overload:Sawmill.Xml.XElementExtensions.RewriteDescendantAt
   fullName: Sawmill.Xml.XElementExtensions.RewriteDescendantAt
   nameWithType: XElementExtensions.RewriteDescendantAt
+- uid: Sawmill.Xml.XElementExtensions.RewriteDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name: RewriteDescendantAt<T>(XElement, IEnumerable<Direction>, Func<XElement, ValueTask<XElement>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___
+  commentId: M:Sawmill.Xml.XElementExtensions.RewriteDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name.vb: RewriteDescendantAt(Of T)(XElement, IEnumerable(Of Direction), Func(Of XElement, ValueTask(Of XElement)))
+  fullName: Sawmill.Xml.XElementExtensions.RewriteDescendantAt<T>(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask<System.Xml.Linq.XElement>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.RewriteDescendantAt(Of T)(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask(Of System.Xml.Linq.XElement)))
+  nameWithType: XElementExtensions.RewriteDescendantAt<T>(XElement, IEnumerable<Direction>, Func<XElement, ValueTask<XElement>>)
+  nameWithType.vb: XElementExtensions.RewriteDescendantAt(Of T)(XElement, IEnumerable(Of Direction), Func(Of XElement, ValueTask(Of XElement)))
 - uid: Sawmill.Xml.XElementExtensions.RewriteDescendantAt``1(System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
   name: RewriteDescendantAt<T>(XElement, IEnumerable<Direction>, Func<XElement, XElement>)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
@@ -2930,6 +3146,15 @@ references:
   fullName.vb: Sawmill.Xml.XElementExtensions.RewriteDescendantAt(Of T)(System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Xml.Linq.XElement, System.Xml.Linq.XElement))
   nameWithType: XElementExtensions.RewriteDescendantAt<T>(XElement, IEnumerable<Direction>, Func<XElement, XElement>)
   nameWithType.vb: XElementExtensions.RewriteDescendantAt(Of T)(XElement, IEnumerable(Of Direction), Func(Of XElement, XElement))
+- uid: Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name: RewriteIter(XElement, Func<XElement, ValueTask<XElement>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___
+  commentId: M:Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Threading.Tasks.ValueTask{System.Xml.Linq.XElement}})
+  name.vb: RewriteIter(XElement, Func(Of XElement, ValueTask(Of XElement)))
+  fullName: Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement, System.Func<System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask<System.Xml.Linq.XElement>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement, System.Func(Of System.Xml.Linq.XElement, System.Threading.Tasks.ValueTask(Of System.Xml.Linq.XElement)))
+  nameWithType: XElementExtensions.RewriteIter(XElement, Func<XElement, ValueTask<XElement>>)
+  nameWithType.vb: XElementExtensions.RewriteIter(XElement, Func(Of XElement, ValueTask(Of XElement)))
 - uid: Sawmill.Xml.XElementExtensions.RewriteIter(System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement})
   name: RewriteIter(XElement, Func<XElement, XElement>)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__
@@ -3014,6 +3239,15 @@ references:
   commentId: Overload:Sawmill.Xml.XElementExtensions.ZipFold
   fullName: Sawmill.Xml.XElementExtensions.ZipFold
   nameWithType: XElementExtensions.ZipFold
+- uid: Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name: ZipFold<U>(XElement, XElement, Func<XElement, XElement, IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name.vb: ZipFold(Of U)(XElement, XElement, Func(Of XElement, XElement, IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Xml.XElementExtensions.ZipFold<U>(System.Xml.Linq.XElement, System.Xml.Linq.XElement, System.Func<System.Xml.Linq.XElement, System.Xml.Linq.XElement, System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.ZipFold(Of U)(System.Xml.Linq.XElement, System.Xml.Linq.XElement, System.Func(Of System.Xml.Linq.XElement, System.Xml.Linq.XElement, System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: XElementExtensions.ZipFold<U>(XElement, XElement, Func<XElement, XElement, IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: XElementExtensions.ZipFold(Of U)(XElement, XElement, Func(Of XElement, XElement, IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Func{System.Xml.Linq.XElement,System.Xml.Linq.XElement,System.Collections.Generic.IEnumerable{``0},``0})
   name: ZipFold<U>(XElement, XElement, Func<XElement, XElement, IEnumerable<U>, U>)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable___0____0__
@@ -3023,6 +3257,15 @@ references:
   fullName.vb: Sawmill.Xml.XElementExtensions.ZipFold(Of U)(System.Xml.Linq.XElement, System.Xml.Linq.XElement, System.Func(Of System.Xml.Linq.XElement, System.Xml.Linq.XElement, System.Collections.Generic.IEnumerable(Of U), U))
   nameWithType: XElementExtensions.ZipFold<U>(XElement, XElement, Func<XElement, XElement, IEnumerable<U>, U>)
   nameWithType.vb: XElementExtensions.ZipFold(Of U)(XElement, XElement, Func(Of XElement, XElement, IEnumerable(Of U), U))
+- uid: Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement[],System.Func{System.Xml.Linq.XElement[],System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name: ZipFold<U>(XElement[], Func<XElement[], IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement[],System.Func{System.Xml.Linq.XElement[],System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name.vb: ZipFold(Of U)(XElement(), Func(Of XElement(), IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Xml.XElementExtensions.ZipFold<U>(System.Xml.Linq.XElement[], System.Func<System.Xml.Linq.XElement[], System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Xml.XElementExtensions.ZipFold(Of U)(System.Xml.Linq.XElement(), System.Func(Of System.Xml.Linq.XElement(), System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: XElementExtensions.ZipFold<U>(XElement[], Func<XElement[], IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: XElementExtensions.ZipFold(Of U)(XElement(), Func(Of XElement(), IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Xml.XElementExtensions.ZipFold``1(System.Xml.Linq.XElement[],System.Func{System.Xml.Linq.XElement[],System.Collections.Generic.IEnumerable{``0},``0})
   name: ZipFold<U>(XElement[], Func<XElement[], IEnumerable<U>, U>)
   href: Sawmill.Xml.XElementExtensions.html#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IEnumerable___0____0__
@@ -3200,6 +3443,15 @@ references:
   fullName.vb: Sawmill.Xml.XmlNodeExtensions.Fold(Of T)(System.Xml.XmlNode, Sawmill.SpanFunc(Of T, System.Xml.XmlNode, T))
   nameWithType: XmlNodeExtensions.Fold<T>(XmlNode, SpanFunc<T, XmlNode, T>)
   nameWithType.vb: XmlNodeExtensions.Fold(Of T)(XmlNode, SpanFunc(Of T, XmlNode, T))
+- uid: Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,System.Func{System.Memory{``0},System.Xml.XmlNode,System.Threading.Tasks.ValueTask{``0}})
+  name: Fold<T>(XmlNode, Func<Memory<T>, XmlNode, ValueTask<T>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Fold__1_System_Xml_XmlNode_System_Func_System_Memory___0__System_Xml_XmlNode_System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.Fold``1(System.Xml.XmlNode,System.Func{System.Memory{``0},System.Xml.XmlNode,System.Threading.Tasks.ValueTask{``0}})
+  name.vb: Fold(Of T)(XmlNode, Func(Of Memory(Of T), XmlNode, ValueTask(Of T)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.Fold<T>(System.Xml.XmlNode, System.Func<System.Memory<T>, System.Xml.XmlNode, System.Threading.Tasks.ValueTask<T>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.Fold(Of T)(System.Xml.XmlNode, System.Func(Of System.Memory(Of T), System.Xml.XmlNode, System.Threading.Tasks.ValueTask(Of T)))
+  nameWithType: XmlNodeExtensions.Fold<T>(XmlNode, Func<Memory<T>, XmlNode, ValueTask<T>>)
+  nameWithType.vb: XmlNodeExtensions.Fold(Of T)(XmlNode, Func(Of Memory(Of T), XmlNode, ValueTask(Of T)))
 - uid: Sawmill.Xml.XmlNodeExtensions.GetChildren(System.Xml.XmlNode)
   name: GetChildren(XmlNode)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_GetChildren_System_Xml_XmlNode_
@@ -3236,6 +3488,15 @@ references:
   fullName.vb: Sawmill.Xml.XmlNodeExtensions.ReplaceDescendantAt(Of T)(System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Xml.XmlNode)
   nameWithType: XmlNodeExtensions.ReplaceDescendantAt<T>(XmlNode, IEnumerable<Direction>, XmlNode)
   nameWithType.vb: XmlNodeExtensions.ReplaceDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), XmlNode)
+- uid: Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name: Rewrite(XmlNode, Func<XmlNode, ValueTask<XmlNode>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Rewrite_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Threading_Tasks_ValueTask_System_Xml_XmlNode___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name.vb: Rewrite(XmlNode, Func(Of XmlNode, ValueTask(Of XmlNode)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode, System.Func<System.Xml.XmlNode, System.Threading.Tasks.ValueTask<System.Xml.XmlNode>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode, System.Func(Of System.Xml.XmlNode, System.Threading.Tasks.ValueTask(Of System.Xml.XmlNode)))
+  nameWithType: XmlNodeExtensions.Rewrite(XmlNode, Func<XmlNode, ValueTask<XmlNode>>)
+  nameWithType.vb: XmlNodeExtensions.Rewrite(XmlNode, Func(Of XmlNode, ValueTask(Of XmlNode)))
 - uid: Sawmill.Xml.XmlNodeExtensions.Rewrite(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
   name: Rewrite(XmlNode, Func<XmlNode, XmlNode>)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_Rewrite_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
@@ -3251,6 +3512,15 @@ references:
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.Rewrite
   fullName: Sawmill.Xml.XmlNodeExtensions.Rewrite
   nameWithType: XmlNodeExtensions.Rewrite
+- uid: Sawmill.Xml.XmlNodeExtensions.RewriteChildren(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name: RewriteChildren(XmlNode, Func<XmlNode, ValueTask<XmlNode>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteChildren_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Threading_Tasks_ValueTask_System_Xml_XmlNode___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.RewriteChildren(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name.vb: RewriteChildren(XmlNode, Func(Of XmlNode, ValueTask(Of XmlNode)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.RewriteChildren(System.Xml.XmlNode, System.Func<System.Xml.XmlNode, System.Threading.Tasks.ValueTask<System.Xml.XmlNode>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.RewriteChildren(System.Xml.XmlNode, System.Func(Of System.Xml.XmlNode, System.Threading.Tasks.ValueTask(Of System.Xml.XmlNode)))
+  nameWithType: XmlNodeExtensions.RewriteChildren(XmlNode, Func<XmlNode, ValueTask<XmlNode>>)
+  nameWithType.vb: XmlNodeExtensions.RewriteChildren(XmlNode, Func(Of XmlNode, ValueTask(Of XmlNode)))
 - uid: Sawmill.Xml.XmlNodeExtensions.RewriteChildren(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
   name: RewriteChildren(XmlNode, Func<XmlNode, XmlNode>)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteChildren_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
@@ -3272,6 +3542,15 @@ references:
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt
   fullName: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt
   nameWithType: XmlNodeExtensions.RewriteDescendantAt
+- uid: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name: RewriteDescendantAt<T>(XmlNode, IEnumerable<Direction>, Func<XmlNode, ValueTask<XmlNode>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteDescendantAt__1_System_Xml_XmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_XmlNode_System_Threading_Tasks_ValueTask_System_Xml_XmlNode___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name.vb: RewriteDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), Func(Of XmlNode, ValueTask(Of XmlNode)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt<T>(System.Xml.XmlNode, System.Collections.Generic.IEnumerable<Sawmill.Direction>, System.Func<System.Xml.XmlNode, System.Threading.Tasks.ValueTask<System.Xml.XmlNode>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt(Of T)(System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Xml.XmlNode, System.Threading.Tasks.ValueTask(Of System.Xml.XmlNode)))
+  nameWithType: XmlNodeExtensions.RewriteDescendantAt<T>(XmlNode, IEnumerable<Direction>, Func<XmlNode, ValueTask<XmlNode>>)
+  nameWithType.vb: XmlNodeExtensions.RewriteDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), Func(Of XmlNode, ValueTask(Of XmlNode)))
 - uid: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt``1(System.Xml.XmlNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
   name: RewriteDescendantAt<T>(XmlNode, IEnumerable<Direction>, Func<XmlNode, XmlNode>)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteDescendantAt__1_System_Xml_XmlNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
@@ -3281,6 +3560,15 @@ references:
   fullName.vb: Sawmill.Xml.XmlNodeExtensions.RewriteDescendantAt(Of T)(System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of Sawmill.Direction), System.Func(Of System.Xml.XmlNode, System.Xml.XmlNode))
   nameWithType: XmlNodeExtensions.RewriteDescendantAt<T>(XmlNode, IEnumerable<Direction>, Func<XmlNode, XmlNode>)
   nameWithType.vb: XmlNodeExtensions.RewriteDescendantAt(Of T)(XmlNode, IEnumerable(Of Direction), Func(Of XmlNode, XmlNode))
+- uid: Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name: RewriteIter(XmlNode, Func<XmlNode, ValueTask<XmlNode>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteIter_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Threading_Tasks_ValueTask_System_Xml_XmlNode___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Threading.Tasks.ValueTask{System.Xml.XmlNode}})
+  name.vb: RewriteIter(XmlNode, Func(Of XmlNode, ValueTask(Of XmlNode)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode, System.Func<System.Xml.XmlNode, System.Threading.Tasks.ValueTask<System.Xml.XmlNode>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode, System.Func(Of System.Xml.XmlNode, System.Threading.Tasks.ValueTask(Of System.Xml.XmlNode)))
+  nameWithType: XmlNodeExtensions.RewriteIter(XmlNode, Func<XmlNode, ValueTask<XmlNode>>)
+  nameWithType.vb: XmlNodeExtensions.RewriteIter(XmlNode, Func(Of XmlNode, ValueTask(Of XmlNode)))
 - uid: Sawmill.Xml.XmlNodeExtensions.RewriteIter(System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode})
   name: RewriteIter(XmlNode, Func<XmlNode, XmlNode>)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_RewriteIter_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode__
@@ -3365,6 +3653,15 @@ references:
   commentId: Overload:Sawmill.Xml.XmlNodeExtensions.ZipFold
   fullName: Sawmill.Xml.XmlNodeExtensions.ZipFold
   nameWithType: XmlNodeExtensions.ZipFold
+- uid: Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode,System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name: ZipFold<U>(XmlNode, XmlNode, Func<XmlNode, XmlNode, IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ZipFold__1_System_Xml_XmlNode_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode,System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode,System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name.vb: ZipFold(Of U)(XmlNode, XmlNode, Func(Of XmlNode, XmlNode, IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.ZipFold<U>(System.Xml.XmlNode, System.Xml.XmlNode, System.Func<System.Xml.XmlNode, System.Xml.XmlNode, System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.ZipFold(Of U)(System.Xml.XmlNode, System.Xml.XmlNode, System.Func(Of System.Xml.XmlNode, System.Xml.XmlNode, System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: XmlNodeExtensions.ZipFold<U>(XmlNode, XmlNode, Func<XmlNode, XmlNode, IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: XmlNodeExtensions.ZipFold(Of U)(XmlNode, XmlNode, Func(Of XmlNode, XmlNode, IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode,System.Xml.XmlNode,System.Func{System.Xml.XmlNode,System.Xml.XmlNode,System.Collections.Generic.IEnumerable{``0},``0})
   name: ZipFold<U>(XmlNode, XmlNode, Func<XmlNode, XmlNode, IEnumerable<U>, U>)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ZipFold__1_System_Xml_XmlNode_System_Xml_XmlNode_System_Func_System_Xml_XmlNode_System_Xml_XmlNode_System_Collections_Generic_IEnumerable___0____0__
@@ -3374,6 +3671,15 @@ references:
   fullName.vb: Sawmill.Xml.XmlNodeExtensions.ZipFold(Of U)(System.Xml.XmlNode, System.Xml.XmlNode, System.Func(Of System.Xml.XmlNode, System.Xml.XmlNode, System.Collections.Generic.IEnumerable(Of U), U))
   nameWithType: XmlNodeExtensions.ZipFold<U>(XmlNode, XmlNode, Func<XmlNode, XmlNode, IEnumerable<U>, U>)
   nameWithType.vb: XmlNodeExtensions.ZipFold(Of U)(XmlNode, XmlNode, Func(Of XmlNode, XmlNode, IEnumerable(Of U), U))
+- uid: Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode[],System.Func{System.Xml.XmlNode[],System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name: ZipFold<U>(XmlNode[], Func<XmlNode[], IAsyncEnumerable<U>, ValueTask<U>>)
+  href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ZipFold__1_System_Xml_XmlNode___System_Func_System_Xml_XmlNode___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___
+  commentId: M:Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode[],System.Func{System.Xml.XmlNode[],System.Collections.Generic.IAsyncEnumerable{``0},System.Threading.Tasks.ValueTask{``0}})
+  name.vb: ZipFold(Of U)(XmlNode(), Func(Of XmlNode(), IAsyncEnumerable(Of U), ValueTask(Of U)))
+  fullName: Sawmill.Xml.XmlNodeExtensions.ZipFold<U>(System.Xml.XmlNode[], System.Func<System.Xml.XmlNode[], System.Collections.Generic.IAsyncEnumerable<U>, System.Threading.Tasks.ValueTask<U>>)
+  fullName.vb: Sawmill.Xml.XmlNodeExtensions.ZipFold(Of U)(System.Xml.XmlNode(), System.Func(Of System.Xml.XmlNode(), System.Collections.Generic.IAsyncEnumerable(Of U), System.Threading.Tasks.ValueTask(Of U)))
+  nameWithType: XmlNodeExtensions.ZipFold<U>(XmlNode[], Func<XmlNode[], IAsyncEnumerable<U>, ValueTask<U>>)
+  nameWithType.vb: XmlNodeExtensions.ZipFold(Of U)(XmlNode(), Func(Of XmlNode(), IAsyncEnumerable(Of U), ValueTask(Of U)))
 - uid: Sawmill.Xml.XmlNodeExtensions.ZipFold``1(System.Xml.XmlNode[],System.Func{System.Xml.XmlNode[],System.Collections.Generic.IEnumerable{``0},``0})
   name: ZipFold<U>(XmlNode[], Func<XmlNode[], IEnumerable<U>, U>)
   href: Sawmill.Xml.XmlNodeExtensions.html#Sawmill_Xml_XmlNodeExtensions_ZipFold__1_System_Xml_XmlNode___System_Func_System_Xml_XmlNode___System_Collections_Generic_IEnumerable___0____0__

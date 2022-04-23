@@ -692,6 +692,95 @@ using an aggregation function to combine each node with the results of folding i
                         
         
                 
+                <a id="Sawmill_Rewriter_Fold_"></a>
+                <h4 id="Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0_"><a href="#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0_">Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;Memory&lt;U&gt;, T, ValueTask&lt;U&gt;&gt;, T)</a></h4>
+                <div><p>Flattens all the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> into a single result,
+using an asynchronous aggregation function to combine each node with the results of folding its children.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang-csharp hljs">public static ValueTask&lt;U&gt; Fold&lt;T, U&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;Memory&lt;U&gt;, T, ValueTask&lt;U&gt;&gt; func, T value)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</p></td>
+                                    <td><p>rewriter</p></td>
+                                    <td><p>The rewriter</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.memory-1">Memory</a>&lt;U&gt;, T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
+                                    <td><p>func</p></td>
+                                    <td><p>The asynchronous aggregation function</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">T</span></p></td>
+                                    <td><p>value</p></td>
+                                    <td><p>The value to fold</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;</p></td>
+                                    <td><p>The result of aggregating the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>T</p></td>
+                                    <td><p>The rewritable tree type</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p>U</p></td>
+                                    <td><p>The type of the result of aggregation</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+        
+        
+        
+        
+                    <h5 id="Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0__remarks"><a href="#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0__remarks">Remarks</a></h5>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
+</div>
+        
+                        
+        
+                
                 <a id="Sawmill_Rewriter_GetChildren_"></a>
                 <h4 id="Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_"><a href="#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></h4>
                 <div><p>Get the immediate children of the value.
@@ -989,6 +1078,110 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                         
         
                 
+                <a id="Sawmill_Rewriter_Rewrite_"></a>
+                <h4 id="Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_"><a href="#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></h4>
+                <div><p>Rebuild a tree by applying an asynchronous transformation function to every node from bottom to top.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; Rewrite&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, ValueTask&lt;T&gt;&gt; transformer, T value)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</p></td>
+                                    <td><p>rewriter</p></td>
+                                    <td><p>The rewriter</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;</p></td>
+                                    <td><p>transformer</p></td>
+                                    <td><p>The asynchronous transformation function to apply to every node in the tree</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">T</span></p></td>
+                                    <td><p>value</p></td>
+                                    <td><p>The value to rewrite</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</p></td>
+                                    <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>T</p></td>
+                                    <td><p>The rewritable tree type</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+        
+        
+        
+        
+                    <h5 id="Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks"><a href="#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks">Remarks</a></h5>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
+</div>
+        
+                    <h5 id="Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__examples">Examples</h5>
+                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre>
+<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> replaces the leaves of the tree with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>,
+then replaces their parents with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>, and so on.
+By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> has traversed the whole tree.</p>
+<pre><code>Expr expected = await transformer(new Add(
+    await transformer(new Add(
+        await transformer(new Lit(1)),
+        await transformer(new Lit(2))
+    )),
+    await transformer(new Lit(3))
+));
+Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
+
+                        
+        
+                
                 <a id="Sawmill_Rewriter_RewriteChildren_"></a>
                 <h4 id="Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_"><a href="#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a></h4>
                 <div><p>Update the immediate children of the value by applying a transformation function to each one.</p>
@@ -1065,6 +1258,89 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
         
         
         
+        
+                        
+        
+                
+                <a id="Sawmill_Rewriter_RewriteChildren_"></a>
+                <h4 id="Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_"><a href="#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></h4>
+                <div><p>Update the immediate children of the value by applying an asynchronous transformation function to each one.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; RewriteChildren&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, ValueTask&lt;T&gt;&gt; transformer, T value)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</p></td>
+                                    <td><p>rewriter</p></td>
+                                    <td><p>The rewriter</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;</p></td>
+                                    <td><p>transformer</p></td>
+                                    <td><p>An asynchronous transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">T</span></p></td>
+                                    <td><p>value</p></td>
+                                    <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</p></td>
+                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>T</p></td>
+                                    <td><p>The rewritable tree type</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+        
+        
+        
+        
+                    <h5 id="Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks"><a href="#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks">Remarks</a></h5>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
+</div>
         
                         
         
@@ -1170,6 +1446,110 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                     </table>
         
                 
+                <a id="Sawmill_Rewriter_RewriteDescendantAt_"></a>
+                <h4 id="Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_"><a href="#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></h4>
+                <div><p>Apply an asynchronous function at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; RewriteDescendantAt&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, IEnumerable&lt;Direction&gt; path, Func&lt;T, ValueTask&lt;T&gt;&gt; transformer, T value)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</p></td>
+                                    <td><p>rewriter</p></td>
+                                    <td><p>The rewriter</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
+                                    <td><p>path</p></td>
+                                    <td><p>The route to take to find the descendant</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;</p></td>
+                                    <td><p>transformer</p></td>
+                                    <td><p>An asynchronous function to calculate a replacement for the descendant</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">T</span></p></td>
+                                    <td><p>value</p></td>
+                                    <td><p>The rewritable tree type</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</p></td>
+                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>T</p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+        
+        
+        
+        
+                    <h5 id="Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks"><a href="#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks">Remarks</a></h5>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
+</div>
+        
+                        
+                    <h5>Exceptions</h5>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Condition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
+                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+                
                 <a id="Sawmill_Rewriter_RewriteIter_"></a>
                 <h4 id="Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0___0____0_"><a href="#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteIter&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a></h4>
                 <div><p>Rebuild a tree by repeatedly applying a transformation function to every node in the tree,
@@ -1255,6 +1635,98 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
         
         
         
+        
+                        
+        
+                
+                <a id="Sawmill_Rewriter_RewriteIter_"></a>
+                <h4 id="Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_"><a href="#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteIter&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></h4>
+                <div><p>Rebuild a tree by repeatedly applying an asynchronous transformation function to every node in the tree,
+until a fixed point is reached. <code data-dev-comment-type="paramref" class="paramref">transformer</code> should always eventually return
+its argument unchanged, or this method will loop.
+That is, <code>x.RewriteIter(transformer).SelfAndDescendants().All(x =&gt; await transformer(x) == x)</code>.
+<p>
+This is typically useful when you want to put your tree into a normal form
+by applying a collection of rewrite rules until none of them can fire any more.
+</p></p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; RewriteIter&lt;T&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T, ValueTask&lt;T&gt;&gt; transformer, T value)
+    where T : class</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</p></td>
+                                    <td><p>rewriter</p></td>
+                                    <td><p>The rewriter</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;</p></td>
+                                    <td><p>transformer</p></td>
+                                    <td><p>An asynchronous transformation function to apply to every node in <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly.</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">T</span></p></td>
+                                    <td><p>value</p></td>
+                                    <td><p>The value to rewrite</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</p></td>
+                                    <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree
+represented by <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly until a fixed point is reached.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>T</p></td>
+                                    <td><p>The rewritable tree type</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+        
+        
+        
+        
+                    <h5 id="Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks"><a href="#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0__remarks">Remarks</a></h5>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
+</div>
         
                         
         
@@ -1609,6 +2081,121 @@ This is a breadth-first pre-order traversal.
         
                 
                 <a id="Sawmill_Rewriter_ZipFold_"></a>
+                <h4 id="Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___"><a href="#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt;, T[])</a></h4>
+                <div><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
+into a single value at the same time, using an aggregation function to combine
+nodes with the results of aggregating their children.
+The trees are iterated in lock-step, much like an n-ary
+<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
+<p>When trees are not the same size, the larger ones are
+truncated both horizontally and vertically.
+That is, if a pair of nodes have a different number of children,
+the rightmost children of the larger of the two nodes are discarded.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang-csharp hljs">public static ValueTask&lt;U&gt; ZipFold&lt;T, U&gt;(this IRewriter&lt;T&gt; rewriter, Func&lt;T[], IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt; func, params T[] values)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</p></td>
+                                    <td><p>rewriter</p></td>
+                                    <td><p>The rewriter</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
+                                    <td><p>func</p></td>
+                                    <td><p>The aggregation function</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p>T[]</p></td>
+                                    <td><p>values</p></td>
+                                    <td><p>The trees to fold</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;</p></td>
+                                    <td><p>The result of aggregating the two trees</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>T</p></td>
+                                    <td><p>The rewritable tree type</p>
+</td>
+                                </tr>
+                                <tr>
+                                    <td><p>U</p></td>
+                                    <td><p>The return type of the aggregation</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+        
+        
+        
+        
+                    <h5 id="Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0____remarks"><a href="#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0____remarks">Remarks</a></h5>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable&lt;T&gt;</a>.</p>
+</div>
+        
+                    <h5 id="Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0____examples">Examples</h5>
+                <p>Here&apos;s an example of using <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt;, T[])</a> to test if two trees are syntactically equal.</p>
+<pre><code>static bool Equals(this Expr left, Expr right)
+    => left.ZipFold&lt;Expr, bool>(
+        right,
+        (xs, results) =>
+        {
+            switch (xs[0])
+            {
+                case Add a1 when xs[1] is Add a2:
+                    return results.All(x => x);
+                case Lit l1 when xs[1] is Lit l2:
+                    return l1.Value == l2.Value;
+                default:
+                    return false;
+            }
+        }
+    );</code></pre>
+
+                        
+        
+                
+                <a id="Sawmill_Rewriter_ZipFold_"></a>
                 <h4 id="Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___"><a href="#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;, T[])</a></h4>
                 <div><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
 into a single value at the same time, using an aggregation function to combine
@@ -1745,16 +2332,22 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                                     <li><a href="#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_">Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, SpanFunc&lt;U, T, U&gt;, T)</a></li>
+                                    <li><a href="#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0_">Fold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;Memory&lt;U&gt;, T, ValueTask&lt;U&gt;&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0___0_">ReplaceDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, T, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a></li>
+                                    <li><a href="#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a></li>
+                                    <li><a href="#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0____0_">RewriteDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, Func&lt;T, T&gt;, T)</a></li>
+                                    <li><a href="#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteDescendantAt&lt;T&gt;(IRewriter&lt;T&gt;, IEnumerable&lt;Direction&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteIter&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a></li>
+                                    <li><a href="#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteIter&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsBreadthFirst&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
                                     <li><a href="#Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContextBreadthFirst&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></li>
+                                    <li><a href="#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt;, T[])</a></li>
                                     <li><a href="#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;, T[])</a></li>
                             </ul>
                         </li>
