@@ -1,6 +1,31 @@
 Changelog
 =========
 
+3.3.0
+-----
+
+### Added
+
+* Added async overloads of a number of methods which accepted a `Func`. Since these methods rely on `ValueTask`, they are not available on anything older than .NET Standard 2.1.
+
+### Changed
+
+* A new CI build system based on GitHub Actions.
+
+3.2.1
+-----
+
+### Changed
+
+* Removed an unused dependency on `System.Reflection.Emit`.
+
+3.2.0
+-----
+
+### Changed
+
+* Sawmill and its various sibling packages are now strong named.
+
 3.1.0
 -----
 
