@@ -1,4 +1,7 @@
 using System;
+#if NETSTANDARD2_1_OR_GREATER
+using System.Threading.Tasks;
+#endif
 
 namespace Sawmill
 {
@@ -67,5 +70,73 @@ namespace Sawmill
                 base.Dispose();
             }
         }
+
+#if NETSTANDARD2_1_OR_GREATER
+        /// <summary>
+        /// Flattens all the nodes in the tree represented by <paramref name="value"/> into a single result,
+        /// using an asynchronous aggregation function to combine each node with the results of folding its children.
+        /// </summary>
+        /// <typeparam name="T">The rewritable tree type</typeparam>
+        /// <typeparam name="U">The type of the result of aggregation</typeparam>
+        /// <param name="rewriter">The rewriter</param>
+        /// <param name="func">The asynchronous aggregation function</param>
+        /// <param name="value">The value to fold</param>
+        /// <returns>The result of aggregating the tree represented by <paramref name="value"/>.</returns>
+        /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask"/>.</remarks>
+        public static async ValueTask<U> Fold<T, U>(this IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func, T value)
+        {
+            if (rewriter == null)
+            {
+                throw new ArgumentNullException(nameof(rewriter));
+            }
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
+            var closure = new FoldAsyncClosure<T, U>(rewriter, func);
+
+            var result = await closure.Go(value);
+
+            closure.Dispose();
+            
+            return result;
+        }
+
+        private class FoldAsyncClosure<T, U> : AsyncTraversal<T>
+        {
+            private readonly Box<ChunkStack<U>> _results = new Box<ChunkStack<U>>(new ChunkStack<U>());
+            private readonly Func<Memory<U>, T, ValueTask<U>> _func;
+
+            public FoldAsyncClosure(IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func) : base(rewriter)
+            {
+                _func = func;
+            }
+
+            public ValueTask<U> Go(T value)
+                => WithChildren(
+                    async children =>
+                    {
+                        var memory = _results.Value.AllocateMemory(children.Length);
+                        for (var i = 0; i < children.Length; i++)
+                        {
+                            var newChild = await Go(children.Span[i]);
+                            memory.Span[i] = newChild;
+                        }
+                        var result = await _func(memory, value);
+                        _results.Value.Free(memory);
+                        return result;
+                    },
+                    value
+                );
+
+            public override void Dispose()
+            {
+                _results.Value.Dispose();
+                _results.Value = default;
+                base.Dispose();
+            }
+        }
+#endif
     }
 }

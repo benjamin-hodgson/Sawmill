@@ -30,7 +30,24 @@ namespace Sawmill
             }
             return _topRegion.Allocate(size);
         }
+        
+        public Memory<T> AllocateMemory(int size)
+        {
+            if (size == 0)
+            {
+                return new Memory<T>();
+            }
+            if (_topRegion.IsDefault || !_topRegion.HasSpace(size))
+            {
+                AllocateRegion(size);
+            }
+            return _topRegion.AllocateMemory(size);
+        }
 
+        public void Free(Memory<T> memory)
+        {
+            Free(memory.Span);
+        }
         public void Free(Span<T> span)
         {
             if (span.Length == 0)
@@ -126,6 +143,13 @@ namespace Sawmill
             public Span<T> Allocate(int size)
             {
                 var memory = _array.AsSpan().Slice(_used, size);
+                _used += size;
+                return memory;
+            }
+
+            public Memory<T> AllocateMemory(int size)
+            {
+                var memory = _array.AsMemory().Slice(_used, size);
                 _used += size;
                 return memory;
             }

@@ -50,7 +50,11 @@ namespace Sawmill.Codegen
 
                     var indentation = match.Groups[1].Value;
                     var cref = match.Groups[2].Value;
-                    var docContent = LookupCref(sawmillDoc, cref).ToList();
+                    var docContent = LookupCref(sawmillDoc, cref);
+                    if (docContent == null)
+                    {
+                        throw new Exception($"Couldn't find cref {cref}");
+                    }
                     docContent.Add("<seealso cref=\"" + cref + "\"/>");
                     var docIndentation = docContent[0].Length - docContent[0].TrimStart().Length;
                     var newXmlDoc = docContent
@@ -63,12 +67,12 @@ namespace Sawmill.Codegen
             File.WriteAllLines(sourceFile, newLines);
         }
 
-        static IEnumerable<string> LookupCref(XDocument sawmillDoc, string cref)
+        static List<string>? LookupCref(XDocument sawmillDoc, string cref)
             => sawmillDoc
                 .Element("doc")
                 .SelfAndDescendants()
-                .First(el => el.Name == "member" && el.Attribute("name")?.Value == cref)
-                .Elements()
+                .FirstOrDefault(el => el.Name == "member" && el.Attribute("name")?.Value == cref)
+                ?.Elements()
                 .Where(e => !(e.Name == "param" && e.Attribute("name")?.Value == "rewriter") && e.Name != "typeparam")
                 .SelectMany(e => e.ToString().Split(Environment.NewLine))
                 .ToList();
@@ -76,7 +80,7 @@ namespace Sawmill.Codegen
         private static XDocument GetSourceXmlDocFile(string repoRoot)
             => XDocument.Load(
                 new[] { "Debug", "Release" }
-                    .Select(f => Path.Combine(repoRoot, "Sawmill", "bin", f, "netstandard2.0", "Sawmill.xml"))
+                    .Select(f => Path.Combine(repoRoot, "Sawmill", "bin", f, "netstandard2.1", "Sawmill.xml"))
                     .Where(File.Exists)
                     .OrderByDescending(File.GetLastWriteTime)
                     .First()
