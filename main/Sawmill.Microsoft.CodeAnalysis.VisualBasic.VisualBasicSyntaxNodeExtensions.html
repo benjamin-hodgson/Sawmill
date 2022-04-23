@@ -754,7 +754,7 @@ Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
                                     <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</p></td>
                                     <td><p>childrenReceiver</p></td>
                                     <td><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children into.
-The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1.length#System_Span_1_Length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
+The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1.length#system-span-1-length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1545,7 +1545,7 @@ Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5))
                 <div><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
-The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#System_Linq_Enumerable_Zip__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___1___2__">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
+The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
@@ -1651,7 +1651,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                 <div><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
-The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#System_Linq_Enumerable_Zip__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___1___2__">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
+The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
