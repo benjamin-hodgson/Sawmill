@@ -277,7 +277,7 @@ namespace Sawmill
             var nodeParam = Expression.Parameter(_t, "param");
             var nodeLocal = Expression.Parameter(nodeType, "node");
             var retLocal = Expression.Parameter(nodeType, "ret");
-            
+
 
             // (children, param) =>
             // {
