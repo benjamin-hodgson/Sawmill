@@ -1,71 +1,69 @@
-using System.IO;
+namespace Sawmill.Codegen;
 
-namespace Sawmill.Codegen
+internal static class RewritableGenerator
 {
-    static class RewritableGenerator
+    public static void Go()
     {
-        public static void Go()
-        {
-            GenerateFile(
-                "Sawmill/Expressions/ExpressionExtensions.Generated.cs",
-                "Sawmill.Expressions",
-                "ExpressionExtensions",
-                "System.Linq.Expressions.Expression",
-                "ExpressionRewriter.Instance"
-            );
-            GenerateFile(
-                "Sawmill/Xml/XElementExtensions.Generated.cs",
-                "Sawmill.Xml",
-                "XElementExtensions",
-                "System.Xml.Linq.XElement",
-                "XElementRewriter.Instance"
-            );
-            GenerateFile(
-                "Sawmill/Xml/XmlNodeExtensions.Generated.cs",
-                "Sawmill.Xml",
-                "XmlNodeExtensions",
-                "System.Xml.XmlNode",
-                "XmlNodeRewriter.Instance"
-            );
-            GenerateFile(
-                "Sawmill.Newtonsoft.Json/JTokenExtensions.Generated.cs",
-                "Sawmill.Newtonsoft.Json",
-                "JTokenExtensions",
-                "global::Newtonsoft.Json.Linq.JToken",
-                "JTokenRewriter.Instance"
-            );
-            GenerateFile(
-                "Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs",
-                "Sawmill.HtmlAgilityPack",
-                "HtmlNodeExtensions",
-                "global::HtmlAgilityPack.HtmlNode",
-                "HtmlNodeRewriter.Instance"
-            );
-            GenerateFile(
-                "Sawmill.Microsoft.CodeAnalysis.CSharp/CSharpSyntaxNodeExtensions.Generated.cs",
-                "Sawmill.Microsoft.CodeAnalysis.CSharp",
-                "CSharpSyntaxNodeExtensions",
-                "global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode",
-                "SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance"
-            );
-            GenerateFile(
-                "Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs",
-                "Sawmill.Microsoft.CodeAnalysis.VisualBasic",
-                "VisualBasicSyntaxNodeExtensions",
-                "global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode",
-                "SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance"
-            );
-        }
+        GenerateFile(
+            "Sawmill/Expressions/ExpressionExtensions.Generated.cs",
+            "Sawmill.Expressions",
+            "ExpressionExtensions",
+            "System.Linq.Expressions.Expression",
+            "ExpressionRewriter.Instance"
+        );
+        GenerateFile(
+            "Sawmill/Xml/XElementExtensions.Generated.cs",
+            "Sawmill.Xml",
+            "XElementExtensions",
+            "System.Xml.Linq.XElement",
+            "XElementRewriter.Instance"
+        );
+        GenerateFile(
+            "Sawmill/Xml/XmlNodeExtensions.Generated.cs",
+            "Sawmill.Xml",
+            "XmlNodeExtensions",
+            "System.Xml.XmlNode",
+            "XmlNodeRewriter.Instance"
+        );
+        GenerateFile(
+            "Sawmill.Newtonsoft.Json/JTokenExtensions.Generated.cs",
+            "Sawmill.Newtonsoft.Json",
+            "JTokenExtensions",
+            "global::Newtonsoft.Json.Linq.JToken",
+            "JTokenRewriter.Instance"
+        );
+        GenerateFile(
+            "Sawmill.HtmlAgilityPack/HtmlNodeExtensions.Generated.cs",
+            "Sawmill.HtmlAgilityPack",
+            "HtmlNodeExtensions",
+            "global::HtmlAgilityPack.HtmlNode",
+            "HtmlNodeRewriter.Instance"
+        );
+        GenerateFile(
+            "Sawmill.Microsoft.CodeAnalysis.CSharp/CSharpSyntaxNodeExtensions.Generated.cs",
+            "Sawmill.Microsoft.CodeAnalysis.CSharp",
+            "CSharpSyntaxNodeExtensions",
+            "global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode",
+            "SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode>.Instance"
+        );
+        GenerateFile(
+            "Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs",
+            "Sawmill.Microsoft.CodeAnalysis.VisualBasic",
+            "VisualBasicSyntaxNodeExtensions",
+            "global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode",
+            "SyntaxNodeRewriter<global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode>.Instance"
+        );
+    }
 
-        private static void GenerateFile(
-            string filename,
-            string ns,
-            string className,
-            string typeName,
-            string rewriterExpr
-        )
-        {
-            var result = $@"#region GeneratedCode
+    private static void GenerateFile(
+        string filename,
+        string ns,
+        string className,
+        string typeName,
+        string rewriterExpr
+    )
+    {
+        var result = $@"#region GeneratedCode
 using System;
 using System.Collections.Generic;
 #if NETSTANDARD2_1_OR_GREATER
@@ -332,7 +330,6 @@ namespace {ns}
 }}
 #endregion
 ";
-            File.WriteAllText(filename, result);
-        }
+        File.WriteAllText(filename, result);
     }
 }

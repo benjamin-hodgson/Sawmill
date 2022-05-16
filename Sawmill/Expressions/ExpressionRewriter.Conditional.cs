@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
 namespace Sawmill.Expressions
 {
     public partial class ExpressionRewriter
     {
+        [SuppressMessage("Style", "IDE0060", Justification = "Used by overload resolution")]
         private static int CountChildren(ConditionalExpression c) => 3;
 
         private static void GetChildren(Span<Expression> children, ConditionalExpression c)

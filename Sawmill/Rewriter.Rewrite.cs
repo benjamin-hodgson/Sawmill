@@ -53,10 +53,8 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            using (var traversal = new RewriteTraversal<T>(rewriter, transformer))
-            {
-                return traversal.Go(value);
-            }
+            using var traversal = new RewriteTraversal<T>(rewriter, transformer);
+            return traversal.Go(value);
         }
 
         private class RewriteTraversal<T> : Traversal<T>
@@ -70,7 +68,7 @@ namespace Sawmill
 
             public T Go(T value)
                 => Transform(RewriteChildren(Go, value));
-            
+
             protected virtual T Transform(T value)
                 => Transformer(value);
         }
@@ -123,10 +121,8 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            using (var traversal = new RewriteAsyncTraversal<T>(rewriter, transformer))
-            {
-                return await traversal.Go(value);
-            }
+            using var traversal = new RewriteAsyncTraversal<T>(rewriter, transformer);
+            return await traversal.Go(value);
         }
 
         private class RewriteAsyncTraversal<T> : AsyncTraversal<T>
@@ -140,7 +136,7 @@ namespace Sawmill
 
             public async ValueTask<T> Go(T value)
                 => await Transform(await RewriteChildren(Go, value));
-            
+
             protected virtual ValueTask<T> Transform(T value)
                 => Transformer(value);
         }

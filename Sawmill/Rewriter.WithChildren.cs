@@ -1,6 +1,7 @@
 #if NETSTANDARD2_1_OR_GREATER
 using System;
 using System.Threading.Tasks;
+
 using FixedSizeBuffers;
 #endif
 
@@ -99,7 +100,7 @@ namespace Sawmill
         private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
         {
             var buffer = new FixedSizeBuffer4<T>();
-            var span = buffer.AsSpan().Slice(0, count);
+            var span = buffer.AsSpan()[..count];
 
             rewriter.GetChildren(span, value);
             var result = action(span);
@@ -111,7 +112,7 @@ namespace Sawmill
         private static R WithChildren_Fast<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, int count)
         {
             var buffer = new FixedSizeBuffer4<T>();
-            var span = buffer.AsSpan().Slice(0, count);
+            var span = buffer.AsSpan()[..count];
 
             rewriter.GetChildren(span, value);
             var result = action(span, ctx);

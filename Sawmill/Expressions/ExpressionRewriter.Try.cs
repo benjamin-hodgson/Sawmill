@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -7,7 +8,8 @@ namespace Sawmill.Expressions
 {
     public partial class ExpressionRewriter
     {
-        private static int GetChildren(TryExpression t) => t.Handlers.Count * 2 + 3;
+        [SuppressMessage("Style", "IDE0060", Justification = "Used by overload resolution")]
+        private static int CountChildren(TryExpression t) => t.Handlers.Count * 2 + 3;
 
         private static void GetChildren(Span<Expression> children, TryExpression t)
         {
@@ -25,24 +27,23 @@ namespace Sawmill.Expressions
             children[i] = t.Finally;
             i++;
             children[i] = t.Fault;
-            i++;
         }
 
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, TryExpression t)
         {
-            CatchBlockUpdateResult UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, ReadOnlySpan<Expression> c)
+            static CatchBlockUpdateResult UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, ReadOnlySpan<Expression> c)
             {
                 var newCatchBlocks = new List<CatchBlock>(oldCatchBlocks.Count());
                 foreach (var oldCatchBlock in oldCatchBlocks)
                 {
                     newCatchBlocks.Add(oldCatchBlock.Update(oldCatchBlock.Variable, c[0], c[1]));
-                    c = c.Slice(2);
+                    c = c[2..];
                 }
                 return new CatchBlockUpdateResult(newCatchBlocks, c);
             }
 
             var newTryBlock = newChildren[0];
-            var updateResult = UpdateCatchBlocks(t.Handlers, newChildren.Slice(1));
+            var updateResult = UpdateCatchBlocks(t.Handlers, newChildren[1..]);
             var remainingNewChildren = updateResult.RemainingNewChildren;
             return t.Update(
                 newTryBlock,

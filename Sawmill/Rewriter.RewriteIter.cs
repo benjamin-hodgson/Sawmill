@@ -1,5 +1,7 @@
 using System;
+#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
+#endif
 
 namespace Sawmill
 {
@@ -36,10 +38,8 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            using (var traversal = new RewriteIterTraversal<T>(rewriter, transformer))
-            {
-                return traversal.Go(value);
-            }
+            using var traversal = new RewriteIterTraversal<T>(rewriter, transformer);
+            return traversal.Go(value);
         }
 
         private class RewriteIterTraversal<T> : RewriteTraversal<T>
@@ -96,10 +96,8 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(transformer));
             }
 
-            using (var traversal = new RewriteIterAsyncTraversal<T>(rewriter, transformer))
-            {
-                return await traversal.Go(value);
-            }
+            using var traversal = new RewriteIterAsyncTraversal<T>(rewriter, transformer);
+            return await traversal.Go(value);
         }
 
         private class RewriteIterAsyncTraversal<T> : RewriteAsyncTraversal<T>

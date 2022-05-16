@@ -1,4 +1,5 @@
 using System;
+
 using HtmlAgilityPack;
 
 namespace Sawmill.HtmlAgilityPack
@@ -11,7 +12,7 @@ namespace Sawmill.HtmlAgilityPack
         /// <summary>
         /// Create a new instance of <see cref="HtmlNodeRewriter"/>
         /// </summary>
-        protected HtmlNodeRewriter() {}
+        protected HtmlNodeRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>

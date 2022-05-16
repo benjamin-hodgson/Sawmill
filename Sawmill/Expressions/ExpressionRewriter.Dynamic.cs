@@ -6,7 +6,7 @@ namespace Sawmill.Expressions
     public partial class ExpressionRewriter
     {
         private static int CountChildren(DynamicExpression d) => d.Arguments.Count;
-        
+
         private static void GetChildren(Span<Expression> children, DynamicExpression d)
         {
             Copy(d.Arguments, children);

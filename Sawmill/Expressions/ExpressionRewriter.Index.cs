@@ -10,10 +10,10 @@ namespace Sawmill.Expressions
         private static void GetChildren(Span<Expression> children, IndexExpression index)
         {
             children[0] = index.Object;
-            Copy(index.Arguments, children.Slice(1));
+            Copy(index.Arguments, children[1..]);
         }
 
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, IndexExpression i)
-            => i.Update(newChildren[0], newChildren.Slice(1).ToArray());
+            => i.Update(newChildren[0], newChildren[1..].ToArray());
     }
 }

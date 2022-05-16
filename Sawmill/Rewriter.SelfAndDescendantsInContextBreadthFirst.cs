@@ -42,7 +42,7 @@ namespace Sawmill
                 while (q.Any())
                 {
                     var (item, replace) = q.Dequeue();
-                    
+
                     yield return (item, replace);
 
                     foreach (var (child, replaceChild) in rewriter.ChildrenInContext(item))

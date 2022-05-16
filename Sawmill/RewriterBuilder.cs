@@ -29,7 +29,7 @@ namespace Sawmill
         {
             _rewriters = rewriters;
         }
-        
+
         /// <summary>
         /// Handle a single subclass of <typeparamref name="T"/>
         /// </summary>
@@ -193,7 +193,7 @@ namespace Sawmill
 
                     var newChild = newChildren[consumed];
                     consumed++;
-                    
+
                     return (changed || !ReferenceEquals(oldChild, newChild), consumed, (rest, newChild));
                 }
             );

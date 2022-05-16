@@ -16,7 +16,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
-            
+
             return new Cursor<T>(rewriter, value);
         }
     }

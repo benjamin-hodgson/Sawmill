@@ -42,8 +42,8 @@ namespace Sawmill
                         yield return (descendant, newDescendant => replaceChild(replaceDescendant(newDescendant)));
                     }
                 }
-                
-                yield return (t, newT => newT);                
+
+                yield return (t, newT => newT);
             }
             return Go(value);
         }

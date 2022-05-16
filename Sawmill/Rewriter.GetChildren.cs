@@ -42,7 +42,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(rewriter));
             }
-            
+
             var count = rewriter.CountChildren(value);
             var array = new T[count];
             rewriter.GetChildren(array, value);

@@ -13,7 +13,7 @@ namespace Sawmill.Expressions
         /// <summary>
         /// Create a new instance of <see cref="ExpressionRewriter"/>
         /// </summary>
-        protected ExpressionRewriter() {}
+        protected ExpressionRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
@@ -68,8 +68,9 @@ namespace Sawmill.Expressions
                 case ParameterExpression _:
                 case RuntimeVariablesExpression _:
                     return 0;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value));
             }
-            throw new ArgumentOutOfRangeException(nameof(value));
         }
 
         /// <summary>

@@ -9,46 +9,35 @@ namespace Sawmill.Expressions
     {
         private static int CountChildren(MemberInitExpression m)
         {
-            int CountBindingExprs(MemberBinding binding)
-            {
-                switch (binding)
+            static int CountBindingExprs(MemberBinding binding)
+                => binding switch
                 {
-                    case MemberAssignment a:
-                        return 1;
-                    case MemberListBinding l:
-                        return l.Initializers.Select(i => i.Arguments.Count).Sum();
-                    case MemberMemberBinding mm:
-                        return mm.Bindings.Select(CountBindingExprs).Sum();
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(binding));
-                }
-            }
+                    MemberAssignment a => 1,
+                    MemberListBinding l => l.Initializers.Select(i => i.Arguments.Count).Sum(),
+                    MemberMemberBinding mm => mm.Bindings.Select(CountBindingExprs).Sum(),
+                    _ => throw new ArgumentOutOfRangeException(nameof(binding)),
+                };
+
             return m.Bindings.Select(CountBindingExprs).Sum();
         }
 
         private static void GetChildren(Span<Expression> children, MemberInitExpression m)
         {
-            IEnumerable<Expression> GetBindingExprs(MemberBinding binding)
-            {
-                switch (binding)
+            static IEnumerable<Expression> GetBindingExprs(MemberBinding binding)
+                => binding switch
                 {
-                    case MemberAssignment a:
-                        return new[] { a.Expression };
-                    case MemberListBinding l:
-                        return l.Initializers.SelectMany(i => i.Arguments);
-                    case MemberMemberBinding mm:
-                        return mm.Bindings.SelectMany(GetBindingExprs);
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(binding));
-                }
-            }
+                    MemberAssignment a => new[] { a.Expression },
+                    MemberListBinding l => l.Initializers.SelectMany(i => i.Arguments),
+                    MemberMemberBinding mm => mm.Bindings.SelectMany(GetBindingExprs),
+                    _ => throw new ArgumentOutOfRangeException(nameof(binding)),
+                };
 
             Copy(m.Bindings.SelectMany(GetBindingExprs), children);
         }
 
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MemberInitExpression m)
         {
-            MemberBindingUpdateResult UpdateBindings(IEnumerable<MemberBinding> oldBindings, ReadOnlySpan<Expression> newArgs)
+            static MemberBindingUpdateResult UpdateBindings(IEnumerable<MemberBinding> oldBindings, ReadOnlySpan<Expression> newArgs)
             {
                 var newBindings = new List<MemberBinding>();
                 foreach (var binding in oldBindings)
@@ -58,14 +47,14 @@ namespace Sawmill.Expressions
                     {
                         case MemberAssignment a:
                             newBinding = a.Update(newArgs[0]);
-                            newArgs = newArgs.Slice(1);
+                            newArgs = newArgs[1..];
                             break;
                         case MemberListBinding l:
                             var newInits = new List<ElementInit>(l.Initializers.Count);
                             foreach (var oldInit in l.Initializers)
                             {
-                                newInits.Add(oldInit.Update(newArgs.Slice(0, oldInit.Arguments.Count).ToArray()));
-                                newArgs = newArgs.Slice(oldInit.Arguments.Count);
+                                newInits.Add(oldInit.Update(newArgs[..oldInit.Arguments.Count].ToArray()));
+                                newArgs = newArgs[oldInit.Arguments.Count..];
                             }
                             newBinding = l.Update(newInits);
                             break;
@@ -81,7 +70,7 @@ namespace Sawmill.Expressions
                 }
                 return new MemberBindingUpdateResult(newBindings, newArgs);
             }
-        
+
             return m.Update(m.NewExpression, UpdateBindings(m.Bindings, newChildren).Bindings);
         }
 

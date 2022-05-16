@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+
 using Newtonsoft.Json.Linq;
 
 namespace Sawmill.Newtonsoft.Json
@@ -12,7 +13,7 @@ namespace Sawmill.Newtonsoft.Json
         /// <summary>
         /// Create a new instance of <see cref="JTokenRewriter"/>
         /// </summary>
-        protected JTokenRewriter() {}
+        protected JTokenRewriter() { }
 
         /// <summary>
         /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
@@ -27,7 +28,7 @@ namespace Sawmill.Newtonsoft.Json
         /// </summary>
         public void GetChildren(Span<JToken> children, JToken value)
         {
-            if (value is JContainer c)
+            if (value is JContainer)
             {
                 var i = 0;
                 foreach (var child in value.Children())

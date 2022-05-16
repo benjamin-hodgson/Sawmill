@@ -28,7 +28,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(path));
             }
-            
+
             var cursor = rewriter.Cursor(value);
             cursor.Follow(path);
             return cursor.Focus;
@@ -57,7 +57,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(path));
             }
-            
+
             var cursor = rewriter.Cursor(value);
             cursor.Follow(path);
             cursor.Focus = newDescendant;
@@ -93,7 +93,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(transformer));
             }
-            
+
             var cursor = rewriter.Cursor(value);
             cursor.Follow(path);
             cursor.Focus = transformer(cursor.Focus);
@@ -130,7 +130,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(transformer));
             }
-            
+
             var cursor = rewriter.Cursor(value);
             cursor.Follow(path);
             cursor.Focus = await transformer(cursor.Focus);

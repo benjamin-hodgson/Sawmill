@@ -20,7 +20,6 @@ namespace Sawmill
         private static readonly Type _t = typeof(T);
 
         private static readonly Type _spanT = typeof(Span<T>);
-        private static readonly PropertyInfo _spanT_Indexer = _spanT.GetProperty("Item")!;
         private static readonly Type _readOnlySpanT = typeof(ReadOnlySpan<T>);
         private static readonly MethodInfo _readOnlySpanT_Slice = _readOnlySpanT
             .GetMethods()
@@ -63,8 +62,6 @@ namespace Sawmill
                 { typeof(List<T>), _autoRewriterT.GetMethod("RebuildList", BindingFlags.Static | BindingFlags.NonPublic)! },
                 { typeof(T[]), _autoRewriterT.GetMethod("RebuildArray", BindingFlags.Static | BindingFlags.NonPublic)! },
             };
-        private static readonly MethodInfo _getSpanElement =
-            _autoRewriterT.GetMethod("GetSpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
         private static readonly MethodInfo _getReadOnlySpanElement =
             _autoRewriterT.GetMethod("GetReadOnlySpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
         private static readonly MethodInfo _assignSpanElement =
@@ -154,7 +151,6 @@ namespace Sawmill
                 if (ctorParam.ParameterType.Equals(_t))
                 {
                     // i++;
-                    var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     stmts.Add(Expression.Assign(countLocal, Expression.Increment(countLocal)));
                 }
                 else if (ImplementsIEnumerableT(ctorParam.ParameterType))
@@ -173,7 +169,7 @@ namespace Sawmill
 
             stmts.Add(countLocal);
 
-            var body = Expression.Block(new[]{ nodeLocal, countLocal }, stmts);
+            var body = Expression.Block(new[] { nodeLocal, countLocal }, stmts);
             var lam = Expression.Lambda<Func<T, int>>(body, $"CountChildren_{_t.Name}_{nodeType.Name}", new[] { nodeParam });
             return lam.Compile();
         }
@@ -233,7 +229,7 @@ namespace Sawmill
                     var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     var enumerable = Expression.Property(nodeLocal, property);
                     stmts.Add(Expression.Assign(enumeratorLocal, Expression.Call(enumerable, _iEnumerable_GetEnumerator)));
-                    
+
                     var breakLbl = Expression.Label();
                     var loopBody = Expression.IfThenElse(
                         Expression.Call(enumeratorLocal, _iEnumerator_MoveNext),
@@ -251,7 +247,7 @@ namespace Sawmill
                 }
             }
 
-            var body = Expression.Block(new[]{ nodeLocal, indexLocal, enumeratorLocal }, stmts);
+            var body = Expression.Block(new[] { nodeLocal, indexLocal, enumeratorLocal }, stmts);
             var lam = Expression.Lambda<SpanAction<T, T>>(body, $"GetChildren_{_t.Name}_{nodeType.Name}", new[] { childrenParam, nodeParam });
             return lam.Compile();
         }
@@ -336,7 +332,7 @@ namespace Sawmill
             stmts.Add(retLocal);
 
             var block = Expression.Block(
-                new[]{ nodeLocal, retLocal }.Concat(childrenLocals),
+                new[] { nodeLocal, retLocal }.Concat(childrenLocals),
                 stmts
             );
 
@@ -345,7 +341,7 @@ namespace Sawmill
         }
 
         private static string ParamNameToPropName(string paramName)
-            => char.ToUpper(paramName[0]) + paramName.Substring(1);
+            => char.ToUpper(paramName[0]) + paramName[1..];
 
         private static ConstructorInfo GetBestConstructor(Type nodeType)
             => nodeType
@@ -395,7 +391,7 @@ namespace Sawmill
             yield return type;
             foreach (var i in type.GetInterfaces())
             {
-                foreach (var bi in GetSelfAndBaseTypes(i))
+                foreach (var _ in GetSelfAndBaseTypes(i))
                 {
                     yield return i;
                 }
@@ -407,65 +403,6 @@ namespace Sawmill
                     yield return b;
                 }
             }
-        }
-
-
-        private static T GetSpanElement(Span<T> span, int index) => span[index];
-        private static void AssignSpanElement(Span<T> span, int index, T value)
-        {
-            span[index] = value;
-        }
-        private static T GetReadOnlySpanElement(ReadOnlySpan<T> span, int index) => span[index];
-
-
-        private static ImmutableArray<T> RebuildImmutableArray(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
-        {
-            var builder = oldValues is ICollection<T> c
-                ? ImmutableArray.CreateBuilder<T>(c.Count)
-                : ImmutableArray.CreateBuilder<T>();
-            var i = 0;
-            foreach (var _ in oldValues)
-            {
-                builder.Add(newValues[i]);
-                i++;
-            }
-            return builder.ToImmutableAndClear();
-        }
-
-        private static ImmutableList<T> RebuildImmutableList(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
-        {
-            var builder = ImmutableList.CreateBuilder<T>();
-            var i = 0;
-            foreach (var _ in oldValues)
-            {
-                builder.Add(newValues[i]);
-                i++;
-            }
-            return builder.ToImmutable();
-        }
-
-        private static List<T> RebuildList(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
-        {
-            var list = oldValues is ICollection<T> c
-                ? new List<T>(c.Count)
-                : new List<T>();
-            var i = 0;
-            foreach (var _ in oldValues)
-            {
-                list.Add(newValues[i]);
-                i++;
-            }
-            return list;
-        }
-
-        private static T[] RebuildArray(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
-        {
-            var array = new T[oldValues.Count()];
-            for (var i = 0; i <= array.Length; i++)
-            {
-                array[i] = newValues[i];
-            }
-            return array;
         }
     }
 }

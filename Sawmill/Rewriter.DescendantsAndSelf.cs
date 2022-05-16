@@ -58,11 +58,11 @@ namespace Sawmill
                     while (enumerator.MoveNext())
                     {
                         stack.Push(enumerator);
-                        
+
                         var count = rewriter.CountChildren(enumerator.Current);
                         var array = ArrayPool<T>.Shared.Rent(count);
-                        
-                        rewriter.GetChildren(array.AsSpan().Slice(0, count), enumerator.Current);
+
+                        rewriter.GetChildren(array.AsSpan()[..count], enumerator.Current);
 
                         enumerator = new DescendantsAndSelfFrame<T>(array, count);
                     }

@@ -75,7 +75,7 @@ namespace Sawmill
         /// <seealso cref="M:Sawmill.Rewriter.DescendantsAndSelf``1(Sawmill.IRewriter{``0},``0)"/>
         public static IEnumerable<T> DescendantsAndSelf<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.DescendantsAndSelf(value);
-        
+
         //!pastedoc M:Sawmill.Rewriter.SelfAndDescendants``1(Sawmill.IRewriter{``0},``0)
         /// <summary>
         ///     Yields all of the nodes in the tree represented by <paramref name="value" />, starting at the top.
@@ -191,7 +191,7 @@ namespace Sawmill
         /// <seealso cref="M:Sawmill.Rewriter.SelfAndDescendantsInContextBreadthFirst``1(Sawmill.IRewriter{``0},``0)"/>
         public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextBreadthFirst<T>(this T value) where T : IRewritable<T>
             => RewritableRewriter<T>.Instance.SelfAndDescendantsInContextBreadthFirst(value);
-        
+
         //!pastedoc M:Sawmill.Rewriter.DescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},``0)
         /// <summary>
         ///     Returns the descendant at a particular location in <paramref name="value" /></summary>
@@ -208,7 +208,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(path));
             }
-            
+
             return RewritableRewriter<T>.Instance.DescendantAt(path, value);
         }
 
@@ -230,7 +230,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(path));
             }
-            
+
             return RewritableRewriter<T>.Instance.ReplaceDescendantAt(path, newDescendant, value);
         }
 
@@ -256,7 +256,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(transformer));
             }
-            
+
             return RewritableRewriter<T>.Instance.RewriteDescendantAt(path, transformer, value);
         }
 
@@ -284,7 +284,7 @@ namespace Sawmill
             {
                 throw new ArgumentNullException(nameof(transformer));
             }
-            
+
             return RewritableRewriter<T>.Instance.RewriteDescendantAt(path, transformer, value);
         }
 #endif
@@ -317,7 +317,7 @@ namespace Sawmill
 
             return RewritableRewriter<T>.Instance.Fold(func, value);
         }
-        
+
 #if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.Fold``2(Sawmill.IRewriter{``0},System.Func{System.Memory{``1},``0,System.Threading.Tasks.ValueTask{``1}},``0)
         /// <summary>
@@ -391,7 +391,7 @@ namespace Sawmill
 
             return RewritableRewriter<T>.Instance.ZipFold(func, values);
         }
-        
+
 #if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}},``0[])
         /// <summary>
@@ -448,7 +448,7 @@ namespace Sawmill
         }
 #endif
 
-        #pragma warning disable CS1734, CS1572, CS1573
+#pragma warning disable CS1734, CS1572, CS1573
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1},``0[])
         /// <summary>
         ///     Flatten all of the nodes in the trees represented by <paramref name="values" />
@@ -495,10 +495,10 @@ namespace Sawmill
 
             return RewritableRewriter<T>.Instance.ZipFold<T, U>((xs, cs) => func(xs[0], xs[1], cs), value1, value2);
         }
-        #pragma warning restore CS1734, CS1572, CS1573 
+#pragma warning restore CS1734, CS1572, CS1573
 
 #if NETSTANDARD2_1_OR_GREATER
-        #pragma warning disable CS1734, CS1572, CS1573
+#pragma warning disable CS1734, CS1572, CS1573
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}},``0[])
         /// <summary>
         ///     Flatten all of the nodes in the trees represented by <paramref name="values" />
@@ -548,7 +548,7 @@ namespace Sawmill
 
             return RewritableRewriter<T>.Instance.ZipFold<T, U>((xs, cs) => func(xs[0], xs[1], cs), value1, value2);
         }
-        #pragma warning restore CS1734, CS1572, CS1573 
+#pragma warning restore CS1734, CS1572, CS1573
 #endif
 
         //!pastedoc M:Sawmill.Rewriter.Rewrite``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
@@ -636,7 +636,7 @@ namespace Sawmill
             return RewritableRewriter<T>.Instance.Rewrite(transformer, value);
         }
 #endif
-        
+
         //!pastedoc M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
         /// <summary>
         ///     Update the immediate children of the value by applying a transformation function to each one.

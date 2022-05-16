@@ -44,7 +44,7 @@ namespace Sawmill
         private readonly Stack<Step<T>> _path;
 
         private Stack<T> _prevSiblings;
-        
+
         private T _focus;
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Sawmill
                 _focus = value;
             }
         }
-        
+
         private Stack<T> _nextSiblings;
-        
+
         private bool _changed;
 
         internal Cursor(IRewriter<T> rewriter, T top)
@@ -81,7 +81,7 @@ namespace Sawmill
             _focus = top;
             _nextSiblings = new Stack<T>();
         }
-        
+
         /// <summary>
         /// Move in a given <see cref="Direction"/>
         /// </summary>
@@ -112,7 +112,7 @@ namespace Sawmill
                     throw new ArgumentOutOfRangeException(nameof(direction));
             }
         }
-        
+
         /// <summary>
         /// Try to move in a given <see cref="Direction"/>
         /// </summary>
@@ -124,21 +124,14 @@ namespace Sawmill
         /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>
         /// </exception>
         public bool TryMove(Direction direction)
-        {
-            switch (direction)
+            => direction switch
             {
-                case Direction.Up:
-                    return TryUp();
-                case Direction.Down:
-                    return TryDown();
-                case Direction.Left:
-                    return TryLeft();
-                case Direction.Right:
-                    return TryRight();
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(direction));
-            }
-        }
+                Direction.Up => TryUp(),
+                Direction.Down => TryDown(),
+                Direction.Left => TryLeft(),
+                Direction.Right => TryRight(),
+                _ => throw new ArgumentOutOfRangeException(nameof(direction)),
+            };
 
 
         /// <summary>

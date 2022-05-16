@@ -33,7 +33,7 @@ namespace Sawmill
             var result = closure.Go(value);
 
             closure.Dispose();
-            
+
             return result;
         }
 
@@ -99,7 +99,7 @@ namespace Sawmill
             var result = await closure.Go(value);
 
             closure.Dispose();
-            
+
             return result;
         }
 

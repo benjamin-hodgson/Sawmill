@@ -30,7 +30,7 @@ namespace Sawmill
             }
             return _topRegion.Allocate(size);
         }
-        
+
         public Memory<T> AllocateMemory(int size)
         {
             if (size == 0)

@@ -1,12 +1,4 @@
-namespace Sawmill.Codegen
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            RewritableGenerator.Go();
+using Sawmill.Codegen;
 
-            XmlDocGenerator.Go();
-        }
-    }
-}
+RewritableGenerator.Go();
+XmlDocGenerator.Go();

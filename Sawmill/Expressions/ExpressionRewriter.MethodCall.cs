@@ -13,7 +13,7 @@ namespace Sawmill.Expressions
             if (m.Object != null)
             {
                 children[0] = m.Object;
-                rest = children.Slice(1);
+                rest = children[1..];
             }
             else
             {
@@ -21,14 +21,14 @@ namespace Sawmill.Expressions
             }
             Copy(m.Arguments, rest);
         }
-            
+
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MethodCallExpression m)
         {
             if (m.Object == null)
             {
                 return m.Update(m.Object, newChildren.ToArray());
             }
-            return m.Update(newChildren[0], newChildren.Slice(1).ToArray());
+            return m.Update(newChildren[0], newChildren[1..].ToArray());
         }
     }
 }

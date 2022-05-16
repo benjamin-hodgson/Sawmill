@@ -11,7 +11,7 @@ namespace Sawmill
     /// <typeparam name="R">The return type</typeparam>
     /// <typeparam name="U">The type of the additional argument</typeparam>
     public delegate R SpanFunc<T, in U, out R>(Span<T> span, U arg);
-    
+
     internal delegate R SpanFunc<T, out R>(Span<T> span);
     internal delegate R ReadOnlySpanFunc<T, in U, out R>(ReadOnlySpan<T> span, U arg);
     internal delegate void SpanAction<T, in U>(Span<T> span, U arg);

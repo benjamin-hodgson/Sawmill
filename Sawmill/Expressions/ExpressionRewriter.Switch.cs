@@ -11,29 +11,29 @@ namespace Sawmill.Expressions
 
         private static void GetChildren(Span<Expression> children, SwitchExpression s)
         {
-            IEnumerable<Expression> GetSwitchCaseChildren(SwitchCase switchCase)
+            static IEnumerable<Expression> GetSwitchCaseChildren(SwitchCase switchCase)
             {
                 var list = new List<Expression>(switchCase.TestValues.Count + 1);
                 list.AddRange(switchCase.TestValues);
                 list.Add(switchCase.Body);
                 return list;
             }
-            
+
             children[0] = s.SwitchValue;
-            Copy(s.Cases.SelectMany(GetSwitchCaseChildren), children.Slice(1));
+            Copy(s.Cases.SelectMany(GetSwitchCaseChildren), children[1..]);
         }
 
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, SwitchExpression s)
         {
-            IEnumerable<SwitchCase> UpdateSwitchCases(IEnumerable<SwitchCase> oldCases, ReadOnlySpan<Expression> c)
+            static IEnumerable<SwitchCase> UpdateSwitchCases(IEnumerable<SwitchCase> oldCases, ReadOnlySpan<Expression> c)
             {
                 var newCases = new List<SwitchCase>(oldCases.Count());
                 foreach (var oldCase in oldCases)
                 {
-                    var newTestValues = c.Slice(0, oldCase.TestValues.Count);
-                    c = c.Slice(oldCase.TestValues.Count);
+                    var newTestValues = c[..oldCase.TestValues.Count];
+                    c = c[oldCase.TestValues.Count..];
                     var newBody = c[0];
-                    c = c.Slice(1);
+                    c = c[1..];
                     newCases.Add(oldCase.Update(newTestValues.ToArray(), newBody));
                 }
                 return newCases;
@@ -41,8 +41,8 @@ namespace Sawmill.Expressions
 
             return s.Update(
                 newChildren[0],
-                UpdateSwitchCases(s.Cases, newChildren.Slice(1)),
-                newChildren[newChildren.Length - 1]
+                UpdateSwitchCases(s.Cases, newChildren[1..]),
+                newChildren[^1]
             );
         }
     }

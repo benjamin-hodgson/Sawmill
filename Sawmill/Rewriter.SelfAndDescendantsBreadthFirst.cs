@@ -34,7 +34,7 @@ namespace Sawmill
                     while (queue.Count != 0)
                     {
                         var x = queue.PopLeft();
-                        
+
                         yield return x;
 
                         var count = rewriter.CountChildren(x);

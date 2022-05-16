@@ -50,7 +50,7 @@ namespace Sawmill
             );
 
             stack.Dispose();
-            
+
             return result;
         }
 
@@ -64,8 +64,8 @@ namespace Sawmill
             }
 
             var array = ArrayPool<T>.Shared.Rent(count);
-            var span = array.AsSpan().Slice(0, count);
-            
+            var span = array.AsSpan()[..count];
+
             rewriter.GetChildren(span, value);
             array[position] = newChild;
             return rewriter.SetChildren(span, value);
