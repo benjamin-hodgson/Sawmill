@@ -21,7 +21,7 @@ namespace Sawmill.Tests
 
             var children = pNode.GetChildren();
             
-            Assert.Equal(2, children.Count());
+            Assert.Equal(2, children.Length);
             Assert.Equal("br", children.ElementAt(0).Name);
             Assert.Equal("span", children.ElementAt(1).Name);
         }

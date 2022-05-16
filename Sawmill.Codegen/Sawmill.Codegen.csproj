@@ -1,16 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../Sawmill.BuildTool.props" />
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6</TargetFramework>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
 
-    <IsPackable>false</IsPackable>
-    <LangVersion>latest</LangVersion>
-    <Nullable>Enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Sawmill\Sawmill.csproj" />
-  </ItemGroup>
-
+    <ItemGroup>
+        <ProjectReference Include="..\Sawmill\Sawmill.csproj" />
+    </ItemGroup>
 </Project>

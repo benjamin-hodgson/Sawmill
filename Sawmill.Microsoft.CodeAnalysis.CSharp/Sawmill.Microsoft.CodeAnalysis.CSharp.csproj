@@ -1,33 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Authors>benjamin.hodgson</Authors>
-    <Copyright>© Benjamin Hodgson, 2017</Copyright>
-    <Description>Simple tools for working with immutable trees, developed at Stack Overflow</Description>
-    <PackageTags>tree;language;compiler</PackageTags>
+    <ItemGroup>
+        <ProjectReference Include="../Sawmill/Sawmill.csproj"/>
+        <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj"/>
+    </ItemGroup>
 
-    <PackageProjectUrl>https://github.com/benjamin-hodgson/Sawmill</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/benjamin-hodgson/Sawmill.git</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    
-    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <LangVersion>8.0</LangVersion>
-    <Nullable>Enable</Nullable>
-    
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\Sawmill.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="../Sawmill/Sawmill.csproj"/>
-    <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.3.1"/>
-    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="System.ValueTuple" />
+    </ItemGroup>
 </Project>
