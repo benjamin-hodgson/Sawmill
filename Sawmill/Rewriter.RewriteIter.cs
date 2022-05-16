@@ -94,7 +94,7 @@ namespace Sawmill
             }
 
             using var traversal = new RewriteIterAsyncTraversal<T>(rewriter, transformer);
-            return await traversal.Go(value);
+            return await traversal.Go(value).ConfigureAwait(false);
         }
 
         private class RewriteIterAsyncTraversal<T> : RewriteAsyncTraversal<T>
@@ -105,10 +105,10 @@ namespace Sawmill
 
             protected override async ValueTask<T> Transform(T value)
             {
-                var newValue = await Transformer(value);
+                var newValue = await Transformer(value).ConfigureAwait(false);
                 if (!ReferenceEquals(value, newValue))
                 {
-                    return await Go(newValue);
+                    return await Go(newValue).ConfigureAwait(false);
                 }
                 return value;
             }

@@ -13,7 +13,10 @@ internal static class XmlDocGenerator
         var repoRoot = Path.GetDirectoryName(Path.GetDirectoryName(ThisFile()))!;
         var sawmillDoc = GetSourceXmlDocFile(repoRoot);
 
-        foreach (var sourceFile in Directory.EnumerateFiles(repoRoot, "*.cs", SearchOption.AllDirectories).Where(p => !p.Contains("Sawmill.Codegen")))
+        var sourceFiles = Directory
+            .EnumerateFiles(repoRoot, "*.cs", SearchOption.AllDirectories)
+            .Where(p => !p.Contains("Sawmill.Codegen", StringComparison.InvariantCulture));
+        foreach (var sourceFile in sourceFiles)
         {
             PasteXmlDocs(sourceFile, sawmillDoc);
         }
@@ -30,7 +33,7 @@ internal static class XmlDocGenerator
         {
             if (skippingDocs)
             {
-                if (line.TrimStart().StartsWith("///"))
+                if (line.TrimStart().StartsWith("///", StringComparison.InvariantCulture))
                 {
                     continue;
                 }
@@ -49,12 +52,12 @@ internal static class XmlDocGenerator
                 var docContent = LookupCref(sawmillDoc, cref);
                 if (docContent == null)
                 {
-                    throw new Exception($"Couldn't find cref {cref}");
+                    throw new InvalidOperationException($"Couldn't find cref {cref}");
                 }
                 docContent.Add("<seealso cref=\"" + cref + "\"/>");
                 var docIndentation = docContent[0].Length - docContent[0].TrimStart().Length;
                 var newXmlDoc = docContent
-                    .Select(l => l.StartsWith(indentation) ? l.Remove(0, indentation.Length) : l)
+                    .Select(l => l.StartsWith(indentation, StringComparison.InvariantCulture) ? l.Remove(0, indentation.Length) : l)
                     .Select(l => indentation + "/// " + l);
                 newLines.AddRange(newXmlDoc);
             }

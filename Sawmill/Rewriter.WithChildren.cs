@@ -64,7 +64,7 @@ namespace Sawmill
             var memory = chunks.Value.AllocateMemory(count);
 
             rewriter.GetChildren(memory.Span, value);
-            var result = await action(memory);
+            var result = await action(memory).ConfigureAwait(false);
 
             chunks.Value.Free(memory);
             return result;
@@ -82,7 +82,7 @@ namespace Sawmill
             var memory = childrenChunks.Value.AllocateMemory(count);
 
             rewriter.GetChildren(memory.Span, value);
-            var result = await action(memory, ctx);
+            var result = await action(memory, ctx).ConfigureAwait(false);
 
             childrenChunks.Value.Free(memory);
             return result;

@@ -19,22 +19,22 @@ public class TernTree : IRewritable<TernTree>
         return For(Left) + For(Middle) + For(Right);
     }
 
-    public void GetChildren(Span<TernTree> children)
+    public void GetChildren(Span<TernTree> childrenReceiver)
     {
         var i = 0;
         if (Left != null)
         {
-            children[i] = Left;
+            childrenReceiver[i] = Left;
             i++;
         }
         if (Middle != null)
         {
-            children[i] = Middle;
+            childrenReceiver[i] = Middle;
             i++;
         }
         if (Right != null)
         {
-            children[i] = Right;
+            childrenReceiver[i] = Right;
         }
     }
 

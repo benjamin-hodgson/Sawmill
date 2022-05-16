@@ -1,9 +1,11 @@
 using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Sawmill.Bench;
 
 public class RoseTree : IRewritable<RoseTree>
 {
+    [SuppressMessage("naming", "CA1721")]  // "The property name 'Children' is confusing given the existence of method 'GetChildren'"
     public ImmutableArray<RoseTree> Children { get; }
 
     public RoseTree(ImmutableArray<RoseTree> children)
@@ -17,11 +19,11 @@ public class RoseTree : IRewritable<RoseTree>
 
     public int CountChildren() => Children.Length;
 
-    public void GetChildren(Span<RoseTree> children)
+    public void GetChildren(Span<RoseTree> childrenReceiver)
     {
         for (var i = 0; i < Children.Length; i++)
         {
-            children[i] = Children[i];
+            childrenReceiver[i] = Children[i];
         }
     }
 

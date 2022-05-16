@@ -14,7 +14,7 @@ namespace Sawmill.Xml
         protected XmlNodeRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(XmlNode value)
         {
@@ -26,9 +26,9 @@ namespace Sawmill.Xml
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public void GetChildren(Span<XmlNode> children, XmlNode value)
+        public void GetChildren(Span<XmlNode> childrenReceiver, XmlNode value)
         {
             if (value == null)
             {
@@ -36,22 +36,22 @@ namespace Sawmill.Xml
             }
             for (var i = 0; i < value.ChildNodes.Count; i++)
             {
-                children[i] = value.ChildNodes[i];
+                childrenReceiver[i] = value.ChildNodes[i];
             }
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
-        public XmlNode SetChildren(ReadOnlySpan<XmlNode> newChildren, XmlNode oldValue)
+        public XmlNode SetChildren(ReadOnlySpan<XmlNode> newChildren, XmlNode value)
         {
-            if (oldValue == null)
+            if (value == null)
             {
-                throw new ArgumentNullException(nameof(oldValue));
+                throw new ArgumentNullException(nameof(value));
             }
             // XmlNode is such garbage
-            var oldAttrs = oldValue.Attributes;
-            var clone = oldValue.Clone();
+            var oldAttrs = value.Attributes;
+            var clone = value.Clone();
             clone.RemoveAll();
             foreach (XmlAttribute? attr in oldAttrs)
             {

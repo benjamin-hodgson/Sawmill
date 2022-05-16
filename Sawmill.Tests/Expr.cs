@@ -26,7 +26,7 @@ internal class Lit : Expr
 
     public override bool Equals(object? obj)
         => obj is Lit l
-        && l.Value == this.Value;
+        && l.Value == Value;
 
     public override int GetHashCode()
         => HashCode.Combine(Value);
@@ -52,7 +52,7 @@ internal class Neg : Expr
 
     public override bool Equals(object? obj)
         => obj is Neg n
-        && n.Operand == this.Operand;
+        && n.Operand == Operand;
 
     public override int GetHashCode()
         => HashCode.Combine(Operand);
@@ -81,8 +81,8 @@ internal class Add : Expr
 
     public override bool Equals(object? obj)
         => obj is Add a
-        && a.Left == this.Left
-        && a.Right == this.Right;
+        && a.Left == Left
+        && a.Right == Right;
 
     public override int GetHashCode()
         => HashCode.Combine(Left, Right);
@@ -115,9 +115,9 @@ internal class Ternary : Expr
 
     public override bool Equals(object? obj)
         => obj is Ternary t
-        && t.Condition == this.Condition
-        && t.ThenBranch == this.ThenBranch
-        && t.ElseBranch == this.ElseBranch;
+        && t.Condition == Condition
+        && t.ThenBranch == ThenBranch
+        && t.ElseBranch == ElseBranch;
 
     public override int GetHashCode()
         => HashCode.Combine(Condition, ThenBranch, ElseBranch);
@@ -146,7 +146,7 @@ internal class List : Expr
 
     public override bool Equals(object? obj)
         => obj is List l
-        && l.Exprs.SequenceEqual(this.Exprs);
+        && l.Exprs.SequenceEqual(Exprs);
 
     public override int GetHashCode()
     {
@@ -198,9 +198,9 @@ internal class IfThenElse : Expr
 
     public override bool Equals(object? obj)
         => obj is IfThenElse i
-        && i.Condition == this.Condition
-        && i.IfTrueStmts.SequenceEqual(this.IfTrueStmts)
-        && i.IfFalseStmts.SequenceEqual(this.IfFalseStmts);
+        && i.Condition == Condition
+        && i.IfTrueStmts.SequenceEqual(IfTrueStmts)
+        && i.IfFalseStmts.SequenceEqual(IfFalseStmts);
 
     public override int GetHashCode()
     {

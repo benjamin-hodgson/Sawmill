@@ -16,7 +16,7 @@ namespace Sawmill.Expressions
         protected ExpressionRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(Expression value)
         {
@@ -74,71 +74,71 @@ namespace Sawmill.Expressions
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public void GetChildren(Span<Expression> children, Expression value)
+        public void GetChildren(Span<Expression> childrenReceiver, Expression value)
         {
             switch (value)
             {
                 case BinaryExpression b:
-                    GetChildren(children, b);
+                    GetChildren(childrenReceiver, b);
                     return;
                 case BlockExpression b:
-                    GetChildren(children, b);
+                    GetChildren(childrenReceiver, b);
                     return;
                 case ConditionalExpression c:
-                    GetChildren(children, c);
+                    GetChildren(childrenReceiver, c);
                     return;
                 case DynamicExpression d:
-                    GetChildren(children, d);
+                    GetChildren(childrenReceiver, d);
                     return;
                 case GotoExpression g:
-                    GetChildren(children, g);
+                    GetChildren(childrenReceiver, g);
                     return;
                 case IndexExpression i:
-                    GetChildren(children, i);
+                    GetChildren(childrenReceiver, i);
                     return;
                 case InvocationExpression i:
-                    GetChildren(children, i);
+                    GetChildren(childrenReceiver, i);
                     return;
                 case LabelExpression l:
-                    GetChildren(children, l);
+                    GetChildren(childrenReceiver, l);
                     return;
                 case LambdaExpression l:
-                    GetChildren(children, l);
+                    GetChildren(childrenReceiver, l);
                     return;
                 case ListInitExpression l:
-                    GetChildren(children, l);
+                    GetChildren(childrenReceiver, l);
                     return;
                 case LoopExpression l:
-                    GetChildren(children, l);
+                    GetChildren(childrenReceiver, l);
                     return;
                 case MemberExpression m:
-                    GetChildren(children, m);
+                    GetChildren(childrenReceiver, m);
                     return;
                 case MemberInitExpression m:
-                    GetChildren(children, m);
+                    GetChildren(childrenReceiver, m);
                     return;
                 case MethodCallExpression m:
-                    GetChildren(children, m);
+                    GetChildren(childrenReceiver, m);
                     return;
                 case NewArrayExpression n:
-                    GetChildren(children, n);
+                    GetChildren(childrenReceiver, n);
                     return;
                 case NewExpression n:
-                    GetChildren(children, n);
+                    GetChildren(childrenReceiver, n);
                     return;
                 case SwitchExpression s:
-                    GetChildren(children, s);
+                    GetChildren(childrenReceiver, s);
                     return;
                 case TryExpression t:
-                    GetChildren(children, t);
+                    GetChildren(childrenReceiver, t);
                     return;
                 case TypeBinaryExpression t:
-                    GetChildren(children, t);
+                    GetChildren(childrenReceiver, t);
                     return;
                 case UnaryExpression u:
-                    GetChildren(children, u);
+                    GetChildren(childrenReceiver, u);
                     return;
                 case ConstantExpression _:
                 case DebugInfoExpression _:
@@ -151,11 +151,11 @@ namespace Sawmill.Expressions
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
-        public Expression SetChildren(ReadOnlySpan<Expression> newChildren, Expression oldValue)
+        public Expression SetChildren(ReadOnlySpan<Expression> newChildren, Expression value)
         {
-            switch (oldValue)
+            switch (value)
             {
                 case BinaryExpression b:
                     return SetChildren(newChildren, b);
@@ -202,9 +202,9 @@ namespace Sawmill.Expressions
                 case DefaultExpression _:
                 case ParameterExpression _:
                 case RuntimeVariablesExpression _:
-                    return oldValue;
+                    return value;
             }
-            throw new ArgumentOutOfRangeException(nameof(oldValue));
+            throw new ArgumentOutOfRangeException(nameof(value));
         }
 
         /// <summary>

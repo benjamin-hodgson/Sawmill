@@ -156,7 +156,7 @@ namespace Sawmill
                 throw new ArgumentNullException(nameof(values));
             }
 
-            async ValueTask<U> Go(T[] xs) => await func(xs, ZipChildren(xs));
+            async ValueTask<U> Go(T[] xs) => await func(xs, ZipChildren(xs)).ConfigureAwait(false);
 
             async IAsyncEnumerable<U> ZipChildren(T[] xs)
             {
@@ -179,7 +179,7 @@ namespace Sawmill
                         }
                         currents[i] = e.Current;
                     }
-                    yield return await Go(currents);
+                    yield return await Go(currents).ConfigureAwait(false);
                 }
             }
 

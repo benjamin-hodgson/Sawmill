@@ -93,7 +93,7 @@ namespace Sawmill
 
             var closure = new FoldAsyncClosure<T, U>(rewriter, func);
 
-            var result = await closure.Go(value);
+            var result = await closure.Go(value).ConfigureAwait(false);
 
             closure.Dispose();
 
@@ -117,10 +117,10 @@ namespace Sawmill
                         var memory = _results.Value.AllocateMemory(children.Length);
                         for (var i = 0; i < children.Length; i++)
                         {
-                            var newChild = await Go(children.Span[i]);
+                            var newChild = await Go(children.Span[i]).ConfigureAwait(false);
                             memory.Span[i] = newChild;
                         }
-                        var result = await _func(memory, value);
+                        var result = await _func(memory, value).ConfigureAwait(false);
                         _results.Value.Free(memory);
                         return result;
                     },

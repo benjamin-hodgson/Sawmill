@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Sawmill
 {
@@ -14,7 +15,7 @@ namespace Sawmill
         protected RewritableRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(T value)
         {
@@ -26,7 +27,7 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
         public void GetChildren(Span<T> childrenReceiver, T value)
         {
@@ -38,20 +39,21 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
-        public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
+        public T SetChildren(ReadOnlySpan<T> newChildren, T value)
         {
-            if (oldValue == null)
+            if (value == null)
             {
-                throw new ArgumentNullException(nameof(oldValue));
+                throw new ArgumentNullException(nameof(value));
             }
-            return oldValue.SetChildren(newChildren);
+            return value.SetChildren(newChildren);
         }
 
         /// <summary>
         /// Gets the single global instance of <see cref="RewritableRewriter{T}"/>
         /// </summary>
+        [SuppressMessage("design", "CA1000")]  // "Do not declare static members on generic types"
         public static RewritableRewriter<T> Instance { get; } = new RewritableRewriter<T>();
     }
 }

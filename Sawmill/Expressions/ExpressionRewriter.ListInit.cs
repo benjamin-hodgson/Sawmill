@@ -15,11 +15,11 @@ namespace Sawmill.Expressions
             Copy(l.Initializers.SelectMany(i => i.Arguments), children);
         }
 
-        private Expression SetChildren(ReadOnlySpan<Expression> newChildren, ListInitExpression l)
+        private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, ListInitExpression l)
         {
             static IEnumerable<ElementInit> UpdateElementInits(ReadOnlyCollection<ElementInit> oldInits, ReadOnlySpan<Expression> newArguments)
             {
-                var newInits = new List<ElementInit>(oldInits.Count());
+                var newInits = new List<ElementInit>(oldInits.Count);
                 foreach (var oldInit in oldInits)
                 {
                     var argCount = oldInit.Arguments.Count;

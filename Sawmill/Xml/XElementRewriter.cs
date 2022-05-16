@@ -15,32 +15,32 @@ namespace Sawmill.Xml
         protected XElementRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(XElement value) => value is XContainer c ? c.Elements().Count() : 0;
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public void GetChildren(Span<XElement> children, XElement value)
+        public void GetChildren(Span<XElement> childrenReceiver, XElement value)
         {
             if (value is XContainer c)
             {
                 var i = 0;
                 foreach (var e in c.Elements())
                 {
-                    children[i] = e;
+                    childrenReceiver[i] = e;
                     i++;
                 }
             }
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
-        public XElement SetChildren(ReadOnlySpan<XElement> newChildren, XElement oldValue)
+        public XElement SetChildren(ReadOnlySpan<XElement> newChildren, XElement value)
         {
-            var clone = new XElement(oldValue);
+            var clone = new XElement(value);
             clone.RemoveNodes();
             clone.Add(newChildren.ToArray());
             return clone;

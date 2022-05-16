@@ -88,7 +88,7 @@ namespace Sawmill
 
             var chunks = new Box<ChunkStack<T>>(new ChunkStack<T>());
 
-            var result = await rewriter.RewriteChildrenInternal(transformer, value, chunks);
+            var result = await rewriter.RewriteChildrenInternal(transformer, value, chunks).ConfigureAwait(false);
 
             chunks.Value.Dispose();
 
@@ -108,7 +108,7 @@ namespace Sawmill
                 for (var i = 0; i < children.Length; i++)
                 {
                     var child = children.Span[i];
-                    var newChild = await f(child);
+                    var newChild = await f(child).ConfigureAwait(false);
                     children.Span[i] = newChild;
                     changed |= !ReferenceEquals(newChild, child);
                 }

@@ -16,7 +16,7 @@ namespace Sawmill.Newtonsoft.Json
         protected JTokenRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(JToken value)
             => value is JContainer c
@@ -24,31 +24,39 @@ namespace Sawmill.Newtonsoft.Json
                 : 0;
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public void GetChildren(Span<JToken> children, JToken value)
+        public void GetChildren(Span<JToken> childrenReceiver, JToken value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             if (value is JContainer)
             {
                 var i = 0;
                 foreach (var child in value.Children())
                 {
-                    children[i] = child;
+                    childrenReceiver[i] = child;
                     i++;
                 }
             }
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
-        public JToken SetChildren(ReadOnlySpan<JToken> newChildren, JToken oldValue)
+        public JToken SetChildren(ReadOnlySpan<JToken> newChildren, JToken value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             if (newChildren.Length == 0)
             {
-                return oldValue;
+                return value;
             }
-            var c = (JContainer)oldValue.DeepClone();
+            var c = (JContainer)value.DeepClone();
             c.ReplaceAll(newChildren.ToArray());
             return c;
         }

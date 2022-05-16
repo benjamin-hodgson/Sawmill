@@ -23,7 +23,8 @@
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-        <NoWarn>$(NoWarn);NU1507</NoWarn>
+        <AnalysisMode>all</AnalysisMode>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>$(NoWarn);NU1507</NoWarn>
     </PropertyGroup>
 </Project>

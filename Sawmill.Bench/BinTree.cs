@@ -17,17 +17,17 @@ public class BinTree : IRewritable<BinTree>
         return For(Left) + For(Right);
     }
 
-    public void GetChildren(Span<BinTree> children)
+    public void GetChildren(Span<BinTree> childrenReceiver)
     {
         var i = 0;
         if (Left != null)
         {
-            children[i] = Left;
+            childrenReceiver[i] = Left;
             i++;
         }
         if (Right != null)
         {
-            children[i] = Right;
+            childrenReceiver[i] = Right;
         }
     }
 

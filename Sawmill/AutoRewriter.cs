@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -80,7 +82,7 @@ namespace Sawmill
         protected AutoRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
         public int CountChildren(T value)
         {
@@ -92,37 +94,38 @@ namespace Sawmill
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public void GetChildren(Span<T> children, T value)
+        public void GetChildren(Span<T> childrenReceiver, T value)
         {
             if (value == null)
             {
                 throw new ArgumentNullException(nameof(value));
             }
-            _getters.GetOrAdd(value.GetType(), t => MkGetter(t))(children, value);
+            _getters.GetOrAdd(value.GetType(), t => MkGetter(t))(childrenReceiver, value);
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
-        public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
+        public T SetChildren(ReadOnlySpan<T> newChildren, T value)
         {
-            if (oldValue == null)
+            if (value == null)
             {
-                throw new ArgumentNullException(nameof(oldValue));
+                throw new ArgumentNullException(nameof(value));
             }
-            return _setters.GetOrAdd(oldValue.GetType(), t => MkSetter(t))(newChildren, oldValue);
+            return _setters.GetOrAdd(value.GetType(), t => MkSetter(t))(newChildren, value);
         }
 
         /// <summary>
         /// Gets the single global instance of <see cref="AutoRewriter{T}"/>.
         /// </summary>
         /// <returns>The single global instance of <see cref="AutoRewriter{T}"/>.</returns>
+        [SuppressMessage("design", "CA1000")]  // "Do not declare static members on generic types"
         public static AutoRewriter<T> Instance { get; } = new AutoRewriter<T>();
 
 
-        private Func<T, int> MkCounter(Type nodeType)
+        private static Func<T, int> MkCounter(Type nodeType)
         {
             var ctorParams = GetBestConstructor(nodeType)
                 ?.GetParameters()
@@ -174,7 +177,7 @@ namespace Sawmill
             return lam.Compile();
         }
 
-        private SpanAction<T, T> MkGetter(Type nodeType)
+        private static SpanAction<T, T> MkGetter(Type nodeType)
         {
             var ctorParams = GetBestConstructor(nodeType)
                 ?.GetParameters()
@@ -252,7 +255,7 @@ namespace Sawmill
             return lam.Compile();
         }
 
-        private ReadOnlySpanFunc<T, T, T> MkSetter(Type nodeType)
+        private static ReadOnlySpanFunc<T, T, T> MkSetter(Type nodeType)
         {
             var ctor = GetBestConstructor(nodeType);
             var ctorParams = ctor?.GetParameters();
@@ -341,7 +344,7 @@ namespace Sawmill
         }
 
         private static string ParamNameToPropName(string paramName)
-            => char.ToUpper(paramName[0]) + paramName[1..];
+            => char.ToUpper(paramName[0], CultureInfo.InvariantCulture) + paramName[1..];
 
         private static ConstructorInfo GetBestConstructor(Type nodeType)
             => nodeType

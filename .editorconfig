@@ -8,6 +8,10 @@ indent_style = space
 [*.xml]
 indent_size = 4
 
+# generated code
+[*.Generated.cs]
+generated_code = true
+
 # C# files
 [*.cs]
 
@@ -30,10 +34,10 @@ dotnet_sort_system_directives_first = true
 file_header_template = unset
 
 # this. and Me. preferences
-dotnet_style_qualification_for_event = false:silent
-dotnet_style_qualification_for_field = false:silent
-dotnet_style_qualification_for_method = false:silent
-dotnet_style_qualification_for_property = false:silent
+dotnet_style_qualification_for_event = false:warning
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_property = false:warning
 
 # Language keywords vs BCL types preferences
 dotnet_style_predefined_type_for_locals_parameters_members = true:warning
@@ -64,6 +68,7 @@ dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
+dotnet_diagnostic.IDE0001.severity = warning  # simplify name
 
 # Field preferences
 dotnet_style_readonly_field = true:warning
@@ -129,6 +134,13 @@ csharp_using_directive_placement = outside_namespace:silent
 csharp_style_namespace_declarations = file_scoped:warning
 dotnet_diagnostic.IDE0005.severity = warning  # remove unnecessary import
 
+
+#### Code analysis opt-outs ####
+
+dotnet_diagnostic.CA1200.severity = none  # "Avoid using cref tags with a prefix". Doesn't work well with pastedoc
+dotnet_diagnostic.CA1805.severity = silent  # "Member is explicitly initialized to its default value"
+
+
 #### C# Formatting Rules ####
 
 # New line preferences
@@ -180,6 +192,8 @@ csharp_preserve_single_line_statements = true
 [*.{cs,vb}]
 
 # Naming rules
+dotnet_diagnostic.CA1715.severity = none  # "Identifiers should have correct prefix", covered by below
+dotnet_diagnostic.CA1707.severity = none  # "Remove the underscores from member name", covered by below
 
 dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.severity = warning
 dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.symbols = types_and_namespaces

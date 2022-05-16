@@ -2,7 +2,7 @@
     <Import Project="../Sawmill.BuildTool.props" />
 
     <PropertyGroup>
-        <NoWarn>$(NoWarn);xUnit2013</NoWarn>
+        <NoWarn>$(NoWarn);xUnit2013;CA2007;CA1849</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>

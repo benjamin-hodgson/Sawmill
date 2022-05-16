@@ -64,7 +64,7 @@ namespace Sawmill.Expressions
                             newArgs = updatedBindings.Remainder;
                             break;
                         default:
-                            throw new ArgumentOutOfRangeException(nameof(binding));
+                            throw new ArgumentOutOfRangeException("Unexpected type of binding", nameof(binding));
                     }
                     newBindings.Add(newBinding);
                 }

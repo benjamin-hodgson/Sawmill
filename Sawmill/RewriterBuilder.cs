@@ -79,8 +79,8 @@ namespace Sawmill
                     }
                 }
                 throw new ArgumentOutOfRangeException(
-                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?",
-                    nameof(value)
+                    nameof(value),
+                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?"
                 );
             }
 
@@ -99,27 +99,27 @@ namespace Sawmill
                     }
                 }
                 throw new ArgumentOutOfRangeException(
-                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?",
-                    nameof(value)
+                    nameof(value),
+                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?"
                 );
             }
 
-            public T SetChildren(ReadOnlySpan<T> newChildren, T oldValue)
+            public T SetChildren(ReadOnlySpan<T> newChildren, T value)
             {
-                if (oldValue == null)
+                if (value == null)
                 {
-                    throw new ArgumentNullException(nameof(oldValue));
+                    throw new ArgumentNullException(nameof(value));
                 }
                 foreach (var kv in _rewriters)
                 {
-                    if (kv.Item1.IsAssignableFrom(oldValue.GetType()))
+                    if (kv.Item1.IsAssignableFrom(value.GetType()))
                     {
-                        return kv.Item2.SetChildren(newChildren, oldValue);
+                        return kv.Item2.SetChildren(newChildren, value);
                     }
                 }
                 throw new ArgumentOutOfRangeException(
-                    $"Unknown type {oldValue.GetType()}. Are you missing an And clause from your RewriterBuilder?",
-                    nameof(oldValue)
+                    nameof(value),
+                    $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?"
                 );
             }
         }

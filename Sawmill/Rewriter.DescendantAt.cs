@@ -130,7 +130,7 @@ namespace Sawmill
 
             var cursor = rewriter.Cursor(value);
             cursor.Follow(path);
-            cursor.Focus = await transformer(cursor.Focus);
+            cursor.Focus = await transformer(cursor.Focus).ConfigureAwait(false);
             cursor.Top();
             return cursor.Focus;
         }

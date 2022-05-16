@@ -15,26 +15,42 @@ namespace Sawmill.HtmlAgilityPack
         protected HtmlNodeRewriter() { }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.CountChildren(T)"/>
+        /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
         /// </summary>
-        public int CountChildren(HtmlNode value) => value.ChildNodes.Count;
+        public int CountChildren(HtmlNode value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            return value.ChildNodes.Count;
+        }
+            
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.GetChildren(Span{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
         /// </summary>
-        public void GetChildren(Span<HtmlNode> children, HtmlNode value)
+        public void GetChildren(Span<HtmlNode> childrenReceiver, HtmlNode value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             for (var i = 0; i < value.ChildNodes.Count; i++)
             {
-                children[i] = value.ChildNodes[i];
+                childrenReceiver[i] = value.ChildNodes[i];
             }
         }
 
         /// <summary>
-        /// <seealso cref="Sawmill.IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+        /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
         /// </summary>
         public HtmlNode SetChildren(ReadOnlySpan<HtmlNode> newChildren, HtmlNode value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             var clone = value.Clone();
             clone.ChildNodes.Clear();
             foreach (var child in newChildren)

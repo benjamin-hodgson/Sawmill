@@ -752,6 +752,10 @@ namespace Sawmill
         /// <param name="path">The path to follow</param>
         public void Follow(IEnumerable<Direction> path)
         {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
             foreach (var direction in path)
             {
                 Move(direction);
@@ -767,6 +771,10 @@ namespace Sawmill
         /// </returns>
         public bool TryFollow(IEnumerable<Direction> path)
         {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
             foreach (var direction in path)
             {
                 if (!TryMove(direction))

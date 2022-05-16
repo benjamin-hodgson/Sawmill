@@ -3,7 +3,7 @@ using System;
 namespace Sawmill
 {
     /// <summary>
-    /// A <see cref="Func{T, U, R}"/> whose first argument is a <see cref="System.Span{T}"/>.
+    /// A <see cref="Func{T, U, R}"/> whose first argument is a <see cref="Span{T}"/>.
     /// </summary>
     /// <param name="span">The span</param>
     /// <param name="arg">An additional argument</param>

@@ -119,7 +119,7 @@ namespace Sawmill
             }
 
             using var traversal = new RewriteAsyncTraversal<T>(rewriter, transformer);
-            return await traversal.Go(value);
+            return await traversal.Go(value).ConfigureAwait(false);
         }
 
         private class RewriteAsyncTraversal<T> : AsyncTraversal<T>
@@ -132,7 +132,9 @@ namespace Sawmill
             }
 
             public async ValueTask<T> Go(T value)
-                => await Transform(await RewriteChildren(Go, value));
+                => await Transform(
+                    await RewriteChildren(Go, value).ConfigureAwait(false)
+                ).ConfigureAwait(false);
 
             protected virtual ValueTask<T> Transform(T value)
                 => Transformer(value);
