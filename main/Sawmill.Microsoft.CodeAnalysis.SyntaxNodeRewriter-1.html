@@ -154,11 +154,11 @@
 <article class="col">
         <h1 id="Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1"><a href="#Sawmill_Microsoft_CodeAnalysis_SyntaxNodeRewriter_1">Class SyntaxNodeRewriter&lt;T&gt;
         </a></h1>
-        <div><p>An implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> for sublcasses of <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.syntaxnode">SyntaxNode</a>.</p>
+        <div><p>An implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> for sublcasses of <span class="xref">Microsoft.CodeAnalysis.SyntaxNode</span>.</p>
 </div>
             <h5>Inheritance</h5>
             <ul>
-                    <li><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></li>
+                    <li><span class="xref">System.Object</span></li>
                 <li>SyntaxNodeRewriter&lt;T&gt;</li>
             </ul>
             <h5>Implements</h5>
@@ -284,7 +284,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
+                                    <td><p><span class="xref">System.Int32</span></p></td>
                                     <td></td>
                                 </tr>
                             </tbody>
@@ -304,7 +304,7 @@
                 <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang-csharp hljs">public void GetChildren(Span&lt;T&gt; children, T value)</code></pre>
+                    <pre><code class="lang-csharp hljs">public void GetChildren(Span&lt;T&gt; childrenReceiver, T value)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -317,8 +317,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</p></td>
-                                    <td><p>children</p></td>
+                                    <td><p><span class="xref">System.Span</span>&lt;T&gt;</p></td>
+                                    <td><p>childrenReceiver</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -344,7 +344,7 @@
                 <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang-csharp hljs">public T SetChildren(ReadOnlySpan&lt;T&gt; newChildren, T oldValue)</code></pre>
+                    <pre><code class="lang-csharp hljs">public T SetChildren(ReadOnlySpan&lt;T&gt; newChildren, T value)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -357,13 +357,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</p></td>
+                                    <td><p><span class="xref">System.ReadOnlySpan</span>&lt;T&gt;</p></td>
                                     <td><p>newChildren</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
-                                    <td><p>oldValue</p></td>
+                                    <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                             </tbody>
