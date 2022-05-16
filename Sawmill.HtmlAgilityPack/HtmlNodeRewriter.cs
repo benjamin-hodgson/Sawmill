@@ -25,7 +25,7 @@ namespace Sawmill.HtmlAgilityPack
             }
             return value.ChildNodes.Count;
         }
-            
+
 
         /// <summary>
         /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
