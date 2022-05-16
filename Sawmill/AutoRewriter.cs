@@ -121,7 +121,7 @@ namespace Sawmill
         /// Gets the single global instance of <see cref="AutoRewriter{T}"/>.
         /// </summary>
         /// <returns>The single global instance of <see cref="AutoRewriter{T}"/>.</returns>
-        [SuppressMessage("design", "CA1000")]  // "Do not declare static members on generic types"
+        [SuppressMessage("Design", "CA1000")]  // "Do not declare static members on generic types"
         public static AutoRewriter<T> Instance { get; } = new AutoRewriter<T>();
 
 
@@ -154,6 +154,7 @@ namespace Sawmill
                 if (ctorParam.ParameterType.Equals(_t))
                 {
                     // i++;
+                    _ = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                     stmts.Add(Expression.Assign(countLocal, Expression.Increment(countLocal)));
                 }
                 else if (ImplementsIEnumerableT(ctorParam.ParameterType))
@@ -406,6 +407,69 @@ namespace Sawmill
                     yield return b;
                 }
             }
+        }
+
+        [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+        private static void AssignSpanElement(Span<T> span, int index, T value)
+        {
+            span[index] = value;
+        }
+        [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+        private static T GetReadOnlySpanElement(ReadOnlySpan<T> span, int index) => span[index];
+
+
+        [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+        private static ImmutableArray<T> RebuildImmutableArray(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
+        {
+            var builder = oldValues is ICollection<T> c
+                ? ImmutableArray.CreateBuilder<T>(c.Count)
+                : ImmutableArray.CreateBuilder<T>();
+            var i = 0;
+            foreach (var _ in oldValues)
+            {
+                builder.Add(newValues[i]);
+                i++;
+            }
+            return builder.ToImmutableAndClear();
+        }
+
+        [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+        private static ImmutableList<T> RebuildImmutableList(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
+        {
+            var builder = ImmutableList.CreateBuilder<T>();
+            var i = 0;
+            foreach (var _ in oldValues)
+            {
+                builder.Add(newValues[i]);
+                i++;
+            }
+            return builder.ToImmutable();
+        }
+
+        [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+        private static List<T> RebuildList(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
+        {
+            var list = oldValues is ICollection<T> c
+                ? new List<T>(c.Count)
+                : new List<T>();
+            var i = 0;
+            foreach (var _ in oldValues)
+            {
+                list.Add(newValues[i]);
+                i++;
+            }
+            return list;
+        }
+
+        [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+        private static T[] RebuildArray(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
+        {
+            var array = new T[oldValues.Count()];
+            for (var i = 0; i <= array.Length; i++)
+            {
+                array[i] = newValues[i];
+            }
+            return array;
         }
     }
 }
