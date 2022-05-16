@@ -1,7 +1,5 @@
 using System;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -59,7 +57,6 @@ namespace Sawmill
             }
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         /// <summary>
         /// Rebuild a tree by repeatedly applying an asynchronous transformation function to every node in the tree,
         /// until a fixed point is reached. <paramref name="transformer"/> should always eventually return
@@ -116,6 +113,5 @@ namespace Sawmill
                 return value;
             }
         }
-#endif
     }
 }

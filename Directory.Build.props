@@ -9,7 +9,7 @@
         <RepositoryUrl>https://github.com/benjamin-hodgson/Sawmill.git</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-        <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -22,6 +22,7 @@
 
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <NoWarn>$(NoWarn);NU1507</NoWarn>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>

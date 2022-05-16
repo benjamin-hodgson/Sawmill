@@ -1,7 +1,5 @@
 using System;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -73,7 +71,6 @@ namespace Sawmill
                 => Transformer(value);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         /// <summary>
         /// Rebuild a tree by applying an asynchronous transformation function to every node from bottom to top.
         /// </summary>
@@ -140,6 +137,5 @@ namespace Sawmill
             protected virtual ValueTask<T> Transform(T value)
                 => Transformer(value);
         }
-#endif
     }
 }

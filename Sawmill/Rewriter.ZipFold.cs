@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -97,7 +95,6 @@ namespace Sawmill
             return Go(values);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         /// <summary>
         /// Flatten all of the nodes in the trees represented by <paramref name="values"/>
         /// into a single value at the same time, using an aggregation function to combine
@@ -188,6 +185,5 @@ namespace Sawmill
 
             return Go(values);
         }
-#endif
     }
 }

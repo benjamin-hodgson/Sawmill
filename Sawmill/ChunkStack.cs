@@ -6,11 +6,7 @@ namespace Sawmill
     internal struct ChunkStack<T>
     {
         private static readonly bool _needsClear =
-#if NETSTANDARD21
             System.Runtime.CompilerServices.RuntimeHelpers.IsReferenceOrContainsReferences<T>();
-#else
-            !typeof(T).IsPrimitive;
-#endif
 
         private Region _topRegion;
         private Region[]? _regions;

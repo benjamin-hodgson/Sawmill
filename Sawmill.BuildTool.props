@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <IsPackable>false</IsPackable>
-        <TargetFrameworks>net6.0</TargetFrameworks>
+        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
         <NoWarn>$(NoWarn);CS1591</NoWarn>

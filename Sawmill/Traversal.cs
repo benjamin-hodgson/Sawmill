@@ -1,7 +1,5 @@
 using System;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -27,7 +25,6 @@ namespace Sawmill
             _chunks = default;
         }
     }
-#if NETSTANDARD2_1_OR_GREATER
     internal abstract class AsyncTraversal<T> : IDisposable
     {
         private readonly Box<ChunkStack<T>> _chunks = new Box<ChunkStack<T>>(new ChunkStack<T>());
@@ -50,5 +47,4 @@ namespace Sawmill
             _chunks.Value = default;
         }
     }
-#endif
 }

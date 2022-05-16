@@ -1,7 +1,5 @@
 using System;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -64,7 +62,6 @@ namespace Sawmill
             ref chunks
         );
 
-#if NETSTANDARD2_1_OR_GREATER
         /// <summary>
         /// Update the immediate children of the value by applying an asynchronous transformation function to each one.
         /// </summary>
@@ -126,6 +123,5 @@ namespace Sawmill
             value,
             chunks
         );
-#endif
     }
 }

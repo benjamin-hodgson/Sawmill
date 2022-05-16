@@ -1,9 +1,7 @@
-#if NETSTANDARD2_1_OR_GREATER
 using System;
 using System.Threading.Tasks;
 
 using FixedSizeBuffers;
-#endif
 
 
 namespace Sawmill
@@ -18,12 +16,10 @@ namespace Sawmill
         )
         {
             var count = rewriter.CountChildren(value);
-#if NETSTANDARD2_1_OR_GREATER
             if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, value, count);
             }
-#endif
 
             var span = chunks.Allocate(count);
 
@@ -43,12 +39,10 @@ namespace Sawmill
         )
         {
             var count = rewriter.CountChildren(value);
-#if NETSTANDARD2_1_OR_GREATER
             if (count <= 4)
             {
                 return WithChildren_Fast(rewriter, action, ctx, value, count);
             }
-#endif
 
             var span = chunks.Allocate(count);
 
@@ -59,7 +53,6 @@ namespace Sawmill
             return result;
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         internal static async ValueTask<R> WithChildren<T, R>(
             this IRewriter<T> rewriter,
             Func<Memory<T>, ValueTask<R>> action,
@@ -94,9 +87,7 @@ namespace Sawmill
             childrenChunks.Value.Free(memory);
             return result;
         }
-#endif
 
-#if NETSTANDARD2_1_OR_GREATER
         private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
         {
             var buffer = new FixedSizeBuffer4<T>();
@@ -120,6 +111,5 @@ namespace Sawmill
             buffer.Dispose();
             return result;
         }
-#endif
     }
 }

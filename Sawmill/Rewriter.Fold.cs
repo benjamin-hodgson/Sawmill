@@ -1,7 +1,5 @@
 using System;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -71,7 +69,6 @@ namespace Sawmill
             }
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         /// <summary>
         /// Flattens all the nodes in the tree represented by <paramref name="value"/> into a single result,
         /// using an asynchronous aggregation function to combine each node with the results of folding its children.
@@ -137,6 +134,5 @@ namespace Sawmill
                 base.Dispose();
             }
         }
-#endif
     }
 }

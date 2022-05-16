@@ -1,4 +1,3 @@
-#if NETSTANDARD2_1_OR_GREATER
 namespace Sawmill
 {
     internal class Box<T> where T : struct
@@ -11,4 +10,3 @@ namespace Sawmill
         }
     }
 }
-#endif

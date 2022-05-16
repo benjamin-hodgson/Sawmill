@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill
 {
@@ -101,7 +99,6 @@ namespace Sawmill
             return cursor.Focus;
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         /// <summary>
         /// Apply an asynchronous function at a particular location in <paramref name="value"/>
         /// </summary>
@@ -137,6 +134,5 @@ namespace Sawmill
             cursor.Top();
             return cursor.Focus;
         }
-#endif
     }
 }

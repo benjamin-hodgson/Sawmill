@@ -1,9 +1,7 @@
 #region GeneratedCode
 using System;
 using System.Collections.Generic;
-#if NETSTANDARD2_1_OR_GREATER
 using System.Threading.Tasks;
-#endif
 
 namespace Sawmill.Expressions
 {
@@ -355,7 +353,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.RewriteDescendantAt(path, transformer, value);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.RewriteDescendantAt``1(Sawmill.IRewriter{``0},System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
         /// <summary>
         ///     Apply an asynchronous function at a particular location in <paramref name="value" /></summary>
@@ -382,7 +379,6 @@ namespace Sawmill.Expressions
             
             return ExpressionRewriter.Instance.RewriteDescendantAt(path, transformer, value);
         }
-#endif
 
         //!pastedoc M:Sawmill.Rewriter.Cursor``1(Sawmill.IRewriter{``0},``0)
         /// <summary>
@@ -413,7 +409,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.Fold(func, value);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewritable.Fold``2(``0,System.Func{System.Memory{``1},``0,System.Threading.Tasks.ValueTask{``1}})
         /// <summary>
         ///         Flattens all the nodes in the tree represented by <paramref name="value" /> into a single result,
@@ -433,7 +428,6 @@ namespace Sawmill.Expressions
             }
             return ExpressionRewriter.Instance.Fold(func, value);
         }
-#endif
 
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1},``0[])
         /// <summary>
@@ -486,7 +480,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.ZipFold(func, values);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}},``0[])
         /// <summary>
         ///     Flatten all of the nodes in the trees represented by <paramref name="values" />
@@ -540,7 +533,6 @@ namespace Sawmill.Expressions
 
             return ExpressionRewriter.Instance.ZipFold(func, values);
         }
-#endif
 
         #pragma warning disable CS1734, CS1572, CS1573
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IEnumerable{``1},``1},``0[])
@@ -591,7 +583,6 @@ namespace Sawmill.Expressions
         }
         #pragma warning restore CS1734, CS1572, CS1573
 
-#if NETSTANDARD2_1_OR_GREATER
         #pragma warning disable CS1734, CS1572, CS1573
         //!pastedoc M:Sawmill.Rewriter.ZipFold``2(Sawmill.IRewriter{``0},System.Func{``0[],System.Collections.Generic.IAsyncEnumerable{``1},System.Threading.Tasks.ValueTask{``1}},``0[])
         /// <summary>
@@ -643,7 +634,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.ZipFold<System.Linq.Expressions.Expression, U>((xs, cs) => func(xs[0], xs[1], cs), new[] { value1, value2 });
         }
         #pragma warning restore CS1734, CS1572, CS1573
-#endif
 
         //!pastedoc M:Sawmill.Rewriter.Rewrite``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
         /// <summary>
@@ -687,7 +677,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.Rewrite(transformer, value);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.Rewrite``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
         /// <summary>
         ///     Rebuild a tree by applying an asynchronous transformation function to every node from bottom to top.
@@ -730,7 +719,6 @@ namespace Sawmill.Expressions
             }
             return ExpressionRewriter.Instance.Rewrite(transformer, value);
         }
-#endif
         
         //!pastedoc M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
         /// <summary>
@@ -749,7 +737,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.RewriteChildren(transformer, value);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.RewriteChildren``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
         /// <summary>
         ///     Update the immediate children of the value by applying an asynchronous transformation function to each one.
@@ -767,7 +754,6 @@ namespace Sawmill.Expressions
             }
             return ExpressionRewriter.Instance.RewriteChildren(transformer, value);
         }
-#endif
         
         //!pastedoc M:Sawmill.Rewriter.RewriteIter``1(Sawmill.IRewriter{``0},System.Func{``0,``0},``0)
         /// <summary>
@@ -797,7 +783,6 @@ namespace Sawmill.Expressions
             return ExpressionRewriter.Instance.RewriteIter(transformer, value);
         }
 
-#if NETSTANDARD2_1_OR_GREATER
         //!pastedoc M:Sawmill.Rewriter.RewriteIter``1(Sawmill.IRewriter{``0},System.Func{``0,System.Threading.Tasks.ValueTask{``0}},``0)
         /// <summary>
         ///     Rebuild a tree by repeatedly applying an asynchronous transformation function to every node in the tree,
@@ -826,7 +811,6 @@ namespace Sawmill.Expressions
             }
             return ExpressionRewriter.Instance.RewriteIter(transformer, value);
         }
-#endif
     }
 }
 #endregion
