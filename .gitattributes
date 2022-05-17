@@ -6,3 +6,5 @@
 *.csx      text diff=csharp
 *.sln      text eol=crlf merge=union
 *.csproj   text merge=union
+
+*.Generated.cs linguist-generated=true
