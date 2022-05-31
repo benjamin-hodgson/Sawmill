@@ -147,8 +147,8 @@ string Compile(Expr expr)
         {
             Lit l => "PUSH " + l.Value + ";",
             Var v => "LOAD " + v.Name + ";",
-            Add a => children.First + children.Second + "ADD;",
-            Neg n => children.First + "NEGATE;",
+            Add a => children[0] + children[1] + "ADD;",
+            Neg n => children[0] + "NEGATE;",
             _ => throw new ArgumentOutOfRangeException(nameof(n))
         }
     );
