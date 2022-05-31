@@ -143,21 +143,13 @@ Here's an example of compiling our expression tree into code for a hypothetical 
 ```csharp
 string Compile(Expr expr)
     => expr.Fold<Expr, string>(
-        (n, children) =>
+        (n, children) => n switch
         {
-            switch (n)
-            {
-                case Lit l:
-                    return "PUSH " + l.Value + ";";
-                case Var v:
-                    return "LOAD " + v.Name + ";";
-                case Add a:
-                    return children.First + children.Second + "ADD;";
-                case Neg n:
-                    return children.First + "NEGATE;";
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(n));
-            }
+            Lit l => "PUSH " + l.Value + ";",
+            Var v => "LOAD " + v.Name + ";",
+            Add a => children.First + children.Second + "ADD;",
+            Neg n => children.First + "NEGATE;",
+            _ => throw new ArgumentOutOfRangeException(nameof(n))
         }
     );
 ```
