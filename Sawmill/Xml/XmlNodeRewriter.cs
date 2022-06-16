@@ -36,7 +36,7 @@ namespace Sawmill.Xml
             }
             for (var i = 0; i < value.ChildNodes.Count; i++)
             {
-                childrenReceiver[i] = value.ChildNodes[i];
+                childrenReceiver[i] = value.ChildNodes[i]!;
             }
         }
 
@@ -53,9 +53,13 @@ namespace Sawmill.Xml
             var oldAttrs = value.Attributes;
             var clone = value.Clone();
             clone.RemoveAll();
-            foreach (XmlAttribute? attr in oldAttrs)
+            if (oldAttrs != null)
             {
-                clone.Attributes.Append((XmlAttribute)attr!.Clone());
+                foreach (XmlAttribute? attr in oldAttrs)
+                {
+                    // can't be null
+                    clone.Attributes!.Append((XmlAttribute)attr!.Clone());
+                }
             }
             foreach (var newChild in newChildren)
             {

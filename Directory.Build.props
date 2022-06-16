@@ -9,9 +9,8 @@
         <RepositoryUrl>https://github.com/benjamin-hodgson/Sawmill.git</RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
         
         <IncludeSymbols>true</IncludeSymbols>

@@ -162,7 +162,7 @@ namespace Sawmill
                     // i += Enumerable.Count(node.Children);
 
                     var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
-                    var enumerable = Expression.Property(nodeLocal, property);
+                    var enumerable = Expression.Property(nodeLocal, property!);
                     stmts.Add(Expression.AddAssign(countLocal, Expression.Call(_enumerable_Count, enumerable)));
                 }
                 else
@@ -211,7 +211,7 @@ namespace Sawmill
                     // children[i] = node.Child;
                     // i++;
                     var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
-                    stmts.Add(Expression.Call(_assignSpanElement, childrenParam, indexLocal, Expression.Property(nodeLocal, property)));
+                    stmts.Add(Expression.Call(_assignSpanElement, childrenParam, indexLocal, Expression.Property(nodeLocal, property!)));
                     stmts.Add(Expression.Assign(indexLocal, Expression.Increment(indexLocal)));
                 }
                 else if (ImplementsIEnumerableT(ctorParam.ParameterType))
@@ -231,7 +231,7 @@ namespace Sawmill
                     // }
 
                     var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
-                    var enumerable = Expression.Property(nodeLocal, property);
+                    var enumerable = Expression.Property(nodeLocal, property!);
                     stmts.Add(Expression.Assign(enumeratorLocal, Expression.Call(enumerable, _iEnumerable_GetEnumerator)));
 
                     var breakLbl = Expression.Label();
@@ -324,7 +324,7 @@ namespace Sawmill
                                 x.local,
                                 Expression.Call(
                                     _enumerableRebuilders[x.param.ParameterType],
-                                    Expression.Property(nodeLocal, nodeType.GetProperty(ParamNameToPropName(x.param.Name!))),
+                                    Expression.Property(nodeLocal, nodeType.GetProperty(ParamNameToPropName(x.param.Name!))!),
                                     childrenParam
                                 )
                             ),
@@ -347,14 +347,14 @@ namespace Sawmill
         private static string ParamNameToPropName(string paramName)
             => char.ToUpper(paramName[0], CultureInfo.InvariantCulture) + paramName[1..];
 
-        private static ConstructorInfo GetBestConstructor(Type nodeType)
+        private static ConstructorInfo? GetBestConstructor(Type nodeType)
             => nodeType
                 .GetConstructors()
                 .OrderByDescending(c => c.GetParameters().Length)
                 .FirstOrDefault();
 
         private static Expression AccessNodeProperty(Expression expression, Type nodeType, ParameterInfo ctorParam)
-            => Expression.Property(expression, nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!)));
+            => Expression.Property(expression, nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!))!);
 
         private static Expression CallNodeCtor(ConstructorInfo ctor, ParameterExpression nodeParam, IList<Expression> childrenExprs, Type nodeType)
             => Expression.New(ctor, NodeCtorArgs(nodeParam, ctor.GetParameters(), childrenExprs, nodeType));

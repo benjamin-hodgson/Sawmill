@@ -9,7 +9,7 @@ namespace Sawmill.Expressions
 
         private static void GetChildren(Span<Expression> children, IndexExpression index)
         {
-            children[0] = index.Object;
+            children[0] = index.Object!;  // it's declared as nullable but the declaration is wrong, I think
             Copy(index.Arguments, children[1..]);
         }
 

@@ -11,7 +11,7 @@ namespace Sawmill.Expressions
 
         private static void GetChildren(Span<Expression> children, MemberExpression m)
         {
-            children[0] = m.Expression;
+            children[0] = m.Expression!;  // it's declared as nullable but the declaration is wrong, I think
         }
 
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MemberExpression m)

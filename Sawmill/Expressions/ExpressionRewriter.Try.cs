@@ -9,7 +9,11 @@ namespace Sawmill.Expressions
     public partial class ExpressionRewriter
     {
         [SuppressMessage("Style", "IDE0060", Justification = "Used by overload resolution")]
-        private static int CountChildren(TryExpression t) => t.Handlers.Count * 2 + 3;
+        private static int CountChildren(TryExpression t)
+            => 1
+                + t.Handlers.Sum(h => h.Filter == null ? 1 : 2)
+                + (t.Finally == null ? 0 : 1)
+                + (t.Fault == null ? 0 : 1);
 
         private static void GetChildren(Span<Expression> children, TryExpression t)
         {
@@ -19,14 +23,23 @@ namespace Sawmill.Expressions
 
             foreach (var h in t.Handlers)
             {
-                children[i] = h.Filter;
-                i++;
+                if (h.Filter != null)
+                {
+                    children[i] = h.Filter;
+                    i++;
+                }
                 children[i] = h.Body;
                 i++;
             }
-            children[i] = t.Finally;
-            i++;
-            children[i] = t.Fault;
+            if (t.Finally != null)
+            {
+                children[i] = t.Finally;
+                i++;
+            }
+            if (t.Fault != null)
+            {
+                children[i] = t.Fault;
+            }
         }
 
         private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, TryExpression t)
@@ -36,8 +49,9 @@ namespace Sawmill.Expressions
                 var newCatchBlocks = new List<CatchBlock>(oldCatchBlocks.Count());
                 foreach (var oldCatchBlock in oldCatchBlocks)
                 {
-                    newCatchBlocks.Add(oldCatchBlock.Update(oldCatchBlock.Variable, c[0], c[1]));
-                    c = c[2..];
+                    var (filter, body, i) = oldCatchBlock.Filter == null ? (null, c[0], 1) : (c[0], c[1], 2);
+                    newCatchBlocks.Add(oldCatchBlock.Update(oldCatchBlock.Variable, filter, body));
+                    c = c[i..];
                 }
                 return new CatchBlockUpdateResult(newCatchBlocks, c);
             }
