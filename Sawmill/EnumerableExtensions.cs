@@ -1,20 +1,19 @@
 using System.Collections.Immutable;
 using System.Runtime.CompilerServices;
 
-namespace Sawmill
+namespace Sawmill;
+
+internal static class EnumerableExtensions
 {
-    internal static class EnumerableExtensions
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ImmutableArray<T> ToImmutableAndClear<T>(this ImmutableArray<T>.Builder builder)
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ImmutableArray<T> ToImmutableAndClear<T>(this ImmutableArray<T>.Builder builder)
+        if (builder.Count == builder.Capacity)
         {
-            if (builder.Count == builder.Capacity)
-            {
-                return builder.MoveToImmutable();
-            }
-            var immutable = builder.ToImmutable();
-            builder.Clear();
-            return immutable;
+            return builder.MoveToImmutable();
         }
+        var immutable = builder.ToImmutable();
+        builder.Clear();
+        return immutable;
     }
 }
