@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class XElementExtensions
      | Sawmill ">
-      <meta name="generator" content="docfx 2.56.7.0">
+      <meta name="generator" content="docfx 2.59.2.0">
     
       
       <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -184,7 +184,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
 </p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang-csharp hljs">public static ValueTuple&lt;XElement, Func&lt;XElement, XElement&gt;&gt;[] ChildrenInContext(this XElement value)</code></pre>
+                    <pre><code class="lang-csharp hljs">public static (XElement, Func&lt;XElement, XElement&gt;)[] ChildrenInContext(this XElement value)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -215,7 +215,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;[]</p></td>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;[]</p></td>
                                     <td></td>
                                 </tr>
                             </tbody>
@@ -526,7 +526,7 @@ This is a depth-first post-order traversal.
 </p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;ValueTuple&lt;XElement, Func&lt;XElement, XElement&gt;&gt;&gt; DescendantsAndSelfInContext(this XElement value)</code></pre>
+                    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(XElement, Func&lt;XElement, XElement&gt;)&gt; DescendantsAndSelfInContext(this XElement value)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -557,7 +557,7 @@ This is a depth-first post-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
                                     <td></td>
                                 </tr>
                             </tbody>
@@ -1764,7 +1764,7 @@ This is a depth-first pre-order traversal.
 </p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;ValueTuple&lt;XElement, Func&lt;XElement, XElement&gt;&gt;&gt; SelfAndDescendantsInContext(this XElement value)</code></pre>
+                    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(XElement, Func&lt;XElement, XElement&gt;)&gt; SelfAndDescendantsInContext(this XElement value)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -1795,7 +1795,7 @@ This is a depth-first pre-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
                                     <td></td>
                                 </tr>
                             </tbody>
@@ -1828,7 +1828,7 @@ This is a breadth-first pre-order traversal.
 </p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;ValueTuple&lt;XElement, Func&lt;XElement, XElement&gt;&gt;&gt; SelfAndDescendantsInContextBreadthFirst(this XElement value)</code></pre>
+                    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(XElement, Func&lt;XElement, XElement&gt;)&gt; SelfAndDescendantsInContextBreadthFirst(this XElement value)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -1859,7 +1859,7 @@ This is a breadth-first pre-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
                                     <td></td>
                                 </tr>
                             </tbody>
