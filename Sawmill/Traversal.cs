@@ -1,3 +1,6 @@
+using System;
+using System.Threading.Tasks;
+
 namespace Sawmill;
 
 internal abstract class Traversal<T> : IDisposable

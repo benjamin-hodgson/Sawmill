@@ -6,5 +6,6 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="System.ValueTuple" />
     </ItemGroup>
 </Project>

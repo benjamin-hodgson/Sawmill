@@ -11,11 +11,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="coverlet.collector" />
-        <PackageReference Include="HtmlAgilityPack"  />
         <PackageReference Include="Microsoft.NET.Test.Sdk" />
         <PackageReference Include="System.Linq.Async" />
         <PackageReference Include="xunit" />
         <PackageReference Include="xunit.runner.visualstudio" />
+        <PackageReference Include="coverlet.collector" />
+        <PackageReference Include="HtmlAgilityPack"  />
+        <PackageReference Include="System.Collections.Immutable" />
     </ItemGroup>
 </Project>

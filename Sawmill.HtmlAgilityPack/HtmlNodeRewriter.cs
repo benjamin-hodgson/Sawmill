@@ -1,3 +1,5 @@
+using System;
+
 using HtmlAgilityPack;
 
 namespace Sawmill.HtmlAgilityPack;
