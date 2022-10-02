@@ -837,10 +837,10 @@ Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
 </td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Span</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</p></td>
                                     <td><p>childrenReceiver</p></td>
-                                    <td><p>A <span class="xref">System.Span&lt;&gt;</span> to copy <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children into.
-The <span class="xref">System.Span&lt;&gt;</span>&apos;s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length#system-span-1-length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
+                                    <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children into.
+The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length#system-span-1-length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -877,7 +877,7 @@ Assert.Equal(expected, array);</code></pre>
         
                 <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Span_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso"><a href="#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Span_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso">See Also</a></h5>
                 <div>
-                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren</a>(<span class="xref">System.Span</span>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;, T)</div>
                 </div>
                 
                 <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt_"></a>
@@ -1994,7 +1994,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td><p>The aggregation function</p>
 </td>
@@ -2040,7 +2040,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
         
         
                     <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks"><a href="#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <span class="xref">System.Collections.Generic.IAsyncEnumerable`1</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable&lt;T&gt;</a>.</p>
 </div>
         
                     <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____examples">Examples</h5>
@@ -2065,7 +2065,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
         
                 <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso"><a href="#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso">See Also</a></h5>
                 <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T[])</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T[])</div>
                 </div>
                 
                 <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold_"></a>
@@ -2207,7 +2207,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
 </td>
                                 </tr>
                                 <tr>
-                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>[], <span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td><p>The aggregation function</p>
 </td>
@@ -2253,7 +2253,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
         
         
                     <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks"><a href="#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <span class="xref">System.Collections.Generic.IAsyncEnumerable`1</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable&lt;T&gt;</a>.</p>
 </div>
         
                     <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____examples">Examples</h5>
@@ -2278,7 +2278,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
         
                 <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso"><a href="#Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso">See Also</a></h5>
                 <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T[])</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T[])</div>
                 </div>
                 
                 <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold_"></a>
