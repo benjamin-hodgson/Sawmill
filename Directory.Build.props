@@ -28,7 +28,7 @@
         <NoWarn>$(NoWarn);NU1507</NoWarn>
     </PropertyGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="'$(IsPackable.ToLower())' != 'false'">
         <PackageReference Include="Benjamin.Pizza.BuildScripts">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>build</IncludeAssets>
