@@ -12,6 +12,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
         
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -26,4 +27,11 @@
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <NoWarn>$(NoWarn);NU1507</NoWarn>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Benjamin.Pizza.BuildScripts">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>build</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 </Project>

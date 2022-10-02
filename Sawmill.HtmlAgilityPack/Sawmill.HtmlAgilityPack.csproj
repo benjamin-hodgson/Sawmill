@@ -5,6 +5,5 @@
 
     <ItemGroup>
         <PackageReference Include="HtmlAgilityPack" />
-        <PackageReference Include="System.Collections.Immutable" />
     </ItemGroup>
 </Project>

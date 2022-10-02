@@ -1,9 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
         <PackageReference Include="FixedSizeBuffers" />
-        <PackageReference Include="System.Buffers" />
-        <PackageReference Include="System.Collections.Immutable" />
-        <PackageReference Include="System.Memory" />
-        <PackageReference Include="System.ValueTuple" />
     </ItemGroup>
 </Project>
