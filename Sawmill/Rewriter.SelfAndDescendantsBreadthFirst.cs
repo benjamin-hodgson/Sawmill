@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Sawmill;
 
 public static partial class Rewriter

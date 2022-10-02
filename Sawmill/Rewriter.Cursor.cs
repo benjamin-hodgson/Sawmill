@@ -1,5 +1,3 @@
-using System;
-
 namespace Sawmill;
 
 public static partial class Rewriter
