@@ -1,0 +1,1586 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class VisualBasicSyntaxNodeExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class VisualBasicSyntaxNodeExtensions
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions">
+  
+  
+  <h1 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions" class="text-break">Class VisualBasicSyntaxNodeExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Extension methods for <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>s.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">VisualBasicSyntaxNodeExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Sawmill.Microsoft.CodeAnalysis.VisualBasic.html">Sawmill.Microsoft.CodeAnalysis.VisualBasic</a></h6>
+  <h6><strong>Assembly</strong>: Sawmill.Microsoft.CodeAnalysis.VisualBasic.dll</h6>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class VisualBasicSyntaxNodeExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ChildrenInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ChildrenInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L160">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ChildrenInContext_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ChildrenInContext*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ChildrenInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ChildrenInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">ChildrenInContext(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Returns an instance of <a class="xref" href="Sawmill.Children-1.html">Children&lt;T&gt;</a> containing each immediate child of
+<code data-dev-comment-type="paramref" class="paramref">value</code> paired with a function to replace the child.
+This is typically useful when you need to replace a node&apos;s children one at a time,
+such as during mutation testing.</p>
+<p><p>
+The replacement function can be seen as the &quot;context&quot; of the child; calling the
+function with a new child &quot;plugs the hole&quot; in the context.
+</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Children&lt;(VisualBasicSyntaxNode item, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; replace)&gt; ChildrenInContext(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to get the contexts for the immediate children</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ChildrenInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Cursor_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L286">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Cursor_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Cursor_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Cursor(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">Cursor(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Create a <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> focused on the root node of <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Cursor&lt;VisualBasicSyntaxNode&gt; Cursor(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The root node on which the newly created <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> should be focused</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.Cursor-1.html">Cursor</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><p>A <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> focused on the root node of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Cursor_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantAt_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L221">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantAt_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantAt_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantAt(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction})">DescendantAt(VisualBasicSyntaxNode, IEnumerable&lt;Direction&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns the descendant at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode DescendantAt(this VisualBasicSyntaxNode value, IEnumerable&lt;Direction&gt; path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rewritable tree type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The route to take to find the descendant</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>The descendant found by following the directions in <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantAt_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0_">DescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L104">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelf(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">DescendantsAndSelf(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;VisualBasicSyntaxNode&gt; DescendantsAndSelf(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to traverse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><p>An enumerable containing all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__examples">Examples</h5>
+  <pre><code>  Expr expr = new Add(
+      new Add(
+          new Lit(1),
+          new Lit(2)
+      ),
+      new Lit(3)
+  );
+  Expr[] expected = new[]
+      {
+          new Lit(1),
+          new Lit(2),
+          new Add(new Lit(1), new Lit(2)),
+          new Lit(3),
+          expr    
+      };
+  Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
+
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelf_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelfInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L192">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelfInContext_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelfInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.DescendantsAndSelfInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">DescendantsAndSelfInContext(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Yields each node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>
+paired with a function to replace the node, starting at the bottom.
+This is typically useful when you need to replace nodes one at a time,
+such as during mutation testing.</p>
+<p><p>
+The replacement function can be seen as the &quot;context&quot; of the node; calling the
+function with a new node &quot;plugs the hole&quot; in the context.
+</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(VisualBasicSyntaxNode item, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; replace)&gt; DescendantsAndSelfInContext(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to get the contexts for the descendants</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_DescendantsAndSelfInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children___0____0__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold%60%601(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSawmill.Children%7B%60%600%7D%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L298">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children___0____0__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Fold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{``0},``0})">Fold&lt;T&gt;(VisualBasicSyntaxNode, Func&lt;VisualBasicSyntaxNode, Children&lt;T&gt;, T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flattens all the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> into a single result,
+using an aggregation function to combine each node with the results of folding its children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Fold&lt;T&gt;(this VisualBasicSyntaxNode value, Func&lt;VisualBasicSyntaxNode, Children&lt;T&gt;, T&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to fold</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;, T&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The aggregation function</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The result of aggregating the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Fold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children___0____0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func___0_Sawmill_Children___1____1____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T, <a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;U&gt;, U&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L42">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.GetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">GetChildren(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Get the immediate children of the value.
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren">GetChildren()</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Children&lt;VisualBasicSyntaxNode&gt; GetChildren(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren(T)</a> returns the immediate children of the topmost node.
+<pre><code>Expr[] expected = new[]
+    {
+        new Add(
+            new Lit(1),
+            new Lit(2)
+        ),
+        new Lit(3)
+    };
+Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_GetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren</a>(T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt%60%601(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L243">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ReplaceDescendantAt``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">ReplaceDescendantAt&lt;T&gt;(VisualBasicSyntaxNode, IEnumerable&lt;Direction&gt;, VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Replaces the descendant at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode ReplaceDescendantAt&lt;T&gt;(this VisualBasicSyntaxNode value, IEnumerable&lt;Direction&gt; path, VisualBasicSyntaxNode newDescendant)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rewritable tree type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The route to take to find the descendant</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">newDescendant</span></td>
+        <td><p>The replacement descendant</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with <code data-dev-comment-type="paramref" class="paramref">newDescendant</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ReplaceDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0___0_">ReplaceDescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, T, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L438">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.Rewrite(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})">Rewrite(VisualBasicSyntaxNode, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Rebuild a tree by applying a transformation function to every node from bottom to top.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode Rewrite(this VisualBasicSyntaxNode value, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; transformer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to rewrite</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>The transformation function to apply to every node in the tree</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> replaces the leaves of the tree with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>,
+<p>then replaces their parents with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>, and so on.
+By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> has traversed the whole tree.</p>
+<pre><code>Expr expected = transformer(new Add(
+    transformer(new Add(
+        transformer(new Lit(1)),
+        transformer(new Lit(2))
+    )),
+    transformer(new Lit(3))
+));
+Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_Rewrite_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L485">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteChildren_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})">RewriteChildren(VisualBasicSyntaxNode, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Update the immediate children of the value by applying a transformation function to each one.
+<p>
+Implementations of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> can use <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>,
+or you can write your own.
+</p><p>
+NB: A hand-written implementation will not usually be faster
+than <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DefaultRewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">DefaultRewriteChildren&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a>.
+If your type has a fixed number of children, and that number is greater than two,
+you may see some performance improvements from implementing this method yourself.
+Be careful not to rebuild <code data-dev-comment-type="paramref" class="paramref">value</code> if none of the children have changed.
+</p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_RewriteChildren_System_Func__0__0__">RewriteChildren(Func&lt;T, T&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode RewriteChildren(this VisualBasicSyntaxNode value, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; transformer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren(Func&lt;T, T&gt;, T)</a> only affects the immediate children of the topmost node.
+<pre><code>Expr expected = new Add(
+    transformer(new Add(
+        new Lit(1),
+        new Lit(2)
+    )),
+    transformer(new Lit(3))
+);
+Assert.Equal(expected, rewriter.RewriteChildren(transformer, expr));</code></pre>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_RewriteChildren_System_Func__0__0___0_">RewriteChildren</a>(<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt%60%601(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Collections.Generic.IEnumerable%7BSawmill.Direction%7D%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L265">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteDescendantAt_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteDescendantAt``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{Sawmill.Direction},System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})">RewriteDescendantAt&lt;T&gt;(VisualBasicSyntaxNode, IEnumerable&lt;Direction&gt;, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Apply a function at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode RewriteDescendantAt&lt;T&gt;(this VisualBasicSyntaxNode value, IEnumerable&lt;Direction&gt; path, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; transformer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rewritable tree type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The route to take to find the descendant</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>A function to calculate a replacement for the descendant</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteDescendantAt__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0____0_">RewriteDescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteIter_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L513">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteIter_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteIter_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.RewriteIter(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})">RewriteIter(VisualBasicSyntaxNode, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Rebuild a tree by repeatedly applying a transformation function to every node in the tree,
+until a fixed point is reached. <code data-dev-comment-type="paramref" class="paramref">transformer</code> should always eventually return
+its argument unchanged, or this method will loop.
+That is, <code>x.RewriteIter(transformer).SelfAndDescendants().All(x =&gt; transformer(x) == x)</code>.
+<p>
+This is typically useful when you want to put your tree into a normal form
+by applying a collection of rewrite rules until none of them can fire any more.
+</p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode RewriteIter(this VisualBasicSyntaxNode value, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; transformer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to rewrite</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><span class="parametername">transformer</span></td>
+        <td><p>A transformation function to apply to every node in <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree
+represented by <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly until a fixed point is reached.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_RewriteIter_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteIter&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendants_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendants(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L134">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendants_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendants*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendants_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendants(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">SelfAndDescendants(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;VisualBasicSyntaxNode&gt; SelfAndDescendants(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to traverse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><p>An enumerable containing all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendants_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__examples">Examples</h5>
+  <pre><code>  Expr expr = new Add(
+      new Add(
+          new Lit(1),
+          new Lit(2)
+      ),
+      new Lit(3)
+  );
+  Expr[] expected = new[]
+      {
+          expr,
+          new Add(new Lit(1), new Lit(2)),
+          new Lit(1),
+          new Lit(2),
+          new Lit(3),
+      };
+  Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
+
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendants_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsBreadthFirst_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L144">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsBreadthFirst_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsBreadthFirst_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsBreadthFirst(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">SelfAndDescendantsBreadthFirst(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> in a breadth-first traversal order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;VisualBasicSyntaxNode&gt; SelfAndDescendantsBreadthFirst(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to traverse</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><p>An enumerable containing all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> in a breadth-first traversal order.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsBreadthFirst_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsBreadthFirst&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L176">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContext_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContext(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">SelfAndDescendantsInContext(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Yields each node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>
+paired with a function to replace the node, starting at the top.
+This is typically useful when you need to replace nodes one at a time,
+such as during mutation testing.</p>
+<p><p>
+The replacement function can be seen as the &quot;context&quot; of the node; calling the
+function with a new node &quot;plugs the hole&quot; in the context.
+</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(VisualBasicSyntaxNode item, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; replace)&gt; SelfAndDescendantsInContext(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to get the contexts for the descendants</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContext_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContextBreadthFirst_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L208">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContextBreadthFirst_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContextBreadthFirst_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SelfAndDescendantsInContextBreadthFirst(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode)">SelfAndDescendantsInContextBreadthFirst(VisualBasicSyntaxNode)</h4>
+  <div class="markdown level1 summary"><p>Yields each node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>
+paired with a function to replace the node, in a breadth-first traversal order.
+This is typically useful when you need to replace nodes one at a time,
+such as during mutation testing.</p>
+<p><p>
+The replacement function can be seen as the &quot;context&quot; of the node; calling the
+function with a new node &quot;plugs the hole&quot; in the context.
+</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(VisualBasicSyntaxNode item, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode&gt; replace)&gt; SelfAndDescendantsInContextBreadthFirst(this VisualBasicSyntaxNode value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to get the contexts for the descendants</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SelfAndDescendantsInContextBreadthFirst_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContextBreadthFirst&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSawmill.Children%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L74">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.SetChildren(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Sawmill.Children{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode})">SetChildren(VisualBasicSyntaxNode, Children&lt;VisualBasicSyntaxNode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Set the immediate children of the value.
+<p>
+Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
+<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren__0_">GetChildren(T)</a>.
+</p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_Sawmill_Children__0__">SetChildren(Children&lt;T&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VisualBasicSyntaxNode SetChildren(this VisualBasicSyntaxNode value, Children&lt;VisualBasicSyntaxNode&gt; newChildren)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The old value, whose immediate children should be replaced</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>&gt;</td>
+        <td><span class="parametername">newChildren</span></td>
+        <td><p>The new children</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___examples">Examples</h5>
+  <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+<pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_Sawmill_Children__0___0_">SetChildren(Children&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.
+<pre><code>Expr expected = new Add(
+    new Lit(4),
+    new Lit(5)
+);
+Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5)), expr));</code></pre>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_SetChildren_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Sawmill_Children_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_Sawmill_Children__0___0_">SetChildren</a>(<a class="xref" href="Sawmill.Children-1.html">Children</a>&lt;T&gt;, T)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable___0____0__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold%60%601(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L394">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable___0____0__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode,System.Collections.Generic.IEnumerable{``0},``0})">ZipFold&lt;U&gt;(VisualBasicSyntaxNode, VisualBasicSyntaxNode, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode, IEnumerable&lt;U&gt;, U&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
+into a single value at the same time, using an aggregation function to combine
+nodes with the results of aggregating their children.
+The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#System_Linq_Enumerable_Zip__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___1___2__">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
+<p>When trees are not the same size, the larger ones are
+truncated both horizontally and vertically.
+That is, if a pair of nodes have a different number of children,
+the rightmost children of the larger of the two nodes are discarded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static U ZipFold&lt;U&gt;(this VisualBasicSyntaxNode value1, VisualBasicSyntaxNode value2, Func&lt;VisualBasicSyntaxNode, VisualBasicSyntaxNode, IEnumerable&lt;U&gt;, U&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The aggregation function</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">U</span></td>
+        <td><p>The result of aggregating the two trees</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">U</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable___0____0___examples">Examples</h5>
+  <p>Here&apos;s an example of using <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;, T[])</a> to test if two trees are syntactically equal.</p>
+<pre><code>static bool Equals(this Expr left, Expr right)
+    => left.ZipFold&lt;Expr, bool>(
+        right,
+        (xs, results) =>
+        {
+            switch (xs[0])
+            {
+                case Add a1 when xs[1] is Add a2:
+                    return results.All(x => x);
+                case Lit l1 when xs[1] is Lit l2:
+                    return l1.Value == l2.Value;
+                default:
+                    return false;
+            }
+        }
+    );</code></pre>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode_System_Collections_Generic_IEnumerable___0____0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;, T[])</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IEnumerable___0____0__.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold%60%601(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%5B%5D%2CSystem.Func%7BMicrosoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode%5B%5D%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L343">View Source</a>
+  </span>
+  <a id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold_" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold*"></a>
+  <h4 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IEnumerable___0____0__" data-uid="Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.ZipFold``1(Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode[],System.Func{Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode[],System.Collections.Generic.IEnumerable{``0},``0})">ZipFold&lt;U&gt;(VisualBasicSyntaxNode[], Func&lt;VisualBasicSyntaxNode[], IEnumerable&lt;U&gt;, U&gt;)</h4>
+  <div class="markdown level1 summary"><p>Flatten all of the nodes in the trees represented by <code data-dev-comment-type="paramref" class="paramref">values</code>
+into a single value at the same time, using an aggregation function to combine
+nodes with the results of aggregating their children.
+The trees are iterated in lock-step, much like an n-ary <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.enumerable.zip#System_Linq_Enumerable_Zip__3_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___1___2__">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
+<p>When trees are not the same size, the larger ones are
+truncated both horizontally and vertically.
+That is, if a pair of nodes have a different number of children,
+the rightmost children of the larger of the two nodes are discarded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static U ZipFold&lt;U&gt;(this VisualBasicSyntaxNode[] values, Func&lt;VisualBasicSyntaxNode[], IEnumerable&lt;U&gt;, U&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>[]</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>The trees to fold</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.visualbasic.visualbasicsyntaxnode">VisualBasicSyntaxNode</a>[], <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The aggregation function</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">U</span></td>
+        <td><p>The result of aggregating the two trees</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">U</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IEnumerable___0____0___examples">Examples</h5>
+  <p>Here&apos;s an example of using <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;(IRewriter&lt;T&gt;, Func&lt;T[], IEnumerable&lt;U&gt;, U&gt;, T[])</a> to test if two trees are syntactically equal.</p>
+<pre><code>static bool Equals(this Expr left, Expr right)
+    => left.ZipFold&lt;Expr, bool>(
+        right,
+        (xs, results) =>
+        {
+            switch (xs[0])
+            {
+                case Add a1 when xs[1] is Add a2:
+                    return results.All(x => x);
+                case Lit l1 when xs[1] is Lit l2:
+                    return l1.Value == l2.Value;
+                default:
+                    return false;
+            }
+        }
+    );</code></pre>
+  <h5 id="Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions_ZipFold__1_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Func_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNode___System_Collections_Generic_IEnumerable___0____0___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;, T[])</div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/new/v2.2.1/apiSpec/new?filename=Sawmill_Microsoft_CodeAnalysis_VisualBasic_VisualBasicSyntaxNodeExtensions.md&amp;value=---%0Auid%3A%20Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/benjamin-hodgson/Sawmill/blob/v2.2.1/Sawmill.Microsoft.CodeAnalysis.VisualBasic/VisualBasicSyntaxNodeExtensions.Generated.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
