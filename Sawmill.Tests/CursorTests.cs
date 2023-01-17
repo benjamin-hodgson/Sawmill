@@ -230,6 +230,7 @@ public class CursorTests
 
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -240,6 +241,7 @@ public class CursorTests
             Assert.True(success);
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -247,6 +249,7 @@ public class CursorTests
 
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -254,6 +257,7 @@ public class CursorTests
 
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -273,6 +277,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(3, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -282,6 +287,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(3, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -290,6 +296,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(3, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -298,6 +305,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(3, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -318,6 +326,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(4, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -328,6 +337,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(4, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -337,6 +347,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(4, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -346,6 +357,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(4, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -366,6 +378,7 @@ public class CursorTests
 
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -376,6 +389,7 @@ public class CursorTests
             Assert.True(success);
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -385,6 +399,7 @@ public class CursorTests
 
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -394,6 +409,7 @@ public class CursorTests
 
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -413,6 +429,7 @@ public class CursorTests
 
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -422,6 +439,7 @@ public class CursorTests
             Assert.True(success);
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -429,6 +447,7 @@ public class CursorTests
             Assert.Throws<InvalidOperationException>(() => cursor.UpWhile(e => true));
             Assert.Same(_expr, cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -450,6 +469,7 @@ public class CursorTests
 
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -458,12 +478,14 @@ public class CursorTests
             Assert.True(success);
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
             Assert.Throws<InvalidOperationException>(() => cursor.DownWhile(e => true));
             Assert.IsType<Lit>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
 
@@ -485,6 +507,7 @@ public class CursorTests
 
             Assert.IsType<Lit>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -494,6 +517,7 @@ public class CursorTests
             Assert.True(success);
             Assert.IsType<Lit>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -501,6 +525,7 @@ public class CursorTests
             Assert.Throws<InvalidOperationException>(() => cursor.RightWhile(e => true));
             Assert.IsType<Lit>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -524,6 +549,7 @@ public class CursorTests
 
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -534,6 +560,7 @@ public class CursorTests
             Assert.True(success);
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -542,6 +569,7 @@ public class CursorTests
             Assert.Throws<InvalidOperationException>(() => cursor.LeftWhile(e => true));
             Assert.IsType<Neg>(cursor.Focus);
         }
+
         {
             var cursor = _expr.Cursor();
             cursor.Down();
@@ -603,6 +631,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(3, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
             var success = cursor.SearchDownAndRight(n => false);
@@ -623,6 +652,7 @@ public class CursorTests
             var lit = Assert.IsType<Lit>(cursor.Focus);
             Assert.Equal(4, lit.Value);
         }
+
         {
             var cursor = _expr.Cursor();
             var success = cursor.SearchRightAndDown(n => false);

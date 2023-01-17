@@ -10,32 +10,42 @@ namespace Sawmill.HtmlAgilityPack;
 public class HtmlNodeRewriter : IRewriter<HtmlNode>
 {
     /// <summary>
-    /// Create a new instance of <see cref="HtmlNodeRewriter"/>
+    /// Create a new instance of <see cref="HtmlNodeRewriter"/>.
     /// </summary>
-    protected HtmlNodeRewriter() { }
+    protected HtmlNodeRewriter()
+    {
+    }
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
     /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns><paramref name="value"/>'s number of immediate children.</returns>
     public int CountChildren(HtmlNode value)
     {
         if (value == null)
         {
             throw new ArgumentNullException(nameof(value));
         }
+
         return value.ChildNodes.Count;
     }
-
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
     /// </summary>
+    /// <param name="childrenReceiver">
+    /// A <see cref="Span{T}"/> to copy <paramref name="value"/>'s immediate children into.
+    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren"/>.
+    /// </param>
+    /// <param name="value">The value.</param>
     public void GetChildren(Span<HtmlNode> childrenReceiver, HtmlNode value)
     {
         if (value == null)
         {
             throw new ArgumentNullException(nameof(value));
         }
+
         for (var i = 0; i < value.ChildNodes.Count; i++)
         {
             childrenReceiver[i] = value.ChildNodes[i];
@@ -45,18 +55,23 @@ public class HtmlNodeRewriter : IRewriter<HtmlNode>
     /// <summary>
     /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
     /// </summary>
+    /// <param name="newChildren">The new children.</param>
+    /// <param name="value">The old value, whose immediate children should be replaced.</param>
+    /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
     public HtmlNode SetChildren(ReadOnlySpan<HtmlNode> newChildren, HtmlNode value)
     {
         if (value == null)
         {
             throw new ArgumentNullException(nameof(value));
         }
+
         var clone = value.Clone();
         clone.ChildNodes.Clear();
         foreach (var child in newChildren)
         {
             clone.ChildNodes.Add(child);
         }
+
         return clone;
     }
 

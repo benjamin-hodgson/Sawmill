@@ -8,11 +8,11 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Yields all of the nodes in the tree represented by <paramref name="value"/>, starting at the bottom.
-    /// 
+    ///
     /// <para>
     /// This is a depth-first post-order traversal.
     /// </para>
-    /// 
+    ///
     /// <seealso cref="SelfAndDescendants"/>
     /// </summary>
     /// <example>
@@ -30,14 +30,14 @@ public static partial class Rewriter
     ///         new Lit(2),
     ///         new Add(new Lit(1), new Lit(2)),
     ///         new Lit(3),
-    ///         expr    
+    ///         expr
     ///     };
     /// Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="value">The value to traverse</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="value">The value to traverse.</param>
     /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value"/>, starting at the bottom.</returns>
     public static IEnumerable<T> DescendantsAndSelf<T>(this IRewriter<T> rewriter, T value)
     {
@@ -66,6 +66,7 @@ public static partial class Rewriter
 
                     enumerator = new DescendantsAndSelfFrame<T>(array, count);
                 }
+
                 enumerator.Dispose();
                 enumerator = stack.Pop();
                 yield return enumerator.Current;

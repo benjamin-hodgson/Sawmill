@@ -8,8 +8,8 @@ public static partial class Rewriter
     /// <summary>
     /// Update the immediate children of the value by applying a transformation function to each one.
     /// </summary>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
     /// <param name="transformer">A transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
     /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
     /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
@@ -19,12 +19,13 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (transformer == null)
         {
             throw new ArgumentNullException(nameof(transformer));
         }
 
-        var chunks = new ChunkStack<T>();
+        var chunks = default(ChunkStack<T>);
 
         var result = rewriter.RewriteChildrenInternal(transformer, value, ref chunks);
 
@@ -55,6 +56,7 @@ public static partial class Rewriter
             {
                 return r.SetChildren(children, v);
             }
+
             return v;
         },
         (rewriter, value, transformer),
@@ -65,8 +67,8 @@ public static partial class Rewriter
     /// <summary>
     /// Update the immediate children of the value by applying an asynchronous transformation function to each one.
     /// </summary>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
     /// <param name="transformer">An asynchronous transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
     /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
     /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
@@ -81,12 +83,13 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (transformer == null)
         {
             throw new ArgumentNullException(nameof(transformer));
         }
 
-        var chunks = new Box<ChunkStack<T>>(new ChunkStack<T>());
+        var chunks = new Box<ChunkStack<T>>();
 
         var result = await rewriter.RewriteChildrenInternal(transformer, value, chunks).ConfigureAwait(false);
 
@@ -117,6 +120,7 @@ public static partial class Rewriter
             {
                 return r.SetChildren(children.Span, v);
             }
+
             return v;
         },
         (rewriter, value, transformer),

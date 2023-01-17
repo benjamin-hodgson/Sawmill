@@ -4,7 +4,7 @@ namespace Sawmill;
 
 /// <summary>
 /// A rewriter is an object which knows how to access the immediate children of a value of type <typeparamref name="T"/>.
-/// 
+///
 /// <para>
 /// Implementations should ensure that you always get the children you just set
 /// (<c>rewriter.GetChildren(rewriter.SetChildren(children, expr)) == children</c>),
@@ -14,7 +14,7 @@ namespace Sawmill;
 ///
 /// <seealso cref="IRewritable{T}"/>.
 /// </summary>
-/// <typeparam name="T">The type for which the rewriter can get the immediate children</typeparam>
+/// <typeparam name="T">The type for which the rewriter can get the immediate children.</typeparam>
 public interface IRewriter<T>
 {
     /// <summary>
@@ -22,7 +22,7 @@ public interface IRewriter<T>
     /// <seealso cref="IRewritable{T}.CountChildren"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -37,8 +37,8 @@ public interface IRewriter<T>
     /// Assert.Equal(2, rewriter.CountChildren(expr));
     /// </code>
     /// </example>
-    /// <param name="value">The value</param>
-    /// <returns><paramref name="value"/>'s number of immediate children</returns>
+    /// <param name="value">The value.</param>
+    /// <returns><paramref name="value"/>'s number of immediate children.</returns>
     int CountChildren(T value);
 
     /// <summary>
@@ -46,7 +46,7 @@ public interface IRewriter<T>
     /// <seealso cref="IRewritable{T}.GetChildren"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -75,7 +75,7 @@ public interface IRewriter<T>
     /// A <see cref="Span{T}"/> to copy <paramref name="value"/>'s immediate children into.
     /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren"/>.
     /// </param>
-    /// <param name="value">The value</param>
+    /// <param name="value">The value.</param>
     void GetChildren(Span<T> childrenReceiver, T value);
 
     /// <summary>
@@ -87,7 +87,7 @@ public interface IRewriter<T>
     /// <seealso cref="IRewritable{T}.SetChildren(ReadOnlySpan{T})"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -106,8 +106,8 @@ public interface IRewriter<T>
     /// Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5)), expr));
     /// </code>
     /// </example>
-    /// <param name="newChildren">The new children</param>
-    /// <param name="value">The old value, whose immediate children should be replaced</param>
+    /// <param name="newChildren">The new children.</param>
+    /// <param name="value">The old value, whose immediate children should be replaced.</param>
     /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
     T SetChildren(ReadOnlySpan<T> newChildren, T value);
 }

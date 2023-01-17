@@ -26,6 +26,7 @@ public partial class ExpressionRewriter
                 newInits.Add(oldInit.Update(newArguments[..argCount].ToArray()));
                 newArguments = newArguments[argCount..];
             }
+
             return newInits;
         }
 

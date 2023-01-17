@@ -3,7 +3,9 @@ namespace Sawmill.Bench;
 public class TernTree : IRewritable<TernTree>
 {
     public TernTree? Left { get; }
+
     public TernTree? Middle { get; }
+
     public TernTree? Right { get; }
 
     public TernTree(TernTree? left, TernTree? middle, TernTree? right)
@@ -27,11 +29,13 @@ public class TernTree : IRewritable<TernTree>
             childrenReceiver[i] = Left;
             i++;
         }
+
         if (Middle != null)
         {
             childrenReceiver[i] = Middle;
             i++;
         }
+
         if (Right != null)
         {
             childrenReceiver[i] = Right;
@@ -52,17 +56,20 @@ public class TernTree : IRewritable<TernTree>
             left = newChildren[i];
             i++;
         }
+
         TernTree? middle = null;
         if (Middle != null)
         {
             middle = newChildren[i];
             i++;
         }
+
         TernTree? right = null;
         if (Right != null)
         {
             right = newChildren[i];
         }
+
         return new TernTree(left, middle, right);
     }
 }

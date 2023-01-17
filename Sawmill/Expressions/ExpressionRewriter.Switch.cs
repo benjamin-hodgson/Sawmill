@@ -36,6 +36,7 @@ public partial class ExpressionRewriter
                 c = c[1..];
                 newCases.Add(oldCase.Update(newTestValues.ToArray(), newBody));
             }
+
             return newCases;
         }
 

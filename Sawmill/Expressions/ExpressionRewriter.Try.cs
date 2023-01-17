@@ -28,14 +28,17 @@ public partial class ExpressionRewriter
                 children[i] = h.Filter;
                 i++;
             }
+
             children[i] = h.Body;
             i++;
         }
+
         if (t.Finally != null)
         {
             children[i] = t.Finally;
             i++;
         }
+
         if (t.Fault != null)
         {
             children[i] = t.Fault;
@@ -53,6 +56,7 @@ public partial class ExpressionRewriter
                 newCatchBlocks.Add(oldCatchBlock.Update(oldCatchBlock.Variable, filter, body));
                 c = c[i..];
             }
+
             return new CatchBlockUpdateResult(newCatchBlocks, c);
         }
 
@@ -70,6 +74,7 @@ public partial class ExpressionRewriter
     private readonly ref struct CatchBlockUpdateResult
     {
         public IEnumerable<CatchBlock> CatchBlocks { get; }
+
         public ReadOnlySpan<Expression> RemainingNewChildren { get; }
 
         public CatchBlockUpdateResult(IEnumerable<CatchBlock> catchBlocks, ReadOnlySpan<Expression> remainingNewChildren)

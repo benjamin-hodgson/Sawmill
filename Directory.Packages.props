@@ -21,5 +21,6 @@
     <ItemGroup>
         <GlobalPackageReference Include="Benjamin.Pizza.BuildScripts" Version="2.1.0" />
         <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+        <GlobalPackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435" />
     </ItemGroup>
 </Project>

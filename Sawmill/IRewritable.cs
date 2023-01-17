@@ -4,25 +4,26 @@ namespace Sawmill;
 
 /// <summary>
 /// A object is rewriterable if it knows how to access its immediate children.
-/// 
+///
 /// <para>
 /// Implementations should ensure that you always get the children you just set
 /// (<c>rewritable.SetChildren(children).GetChildren() == children</c>),
 /// and that successive sets overwrite the earlier operation
 /// (<c>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</c>).
 /// </para>
-/// 
+///
 /// <seealso cref="IRewriter{T}"/>.
 /// </summary>
-/// <typeparam name="T">The type of the object implementing the interface</typeparam>
-public interface IRewritable<T> where T : IRewritable<T>
+/// <typeparam name="T">The type of the object implementing the interface.</typeparam>
+public interface IRewritable<T>
+    where T : IRewritable<T>
 {
     /// <summary>
     /// Count the immediate children of the value.
     /// <seealso cref="IRewriter{T}.CountChildren"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -37,7 +38,7 @@ public interface IRewritable<T> where T : IRewritable<T>
     /// Assert.Equal(2, expr.CountChildren());
     /// </code>
     /// </example>
-    /// <returns>The current instance's number of immediate children</returns>
+    /// <returns>The current instance's number of immediate children.</returns>
     int CountChildren();
 
     /// <summary>
@@ -45,7 +46,7 @@ public interface IRewritable<T> where T : IRewritable<T>
     /// <seealso cref="IRewriter{T}.GetChildren"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -72,7 +73,7 @@ public interface IRewritable<T> where T : IRewritable<T>
     /// </example>
     /// <param name="childrenReceiver">
     /// A <see cref="Span{T}"/> to copy the current instance's immediate children into.
-    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren"/>.
+    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> should be equal to the number returned by <see cref="CountChildren"/>.
     /// </param>
     void GetChildren(Span<T> childrenReceiver);
 
@@ -85,7 +86,7 @@ public interface IRewritable<T> where T : IRewritable<T>
     /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -104,7 +105,7 @@ public interface IRewritable<T> where T : IRewritable<T>
     /// Assert.Equal(expected, expr.SetChildren(Children.Two(new Lit(4), new Lit(5))));
     /// </code>
     /// </example>
-    /// <param name="newChildren">The new children</param>
+    /// <param name="newChildren">The new children.</param>
     /// <returns>A copy of the current instance with updated children.</returns>
     T SetChildren(ReadOnlySpan<T> newChildren);
 }

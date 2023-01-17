@@ -1,5 +1,6 @@
 using System;
 using System.Buffers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Sawmill;
 
@@ -10,17 +11,20 @@ public static partial class Rewriter
     /// <paramref name="value"/> paired with a function to replace the child.
     /// This is typically useful when you need to replace a node's children one at a time,
     /// such as during mutation testing.
-    /// 
+    ///
     /// <para>
     /// The replacement function can be seen as the "context" of the child; calling the
     /// function with a new child "plugs the hole" in the context.
     /// </para>
-    /// 
+    ///
     /// <seealso cref="SelfAndDescendantsInContext"/>
     /// <seealso cref="DescendantsAndSelfInContext"/>
     /// </summary>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="value">The value to get the contexts for the immediate children</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="value">The value to get the contexts for the immediate children.</param>
+    /// <returns>An enumerable of contexts.</returns>
+    [SuppressMessage("naming", "SA1316", Justification = "Breaking change")] // "Tuple element names should use correct casing"
     public static (T item, Func<T, T> replace)[] ChildrenInContext<T>(this IRewriter<T> rewriter, T value)
     {
         if (rewriter == null)
@@ -28,7 +32,7 @@ public static partial class Rewriter
             throw new ArgumentNullException(nameof(rewriter));
         }
 
-        var stack = new ChunkStack<T>();
+        var stack = default(ChunkStack<T>);
 
         var result = rewriter.WithChildren(
             (children, tup) =>
@@ -42,6 +46,7 @@ public static partial class Rewriter
                     var j = i;
                     array[i] = (children[i], newChild => r.ReplaceChild(j, newChild, v));
                 }
+
                 return array;
             },
             (rewriter, value),

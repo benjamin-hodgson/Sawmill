@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Sawmill;
 
+#pragma warning disable SA1402  // File may only contain a single type
+
 /// <summary>
 /// Tools for building rewriters.
 /// </summary>
@@ -12,7 +14,8 @@ public static class RewriterBuilder
     /// <summary>
     /// Create a new <see cref="RewriterBuilder{T}"/>.
     /// </summary>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <returns>A <see cref="RewriterBuilder{T}" />.</returns>
     public static RewriterBuilder<T> For<T>()
         => new(ImmutableList.Create<(Type, IRewriter<T>)>());
 }
@@ -20,27 +23,32 @@ public static class RewriterBuilder
 /// <summary>
 /// Tools for building rewriters.
 /// </summary>
-/// <typeparam name="T">The rewritable tree type</typeparam>
+/// <typeparam name="T">The rewritable tree type.</typeparam>
 public class RewriterBuilder<T>
 {
     private readonly ImmutableList<(Type, IRewriter<T>)> _rewriters;
 
-    internal RewriterBuilder(ImmutableList<(Type, IRewriter<T>)> rewriters)
+    internal RewriterBuilder(ImmutableList<(Type Type, IRewriter<T> Rewriter)> rewriters)
     {
         _rewriters = rewriters;
     }
 
     /// <summary>
-    /// Handle a single subclass of <typeparamref name="T"/>
+    /// Handle a single subclass of <typeparamref name="T"/>.
     /// </summary>
+    /// <typeparam name="TSub">The concrete subclass type.</typeparam>
+    /// <param name="builderAction">The action defining the builder for this subclass.</param>
+    /// <returns>A <see cref="RewriterBuilder{T}" />.</returns>
     public RewriterBuilder<T> Case<TSub>(
         Func<RewriterBuilderCase<object, T, TSub>, IRewriter<T>> builderAction
-    ) where TSub : T
+    )
+        where TSub : T
     {
         if (builderAction == null)
         {
             throw new ArgumentNullException(nameof(builderAction));
         }
+
         var builder = new RewriterBuilderCase<object, T, TSub>(
             ImmutableList.Create<Func<TSub, int>>(),
             ImmutableList.Create<GetChildrenDelegate<T, TSub>>(),
@@ -51,8 +59,9 @@ public class RewriterBuilder<T>
     }
 
     /// <summary>
-    /// Build a rewriter
+    /// Build a rewriter.
     /// </summary>
+    /// <returns>A rewriter.</returns>
     public IRewriter<T> Build()
         => new BuilderRewriter(_rewriters.ToArray());
 
@@ -71,6 +80,7 @@ public class RewriterBuilder<T>
             {
                 throw new ArgumentNullException(nameof(value));
             }
+
             foreach (var kv in _rewriters)
             {
                 if (kv.Item1.IsAssignableFrom(value.GetType()))
@@ -78,6 +88,7 @@ public class RewriterBuilder<T>
                     return kv.Item2.CountChildren(value);
                 }
             }
+
             throw new ArgumentOutOfRangeException(
                 nameof(value),
                 $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?"
@@ -90,6 +101,7 @@ public class RewriterBuilder<T>
             {
                 throw new ArgumentNullException(nameof(value));
             }
+
             foreach (var kv in _rewriters)
             {
                 if (kv.Item1.IsAssignableFrom(value.GetType()))
@@ -98,6 +110,7 @@ public class RewriterBuilder<T>
                     return;
                 }
             }
+
             throw new ArgumentOutOfRangeException(
                 nameof(value),
                 $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?"
@@ -110,6 +123,7 @@ public class RewriterBuilder<T>
             {
                 throw new ArgumentNullException(nameof(value));
             }
+
             foreach (var kv in _rewriters)
             {
                 if (kv.Item1.IsAssignableFrom(value.GetType()))
@@ -117,6 +131,7 @@ public class RewriterBuilder<T>
                     return kv.Item2.SetChildren(newChildren, value);
                 }
             }
+
             throw new ArgumentOutOfRangeException(
                 nameof(value),
                 $"Unknown type {value.GetType()}. Are you missing an And clause from your RewriterBuilder?"
@@ -126,15 +141,20 @@ public class RewriterBuilder<T>
 }
 
 internal delegate int GetChildrenDelegate<TBase, TSub>(Span<TBase> children, int position, TSub value);
-internal delegate (bool changed, int consumed, TArgs args) GetCtorArgsDelegate<TBase, TSub, TArgs>(ReadOnlySpan<TBase> newChildren, TSub oldValue);
+internal delegate (bool Changed, int Consumed, TArgs Args) GetCtorArgsDelegate<TBase, TSub, TArgs>(ReadOnlySpan<TBase> newChildren, TSub oldValue);
 
 /// <summary>
 /// Tools for building rewriters for a single subclass of a base type.
 /// </summary>
+/// <typeparam name="TArgs">The constructor arguments.</typeparam>
+/// <typeparam name="TBase">The rewritable tree type.</typeparam>
+/// <typeparam name="TSub">The sublcass which this case handles.</typeparam>
 public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
 {
     internal ImmutableList<Func<TSub, int>> CountChildrenDelegates { get; }
+
     internal ImmutableList<GetChildrenDelegate<TBase, TSub>> GetChildrenDelegates { get; }
+
     internal GetCtorArgsDelegate<TBase, TSub, TArgs> GetSetChildrenCtorArgs { get; }
 
     internal RewriterBuilderCase(
@@ -149,14 +169,18 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     }
 
     /// <summary>
-    /// Select a field from the subclass
+    /// Select a field from the subclass.
     /// </summary>
-    public RewriterBuilderCase<(TArgs, U), TBase, TSub> Field<U>(Func<TSub, U> field)
+    /// <typeparam name="U">The field type.</typeparam>
+    /// <param name="field">The field selector.</param>
+    /// <returns>A copy of this <see cref="RewriterBuilderCase" /> with an additional constructor argument.</returns>
+    public RewriterBuilderCase<(TArgs Args, U Field), TBase, TSub> Field<U>(Func<TSub, U> field)
     {
         if (field == null)
         {
             throw new ArgumentNullException(nameof(field));
         }
+
         return new RewriterBuilderCase<(TArgs, U), TBase, TSub>(
             CountChildrenDelegates,
             GetChildrenDelegates,
@@ -169,14 +193,17 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     }
 
     /// <summary>
-    /// Select an immediate child
+    /// Select an immediate child.
     /// </summary>
-    public RewriterBuilderCase<(TArgs, TBase), TBase, TSub> Child(Func<TSub, TBase> child)
+    /// <param name="child">The child selector.</param>
+    /// <returns>A copy of this <see cref="RewriterBuilderCase" /> with an additional constructor argument.</returns>
+    public RewriterBuilderCase<(TArgs Args, TBase Child), TBase, TSub> Child(Func<TSub, TBase> child)
     {
         if (child == null)
         {
             throw new ArgumentNullException(nameof(child));
         }
+
         return new RewriterBuilderCase<(TArgs, TBase), TBase, TSub>(
             CountChildrenDelegates.Add(value => 1),
             GetChildrenDelegates.Add(
@@ -202,7 +229,9 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     /// <summary>
     /// Select a list of children.
     /// </summary>
-    public RewriterBuilderCase<(TArgs, ImmutableList<TBase>), TBase, TSub> Children(Func<TSub, ImmutableList<TBase>> children)
+    /// <param name="children">The children selector.</param>
+    /// <returns>A copy of this <see cref="RewriterBuilderCase" /> with an additional constructor argument.</returns>
+    public RewriterBuilderCase<(TArgs Args, ImmutableList<TBase> Children), TBase, TSub> Children(Func<TSub, ImmutableList<TBase>> children)
     {
         if (children == null)
         {
@@ -220,6 +249,7 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
                         receiver[index + total] = child;
                         total++;
                     }
+
                     return total;
                 }
             ),
@@ -237,6 +267,7 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
                     {
                         throw new InvalidOperationException("Reached end of enumeration");
                     }
+
                     var newChild = newChildren[consumed];
                     consumed++;
 
@@ -246,13 +277,15 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
                         builder[i] = newChild;
                     }
                 }
+
                 return (changed, consumed, (rest, builder.ToImmutable()));
             }
         );
     }
 }
 
-internal class CompletedRewriterBuilderCase<TArgs, TBase, TSub> : IRewriter<TBase> where TSub : TBase
+internal class CompletedRewriterBuilderCase<TArgs, TBase, TSub> : IRewriter<TBase>
+    where TSub : TBase
 {
     private readonly Func<TSub, int>[] _countChildrenDelegates;
     private readonly GetChildrenDelegate<TBase, TSub>[] _getChildrenDelegates;
@@ -291,6 +324,7 @@ internal class CompletedRewriterBuilderCase<TArgs, TBase, TSub> : IRewriter<TBas
         {
             return _ctor(args);
         }
+
         return oldValue;
     }
 }
@@ -303,19 +337,28 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function.
     /// </summary>
+    /// <typeparam name="T">The arguments of the builder.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<T, TBase, TSub>(
         this RewriterBuilderCase<T, TBase, TSub> builder,
         Func<T, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return new CompletedRewriterBuilderCase<T, TBase, TSub>(
             builder.CountChildrenDelegates.ToArray(),
             builder.GetChildrenDelegates.ToArray(),
@@ -327,40 +370,58 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function.
     /// </summary>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<TBase, TSub>(
         this RewriterBuilderCase<object, TBase, TSub> builder,
         Func<TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor()
         );
     }
 
+#pragma warning disable SA1414  // Tuple types in signatures should have element names
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, TBase, TSub>(
         this RewriterBuilderCase<(object, U1), TBase, TSub> builder,
         Func<U1, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item2
@@ -371,19 +432,29 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, TBase, TSub>(
         this RewriterBuilderCase<((object, U1), U2), TBase, TSub> builder,
         Func<U1, U2, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item2,
@@ -395,19 +466,30 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="U3">Constructor argument 3.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, U3, TBase, TSub>(
         this RewriterBuilderCase<(((object, U1), U2), U3), TBase, TSub> builder,
         Func<U1, U2, U3, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item1.Item2,
@@ -420,19 +502,31 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="U3">Constructor argument 3.</typeparam>
+    /// <typeparam name="U4">Constructor argument 4.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, TBase, TSub>(
         this RewriterBuilderCase<((((object, U1), U2), U3), U4), TBase, TSub> builder,
         Func<U1, U2, U3, U4, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item1.Item1.Item2,
@@ -446,19 +540,32 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="U3">Constructor argument 3.</typeparam>
+    /// <typeparam name="U4">Constructor argument 4.</typeparam>
+    /// <typeparam name="U5">Constructor argument 5.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, TBase, TSub>(
         this RewriterBuilderCase<(((((object, U1), U2), U3), U4), U5), TBase, TSub> builder,
         Func<U1, U2, U3, U4, U5, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item1.Item1.Item1.Item2,
@@ -473,19 +580,33 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="U3">Constructor argument 3.</typeparam>
+    /// <typeparam name="U4">Constructor argument 4.</typeparam>
+    /// <typeparam name="U5">Constructor argument 5.</typeparam>
+    /// <typeparam name="U6">Constructor argument 6.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, U6, TBase, TSub>(
         this RewriterBuilderCase<((((((object, U1), U2), U3), U4), U5), U6), TBase, TSub> builder,
         Func<U1, U2, U3, U4, U5, U6, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item1.Item1.Item1.Item1.Item2,
@@ -501,19 +622,34 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="U3">Constructor argument 3.</typeparam>
+    /// <typeparam name="U4">Constructor argument 4.</typeparam>
+    /// <typeparam name="U5">Constructor argument 5.</typeparam>
+    /// <typeparam name="U6">Constructor argument 6.</typeparam>
+    /// <typeparam name="U7">Constructor argument 7.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, U6, U7, TBase, TSub>(
         this RewriterBuilderCase<(((((((object, U1), U2), U3), U4), U5), U6), U7), TBase, TSub> builder,
         Func<U1, U2, U3, U4, U5, U6, U7, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item1.Item1.Item1.Item1.Item1.Item2,
@@ -530,19 +666,35 @@ public static class RewriterBuilderCase
     /// <summary>
     /// Rebuild the subtype with the supplied function, after flattening the tuple.
     /// </summary>
+    /// <typeparam name="U1">Constructor argument 1.</typeparam>
+    /// <typeparam name="U2">Constructor argument 2.</typeparam>
+    /// <typeparam name="U3">Constructor argument 3.</typeparam>
+    /// <typeparam name="U4">Constructor argument 4.</typeparam>
+    /// <typeparam name="U5">Constructor argument 5.</typeparam>
+    /// <typeparam name="U6">Constructor argument 6.</typeparam>
+    /// <typeparam name="U7">Constructor argument 7.</typeparam>
+    /// <typeparam name="U8">Constructor argument 8.</typeparam>
+    /// <typeparam name="TBase">The rewritable tree type.</typeparam>
+    /// <typeparam name="TSub">The subtype.</typeparam>
+    /// <param name="builder">The builder.</param>
+    /// <param name="constructor">The constructor function.</param>
+    /// <returns>A rewriter.</returns>
     public static IRewriter<TBase> ConstructWith<U1, U2, U3, U4, U5, U6, U7, U8, TBase, TSub>(
         this RewriterBuilderCase<((((((((object, U1), U2), U3), U4), U5), U6), U7), U8), TBase, TSub> builder,
         Func<U1, U2, U3, U4, U5, U6, U7, U8, TSub> constructor
-    ) where TSub : TBase
+    )
+        where TSub : TBase
     {
         if (builder == null)
         {
             throw new ArgumentNullException(nameof(builder));
         }
+
         if (constructor == null)
         {
             throw new ArgumentNullException(nameof(constructor));
         }
+
         return builder.ConstructWith(
             args => constructor(
                 args.Item1.Item1.Item1.Item1.Item1.Item1.Item1.Item2,
@@ -557,3 +709,6 @@ public static class RewriterBuilderCase
         );
     }
 }
+
+#pragma warning restore SA1402
+#pragma warning restore SA1414

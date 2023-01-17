@@ -16,6 +16,7 @@ public class ExpressionRewriterTests
 
             Assert.Equal(new[] { expr, ((MethodCallExpression)expr).Object }, expr.SelfAndDescendants().ToArray());
         }
+
         {
             var expr = _callStaticMethod.Body;
 
@@ -24,7 +25,10 @@ public class ExpressionRewriterTests
     }
 
     private static readonly Expression<Action> _callStaticMethod = () => ExpressionRewriterTests.Static();
-    private static void Static() { }
+
+    private static void Static()
+    {
+    }
 
     private static readonly Expression<Action> _callInstanceMethod = () => "foo".ToString();
 }

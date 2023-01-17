@@ -5,7 +5,7 @@ namespace Sawmill.Bench;
 
 public class RoseTree : IRewritable<RoseTree>
 {
-    [SuppressMessage("naming", "CA1721")]  // "The property name 'Children' is confusing given the existence of method 'GetChildren'"
+    [SuppressMessage("naming", "CA1721", Justification = "bench")] // "The property name 'Children' is confusing given the existence of method 'GetChildren'"
     public ImmutableArray<RoseTree> Children { get; }
 
     public RoseTree(ImmutableArray<RoseTree> children)
@@ -14,6 +14,7 @@ public class RoseTree : IRewritable<RoseTree>
         {
             throw new ArgumentNullException(nameof(children));
         }
+
         Children = children;
     }
 
@@ -34,6 +35,7 @@ public class RoseTree : IRewritable<RoseTree>
         {
             builder.Add(child);
         }
+
         return new RoseTree(builder.ToImmutable());
     }
 }

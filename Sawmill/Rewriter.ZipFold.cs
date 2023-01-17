@@ -13,7 +13,7 @@ public static partial class Rewriter
     /// nodes with the results of aggregating their children.
     /// The trees are iterated in lock-step, much like an n-ary
     /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})"/>.
-    /// 
+    ///
     /// When trees are not the same size, the larger ones are
     /// truncated both horizontally and vertically.
     /// That is, if a pair of nodes have a different number of children,
@@ -40,12 +40,12 @@ public static partial class Rewriter
     ///     );
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <typeparam name="U">The return type of the aggregation</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="func">The aggregation function</param>
-    /// <param name="values">The trees to fold</param>
-    /// <returns>The result of aggregating the two trees</returns>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <typeparam name="U">The return type of the aggregation.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="func">The aggregation function.</param>
+    /// <param name="values">The trees to fold.</param>
+    /// <returns>The result of aggregating the two trees.</returns>
     public static U ZipFold<T, U>(
         this IRewriter<T> rewriter,
         Func<T[], IEnumerable<U>, U> func,  // todo: should this be a ReadOnlySpanFunc?
@@ -56,10 +56,12 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (func == null)
         {
             throw new ArgumentNullException(nameof(func));
         }
+
         if (values == null)
         {
             throw new ArgumentNullException(nameof(values));
@@ -86,8 +88,10 @@ public static partial class Rewriter
                     {
                         yield break;
                     }
+
                     currents[i] = e.Current;
                 }
+
                 yield return Go(currents);
             }
         }
@@ -101,7 +105,7 @@ public static partial class Rewriter
     /// nodes with the results of aggregating their children.
     /// The trees are iterated in lock-step, much like an n-ary
     /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})"/>.
-    /// 
+    ///
     /// When trees are not the same size, the larger ones are
     /// truncated both horizontally and vertically.
     /// That is, if a pair of nodes have a different number of children,
@@ -128,12 +132,12 @@ public static partial class Rewriter
     ///     );
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <typeparam name="U">The return type of the aggregation</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="func">The aggregation function</param>
-    /// <param name="values">The trees to fold</param>
-    /// <returns>The result of aggregating the two trees</returns>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <typeparam name="U">The return type of the aggregation.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="func">The aggregation function.</param>
+    /// <param name="values">The trees to fold.</param>
+    /// <returns>The result of aggregating the two trees.</returns>
     /// <remarks>
     /// This method is not available on platforms which do not support <see cref="ValueTask"/> and <see cref="IAsyncEnumerable{U}"/>.
     /// </remarks>
@@ -147,10 +151,12 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (func == null)
         {
             throw new ArgumentNullException(nameof(func));
         }
+
         if (values == null)
         {
             throw new ArgumentNullException(nameof(values));
@@ -177,8 +183,10 @@ public static partial class Rewriter
                     {
                         yield break;
                     }
+
                     currents[i] = e.Current;
                 }
+
                 yield return await Go(currents).ConfigureAwait(false);
             }
         }

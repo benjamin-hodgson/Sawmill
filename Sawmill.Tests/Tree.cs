@@ -5,6 +5,7 @@ namespace Sawmill.Tests;
 internal class Tree<T> : IRewritable<Tree<T>>
 {
     public T Value { get; }
+
     public ImmutableList<Tree<T>> Children { get; }
 
     public Tree(T value, ImmutableList<Tree<T>> children)
@@ -13,6 +14,7 @@ internal class Tree<T> : IRewritable<Tree<T>>
         {
             throw new ArgumentNullException(nameof(children));
         }
+
         Value = value;
         Children = children;
     }

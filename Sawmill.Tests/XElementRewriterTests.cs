@@ -44,7 +44,6 @@ public class XElementRewriterTests
         Assert.Equal("ploop", newFooNode.GetChildren().ElementAt(0).Name);
         Assert.Equal("nabble", newFooNode.GetChildren().ElementAt(1).Name);
 
-
         // fooNode should not have changed
         Assert.Equal(1, fooNode.Attributes().Count());
         Assert.Equal(2, fooNode.GetChildren().Length);

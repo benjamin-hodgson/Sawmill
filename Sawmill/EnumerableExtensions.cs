@@ -12,6 +12,7 @@ internal static class EnumerableExtensions
         {
             return builder.MoveToImmutable();
         }
+
         var immutable = builder.ToImmutable();
         builder.Clear();
         return immutable;

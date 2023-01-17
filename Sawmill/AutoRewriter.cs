@@ -13,10 +13,11 @@ namespace Sawmill;
 
 /// <summary>
 /// An experimental implementation of <see cref="IRewriter{T}"/> using reflection.
-/// 
+///
 /// <see cref="AutoRewriter{T}"/> looks for the subtype's constructor, and gets/sets
 /// the <typeparamref name="T"/>-children in the order that they appear in the constructor.
 /// </summary>
+/// <typeparam name="T">The rewritable type.</typeparam>
 public class AutoRewriter<T> : IRewriter<T>
 {
     private static readonly Type _t = typeof(T);
@@ -41,6 +42,7 @@ public class AutoRewriter<T> : IRewriter<T>
         typeof(IEnumerable<T>)
             .GetMethods()
             .Single(m => m.Name == "GetEnumerator" && m.ReturnType.Equals(_iEnumeratorT));
+
     private static readonly MethodInfo _enumerable_Count =
         typeof(Enumerable)
             .GetMethods(BindingFlags.Public | BindingFlags.Static)
@@ -58,62 +60,80 @@ public class AutoRewriter<T> : IRewriter<T>
             { typeof(IReadOnlyList<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
             { typeof(ICollection<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
             { typeof(IReadOnlyCollection<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
-
             { typeof(ImmutableArray<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
             { typeof(ImmutableList<T>), _autoRewriterT.GetMethod("RebuildImmutableList", BindingFlags.Static | BindingFlags.NonPublic)! },
             { typeof(List<T>), _autoRewriterT.GetMethod("RebuildList", BindingFlags.Static | BindingFlags.NonPublic)! },
             { typeof(T[]), _autoRewriterT.GetMethod("RebuildArray", BindingFlags.Static | BindingFlags.NonPublic)! },
         };
+
     private static readonly MethodInfo _getReadOnlySpanElement =
         _autoRewriterT.GetMethod("GetReadOnlySpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
+
     private static readonly MethodInfo _assignSpanElement =
         _autoRewriterT.GetMethod("AssignSpanElement", BindingFlags.Static | BindingFlags.NonPublic)!;
 
     private readonly ConcurrentDictionary<Type, Func<T, int>> _counters
         = new();
+
     private readonly ConcurrentDictionary<Type, SpanAction<T, T>> _getters
         = new();
+
     private readonly ConcurrentDictionary<Type, ReadOnlySpanFunc<T, T, T>> _setters
         = new();
 
     /// <summary>
-    /// Create a new instance of <see cref="AutoRewriter{T}"/>
+    /// Create a new instance of <see cref="AutoRewriter{T}"/>.
     /// </summary>
-    protected AutoRewriter() { }
+    protected AutoRewriter()
+    {
+    }
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
     /// </summary>
+    /// <param name="value">The rewritable tree.</param>
+    /// <returns>The <paramref name="value" />'s number of immediate children.</returns>
     public int CountChildren(T value)
     {
         if (value == null)
         {
             throw new ArgumentNullException(nameof(value));
         }
+
         return _counters.GetOrAdd(value.GetType(), t => MkCounter(t))(value);
     }
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
     /// </summary>
+    /// <param name="childrenReceiver">
+    /// A <see cref="Span{T}"/> to copy the current instance's immediate children into.
+    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> should be equal to the number returned by <see cref="CountChildren"/>.
+    /// </param>
+    /// <param name="value">The rewritable tree.</param>
     public void GetChildren(Span<T> childrenReceiver, T value)
     {
         if (value == null)
         {
             throw new ArgumentNullException(nameof(value));
         }
+
         _getters.GetOrAdd(value.GetType(), t => MkGetter(t))(childrenReceiver, value);
     }
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
     /// </summary>
+    /// <param name="newChildren">The new children.</param>
+    /// <param name="value">The rewritable tree.</param>
+    /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public T SetChildren(ReadOnlySpan<T> newChildren, T value)
     {
         if (value == null)
         {
             throw new ArgumentNullException(nameof(value));
         }
+
         return _setters.GetOrAdd(value.GetType(), t => MkSetter(t))(newChildren, value);
     }
 
@@ -121,9 +141,8 @@ public class AutoRewriter<T> : IRewriter<T>
     /// Gets the single global instance of <see cref="AutoRewriter{T}"/>.
     /// </summary>
     /// <returns>The single global instance of <see cref="AutoRewriter{T}"/>.</returns>
-    [SuppressMessage("Design", "CA1000")]  // "Do not declare static members on generic types"
+    [SuppressMessage("Design", "CA1000", Justification = "purposeful")] // "Do not declare static members on generic types"
     public static AutoRewriter<T> Instance { get; } = new AutoRewriter<T>();
-
 
     private static Func<T, int> MkCounter(Type nodeType)
     {
@@ -138,9 +157,8 @@ public class AutoRewriter<T> : IRewriter<T>
         //     IEnumerator<T> enumerator;
         //
         //     // ...
-        // 
+        //
         // }
-
         var nodeParam = Expression.Parameter(_t, "param");
         var nodeLocal = Expression.Parameter(nodeType, "node");
         var countLocal = Expression.Parameter(_int, "count");
@@ -160,7 +178,6 @@ public class AutoRewriter<T> : IRewriter<T>
             else if (ImplementsIEnumerableT(ctorParam.ParameterType))
             {
                 // i += Enumerable.Count(node.Children);
-
                 var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                 var enumerable = Expression.Property(nodeLocal, property!);
                 stmts.Add(Expression.AddAssign(countLocal, Expression.Call(_enumerable_Count, enumerable)));
@@ -191,9 +208,8 @@ public class AutoRewriter<T> : IRewriter<T>
         //     IEnumerator<T> enumerator;
         //
         //     // ...
-        // 
+        //
         // }
-
         var childrenParam = Expression.Parameter(_spanT, "children");
         var nodeParam = Expression.Parameter(_t, "param");
         var nodeLocal = Expression.Parameter(nodeType, "node");
@@ -229,7 +245,6 @@ public class AutoRewriter<T> : IRewriter<T>
                 //         break;
                 //     }
                 // }
-
                 var property = nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!));
                 var enumerable = Expression.Property(nodeLocal, property!);
                 stmts.Add(Expression.Assign(enumeratorLocal, Expression.Call(enumerable, _iEnumerable_GetEnumerator)));
@@ -278,20 +293,19 @@ public class AutoRewriter<T> : IRewriter<T>
         var nodeLocal = Expression.Parameter(nodeType, "node");
         var retLocal = Expression.Parameter(nodeType, "ret");
 
-
         // (children, param) =>
         // {
         //     NodeType param = (NodeType)param;
         //     T ret;
-        // 
+        //
         //     T child0;
         //     T[] child1;
         //     // etc
         //
-        //  
+        //
         //     child0 = children[0];
         //     children = children.Slice(1);
-        //     
+        //
         //     child1 = AutoRewriter.RebuildArray(node.Children1, children);
         //     children = children.Slice(Enumerable.Count(child1));
         //     // etc
@@ -375,11 +389,12 @@ public class AutoRewriter<T> : IRewriter<T>
                 args.Add(AccessNodeProperty(nodeParam, nodeType, param));
             }
         }
+
         return args;
     }
 
     /// <summary>
-    /// does type implement <see cref="IEnumerable{T}"/>[T] (not <see cref="IEnumerable{U}"/>[U] for some subtype U of T)?
+    /// does type implement <see cref="IEnumerable{T}"/>[T] (not <see cref="IEnumerable{U}"/>[U] for some subtype U of T)?.
     /// </summary>
     private static bool ImplementsIEnumerableT(Type type)
         => _iEnumerableT.IsAssignableFrom(type) && GetIEnumerableArgument(type).Equals(_t);
@@ -395,11 +410,14 @@ public class AutoRewriter<T> : IRewriter<T>
         yield return type;
         foreach (var i in type.GetInterfaces())
         {
+#pragma warning disable SA1312  // "Variable '_' should begin with lower-case letter"
             foreach (var _ in GetSelfAndBaseTypes(i))
+#pragma warning restore SA1312
             {
                 yield return i;
             }
         }
+
         if (type.BaseType != null)
         {
             foreach (var b in GetSelfAndBaseTypes(type.BaseType))
@@ -409,59 +427,68 @@ public class AutoRewriter<T> : IRewriter<T>
         }
     }
 
-    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")] // "Private member is unused"
     private static void AssignSpanElement(Span<T> span, int index, T value)
     {
         span[index] = value;
     }
-    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+
+    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")] // "Private member is unused"
     private static T GetReadOnlySpanElement(ReadOnlySpan<T> span, int index) => span[index];
 
-
-    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")] // "Private member is unused"
     private static ImmutableArray<T> RebuildImmutableArray(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
     {
         var builder = oldValues is ICollection<T> c
             ? ImmutableArray.CreateBuilder<T>(c.Count)
             : ImmutableArray.CreateBuilder<T>();
         var i = 0;
+#pragma warning disable SA1312  // "Variable '_' should begin with lower-case letter"
         foreach (var _ in oldValues)
+#pragma warning restore SA1312
         {
             builder.Add(newValues[i]);
             i++;
         }
+
         return builder.ToImmutableAndClear();
     }
 
-    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")] // "Private member is unused"
     private static ImmutableList<T> RebuildImmutableList(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
     {
         var builder = ImmutableList.CreateBuilder<T>();
         var i = 0;
+#pragma warning disable SA1312  // "Variable '_' should begin with lower-case letter"
         foreach (var _ in oldValues)
+#pragma warning restore SA1312
         {
             builder.Add(newValues[i]);
             i++;
         }
+
         return builder.ToImmutable();
     }
 
-    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")] // "Private member is unused"
     private static List<T> RebuildList(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
     {
         var list = oldValues is ICollection<T> c
             ? new List<T>(c.Count)
             : new List<T>();
         var i = 0;
+#pragma warning disable SA1312  // "Variable '_' should begin with lower-case letter"
         foreach (var _ in oldValues)
+#pragma warning restore SA1312
         {
             list.Add(newValues[i]);
             i++;
         }
+
         return list;
     }
 
-    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")]  // "Private member is unused"
+    [SuppressMessage("CodeQuality", "IDE0051", Justification = "Called through reflection")] // "Private member is unused"
     private static T[] RebuildArray(IEnumerable<T> oldValues, ReadOnlySpan<T> newValues)
     {
         var array = new T[oldValues.Count()];
@@ -469,6 +496,7 @@ public class AutoRewriter<T> : IRewriter<T>
         {
             array[i] = newValues[i];
         }
+
         return array;
     }
 }

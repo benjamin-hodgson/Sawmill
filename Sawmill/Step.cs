@@ -8,8 +8,11 @@ namespace Sawmill;
 internal readonly struct Step<T>
 {
     public Stack<T> PrevSiblings { get; }
+
     public T Focus { get; }
+
     public Stack<T> NextSiblings { get; }
+
     public bool Changed { get; }
 
     public Step(
@@ -23,10 +26,12 @@ internal readonly struct Step<T>
         {
             throw new ArgumentNullException(nameof(prevSiblings));
         }
+
         if (focus == null)
         {
             throw new ArgumentNullException(nameof(focus));
         }
+
         if (nextSiblings == null)
         {
             throw new ArgumentNullException(nameof(nextSiblings));

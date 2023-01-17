@@ -7,6 +7,7 @@ public partial class ExpressionRewriter
 {
     private static int CountChildren(BlockExpression b)
         => b.Expressions.Count;
+
     private static void GetChildren(Span<Expression> children, BlockExpression b)
     {
         Copy(b.Expressions, children);

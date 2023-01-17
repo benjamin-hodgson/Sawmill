@@ -47,7 +47,6 @@ public class HtmlNodeRewriterTests
         Assert.Equal("div", newPNode.GetChildren().ElementAt(0).Name);
         Assert.Equal("span", newPNode.GetChildren().ElementAt(1).Name);
 
-
         // fooNode should not have changed
         Assert.Equal(1, pNode.Attributes.Count);
         Assert.Equal(2, pNode.GetChildren().Length);

@@ -7,11 +7,11 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Yields all of the nodes in the tree represented by <paramref name="value"/>, starting at the top.
-    /// 
+    ///
     /// <para>
     /// This is a depth-first pre-order traversal.
     /// </para>
-    /// 
+    ///
     /// <seealso cref="DescendantsAndSelf"/>
     /// </summary>
     /// <example>
@@ -34,9 +34,9 @@ public static partial class Rewriter
     /// Assert.Equal(expected, rewriter.SelfAndDescendants(expr));
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="value">The value to traverse</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="value">The value to traverse.</param>
     /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value"/>, starting at the top.</returns>
     public static IEnumerable<T> SelfAndDescendants<T>(this IRewriter<T> rewriter, T value)
     {
@@ -47,7 +47,7 @@ public static partial class Rewriter
 
         IEnumerable<T> Iterator()
         {
-            var stack = new ChunkStack<T>();
+            var stack = default(ChunkStack<T>);
             stack.Allocate(1)[0] = value;
 
             try
@@ -68,6 +68,7 @@ public static partial class Rewriter
                 stack.Dispose();
             }
         }
+
         return Iterator();
     }
 }

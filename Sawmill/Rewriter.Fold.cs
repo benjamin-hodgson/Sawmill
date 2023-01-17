@@ -9,11 +9,11 @@ public static partial class Rewriter
     /// Flattens all the nodes in the tree represented by <paramref name="value"/> into a single result,
     /// using an aggregation function to combine each node with the results of folding its children.
     /// </summary>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <typeparam name="U">The type of the result of aggregation</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="func">The aggregation function</param>
-    /// <param name="value">The value to fold</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <typeparam name="U">The type of the result of aggregation.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="func">The aggregation function.</param>
+    /// <param name="value">The value to fold.</param>
     /// <returns>The result of aggregating the tree represented by <paramref name="value"/>.</returns>
     public static U Fold<T, U>(this IRewriter<T> rewriter, SpanFunc<U, T, U> func, T value)
     {
@@ -21,6 +21,7 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (func == null)
         {
             throw new ArgumentNullException(nameof(func));
@@ -37,10 +38,11 @@ public static partial class Rewriter
 
     private class FoldClosure<T, U> : Traversal<T>
     {
-        private ChunkStack<U> _results = new();
+        private ChunkStack<U> _results = default;
         private readonly SpanFunc<U, T, U> _func;
 
-        public FoldClosure(IRewriter<T> rewriter, SpanFunc<U, T, U> func) : base(rewriter)
+        public FoldClosure(IRewriter<T> rewriter, SpanFunc<U, T, U> func)
+            : base(rewriter)
         {
             _func = func;
         }
@@ -54,6 +56,7 @@ public static partial class Rewriter
                     {
                         span[i] = Go(children[i]);
                     }
+
                     var result = _func(span, value);
                     _results.Free(span);
                     return result;
@@ -73,11 +76,11 @@ public static partial class Rewriter
     /// Flattens all the nodes in the tree represented by <paramref name="value"/> into a single result,
     /// using an asynchronous aggregation function to combine each node with the results of folding its children.
     /// </summary>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <typeparam name="U">The type of the result of aggregation</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="func">The asynchronous aggregation function</param>
-    /// <param name="value">The value to fold</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <typeparam name="U">The type of the result of aggregation.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="func">The asynchronous aggregation function.</param>
+    /// <param name="value">The value to fold.</param>
     /// <returns>The result of aggregating the tree represented by <paramref name="value"/>.</returns>
     /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask"/>.</remarks>
     public static async ValueTask<U> Fold<T, U>(this IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func, T value)
@@ -86,6 +89,7 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (func == null)
         {
             throw new ArgumentNullException(nameof(func));
@@ -102,10 +106,11 @@ public static partial class Rewriter
 
     private class FoldAsyncClosure<T, U> : AsyncTraversal<T>
     {
-        private readonly Box<ChunkStack<U>> _results = new(new ChunkStack<U>());
+        private readonly Box<ChunkStack<U>> _results = new();
         private readonly Func<Memory<U>, T, ValueTask<U>> _func;
 
-        public FoldAsyncClosure(IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func) : base(rewriter)
+        public FoldAsyncClosure(IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func)
+            : base(rewriter)
         {
             _func = func;
         }
@@ -120,6 +125,7 @@ public static partial class Rewriter
                         var newChild = await Go(children.Span[i]).ConfigureAwait(false);
                         memory.Span[i] = newChild;
                     }
+
                     var result = await _func(memory, value).ConfigureAwait(false);
                     _results.Value.Free(memory);
                     return result;

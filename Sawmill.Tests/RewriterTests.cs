@@ -121,11 +121,13 @@ public class RewriterTests
 
             Assert.Same(minusTwo, result);
         }
+
         {
             var result = expr.DescendantAt(Array.Empty<Direction>());
 
             Assert.Same(expr, result);
         }
+
         {
             Assert.Throws<InvalidOperationException>(() => expr.DescendantAt(new[] { Direction.Down, Direction.Left }));
             Assert.Throws<InvalidOperationException>(() => expr.DescendantAt(new[] { Direction.Right }));
@@ -145,11 +147,13 @@ public class RewriterTests
 
             Assert.Equal(2, Eval(result));
         }
+
         {
             var result = expr.ReplaceDescendantAt(new[] { Direction.Down, Direction.Right }, minusTwo);
 
             Assert.Same(expr, result);
         }
+
         {
             Assert.Throws<InvalidOperationException>(() => expr.ReplaceDescendantAt(new[] { Direction.Down, Direction.Left }, one));
             Assert.Throws<InvalidOperationException>(() => expr.ReplaceDescendantAt(new[] { Direction.Right }, one));
@@ -169,11 +173,13 @@ public class RewriterTests
 
             Assert.Equal(0, Eval(result));
         }
+
         {
             var result = expr.RewriteDescendantAt(new[] { Direction.Down }, x => x);
 
             Assert.Same(expr, result);
         }
+
         {
             Assert.Throws<InvalidOperationException>(() => expr.RewriteDescendantAt(new[] { Direction.Down, Direction.Left }, x => x));
             Assert.Throws<InvalidOperationException>(() => expr.RewriteDescendantAt(new[] { Direction.Right }, x => x));
@@ -196,6 +202,7 @@ public class RewriterTests
 
             Assert.Equal(0, Eval(result));
         }
+
         {
             var result = await expr.RewriteDescendantAt(
                 new[] { Direction.Down },
@@ -204,6 +211,7 @@ public class RewriterTests
 
             Assert.Same(expr, result);
         }
+
         {
             await Assert.ThrowsAsync<InvalidOperationException>(async () => await expr.RewriteDescendantAt(
                 new[] { Direction.Down, Direction.Left },
@@ -253,6 +261,7 @@ public class RewriterTests
 
             Assert.True(Equal(expr, expr));
         }
+
         {
             var one = new Lit(1);
             var two = new Lit(2);
@@ -275,6 +284,7 @@ public class RewriterTests
 
             Assert.True(await EqualAsync(expr, expr));
         }
+
         {
             var one = new Lit(1);
             var two = new Lit(2);
@@ -293,12 +303,12 @@ public class RewriterTests
         var two = new Lit(2);
         var minusTwo = new Neg(two);
         Expr expr = new Add(one, minusTwo);
-
         {
             var rewritten = expr.RewriteChildren(_ => new Lit(3));
 
             Assert.Equal(6, Eval(rewritten));
         }
+
         {
             var result = expr.RewriteChildren(x => x);
 
@@ -313,12 +323,12 @@ public class RewriterTests
         var two = new Lit(2);
         var minusTwo = new Neg(two);
         Expr expr = new Add(one, minusTwo);
-
         {
             var rewritten = await expr.RewriteChildren(_ => ValueTask.FromResult((Expr)new Lit(3)));
 
             Assert.Equal(6, Eval(rewritten));
         }
+
         {
             var result = await expr.RewriteChildren(x => ValueTask.FromResult(x));
 
@@ -367,12 +377,12 @@ public class RewriterTests
         var two = new Lit(2);
         var minusTwo = new Neg(two);
         Expr expr = new Add(one, minusTwo);
-
         {
             var rewritten = expr.Rewrite(x => x is Lit l ? new Lit(l.Value * 2) : x);
 
             Assert.Equal(-2, Eval(rewritten));
         }
+
         {
             var result = expr.Rewrite(x => x);
 
@@ -387,12 +397,12 @@ public class RewriterTests
         var two = new Lit(2);
         var minusTwo = new Neg(two);
         Expr expr = new Add(one, minusTwo);
-
         {
             var rewritten = await expr.Rewrite(x => ValueTask.FromResult(x is Lit l ? new Lit(l.Value * 2) : x));
 
             Assert.Equal(-2, Eval(rewritten));
         }
+
         {
             var result = await expr.Rewrite(x => ValueTask.FromResult(x));
 
@@ -413,7 +423,6 @@ public class RewriterTests
                 new Lit(3)
             )
         );
-
         {
             var rewritten = expr.RewriteIter(
                 x => x is Neg n && n.Operand is Add a
@@ -422,9 +431,11 @@ public class RewriterTests
             );
 
             Assert.Equal(-6, Eval(rewritten));
+
             // find the -1
             Assert.Equal(1, ((Lit)((Neg)((Add)((Add)rewritten).Left).Left).Operand).Value);
         }
+
         {
             var result = expr.RewriteIter(x => x);
 
@@ -445,7 +456,6 @@ public class RewriterTests
                 new Lit(3)
             )
         );
-
         {
             var rewritten = await expr.RewriteIter(
                 x => ValueTask.FromResult(x is Neg n && n.Operand is Add a
@@ -455,9 +465,11 @@ public class RewriterTests
             );
 
             Assert.Equal(-6, Eval(rewritten));
+
             // find the -1
             Assert.Equal(1, ((Lit)((Neg)((Add)((Add)rewritten).Left).Left).Operand).Value);
         }
+
         {
             var result = await expr.RewriteIter(x => ValueTask.FromResult(x));
 

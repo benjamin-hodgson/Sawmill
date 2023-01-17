@@ -15,8 +15,10 @@ internal struct PooledQueue<T>
     public int Count => _end - _start;
 
     /// <summary>
-    /// Make sure to discard the Span before the next AllocateRight call
+    /// Make sure to discard the Span before the next AllocateRight call.
     /// </summary>
+    /// <param name="count">The amount to allocate.</param>
+    /// <returns>A span.</returns>
     public Span<T> AllocateRight(int count)
     {
         GrowIfNecessary(count);
@@ -32,6 +34,7 @@ internal struct PooledQueue<T>
         {
             throw new InvalidOperationException("Tried to pop from empty queue. Please report this as a bug in Sawmill!");
         }
+
         var result = _array[_start];
         _start++;
         return result;
@@ -67,6 +70,7 @@ internal struct PooledQueue<T>
             {
                 Array.Copy(_array, _start, _array, 0, Count);
             }
+
             _end = Count;
             _start = 0;
         }

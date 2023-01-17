@@ -11,13 +11,17 @@ namespace Sawmill.Expressions;
 public partial class ExpressionRewriter : IRewriter<Expression>
 {
     /// <summary>
-    /// Create a new instance of <see cref="ExpressionRewriter"/>
+    /// Create a new instance of <see cref="ExpressionRewriter"/>.
     /// </summary>
-    protected ExpressionRewriter() { }
+    protected ExpressionRewriter()
+    {
+    }
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.CountChildren(T)"/>
     /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns><paramref name="value"/>'s number of immediate children.</returns>
     public int CountChildren(Expression value)
     {
         return value switch
@@ -50,6 +54,11 @@ public partial class ExpressionRewriter : IRewriter<Expression>
     /// <summary>
     /// <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
     /// </summary>
+    /// <param name="childrenReceiver">
+    /// A <see cref="Span{T}"/> to copy <paramref name="value"/>'s immediate children into.
+    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren(Expression)"/>.
+    /// </param>
+    /// <param name="value">The value.</param>
     public void GetChildren(Span<Expression> childrenReceiver, Expression value)
     {
         switch (value)
@@ -121,12 +130,16 @@ public partial class ExpressionRewriter : IRewriter<Expression>
             case RuntimeVariablesExpression _:
                 return;
         }
+
         throw new ArgumentOutOfRangeException(nameof(value));
     }
 
     /// <summary>
     /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
     /// </summary>
+    /// <param name="newChildren">The new children.</param>
+    /// <param name="value">The old value, whose immediate children should be replaced.</param>
+    /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
     public Expression SetChildren(ReadOnlySpan<Expression> newChildren, Expression value)
     {
         return value switch

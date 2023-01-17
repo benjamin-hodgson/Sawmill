@@ -9,7 +9,7 @@ public static partial class Rewriter
     /// Rebuild a tree by applying a transformation function to every node from bottom to top.
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -33,10 +33,10 @@ public static partial class Rewriter
     /// Assert.Equal(expected, rewriter.Rewrite(transformer, expr));
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="transformer">The transformation function to apply to every node in the tree</param>
-    /// <param name="value">The value to rewrite</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="transformer">The transformation function to apply to every node in the tree.</param>
+    /// <param name="value">The value to rewrite.</param>
     /// <returns>
     /// The result of applying <paramref name="transformer"/> to every node in the tree represented by <paramref name="value"/>.
     /// </returns>
@@ -46,6 +46,7 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (transformer == null)
         {
             throw new ArgumentNullException(nameof(transformer));
@@ -59,7 +60,8 @@ public static partial class Rewriter
     {
         protected Func<T, T> Transformer { get; }
 
-        public RewriteTraversal(IRewriter<T> rewriter, Func<T, T> transformer) : base(rewriter)
+        public RewriteTraversal(IRewriter<T> rewriter, Func<T, T> transformer)
+            : base(rewriter)
         {
             Transformer = transformer;
         }
@@ -75,7 +77,7 @@ public static partial class Rewriter
     /// Rebuild a tree by applying an asynchronous transformation function to every node from bottom to top.
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -99,10 +101,10 @@ public static partial class Rewriter
     /// Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="transformer">The asynchronous transformation function to apply to every node in the tree</param>
-    /// <param name="value">The value to rewrite</param>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="transformer">The asynchronous transformation function to apply to every node in the tree.</param>
+    /// <param name="value">The value to rewrite.</param>
     /// <returns>
     /// The result of applying <paramref name="transformer"/> to every node in the tree represented by <paramref name="value"/>.
     /// </returns>
@@ -113,6 +115,7 @@ public static partial class Rewriter
         {
             throw new ArgumentNullException(nameof(rewriter));
         }
+
         if (transformer == null)
         {
             throw new ArgumentNullException(nameof(transformer));
@@ -126,7 +129,8 @@ public static partial class Rewriter
     {
         protected Func<T, ValueTask<T>> Transformer { get; }
 
-        public RewriteAsyncTraversal(IRewriter<T> rewriter, Func<T, ValueTask<T>> transformer) : base(rewriter)
+        public RewriteAsyncTraversal(IRewriter<T> rewriter, Func<T, ValueTask<T>> transformer)
+            : base(rewriter)
         {
             Transformer = transformer;
         }

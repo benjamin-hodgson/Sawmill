@@ -23,6 +23,7 @@ internal static class XmlDocGenerator
     }
 
     private static readonly Regex _pasteDocRegex = new(@"^(\s*)//!pastedoc\s+(.+)$", RegexOptions.Compiled);
+
     private static void PasteXmlDocs(string sourceFile, XDocument sawmillDoc)
     {
         var lines = File.ReadAllLines(sourceFile);
@@ -37,6 +38,7 @@ internal static class XmlDocGenerator
                 {
                     continue;
                 }
+
                 skippingDocs = false;
             }
 
@@ -54,6 +56,7 @@ internal static class XmlDocGenerator
                 {
                     throw new InvalidOperationException($"Couldn't find cref {cref}");
                 }
+
                 docContent.Add("<seealso cref=\"" + cref + "\"/>");
                 var docIndentation = docContent[0].Length - docContent[0].TrimStart().Length;
                 var newXmlDoc = docContent

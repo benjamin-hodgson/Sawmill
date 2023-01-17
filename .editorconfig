@@ -8,5 +8,10 @@ tab_width = 4
 end_of_line = lf
 insert_final_newline = true
 
+[*.cs]
+# SA1005: Single line comment should begin with a space
+#   Justification: to do (need to change how pastedoc works first)
+dotnet_diagnostic.SA1005.severity = none
+
 [*.Generated.cs]
 generated_code = true

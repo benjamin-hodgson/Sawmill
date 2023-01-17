@@ -8,6 +8,7 @@ public partial class ExpressionRewriter
 {
     [SuppressMessage("Style", "IDE0060", Justification = "Used by overload resolution")]
     private static int CountChildren(BinaryExpression b) => 2;
+
     private static void GetChildren(Span<Expression> children, BinaryExpression b)
     {
         children[0] = b.Left;

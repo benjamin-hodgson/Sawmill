@@ -9,7 +9,7 @@ public static partial class Rewriter
     /// <seealso cref="IRewritable{T}.GetChildren"/>
     /// </summary>
     /// <example>
-    /// Given a representation of the expression <c>(1+2)+3</c>,
+    /// Given a representation of the expression <c>(1+2)+3</c>.
     /// <code>
     /// Expr expr = new Add(
     ///     new Add(
@@ -32,10 +32,10 @@ public static partial class Rewriter
     /// Assert.Equal(expected, rewriter.GetChildren(expr));
     /// </code>
     /// </example>
-    /// <typeparam name="T">The rewritable tree type</typeparam>
-    /// <param name="rewriter">The rewriter</param>
-    /// <param name="value">The value</param>
-    /// <returns>The immediate children of <paramref name="value"/></returns>
+    /// <typeparam name="T">The rewritable tree type.</typeparam>
+    /// <param name="rewriter">The rewriter.</param>
+    /// <param name="value">The value.</param>
+    /// <returns>The immediate children of <paramref name="value"/>.</returns>
     public static T[] GetChildren<T>(this IRewriter<T> rewriter, T value)
     {
         if (rewriter == null)

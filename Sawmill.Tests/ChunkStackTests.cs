@@ -7,7 +7,7 @@ public class ChunkStackTests
     [Fact]
     public void TestEmptyChunk()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
         var span = stack.Allocate(0);
         Assert.Equal(0, span.Length);
 
@@ -18,7 +18,7 @@ public class ChunkStackTests
     [Fact]
     public void TestSmallChunk()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
         var span = stack.Allocate(1);
         Assert.Equal(1, span.Length);
 
@@ -29,7 +29,7 @@ public class ChunkStackTests
     [Fact]
     public void TestSomeSmallChunks()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span1 = stack.Allocate(1);
         Assert.Equal(1, span1.Length);
@@ -49,7 +49,7 @@ public class ChunkStackTests
     [Fact]
     public void TestManySmallChunks()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         for (var i = 0; i < 1025; i++)
         {
@@ -63,7 +63,7 @@ public class ChunkStackTests
     [Fact]
     public void TestEdgeOfRegion1_Fits()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span1 = stack.Allocate(510);
         Assert.Equal(510, span1.Length);
@@ -79,7 +79,7 @@ public class ChunkStackTests
     [Fact]
     public void TestEdgeOfRegion1_DoesntFit()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span1 = stack.Allocate(510);
         Assert.Equal(510, span1.Length);
@@ -95,7 +95,7 @@ public class ChunkStackTests
     [Fact]
     public void TestEdgeOfRegion2_Fits()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span1 = stack.Allocate(512);
         Assert.Equal(512, span1.Length);
@@ -115,7 +115,7 @@ public class ChunkStackTests
     [Fact]
     public void TestEdgeOfRegion2_DoesntFit()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span1 = stack.Allocate(512);
         Assert.Equal(512, span1.Length);
@@ -135,7 +135,7 @@ public class ChunkStackTests
     [Fact]
     public void TestLargeChunk_Region1()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span = stack.Allocate(513);
         Assert.Equal(513, span.Length);
@@ -147,7 +147,7 @@ public class ChunkStackTests
     [Fact]
     public void TestLargeChunk_Region2()
     {
-        var stack = new ChunkStack<int>();
+        var stack = default(ChunkStack<int>);
 
         var span1 = stack.Allocate(512);
         Assert.Equal(512, span1.Length);

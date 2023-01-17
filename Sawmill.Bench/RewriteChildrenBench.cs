@@ -1,6 +1,7 @@
 using System.Collections.Immutable;
 
 using BenchmarkDotNet.Attributes;
+
 namespace Sawmill.Bench;
 
 [MemoryDiagnoser]
@@ -11,6 +12,7 @@ public class RewriteChildrenBench
             .Repeat(new RoseTree(ImmutableArray.Create<RoseTree>()), 1000000)
             .ToImmutableArray()
     );
+
     private readonly RoseTree _replacement = new(ImmutableArray.Create<RoseTree>());
 
     [Benchmark]

@@ -18,12 +18,14 @@ internal struct ChunkStack<T>
     {
         if (size == 0)
         {
-            return new Span<T>();
+            return default;
         }
+
         if (_topRegion.IsDefault || !_topRegion.HasSpace(size))
         {
             AllocateRegion(size);
         }
+
         return _topRegion.Allocate(size);
     }
 
@@ -31,12 +33,14 @@ internal struct ChunkStack<T>
     {
         if (size == 0)
         {
-            return new Memory<T>();
+            return default;
         }
+
         if (_topRegion.IsDefault || !_topRegion.HasSpace(size))
         {
             AllocateRegion(size);
         }
+
         return _topRegion.AllocateMemory(size);
     }
 
@@ -44,16 +48,19 @@ internal struct ChunkStack<T>
     {
         Free(memory.Span);
     }
+
     public void Free(Span<T> span)
     {
         if (span.Length == 0)
         {
             return;
         }
+
         if (!_topRegion.IsDefault && _topRegion.IsUnused)
         {
             FreeTopRegion();
         }
+
         _topRegion.Free(span);
     }
 
@@ -63,6 +70,7 @@ internal struct ChunkStack<T>
         {
             FreeTopRegion();
         }
+
         return _topRegion.Pop();
     }
 
@@ -75,6 +83,7 @@ internal struct ChunkStack<T>
                 _regions[i].Dispose();
                 _regions[i] = default;
             }
+
             _regions = null;
         }
     }
@@ -125,6 +134,7 @@ internal struct ChunkStack<T>
         private int _used;
 
         public bool IsDefault => _array == null;
+
         public bool IsUnused => _used == 0;
 
         public Region(int size)
@@ -156,6 +166,7 @@ internal struct ChunkStack<T>
             {
                 throw new InvalidOperationException("Chunk was freed in the wrong order. Please report this as a bug in Sawmill!");
             }
+
             _used -= span.Length;
         }
 
@@ -165,6 +176,7 @@ internal struct ChunkStack<T>
             {
                 throw new InvalidOperationException("Chunk was freed in the wrong order. Please report this as a bug in Sawmill!");
             }
+
             _used--;
             return _array![_used];
         }

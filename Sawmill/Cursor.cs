@@ -7,20 +7,20 @@ namespace Sawmill;
 /// <summary>
 /// A <see cref="Cursor{T}"/> is a mutable view of a location in a <typeparamref name="T"/>-structure,
 /// allowing efficient access to (and editing of) a node and its parent, siblings, and immediate children.
-/// 
+///
 /// <para>
 /// You can think of a <see cref="Cursor{T}"/> as being focused on a particular node.
 /// After zooming in on a node, you can efficiently go up to the node's parent, down to the node's first child,
 /// or left or right to the node's immediate siblings.
 /// </para>
-/// 
+///
 /// <para>
 /// <see cref="Cursor{T}"/> is generally not as efficient or useful as the
 /// <see cref="Rewriter.SelfAndDescendantsInContext{T}(IRewriter{T}, T)"/> family for replacing single nodes,
 /// but it efficiently supports longer sequences of edits to a location and its neighbours.
 /// </para>
 /// </summary>
-/// 
+///
 /// <example>
 /// Here we traverse to, and replace, the right child of a binary node.
 /// <code>
@@ -28,15 +28,16 @@ namespace Sawmill;
 /// var cursor = expr.Cursor();
 /// cursor.Down();
 /// cursor.Right();
-/// 
+///
 /// Assert.Equal(new Neg(new Lit(2)), cursor.Focus);
-/// 
+///
 /// cursor.Focus = new Lit(10);
 /// cursor.Top();
-/// 
+///
 /// Assert.Equal(new Add(new Lit(1), new Lit(10)), cursor.Focus);
 /// </code>
 /// </example>
+/// <typeparam name="T">The rewritable tree type.</typeparam>
 public sealed class Cursor<T>
 {
     private readonly IRewriter<T> _rewriter;
@@ -48,15 +49,16 @@ public sealed class Cursor<T>
     private T _focus;
 
     /// <summary>
-    /// Gets or sets the current focus of the <see cref="Cursor{T}"/>
+    /// Gets or sets the current focus of the <see cref="Cursor{T}"/>.
     /// </summary>
-    /// <returns>The current focus of the <see cref="Cursor{T}"/></returns>
+    /// <returns>The current focus of the <see cref="Cursor{T}"/>.</returns>
     public T Focus
     {
         get
         {
             return _focus;
         }
+
         set
         {
             _changed = _changed || !ReferenceEquals(_focus, value);
@@ -83,14 +85,14 @@ public sealed class Cursor<T>
     }
 
     /// <summary>
-    /// Move in a given <see cref="Direction"/>
+    /// Move in a given <see cref="Direction"/>.
     /// </summary>
-    /// <param name="direction">The <see cref="Direction"/> to move in</param>
+    /// <param name="direction">The <see cref="Direction"/> to move in.</param>
     /// <exception cref="InvalidOperationException">
     /// Thrown when the direction leads off the edge of the tree. The <see cref="Cursor{T}"/> is left in the last known good state.
     /// </exception>
     /// <exception cref="ArgumentOutOfRangeException">
-    /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>
+    /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>.
     /// </exception>
     public void Move(Direction direction)
     {
@@ -114,14 +116,14 @@ public sealed class Cursor<T>
     }
 
     /// <summary>
-    /// Try to move in a given <see cref="Direction"/>
+    /// Try to move in a given <see cref="Direction"/>.
     /// </summary>
-    /// <param name="direction">The <see cref="Direction"/> to move in</param>
+    /// <param name="direction">The <see cref="Direction"/> to move in.</param>
     /// <returns>
     /// True if the operation was successful, false if the direction leads off the edge of the tree.
     /// </returns>
     /// <exception cref="ArgumentOutOfRangeException">
-    /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>
+    /// Thrown when <paramref name="direction"/> is not a valid <see cref="Direction"/>.
     /// </exception>
     public bool TryMove(Direction direction)
         => direction switch
@@ -133,10 +135,9 @@ public sealed class Cursor<T>
             _ => throw new ArgumentOutOfRangeException(nameof(direction)),
         };
 
-
     /// <summary>
     /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
-    /// 
+    ///
     /// <para>
     /// Going <see cref="Up()"/> "plugs the hole" in the parent, replacing the parent's children as necessary.
     /// This releases old versions of the current <see cref="Focus"/> and its children so that they can be garbage collected.
@@ -153,23 +154,25 @@ public sealed class Cursor<T>
 
     /// <summary>
     /// Go <see cref="Up()"/> <paramref name="count"/> times.
-    /// 
+    ///
     /// <para>
     /// Going <see cref="Up(int)"/> "plugs the hole" in the ancestors, replacing their children as necessary.
     /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
     /// </para>
     /// </summary>
+    /// <param name="count">The distance.</param>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the root node.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the top of the tree.
     /// </exception>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     public void Up(int count)
     {
         if (count < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         while (count > 0)
         {
             Up();
@@ -179,14 +182,14 @@ public sealed class Cursor<T>
 
     /// <summary>
     /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s parent.
-    /// 
+    ///
     /// <para>
     /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
     /// This releases old versions of the current <see cref="Focus"/> and its children, so that they can be garbage collected.
     /// </para>
     /// </summary>
     /// <returns>
-    /// True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the root node
+    /// True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the root node.
     /// </returns>
     public bool TryUp()
     {
@@ -194,6 +197,7 @@ public sealed class Cursor<T>
         {
             return false;
         }
+
         var parent = _path.Pop();
         _focus = _changed ? SetChildren(parent.Focus) : parent.Focus;
         _prevSiblings = parent.PrevSiblings;
@@ -204,13 +208,14 @@ public sealed class Cursor<T>
 
     /// <summary>
     /// Go <see cref="Up()"/> <paramref name="count"/> times, stopping if you reach the top.
-    /// 
+    ///
     /// <para>
     /// This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
     /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
     /// </para>
     /// </summary>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <param name="count">The distance.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     /// <returns>
     /// True if the operation was successful, false if the cursor went <see cref="Up()"/> fewer than <paramref name="count"/> times.
     /// </returns>
@@ -220,18 +225,20 @@ public sealed class Cursor<T>
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         var success = true;
         while (count > 0 && success)
         {
             success = TryUp();
             count--;
         }
+
         return success;
     }
 
     /// <summary>
     /// Move the <see cref="Cursor{T}"/> to the top of the tree.
-    /// 
+    ///
     /// <para>
     /// This operation "plugs the hole" in all of the current node's ancestors, replacing their children as necessary.
     /// Going to the <see cref="Top"/> releases old versions of the tree so that they can be garbage collected.
@@ -249,15 +256,15 @@ public sealed class Cursor<T>
     /// <summary>
     /// Go <see cref="Up()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
     /// In other words, find the first ancestor of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
-    /// 
+    ///
     /// <para>
     /// This operation "plugs the hole" in the ancestors, replacing their children as necessary.
     /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
     /// </para>
     /// </summary>
-    /// 
-    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    ///
+    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the root node.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the top of the tree.
@@ -268,6 +275,7 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         while (predicate(Focus))
         {
             Up();
@@ -283,9 +291,9 @@ public sealed class Cursor<T>
     /// This releases old versions of the ancestors and their children, so that they can be garbage collected.
     /// </para>
     /// </summary>
-    /// 
-    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    ///
+    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <returns>
     /// True if an ancestor not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the top.
     /// </returns>
@@ -295,18 +303,19 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         var success = true;
         while (success && predicate(Focus))
         {
             success = TryUp();
         }
+
         return success;
     }
 
-
     /// <summary>
     /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s first child.
-    /// 
+    ///
     /// <para>
     /// This operation "opens a hole" in the current node, descending to the children so you can replace them one at a time.
     /// </para>
@@ -322,22 +331,24 @@ public sealed class Cursor<T>
 
     /// <summary>
     /// Go <see cref="Down()"/> <paramref name="count"/> times.
-    /// 
+    ///
     /// <para>
     /// This operation "opens a hole" in the current node and its <paramref name="count"/> first descendants.
     /// </para>
     /// </summary>
+    /// <param name="count">The distance.</param>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached a node with no children.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the bottom of the tree.
     /// </exception>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     public void Down(int count)
     {
         if (count < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         while (count > 0)
         {
             Down();
@@ -347,12 +358,12 @@ public sealed class Cursor<T>
 
     /// <summary>
     /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s first child.
-    /// 
+    ///
     /// <para>
     /// This operation "opens a hole" in the current node, descending to the children so you can replace them one at a time.
     /// </para>
     /// </summary>
-    /// <returns>True if the operation was successful, false if the current <see cref="Focus"/> has no children</returns>
+    /// <returns>True if the operation was successful, false if the current <see cref="Focus"/> has no children.</returns>
     public bool TryDown()
     {
         var children = _rewriter.GetChildren(Focus);
@@ -360,6 +371,7 @@ public sealed class Cursor<T>
         {
             return false;
         }
+
         _path.Push(new Step<T>(_prevSiblings, Focus, _nextSiblings, _changed));
         _prevSiblings = new Stack<T>();
         _nextSiblings = new Stack<T>(children.Reverse());
@@ -370,12 +382,13 @@ public sealed class Cursor<T>
 
     /// <summary>
     /// Go <see cref="Down()"/> <paramref name="count"/> times, stopping if you reach a node with no children.
-    /// 
+    ///
     /// <para>
     /// This operation "opens a hole" in the current node and its <paramref name="count"/> first descendants.
     /// </para>
     /// </summary>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <param name="count">The distance.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     /// <returns>
     /// True if the operation was successful, false if the cursor went <see cref="Down()"/> fewer than <paramref name="count"/> times.
     /// </returns>
@@ -385,12 +398,14 @@ public sealed class Cursor<T>
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         var success = true;
         while (count > 0 && success)
         {
             success = TryDown();
             count--;
         }
+
         return success;
     }
 
@@ -411,8 +426,8 @@ public sealed class Cursor<T>
     /// Go <see cref="Down()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
     /// In other words, find the first leftmost descendant of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
     /// </summary>
-    /// <param name="predicate">The predicate to invoke on the current focus and its leftmost descendants</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    /// <param name="predicate">The predicate to invoke on the current focus and its leftmost descendants.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the root node.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the bottom of the tree.
@@ -423,6 +438,7 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         while (predicate(Focus))
         {
             Down();
@@ -433,8 +449,8 @@ public sealed class Cursor<T>
     /// Go <see cref="Down()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the bottom.
     /// In other words, find the first leftmost descendant of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
     /// </summary>
-    /// <param name="predicate">The predicate to invoke on the current focus and its leftmost descendants</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    /// <param name="predicate">The predicate to invoke on the current focus and its leftmost descendants.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <returns>
     /// True if a leftmost descendant not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the bottom.
     /// </returns>
@@ -444,19 +460,20 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         var success = true;
         while (success && predicate(Focus))
         {
             success = TryDown();
         }
+
         return success;
     }
-
 
     /// <summary>
     /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate predecessor sibling.
     /// </summary>
-    /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the leftmost sibling</exception>
+    /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the leftmost sibling.</exception>
     public void Left()
     {
         if (!TryLeft())
@@ -468,17 +485,19 @@ public sealed class Cursor<T>
     /// <summary>
     /// Go <see cref="Left()"/> <paramref name="count"/> times.
     /// </summary>
+    /// <param name="count">The distance.</param>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the leftmost sibling.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, focused on the leftmost sibling.
     /// </exception>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     public void Left(int count)
     {
         if (count < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         while (count > 0)
         {
             Left();
@@ -490,7 +509,7 @@ public sealed class Cursor<T>
     /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate predecessor sibling.
     /// </summary>
     /// <returns>
-    /// True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling
+    /// True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the leftmost sibling.
     /// </returns>
     public bool TryLeft()
     {
@@ -498,6 +517,7 @@ public sealed class Cursor<T>
         {
             return false;
         }
+
         _nextSiblings.Push(Focus);
         _focus = _prevSiblings.Pop();
         return true;
@@ -506,7 +526,8 @@ public sealed class Cursor<T>
     /// <summary>
     /// Go <see cref="Left()"/> <paramref name="count"/> times, stopping if you reach the leftmost sibling.
     /// </summary>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <param name="count">The distance.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     /// <returns>
     /// True if the operation was successful, false if the cursor went <see cref="Left()"/> fewer than <paramref name="count"/> times.
     /// </returns>
@@ -516,12 +537,14 @@ public sealed class Cursor<T>
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         var success = true;
         while (count > 0 && success)
         {
             success = TryLeft();
             count--;
         }
+
         return success;
     }
 
@@ -542,8 +565,8 @@ public sealed class Cursor<T>
     /// Go <see cref="Left()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
     /// In other words, find the first left sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
     /// </summary>
-    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the root node.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, at the leftmost sibling.
@@ -554,6 +577,7 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         while (predicate(Focus))
         {
             Left();
@@ -564,8 +588,8 @@ public sealed class Cursor<T>
     /// Go <see cref="Left()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the leftmost sibling.
     /// In other words, find the left sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
     /// </summary>
-    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <returns>
     /// True if an ancestor not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the leftmost sibling.
     /// </returns>
@@ -575,19 +599,20 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         var success = true;
         while (success && predicate(Focus))
         {
             success = TryLeft();
         }
+
         return success;
     }
-
 
     /// <summary>
     /// Focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate successor sibling.
     /// </summary>
-    /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the rightmost sibling</exception>
+    /// <exception cref="InvalidOperationException">The <see cref="Cursor{T}"/> is already focused on the rightmost sibling.</exception>
     public void Right()
     {
         if (!TryRight())
@@ -599,17 +624,19 @@ public sealed class Cursor<T>
     /// <summary>
     /// Go <see cref="Right()"/> <paramref name="count"/> times.
     /// </summary>
+    /// <param name="count">The distance.</param>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the rightmost sibling.
     /// The <see cref="Cursor{T}"/> is left in the last good state, that is, focused on the rightmost sibling.
     /// </exception>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     public void Right(int count)
     {
         if (count < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         while (count > 0)
         {
             Right();
@@ -620,13 +647,14 @@ public sealed class Cursor<T>
     /// <summary>
     /// Try to focus the <see cref="Cursor{T}"/> on the current <see cref="Focus"/>'s immediate successor sibling.
     /// </summary>
-    /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the rightmost sibling</returns>
+    /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}"/> is already focused on the rightmost sibling.</returns>
     public bool TryRight()
     {
         if (!_nextSiblings.Any())
         {
             return false;
         }
+
         _prevSiblings.Push(Focus);
         _focus = _nextSiblings.Pop();
         return true;
@@ -635,7 +663,8 @@ public sealed class Cursor<T>
     /// <summary>
     /// Go <see cref="Right()"/> <paramref name="count"/> times, stopping if you reach the rightmost sibling.
     /// </summary>
-    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative</exception>
+    /// <param name="count">The distance.</param>
+    /// <exception cref="ArgumentOutOfRangeException"><paramref name="count"/> was negative.</exception>
     /// <returns>
     /// True if the operation was successful, false if the cursor went <see cref="Right()"/> fewer than <paramref name="count"/> times.
     /// </returns>
@@ -645,12 +674,14 @@ public sealed class Cursor<T>
         {
             throw new ArgumentOutOfRangeException(nameof(count), $"{nameof(count)} must be non-negative");
         }
+
         var success = true;
         while (count > 0 && success)
         {
             success = TryRight();
             count--;
         }
+
         return success;
     }
 
@@ -671,8 +702,8 @@ public sealed class Cursor<T>
     /// Go <see cref="Right()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>.
     /// In other words, find the first Right sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
     /// </summary>
-    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <exception cref="InvalidOperationException">
     /// The <see cref="Cursor{T}"/> reached the root node.
     /// The <see cref="Cursor{T}"/> is Right in the last good state, that is, at the Rightmost sibling.
@@ -683,6 +714,7 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(predicate));
         }
+
         while (predicate(Focus))
         {
             Right();
@@ -693,8 +725,8 @@ public sealed class Cursor<T>
     /// Go <see cref="Right()"/> as long as <paramref name="predicate"/> returns true for the current <see cref="Focus"/>, stopping if you reach the Rightmost sibling.
     /// In other words, find the Right sibling of <see cref="Focus"/> (including itself) which does not satisfy <paramref name="predicate"/>.
     /// </summary>
-    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors</param>
-    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null</exception>
+    /// <param name="predicate">The predicate to invoke on the current focus and its ancestors.</param>
+    /// <exception name="ArgumentNullException"><paramref name="predicate"/> was null.</exception>
     /// <returns>
     /// True if an ancestor not satisfying <paramref name="predicate"/> was found, false if the <see cref="Cursor{T}"/> reached the Rightmost sibling.
     /// </returns>
@@ -710,6 +742,7 @@ public sealed class Cursor<T>
         {
             success = TryRight();
         }
+
         return success;
     }
 
@@ -719,7 +752,7 @@ public sealed class Cursor<T>
     /// The resulting path can be <see cref="Follow"/>ed by a <see cref="Cursor{T}"/>.
     /// This is useful if, for example, you need to compare the nodes at a given position in two different trees.
     /// </summary>
-    /// <returns>A sequence of <see cref="Direction"/>s</returns>
+    /// <returns>A sequence of <see cref="Direction"/>s.</returns>
     public IEnumerable<Direction> GetPath()
     {
         var prevSiblingsThisLevel = _prevSiblings.Count;
@@ -733,13 +766,16 @@ public sealed class Cursor<T>
                 {
                     yield return Direction.Right;
                 }
+
                 yield return Direction.Down;
             }
+
             for (var i = 0; i < prevSiblingsThisLevel; i++)
             {
                 yield return Direction.Right;
             }
         }
+
         return Iterator();
     }
 
@@ -749,13 +785,14 @@ public sealed class Cursor<T>
     /// <exception cref="InvalidOperationException">
     /// Thrown when path leads off the edge of the tree. The <see cref="Cursor{T}"/> is left in the last known good state.
     /// </exception>
-    /// <param name="path">The path to follow</param>
+    /// <param name="path">The path to follow.</param>
     public void Follow(IEnumerable<Direction> path)
     {
         if (path == null)
         {
             throw new ArgumentNullException(nameof(path));
         }
+
         foreach (var direction in path)
         {
             Move(direction);
@@ -765,7 +802,7 @@ public sealed class Cursor<T>
     /// <summary>
     /// Follow a path.
     /// </summary>
-    /// <param name="path">The path to follow</param>
+    /// <param name="path">The path to follow.</param>
     /// <returns>
     /// True if the path was successfully followed in full, false if the path led off the edge of the tree.
     /// </returns>
@@ -775,6 +812,7 @@ public sealed class Cursor<T>
         {
             throw new ArgumentNullException(nameof(path));
         }
+
         foreach (var direction in path)
         {
             if (!TryMove(direction))
@@ -782,19 +820,20 @@ public sealed class Cursor<T>
                 return false;
             }
         }
+
         return true;
     }
 
     /// <summary>
     /// Release old versions of the tree for garbage collection.
     /// The <see cref="Cursor{T}"/> is left focused on the current node.
-    /// 
+    ///
     /// <para>
     /// Typically you won't need to call this method yourself -
     /// just call <see cref="Top"/> at the end of your sequence of edits to get the new tree back.
     /// (This method is equivalent to calling <see cref="Top"/> and then returning to where you were.)
     /// </para>
-    /// 
+    ///
     /// <para>
     /// The worst-case scenario for <see cref="Cursor{T}"/>'s memory usage is code which traverses a large tree and
     /// alternates <see cref="Down()"/> calls with setting the <see cref="Focus"/>,
@@ -818,11 +857,11 @@ public sealed class Cursor<T>
     /// <para>
     /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="SearchRightAndDown"/>.
     /// </para>
-    /// 
+    ///
     /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
     /// </summary>
-    /// <param name="predicate">A predicate which returns true when the search should stop</param>
-    /// <returns>True if a matching focus was found, false if the search was exhaustive</returns>
+    /// <param name="predicate">A predicate which returns true when the search should stop.</param>
+    /// <returns>True if a matching focus was found, false if the search was exhaustive.</returns>
     public bool SearchDownAndRight(Func<T, bool> predicate)
     {
         if (predicate == null)
@@ -836,14 +875,17 @@ public sealed class Cursor<T>
             {
                 return true;
             }
+
             if (TryDown())
             {
                 if (Go())
                 {
                     return true;
                 }
+
                 Up();
             }
+
             if (TryRight())
             {
                 if (Go())
@@ -851,21 +893,23 @@ public sealed class Cursor<T>
                     return true;
                 }
             }
+
             return false;
         }
+
         return Go();
     }
 
     /// <summary>
     /// Focus the current focus's first descendant or right sibling's descendant which satisfies <see paramref="predicate"/>,
     /// searching siblings before descendants and ending at the current node's lowest leftmost descendant.
-    /// 
+    ///
     /// <para>
     /// This function searches the top-right part of the tree first, so will typically end up focusing a node higher up than <see cref="SearchDownAndRight"/>.
     /// </para>
     /// </summary>
-    /// <param name="predicate">A predicate which returns true when the search should stop</param>
-    /// <returns>True if a matching focus was found, false if the search was exhaustive</returns>
+    /// <param name="predicate">A predicate which returns true when the search should stop.</param>
+    /// <returns>True if a matching focus was found, false if the search was exhaustive.</returns>
     public bool SearchRightAndDown(Func<T, bool> predicate)
     {
         if (predicate == null)
@@ -879,14 +923,17 @@ public sealed class Cursor<T>
             {
                 return true;
             }
+
             if (TryRight())
             {
                 if (Go())
                 {
                     return true;
                 }
+
                 Left();
             }
+
             if (TryDown())
             {
                 if (Go())
@@ -894,8 +941,10 @@ public sealed class Cursor<T>
                     return true;
                 }
             }
+
             return false;
         }
+
         return Go();
     }
 

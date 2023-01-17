@@ -3,6 +3,7 @@ namespace Sawmill.Bench;
 public class BinTree : IRewritable<BinTree>
 {
     public BinTree? Left { get; }
+
     public BinTree? Right { get; }
 
     public BinTree(BinTree? left, BinTree? right)
@@ -25,6 +26,7 @@ public class BinTree : IRewritable<BinTree>
             childrenReceiver[i] = Left;
             i++;
         }
+
         if (Right != null)
         {
             childrenReceiver[i] = Right;

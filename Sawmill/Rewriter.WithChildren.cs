@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 
 using FixedSizeBuffers;
 
-
 namespace Sawmill;
 
 public static partial class Rewriter
@@ -90,7 +89,7 @@ public static partial class Rewriter
 
     private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
     {
-        var buffer = new FixedSizeBuffer4<T>();
+        var buffer = default(FixedSizeBuffer4<T>);
         var span = buffer.AsSpan()[..count];
 
         rewriter.GetChildren(span, value);
@@ -102,7 +101,7 @@ public static partial class Rewriter
 
     private static R WithChildren_Fast<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, int count)
     {
-        var buffer = new FixedSizeBuffer4<T>();
+        var buffer = default(FixedSizeBuffer4<T>);
         var span = buffer.AsSpan()[..count];
 
         rewriter.GetChildren(span, value);

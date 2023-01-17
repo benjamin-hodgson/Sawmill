@@ -19,6 +19,7 @@ public partial class ExpressionRewriter
         {
             rest = children;
         }
+
         Copy(m.Arguments, rest);
     }
 
@@ -28,6 +29,7 @@ public partial class ExpressionRewriter
         {
             return m.Update(m.Object, newChildren.ToArray());
         }
+
         return m.Update(newChildren[0], newChildren[1..].ToArray());
     }
 }

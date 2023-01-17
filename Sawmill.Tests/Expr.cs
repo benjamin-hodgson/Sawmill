@@ -2,10 +2,14 @@ using System.Collections.Immutable;
 
 namespace Sawmill.Tests;
 
+#pragma warning disable SA1402  // File may only contain a single type
+
 internal abstract class Expr : IRewritable<Expr>
 {
     public abstract int CountChildren();
+
     public abstract void GetChildren(Span<Expr> children);
+
     public abstract Expr SetChildren(ReadOnlySpan<Expr> newChildren);
 }
 
@@ -20,7 +24,9 @@ internal class Lit : Expr
 
     public override int CountChildren() => 0;
 
-    public override void GetChildren(Span<Expr> children) { }
+    public override void GetChildren(Span<Expr> children)
+    {
+    }
 
     public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => this;
 
@@ -61,6 +67,7 @@ internal class Neg : Expr
 internal class Add : Expr
 {
     public Expr Left { get; }
+
     public Expr Right { get; }
 
     public Add(Expr left, Expr right)
@@ -91,7 +98,9 @@ internal class Add : Expr
 internal class Ternary : Expr
 {
     public Expr Condition { get; }
+
     public Expr ThenBranch { get; }
+
     public Expr ElseBranch { get; }
 
     public Ternary(Expr condition, Expr thenBranch, Expr elseBranch)
@@ -150,11 +159,12 @@ internal class List : Expr
 
     public override int GetHashCode()
     {
-        var x = new HashCode();
+        var x = default(HashCode);
         foreach (var expr in Exprs)
         {
             x.Add(expr);
         }
+
         return x.ToHashCode();
     }
 }
@@ -162,7 +172,9 @@ internal class List : Expr
 internal class IfThenElse : Expr
 {
     public Expr Condition { get; }
+
     public ImmutableList<Expr> IfTrueStmts { get; }
+
     public ImmutableList<Expr> IfFalseStmts { get; }
 
     public IfThenElse(Expr condition, ImmutableList<Expr> ifTrueStmts, ImmutableList<Expr> ifFalseStmts)
@@ -182,6 +194,7 @@ internal class IfThenElse : Expr
         {
             t[i] = IfTrueStmts[i];
         }
+
         var f = t[IfTrueStmts.Count..];
         for (var i = 0; i < IfFalseStmts.Count; i++)
         {
@@ -204,16 +217,19 @@ internal class IfThenElse : Expr
 
     public override int GetHashCode()
     {
-        var x = new HashCode();
+        var x = default(HashCode);
         x.Add(Condition);
         foreach (var expr in IfTrueStmts)
         {
             x.Add(expr);
         }
+
         foreach (var expr in IfFalseStmts)
         {
             x.Add(expr);
         }
+
         return x.ToHashCode();
     }
 }
+#pragma warning restore SA1402

@@ -56,6 +56,7 @@ public partial class ExpressionRewriter
                             newInits.Add(oldInit.Update(newArgs[..oldInit.Arguments.Count].ToArray()));
                             newArgs = newArgs[oldInit.Arguments.Count..];
                         }
+
                         newBinding = l.Update(newInits);
                         break;
                     case MemberMemberBinding mm:
@@ -66,8 +67,10 @@ public partial class ExpressionRewriter
                     default:
                         throw new ArgumentOutOfRangeException("Unexpected type of binding", nameof(binding));
                 }
+
                 newBindings.Add(newBinding);
             }
+
             return new MemberBindingUpdateResult(newBindings, newArgs);
         }
 
@@ -77,7 +80,9 @@ public partial class ExpressionRewriter
     private readonly ref struct MemberBindingUpdateResult
     {
         public IEnumerable<MemberBinding> Bindings { get; }
+
         public ReadOnlySpan<Expression> Remainder { get; }
+
         public MemberBindingUpdateResult(IEnumerable<MemberBinding> bindings, ReadOnlySpan<Expression> remainder)
         {
             Bindings = bindings;
