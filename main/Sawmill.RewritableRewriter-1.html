@@ -180,7 +180,7 @@
                 <tbody>
                         <tr>
                             <td><p>T</p></td>
-                            <td><p>The rewritable tree type</p>
+                            <td><p>The rewritable tree type.</p>
 </td>
                         </tr>
                 </tbody>
@@ -215,7 +215,7 @@
                 
                 <a id="Sawmill_RewritableRewriter_1_Instance_"></a>
                 <h4 id="Sawmill_RewritableRewriter_1_Instance"><a href="#Sawmill_RewritableRewriter_1_Instance">Instance</a></h4>
-                <div><p>Gets the single global instance of <a class="xref" href="Sawmill.RewritableRewriter-1.html">RewritableRewriter&lt;T&gt;</a></p>
+                <div><p>Gets the single global instance of <a class="xref" href="Sawmill.RewritableRewriter-1.html">RewritableRewriter&lt;T&gt;</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static RewritableRewriter&lt;T&gt; Instance { get; }</code></pre>
@@ -269,7 +269,8 @@
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
                                     <td><p>value</p></td>
-                                    <td></td>
+                                    <td><p>The rewritable tree.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -285,7 +286,8 @@
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
-                                    <td></td>
+                                    <td><p>The <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -319,12 +321,15 @@
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</p></td>
                                     <td><p>childrenReceiver</p></td>
-                                    <td></td>
+                                    <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy the current instance&apos;s immediate children into.
+The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length#system-span-1-length">Length</a> should be equal to the number returned by <a class="xref" href="Sawmill.RewritableRewriter-1.html#Sawmill_RewritableRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
+</td>
                                 </tr>
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
                                     <td><p>value</p></td>
-                                    <td></td>
+                                    <td><p>The rewritable tree.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -359,12 +364,14 @@
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</p></td>
                                     <td><p>newChildren</p></td>
-                                    <td></td>
+                                    <td><p>The new children.</p>
+</td>
                                 </tr>
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
                                     <td><p>value</p></td>
-                                    <td></td>
+                                    <td><p>The rewritable tree.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -380,7 +387,8 @@
                             <tbody>
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
-                                    <td></td>
+                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>

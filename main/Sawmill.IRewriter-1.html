@@ -179,7 +179,7 @@ and that successive sets overwrite the earlier operation
                 <tbody>
                         <tr>
                             <td><p>T</p></td>
-                            <td><p>The type for which the rewriter can get the immediate children</p>
+                            <td><p>The type for which the rewriter can get the immediate children.</p>
 </td>
                         </tr>
                 </tbody>
@@ -212,7 +212,7 @@ and that successive sets overwrite the earlier operation
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value</p>
+                                    <td><p>The value.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -229,7 +229,7 @@ and that successive sets overwrite the earlier operation
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
-                                    <td><p><code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children</p>
+                                    <td><p><code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -242,7 +242,7 @@ and that successive sets overwrite the earlier operation
         
         
                     <h5 id="Sawmill_IRewriter_1_CountChildren__0__examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
@@ -284,7 +284,7 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value</p>
+                                    <td><p>The value.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -298,7 +298,7 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
         
         
                     <h5 id="Sawmill_IRewriter_1_GetChildren_System_Span__0___0__examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
@@ -347,13 +347,13 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</p></td>
                                     <td><p>newChildren</p></td>
-                                    <td><p>The new children</p>
+                                    <td><p>The new children.</p>
 </td>
                                 </tr>
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The old value, whose immediate children should be replaced</p>
+                                    <td><p>The old value, whose immediate children should be replaced.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -383,7 +383,7 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
         
         
                     <h5 id="Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0__examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),

@@ -188,7 +188,8 @@ but it efficiently supports longer sequences of edits to a location and its neig
                 <tbody>
                         <tr>
                             <td><p>T</p></td>
-                            <td></td>
+                            <td><p>The rewritable tree type.</p>
+</td>
                         </tr>
                 </tbody>
             </table>
@@ -215,7 +216,7 @@ Assert.Equal(new Add(new Lit(1), new Lit(10)), cursor.Focus);</code></pre>
                 
                 <a id="Sawmill_Cursor_1_Focus_"></a>
                 <h4 id="Sawmill_Cursor_1_Focus"><a href="#Sawmill_Cursor_1_Focus">Focus</a></h4>
-                <div><p>Gets or sets the current focus of the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a></p>
+                <div><p>Gets or sets the current focus of the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public T Focus { get; set; }</code></pre>
@@ -235,7 +236,7 @@ Assert.Equal(new Add(new Lit(1), new Lit(10)), cursor.Focus);</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p><span class="xref">T</span></p></td>
-                                    <td><p>The current focus of the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a></p>
+                                    <td><p>The current focus of the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -329,7 +330,8 @@ This operation &quot;opens a hole&quot; in the current node and its <code data-d
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -359,7 +361,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                             </tr>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -387,7 +389,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its leftmost descendants</p>
+                                    <td><p>The predicate to invoke on the current focus and its leftmost descendants.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -440,7 +442,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
-                                    <td><p>The path to follow</p>
+                                    <td><p>The path to follow.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -494,7 +496,7 @@ This is useful if, for example, you need to compare the nodes at a given positio
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
-                                    <td><p>A sequence of <a class="xref" href="Sawmill.Direction.html">Direction</a>s</p>
+                                    <td><p>A sequence of <a class="xref" href="Sawmill.Direction.html">Direction</a>s.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -536,7 +538,7 @@ This is useful if, for example, you need to compare the nodes at a given positio
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
-                                <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the leftmost sibling</p>
+                                <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the leftmost sibling.</p>
 </td>
                             </tr>
                         </tbody>
@@ -563,7 +565,8 @@ This is useful if, for example, you need to compare the nodes at a given positio
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -593,7 +596,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                             </tr>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -640,7 +643,7 @@ In other words, find the first left sibling of <a class="xref" href="Sawmill.Cur
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its ancestors</p>
+                                    <td><p>The predicate to invoke on the current focus and its ancestors.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -675,7 +678,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                 
                 <a id="Sawmill_Cursor_1_Move_"></a>
                 <h4 id="Sawmill_Cursor_1_Move_Sawmill_Direction_"><a href="#Sawmill_Cursor_1_Move_Sawmill_Direction_">Move(Direction)</a></h4>
-                <div><p>Move in a given <a class="xref" href="Sawmill.Direction.html">Direction</a></p>
+                <div><p>Move in a given <a class="xref" href="Sawmill.Direction.html">Direction</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public void Move(Direction direction)</code></pre>
@@ -693,7 +696,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                                 <tr>
                                     <td><p><a class="xref" href="Sawmill.Direction.html">Direction</a></p></td>
                                     <td><p>direction</p></td>
-                                    <td><p>The <a class="xref" href="Sawmill.Direction.html">Direction</a> to move in</p>
+                                    <td><p>The <a class="xref" href="Sawmill.Direction.html">Direction</a> to move in.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -723,7 +726,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                             </tr>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">direction</code> is not a valid <a class="xref" href="Sawmill.Direction.html">Direction</a></p>
+                                <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">direction</code> is not a valid <a class="xref" href="Sawmill.Direction.html">Direction</a>.</p>
 </td>
                             </tr>
                         </tbody>
@@ -790,7 +793,7 @@ this method (say, every 1000 edits) should improve the memory usage (at the cost
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
-                                <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the rightmost sibling</p>
+                                <td><p>The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the rightmost sibling.</p>
 </td>
                             </tr>
                         </tbody>
@@ -817,7 +820,8 @@ this method (say, every 1000 edits) should improve the memory usage (at the cost
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -847,7 +851,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                             </tr>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -894,7 +898,7 @@ In other words, find the first Right sibling of <a class="xref" href="Sawmill.Cu
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its ancestors</p>
+                                    <td><p>The predicate to invoke on the current focus and its ancestors.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -953,7 +957,7 @@ This function searches the bottom-left part of the tree first, so will typically
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>A predicate which returns true when the search should stop</p>
+                                    <td><p>A predicate which returns true when the search should stop.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -970,7 +974,7 @@ This function searches the bottom-left part of the tree first, so will typically
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></p></td>
-                                    <td><p>True if a matching focus was found, false if the search was exhaustive</p>
+                                    <td><p>True if a matching focus was found, false if the search was exhaustive.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1009,7 +1013,7 @@ This function searches the top-right part of the tree first, so will typically e
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>A predicate which returns true when the search should stop</p>
+                                    <td><p>A predicate which returns true when the search should stop.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1026,7 +1030,7 @@ This function searches the top-right part of the tree first, so will typically e
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></p></td>
-                                    <td><p>True if a matching focus was found, false if the search was exhaustive</p>
+                                    <td><p>True if a matching focus was found, false if the search was exhaustive.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1085,7 +1089,7 @@ This operation &quot;opens a hole&quot; in the current node, descending to the c
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></p></td>
-                                    <td><p>True if the operation was successful, false if the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> has no children</p>
+                                    <td><p>True if the operation was successful, false if the current <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a> has no children.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1123,7 +1127,8 @@ This operation &quot;opens a hole&quot; in the current node and its <code data-d
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1163,7 +1168,7 @@ This operation &quot;opens a hole&quot; in the current node and its <code data-d
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1191,7 +1196,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its leftmost descendants</p>
+                                    <td><p>The predicate to invoke on the current focus and its leftmost descendants.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1243,7 +1248,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
-                                    <td><p>The path to follow</p>
+                                    <td><p>The path to follow.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1294,7 +1299,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></p></td>
-                                    <td><p>True if the operation was successful, false if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the leftmost sibling</p>
+                                    <td><p>True if the operation was successful, false if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the leftmost sibling.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1329,7 +1334,8 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1369,7 +1375,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1397,7 +1403,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its ancestors</p>
+                                    <td><p>The predicate to invoke on the current focus and its ancestors.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1431,7 +1437,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                 
                 <a id="Sawmill_Cursor_1_TryMove_"></a>
                 <h4 id="Sawmill_Cursor_1_TryMove_Sawmill_Direction_"><a href="#Sawmill_Cursor_1_TryMove_Sawmill_Direction_">TryMove(Direction)</a></h4>
-                <div><p>Try to move in a given <a class="xref" href="Sawmill.Direction.html">Direction</a></p>
+                <div><p>Try to move in a given <a class="xref" href="Sawmill.Direction.html">Direction</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public bool TryMove(Direction direction)</code></pre>
@@ -1449,7 +1455,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                                 <tr>
                                     <td><p><a class="xref" href="Sawmill.Direction.html">Direction</a></p></td>
                                     <td><p>direction</p></td>
-                                    <td><p>The <a class="xref" href="Sawmill.Direction.html">Direction</a> to move in</p>
+                                    <td><p>The <a class="xref" href="Sawmill.Direction.html">Direction</a> to move in.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1490,7 +1496,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">direction</code> is not a valid <a class="xref" href="Sawmill.Direction.html">Direction</a></p>
+                                <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">direction</code> is not a valid <a class="xref" href="Sawmill.Direction.html">Direction</a>.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1516,7 +1522,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></p></td>
-                                    <td><p>True if the operation was successful, false if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the rightmost sibling</p>
+                                    <td><p>True if the operation was successful, false if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the rightmost sibling.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1551,7 +1557,8 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1591,7 +1598,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1619,7 +1626,7 @@ In other words, find the Right sibling of <a class="xref" href="Sawmill.Cursor-1
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its ancestors</p>
+                                    <td><p>The predicate to invoke on the current focus and its ancestors.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1674,7 +1681,7 @@ This releases old versions of the current <a class="xref" href="Sawmill.Cursor-1
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></p></td>
-                                    <td><p>True if the operation was successful, false if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the root node</p>
+                                    <td><p>True if the operation was successful, false if the <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is already focused on the root node.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1713,7 +1720,8 @@ This releases old versions of the ancestors and their children, so that they can
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1753,7 +1761,7 @@ This releases old versions of the ancestors and their children, so that they can
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1785,7 +1793,7 @@ This releases old versions of the ancestors and their children, so that they can
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its ancestors</p>
+                                    <td><p>The predicate to invoke on the current focus and its ancestors.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1879,7 +1887,8 @@ This releases old versions of the ancestors and their children, so that they can
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>count</p></td>
-                                    <td></td>
+                                    <td><p>The distance.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1909,7 +1918,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left in 
                             </tr>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></p></td>
-                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative</p>
+                                <td><p><code data-dev-comment-type="paramref" class="paramref">count</code> was negative.</p>
 </td>
                             </tr>
                         </tbody>
@@ -1941,7 +1950,7 @@ This releases old versions of the ancestors and their children, so that they can
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</p></td>
                                     <td><p>predicate</p></td>
-                                    <td><p>The predicate to invoke on the current focus and its ancestors</p>
+                                    <td><p>The predicate to invoke on the current focus and its ancestors.</p>
 </td>
                                 </tr>
                             </tbody>
