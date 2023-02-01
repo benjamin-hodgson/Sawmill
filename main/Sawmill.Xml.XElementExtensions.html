@@ -178,10 +178,13 @@
 <code data-dev-comment-type="paramref" class="paramref">value</code> paired with a function to replace the child.
 This is typically useful when you need to replace a node&apos;s children one at a time,
 such as during mutation testing.</p>
-<p><p>
+<p>
 The replacement function can be seen as the &quot;context&quot; of the child; calling the
 function with a new child &quot;plugs the hole&quot; in the context.
-</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static (XElement, Func&lt;XElement, XElement&gt;)[] ChildrenInContext(this XElement value)</code></pre>
@@ -199,8 +202,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to get the contexts for the immediate children</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -216,7 +218,8 @@ function with a new child &quot;plugs the hole&quot; in the context.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;[]</p></td>
-                                    <td></td>
+                                    <td><p>An enumerable of contexts.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -229,10 +232,6 @@ function with a new child &quot;plugs the hole&quot; in the context.
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_ChildrenInContext_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_ChildrenInContext_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_CountChildren_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_CountChildren_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_CountChildren_System_Xml_Linq_XElement_">CountChildren(XElement)</a></h4>
@@ -255,8 +254,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -272,7 +270,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
-                                    <td><p><code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children</p>
+                                    <td><p><code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -285,21 +283,19 @@ function with a new child &quot;plugs the hole&quot; in the context.
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_CountChildren_System_Xml_Linq_XElement__examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a> counts the immediate children of the topmost (Add) node.
+);</code></pre>
+<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a> counts the immediate children of the topmost (Add) node.</p>
 <pre><code>Assert.Equal(2, rewriter.CountChildren(expr));</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_CountChildren_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_CountChildren_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren</a>(T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_Cursor_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_Cursor_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_Cursor_System_Xml_Linq_XElement_">Cursor(XElement)</a></h4>
@@ -321,8 +317,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The root node on which the newly created <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> should be focused</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -338,7 +333,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="Sawmill.Cursor-1.html">Cursor</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
-                                    <td><p>A <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> focused on the root node of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+                                    <td><p>A <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> focused on the root node of <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -352,14 +347,10 @@ function with a new child &quot;plugs the hole&quot; in the context.
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_Cursor_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_Cursor_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_DescendantAt_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_DescendantAt_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__"><a href="#Sawmill_Xml_XElementExtensions_DescendantAt_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__">DescendantAt(XElement, IEnumerable&lt;Direction&gt;)</a></h4>
-                <div><p>Returns the descendant at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+                <div><p>Returns the descendant at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static XElement DescendantAt(this XElement value, IEnumerable&lt;Direction&gt; path)</code></pre>
@@ -377,14 +368,12 @@ function with a new child &quot;plugs the hole&quot; in the context.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The rewritable tree type</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
-                                    <td><p>The route to take to find the descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -400,7 +389,7 @@ function with a new child &quot;plugs the hole&quot; in the context.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
-                                    <td><p>The descendant found by following the directions in <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+                                    <td><p>The descendant found by following the directions in <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -424,23 +413,21 @@ function with a new child &quot;plugs the hole&quot; in the context.
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
-                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
                         </tbody>
                     </table>
         
-                <h5 id="Sawmill_Xml_XElementExtensions_DescendantAt_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction___seealso"><a href="#Sawmill_Xml_XElementExtensions_DescendantAt_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0_">DescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_DescendantsAndSelf_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_DescendantsAndSelf_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_DescendantsAndSelf_System_Xml_Linq_XElement_">DescendantsAndSelf(XElement)</a></h4>
                 <div><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.</p>
-<p><p>
+<p>
 This is a depth-first post-order traversal.
-</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;XElement&gt; DescendantsAndSelf(this XElement value)</code></pre>
@@ -458,8 +445,7 @@ This is a depth-first post-order traversal.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to traverse</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -488,29 +474,25 @@ This is a depth-first post-order traversal.
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_DescendantsAndSelf_System_Xml_Linq_XElement__examples">Examples</h5>
-                <pre><code>  Expr expr = new Add(
-      new Add(
-          new Lit(1),
-          new Lit(2)
-      ),
-      new Lit(3)
-  );
-  Expr[] expected = new[]
-      {
-          new Lit(1),
-          new Lit(2),
-          new Add(new Lit(1), new Lit(2)),
-          new Lit(3),
-          expr    
-      };
-  Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
+                <pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);
+Expr[] expected = new[]
+    {
+        new Lit(1),
+        new Lit(2),
+        new Add(new Lit(1), new Lit(2)),
+        new Lit(3),
+        expr
+    };
+Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
 
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_DescendantsAndSelf_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_DescendantsAndSelf_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_DescendantsAndSelfInContext_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_DescendantsAndSelfInContext_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_DescendantsAndSelfInContext_System_Xml_Linq_XElement_">DescendantsAndSelfInContext(XElement)</a></h4>
@@ -518,12 +500,18 @@ This is a depth-first post-order traversal.
 paired with a function to replace the node, starting at the bottom.
 This is typically useful when you need to replace nodes one at a time,
 such as during mutation testing.</p>
-<p><p>
+<p>
 The replacement function can be seen as the &quot;context&quot; of the node; calling the
 function with a new node &quot;plugs the hole&quot; in the context.
-</p><p>
+</p>
+
+<p>
 This is a depth-first post-order traversal.
-</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(XElement, Func&lt;XElement, XElement&gt;)&gt; DescendantsAndSelfInContext(this XElement value)</code></pre>
@@ -541,8 +529,7 @@ This is a depth-first post-order traversal.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to get the contexts for the descendants</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -558,7 +545,8 @@ This is a depth-first post-order traversal.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
-                                    <td></td>
+                                    <td><p>An enumerable of contexts.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -571,10 +559,6 @@ This is a depth-first post-order traversal.
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_DescendantsAndSelfInContext_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_DescendantsAndSelfInContext_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_Fold_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_Sawmill_SpanFunc___0_System_Xml_Linq_XElement___0__"><a href="#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_Sawmill_SpanFunc___0_System_Xml_Linq_XElement___0__">Fold&lt;T&gt;(XElement, SpanFunc&lt;T, XElement, T&gt;)</a></h4>
@@ -597,14 +581,12 @@ using an aggregation function to combine each node with the results of folding i
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to fold</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, T&gt;</p></td>
                                     <td><p>func</p></td>
-                                    <td><p>The aggregation function</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -649,11 +631,6 @@ using an aggregation function to combine each node with the results of folding i
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_Sawmill_SpanFunc___0_System_Xml_Linq_XElement___0___seealso"><a href="#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_Sawmill_SpanFunc___0_System_Xml_Linq_XElement___0___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__Sawmill_SpanFunc___1___0___1____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;U, T, U&gt;, T)</div>
-                            <div><a class="xref" href="Sawmill.Rewritable.html#Sawmill_Rewritable_Fold__2___0_Sawmill_SpanFunc___1___0___1__">Fold&lt;T, U&gt;(T, SpanFunc&lt;U, T, U&gt;)</a></div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_Fold_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_System_Func_System_Memory___0__System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask___0___"><a href="#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_System_Func_System_Memory___0__System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask___0___">Fold&lt;T&gt;(XElement, Func&lt;Memory&lt;T&gt;, XElement, ValueTask&lt;T&gt;&gt;)</a></h4>
@@ -676,14 +653,12 @@ using an asynchronous aggregation function to combine each node with the results
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to fold</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.memory-1">Memory</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;</p></td>
                                     <td><p>func</p></td>
-                                    <td><p>The asynchronous aggregation function</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -731,11 +706,6 @@ using an asynchronous aggregation function to combine each node with the results
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_System_Func_System_Memory___0__System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask___0____seealso"><a href="#Sawmill_Xml_XElementExtensions_Fold__1_System_Xml_Linq_XElement_System_Func_System_Memory___0__System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask___0____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Fold__2_Sawmill_IRewriter___0__System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1_____0_">Fold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.memory-1">Memory</a>&lt;U&gt;, T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T)</div>
-                            <div><a class="xref" href="Sawmill.Rewritable.html#Sawmill_Rewritable_Fold__2___0_System_Func_System_Memory___1____0_System_Threading_Tasks_ValueTask___1___">Fold&lt;T, U&gt;(T, Func&lt;Memory&lt;U&gt;, T, ValueTask&lt;U&gt;&gt;)</a></div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_GetChildren_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_">GetChildren(XElement)</a></h4>
@@ -758,8 +728,7 @@ using an asynchronous aggregation function to combine each node with the results
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -775,7 +744,7 @@ using an asynchronous aggregation function to combine each node with the results
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>[]</p></td>
-                                    <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+                                    <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -788,14 +757,15 @@ using an asynchronous aggregation function to combine each node with the results
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement__examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.
+);</code></pre>
+<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.</p>
 <pre><code>Expr[] expected = new[]
     {
         new Add(
@@ -805,12 +775,9 @@ using an asynchronous aggregation function to combine each node with the results
         new Lit(3)
     };
 Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_GetChildren_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_System_Span_System_Xml_Linq_XElement__"><a href="#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_System_Span_System_Xml_Linq_XElement__">GetChildren(XElement, Span&lt;XElement&gt;)</a></h4>
@@ -833,15 +800,12 @@ Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
                                     <td><p>childrenReceiver</p></td>
-                                    <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children into.
-The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length#system-span-1-length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -854,14 +818,15 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_System_Span_System_Xml_Linq_XElement___examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a> copies the immediate children of the topmost node into the span.
+);</code></pre>
+<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a> copies the immediate children of the topmost node into the span.</p>
 <pre><code>Expr[] expected = new[]
     {
         new Add(
@@ -873,16 +838,13 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
 var array = new Expr[rewriter.CountChildren(expr)];
 rewriter.GetChildren(array, expr);
 Assert.Equal(expected, array);</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_System_Span_System_Xml_Linq_XElement___seealso"><a href="#Sawmill_Xml_XElementExtensions_GetChildren_System_Xml_Linq_XElement_System_Span_System_Xml_Linq_XElement___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_ReplaceDescendantAt_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_ReplaceDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_ReplaceDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Xml_Linq_XElement_">ReplaceDescendantAt&lt;T&gt;(XElement, IEnumerable&lt;Direction&gt;, XElement)</a></h4>
-                <div><p>Replaces the descendant at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+                <div><p>Replaces the descendant at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static XElement ReplaceDescendantAt&lt;T&gt;(this XElement value, IEnumerable&lt;Direction&gt; path, XElement newDescendant)</code></pre>
@@ -900,20 +862,17 @@ Assert.Equal(expected, array);</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The rewritable tree type</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
-                                    <td><p>The route to take to find the descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>newDescendant</p></td>
-                                    <td><p>The replacement descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -929,7 +888,7 @@ Assert.Equal(expected, array);</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
-                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with <code data-dev-comment-type="paramref" class="paramref">newDescendant</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with <code data-dev-comment-type="paramref" class="paramref">newDescendant</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -946,7 +905,8 @@ Assert.Equal(expected, array);</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p>T</p></td>
-                                    <td></td>
+                                    <td><p>The rewritable tree type.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -968,16 +928,12 @@ Assert.Equal(expected, array);</code></pre>
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
-                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
                         </tbody>
                     </table>
         
-                <h5 id="Sawmill_Xml_XElementExtensions_ReplaceDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_ReplaceDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ReplaceDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction____0___0_">ReplaceDescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, T, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_Rewrite_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___"><a href="#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___">Rewrite(XElement, Func&lt;XElement, ValueTask&lt;XElement&gt;&gt;)</a></h4>
@@ -999,14 +955,12 @@ Assert.Equal(expected, array);</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to rewrite</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>The asynchronous transformation function to apply to every node in the tree</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1038,15 +992,16 @@ Assert.Equal(expected, array);</code></pre>
 </div>
         
                     <h5 id="Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> replaces the leaves of the tree with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>,
-<p>then replaces their parents with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>, and so on.
+);</code></pre>
+<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> replaces the leaves of the tree with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>,
+then replaces their parents with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>, and so on.
 By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> has traversed the whole tree.</p>
 <pre><code>Expr expected = await transformer(new Add(
     await transformer(new Add(
@@ -1056,12 +1011,9 @@ By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite
     await transformer(new Lit(3))
 ));
 Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso"><a href="#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_Rewrite_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__"><a href="#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__">Rewrite(XElement, Func&lt;XElement, XElement&gt;)</a></h4>
@@ -1083,14 +1035,12 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to rewrite</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>The transformation function to apply to every node in the tree</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1119,15 +1069,16 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> replaces the leaves of the tree with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>,
-<p>then replaces their parents with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>, and so on.
+);</code></pre>
+<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> replaces the leaves of the tree with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>,
+then replaces their parents with the result of calling <code data-dev-comment-type="paramref" class="paramref">transformer</code>, and so on.
 By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> has traversed the whole tree.</p>
 <pre><code>Expr expected = transformer(new Add(
     transformer(new Add(
@@ -1137,12 +1088,9 @@ By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite
     transformer(new Lit(3))
 ));
 Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso"><a href="#Sawmill_Xml_XElementExtensions_Rewrite_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_RewriteChildren_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___"><a href="#Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___">RewriteChildren(XElement, Func&lt;XElement, ValueTask&lt;XElement&gt;&gt;)</a></h4>
@@ -1164,14 +1112,12 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>An asynchronous transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1204,10 +1150,6 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso"><a href="#Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_RewriteChildren_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__"><a href="#Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__">RewriteChildren(XElement, Func&lt;XElement, XElement&gt;)</a></h4>
@@ -1229,14 +1171,12 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The old value, whose immediate children should be transformed by <code data-dev-comment-type="paramref" class="paramref">transformer</code>.</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>A transformation function to apply to each of <code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s immediate children.</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1266,14 +1206,10 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso"><a href="#Sawmill_Xml_XElementExtensions_RewriteChildren_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteChildren__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteChildren&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_RewriteDescendantAt_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___"><a href="#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___">RewriteDescendantAt&lt;T&gt;(XElement, IEnumerable&lt;Direction&gt;, Func&lt;XElement, ValueTask&lt;XElement&gt;&gt;)</a></h4>
-                <div><p>Apply an asynchronous function at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+                <div><p>Apply an asynchronous function at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static ValueTask&lt;XElement&gt; RewriteDescendantAt&lt;T&gt;(this XElement value, IEnumerable&lt;Direction&gt; path, Func&lt;XElement, ValueTask&lt;XElement&gt;&gt; transformer)</code></pre>
@@ -1291,20 +1227,17 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The rewritable tree type</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
-                                    <td><p>The route to take to find the descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>An asynchronous function to calculate a replacement for the descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1320,7 +1253,7 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
-                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1337,7 +1270,8 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p>T</p></td>
-                                    <td></td>
+                                    <td><p>The rewritable tree type.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1362,20 +1296,16 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
-                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
                         </tbody>
                     </table>
         
-                <h5 id="Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso"><a href="#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteDescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_RewriteDescendantAt_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__"><a href="#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__">RewriteDescendantAt&lt;T&gt;(XElement, IEnumerable&lt;Direction&gt;, Func&lt;XElement, XElement&gt;)</a></h4>
-                <div><p>Apply a function at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code></p>
+                <div><p>Apply a function at a particular location in <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static XElement RewriteDescendantAt&lt;T&gt;(this XElement value, IEnumerable&lt;Direction&gt; path, Func&lt;XElement, XElement&gt; transformer)</code></pre>
@@ -1393,20 +1323,17 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The rewritable tree type</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
-                                    <td><p>The route to take to find the descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>A function to calculate a replacement for the descendant</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1422,7 +1349,7 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
-                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code></p>
+                                    <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -1439,7 +1366,8 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                             <tbody>
                                 <tr>
                                     <td><p>T</p></td>
-                                    <td></td>
+                                    <td><p>The rewritable tree type.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1461,16 +1389,12 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                         <tbody>
                             <tr>
                                 <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
-                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree</p>
+                                <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
                         </tbody>
                     </table>
         
-                <h5 id="Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso"><a href="#Sawmill_Xml_XElementExtensions_RewriteDescendantAt__1_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteDescendantAt__1_Sawmill_IRewriter___0__System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func___0___0____0_">RewriteDescendantAt&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_RewriteIter_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___"><a href="#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement___">RewriteIter(XElement, Func&lt;XElement, ValueTask&lt;XElement&gt;&gt;)</a></h4>
@@ -1499,14 +1423,12 @@ by applying a collection of rewrite rules until none of them can fire any more.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to rewrite</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>An asynchronous transformation function to apply to every node in <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly.</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1540,10 +1462,6 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso"><a href="#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Threading_Tasks_ValueTask_System_Xml_Linq_XElement____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">RewriteIter&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a></div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_RewriteIter_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__"><a href="#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement__">RewriteIter(XElement, Func&lt;XElement, XElement&gt;)</a></h4>
@@ -1572,14 +1490,12 @@ by applying a collection of rewrite rules until none of them can fire any more.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to rewrite</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
-                                    <td><p>A transformation function to apply to every node in <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly.</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1610,17 +1526,15 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso"><a href="#Sawmill_Xml_XElementExtensions_RewriteIter_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_RewriteIter__1_Sawmill_IRewriter___0__System_Func___0___0____0_">RewriteIter&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a></div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_SelfAndDescendants_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_SelfAndDescendants_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendants_System_Xml_Linq_XElement_">SelfAndDescendants(XElement)</a></h4>
                 <div><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.</p>
-<p><p>
+<p>
 This is a depth-first pre-order traversal.
-</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;XElement&gt; SelfAndDescendants(this XElement value)</code></pre>
@@ -1638,8 +1552,7 @@ This is a depth-first pre-order traversal.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to traverse</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1668,36 +1581,34 @@ This is a depth-first pre-order traversal.
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_SelfAndDescendants_System_Xml_Linq_XElement__examples">Examples</h5>
-                <pre><code>  Expr expr = new Add(
-      new Add(
-          new Lit(1),
-          new Lit(2)
-      ),
-      new Lit(3)
-  );
-  Expr[] expected = new[]
-      {
-          expr,
-          new Add(new Lit(1), new Lit(2)),
-          new Lit(1),
-          new Lit(2),
-          new Lit(3),
-      };
-  Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
+                <pre><code>Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);
+Expr[] expected = new[]
+    {
+        expr,
+        new Add(new Lit(1), new Lit(2)),
+        new Lit(1),
+        new Lit(2),
+        new Lit(3),
+    };
+Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
 
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_SelfAndDescendants_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendants_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsBreadthFirst_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsBreadthFirst_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendantsBreadthFirst_System_Xml_Linq_XElement_">SelfAndDescendantsBreadthFirst(XElement)</a></h4>
                 <div><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> in a breadth-first traversal order.</p>
 <p>
 This is a breadth-first pre-order traversal.
-</p></div>
+</p>
+
+</div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;XElement&gt; SelfAndDescendantsBreadthFirst(this XElement value)</code></pre>
 
@@ -1714,8 +1625,7 @@ This is a breadth-first pre-order traversal.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to traverse</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1745,10 +1655,6 @@ This is a breadth-first pre-order traversal.
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsBreadthFirst_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendantsBreadthFirst_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsBreadthFirst__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsBreadthFirst&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContext_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContext_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContext_System_Xml_Linq_XElement_">SelfAndDescendantsInContext(XElement)</a></h4>
@@ -1756,12 +1662,18 @@ This is a breadth-first pre-order traversal.
 paired with a function to replace the node, starting at the top.
 This is typically useful when you need to replace nodes one at a time,
 such as during mutation testing.</p>
-<p><p>
+<p>
 The replacement function can be seen as the &quot;context&quot; of the node; calling the
 function with a new node &quot;plugs the hole&quot; in the context.
-</p><p>
+</p>
+
+<p>
 This is a depth-first pre-order traversal.
-</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(XElement, Func&lt;XElement, XElement&gt;)&gt; SelfAndDescendantsInContext(this XElement value)</code></pre>
@@ -1779,8 +1691,7 @@ This is a depth-first pre-order traversal.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to get the contexts for the descendants</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1796,7 +1707,8 @@ This is a depth-first pre-order traversal.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
-                                    <td></td>
+                                    <td><p>An enumerable of contexts.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1809,10 +1721,6 @@ This is a depth-first pre-order traversal.
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContext_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContext_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContextBreadthFirst_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContextBreadthFirst_System_Xml_Linq_XElement_"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContextBreadthFirst_System_Xml_Linq_XElement_">SelfAndDescendantsInContextBreadthFirst(XElement)</a></h4>
@@ -1820,12 +1728,18 @@ This is a depth-first pre-order traversal.
 paired with a function to replace the node, in a breadth-first traversal order.
 This is typically useful when you need to replace nodes one at a time,
 such as during mutation testing.</p>
-<p><p>
+<p>
 The replacement function can be seen as the &quot;context&quot; of the node; calling the
 function with a new node &quot;plugs the hole&quot; in the context.
-</p><p>
+</p>
+
+<p>
 This is a breadth-first pre-order traversal.
-</p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a></p>
+</p>
+
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
+<a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(XElement, Func&lt;XElement, XElement&gt;)&gt; SelfAndDescendantsInContextBreadthFirst(this XElement value)</code></pre>
@@ -1843,8 +1757,7 @@ This is a breadth-first pre-order traversal.
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The value to get the contexts for the descendants</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1860,7 +1773,8 @@ This is a breadth-first pre-order traversal.
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</p></td>
-                                    <td></td>
+                                    <td><p>An enumerable of contexts.</p>
+</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1873,10 +1787,6 @@ This is a breadth-first pre-order traversal.
         
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContextBreadthFirst_System_Xml_Linq_XElement__seealso"><a href="#Sawmill_Xml_XElementExtensions_SelfAndDescendantsInContextBreadthFirst_System_Xml_Linq_XElement__seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContextBreadthFirst&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_SetChildren_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_System_ReadOnlySpan_System_Xml_Linq_XElement__"><a href="#Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_System_ReadOnlySpan_System_Xml_Linq_XElement__">SetChildren(XElement, ReadOnlySpan&lt;XElement&gt;)</a></h4>
@@ -1884,7 +1794,8 @@ This is a breadth-first pre-order traversal.
 <p>
 Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
 <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>.
-</p><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></p>
+</p>
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static XElement SetChildren(this XElement value, ReadOnlySpan&lt;XElement&gt; newChildren)</code></pre>
@@ -1902,14 +1813,12 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p></td>
                                     <td><p>value</p></td>
-                                    <td><p>The old value, whose immediate children should be replaced</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</p></td>
                                     <td><p>newChildren</p></td>
-                                    <td><p>The new children</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1938,25 +1847,23 @@ Callers should ensure that <code data-dev-comment-type="paramref" class="paramre
         
         
                     <h5 id="Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_System_ReadOnlySpan_System_Xml_Linq_XElement___examples">Examples</h5>
-                <p>Given a representation of the expression <code>(1+2)+3</code>,</p>
+                <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
 <pre><code>Expr expr = new Add(
     new Add(
         new Lit(1),
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.
+);</code></pre>
+<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.</p>
 <pre><code>Expr expected = new Add(
     new Lit(4),
     new Lit(5)
 );
 Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5)), expr));</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_System_ReadOnlySpan_System_Xml_Linq_XElement___seealso"><a href="#Sawmill_Xml_XElementExtensions_SetChildren_System_Xml_Linq_XElement_System_ReadOnlySpan_System_Xml_Linq_XElement___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;, T)</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_ZipFold_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___">ZipFold&lt;U&gt;(XElement, XElement, Func&lt;XElement, XElement, IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt;)</a></h4>
@@ -1996,8 +1903,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
                                     <td><p>func</p></td>
-                                    <td><p>The aggregation function</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2013,7 +1919,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;</p></td>
-                                    <td><p>The result of aggregating the two trees</p>
+                                    <td><p>The result of aggregating the two trees.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -2061,12 +1967,9 @@ the rightmost children of the larger of the two nodes are discarded.</p>
             }
         }
     );</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T[])</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_ZipFold_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable___0____0__"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable___0____0__">ZipFold&lt;U&gt;(XElement, XElement, Func&lt;XElement, XElement, IEnumerable&lt;U&gt;, U&gt;)</a></h4>
@@ -2106,8 +2009,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;</p></td>
                                     <td><p>func</p></td>
-                                    <td><p>The aggregation function</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2123,7 +2025,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             <tbody>
                                 <tr>
                                     <td><p><span class="xref">U</span></p></td>
-                                    <td><p>The result of aggregating the two trees</p>
+                                    <td><p>The result of aggregating the two trees.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -2168,12 +2070,9 @@ the rightmost children of the larger of the two nodes are discarded.</p>
             }
         }
     );</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable___0____0___seealso"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Func_System_Xml_Linq_XElement_System_Xml_Linq_XElement_System_Collections_Generic_IEnumerable___0____0___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;, T[])</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_ZipFold_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___">ZipFold&lt;U&gt;(XElement[], Func&lt;XElement[], IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt;)</a></h4>
@@ -2203,14 +2102,12 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>[]</p></td>
                                     <td><p>values</p></td>
-                                    <td><p>The trees to fold</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
                                     <td><p>func</p></td>
-                                    <td><p>The aggregation function</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2226,7 +2123,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             <tbody>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;</p></td>
-                                    <td><p>The result of aggregating the two trees</p>
+                                    <td><p>The result of aggregating the two trees.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -2274,12 +2171,9 @@ the rightmost children of the larger of the two nodes are discarded.</p>
             }
         }
     );</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IAsyncEnumerable___1__System_Threading_Tasks_ValueTask___1_____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;, T[])</div>
-                </div>
                 
                 <a id="Sawmill_Xml_XElementExtensions_ZipFold_"></a>
                 <h4 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IEnumerable___0____0__"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IEnumerable___0____0__">ZipFold&lt;U&gt;(XElement[], Func&lt;XElement[], IEnumerable&lt;U&gt;, U&gt;)</a></h4>
@@ -2309,14 +2203,12 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>[]</p></td>
                                     <td><p>values</p></td>
-                                    <td><p>The trees to fold</p>
-</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;</p></td>
                                     <td><p>func</p></td>
-                                    <td><p>The aggregation function</p>
-</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2332,7 +2224,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             <tbody>
                                 <tr>
                                     <td><p><span class="xref">U</span></p></td>
-                                    <td><p>The result of aggregating the two trees</p>
+                                    <td><p>The result of aggregating the two trees.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -2377,12 +2269,9 @@ the rightmost children of the larger of the two nodes are discarded.</p>
             }
         }
     );</code></pre>
+
                         
         
-                <h5 id="Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IEnumerable___0____0___seealso"><a href="#Sawmill_Xml_XElementExtensions_ZipFold__1_System_Xml_Linq_XElement___System_Func_System_Xml_Linq_XElement___System_Collections_Generic_IEnumerable___0____0___seealso">See Also</a></h5>
-                <div>
-                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ZipFold__2_Sawmill_IRewriter___0__System_Func___0___System_Collections_Generic_IEnumerable___1____1____0___">ZipFold&lt;T, U&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;, T[])</div>
-                </div>
         
         
 
