@@ -4,8 +4,4 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
     </PropertyGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\Sawmill\Sawmill.csproj" />
-    </ItemGroup>
 </Project>
