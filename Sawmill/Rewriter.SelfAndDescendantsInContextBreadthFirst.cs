@@ -22,9 +22,9 @@ public static partial class Rewriter
     /// This is a breadth-first pre-order traversal.
     /// </para>
     ///
-    /// <seealso cref="SelfAndDescendants"/>
-    /// <seealso cref="ChildrenInContext"/>
-    /// <seealso cref="DescendantsAndSelfInContext"/>
+    /// See <seealso cref="SelfAndDescendants"/>
+    /// See <seealso cref="ChildrenInContext"/>
+    /// See <seealso cref="DescendantsAndSelfInContext"/>
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>

@@ -858,7 +858,7 @@ public sealed class Cursor<T>
     /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="SearchRightAndDown"/>.
     /// </para>
     ///
-    /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
+    /// See <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)"/>
     /// </summary>
     /// <param name="predicate">A predicate which returns true when the search should stop.</param>
     /// <returns>True if a matching focus was found, false if the search was exhaustive.</returns>

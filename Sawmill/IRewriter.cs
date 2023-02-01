@@ -12,14 +12,14 @@ namespace Sawmill;
 /// (<c>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</c>).
 /// </para>
 ///
-/// <seealso cref="IRewritable{T}"/>.
+/// See <seealso cref="IRewritable{T}"/>.
 /// </summary>
 /// <typeparam name="T">The type for which the rewriter can get the immediate children.</typeparam>
 public interface IRewriter<T>
 {
     /// <summary>
     /// Count the immediate children of the value.
-    /// <seealso cref="IRewritable{T}.CountChildren"/>
+    /// See <seealso cref="IRewritable{T}.CountChildren"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -43,7 +43,7 @@ public interface IRewriter<T>
 
     /// <summary>
     /// Copy the immediate children of the value into <paramref name="childrenReceiver"/>.
-    /// <seealso cref="IRewritable{T}.GetChildren"/>
+    /// See <seealso cref="IRewritable{T}.GetChildren"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -84,7 +84,7 @@ public interface IRewriter<T>
     /// Callers should ensure that <paramref name="newChildren"/> contains the same number of children as was returned by
     /// <see cref="GetChildren"/>.
     /// </para>
-    /// <seealso cref="IRewritable{T}.SetChildren(ReadOnlySpan{T})"/>
+    /// See <seealso cref="IRewritable{T}.SetChildren(ReadOnlySpan{T})"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.

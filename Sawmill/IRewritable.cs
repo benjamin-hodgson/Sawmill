@@ -12,7 +12,7 @@ namespace Sawmill;
 /// (<c>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</c>).
 /// </para>
 ///
-/// <seealso cref="IRewriter{T}"/>.
+/// See <seealso cref="IRewriter{T}"/>.
 /// </summary>
 /// <typeparam name="T">The type of the object implementing the interface.</typeparam>
 public interface IRewritable<T>
@@ -20,7 +20,7 @@ public interface IRewritable<T>
 {
     /// <summary>
     /// Count the immediate children of the value.
-    /// <seealso cref="IRewriter{T}.CountChildren"/>
+    /// See <seealso cref="IRewriter{T}.CountChildren"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -43,7 +43,7 @@ public interface IRewritable<T>
 
     /// <summary>
     /// Copy the immediate children of the value into <paramref name="childrenReceiver"/>.
-    /// <seealso cref="IRewriter{T}.GetChildren"/>
+    /// See <seealso cref="IRewriter{T}.GetChildren"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -83,7 +83,7 @@ public interface IRewritable<T>
     /// Callers should ensure that <paramref name="newChildren"/> contains the same number of children as was returned by
     /// <see cref="GetChildren"/>.
     /// </para>
-    /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.

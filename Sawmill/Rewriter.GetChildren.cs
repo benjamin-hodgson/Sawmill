@@ -6,7 +6,7 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Get the immediate children of the value.
-    /// <seealso cref="IRewritable{T}.GetChildren"/>
+    /// See <seealso cref="IRewritable{T}.GetChildren"/>
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.

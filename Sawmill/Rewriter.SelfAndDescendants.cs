@@ -12,7 +12,7 @@ public static partial class Rewriter
     /// This is a depth-first pre-order traversal.
     /// </para>
     ///
-    /// <seealso cref="DescendantsAndSelf"/>
+    /// See <seealso cref="DescendantsAndSelf"/>
     /// </summary>
     /// <example>
     /// <code>

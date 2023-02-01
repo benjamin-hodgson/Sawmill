@@ -17,8 +17,8 @@ public static partial class Rewriter
     /// function with a new child "plugs the hole" in the context.
     /// </para>
     ///
-    /// <seealso cref="SelfAndDescendantsInContext"/>
-    /// <seealso cref="DescendantsAndSelfInContext"/>
+    /// See <seealso cref="SelfAndDescendantsInContext"/>
+    /// See <seealso cref="DescendantsAndSelfInContext"/>
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>

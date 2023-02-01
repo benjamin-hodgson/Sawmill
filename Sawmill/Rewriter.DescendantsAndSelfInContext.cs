@@ -21,9 +21,9 @@ public static partial class Rewriter
     /// This is a depth-first post-order traversal.
     /// </para>
     ///
-    /// <seealso cref="DescendantsAndSelf"/>
-    /// <seealso cref="ChildrenInContext"/>
-    /// <seealso cref="SelfAndDescendantsInContext"/>
+    /// See <seealso cref="DescendantsAndSelf"/>
+    /// See <seealso cref="ChildrenInContext"/>
+    /// See <seealso cref="SelfAndDescendantsInContext"/>
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
