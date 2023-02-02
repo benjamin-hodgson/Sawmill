@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill.Expressions
 {
     /// <summary>
-    /// Extension methods for <see cref="System.Linq.Expressions.Expression"/>s.
+    /// Extension methods for <see cref="System.Linq.Expressions.Expression" />s.
     /// </summary>
     public static class ExpressionExtensions
     {

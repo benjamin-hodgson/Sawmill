@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill.Newtonsoft.Json
 {
     /// <summary>
-    /// Extension methods for <see cref="global::Newtonsoft.Json.Linq.JToken"/>s.
+    /// Extension methods for <see cref="global::Newtonsoft.Json.Linq.JToken" />s.
     /// </summary>
     public static class JTokenExtensions
     {

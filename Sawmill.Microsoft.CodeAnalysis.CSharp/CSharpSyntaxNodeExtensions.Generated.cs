@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill.Microsoft.CodeAnalysis.CSharp
 {
     /// <summary>
-    /// Extension methods for <see cref="global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode"/>s.
+    /// Extension methods for <see cref="global::Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode" />s.
     /// </summary>
     public static class CSharpSyntaxNodeExtensions
     {

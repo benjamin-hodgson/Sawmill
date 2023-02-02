@@ -6,22 +6,22 @@ using System.Linq.Expressions;
 namespace Sawmill.Expressions;
 
 /// <summary>
-/// An implementation of <see cref="IRewriter{T}"/> for <see cref="Expression"/>s.
+/// An implementation of <see cref="IRewriter{T}" /> for <see cref="Expression" />s.
 /// </summary>
 public partial class ExpressionRewriter : IRewriter<Expression>
 {
     /// <summary>
-    /// Create a new instance of <see cref="ExpressionRewriter"/>.
+    /// Create a new instance of <see cref="ExpressionRewriter" />.
     /// </summary>
     protected ExpressionRewriter()
     {
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.CountChildren(T)"/>
+    /// See <seealso cref="IRewriter{T}.CountChildren(T)" />.
     /// </summary>
     /// <param name="value">The value.</param>
-    /// <returns><paramref name="value"/>'s number of immediate children.</returns>
+    /// <returns><paramref name="value" />'s number of immediate children.</returns>
     public int CountChildren(Expression value)
     {
         return value switch
@@ -52,11 +52,11 @@ public partial class ExpressionRewriter : IRewriter<Expression>
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
+    /// See <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)" />.
     /// </summary>
     /// <param name="childrenReceiver">
-    /// A <see cref="Span{T}"/> to copy <paramref name="value"/>'s immediate children into.
-    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren(Expression)"/>.
+    /// A <see cref="Span{T}" /> to copy <paramref name="value" />'s immediate children into.
+    /// The <see cref="Span{T}" />'s <see cref="Span{T}.Length" /> will be equal to the number returned by <see cref="CountChildren(Expression)" />.
     /// </param>
     /// <param name="value">The value.</param>
     public void GetChildren(Span<Expression> childrenReceiver, Expression value)
@@ -135,11 +135,11 @@ public partial class ExpressionRewriter : IRewriter<Expression>
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)" />.
     /// </summary>
     /// <param name="newChildren">The new children.</param>
     /// <param name="value">The old value, whose immediate children should be replaced.</param>
-    /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
+    /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public Expression SetChildren(ReadOnlySpan<Expression> newChildren, Expression value)
     {
         return value switch
@@ -170,9 +170,9 @@ public partial class ExpressionRewriter : IRewriter<Expression>
     }
 
     /// <summary>
-    /// Gets the single global instance of <see cref="ExpressionRewriter"/>.
+    /// Gets the single global instance of <see cref="ExpressionRewriter" />.
     /// </summary>
-    /// <returns>The single global instance of <see cref="ExpressionRewriter"/>.</returns>
+    /// <returns>The single global instance of <see cref="ExpressionRewriter" />.</returns>
     public static ExpressionRewriter Instance { get; } = new ExpressionRewriter();
 
     private static void Copy<T>(ReadOnlyCollection<T> collection, Span<T> span)

@@ -71,7 +71,7 @@ using System.Threading.Tasks;
 namespace {ns}
 {{
     /// <summary>
-    /// Extension methods for <see cref=""{typeName}""/>s.
+    /// Extension methods for <see cref=""{typeName}"" />s.
     /// </summary>
     public static class {className}
     {{

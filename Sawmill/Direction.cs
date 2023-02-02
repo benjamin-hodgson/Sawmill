@@ -1,7 +1,7 @@
 namespace Sawmill;
 
 /// <summary>
-/// Represents a direction that a <see cref="Cursor{T}"/> can move in.
+/// Represents a direction that a <see cref="Cursor{T}" /> can move in.
 /// </summary>
 public enum Direction
 {

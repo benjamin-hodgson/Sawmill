@@ -19,9 +19,9 @@ public static partial class Rewriter
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/> replaces the leaves of the tree with the result of calling <paramref name="transformer"/>,
-    /// then replaces their parents with the result of calling <paramref name="transformer"/>, and so on.
-    /// By the end, <see cref="Rewrite{T}(IRewriter{T}, Func{T, T}, T)"/> has traversed the whole tree.
+    /// <see cref="Rewrite{T}(IRewriter{T}, Func{T, T}, T)" /> replaces the leaves of the tree with the result of calling <paramref name="transformer" />,
+    /// then replaces their parents with the result of calling <paramref name="transformer" />, and so on.
+    /// By the end, <see cref="Rewrite{T}(IRewriter{T}, Func{T, T}, T)" /> has traversed the whole tree.
     /// <code>
     /// Expr expected = transformer(new Add(
     ///     transformer(new Add(
@@ -38,7 +38,7 @@ public static partial class Rewriter
     /// <param name="transformer">The transformation function to apply to every node in the tree.</param>
     /// <param name="value">The value to rewrite.</param>
     /// <returns>
-    /// The result of applying <paramref name="transformer"/> to every node in the tree represented by <paramref name="value"/>.
+    /// The result of applying <paramref name="transformer" /> to every node in the tree represented by <paramref name="value" />.
     /// </returns>
     public static T Rewrite<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
     {
@@ -87,9 +87,9 @@ public static partial class Rewriter
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="Rewrite{T}(IRewriter{T}, Func{T, ValueTask{T}}, T)"/> replaces the leaves of the tree with the result of calling <paramref name="transformer"/>,
-    /// then replaces their parents with the result of calling <paramref name="transformer"/>, and so on.
-    /// By the end, <see cref="Rewrite{T}(IRewriter{T}, Func{T, ValueTask{T}}, T)"/> has traversed the whole tree.
+    /// <see cref="Rewrite{T}(IRewriter{T}, Func{T, ValueTask{T}}, T)" /> replaces the leaves of the tree with the result of calling <paramref name="transformer" />,
+    /// then replaces their parents with the result of calling <paramref name="transformer" />, and so on.
+    /// By the end, <see cref="Rewrite{T}(IRewriter{T}, Func{T, ValueTask{T}}, T)" /> has traversed the whole tree.
     /// <code>
     /// Expr expected = await transformer(new Add(
     ///     await transformer(new Add(
@@ -106,9 +106,9 @@ public static partial class Rewriter
     /// <param name="transformer">The asynchronous transformation function to apply to every node in the tree.</param>
     /// <param name="value">The value to rewrite.</param>
     /// <returns>
-    /// The result of applying <paramref name="transformer"/> to every node in the tree represented by <paramref name="value"/>.
+    /// The result of applying <paramref name="transformer" /> to every node in the tree represented by <paramref name="value" />.
     /// </returns>
-    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask"/>.</remarks>
+    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<T> Rewrite<T>(this IRewriter<T> rewriter, Func<T, ValueTask<T>> transformer, T value)
     {
         if (rewriter == null)

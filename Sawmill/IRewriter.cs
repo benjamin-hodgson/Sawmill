@@ -3,7 +3,7 @@ using System;
 namespace Sawmill;
 
 /// <summary>
-/// A rewriter is an object which knows how to access the immediate children of a value of type <typeparamref name="T"/>.
+/// A rewriter is an object which knows how to access the immediate children of a value of type <typeparamref name="T" />.
 ///
 /// <para>
 /// Implementations should ensure that you always get the children you just set
@@ -12,14 +12,14 @@ namespace Sawmill;
 /// (<c>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</c>).
 /// </para>
 ///
-/// See <seealso cref="IRewritable{T}"/>.
+/// See <seealso cref="IRewritable{T}" />.
 /// </summary>
 /// <typeparam name="T">The type for which the rewriter can get the immediate children.</typeparam>
 public interface IRewriter<T>
 {
     /// <summary>
     /// Count the immediate children of the value.
-    /// See <seealso cref="IRewritable{T}.CountChildren"/>
+    /// See <seealso cref="IRewritable{T}.CountChildren" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -32,18 +32,18 @@ public interface IRewriter<T>
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="CountChildren"/> counts the immediate children of the topmost (Add) node.
+    /// <see cref="CountChildren" /> counts the immediate children of the topmost (Add) node.
     /// <code>
     /// Assert.Equal(2, rewriter.CountChildren(expr));
     /// </code>
     /// </example>
     /// <param name="value">The value.</param>
-    /// <returns><paramref name="value"/>'s number of immediate children.</returns>
+    /// <returns><paramref name="value" />'s number of immediate children.</returns>
     int CountChildren(T value);
 
     /// <summary>
-    /// Copy the immediate children of the value into <paramref name="childrenReceiver"/>.
-    /// See <seealso cref="IRewritable{T}.GetChildren"/>
+    /// Copy the immediate children of the value into <paramref name="childrenReceiver" />.
+    /// See <seealso cref="IRewritable{T}.GetChildren" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -56,7 +56,7 @@ public interface IRewriter<T>
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="GetChildren"/> copies the immediate children of the topmost node into the span.
+    /// <see cref="GetChildren" /> copies the immediate children of the topmost node into the span.
     /// <code>
     /// Expr[] expected = new[]
     ///     {
@@ -72,8 +72,8 @@ public interface IRewriter<T>
     /// </code>
     /// </example>
     /// <param name="childrenReceiver">
-    /// A <see cref="Span{T}"/> to copy <paramref name="value"/>'s immediate children into.
-    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> will be equal to the number returned by <see cref="CountChildren"/>.
+    /// A <see cref="Span{T}" /> to copy <paramref name="value" />'s immediate children into.
+    /// The <see cref="Span{T}" />'s <see cref="Span{T}.Length" /> will be equal to the number returned by <see cref="CountChildren" />.
     /// </param>
     /// <param name="value">The value.</param>
     void GetChildren(Span<T> childrenReceiver, T value);
@@ -81,10 +81,10 @@ public interface IRewriter<T>
     /// <summary>
     /// Set the immediate children of the value.
     /// <para>
-    /// Callers should ensure that <paramref name="newChildren"/> contains the same number of children as was returned by
-    /// <see cref="GetChildren"/>.
+    /// Callers should ensure that <paramref name="newChildren" /> contains the same number of children as was returned by
+    /// <see cref="GetChildren" />.
     /// </para>
-    /// See <seealso cref="IRewritable{T}.SetChildren(ReadOnlySpan{T})"/>
+    /// See <seealso cref="IRewritable{T}.SetChildren(ReadOnlySpan{T})" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -97,7 +97,7 @@ public interface IRewriter<T>
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="SetChildren"/> replaces the immediate children of the topmost node.
+    /// <see cref="SetChildren" /> replaces the immediate children of the topmost node.
     /// <code>
     /// Expr expected = new Add(
     ///     new Lit(4),
@@ -108,6 +108,6 @@ public interface IRewriter<T>
     /// </example>
     /// <param name="newChildren">The new children.</param>
     /// <param name="value">The old value, whose immediate children should be replaced.</param>
-    /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
+    /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     T SetChildren(ReadOnlySpan<T> newChildren, T value);
 }

@@ -6,7 +6,7 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Get the immediate children of the value.
-    /// See <seealso cref="IRewritable{T}.GetChildren"/>
+    /// See <seealso cref="IRewritable{T}.GetChildren" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -19,7 +19,7 @@ public static partial class Rewriter
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="GetChildren"/> returns the immediate children of the topmost node.
+    /// <see cref="GetChildren" /> returns the immediate children of the topmost node.
     /// <code>
     /// Expr[] expected = new[]
     ///     {
@@ -35,7 +35,7 @@ public static partial class Rewriter
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value.</param>
-    /// <returns>The immediate children of <paramref name="value"/>.</returns>
+    /// <returns>The immediate children of <paramref name="value" />.</returns>
     public static T[] GetChildren<T>(this IRewriter<T> rewriter, T value)
     {
         if (rewriter == null)

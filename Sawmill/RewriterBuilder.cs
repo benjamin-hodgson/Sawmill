@@ -12,7 +12,7 @@ namespace Sawmill;
 public static class RewriterBuilder
 {
     /// <summary>
-    /// Create a new <see cref="RewriterBuilder{T}"/>.
+    /// Create a new <see cref="RewriterBuilder{T}" />.
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <returns>A <see cref="RewriterBuilder{T}" />.</returns>
@@ -34,7 +34,7 @@ public class RewriterBuilder<T>
     }
 
     /// <summary>
-    /// Handle a single subclass of <typeparamref name="T"/>.
+    /// Handle a single subclass of <typeparamref name="T" />.
     /// </summary>
     /// <typeparam name="TSub">The concrete subclass type.</typeparam>
     /// <param name="builderAction">The action defining the builder for this subclass.</param>

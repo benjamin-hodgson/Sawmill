@@ -6,7 +6,7 @@ namespace Sawmill;
 public static partial class Rewriter
 {
     /// <summary>
-    /// Flattens all the nodes in the tree represented by <paramref name="value"/> into a single result,
+    /// Flattens all the nodes in the tree represented by <paramref name="value" /> into a single result,
     /// using an aggregation function to combine each node with the results of folding its children.
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
@@ -14,7 +14,7 @@ public static partial class Rewriter
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="func">The aggregation function.</param>
     /// <param name="value">The value to fold.</param>
-    /// <returns>The result of aggregating the tree represented by <paramref name="value"/>.</returns>
+    /// <returns>The result of aggregating the tree represented by <paramref name="value" />.</returns>
     public static U Fold<T, U>(this IRewriter<T> rewriter, SpanFunc<U, T, U> func, T value)
     {
         if (rewriter == null)
@@ -73,7 +73,7 @@ public static partial class Rewriter
     }
 
     /// <summary>
-    /// Flattens all the nodes in the tree represented by <paramref name="value"/> into a single result,
+    /// Flattens all the nodes in the tree represented by <paramref name="value" /> into a single result,
     /// using an asynchronous aggregation function to combine each node with the results of folding its children.
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
@@ -81,8 +81,8 @@ public static partial class Rewriter
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="func">The asynchronous aggregation function.</param>
     /// <param name="value">The value to fold.</param>
-    /// <returns>The result of aggregating the tree represented by <paramref name="value"/>.</returns>
-    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask"/>.</remarks>
+    /// <returns>The result of aggregating the tree represented by <paramref name="value" />.</returns>
+    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<U> Fold<T, U>(this IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func, T value)
     {
         if (rewriter == null)

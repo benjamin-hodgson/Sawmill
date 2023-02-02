@@ -10,7 +10,7 @@ namespace Sawmill.Tests;
 
 public class HtmlNodeRewriterTests
 {
-    private const string _exampleHtml = "<p class=\"baz\"><br/><span>nobble</span></p>";
+    private const string _exampleHtml = "<p class=\"baz\"><br /><span>nobble</span></p>";
 
     [Fact]
     public void TestGetChildren()

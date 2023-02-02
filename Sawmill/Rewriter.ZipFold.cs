@@ -8,11 +8,11 @@ namespace Sawmill;
 public static partial class Rewriter
 {
     /// <summary>
-    /// Flatten all of the nodes in the trees represented by <paramref name="values"/>
+    /// Flatten all of the nodes in the trees represented by <paramref name="values" />
     /// into a single value at the same time, using an aggregation function to combine
     /// nodes with the results of aggregating their children.
     /// The trees are iterated in lock-step, much like an n-ary
-    /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})"/>.
+    /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})" />.
     ///
     /// When trees are not the same size, the larger ones are
     /// truncated both horizontally and vertically.
@@ -20,7 +20,7 @@ public static partial class Rewriter
     /// the rightmost children of the larger of the two nodes are discarded.
     /// </summary>
     /// <example>
-    /// Here's an example of using <see cref="ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])"/> to test if two trees are syntactically equal.
+    /// Here's an example of using <see cref="ZipFold{T, U}(IRewriter{T}, Func{T[], IEnumerable{U}, U}, T[])" /> to test if two trees are syntactically equal.
     /// <code>
     /// static bool Equals(this Expr left, Expr right)
     ///     =&gt; left.ZipFold&lt;Expr, bool&gt;(
@@ -100,11 +100,11 @@ public static partial class Rewriter
     }
 
     /// <summary>
-    /// Flatten all of the nodes in the trees represented by <paramref name="values"/>
+    /// Flatten all of the nodes in the trees represented by <paramref name="values" />
     /// into a single value at the same time, using an aggregation function to combine
     /// nodes with the results of aggregating their children.
     /// The trees are iterated in lock-step, much like an n-ary
-    /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})"/>.
+    /// <see cref="Enumerable.Zip{TFirst, TSecond, TResult}(IEnumerable{TFirst}, IEnumerable{TSecond}, Func{TFirst, TSecond, TResult})" />.
     ///
     /// When trees are not the same size, the larger ones are
     /// truncated both horizontally and vertically.
@@ -112,7 +112,7 @@ public static partial class Rewriter
     /// the rightmost children of the larger of the two nodes are discarded.
     /// </summary>
     /// <example>
-    /// Here's an example of using <see cref="ZipFold{T, U}(IRewriter{T}, Func{T[], IAsyncEnumerable{U}, ValueTask{U}}, T[])"/> to test if two trees are syntactically equal.
+    /// Here's an example of using <see cref="ZipFold{T, U}(IRewriter{T}, Func{T[], IAsyncEnumerable{U}, ValueTask{U}}, T[])" /> to test if two trees are syntactically equal.
     /// <code>
     /// static bool Equals(this Expr left, Expr right)
     ///     =&gt; left.ZipFold&lt;Expr, bool&gt;(
@@ -139,7 +139,7 @@ public static partial class Rewriter
     /// <param name="values">The trees to fold.</param>
     /// <returns>The result of aggregating the two trees.</returns>
     /// <remarks>
-    /// This method is not available on platforms which do not support <see cref="ValueTask"/> and <see cref="IAsyncEnumerable{U}"/>.
+    /// This method is not available on platforms which do not support <see cref="ValueTask" /> and <see cref="IAsyncEnumerable{U}" />.
     /// </remarks>
     public static ValueTask<U> ZipFold<T, U>(
         this IRewriter<T> rewriter,

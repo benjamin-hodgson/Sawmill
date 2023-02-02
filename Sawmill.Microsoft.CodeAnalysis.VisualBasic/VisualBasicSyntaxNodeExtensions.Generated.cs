@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill.Microsoft.CodeAnalysis.VisualBasic
 {
     /// <summary>
-    /// Extension methods for <see cref="global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode"/>s.
+    /// Extension methods for <see cref="global::Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNode" />s.
     /// </summary>
     public static class VisualBasicSyntaxNodeExtensions
     {

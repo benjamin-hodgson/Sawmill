@@ -12,7 +12,7 @@ namespace Sawmill;
 /// (<c>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</c>).
 /// </para>
 ///
-/// See <seealso cref="IRewriter{T}"/>.
+/// See <seealso cref="IRewriter{T}" />.
 /// </summary>
 /// <typeparam name="T">The type of the object implementing the interface.</typeparam>
 public interface IRewritable<T>
@@ -20,7 +20,7 @@ public interface IRewritable<T>
 {
     /// <summary>
     /// Count the immediate children of the value.
-    /// See <seealso cref="IRewriter{T}.CountChildren"/>
+    /// See <seealso cref="IRewriter{T}.CountChildren" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -33,7 +33,7 @@ public interface IRewritable<T>
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="CountChildren"/> counts the immediate children of the topmost (Add) node.
+    /// <see cref="CountChildren" /> counts the immediate children of the topmost (Add) node.
     /// <code>
     /// Assert.Equal(2, expr.CountChildren());
     /// </code>
@@ -42,8 +42,8 @@ public interface IRewritable<T>
     int CountChildren();
 
     /// <summary>
-    /// Copy the immediate children of the value into <paramref name="childrenReceiver"/>.
-    /// See <seealso cref="IRewriter{T}.GetChildren"/>
+    /// Copy the immediate children of the value into <paramref name="childrenReceiver" />.
+    /// See <seealso cref="IRewriter{T}.GetChildren" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -56,7 +56,7 @@ public interface IRewritable<T>
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="GetChildren"/> copies the immediate children of the topmost node into the span.
+    /// <see cref="GetChildren" /> copies the immediate children of the topmost node into the span.
     /// <code>
     /// Expr[] expected = new[]
     ///     {
@@ -72,18 +72,18 @@ public interface IRewritable<T>
     /// </code>
     /// </example>
     /// <param name="childrenReceiver">
-    /// A <see cref="Span{T}"/> to copy the current instance's immediate children into.
-    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> should be equal to the number returned by <see cref="CountChildren"/>.
+    /// A <see cref="Span{T}" /> to copy the current instance's immediate children into.
+    /// The <see cref="Span{T}" />'s <see cref="Span{T}.Length" /> should be equal to the number returned by <see cref="CountChildren" />.
     /// </param>
     void GetChildren(Span<T> childrenReceiver);
 
     /// <summary>
     /// Set the immediate children of the currentInstance.
     /// <para>
-    /// Callers should ensure that <paramref name="newChildren"/> contains the same number of children as was returned by
-    /// <see cref="GetChildren"/>.
+    /// Callers should ensure that <paramref name="newChildren" /> contains the same number of children as was returned by
+    /// <see cref="GetChildren" />.
     /// </para>
-    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -96,7 +96,7 @@ public interface IRewritable<T>
     ///     new Lit(3)
     /// );
     /// </code>
-    /// <see cref="SetChildren"/> replaces the immediate children of the topmost node.
+    /// <see cref="SetChildren" /> replaces the immediate children of the topmost node.
     /// <code>
     /// Expr expected = new Add(
     ///     new Lit(4),

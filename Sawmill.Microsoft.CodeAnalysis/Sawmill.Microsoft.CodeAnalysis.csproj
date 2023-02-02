@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <ProjectReference Include="../Sawmill/Sawmill.csproj"/>
+        <ProjectReference Include="../Sawmill/Sawmill.csproj" />
     </ItemGroup>
 
     <ItemGroup>

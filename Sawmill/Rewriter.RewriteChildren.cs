@@ -10,9 +10,9 @@ public static partial class Rewriter
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
-    /// <param name="transformer">A transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
-    /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
-    /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
+    /// <param name="transformer">A transformation function to apply to each of <paramref name="value" />'s immediate children.</param>
+    /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer" />.</param>
+    /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public static T RewriteChildren<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
     {
         if (rewriter == null)
@@ -69,10 +69,10 @@ public static partial class Rewriter
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
-    /// <param name="transformer">An asynchronous transformation function to apply to each of <paramref name="value"/>'s immediate children.</param>
-    /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer"/>.</param>
-    /// <returns>A copy of <paramref name="value"/> with updated children.</returns>
-    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask"/>.</remarks>
+    /// <param name="transformer">An asynchronous transformation function to apply to each of <paramref name="value" />'s immediate children.</param>
+    /// <param name="value">The old value, whose immediate children should be transformed by <paramref name="transformer" />.</param>
+    /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
+    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<T> RewriteChildren<T>(
         this IRewriter<T> rewriter,
         Func<T, ValueTask<T>> transformer,

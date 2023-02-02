@@ -7,7 +7,7 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Rebuild a tree by repeatedly applying a transformation function to every node in the tree,
-    /// until a fixed point is reached. <paramref name="transformer"/> should always eventually return
+    /// until a fixed point is reached. <paramref name="transformer" /> should always eventually return
     /// its argument unchanged, or this method will loop.
     /// That is, <c>x.RewriteIter(transformer).SelfAndDescendants().All(x => transformer(x) == x)</c>.
     /// <para>
@@ -18,12 +18,12 @@ public static partial class Rewriter
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="transformer">
-    /// A transformation function to apply to every node in <paramref name="value"/> repeatedly.
+    /// A transformation function to apply to every node in <paramref name="value" /> repeatedly.
     /// </param>
     /// <param name="value">The value to rewrite.</param>
     /// <returns>
-    /// The result of applying <paramref name="transformer"/> to every node in the tree
-    /// represented by <paramref name="value"/> repeatedly until a fixed point is reached.
+    /// The result of applying <paramref name="transformer" /> to every node in the tree
+    /// represented by <paramref name="value" /> repeatedly until a fixed point is reached.
     /// </returns>
     public static T RewriteIter<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
         where T : class
@@ -63,7 +63,7 @@ public static partial class Rewriter
 
     /// <summary>
     /// Rebuild a tree by repeatedly applying an asynchronous transformation function to every node in the tree,
-    /// until a fixed point is reached. <paramref name="transformer"/> should always eventually return
+    /// until a fixed point is reached. <paramref name="transformer" /> should always eventually return
     /// its argument unchanged, or this method will loop.
     /// That is, <c>x.RewriteIter(transformer).SelfAndDescendants().All(x => await transformer(x) == x)</c>.
     /// <para>
@@ -74,14 +74,14 @@ public static partial class Rewriter
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="transformer">
-    /// An asynchronous transformation function to apply to every node in <paramref name="value"/> repeatedly.
+    /// An asynchronous transformation function to apply to every node in <paramref name="value" /> repeatedly.
     /// </param>
     /// <param name="value">The value to rewrite.</param>
     /// <returns>
-    /// The result of applying <paramref name="transformer"/> to every node in the tree
-    /// represented by <paramref name="value"/> repeatedly until a fixed point is reached.
+    /// The result of applying <paramref name="transformer" /> to every node in the tree
+    /// represented by <paramref name="value" /> repeatedly until a fixed point is reached.
     /// </returns>
-    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask"/>.</remarks>
+    /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<T> RewriteIter<T>(
         this IRewriter<T> rewriter,
         Func<T, ValueTask<T>> transformer,

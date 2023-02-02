@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill;
 
 /// <summary>
-/// Extension methods for <see cref="IRewritable{T}"/> implementations.
+/// Extension methods for <see cref="IRewritable{T}" /> implementations.
 /// </summary>
 public static class Rewritable
 {

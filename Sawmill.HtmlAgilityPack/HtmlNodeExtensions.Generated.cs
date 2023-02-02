@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill.HtmlAgilityPack
 {
     /// <summary>
-    /// Extension methods for <see cref="global::HtmlAgilityPack.HtmlNode"/>s.
+    /// Extension methods for <see cref="global::HtmlAgilityPack.HtmlNode" />s.
     /// </summary>
     public static class HtmlNodeExtensions
     {

@@ -7,13 +7,13 @@ namespace Sawmill;
 public static partial class Rewriter
 {
     /// <summary>
-    /// Yields all of the nodes in the tree represented by <paramref name="value"/>, starting at the bottom.
+    /// Yields all of the nodes in the tree represented by <paramref name="value" />, starting at the bottom.
     ///
     /// <para>
     /// This is a depth-first post-order traversal.
     /// </para>
     ///
-    /// See <seealso cref="SelfAndDescendants"/>
+    /// See <seealso cref="SelfAndDescendants" />.
     /// </summary>
     /// <example>
     /// <code>
@@ -38,7 +38,7 @@ public static partial class Rewriter
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value to traverse.</param>
-    /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value"/>, starting at the bottom.</returns>
+    /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value" />, starting at the bottom.</returns>
     public static IEnumerable<T> DescendantsAndSelf<T>(this IRewriter<T> rewriter, T value)
     {
         if (rewriter == null)

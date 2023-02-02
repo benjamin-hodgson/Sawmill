@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <ProjectReference Include="../Sawmill/Sawmill.csproj"/>
-        <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj"/>
+        <ProjectReference Include="../Sawmill/Sawmill.csproj" />
+        <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj" />
     </ItemGroup>
 
     <ItemGroup>

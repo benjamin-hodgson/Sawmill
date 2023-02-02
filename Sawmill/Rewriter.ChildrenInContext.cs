@@ -8,7 +8,7 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Returns an array containing each immediate child of
-    /// <paramref name="value"/> paired with a function to replace the child.
+    /// <paramref name="value" /> paired with a function to replace the child.
     /// This is typically useful when you need to replace a node's children one at a time,
     /// such as during mutation testing.
     ///
@@ -17,8 +17,8 @@ public static partial class Rewriter
     /// function with a new child "plugs the hole" in the context.
     /// </para>
     ///
-    /// See <seealso cref="SelfAndDescendantsInContext"/>
-    /// See <seealso cref="DescendantsAndSelfInContext"/>
+    /// See <seealso cref="SelfAndDescendantsInContext" />.
+    /// See <seealso cref="DescendantsAndSelfInContext" />.
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>

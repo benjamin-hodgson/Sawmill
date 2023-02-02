@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Sawmill.Xml
 {
     /// <summary>
-    /// Extension methods for <see cref="System.Xml.XmlNode"/>s.
+    /// Extension methods for <see cref="System.Xml.XmlNode" />s.
     /// </summary>
     public static class XmlNodeExtensions
     {

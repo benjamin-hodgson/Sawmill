@@ -12,10 +12,10 @@ using System.Reflection;
 namespace Sawmill;
 
 /// <summary>
-/// An experimental implementation of <see cref="IRewriter{T}"/> using reflection.
+/// An experimental implementation of <see cref="IRewriter{T}" /> using reflection.
 ///
-/// <see cref="AutoRewriter{T}"/> looks for the subtype's constructor, and gets/sets
-/// the <typeparamref name="T"/>-children in the order that they appear in the constructor.
+/// <see cref="AutoRewriter{T}" /> looks for the subtype's constructor, and gets/sets
+/// the <typeparamref name="T" />-children in the order that they appear in the constructor.
 /// </summary>
 /// <typeparam name="T">The rewritable type.</typeparam>
 public class AutoRewriter<T> : IRewriter<T>
@@ -82,14 +82,14 @@ public class AutoRewriter<T> : IRewriter<T>
         = new();
 
     /// <summary>
-    /// Create a new instance of <see cref="AutoRewriter{T}"/>.
+    /// Create a new instance of <see cref="AutoRewriter{T}" />.
     /// </summary>
     protected AutoRewriter()
     {
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.CountChildren(T)"/>
+    /// See <seealso cref="IRewriter{T}.CountChildren(T)" />.
     /// </summary>
     /// <param name="value">The rewritable tree.</param>
     /// <returns>The <paramref name="value" />'s number of immediate children.</returns>
@@ -104,11 +104,11 @@ public class AutoRewriter<T> : IRewriter<T>
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)"/>
+    /// See <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)" />.
     /// </summary>
     /// <param name="childrenReceiver">
-    /// A <see cref="Span{T}"/> to copy the current instance's immediate children into.
-    /// The <see cref="Span{T}"/>'s <see cref="Span{T}.Length"/> should be equal to the number returned by <see cref="CountChildren"/>.
+    /// A <see cref="Span{T}" /> to copy the current instance's immediate children into.
+    /// The <see cref="Span{T}" />'s <see cref="Span{T}.Length" /> should be equal to the number returned by <see cref="CountChildren" />.
     /// </param>
     /// <param name="value">The rewritable tree.</param>
     public void GetChildren(Span<T> childrenReceiver, T value)
@@ -122,7 +122,7 @@ public class AutoRewriter<T> : IRewriter<T>
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)"/>
+    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)" />.
     /// </summary>
     /// <param name="newChildren">The new children.</param>
     /// <param name="value">The rewritable tree.</param>
@@ -138,9 +138,9 @@ public class AutoRewriter<T> : IRewriter<T>
     }
 
     /// <summary>
-    /// Gets the single global instance of <see cref="AutoRewriter{T}"/>.
+    /// Gets the single global instance of <see cref="AutoRewriter{T}" />.
     /// </summary>
-    /// <returns>The single global instance of <see cref="AutoRewriter{T}"/>.</returns>
+    /// <returns>The single global instance of <see cref="AutoRewriter{T}" />.</returns>
     [SuppressMessage("Design", "CA1000", Justification = "purposeful")] // "Do not declare static members on generic types"
     public static AutoRewriter<T> Instance { get; } = new AutoRewriter<T>();
 
@@ -394,7 +394,7 @@ public class AutoRewriter<T> : IRewriter<T>
     }
 
     /// <summary>
-    /// does type implement <see cref="IEnumerable{T}"/>[T] (not <see cref="IEnumerable{U}"/>[U] for some subtype U of T)?.
+    /// does type implement <see cref="IEnumerable{T}" />[T] (not <see cref="IEnumerable{U}" />[U] for some subtype U of T)?.
     /// </summary>
     private static bool ImplementsIEnumerableT(Type type)
         => _iEnumerableT.IsAssignableFrom(type) && GetIEnumerableArgument(type).Equals(_t);

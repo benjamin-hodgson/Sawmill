@@ -7,7 +7,7 @@ namespace Sawmill;
 public static partial class Rewriter
 {
     /// <summary>
-    /// Yields each node in the tree represented by <paramref name="value"/>
+    /// Yields each node in the tree represented by <paramref name="value" />
     /// paired with a function to replace the node, starting at the top.
     /// This is typically useful when you need to replace nodes one at a time,
     /// such as during mutation testing.
@@ -21,9 +21,9 @@ public static partial class Rewriter
     /// This is a depth-first pre-order traversal.
     /// </para>
     ///
-    /// See <seealso cref="SelfAndDescendants"/>
-    /// See <seealso cref="ChildrenInContext"/>
-    /// See <seealso cref="DescendantsAndSelfInContext"/>
+    /// See <seealso cref="SelfAndDescendants" />.
+    /// See <seealso cref="ChildrenInContext" />.
+    /// See <seealso cref="DescendantsAndSelfInContext" />.
     /// </summary>
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>

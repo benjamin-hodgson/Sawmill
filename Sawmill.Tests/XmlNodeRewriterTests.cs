@@ -9,7 +9,7 @@ namespace Sawmill.Tests;
 
 public class XmlNodeRewriterTests
 {
-    private const string _exampleXml = "<foo bar=\"baz\"><quux/><nabble>nobble</nabble></foo>";
+    private const string _exampleXml = "<foo bar=\"baz\"><quux /><nabble>nobble</nabble></foo>";
 
     [Fact]
     public void TestGetChildren()
