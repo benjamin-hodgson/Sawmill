@@ -38,14 +38,14 @@ public class XElementRewriterTests
         var newFooNode = fooNode.SetChildren(newChildren.ToArray());
 
         Assert.Equal("foo", newFooNode.Name);
-        Assert.Equal(1, newFooNode.Attributes().Count());
+        Assert.Single(newFooNode.Attributes());
         Assert.Equal("baz", newFooNode.Attributes("bar").Single().Value);
         Assert.Equal(2, newFooNode.GetChildren().Length);
         Assert.Equal("ploop", newFooNode.GetChildren().ElementAt(0).Name);
         Assert.Equal("nabble", newFooNode.GetChildren().ElementAt(1).Name);
 
         // fooNode should not have changed
-        Assert.Equal(1, fooNode.Attributes().Count());
+        Assert.Single(fooNode.Attributes());
         Assert.Equal(2, fooNode.GetChildren().Length);
         Assert.Equal("quux", fooNode.GetChildren().ElementAt(0).Name);
         Assert.Equal("nabble", fooNode.GetChildren().ElementAt(1).Name);

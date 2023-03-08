@@ -247,7 +247,7 @@ public class RewriterTests
         var minusTwo = new Neg(two);
         Expr expr = new Add(one, minusTwo);
 
-        Assert.Equal(-1, await EvalAsync(expr));
+        Assert.Equal(-1, await EvalUsingFoldAsync(expr));
     }
 
     [Fact]
@@ -488,7 +488,7 @@ public class RewriterTests
                 }
             );
 
-    private static ValueTask<int> EvalAsync(Expr expr)
+    private static ValueTask<int> EvalUsingFoldAsync(Expr expr)
         => expr.Fold<Expr, int>(
             (next, x) => ValueTask.FromResult(
                 x switch

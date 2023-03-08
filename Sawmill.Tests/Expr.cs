@@ -4,7 +4,7 @@ namespace Sawmill.Tests;
 
 #pragma warning disable SA1402  // File may only contain a single type
 
-internal abstract class Expr : IRewritable<Expr>
+internal abstract record Expr : IRewritable<Expr>
 {
     public abstract int CountChildren();
 
@@ -13,15 +13,8 @@ internal abstract class Expr : IRewritable<Expr>
     public abstract Expr SetChildren(ReadOnlySpan<Expr> newChildren);
 }
 
-internal class Lit : Expr
+internal sealed record Lit(int Value) : Expr
 {
-    public int Value { get; }
-
-    public Lit(int value)
-    {
-        Value = value;
-    }
-
     public override int CountChildren() => 0;
 
     public override void GetChildren(Span<Expr> children)
@@ -29,24 +22,10 @@ internal class Lit : Expr
     }
 
     public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => this;
-
-    public override bool Equals(object? obj)
-        => obj is Lit l
-        && l.Value == Value;
-
-    public override int GetHashCode()
-        => HashCode.Combine(Value);
 }
 
-internal class Neg : Expr
+internal sealed record Neg(Expr Operand) : Expr
 {
-    public Expr Operand { get; }
-
-    public Neg(Expr operand)
-    {
-        Operand = operand;
-    }
-
     public override int CountChildren() => 1;
 
     public override void GetChildren(Span<Expr> children)
@@ -55,27 +34,10 @@ internal class Neg : Expr
     }
 
     public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new Neg(newChildren[0]);
-
-    public override bool Equals(object? obj)
-        => obj is Neg n
-        && n.Operand == Operand;
-
-    public override int GetHashCode()
-        => HashCode.Combine(Operand);
 }
 
-internal class Add : Expr
+internal sealed record Add(Expr Left, Expr Right) : Expr
 {
-    public Expr Left { get; }
-
-    public Expr Right { get; }
-
-    public Add(Expr left, Expr right)
-    {
-        Left = left;
-        Right = right;
-    }
-
     public override int CountChildren() => 2;
 
     public override void GetChildren(Span<Expr> children)
@@ -85,31 +47,10 @@ internal class Add : Expr
     }
 
     public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new Add(newChildren[0], newChildren[1]);
-
-    public override bool Equals(object? obj)
-        => obj is Add a
-        && a.Left == Left
-        && a.Right == Right;
-
-    public override int GetHashCode()
-        => HashCode.Combine(Left, Right);
 }
 
-internal class Ternary : Expr
+internal sealed record Ternary(Expr Condition, Expr ThenBranch, Expr ElseBranch) : Expr
 {
-    public Expr Condition { get; }
-
-    public Expr ThenBranch { get; }
-
-    public Expr ElseBranch { get; }
-
-    public Ternary(Expr condition, Expr thenBranch, Expr elseBranch)
-    {
-        Condition = condition;
-        ThenBranch = thenBranch;
-        ElseBranch = elseBranch;
-    }
-
     public override int CountChildren() => 3;
 
     public override void GetChildren(Span<Expr> children)
@@ -121,26 +62,10 @@ internal class Ternary : Expr
 
     public override Expr SetChildren(ReadOnlySpan<Expr> newChildren)
         => new Ternary(newChildren[0], newChildren[1], newChildren[2]);
-
-    public override bool Equals(object? obj)
-        => obj is Ternary t
-        && t.Condition == Condition
-        && t.ThenBranch == ThenBranch
-        && t.ElseBranch == ElseBranch;
-
-    public override int GetHashCode()
-        => HashCode.Combine(Condition, ThenBranch, ElseBranch);
 }
 
-internal class List : Expr
+internal sealed record List(ImmutableList<Expr> Exprs) : Expr
 {
-    public ImmutableList<Expr> Exprs { get; }
-
-    public List(ImmutableList<Expr> exprs)
-    {
-        Exprs = exprs;
-    }
-
     public override int CountChildren() => Exprs.Count;
 
     public override void GetChildren(Span<Expr> children)
@@ -153,9 +78,8 @@ internal class List : Expr
 
     public override Expr SetChildren(ReadOnlySpan<Expr> newChildren) => new List(newChildren.ToArray().ToImmutableList());
 
-    public override bool Equals(object? obj)
-        => obj is List l
-        && l.Exprs.SequenceEqual(Exprs);
+    public bool Equals(List? list)
+        => list != null && list.Exprs.SequenceEqual(Exprs);
 
     public override int GetHashCode()
     {
@@ -169,21 +93,12 @@ internal class List : Expr
     }
 }
 
-internal class IfThenElse : Expr
+internal sealed record IfThenElse(
+    Expr Condition,
+    ImmutableList<Expr> IfTrueStmts,
+    ImmutableList<Expr> IfFalseStmts
+) : Expr
 {
-    public Expr Condition { get; }
-
-    public ImmutableList<Expr> IfTrueStmts { get; }
-
-    public ImmutableList<Expr> IfFalseStmts { get; }
-
-    public IfThenElse(Expr condition, ImmutableList<Expr> ifTrueStmts, ImmutableList<Expr> ifFalseStmts)
-    {
-        Condition = condition;
-        IfTrueStmts = ifTrueStmts;
-        IfFalseStmts = ifFalseStmts;
-    }
-
     public override int CountChildren() => 1 + IfTrueStmts.Count + IfFalseStmts.Count;
 
     public override void GetChildren(Span<Expr> children)
@@ -209,11 +124,11 @@ internal class IfThenElse : Expr
             newChildren.Slice(IfTrueStmts.Count + 1, IfFalseStmts.Count).ToArray().ToImmutableList()
         );
 
-    public override bool Equals(object? obj)
-        => obj is IfThenElse i
-        && i.Condition == Condition
-        && i.IfTrueStmts.SequenceEqual(IfTrueStmts)
-        && i.IfFalseStmts.SequenceEqual(IfFalseStmts);
+    public bool Equals(IfThenElse? ite)
+        => ite != null
+            && ite.Condition == Condition
+            && ite.IfTrueStmts.SequenceEqual(IfTrueStmts)
+            && ite.IfFalseStmts.SequenceEqual(IfFalseStmts);
 
     public override int GetHashCode()
     {

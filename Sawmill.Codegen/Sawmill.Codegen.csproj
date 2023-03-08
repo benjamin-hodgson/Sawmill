@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
     <Import Project="../Sawmill.BuildTool.props" />
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
     </PropertyGroup>
+
 </Project>

@@ -41,14 +41,14 @@ public class HtmlNodeRewriterTests
         var newPNode = pNode.SetChildren(newChildren.ToArray());
 
         Assert.Equal("p", newPNode.Name);
-        Assert.Equal(1, newPNode.Attributes.Count);
+        Assert.Single(newPNode.Attributes);
         Assert.Equal("baz", newPNode.Attributes["class"].Value);
         Assert.Equal(2, newPNode.GetChildren().Length);
         Assert.Equal("div", newPNode.GetChildren().ElementAt(0).Name);
         Assert.Equal("span", newPNode.GetChildren().ElementAt(1).Name);
 
         // fooNode should not have changed
-        Assert.Equal(1, pNode.Attributes.Count);
+        Assert.Single(pNode.Attributes);
         Assert.Equal(2, pNode.GetChildren().Length);
         Assert.Equal("br", pNode.GetChildren().ElementAt(0).Name);
         Assert.Equal("span", pNode.GetChildren().ElementAt(1).Name);
