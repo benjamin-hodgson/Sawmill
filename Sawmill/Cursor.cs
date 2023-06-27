@@ -851,7 +851,7 @@ public sealed class Cursor<T>
     }
 
     /// <summary>
-    /// Focus the current focus's first descendant or right sibling's descendant which satisfies <see paramref="predicate" />,
+    /// Focus the current focus's first descendant or right sibling's descendant which satisfies <paramref name="predicate" />,
     /// searching descendants before siblings and ending at the current node's rightmost sibling.
     ///
     /// <para>
@@ -901,7 +901,7 @@ public sealed class Cursor<T>
     }
 
     /// <summary>
-    /// Focus the current focus's first descendant or right sibling's descendant which satisfies <see paramref="predicate" />,
+    /// Focus the current focus's first descendant or right sibling's descendant which satisfies <paramref name="predicate" />,
     /// searching siblings before descendants and ending at the current node's lowest leftmost descendant.
     ///
     /// <para>
