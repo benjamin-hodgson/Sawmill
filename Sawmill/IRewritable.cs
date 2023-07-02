@@ -19,7 +19,7 @@ public interface IRewritable<T>
     where T : IRewritable<T>
 {
     /// <summary>
-    /// Count the immediate children of the value
+    /// Count the immediate children of the value.
     /// </summary>
     ///
     /// <example>
