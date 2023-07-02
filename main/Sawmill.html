@@ -204,31 +204,15 @@ but it efficiently supports longer sequences of edits to a location and its neig
                 <section><p>Tools for building rewriters for a single subclass of a base type.</p>
 </section>
                 <h4><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc&lt;T, U, R&gt;</a></h4>
-                <section><p>A <span class="xref">System.Func&lt;, , &gt;</span> whose first argument is a <span class="xref">System.Span&lt;&gt;</span>.</p>
+                <section><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1,T2,TResult&gt;</a> whose first argument is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
 </section>
             <h3 id="interfaces"><a href="#interfaces">Interfaces
         </a></h3>
                 <h4><a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a></h4>
                 <section><p>A object is rewriterable if it knows how to access its immediate children.</p>
-<p>
-Implementations should ensure that you always get the children you just set
-(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
-and that successive sets overwrite the earlier operation
-(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).
-</p>
-
-<p>See <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a>.</p>
 </section>
                 <h4><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a></h4>
                 <section><p>A rewriter is an object which knows how to access the immediate children of a value of type <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
-<p>
-Implementations should ensure that you always get the children you just set
-(<code>rewriter.GetChildren(rewriter.SetChildren(children, expr)) == children</code>),
-and that successive sets overwrite the earlier operation
-(<code>rewriter.SetChildren(children2, rewriter.SetChildren(children1, expr)) == rewriter.SetChildren(children2, expr)</code>).
-</p>
-
-<p>See <a class="xref" href="Sawmill.IRewritable-1.html">IRewritable&lt;T&gt;</a>.</p>
 </section>
     </article>
 

@@ -154,11 +154,11 @@
 <article class="col">
         <h1 id="Sawmill_Expressions_ExpressionExtensions"><a href="#Sawmill_Expressions_ExpressionExtensions">Class ExpressionExtensions
         </a></h1>
-        <div><p>Extension methods for <span class="xref">System.Linq.Expressions.Expression</span>s.</p>
+        <div><p>Extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>s.</p>
 </div>
             <h5>Inheritance</h5>
             <ul>
-                    <li><span class="xref">System.Object</span></li>
+                    <li><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></li>
                 <li>ExpressionExtensions</li>
             </ul>
         
@@ -178,13 +178,6 @@
 <code data-dev-comment-type="paramref" class="paramref">value</code> paired with a function to replace the child.
 This is typically useful when you need to replace a node&apos;s children one at a time,
 such as during mutation testing.</p>
-<p>
-The replacement function can be seen as the &quot;context&quot; of the child; calling the
-function with a new child &quot;plugs the hole&quot; in the context.
-</p>
-
-<p>See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static (Expression, Func&lt;Expression, Expression&gt;)[] ChildrenInContext(this Expression value)</code></pre>
@@ -200,7 +193,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -217,7 +210,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;[]</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;[]</p></td>
                                     <td><p>An enumerable of contexts.</p>
 </td>
                                 </tr>
@@ -229,14 +222,22 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_ChildrenInContext_System_Linq_Expressions_Expression__remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_ChildrenInContext_System_Linq_Expressions_Expression__remarks">Remarks</a></h5>
+                    <div><p>The replacement function can be seen as the &quot;context&quot; of the child; calling the
+function with a new child &quot;plugs the hole&quot; in the context.</p>
+</div>
         
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_ChildrenInContext_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_ChildrenInContext_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_CountChildren_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_CountChildren_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_CountChildren_System_Linq_Expressions_Expression_">CountChildren(Expression)</a></h4>
-                <div><p>Count the immediate children of the value.
-See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a>.</p>
+                <div><p>Count the immediate children of the value.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static int CountChildren(this Expression value)</code></pre>
@@ -252,7 +253,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -269,7 +270,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Int32</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p><code data-dev-comment-type="paramref" class="paramref">value</code>&apos;s number of immediate children.</p>
 </td>
                                 </tr>
@@ -296,6 +297,10 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
 
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_CountChildren_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_CountChildren_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a></div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_Cursor_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_Cursor_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_Cursor_System_Linq_Expressions_Expression_">Cursor(Expression)</a></h4>
@@ -315,7 +320,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -332,7 +337,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="Sawmill.Cursor-1.html">Cursor</a>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="Sawmill.Cursor-1.html">Cursor</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>A <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Cursor__1_Sawmill_IRewriter___0____0_">Cursor&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> focused on the root node of <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
@@ -366,12 +371,12 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
                                     <td></td>
                                 </tr>
@@ -388,7 +393,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>The descendant found by following the directions in <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
@@ -412,7 +417,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                         </thead>
                         <tbody>
                             <tr>
-                                <td><p><span class="xref">System.InvalidOperationException</span></p></td>
+                                <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
                                 <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
@@ -423,11 +428,6 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_Count
                 <a id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression_">DescendantsAndSelf(Expression)</a></h4>
                 <div><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.</p>
-<p>
-This is a depth-first post-order traversal.
-</p>
-
-<p>See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Expression&gt; DescendantsAndSelf(this Expression value)</code></pre>
@@ -443,7 +443,7 @@ This is a depth-first post-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -460,7 +460,7 @@ This is a depth-first post-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>An enumerable containing all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the bottom.</p>
 </td>
                                 </tr>
@@ -472,6 +472,9 @@ This is a depth-first post-order traversal.
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression__remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression__remarks">Remarks</a></h5>
+                    <div><p>This is a depth-first post-order traversal.</p>
+</div>
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression__examples">Examples</h5>
                 <pre><code>Expr expr = new Add(
@@ -493,6 +496,10 @@ Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
 
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelf_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_System_Linq_Expressions_Expression_">DescendantsAndSelfInContext(Expression)</a></h4>
@@ -500,18 +507,6 @@ Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
 paired with a function to replace the node, starting at the bottom.
 This is typically useful when you need to replace nodes one at a time,
 such as during mutation testing.</p>
-<p>
-The replacement function can be seen as the &quot;context&quot; of the node; calling the
-function with a new node &quot;plugs the hole&quot; in the context.
-</p>
-
-<p>
-This is a depth-first post-order traversal.
-</p>
-
-<p>See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(Expression, Func&lt;Expression, Expression&gt;)&gt; DescendantsAndSelfInContext(this Expression value)</code></pre>
@@ -527,7 +522,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescenda
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -544,7 +539,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescenda
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;&gt;</p></td>
                                     <td><p>An enumerable of contexts.</p>
 </td>
                                 </tr>
@@ -556,9 +551,25 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescenda
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_System_Linq_Expressions_Expression__remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_System_Linq_Expressions_Expression__remarks">Remarks</a></h5>
+                    <div><p>
+The replacement function can be seen as the &quot;context&quot; of the node; calling the
+function with a new node &quot;plugs the hole&quot; in the context.
+</p>
+
+<p>
+This is a depth-first post-order traversal.
+</p>
+</div>
         
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_DescendantsAndSelfInContext_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_Fold_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_Sawmill_SpanFunc___0_System_Linq_Expressions_Expression___0__"><a href="#Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_Sawmill_SpanFunc___0_System_Linq_Expressions_Expression___0__">Fold&lt;T&gt;(Expression, SpanFunc&lt;T, Expression, T&gt;)</a></h4>
@@ -579,12 +590,12 @@ using an aggregation function to combine each node with the results of folding i
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;T, <span class="xref">System.Linq.Expressions.Expression</span>, T&gt;</p></td>
+                                    <td><p><a class="xref" href="Sawmill.SpanFunc-3.html">SpanFunc</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, T&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td></td>
                                 </tr>
@@ -651,12 +662,12 @@ using an asynchronous aggregation function to combine each node with the results
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Memory</span>&lt;T&gt;, <span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;T&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.memory-1">Memory</a>&lt;T&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td></td>
                                 </tr>
@@ -673,7 +684,7 @@ using an asynchronous aggregation function to combine each node with the results
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;T&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</p></td>
                                     <td><p>The result of aggregating the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
@@ -701,7 +712,7 @@ using an asynchronous aggregation function to combine each node with the results
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_System_Func_System_Memory___0__System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask___0____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_Fold__1_System_Linq_Expressions_Expression_System_Func_System_Memory___0__System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask___0____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
 </div>
         
                         
@@ -709,8 +720,7 @@ using an asynchronous aggregation function to combine each node with the results
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_GetChildren_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_">GetChildren(Expression)</a></h4>
-                <div><p>Get the immediate children of the value.
-See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a>.</p>
+                <div><p>Get the immediate children of the value.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static Expression[] GetChildren(this Expression value)</code></pre>
@@ -726,7 +736,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -743,7 +753,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span>[]</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>[]</p></td>
                                     <td><p>The immediate children of <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
@@ -778,11 +788,14 @@ Assert.Equal(expected, rewriter.GetChildren(expr));</code></pre>
 
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_GetChildren_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_System_Span_System_Linq_Expressions_Expression__"><a href="#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_System_Span_System_Linq_Expressions_Expression__">GetChildren(Expression, Span&lt;Expression&gt;)</a></h4>
-                <div><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.
-See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a>.</p>
+                <div><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static void GetChildren(this Expression value, Span&lt;Expression&gt; childrenReceiver)</code></pre>
@@ -798,12 +811,12 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Span</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>childrenReceiver</p></td>
                                     <td></td>
                                 </tr>
@@ -841,6 +854,10 @@ Assert.Equal(expected, array);</code></pre>
 
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_System_Span_System_Linq_Expressions_Expression___seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_GetChildren_System_Linq_Expressions_Expression_System_Span_System_Linq_Expressions_Expression___seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_ReplaceDescendantAt_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_ReplaceDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_ReplaceDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Linq_Expressions_Expression_">ReplaceDescendantAt&lt;T&gt;(Expression, IEnumerable&lt;Direction&gt;, Expression)</a></h4>
@@ -860,17 +877,17 @@ Assert.Equal(expected, array);</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>newDescendant</p></td>
                                     <td></td>
                                 </tr>
@@ -887,7 +904,7 @@ Assert.Equal(expected, array);</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with <code data-dev-comment-type="paramref" class="paramref">newDescendant</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
@@ -927,7 +944,7 @@ Assert.Equal(expected, array);</code></pre>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><p><span class="xref">System.InvalidOperationException</span></p></td>
+                                <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
                                 <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
@@ -953,12 +970,12 @@ Assert.Equal(expected, array);</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -975,7 +992,7 @@ Assert.Equal(expected, array);</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
@@ -1030,12 +1047,12 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1052,7 +1069,7 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </td>
                                 </tr>
@@ -1065,7 +1082,7 @@ Assert.Equal(expected, rewriter.Rewrite(transformer, expr));</code></pre>
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_Rewrite_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_Rewrite_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
 </div>
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_Rewrite_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____examples">Examples</h5>
@@ -1110,12 +1127,12 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1132,7 +1149,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
 </td>
                                 </tr>
@@ -1166,12 +1183,12 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1188,7 +1205,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
 </td>
                                 </tr>
@@ -1201,7 +1218,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_RewriteChildren_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_RewriteChildren_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
 </div>
         
                         
@@ -1225,17 +1242,17 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1252,7 +1269,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
@@ -1292,7 +1309,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><p><span class="xref">System.InvalidOperationException</span></p></td>
+                                <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
                                 <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
@@ -1318,17 +1335,17 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Sawmill.Direction.html">Direction</a>&gt;</p></td>
                                     <td><p>path</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1345,7 +1362,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with the result of <code data-dev-comment-type="paramref" class="paramref">transformer</code> placed at the location indicated by <code data-dev-comment-type="paramref" class="paramref">path</code>.</p>
 </td>
                                 </tr>
@@ -1374,7 +1391,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_RewriteDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_RewriteDescendantAt__1_System_Linq_Expressions_Expression_System_Collections_Generic_IEnumerable_Sawmill_Direction__System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
 </div>
         
                         
@@ -1388,7 +1405,7 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><p><span class="xref">System.InvalidOperationException</span></p></td>
+                                <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></p></td>
                                 <td><p>Thrown if <code data-dev-comment-type="paramref" class="paramref">path</code> leads off the edge of the tree.</p>
 </td>
                             </tr>
@@ -1421,12 +1438,12 @@ by applying a collection of rewrite rules until none of them can fire any more.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1443,7 +1460,7 @@ by applying a collection of rewrite rules until none of them can fire any more.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree
 represented by <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly until a fixed point is reached.</p>
 </td>
@@ -1485,12 +1502,12 @@ by applying a collection of rewrite rules until none of them can fire any more.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;</p></td>
                                     <td><p>transformer</p></td>
                                     <td></td>
                                 </tr>
@@ -1507,7 +1524,7 @@ by applying a collection of rewrite rules until none of them can fire any more.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>The result of applying <code data-dev-comment-type="paramref" class="paramref">transformer</code> to every node in the tree
 represented by <code data-dev-comment-type="paramref" class="paramref">value</code> repeatedly until a fixed point is reached.</p>
 </td>
@@ -1521,7 +1538,7 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_RewriteIter_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_RewriteIter_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Threading_Tasks_ValueTask_System_Linq_Expressions_Expression____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>.</p>
 </div>
         
                         
@@ -1530,11 +1547,6 @@ represented by <code data-dev-comment-type="paramref" class="paramref">value</co
                 <a id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression_">SelfAndDescendants(Expression)</a></h4>
                 <div><p>Yields all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.</p>
-<p>
-This is a depth-first pre-order traversal.
-</p>
-
-<p>See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Expression&gt; SelfAndDescendants(this Expression value)</code></pre>
@@ -1550,7 +1562,7 @@ This is a depth-first pre-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -1567,7 +1579,7 @@ This is a depth-first pre-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>An enumerable containing all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code>, starting at the top.</p>
 </td>
                                 </tr>
@@ -1579,6 +1591,9 @@ This is a depth-first pre-order traversal.
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression__remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression__remarks">Remarks</a></h5>
+                    <div><p>This is a depth-first pre-order traversal.</p>
+</div>
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression__examples">Examples</h5>
                 <pre><code>Expr expr = new Add(
@@ -1600,6 +1615,10 @@ Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
 
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendants_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelf__1_Sawmill_IRewriter___0____0_">DescendantsAndSelf&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsBreadthFirst_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsBreadthFirst_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsBreadthFirst_System_Linq_Expressions_Expression_">SelfAndDescendantsBreadthFirst(Expression)</a></h4>
@@ -1623,7 +1642,7 @@ This is a breadth-first pre-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -1640,7 +1659,7 @@ This is a breadth-first pre-order traversal.
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>An enumerable containing all of the nodes in the tree represented by <code data-dev-comment-type="paramref" class="paramref">value</code> in a breadth-first traversal order.</p>
 </td>
                                 </tr>
@@ -1662,18 +1681,6 @@ This is a breadth-first pre-order traversal.
 paired with a function to replace the node, starting at the top.
 This is typically useful when you need to replace nodes one at a time,
 such as during mutation testing.</p>
-<p>
-The replacement function can be seen as the &quot;context&quot; of the node; calling the
-function with a new node &quot;plugs the hole&quot; in the context.
-</p>
-
-<p>
-This is a depth-first pre-order traversal.
-</p>
-
-<p>See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(Expression, Func&lt;Expression, Expression&gt;)&gt; SelfAndDescendantsInContext(this Expression value)</code></pre>
@@ -1689,7 +1696,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -1706,7 +1713,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;&gt;</p></td>
                                     <td><p>An enumerable of contexts.</p>
 </td>
                                 </tr>
@@ -1718,9 +1725,25 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContext_System_Linq_Expressions_Expression__remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContext_System_Linq_Expressions_Expression__remarks">Remarks</a></h5>
+                    <div><p>
+The replacement function can be seen as the &quot;context&quot; of the node; calling the
+function with a new node &quot;plugs the hole&quot; in the context.
+</p>
+
+<p>
+This is a depth-first pre-order traversal.
+</p>
+</div>
         
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContext_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContext_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_System_Linq_Expressions_Expression_"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_System_Linq_Expressions_Expression_">SelfAndDescendantsInContextBreadthFirst(Expression)</a></h4>
@@ -1728,18 +1751,6 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
 paired with a function to replace the node, in a breadth-first traversal order.
 This is typically useful when you need to replace nodes one at a time,
 such as during mutation testing.</p>
-<p>
-The replacement function can be seen as the &quot;context&quot; of the node; calling the
-function with a new node &quot;plugs the hole&quot; in the context.
-</p>
-
-<p>
-This is a breadth-first pre-order traversal.
-</p>
-
-<p>See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.
-See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;(Expression, Func&lt;Expression, Expression&gt;)&gt; SelfAndDescendantsInContextBreadthFirst(this Expression value)</code></pre>
@@ -1755,7 +1766,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
@@ -1772,7 +1783,7 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>&gt;&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(, )</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;&gt;&gt;</p></td>
                                     <td><p>An enumerable of contexts.</p>
 </td>
                                 </tr>
@@ -1784,18 +1795,29 @@ See <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndS
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_System_Linq_Expressions_Expression__remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_System_Linq_Expressions_Expression__remarks">Remarks</a></h5>
+                    <div><p>
+The replacement function can be seen as the &quot;context&quot; of the node; calling the
+function with a new node &quot;plugs the hole&quot; in the context.
+</p>
+
+<p>
+This is a breadth-first pre-order traversal.
+</p>
+</div>
         
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_System_Linq_Expressions_Expression__seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_SelfAndDescendantsInContextBreadthFirst_System_Linq_Expressions_Expression__seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendants__1_Sawmill_IRewriter___0____0_">SelfAndDescendants&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_ChildrenInContext__1_Sawmill_IRewriter___0____0_">ChildrenInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                            <div><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0_">DescendantsAndSelfInContext&lt;T&gt;</a>(<a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_SetChildren_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression__"><a href="#Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression__">SetChildren(Expression, ReadOnlySpan&lt;Expression&gt;)</a></h4>
-                <div><p>Set the immediate children of the value.
-<p>
-Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
-<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>.
-</p>
-See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a>.</p>
+                <div><p>Set the immediate children of the value.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">public static Expression SetChildren(this Expression value, ReadOnlySpan&lt;Expression&gt; newChildren)</code></pre>
@@ -1811,12 +1833,12 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.ReadOnlySpan</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>&gt;</p></td>
                                     <td><p>newChildren</p></td>
                                     <td></td>
                                 </tr>
@@ -1833,7 +1855,7 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>A copy of <code data-dev-comment-type="paramref" class="paramref">value</code> with updated children.</p>
 </td>
                                 </tr>
@@ -1845,6 +1867,10 @@ See <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetCh
         
         
         
+                    <h5 id="Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression___remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression___remarks">Remarks</a></h5>
+                    <div><p>Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
+<a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>.</p>
+</div>
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression___examples">Examples</h5>
                 <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
@@ -1864,6 +1890,10 @@ Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5))
 
                         
         
+                <h5 id="Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression___seealso"><a href="#Sawmill_Expressions_ExpressionExtensions_SetChildren_System_Linq_Expressions_Expression_System_ReadOnlySpan_System_Linq_Expressions_Expression___seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></div>
+                </div>
                 
                 <a id="Sawmill_Expressions_ExpressionExtensions_ZipFold_"></a>
                 <h4 id="Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___"><a href="#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0___">ZipFold&lt;U&gt;(Expression, Expression, Func&lt;Expression, Expression, IAsyncEnumerable&lt;U&gt;, ValueTask&lt;U&gt;&gt;)</a></h4>
@@ -1871,7 +1901,7 @@ Assert.Equal(expected, rewriter.SetChildren(Children.Two(new Lit(4), new Lit(5))
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
 The trees are iterated in lock-step, much like an n-ary
-<span class="xref">System.Linq.Enumerable.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})</span>.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
@@ -1891,17 +1921,17 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value1</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value2</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;U&gt;, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;U&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td></td>
                                 </tr>
@@ -1918,7 +1948,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;U&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;</p></td>
                                     <td><p>The result of aggregating the two trees.</p>
 </td>
                                 </tr>
@@ -1946,7 +1976,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span> and <span class="xref">System.Collections.Generic.IAsyncEnumerable`1</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable&lt;T&gt;</a>.</p>
 </div>
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Func_System_Linq_Expressions_Expression_System_Linq_Expressions_Expression_System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____examples">Examples</h5>
@@ -1977,7 +2007,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
 The trees are iterated in lock-step, much like an n-ary
-<span class="xref">System.Linq.Enumerable.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})</span>.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
@@ -1997,17 +2027,17 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value1</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></p></td>
                                     <td><p>value2</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Linq.Expressions.Expression</span>, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;U&gt;, U&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td></td>
                                 </tr>
@@ -2080,7 +2110,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
 The trees are iterated in lock-step, much like an n-ary
-<span class="xref">System.Linq.Enumerable.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})</span>.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
@@ -2100,12 +2130,12 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span>[]</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>[]</p></td>
                                     <td><p>values</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>[], <span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;U&gt;, <span class="xref">System.Threading.Tasks.ValueTask</span>&lt;U&gt;&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;U&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td></td>
                                 </tr>
@@ -2122,7 +2152,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Threading.Tasks.ValueTask</span>&lt;U&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;U&gt;</p></td>
                                     <td><p>The result of aggregating the two trees.</p>
 </td>
                                 </tr>
@@ -2150,7 +2180,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
         
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression___System_Func_System_Linq_Expressions_Expression___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks"><a href="#Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression___System_Func_System_Linq_Expressions_Expression___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____remarks">Remarks</a></h5>
-                    <div><p>This method is not available on platforms which do not support <span class="xref">System.Threading.Tasks.ValueTask</span> and <span class="xref">System.Collections.Generic.IAsyncEnumerable`1</span>.</p>
+                    <div><p>This method is not available on platforms which do not support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable&lt;T&gt;</a>.</p>
 </div>
         
                     <h5 id="Sawmill_Expressions_ExpressionExtensions_ZipFold__1_System_Linq_Expressions_Expression___System_Func_System_Linq_Expressions_Expression___System_Collections_Generic_IAsyncEnumerable___0__System_Threading_Tasks_ValueTask___0____examples">Examples</h5>
@@ -2181,7 +2211,7 @@ the rightmost children of the larger of the two nodes are discarded.</p>
 into a single value at the same time, using an aggregation function to combine
 nodes with the results of aggregating their children.
 The trees are iterated in lock-step, much like an n-ary
-<span class="xref">System.Linq.Enumerable.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})</span>.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.zip#system-linq-enumerable-zip-3(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-1))-system-func((-0-1-2)))">Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable&lt;TFirst&gt;, IEnumerable&lt;TSecond&gt;, Func&lt;TFirst,TSecond,TResult&gt;)</a>.</p>
 <p>When trees are not the same size, the larger ones are
 truncated both horizontally and vertically.
 That is, if a pair of nodes have a different number of children,
@@ -2201,12 +2231,12 @@ the rightmost children of the larger of the two nodes are discarded.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Linq.Expressions.Expression</span>[]</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>[]</p></td>
                                     <td><p>values</p></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><p><span class="xref">System.Func</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>[], <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;U&gt;, U&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;U&gt;, U&gt;</p></td>
                                     <td><p>func</p></td>
                                     <td></td>
                                 </tr>

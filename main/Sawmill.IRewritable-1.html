@@ -155,14 +155,6 @@
         <h1 id="Sawmill_IRewritable_1"><a href="#Sawmill_IRewritable_1">Interface IRewritable&lt;T&gt;
         </a></h1>
         <div><p>A object is rewriterable if it knows how to access its immediate children.</p>
-<p>
-Implementations should ensure that you always get the children you just set
-(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
-and that successive sets overwrite the earlier operation
-(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).
-</p>
-
-<p>See <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a>.</p>
 </div>
         
         
@@ -186,6 +178,12 @@ and that successive sets overwrite the earlier operation
                 </tbody>
             </table>
         
+            <h5><strong>Remarks</strong></h5>
+            <div><p>Implementations should ensure that you always get the children you just set
+(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
+and that successive sets overwrite the earlier operation
+(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).</p>
+</div>
         
         
             <h3 id="methods"><a href="#methods">Methods
@@ -194,8 +192,7 @@ and that successive sets overwrite the earlier operation
                 
                 <a id="Sawmill_IRewritable_1_CountChildren_"></a>
                 <h4 id="Sawmill_IRewritable_1_CountChildren"><a href="#Sawmill_IRewritable_1_CountChildren">CountChildren()</a></h4>
-                <div><p>Count the immediate children of the value.
-See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
+                <div><p>Count the immediate children of the value.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">int CountChildren()</code></pre>
@@ -211,7 +208,7 @@ See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChil
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Int32</span></p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></p></td>
                                     <td><p>The current instance&apos;s number of immediate children.</p>
 </td>
                                 </tr>
@@ -238,11 +235,14 @@ See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChil
 
                         
         
+                <h5 id="Sawmill_IRewritable_1_CountChildren_seealso"><a href="#Sawmill_IRewritable_1_CountChildren_seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren</a>(T)</div>
+                </div>
                 
                 <a id="Sawmill_IRewritable_1_GetChildren_"></a>
                 <h4 id="Sawmill_IRewritable_1_GetChildren_System_Span__0__"><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></h4>
-                <div><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.
-See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>.</p>
+                <div><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">void GetChildren(Span&lt;T&gt; childrenReceiver)</code></pre>
@@ -258,10 +258,10 @@ See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildr
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.Span</span>&lt;T&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</p></td>
                                     <td><p>childrenReceiver</p></td>
-                                    <td><p>A <span class="xref">System.Span&lt;&gt;</span> to copy the current instance&apos;s immediate children into.
-The <span class="xref">System.Span&lt;&gt;</span>&apos;s <span class="xref">System.Span`1.Length</span> should be equal to the number returned by <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a>.</p>
+                                    <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy the current instance&apos;s immediate children into.
+The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>&apos;s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length#system-span-1-length">Length</a> should be equal to the number returned by <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a>.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -298,15 +298,14 @@ Assert.Equal(expected, array);</code></pre>
 
                         
         
+                <h5 id="Sawmill_IRewritable_1_GetChildren_System_Span__0___seealso"><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0___seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;, T)</div>
+                </div>
                 
                 <a id="Sawmill_IRewritable_1_SetChildren_"></a>
                 <h4 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></h4>
-                <div><p>Set the immediate children of the currentInstance.
-<p>
-Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
-<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a>.
-</p>
-See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a>.</p>
+                <div><p>Set the immediate children of the currentInstance.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">T SetChildren(ReadOnlySpan&lt;T&gt; newChildren)</code></pre>
@@ -322,7 +321,7 @@ See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildr
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">System.ReadOnlySpan</span>&lt;T&gt;</p></td>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</p></td>
                                     <td><p>newChildren</p></td>
                                     <td><p>The new children.</p>
 </td>
@@ -352,6 +351,10 @@ See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildr
         
         
         
+                    <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___remarks"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___remarks">Remarks</a></h5>
+                    <div><p>Callers should ensure that <code data-dev-comment-type="paramref" class="paramref">newChildren</code> contains the same number of children as was returned by
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a>.</p>
+</div>
         
                     <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___examples">Examples</h5>
                 <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
@@ -371,11 +374,19 @@ Assert.Equal(expected, expr.SetChildren(Children.Two(new Lit(4), new Lit(5))));<
 
                         
         
+                <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___seealso"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;, T)</div>
+                </div>
         
         
 
         
 
+            <h3 id="seealso"><a href="#seealso">See Also</a></h3>
+            <div>
+                        <div><a class="xref" href="Sawmill.IRewriter-1.html">IRewriter</a>&lt;T&gt;</div>
+            </div>
     </article>
 
 <div class="col col-sm sticky md:hide">
