@@ -11,7 +11,9 @@ public static partial class Rewriter
     /// paired with a function to replace the node, starting at the bottom.
     /// This is typically useful when you need to replace nodes one at a time,
     /// such as during mutation testing.
+    /// </summary>
     ///
+    /// <remarks>
     /// <para>
     /// The replacement function can be seen as the "context" of the node; calling the
     /// function with a new node "plugs the hole" in the context.
@@ -20,11 +22,11 @@ public static partial class Rewriter
     /// <para>
     /// This is a depth-first post-order traversal.
     /// </para>
+    /// </remarks>
     ///
-    /// See <seealso cref="DescendantsAndSelf" />.
-    /// See <seealso cref="ChildrenInContext" />.
-    /// See <seealso cref="SelfAndDescendantsInContext" />.
-    /// </summary>
+    /// <seealso cref="DescendantsAndSelf" />
+    /// <seealso cref="ChildrenInContext" />
+    /// <seealso cref="SelfAndDescendantsInContext" />
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value to get the contexts for the descendants.</param>

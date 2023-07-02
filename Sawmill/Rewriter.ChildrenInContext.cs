@@ -11,15 +11,15 @@ public static partial class Rewriter
     /// <paramref name="value" /> paired with a function to replace the child.
     /// This is typically useful when you need to replace a node's children one at a time,
     /// such as during mutation testing.
+    /// </summary>
     ///
-    /// <para>
+    /// <remarks>
     /// The replacement function can be seen as the "context" of the child; calling the
     /// function with a new child "plugs the hole" in the context.
-    /// </para>
+    /// </remarks>
     ///
-    /// See <seealso cref="SelfAndDescendantsInContext" />.
-    /// See <seealso cref="DescendantsAndSelfInContext" />.
-    /// </summary>
+    /// <seealso cref="SelfAndDescendantsInContext" />
+    /// <seealso cref="DescendantsAndSelfInContext" />
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value to get the contexts for the immediate children.</param>

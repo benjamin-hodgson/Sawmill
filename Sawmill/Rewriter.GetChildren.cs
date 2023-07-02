@@ -6,7 +6,6 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Get the immediate children of the value.
-    /// See <seealso cref="IRewritable{T}.GetChildren" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -32,6 +31,7 @@ public static partial class Rewriter
     /// Assert.Equal(expected, rewriter.GetChildren(expr));
     /// </code>
     /// </example>
+    /// <seealso cref="IRewritable{T}.GetChildren" />
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value.</param>

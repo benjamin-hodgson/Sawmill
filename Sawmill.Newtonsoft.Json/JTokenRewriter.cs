@@ -18,7 +18,7 @@ public class JTokenRewriter : IRewriter<JToken>
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.CountChildren(T)" />.
+    /// See <see cref="IRewriter{T}.CountChildren(T)" />.
     /// </summary>
     /// <param name="value">The value.</param>
     /// <returns><paramref name="value" />'s number of immediate children.</returns>
@@ -28,7 +28,7 @@ public class JTokenRewriter : IRewriter<JToken>
             : 0;
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.GetChildren(Span{T}, T)" />.
+    /// See <see cref="IRewriter{T}.GetChildren(Span{T}, T)" />.
     /// </summary>
     /// <param name="childrenReceiver">
     /// A <see cref="Span{T}" /> to copy <paramref name="value" />'s immediate children into.
@@ -54,7 +54,7 @@ public class JTokenRewriter : IRewriter<JToken>
     }
 
     /// <summary>
-    /// See <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)" />.
+    /// See <see cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)" />.
     /// </summary>
     /// <param name="newChildren">The new children.</param>
     /// <param name="value">The old value, whose immediate children should be replaced.</param>

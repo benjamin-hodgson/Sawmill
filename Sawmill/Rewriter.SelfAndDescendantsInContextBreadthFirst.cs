@@ -12,7 +12,9 @@ public static partial class Rewriter
     /// paired with a function to replace the node, in a breadth-first traversal order.
     /// This is typically useful when you need to replace nodes one at a time,
     /// such as during mutation testing.
+    /// </summary>
     ///
+    /// <remarks>
     /// <para>
     /// The replacement function can be seen as the "context" of the node; calling the
     /// function with a new node "plugs the hole" in the context.
@@ -21,11 +23,11 @@ public static partial class Rewriter
     /// <para>
     /// This is a breadth-first pre-order traversal.
     /// </para>
+    /// </remarks>
     ///
-    /// See <seealso cref="SelfAndDescendants" />.
-    /// See <seealso cref="ChildrenInContext" />.
-    /// See <seealso cref="DescendantsAndSelfInContext" />.
-    /// </summary>
+    /// <seealso cref="SelfAndDescendants" />
+    /// <seealso cref="ChildrenInContext" />
+    /// <seealso cref="DescendantsAndSelfInContext" />
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value to get the contexts for the descendants.</param>

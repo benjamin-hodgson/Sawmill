@@ -853,13 +853,13 @@ public sealed class Cursor<T>
     /// <summary>
     /// Focus the current focus's first descendant or right sibling's descendant which satisfies <paramref name="predicate" />,
     /// searching descendants before siblings and ending at the current node's rightmost sibling.
-    ///
-    /// <para>
-    /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="SearchRightAndDown" />.
-    /// </para>
-    ///
-    /// See <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)" />.
     /// </summary>
+    ///
+    /// <remarks>
+    /// This function searches the bottom-left part of the tree first, so will typically end up focusing a node lower down than <see cref="SearchRightAndDown" />.
+    /// </remarks>
+    ///
+    /// <seealso cref="Rewriter.SelfAndDescendants{T}(IRewriter{T}, T)" />
     /// <param name="predicate">A predicate which returns true when the search should stop.</param>
     /// <returns>True if a matching focus was found, false if the search was exhaustive.</returns>
     public bool SearchDownAndRight(Func<T, bool> predicate)

@@ -7,13 +7,12 @@ public static partial class Rewriter
 {
     /// <summary>
     /// Yields all of the nodes in the tree represented by <paramref name="value" />, starting at the top.
-    ///
-    /// <para>
-    /// This is a depth-first pre-order traversal.
-    /// </para>
-    ///
-    /// See <seealso cref="DescendantsAndSelf" />.
     /// </summary>
+    ///
+    /// <remarks>
+    /// This is a depth-first pre-order traversal.
+    /// </remarks>
+    ///
     /// <example>
     /// <code>
     /// Expr expr = new Add(
@@ -34,6 +33,8 @@ public static partial class Rewriter
     /// Assert.Equal(expected, rewriter.SelfAndDescendants(expr));
     /// </code>
     /// </example>
+    ///
+    /// <seealso cref="DescendantsAndSelf" />
     /// <typeparam name="T">The rewritable tree type.</typeparam>
     /// <param name="rewriter">The rewriter.</param>
     /// <param name="value">The value to traverse.</param>
