@@ -19,7 +19,7 @@ public interface IRewritable<T>
     where T : IRewritable<T>
 {
     /// <summary>
-    /// Count the immediate children of the value.
+    /// Count the immediate children of the current instance.
     /// </summary>
     ///
     /// <example>
@@ -44,7 +44,7 @@ public interface IRewritable<T>
     int CountChildren();
 
     /// <summary>
-    /// Copy the immediate children of the value into <paramref name="childrenReceiver" />.
+    /// Copy the immediate children of the current instance into <paramref name="childrenReceiver" />.
     /// </summary>
     /// <example>
     /// Given a representation of the expression <c>(1+2)+3</c>.
@@ -81,7 +81,7 @@ public interface IRewritable<T>
     void GetChildren(Span<T> childrenReceiver);
 
     /// <summary>
-    /// Set the immediate children of the currentInstance.
+    /// Set the immediate children of the current instance.
     /// </summary>
     ///
     /// <remarks>
