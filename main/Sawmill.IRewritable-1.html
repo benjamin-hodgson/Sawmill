@@ -192,7 +192,7 @@ and that successive sets overwrite the earlier operation
                 
                 <a id="Sawmill_IRewritable_1_CountChildren_"></a>
                 <h4 id="Sawmill_IRewritable_1_CountChildren"><a href="#Sawmill_IRewritable_1_CountChildren">CountChildren()</a></h4>
-                <div><p>Count the immediate children of the value.</p>
+                <div><p>Count the immediate children of the current instance.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">int CountChildren()</code></pre>
@@ -242,7 +242,7 @@ and that successive sets overwrite the earlier operation
                 
                 <a id="Sawmill_IRewritable_1_GetChildren_"></a>
                 <h4 id="Sawmill_IRewritable_1_GetChildren_System_Span__0__"><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></h4>
-                <div><p>Copy the immediate children of the value into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.</p>
+                <div><p>Copy the immediate children of the current instance into <code data-dev-comment-type="paramref" class="paramref">childrenReceiver</code>.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">void GetChildren(Span&lt;T&gt; childrenReceiver)</code></pre>
@@ -305,7 +305,7 @@ Assert.Equal(expected, array);</code></pre>
                 
                 <a id="Sawmill_IRewritable_1_SetChildren_"></a>
                 <h4 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></h4>
-                <div><p>Set the immediate children of the currentInstance.</p>
+                <div><p>Set the immediate children of the current instance.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang-csharp hljs">T SetChildren(ReadOnlySpan&lt;T&gt; newChildren)</code></pre>
