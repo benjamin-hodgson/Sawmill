@@ -3,7 +3,7 @@ using System;
 namespace Sawmill;
 
 /// <summary>
-/// A object is rewriterable if it knows how to access its immediate children.
+/// A object is rewritable if it knows how to access its immediate children.
 /// </summary>
 ///
 /// <remarks>
