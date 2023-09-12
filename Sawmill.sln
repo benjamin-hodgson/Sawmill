@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sawmill.HtmlAgilityPack", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sawmill.Bench", "Sawmill.Bench\Sawmill.Bench.csproj", "{3ED50526-2F4A-4515-8EEB-C3960F99D28B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sawmill.Docs", "Sawmill.Docs\Sawmill.Docs.proj", "{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,18 @@ Global
 		{3ED50526-2F4A-4515-8EEB-C3960F99D28B}.Release|x64.Build.0 = Release|Any CPU
 		{3ED50526-2F4A-4515-8EEB-C3960F99D28B}.Release|x86.ActiveCfg = Release|Any CPU
 		{3ED50526-2F4A-4515-8EEB-C3960F99D28B}.Release|x86.Build.0 = Release|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Debug|x64.Build.0 = Debug|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Debug|x86.Build.0 = Debug|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Release|x64.Build.0 = Release|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Release|x86.ActiveCfg = Release|Any CPU
+		{DC6F9587-35F6-4DF1-8B0F-5B57649CCA26}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

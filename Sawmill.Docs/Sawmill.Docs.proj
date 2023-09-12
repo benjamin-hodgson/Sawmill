@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+
+    <Import Project="../Sawmill.BuildTool.props" />
+
+    <PropertyGroup>
+        <IsDocumentationProject>true</IsDocumentationProject>
+        <DocumentationSiteTitle>Benjamin.Pizza.DocTest</DocumentationSiteTitle>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../Sawmill/Sawmill.csproj">
+            <OutputItemType>DocumentationAssembly</OutputItemType>
+        </ProjectReference>
+        <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj">
+            <OutputItemType>DocumentationAssembly</OutputItemType>
+        </ProjectReference>
+        <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis.CSharp/Sawmill.Microsoft.CodeAnalysis.CSharp.csproj">
+            <OutputItemType>DocumentationAssembly</OutputItemType>
+        </ProjectReference>
+        <ProjectReference Include="../Sawmill.Microsoft.CodeAnalysis.VisualBasic/Sawmill.Microsoft.CodeAnalysis.VisualBasic.csproj">
+            <OutputItemType>DocumentationAssembly</OutputItemType>
+        </ProjectReference>
+        <ProjectReference Include="../Sawmill.Newtonsoft.Json/Sawmill.Newtonsoft.Json.csproj">
+            <OutputItemType>DocumentationAssembly</OutputItemType>
+        </ProjectReference>
+        <ProjectReference Include="../Sawmill.HtmlAgilityPack/Sawmill.HtmlAgilityPack.csproj">
+            <OutputItemType>DocumentationAssembly</OutputItemType>
+        </ProjectReference>
+    </ItemGroup>
+
+</Project>
