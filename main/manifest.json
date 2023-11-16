@@ -1,6 +1,5 @@
 {
-  "homepages": [],
-  "source_base_path": "/home/runner/work/Sawmill/Sawmill/Sawmill.Docs/obj/Release",
+  "source_base_path": "/home/runner/work/Sawmill/Sawmill/artifacts/obj/Sawmill.Docs/release",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -362,7 +361,6 @@
       "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
