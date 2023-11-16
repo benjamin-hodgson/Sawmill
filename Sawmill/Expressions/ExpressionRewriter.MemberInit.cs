@@ -65,7 +65,7 @@ public partial class ExpressionRewriter
                         newArgs = updatedBindings.Remainder;
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException("Unexpected type of binding", nameof(binding));
+                        throw new ArgumentOutOfRangeException(nameof(oldBindings), "Unexpected type of binding");
                 }
 
                 newBindings.Add(newBinding);

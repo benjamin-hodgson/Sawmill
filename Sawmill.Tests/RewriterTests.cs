@@ -188,7 +188,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestRewriteDescendantAtAsync()
+    public async Task TestRewriteDescendantAtAsync()
     {
         var one = new Lit(1);
         var two = new Lit(2);
@@ -240,7 +240,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestFoldAsync()
+    public async Task TestFoldAsync()
     {
         var one = new Lit(1);
         var two = new Lit(2);
@@ -274,7 +274,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestZipFoldAsync()
+    public async Task TestZipFoldAsync()
     {
         {
             var one = new Lit(1);
@@ -317,7 +317,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestRewriteChildrenAsync()
+    public async Task TestRewriteChildrenAsync()
     {
         var one = new Lit(1);
         var two = new Lit(2);
@@ -354,7 +354,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestRewriteChildrenAsync_NoOp()
+    public async Task TestRewriteChildrenAsync_NoOp()
     {
         var t = new Tree<int>(
             1,
@@ -391,7 +391,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestRewriteAsync()
+    public async Task TestRewriteAsync()
     {
         var one = new Lit(1);
         var two = new Lit(2);
@@ -444,7 +444,7 @@ public class RewriterTests
     }
 
     [Fact]
-    public async ValueTask TestRewriteIterAsync()
+    public async Task TestRewriteIterAsync()
     {
         // -((1+2)+3) --> ((-1)+(-2))+(-3)
         Expr expr = new Neg(

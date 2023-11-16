@@ -1,15 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-        <InternalsVisibleTo Include="Sawmill.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100e53c71bc93e1bc422f975db11ce9fb96ac6014f1485cb0226339f16ad7584b0870982be2055ef4a35e167d5c33ed79934bce8d1f5cfa424a21b1a94fe0be2cf4718eca4fdadaf65f487626def1cd84c71b0b59fab8a7b7ae62fe41932ec9091d0bd3be4990d3c257b4d592f9879998b6be17f10fb08c3895c4c65f99c94618c8" />
-    </ItemGroup>
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="FixedSizeBuffers" />
-        <PackageReference Include="System.Buffers" />
-        <PackageReference Include="System.Collections.Immutable" />
-        <PackageReference Include="System.Memory" />
-        <PackageReference Include="System.ValueTuple" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="Sawmill.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100e53c71bc93e1bc422f975db11ce9fb96ac6014f1485cb0226339f16ad7584b0870982be2055ef4a35e167d5c33ed79934bce8d1f5cfa424a21b1a94fe0be2cf4718eca4fdadaf65f487626def1cd84c71b0b59fab8a7b7ae62fe41932ec9091d0bd3be4990d3c257b4d592f9879998b6be17f10fb08c3895c4c65f99c94618c8" />
     </ItemGroup>
 
 </Project>

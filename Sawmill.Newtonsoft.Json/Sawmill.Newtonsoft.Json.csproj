@@ -1,10 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" />
+    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="../Sawmill/Sawmill.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" />
-        <PackageReference Include="System.ValueTuple" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
+
 </Project>

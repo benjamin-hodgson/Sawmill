@@ -6,7 +6,7 @@ namespace Sawmill.Tests;
 
 public class AutoRewriterTests
 {
-    private static readonly IRewriter<Expr> _rewriter = AutoRewriter<Expr>.Instance;
+    private static readonly AutoRewriter<Expr> _rewriter = AutoRewriter<Expr>.Instance;
 
     [Fact]
     public void TestGetChildren_NoChildren()

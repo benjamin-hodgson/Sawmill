@@ -1,4 +1,5 @@
 <Project>
+
     <PropertyGroup>
         <Authors>benjamin.hodgson</Authors>
         <Copyright>© Benjamin Hodgson, 2017</Copyright>
@@ -16,5 +17,7 @@
         <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Sawmill.snk</AssemblyOriginatorKeyFile>
 
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <UseArtifactsOutput>true</UseArtifactsOutput>
     </PropertyGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
     <Import Project="../Sawmill.BuildTool.props" />
 
     <PropertyGroup>
@@ -18,4 +19,5 @@
         <PackageReference Include="xunit" />
         <PackageReference Include="xunit.runner.visualstudio" />
     </ItemGroup>
+
 </Project>
