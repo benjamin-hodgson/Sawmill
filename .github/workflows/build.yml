@@ -15,6 +15,5 @@ jobs:
     uses: benjamin-hodgson/BuildScripts/.github/workflows/dotnet.yml@main
     with:
       DOCS_FOLDER: Sawmill.Docs
-      NET8: true
     secrets:
       NUGET_KEY: ${{ secrets.NUGET_KEY }}
