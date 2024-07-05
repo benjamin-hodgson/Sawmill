@@ -2,7 +2,7 @@
 
     <ItemGroup>
         <PackageVersion Include="BenchmarkDotNet" Version="0.13.10" />
-        <PackageVersion Include="coverlet.collector" Version="6.0.0" />
+        <PackageVersion Include="coverlet.collector" Version="6.0.2" />
         <PackageVersion Include="FixedSizeBuffers" Version="0.2.0" />
         <PackageVersion Include="HtmlAgilityPack" Version="1.8.4" />
         <PackageVersion Include="Microsoft.CodeAnalysis" Version="3.3.1" />
