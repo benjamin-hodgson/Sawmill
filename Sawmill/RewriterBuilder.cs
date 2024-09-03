@@ -141,6 +141,7 @@ public class RewriterBuilder<T>
 }
 
 internal delegate int GetChildrenDelegate<TBase, TSub>(Span<TBase> children, int position, TSub value);
+
 internal delegate (bool Changed, int Consumed, TArgs Args) GetCtorArgsDelegate<TBase, TSub, TArgs>(ReadOnlySpan<TBase> newChildren, TSub oldValue);
 
 /// <summary>
