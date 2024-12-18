@@ -4,6 +4,7 @@
 
     <PropertyGroup>
         <NoWarn>$(NoWarn);CA2007</NoWarn>  <!-- CA2007: Consider calling ConfigureAwait on the awaited task -->
+        <NoWarn>$(NoWarn);CA1515</NoWarn>  <!-- CA1515: Because an application's API isn't typically referenced from outside the assembly, types can be made internal -->
     </PropertyGroup>
 
     <ItemGroup>
