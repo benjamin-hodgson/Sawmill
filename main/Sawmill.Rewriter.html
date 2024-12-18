@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,15 +12,15 @@
 
     
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="shortcut" "icon"="" href="/favicon.ico" type="image/x-icon">
+        <link rel=shortcut "icon" href="/favicon.ico" type="image/x-icon">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2.1.1/out/water.min.css" integrity="sha256-QST90Wzz4PEr5KlclQaOCsjc00FTyf86Wrj41oqZB4w=" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/highlight.css">
     
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script async="" id="highlightjs-script" src="js/third-party/highlight.js"></script>
-        <script defer="" src="js/main.js"></script>
+        <script async id="highlightjs-script" src="js/third-party/highlight.js"></script>
+        <script defer src="js/main.js"></script>
     
     
     </head>
@@ -551,12 +551,12 @@ such as during mutation testing.</p>
 
                     <h5 id="Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0__remarks"><a href="#Sawmill_Rewriter_DescendantsAndSelfInContext__1_Sawmill_IRewriter___0____0__remarks">Remarks</a></h5>
                     <div><p>
-The replacement function can be seen as the "context" of the node; calling the
-function with a new node "plugs the hole" in the context.
-</p>
+         The replacement function can be seen as the "context" of the node; calling the
+         function with a new node "plugs the hole" in the context.
+         </p>
 <p>
-This is a depth-first post-order traversal.
-</p>
+         This is a depth-first post-order traversal.
+         </p>
 </div>
 
                 
@@ -921,8 +921,7 @@ using an asynchronous aggregation function to combine each node with the results
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.</p>
+);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_GetChildren__1_Sawmill_IRewriter___0____0_">GetChildren&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> returns the immediate children of the topmost node.
 <pre><code class="lang-csharp">Expr[] expected = new[]
     {
         new Add(
@@ -1679,9 +1678,8 @@ represented by <code class="paramref">value</code> repeatedly until a fixed poin
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> replaces the leaves of the tree with the result of calling <code class="paramref">transformer</code>,
-then replaces their parents with the result of calling <code class="paramref">transformer</code>, and so on.
+);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> replaces the leaves of the tree with the result of calling <code class="paramref">transformer</code>,
+<p>then replaces their parents with the result of calling <code class="paramref">transformer</code>, and so on.
 By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0_System_Threading_Tasks_ValueTask___0_____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, ValueTask&lt;T&gt;&gt;, T)</a> has traversed the whole tree.</p>
 <pre><code class="lang-csharp">Expr expected = await transformer(new Add(
     await transformer(new Add(
@@ -1780,9 +1778,8 @@ Assert.Equal(expected, await rewriter.Rewrite(transformer, expr));</code></pre>
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> replaces the leaves of the tree with the result of calling <code class="paramref">transformer</code>,
-then replaces their parents with the result of calling <code class="paramref">transformer</code>, and so on.
+);</code></pre><a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> replaces the leaves of the tree with the result of calling <code class="paramref">transformer</code>,
+<p>then replaces their parents with the result of calling <code class="paramref">transformer</code>, and so on.
 By the end, <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_Rewrite__1_Sawmill_IRewriter___0__System_Func___0___0____0_">Rewrite&lt;T&gt;(IRewriter&lt;T&gt;, Func&lt;T, T&gt;, T)</a> has traversed the whole tree.</p>
 <pre><code class="lang-csharp">Expr expected = transformer(new Add(
     transformer(new Add(
@@ -1948,12 +1945,12 @@ such as during mutation testing.</p>
 
                     <h5 id="Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0__remarks"><a href="#Sawmill_Rewriter_SelfAndDescendantsInContextBreadthFirst__1_Sawmill_IRewriter___0____0__remarks">Remarks</a></h5>
                     <div><p>
-The replacement function can be seen as the "context" of the node; calling the
-function with a new node "plugs the hole" in the context.
-</p>
+         The replacement function can be seen as the "context" of the node; calling the
+         function with a new node "plugs the hole" in the context.
+         </p>
 <p>
-This is a breadth-first pre-order traversal.
-</p>
+         This is a breadth-first pre-order traversal.
+         </p>
 </div>
 
                 
@@ -2040,12 +2037,12 @@ such as during mutation testing.</p>
 
                     <h5 id="Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0__remarks"><a href="#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0__remarks">Remarks</a></h5>
                     <div><p>
-The replacement function can be seen as the "context" of the node; calling the
-function with a new node "plugs the hole" in the context.
-</p>
+         The replacement function can be seen as the "context" of the node; calling the
+         function with a new node "plugs the hole" in the context.
+         </p>
 <p>
-This is a depth-first pre-order traversal.
-</p>
+         This is a depth-first pre-order traversal.
+         </p>
 </div>
 
                 

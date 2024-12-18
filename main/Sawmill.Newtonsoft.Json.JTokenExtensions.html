@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,15 +12,15 @@
 
     
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="shortcut" "icon"="" href="/favicon.ico" type="image/x-icon">
+        <link rel=shortcut "icon" href="/favicon.ico" type="image/x-icon">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2.1.1/out/water.min.css" integrity="sha256-QST90Wzz4PEr5KlclQaOCsjc00FTyf86Wrj41oqZB4w=" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/highlight.css">
     
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script async="" id="highlightjs-script" src="js/third-party/highlight.js"></script>
-        <script defer="" src="js/main.js"></script>
+        <script async id="highlightjs-script" src="js/third-party/highlight.js"></script>
+        <script defer src="js/main.js"></script>
     
     
     </head>
@@ -530,24 +530,22 @@ function with a new child &quot;plugs the hole&quot; in the context.</p>
 </div>
 
                     <h5 id="Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantsAndSelf_Newtonsoft_Json_Linq_JToken__examples">Examples</h5>
-        <pre>
-  <code class="lang-csharp">Expr expr = new Add(
-                                    new Add(
-                                        new Lit(1),
-                                        new Lit(2)
-                                    ),
-                                    new Lit(3)
-                                );
-                                Expr[] expected = new[]
-                                    {
-                                        new Lit(1),
-                                        new Lit(2),
-                                        new Add(new Lit(1), new Lit(2)),
-                                        new Lit(3),
-                                        expr
-                                    };
-                                Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code>
-</pre>
+        <pre><code class="lang-csharp">Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);
+Expr[] expected = new[]
+    {
+        new Lit(1),
+        new Lit(2),
+        new Add(new Lit(1), new Lit(2)),
+        new Lit(3),
+        expr
+    };
+Assert.Equal(expected, rewriter.DescendantsAndSelf(expr));</code></pre>
 
                 
 
@@ -609,12 +607,12 @@ such as during mutation testing.</p>
 
                     <h5 id="Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantsAndSelfInContext_Newtonsoft_Json_Linq_JToken__remarks"><a href="#Sawmill_Newtonsoft_Json_JTokenExtensions_DescendantsAndSelfInContext_Newtonsoft_Json_Linq_JToken__remarks">Remarks</a></h5>
                     <div><p>
-             The replacement function can be seen as the "context" of the node; calling the
-             function with a new node "plugs the hole" in the context.
-             </p>
+         The replacement function can be seen as the "context" of the node; calling the
+         function with a new node "plugs the hole" in the context.
+         </p>
 <p>
-             This is a depth-first post-order traversal.
-             </p>
+         This is a depth-first post-order traversal.
+         </p>
 </div>
 
                 
@@ -1679,24 +1677,22 @@ represented by <code class="paramref">value</code> repeatedly until a fixed poin
 </div>
 
                     <h5 id="Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendants_Newtonsoft_Json_Linq_JToken__examples">Examples</h5>
-        <pre>
-  <code class="lang-csharp">Expr expr = new Add(
-                                    new Add(
-                                        new Lit(1),
-                                        new Lit(2)
-                                    ),
-                                    new Lit(3)
-                                );
-                                Expr[] expected = new[]
-                                    {
-                                        expr,
-                                        new Add(new Lit(1), new Lit(2)),
-                                        new Lit(1),
-                                        new Lit(2),
-                                        new Lit(3),
-                                    };
-                                Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code>
-</pre>
+        <pre><code class="lang-csharp">Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);
+Expr[] expected = new[]
+    {
+        expr,
+        new Add(new Lit(1), new Lit(2)),
+        new Lit(1),
+        new Lit(2),
+        new Lit(3),
+    };
+Assert.Equal(expected, rewriter.SelfAndDescendants(expr));</code></pre>
 
                 
 
@@ -1813,12 +1809,12 @@ such as during mutation testing.</p>
 
                     <h5 id="Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsInContext_Newtonsoft_Json_Linq_JToken__remarks"><a href="#Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsInContext_Newtonsoft_Json_Linq_JToken__remarks">Remarks</a></h5>
                     <div><p>
-             The replacement function can be seen as the "context" of the node; calling the
-             function with a new node "plugs the hole" in the context.
-             </p>
+         The replacement function can be seen as the "context" of the node; calling the
+         function with a new node "plugs the hole" in the context.
+         </p>
 <p>
-             This is a depth-first pre-order traversal.
-             </p>
+         This is a depth-first pre-order traversal.
+         </p>
 </div>
 
                 
@@ -1883,12 +1879,12 @@ such as during mutation testing.</p>
 
                     <h5 id="Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsInContextBreadthFirst_Newtonsoft_Json_Linq_JToken__remarks"><a href="#Sawmill_Newtonsoft_Json_JTokenExtensions_SelfAndDescendantsInContextBreadthFirst_Newtonsoft_Json_Linq_JToken__remarks">Remarks</a></h5>
                     <div><p>
-             The replacement function can be seen as the "context" of the node; calling the
-             function with a new node "plugs the hole" in the context.
-             </p>
+         The replacement function can be seen as the "context" of the node; calling the
+         function with a new node "plugs the hole" in the context.
+         </p>
 <p>
-             This is a breadth-first pre-order traversal.
-             </p>
+         This is a breadth-first pre-order traversal.
+         </p>
 </div>
 
                 

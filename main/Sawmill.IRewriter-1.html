@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,15 +12,15 @@
 
     
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="shortcut" "icon"="" href="/favicon.ico" type="image/x-icon">
+        <link rel=shortcut "icon" href="/favicon.ico" type="image/x-icon">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2.1.1/out/water.min.css" integrity="sha256-QST90Wzz4PEr5KlclQaOCsjc00FTyf86Wrj41oqZB4w=" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/highlight.css">
     
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script async="" id="highlightjs-script" src="js/third-party/highlight.js"></script>
-        <script defer="" src="js/main.js"></script>
+        <script async id="highlightjs-script" src="js/third-party/highlight.js"></script>
+        <script defer src="js/main.js"></script>
     
     
     </head>
@@ -276,8 +276,7 @@ and that successive sets overwrite the earlier operation
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a> counts the immediate children of the topmost (Add) node.</p>
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a> counts the immediate children of the topmost (Add) node.
 <pre><code class="lang-csharp">Assert.Equal(2, rewriter.CountChildren(expr));</code></pre>
 
                 
@@ -341,8 +340,7 @@ and that successive sets overwrite the earlier operation
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a> copies the immediate children of the topmost node into the span.</p>
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a> copies the immediate children of the topmost node into the span.
 <pre><code class="lang-csharp">Expr[] expected = new[]
     {
         new Add(
@@ -429,8 +427,7 @@ Assert.Equal(expected, array);</code></pre>
         new Lit(2)
     ),
     new Lit(3)
-);</code></pre>
-<p><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.</p>
+);</code></pre><a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a> replaces the immediate children of the topmost node.
 <pre><code class="lang-csharp">Expr expected = new Add(
     new Lit(4),
     new Lit(5)

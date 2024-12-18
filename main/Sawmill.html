@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,15 +12,15 @@
 
     
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="shortcut" "icon"="" href="/favicon.ico" type="image/x-icon">
+        <link rel=shortcut "icon" href="/favicon.ico" type="image/x-icon">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2.1.1/out/water.min.css" integrity="sha256-QST90Wzz4PEr5KlclQaOCsjc00FTyf86Wrj41oqZB4w=" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/highlight.css">
     
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script async="" id="highlightjs-script" src="js/third-party/highlight.js"></script>
-        <script defer="" src="js/main.js"></script>
+        <script async id="highlightjs-script" src="js/third-party/highlight.js"></script>
+        <script defer src="js/main.js"></script>
     
     
     </head>
@@ -195,9 +195,7 @@ allowing efficient access to (and editing of) a node and its parent, siblings, a
 You can think of a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> as being focused on a particular node.
 After zooming in on a node, you can efficiently go up to the node's parent, down to the node's first child,
 or left or right to the node's immediate siblings.
-</p>
-<p>
-<a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is generally not as efficient or useful as the
+</p><p><a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is generally not as efficient or useful as the
 <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> family for replacing single nodes,
 but it efficiently supports longer sequences of edits to a location and its neighbours.
 </p>

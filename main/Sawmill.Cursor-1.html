@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,15 +12,15 @@
 
     
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="shortcut" "icon"="" href="/favicon.ico" type="image/x-icon">
+        <link rel=shortcut "icon" href="/favicon.ico" type="image/x-icon">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2.1.1/out/water.min.css" integrity="sha256-QST90Wzz4PEr5KlclQaOCsjc00FTyf86Wrj41oqZB4w=" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/highlight.css">
     
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script async="" id="highlightjs-script" src="js/third-party/highlight.js"></script>
-        <script defer="" src="js/main.js"></script>
+        <script async id="highlightjs-script" src="js/third-party/highlight.js"></script>
+        <script defer src="js/main.js"></script>
     
     
     </head>
@@ -184,9 +184,7 @@ allowing efficient access to (and editing of) a node and its parent, siblings, a
 You can think of a <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> as being focused on a particular node.
 After zooming in on a node, you can efficiently go up to the node's parent, down to the node's first child,
 or left or right to the node's immediate siblings.
-</p>
-<p>
-<a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is generally not as efficient or useful as the
+</p><p><a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is generally not as efficient or useful as the
 <a class="xref" href="Sawmill.Rewriter.html#Sawmill_Rewriter_SelfAndDescendantsInContext__1_Sawmill_IRewriter___0____0_">SelfAndDescendantsInContext&lt;T&gt;(IRewriter&lt;T&gt;, T)</a> family for replacing single nodes,
 but it efficiently supports longer sequences of edits to a location and its neighbours.
 </p>
@@ -353,7 +351,7 @@ This operation "opens a hole" in the current node, descending to the children so
         
                 <a id="Sawmill_Cursor_1_Down_"></a>
                 <h4 id="Sawmill_Cursor_1_Down_System_Int32_"><a href="#Sawmill_Cursor_1_Down_System_Int32_">Down(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a> <code class="paramref">count</code> times.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a><code class="paramref">count</code> times.</p>
 <p>
 This operation "opens a hole" in the current node and its <code class="paramref">count</code> first descendants.
 </p>
@@ -591,7 +589,7 @@ This is useful if, for example, you need to compare the nodes at a given positio
         
                 <a id="Sawmill_Cursor_1_Left_"></a>
                 <h4 id="Sawmill_Cursor_1_Left_System_Int32_"><a href="#Sawmill_Cursor_1_Left_System_Int32_">Left(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left">Left()</a> <code class="paramref">count</code> times.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left">Left()</a><code class="paramref">count</code> times.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang- hljs">public void Left(int count)</code></pre>
@@ -785,8 +783,7 @@ The <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a> is left foc
 Typically you won't need to call this method yourself -
 just call <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Top">Top()</a> at the end of your sequence of edits to get the new tree back.
 (This method is equivalent to calling <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Top">Top()</a> and then returning to where you were.)
-</p>
-<p>
+</p><p>
 The worst-case scenario for <a class="xref" href="Sawmill.Cursor-1.html">Cursor&lt;T&gt;</a>'s memory usage is code which traverses a large tree and
 alternates <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a> calls with setting the <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Focus">Focus</a>,
 without any calls to <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a> in between.
@@ -845,7 +842,7 @@ this method (say, every 1000 edits) should improve the memory usage (at the cost
         
                 <a id="Sawmill_Cursor_1_Right_"></a>
                 <h4 id="Sawmill_Cursor_1_Right_System_Int32_"><a href="#Sawmill_Cursor_1_Right_System_Int32_">Right(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right">Right()</a> <code class="paramref">count</code> times.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right">Right()</a><code class="paramref">count</code> times.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang- hljs">public void Right(int count)</code></pre>
@@ -1151,7 +1148,7 @@ This operation "opens a hole" in the current node, descending to the children so
         
                 <a id="Sawmill_Cursor_1_TryDown_"></a>
                 <h4 id="Sawmill_Cursor_1_TryDown_System_Int32_"><a href="#Sawmill_Cursor_1_TryDown_System_Int32_">TryDown(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a> <code class="paramref">count</code> times, stopping if you reach a node with no children.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Down">Down()</a><code class="paramref">count</code> times, stopping if you reach a node with no children.</p>
 <p>
 This operation "opens a hole" in the current node and its <code class="paramref">count</code> first descendants.
 </p>
@@ -1361,7 +1358,7 @@ In other words, find the first leftmost descendant of <a class="xref" href="Sawm
         
                 <a id="Sawmill_Cursor_1_TryLeft_"></a>
                 <h4 id="Sawmill_Cursor_1_TryLeft_System_Int32_"><a href="#Sawmill_Cursor_1_TryLeft_System_Int32_">TryLeft(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left">Left()</a> <code class="paramref">count</code> times, stopping if you reach the leftmost sibling.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Left">Left()</a><code class="paramref">count</code> times, stopping if you reach the leftmost sibling.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang- hljs">public bool TryLeft(int count)</code></pre>
@@ -1584,7 +1581,7 @@ In other words, find the left sibling of <a class="xref" href="Sawmill.Cursor-1.
         
                 <a id="Sawmill_Cursor_1_TryRight_"></a>
                 <h4 id="Sawmill_Cursor_1_TryRight_System_Int32_"><a href="#Sawmill_Cursor_1_TryRight_System_Int32_">TryRight(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right">Right()</a> <code class="paramref">count</code> times, stopping if you reach the rightmost sibling.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Right">Right()</a><code class="paramref">count</code> times, stopping if you reach the rightmost sibling.</p>
 </div>
                 <h5>Declaration</h5>
                     <pre><code class="lang- hljs">public bool TryRight(int count)</code></pre>
@@ -1743,7 +1740,7 @@ This releases old versions of the current <a class="xref" href="Sawmill.Cursor-1
         
                 <a id="Sawmill_Cursor_1_TryUp_"></a>
                 <h4 id="Sawmill_Cursor_1_TryUp_System_Int32_"><a href="#Sawmill_Cursor_1_TryUp_System_Int32_">TryUp(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a> <code class="paramref">count</code> times, stopping if you reach the top.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a><code class="paramref">count</code> times, stopping if you reach the top.</p>
 <p>
 This operation "plugs the hole" in the parent, replacing the parent's children as necessary.
 This releases old versions of the ancestors and their children, so that they can be garbage collected.
@@ -1910,7 +1907,7 @@ This releases old versions of the current <a class="xref" href="Sawmill.Cursor-1
         
                 <a id="Sawmill_Cursor_1_Up_"></a>
                 <h4 id="Sawmill_Cursor_1_Up_System_Int32_"><a href="#Sawmill_Cursor_1_Up_System_Int32_">Up(int)</a></h4>
-                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a> <code class="paramref">count</code> times.</p>
+                <div><p>Go <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up">Up()</a><code class="paramref">count</code> times.</p>
 <p>
 Going <a class="xref" href="Sawmill.Cursor-1.html#Sawmill_Cursor_1_Up_System_Int32_">Up(int)</a> "plugs the hole" in the ancestors, replacing their children as necessary.
 This releases old versions of the ancestors and their children, so that they can be garbage collected.
