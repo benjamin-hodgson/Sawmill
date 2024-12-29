@@ -1,0 +1,149 @@
+{
+  "source_base_path": "/home/runner/work/Sawmill/Sawmill/artifacts/obj/Sawmill.Docs/release",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.HtmlAgilityPack.HtmlNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.HtmlAgilityPack.HtmlNodeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.HtmlAgilityPack.HtmlNodeRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.HtmlAgilityPack.HtmlNodeRewriter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.HtmlAgilityPack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.HtmlAgilityPack.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Microsoft.CodeAnalysis.CSharp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Microsoft.CodeAnalysis.CSharp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Microsoft.CodeAnalysis.SyntaxNodeRewriter-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxNodeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Microsoft.CodeAnalysis.VisualBasic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Microsoft.CodeAnalysis.VisualBasic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Microsoft.CodeAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Microsoft.CodeAnalysis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Newtonsoft.Json.JTokenExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Newtonsoft.Json.JTokenExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Newtonsoft.Json.JTokenRewriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Newtonsoft.Json.JTokenRewriter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Sawmill.Newtonsoft.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Sawmill.Newtonsoft.Json.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
