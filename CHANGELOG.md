@@ -1,6 +1,14 @@
 Changelog
 =========
 
+3.4.0
+-----
+
+### Changed
+
+* A new, more portable implementation using [inline arrays](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/inline-arrays).
+
+
 3.3.0
 -----
 
@@ -48,7 +56,7 @@ Changelog
 
 ### Changed
 
-* `IRewriter` and `IRewritable` have been substantially redesigned, as outlined in https://www.benjamin.pizza/posts/2019-10-04-rewriting-irewritable.html 
+* `IRewriter` and `IRewritable` have been substantially redesigned, as outlined in https://www.benjamin.pizza/posts/2019-10-04-rewriting-irewritable.html
     * Removed `RewriteChildren` from the interface
     * Added `CountChildren`
     * Changed signature of `GetChildren`. It now takes a `Span` to copy the children into (and returns `void`)
