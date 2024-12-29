@@ -231,12 +231,27 @@ public class RewriterTests
     [Fact]
     public void TestFold()
     {
-        var one = new Lit(1);
-        var two = new Lit(2);
-        var minusTwo = new Neg(two);
-        Expr expr = new Add(one, minusTwo);
+        {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            Expr expr = new Add(one, minusTwo);
 
-        Assert.Equal(-1, Eval(expr));
+            Assert.Equal(-1, Eval(expr));
+        }
+
+        {
+            // test the more-than-four codepath
+            var expr = new List([new Lit(1), new Lit(2), new Lit(3), new Lit(4), new Lit(5)]);
+            var result = expr.Fold<Expr, int>((zs, e) =>
+                e switch
+                {
+                    Lit(var n) => n,
+                    List => zs.ToArray().Sum(),
+                    _ => throw new ArgumentOutOfRangeException()
+                });
+            Assert.Equal(15, result);
+        }
     }
 
     [Fact]
@@ -373,17 +388,19 @@ public class RewriterTests
     [Fact]
     public void TestRewrite()
     {
-        var one = new Lit(1);
-        var two = new Lit(2);
-        var minusTwo = new Neg(two);
-        Expr expr = new Add(one, minusTwo);
         {
+            var one = new Lit(1);
+            var two = new Lit(2);
+            var minusTwo = new Neg(two);
+            Expr expr = new Add(one, minusTwo);
             var rewritten = expr.Rewrite(x => x is Lit l ? new Lit(l.Value * 2) : x);
 
             Assert.Equal(-2, Eval(rewritten));
         }
 
         {
+            // test the more-than-four codepath and the no-changes codepath
+            Expr expr = new List([new Lit(1), new Lit(2), new Lit(3), new Lit(4), new Lit(5)]);
             var result = expr.Rewrite(x => x);
 
             Assert.Same(expr, result);
