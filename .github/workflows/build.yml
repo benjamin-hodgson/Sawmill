@@ -25,3 +25,4 @@ jobs:
       DOCS_FOLDER: Sawmill.Docs
     secrets:
       NUGET_KEY: ${{ secrets.NUGET_KEY }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
