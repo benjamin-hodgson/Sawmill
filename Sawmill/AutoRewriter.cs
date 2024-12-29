@@ -53,7 +53,7 @@ public class AutoRewriter<T> : IRewriter<T>
 
     private static readonly Type _autoRewriterT = typeof(AutoRewriter<T>);
     private static readonly Dictionary<Type, MethodInfo> _enumerableRebuilders
-        = new Dictionary<Type, MethodInfo>
+        = new()
         {
             { typeof(IEnumerable<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
             { typeof(IList<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
