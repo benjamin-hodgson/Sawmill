@@ -15,15 +15,8 @@ public static partial class Rewriter
     /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public static T RewriteChildren<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(transformer);
 
         var chunks = default(ChunkStack<T>);
 
@@ -79,15 +72,8 @@ public static partial class Rewriter
         T value
     )
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(transformer);
 
         var chunks = new Box<ChunkStack<T>>();
 

@@ -34,10 +34,7 @@ public static partial class Rewriter
     [SuppressMessage("naming", "SA1316", Justification = "Breaking change")] // "Tuple element names should use correct casing"
     public static IEnumerable<(T item, Func<T, T> replace)> DescendantsAndSelfInContext<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         IEnumerable<(T item, Func<T, T> context)> Go(T t)
         {

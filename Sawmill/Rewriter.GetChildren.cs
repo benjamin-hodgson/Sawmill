@@ -38,10 +38,7 @@ public static partial class Rewriter
     /// <returns>The immediate children of <paramref name="value" />.</returns>
     public static T[] GetChildren<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         var count = rewriter.CountChildren(value);
         var array = new T[count];

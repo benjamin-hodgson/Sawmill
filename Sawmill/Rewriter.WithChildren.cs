@@ -1,8 +1,6 @@
 using System;
 using System.Threading.Tasks;
 
-using FixedSizeBuffers;
-
 namespace Sawmill;
 
 public static partial class Rewriter
@@ -15,10 +13,13 @@ public static partial class Rewriter
     )
     {
         var count = rewriter.CountChildren(value);
+
+#if NET8_0_OR_GREATER
         if (count <= 4)
         {
             return WithChildren_Fast(rewriter, action, value, count);
         }
+#endif
 
         var span = chunks.Allocate(count);
 
@@ -38,10 +39,13 @@ public static partial class Rewriter
     )
     {
         var count = rewriter.CountChildren(value);
+
+#if NET8_0_OR_GREATER
         if (count <= 4)
         {
             return WithChildren_Fast(rewriter, action, ctx, value, count);
         }
+#endif
 
         var span = chunks.Allocate(count);
 
@@ -87,27 +91,23 @@ public static partial class Rewriter
         return result;
     }
 
+#if NET8_0_OR_GREATER
     private static R WithChildren_Fast<T, R>(this IRewriter<T> rewriter, SpanFunc<T, R> action, T value, int count)
     {
         var buffer = default(FixedSizeBuffer4<T>);
-        var span = buffer.AsSpan()[..count];
+        var span = buffer[..count];
 
         rewriter.GetChildren(span, value);
-        var result = action(span);
-
-        buffer.Dispose();
-        return result;
+        return action(span);
     }
 
     private static R WithChildren_Fast<T, U, R>(this IRewriter<T> rewriter, SpanFunc<T, U, R> action, U ctx, T value, int count)
     {
         var buffer = default(FixedSizeBuffer4<T>);
-        var span = buffer.AsSpan()[..count];
+        var span = buffer[..count];
 
         rewriter.GetChildren(span, value);
-        var result = action(span, ctx);
-
-        buffer.Dispose();
-        return result;
+        return action(span, ctx);
     }
+#endif
 }

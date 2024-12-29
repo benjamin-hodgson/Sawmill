@@ -42,10 +42,7 @@ public static partial class Rewriter
     /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value" />, starting at the bottom.</returns>
     public static IEnumerable<T> DescendantsAndSelf<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         IEnumerable<T> Iterator()
         {

@@ -19,15 +19,8 @@ public static partial class Rewriter
     /// <returns>The descendant found by following the directions in <paramref name="path" />.</returns>
     public static T DescendantAt<T>(this IRewriter<T> rewriter, IEnumerable<Direction> path, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(path);
 
         var cursor = rewriter.Cursor(value);
         cursor.Follow(path);
@@ -50,15 +43,8 @@ public static partial class Rewriter
     /// </returns>
     public static T ReplaceDescendantAt<T>(this IRewriter<T> rewriter, IEnumerable<Direction> path, T newDescendant, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(path);
 
         var cursor = rewriter.Cursor(value);
         cursor.Follow(path);
@@ -83,20 +69,9 @@ public static partial class Rewriter
     /// </returns>
     public static T RewriteDescendantAt<T>(this IRewriter<T> rewriter, IEnumerable<Direction> path, Func<T, T> transformer, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(path);
+        ArgumentNullException.ThrowIfNull(transformer);
 
         var cursor = rewriter.Cursor(value);
         cursor.Follow(path);
@@ -122,20 +97,9 @@ public static partial class Rewriter
     /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<T> RewriteDescendantAt<T>(this IRewriter<T> rewriter, IEnumerable<Direction> path, Func<T, ValueTask<T>> transformer, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(path);
+        ArgumentNullException.ThrowIfNull(transformer);
 
         var cursor = rewriter.Cursor(value);
         cursor.Follow(path);

@@ -13,10 +13,7 @@ public static partial class Rewriter
     /// <returns>A <see cref="Cursor{T}" /> focused on the root node of <paramref name="value" />.</returns>
     public static Cursor<T> Cursor<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         return new Cursor<T>(rewriter, value);
     }

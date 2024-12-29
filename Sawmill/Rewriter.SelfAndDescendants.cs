@@ -43,7 +43,7 @@ public static partial class Rewriter
     {
         if (rewriter == null)
         {
-            throw new ArgumentNullException(nameof(rewriter));
+            ArgumentNullException.ThrowIfNull(rewriter);
         }
 
         IEnumerable<T> Iterator()

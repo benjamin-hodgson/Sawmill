@@ -58,10 +58,7 @@ public static class Rewritable
     public static T DescendantAt<T>(this T value, IEnumerable<Direction> path)
         where T : IRewritable<T>
     {
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(path);
 
         return RewritableRewriter<T>.Instance.DescendantAt(path, value);
     }
@@ -70,10 +67,7 @@ public static class Rewritable
     public static T ReplaceDescendantAt<T>(this T value, IEnumerable<Direction> path, T newDescendant)
         where T : IRewritable<T>
     {
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(path);
 
         return RewritableRewriter<T>.Instance.ReplaceDescendantAt(path, newDescendant, value);
     }
@@ -82,15 +76,9 @@ public static class Rewritable
     public static T RewriteDescendantAt<T>(this T value, IEnumerable<Direction> path, Func<T, T> transformer)
         where T : IRewritable<T>
     {
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(path);
 
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.RewriteDescendantAt(path, transformer, value);
     }
@@ -99,15 +87,9 @@ public static class Rewritable
     public static ValueTask<T> RewriteDescendantAt<T>(this T value, IEnumerable<Direction> path, Func<T, ValueTask<T>> transformer)
         where T : IRewritable<T>
     {
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(path);
 
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.RewriteDescendantAt(path, transformer, value);
     }
@@ -121,10 +103,7 @@ public static class Rewritable
     public static U Fold<T, U>(this T value, SpanFunc<U, T, U> func)
         where T : IRewritable<T>
     {
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
         return RewritableRewriter<T>.Instance.Fold(func, value);
     }
@@ -133,10 +112,7 @@ public static class Rewritable
     public static ValueTask<U> Fold<T, U>(this T value, Func<Memory<U>, T, ValueTask<U>> func)
         where T : IRewritable<T>
     {
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
         return RewritableRewriter<T>.Instance.Fold(func, value);
     }
@@ -145,15 +121,9 @@ public static class Rewritable
     public static U ZipFold<T, U>(this T[] values, Func<T[], IEnumerable<U>, U> func)
         where T : IRewritable<T>
     {
-        if (values == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
         return RewritableRewriter<T>.Instance.ZipFold(func, values);
     }
@@ -162,15 +132,9 @@ public static class Rewritable
     public static ValueTask<U> ZipFold<T, U>(this T[] values, Func<T[], IAsyncEnumerable<U>, ValueTask<U>> func)
         where T : IRewritable<T>
     {
-        if (values == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
         return RewritableRewriter<T>.Instance.ZipFold(func, values);
     }
@@ -179,10 +143,7 @@ public static class Rewritable
     public static U ZipFold<T, U>(this T value1, T value2, Func<T, T, IEnumerable<U>, U> func)
         where T : IRewritable<T>
     {
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
         return RewritableRewriter<T>.Instance.ZipFold<T, U>((xs, cs) => func(xs[0], xs[1], cs), value1, value2);
     }
@@ -191,10 +152,7 @@ public static class Rewritable
     public static ValueTask<U> ZipFold<T, U>(this T value1, T value2, Func<T, T, IAsyncEnumerable<U>, ValueTask<U>> func)
         where T : IRewritable<T>
     {
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(func);
 
         return RewritableRewriter<T>.Instance.ZipFold<T, U>((xs, cs) => func(xs[0], xs[1], cs), value1, value2);
     }
@@ -203,10 +161,7 @@ public static class Rewritable
     public static T Rewrite<T>(this T value, Func<T, T> transformer)
         where T : IRewritable<T>
     {
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.Rewrite(transformer, value);
     }
@@ -215,10 +170,7 @@ public static class Rewritable
     public static ValueTask<T> Rewrite<T>(this T value, Func<T, ValueTask<T>> transformer)
         where T : IRewritable<T>
     {
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.Rewrite(transformer, value);
     }
@@ -227,10 +179,7 @@ public static class Rewritable
     public static T RewriteChildren<T>(this T value, Func<T, T> transformer)
         where T : IRewritable<T>
     {
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.RewriteChildren(transformer, value);
     }
@@ -239,10 +188,7 @@ public static class Rewritable
     public static ValueTask<T> RewriteChildren<T>(this T value, Func<T, ValueTask<T>> transformer)
         where T : IRewritable<T>
     {
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.RewriteChildren(transformer, value);
     }
@@ -251,10 +197,7 @@ public static class Rewritable
     public static T RewriteIter<T>(this T value, Func<T, T> transformer)
         where T : class, IRewritable<T>
     {
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.RewriteIter(transformer, value);
     }
@@ -263,10 +206,7 @@ public static class Rewritable
     public static ValueTask<T> RewriteIter<T>(this T value, Func<T, ValueTask<T>> transformer)
         where T : class, IRewritable<T>
     {
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(transformer);
 
         return RewritableRewriter<T>.Instance.RewriteIter(transformer, value);
     }

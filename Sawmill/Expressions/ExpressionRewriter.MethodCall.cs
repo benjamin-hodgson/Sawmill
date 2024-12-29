@@ -23,7 +23,7 @@ public partial class ExpressionRewriter
         Copy(m.Arguments, rest);
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MethodCallExpression m)
+    private static MethodCallExpression SetChildren(ReadOnlySpan<Expression> newChildren, MethodCallExpression m)
     {
         if (m.Object == null)
         {

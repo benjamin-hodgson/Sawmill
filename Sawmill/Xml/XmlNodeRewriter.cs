@@ -22,10 +22,7 @@ public class XmlNodeRewriter : IRewriter<XmlNode>
     /// <returns><paramref name="value" />'s number of immediate children.</returns>
     public int CountChildren(XmlNode value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         return value.ChildNodes.Count;
     }
@@ -40,10 +37,7 @@ public class XmlNodeRewriter : IRewriter<XmlNode>
     /// <param name="value">The value.</param>
     public void GetChildren(Span<XmlNode> childrenReceiver, XmlNode value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         for (var i = 0; i < value.ChildNodes.Count; i++)
         {
@@ -59,10 +53,7 @@ public class XmlNodeRewriter : IRewriter<XmlNode>
     /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public XmlNode SetChildren(ReadOnlySpan<XmlNode> newChildren, XmlNode value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         // XmlNode is such garbage
         var oldAttrs = value.Attributes;

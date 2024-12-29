@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 namespace Sawmill;
 
@@ -35,17 +34,14 @@ public static partial class Rewriter
     [SuppressMessage("naming", "SA1316", Justification = "Breaking change")] // "Tuple element names should use correct casing"
     public static IEnumerable<(T item, Func<T, T> replace)> SelfAndDescendantsInContextBreadthFirst<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         IEnumerable<(T item, Func<T, T> replace)> Iterator()
         {
             var q = new Queue<(T item, Func<T, T> replace)>();
             q.Enqueue((value, newValue => newValue));
 
-            while (q.Any())
+            while (q.Count > 0)
             {
                 var (item, replace) = q.Dequeue();
 

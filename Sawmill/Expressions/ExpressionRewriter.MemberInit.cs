@@ -35,7 +35,7 @@ public partial class ExpressionRewriter
         Copy(m.Bindings.SelectMany(GetBindingExprs), children);
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MemberInitExpression m)
+    private static MemberInitExpression SetChildren(ReadOnlySpan<Expression> newChildren, MemberInitExpression m)
     {
         static MemberBindingUpdateResult UpdateBindings(IEnumerable<MemberBinding> oldBindings, ReadOnlySpan<Expression> newArgs)
         {

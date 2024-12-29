@@ -45,7 +45,7 @@ public partial class ExpressionRewriter
         }
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, TryExpression t)
+    private static TryExpression SetChildren(ReadOnlySpan<Expression> newChildren, TryExpression t)
     {
         static CatchBlockUpdateResult UpdateCatchBlocks(IEnumerable<CatchBlock> oldCatchBlocks, ReadOnlySpan<Expression> c)
         {

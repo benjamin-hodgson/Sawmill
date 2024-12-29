@@ -19,10 +19,7 @@ public static partial class Rewriter
     /// <returns>An enumerable containing all of the nodes in the tree represented by <paramref name="value" /> in a breadth-first traversal order.</returns>
     public static IEnumerable<T> SelfAndDescendantsBreadthFirst<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         IEnumerable<T> Iterator()
         {

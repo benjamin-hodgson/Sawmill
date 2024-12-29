@@ -42,15 +42,8 @@ public static partial class Rewriter
     /// </returns>
     public static T Rewrite<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(nameof(rewriter));
+        ArgumentNullException.ThrowIfNull(nameof(transformer));
 
         using var traversal = new RewriteTraversal<T>(rewriter, transformer);
         return traversal.Go(value);
@@ -111,15 +104,8 @@ public static partial class Rewriter
     /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<T> Rewrite<T>(this IRewriter<T> rewriter, Func<T, ValueTask<T>> transformer, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(nameof(rewriter));
+        ArgumentNullException.ThrowIfNull(nameof(transformer));
 
         using var traversal = new RewriteAsyncTraversal<T>(rewriter, transformer);
         return await traversal.Go(value).ConfigureAwait(false);

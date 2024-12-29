@@ -14,6 +14,6 @@ public partial class ExpressionRewriter
         children[0] = t.Expression;
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, TypeBinaryExpression t)
+    private static TypeBinaryExpression SetChildren(ReadOnlySpan<Expression> newChildren, TypeBinaryExpression t)
         => t.Update(newChildren[0]);
 }

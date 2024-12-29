@@ -72,10 +72,7 @@ public sealed class Cursor<T>
 
     internal Cursor(IRewriter<T> rewriter, T top)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         _rewriter = rewriter;
         _path = new Stack<Step<T>>();
@@ -193,7 +190,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryUp()
     {
-        if (!_path.Any())
+        if (_path.Count == 0)
         {
             return false;
         }
@@ -271,10 +268,7 @@ public sealed class Cursor<T>
     /// </exception>
     public void UpWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         while (predicate(Focus))
         {
@@ -299,10 +293,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryUpWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         var success = true;
         while (success && predicate(Focus))
@@ -367,7 +358,7 @@ public sealed class Cursor<T>
     public bool TryDown()
     {
         var children = _rewriter.GetChildren(Focus);
-        if (!children.Any())
+        if (children.Length == 0)
         {
             return false;
         }
@@ -434,10 +425,7 @@ public sealed class Cursor<T>
     /// </exception>
     public void DownWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         while (predicate(Focus))
         {
@@ -456,10 +444,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryDownWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         var success = true;
         while (success && predicate(Focus))
@@ -513,7 +498,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryLeft()
     {
-        if (!_prevSiblings.Any())
+        if (_prevSiblings.Count == 0)
         {
             return false;
         }
@@ -573,10 +558,7 @@ public sealed class Cursor<T>
     /// </exception>
     public void LeftWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         while (predicate(Focus))
         {
@@ -595,10 +577,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryLeftWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         var success = true;
         while (success && predicate(Focus))
@@ -650,7 +629,7 @@ public sealed class Cursor<T>
     /// <returns>True if the operation was successful, false if the <see cref="Cursor{T}" /> is already focused on the rightmost sibling.</returns>
     public bool TryRight()
     {
-        if (!_nextSiblings.Any())
+        if (_nextSiblings.Count == 0)
         {
             return false;
         }
@@ -710,10 +689,7 @@ public sealed class Cursor<T>
     /// </exception>
     public void RightWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         while (predicate(Focus))
         {
@@ -732,10 +708,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryRightWhile(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         var success = true;
         while (success && predicate(Focus))
@@ -788,10 +761,7 @@ public sealed class Cursor<T>
     /// <param name="path">The path to follow.</param>
     public void Follow(IEnumerable<Direction> path)
     {
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(path);
 
         foreach (var direction in path)
         {
@@ -808,10 +778,7 @@ public sealed class Cursor<T>
     /// </returns>
     public bool TryFollow(IEnumerable<Direction> path)
     {
-        if (path == null)
-        {
-            throw new ArgumentNullException(nameof(path));
-        }
+        ArgumentNullException.ThrowIfNull(path);
 
         foreach (var direction in path)
         {
@@ -864,10 +831,7 @@ public sealed class Cursor<T>
     /// <returns>True if a matching focus was found, false if the search was exhaustive.</returns>
     public bool SearchDownAndRight(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         bool Go()
         {
@@ -912,10 +876,7 @@ public sealed class Cursor<T>
     /// <returns>True if a matching focus was found, false if the search was exhaustive.</returns>
     public bool SearchRightAndDown(Func<T, bool> predicate)
     {
-        if (predicate == null)
-        {
-            throw new ArgumentNullException(nameof(predicate));
-        }
+        ArgumentNullException.ThrowIfNull(predicate);
 
         bool Go()
         {
@@ -953,7 +914,7 @@ public sealed class Cursor<T>
         var children = _rewriter.GetChildren(value);
 
         _nextSiblings.Push(Focus);
-        while (_prevSiblings.Any())
+        while (_prevSiblings.Count > 0)
         {
             _nextSiblings.Push(_prevSiblings.Pop());
         }

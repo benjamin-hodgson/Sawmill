@@ -27,10 +27,7 @@ public static partial class Rewriter
     [SuppressMessage("naming", "SA1316", Justification = "Breaking change")] // "Tuple element names should use correct casing"
     public static (T item, Func<T, T> replace)[] ChildrenInContext<T>(this IRewriter<T> rewriter, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
 
         var stack = default(ChunkStack<T>);
 

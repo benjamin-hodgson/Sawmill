@@ -52,7 +52,7 @@ public class AutoRewriter<T> : IRewriter<T>
     private static readonly Type _int = typeof(int);
 
     private static readonly Type _autoRewriterT = typeof(AutoRewriter<T>);
-    private static readonly IReadOnlyDictionary<Type, MethodInfo> _enumerableRebuilders
+    private static readonly Dictionary<Type, MethodInfo> _enumerableRebuilders
         = new Dictionary<Type, MethodInfo>
         {
             { typeof(IEnumerable<T>), _autoRewriterT.GetMethod("RebuildImmutableArray", BindingFlags.Static | BindingFlags.NonPublic)! },
@@ -367,16 +367,16 @@ public class AutoRewriter<T> : IRewriter<T>
             .OrderByDescending(c => c.GetParameters().Length)
             .FirstOrDefault();
 
-    private static Expression AccessNodeProperty(Expression expression, Type nodeType, ParameterInfo ctorParam)
+    private static MemberExpression AccessNodeProperty(Expression expression, Type nodeType, ParameterInfo ctorParam)
         => Expression.Property(expression, nodeType.GetProperty(ParamNameToPropName(ctorParam.Name!))!);
 
-    private static Expression CallNodeCtor(ConstructorInfo ctor, ParameterExpression nodeParam, IList<Expression> childrenExprs, Type nodeType)
+    private static NewExpression CallNodeCtor(ConstructorInfo ctor, ParameterExpression nodeParam, IList<Expression> childrenExprs, Type nodeType)
         => Expression.New(ctor, NodeCtorArgs(nodeParam, ctor.GetParameters(), childrenExprs, nodeType));
 
-    private static IEnumerable<Expression> NodeCtorArgs(ParameterExpression nodeParam, IEnumerable<ParameterInfo> ctorParams, IList<Expression> childrenExprs, Type nodeType)
+    private static List<Expression> NodeCtorArgs(ParameterExpression nodeParam, ParameterInfo[] ctorParams, IList<Expression> childrenExprs, Type nodeType)
     {
         var numberOfTs = 0;
-        var args = new List<Expression>(ctorParams.Count());
+        var args = new List<Expression>(ctorParams.Length);
         foreach (var param in ctorParams)
         {
             if (param.ParameterType.Equals(_t) || ImplementsIEnumerableT(param.ParameterType))

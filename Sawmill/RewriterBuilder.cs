@@ -44,10 +44,7 @@ public class RewriterBuilder<T>
     )
         where TSub : T
     {
-        if (builderAction == null)
-        {
-            throw new ArgumentNullException(nameof(builderAction));
-        }
+        ArgumentNullException.ThrowIfNull(builderAction);
 
         var builder = new RewriterBuilderCase<object, T, TSub>(
             ImmutableList.Create<Func<TSub, int>>(),
@@ -76,10 +73,7 @@ public class RewriterBuilder<T>
 
         public int CountChildren(T value)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException(nameof(value));
-            }
+            ArgumentNullException.ThrowIfNull(value);
 
             foreach (var kv in _rewriters)
             {
@@ -97,10 +91,7 @@ public class RewriterBuilder<T>
 
         public void GetChildren(Span<T> children, T value)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException(nameof(value));
-            }
+            ArgumentNullException.ThrowIfNull(value);
 
             foreach (var kv in _rewriters)
             {
@@ -119,10 +110,7 @@ public class RewriterBuilder<T>
 
         public T SetChildren(ReadOnlySpan<T> newChildren, T value)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException(nameof(value));
-            }
+            ArgumentNullException.ThrowIfNull(value);
 
             foreach (var kv in _rewriters)
             {
@@ -177,10 +165,7 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     /// <returns>A copy of this <see cref="RewriterBuilderCase" /> with an additional constructor argument.</returns>
     public RewriterBuilderCase<(TArgs Args, U Field), TBase, TSub> Field<U>(Func<TSub, U> field)
     {
-        if (field == null)
-        {
-            throw new ArgumentNullException(nameof(field));
-        }
+        ArgumentNullException.ThrowIfNull(field);
 
         return new RewriterBuilderCase<(TArgs, U), TBase, TSub>(
             CountChildrenDelegates,
@@ -200,10 +185,7 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     /// <returns>A copy of this <see cref="RewriterBuilderCase" /> with an additional constructor argument.</returns>
     public RewriterBuilderCase<(TArgs Args, TBase Child), TBase, TSub> Child(Func<TSub, TBase> child)
     {
-        if (child == null)
-        {
-            throw new ArgumentNullException(nameof(child));
-        }
+        ArgumentNullException.ThrowIfNull(child);
 
         return new RewriterBuilderCase<(TArgs, TBase), TBase, TSub>(
             CountChildrenDelegates.Add(value => 1),
@@ -234,10 +216,7 @@ public sealed class RewriterBuilderCase<TArgs, TBase, TSub>
     /// <returns>A copy of this <see cref="RewriterBuilderCase" /> with an additional constructor argument.</returns>
     public RewriterBuilderCase<(TArgs Args, ImmutableList<TBase> Children), TBase, TSub> Children(Func<TSub, ImmutableList<TBase>> children)
     {
-        if (children == null)
-        {
-            throw new ArgumentNullException(nameof(children));
-        }
+        ArgumentNullException.ThrowIfNull(children);
 
         return new RewriterBuilderCase<(TArgs, ImmutableList<TBase>), TBase, TSub>(
             CountChildrenDelegates.Add(value => children(value).Count),
@@ -350,15 +329,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return new CompletedRewriterBuilderCase<T, TBase, TSub>(
             builder.CountChildrenDelegates.ToArray(),
@@ -382,15 +354,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor()
@@ -413,15 +378,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -446,15 +404,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -481,15 +432,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -518,15 +462,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -557,15 +494,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -598,15 +528,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -641,15 +564,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(
@@ -686,15 +602,8 @@ public static class RewriterBuilderCase
     )
         where TSub : TBase
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
-        if (constructor == null)
-        {
-            throw new ArgumentNullException(nameof(constructor));
-        }
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(constructor);
 
         return builder.ConstructWith(
             args => constructor(

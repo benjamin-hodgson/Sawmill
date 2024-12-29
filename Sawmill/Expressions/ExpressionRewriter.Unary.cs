@@ -14,6 +14,6 @@ public partial class ExpressionRewriter
         children[0] = u.Operand;
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, UnaryExpression u)
+    private static UnaryExpression SetChildren(ReadOnlySpan<Expression> newChildren, UnaryExpression u)
         => u.Update(newChildren[0]);
 }

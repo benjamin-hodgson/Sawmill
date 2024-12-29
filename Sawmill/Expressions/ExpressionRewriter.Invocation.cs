@@ -13,6 +13,6 @@ public partial class ExpressionRewriter
         Copy(invocation.Arguments, children[1..]);
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, InvocationExpression i)
+    private static InvocationExpression SetChildren(ReadOnlySpan<Expression> newChildren, InvocationExpression i)
         => i.Update(newChildren[0], newChildren[1..].ToArray());
 }

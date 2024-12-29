@@ -52,20 +52,9 @@ public static partial class Rewriter
         params T[] values
     )
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
-
-        if (values == null)
-        {
-            throw new ArgumentNullException(nameof(values));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(func);
+        ArgumentNullException.ThrowIfNull(values);
 
         U Go(T[] xs) => func(xs, ZipChildren(xs));
 
@@ -147,20 +136,9 @@ public static partial class Rewriter
         params T[] values
     )
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
-
-        if (values == null)
-        {
-            throw new ArgumentNullException(nameof(values));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(func);
+        ArgumentNullException.ThrowIfNull(values);
 
         async ValueTask<U> Go(T[] xs) => await func(xs, ZipChildren(xs)).ConfigureAwait(false);
 

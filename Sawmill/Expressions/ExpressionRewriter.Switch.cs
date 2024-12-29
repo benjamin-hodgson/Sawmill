@@ -23,7 +23,7 @@ public partial class ExpressionRewriter
         Copy(s.Cases.SelectMany(GetSwitchCaseChildren), children[1..]);
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, SwitchExpression s)
+    private static SwitchExpression SetChildren(ReadOnlySpan<Expression> newChildren, SwitchExpression s)
     {
         static IEnumerable<SwitchCase> UpdateSwitchCases(IEnumerable<SwitchCase> oldCases, ReadOnlySpan<Expression> c)
         {

@@ -14,6 +14,6 @@ public partial class ExpressionRewriter
         children[0] = l.Body;
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, LoopExpression l)
+    private static LoopExpression SetChildren(ReadOnlySpan<Expression> newChildren, LoopExpression l)
         => l.Update(l.BreakLabel, l.ContinueLabel, newChildren[0]);
 }

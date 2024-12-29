@@ -28,15 +28,8 @@ public static partial class Rewriter
     public static T RewriteIter<T>(this IRewriter<T> rewriter, Func<T, T> transformer, T value)
         where T : class
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(transformer);
 
         using var traversal = new RewriteIterTraversal<T>(rewriter, transformer);
         return traversal.Go(value);
@@ -89,15 +82,8 @@ public static partial class Rewriter
     )
         where T : class
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (transformer == null)
-        {
-            throw new ArgumentNullException(nameof(transformer));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(transformer);
 
         using var traversal = new RewriteIterAsyncTraversal<T>(rewriter, transformer);
         return await traversal.Go(value).ConfigureAwait(false);

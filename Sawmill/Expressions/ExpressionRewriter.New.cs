@@ -12,6 +12,6 @@ public partial class ExpressionRewriter
         Copy(n.Arguments, children);
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, NewExpression n)
+    private static NewExpression SetChildren(ReadOnlySpan<Expression> newChildren, NewExpression n)
         => n.Update(newChildren.ToArray());
 }

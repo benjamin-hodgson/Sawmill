@@ -17,15 +17,8 @@ public static partial class Rewriter
     /// <returns>The result of aggregating the tree represented by <paramref name="value" />.</returns>
     public static U Fold<T, U>(this IRewriter<T> rewriter, SpanFunc<U, T, U> func, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(func);
 
         var closure = new FoldClosure<T, U>(rewriter, func);
 
@@ -85,15 +78,8 @@ public static partial class Rewriter
     /// <remarks>This method is not available on platforms which do not support <see cref="ValueTask" />.</remarks>
     public static async ValueTask<U> Fold<T, U>(this IRewriter<T> rewriter, Func<Memory<U>, T, ValueTask<U>> func, T value)
     {
-        if (rewriter == null)
-        {
-            throw new ArgumentNullException(nameof(rewriter));
-        }
-
-        if (func == null)
-        {
-            throw new ArgumentNullException(nameof(func));
-        }
+        ArgumentNullException.ThrowIfNull(rewriter);
+        ArgumentNullException.ThrowIfNull(func);
 
         var closure = new FoldAsyncClosure<T, U>(rewriter, func);
 

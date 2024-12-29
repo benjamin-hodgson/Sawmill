@@ -22,20 +22,9 @@ internal readonly struct Step<T>
         bool changed
     )
     {
-        if (prevSiblings == null)
-        {
-            throw new ArgumentNullException(nameof(prevSiblings));
-        }
-
-        if (focus == null)
-        {
-            throw new ArgumentNullException(nameof(focus));
-        }
-
-        if (nextSiblings == null)
-        {
-            throw new ArgumentNullException(nameof(nextSiblings));
-        }
+        ArgumentNullException.ThrowIfNull(prevSiblings);
+        ArgumentNullException.ThrowIfNull(focus);
+        ArgumentNullException.ThrowIfNull(nextSiblings);
 
         PrevSiblings = prevSiblings;
         Focus = focus;

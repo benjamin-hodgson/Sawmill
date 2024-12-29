@@ -14,6 +14,6 @@ public partial class ExpressionRewriter
         children[0] = m.Expression!;  // it's declared as nullable but the declaration is wrong, I think
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, MemberExpression m)
+    private static MemberExpression SetChildren(ReadOnlySpan<Expression> newChildren, MemberExpression m)
         => m.Update(newChildren[0]);
 }

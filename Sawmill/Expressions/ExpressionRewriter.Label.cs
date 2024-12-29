@@ -17,6 +17,6 @@ public partial class ExpressionRewriter
         }
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, LabelExpression l)
+    private static LabelExpression SetChildren(ReadOnlySpan<Expression> newChildren, LabelExpression l)
         => l.DefaultValue == null ? l : l.Update(l.Target, newChildren[0]);
 }

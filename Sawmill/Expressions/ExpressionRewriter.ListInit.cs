@@ -15,7 +15,7 @@ public partial class ExpressionRewriter
         Copy(l.Initializers.SelectMany(i => i.Arguments), children);
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, ListInitExpression l)
+    private static ListInitExpression SetChildren(ReadOnlySpan<Expression> newChildren, ListInitExpression l)
     {
         static IEnumerable<ElementInit> UpdateElementInits(ReadOnlyCollection<ElementInit> oldInits, ReadOnlySpan<Expression> newArguments)
         {

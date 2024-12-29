@@ -14,6 +14,6 @@ public partial class ExpressionRewriter
         children[0] = l.Body;
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, LambdaExpression l)
+    private static LambdaExpression SetChildren(ReadOnlySpan<Expression> newChildren, LambdaExpression l)
         => Expression.Lambda(newChildren[0], l.Name, l.TailCall, l.Parameters);
 }

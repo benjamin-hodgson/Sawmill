@@ -17,6 +17,6 @@ public partial class ExpressionRewriter
         }
     }
 
-    private static Expression SetChildren(ReadOnlySpan<Expression> newChildren, GotoExpression g)
+    private static GotoExpression SetChildren(ReadOnlySpan<Expression> newChildren, GotoExpression g)
         => g.Update(g.Target, g.Value == null ? null : newChildren[0]);
 }
