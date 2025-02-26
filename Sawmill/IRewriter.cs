@@ -40,7 +40,7 @@ public interface IRewriter<T>
     /// <seealso cref="IRewritable{T}.CountChildren" />
     /// <param name="value">The value.</param>
     /// <returns><paramref name="value" />'s number of immediate children.</returns>
-    int CountChildren(T value);
+    public int CountChildren(T value);
 
     /// <summary>
     /// Copy the immediate children of the value into <paramref name="childrenReceiver" />.
@@ -78,7 +78,7 @@ public interface IRewriter<T>
     /// The <see cref="Span{T}" />'s <see cref="Span{T}.Length" /> will be equal to the number returned by <see cref="CountChildren" />.
     /// </param>
     /// <param name="value">The value.</param>
-    void GetChildren(Span<T> childrenReceiver, T value);
+    public void GetChildren(Span<T> childrenReceiver, T value);
 
     /// <summary>
     /// Set the immediate children of the value.
@@ -114,5 +114,5 @@ public interface IRewriter<T>
     /// <param name="newChildren">The new children.</param>
     /// <param name="value">The old value, whose immediate children should be replaced.</param>
     /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
-    T SetChildren(ReadOnlySpan<T> newChildren, T value);
+    public T SetChildren(ReadOnlySpan<T> newChildren, T value);
 }

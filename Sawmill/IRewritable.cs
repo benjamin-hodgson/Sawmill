@@ -41,7 +41,7 @@ public interface IRewritable<T>
     ///
     /// <seealso cref="IRewriter{T}.CountChildren" />
     /// <returns>The current instance's number of immediate children.</returns>
-    int CountChildren();
+    public int CountChildren();
 
     /// <summary>
     /// Copy the immediate children of the current instance into <paramref name="childrenReceiver" />.
@@ -78,7 +78,7 @@ public interface IRewritable<T>
     /// A <see cref="Span{T}" /> to copy the current instance's immediate children into.
     /// The <see cref="Span{T}" />'s <see cref="Span{T}.Length" /> should be equal to the number returned by <see cref="CountChildren" />.
     /// </param>
-    void GetChildren(Span<T> childrenReceiver);
+    public void GetChildren(Span<T> childrenReceiver);
 
     /// <summary>
     /// Set the immediate children of the current instance.
@@ -113,5 +113,5 @@ public interface IRewritable<T>
     /// <seealso cref="IRewriter{T}.SetChildren(ReadOnlySpan{T}, T)" />.
     /// <param name="newChildren">The new children.</param>
     /// <returns>A copy of the current instance with updated children.</returns>
-    T SetChildren(ReadOnlySpan<T> newChildren);
+    public T SetChildren(ReadOnlySpan<T> newChildren);
 }
