@@ -23,7 +23,5 @@ jobs:
     uses: benjamin-hodgson/BuildScripts/.github/workflows/dotnet.yml@main
     with:
       DOCS_FOLDER: Sawmill.Docs
-      TESTPLATFORM: true
     secrets:
       NUGET_KEY: ${{ secrets.NUGET_KEY }}
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
