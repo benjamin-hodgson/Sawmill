@@ -1,0 +1,17 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Sawmill.Bench/Sawmill.Bench.csproj" />
+  <Project Path="Sawmill.Codegen/Sawmill.Codegen.csproj" />
+  <Project Path="Sawmill.Docs/Sawmill.Docs.proj" Type="C#" />
+  <Project Path="Sawmill.HtmlAgilityPack/Sawmill.HtmlAgilityPack.csproj" />
+  <Project Path="Sawmill.Microsoft.CodeAnalysis.CSharp/Sawmill.Microsoft.CodeAnalysis.CSharp.csproj" />
+  <Project Path="Sawmill.Microsoft.CodeAnalysis.VisualBasic/Sawmill.Microsoft.CodeAnalysis.VisualBasic.csproj" />
+  <Project Path="Sawmill.Microsoft.CodeAnalysis/Sawmill.Microsoft.CodeAnalysis.csproj" />
+  <Project Path="Sawmill.Newtonsoft.Json/Sawmill.Newtonsoft.Json.csproj" />
+  <Project Path="Sawmill.Tests/Sawmill.Tests.csproj" />
+  <Project Path="Sawmill/Sawmill.csproj" />
+</Solution>
