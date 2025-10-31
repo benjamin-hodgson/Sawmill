@@ -23,5 +23,4 @@ jobs:
     uses: benjamin-hodgson/BuildScripts/.github/workflows/dotnet.yml@main
     with:
       DOCS_FOLDER: Sawmill.Docs
-    secrets:
-      NUGET_KEY: ${{ secrets.NUGET_KEY }}
+      USE_OIDC: true
