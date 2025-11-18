@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Namespace Sawmill.Newtonsoft.Json
+        <title>Interface IRewritable&lt;T&gt;
  | Benjamin.Pizza.DocTest </title>
         <meta name="viewport" content="width=device-width">
-        <meta name="title" content="Namespace Sawmill.Newtonsoft.Json
+        <meta name="title" content="Interface IRewritable&lt;T&gt;
  | Benjamin.Pizza.DocTest ">
         <meta name="generator" content="docfx ">
 
@@ -45,9 +45,9 @@
                     </form>
                             <ul id="toc0" class="active active-i">
                                     <li>
-                                            <button type="button" class="link expander  js-expander" aria-controls="toc0_0"></button>
-                                            <a href="Sawmill.html" title="Sawmill" class="">Sawmill</a>
-                                            <ul id="toc0_0" class="">
+                                            <button type="button" class="link expander active active-i js-expander" aria-controls="toc0_0"></button>
+                                            <a href="Sawmill.html" title="Sawmill" class="active active-i">Sawmill</a>
+                                            <ul id="toc0_0" class="active active-i">
                                                     <li>
                                                             <a href="Sawmill.AutoRewriter-1.html" title="AutoRewriter&lt;T&gt;" class="">AutoRewriter&lt;T&gt;</a>
                                                     </li>
@@ -58,7 +58,7 @@
                                                             <a href="Sawmill.Direction.html" title="Direction" class="">Direction</a>
                                                     </li>
                                                     <li>
-                                                            <a href="Sawmill.IRewritable-1.html" title="IRewritable&lt;T&gt;" class="">IRewritable&lt;T&gt;</a>
+                                                            <a href="Sawmill.IRewritable-1.html" title="IRewritable&lt;T&gt;" class="active active-i">IRewritable&lt;T&gt;</a>
                                                     </li>
                                                     <li>
                                                             <a href="Sawmill.IRewriter-1.html" title="IRewriter&lt;T&gt;" class="">IRewriter&lt;T&gt;</a>
@@ -141,9 +141,9 @@
                                             </ul>
                                     </li>
                                     <li>
-                                            <button type="button" class="link expander active active-i js-expander" aria-controls="toc0_6"></button>
-                                            <a href="Sawmill.Newtonsoft.Json.html" title="Sawmill.Newtonsoft.Json" class="active active-i">Sawmill.Newtonsoft.Json</a>
-                                            <ul id="toc0_6" class="active active-i">
+                                            <button type="button" class="link expander  js-expander" aria-controls="toc0_6"></button>
+                                            <a href="Sawmill.Newtonsoft.Json.html" title="Sawmill.Newtonsoft.Json" class="">Sawmill.Newtonsoft.Json</a>
+                                            <ul id="toc0_6" class="">
                                                     <li>
                                                             <a href="Sawmill.Newtonsoft.Json.JTokenExtensions.html" title="JTokenExtensions" class="">JTokenExtensions</a>
                                                     </li>
@@ -176,19 +176,249 @@
 
             <div class="col columns">
 <article class="col">
-
-        <h1 id="Sawmill_Newtonsoft_Json"><a href="#Sawmill_Newtonsoft_Json">Namespace Sawmill.Newtonsoft.Json
+        <h1 id="Sawmill_IRewritable_1"><a href="#Sawmill_IRewritable_1">Interface IRewritable&lt;T&gt;
 </a></h1>
-        <div></div>
-        <div></div>
-            <h3 id="classes"><a href="#classes">Classes
+        <div><p>A object is rewritable if it knows how to access its immediate children.</p>
+</div>
+
+
+        <h5>Declaration</h5>
+        <pre><code class="lang- hljs">public interface IRewritable&lt;T&gt; where T : IRewritable&lt;T&gt;</code></pre>
+            <h5>Type Parameters</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td><p>T</p></td>
+                            <td><p>The type of the object implementing the interface.</p>
+</td>
+                        </tr>
+                </tbody>
+            </table>
+
+            <h5><strong>Remarks</strong></h5>
+            <div><p>Implementations should ensure that you always get the children you just set
+(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
+and that successive sets overwrite the earlier operation
+(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).</p>
+</div>
+
+
+            <h3 id="methods"><a href="#methods">Methods
 </a></h3>
-                <h4><a class="xref" href="Sawmill.Newtonsoft.Json.JTokenExtensions.html">JTokenExtensions</a></h4>
-                <section><p>Extension methods for <span class="xref">Newtonsoft.Json.Linq.JToken</span>s.</p>
-</section>
-                <h4><a class="xref" href="Sawmill.Newtonsoft.Json.JTokenRewriter.html">JTokenRewriter</a></h4>
-                <section><p>An implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> for <span class="xref">Newtonsoft.Json.Linq.JToken</span>s.</p>
-</section>
+
+        
+                <a id="Sawmill_IRewritable_1_CountChildren_"></a>
+                <h4 id="Sawmill_IRewritable_1_CountChildren"><a href="#Sawmill_IRewritable_1_CountChildren">CountChildren()</a></h4>
+                <div><p>Count the immediate children of the current instance.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">int CountChildren()</code></pre>
+
+
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></p></td>
+                                    <td><p>The current instance's number of immediate children.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+                    <h5 id="Sawmill_IRewritable_1_CountChildren_remarks"><a href="#Sawmill_IRewritable_1_CountChildren_remarks">Remarks</a></h5>
+                    <div><p>Implementations should ensure that you always get the children you just set
+(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
+and that successive sets overwrite the earlier operation
+(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).</p>
+</div>
+
+                    <h5 id="Sawmill_IRewritable_1_CountChildren_examples">Examples</h5>
+        <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
+<pre><code class="lang-csharp">Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a> counts the immediate children of the topmost (Add) node.
+<pre><code class="lang-csharp">Assert.Equal(2, expr.CountChildren());</code></pre>
+
+                
+
+                <h5 id="Sawmill_IRewritable_1_CountChildren_seealso"><a href="#Sawmill_IRewritable_1_CountChildren_seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="https://github.com/benjamin-hodgson/Sawmill/blob/main/Sawmill/IRewriter.cs">CountChildren</a>(T)</div>
+                </div>
+        
+                <a id="Sawmill_IRewritable_1_GetChildren_"></a>
+                <h4 id="Sawmill_IRewritable_1_GetChildren_System_Span__0__"><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></h4>
+                <div><p>Copy the immediate children of the current instance into <code class="paramref">childrenReceiver</code>.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">void GetChildren(Span&lt;T&gt; childrenReceiver)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</p></td>
+                                    <td><p>childrenReceiver</p></td>
+                                    <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy the current instance's immediate children into.
+The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>'s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length">Length</a> should be equal to the number returned by <a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_CountChildren">CountChildren()</a>.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+                    <h5 id="Sawmill_IRewritable_1_GetChildren_System_Span__0___remarks"><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0___remarks">Remarks</a></h5>
+                    <div><p>Implementations should ensure that you always get the children you just set
+(<code>rewritable.SetChildren(children).GetChildren() == children</code>),
+and that successive sets overwrite the earlier operation
+(<code>rewritable.SetChildren(children1).SetChildren(children2) == rewritable.SetChildren(children2)</code>).</p>
+</div>
+
+                    <h5 id="Sawmill_IRewritable_1_GetChildren_System_Span__0___examples">Examples</h5>
+        <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
+<pre><code class="lang-csharp">Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a> copies the immediate children of the topmost node into the span.
+<pre><code class="lang-csharp">Expr[] expected = new[]
+    {
+        new Add(
+            new Lit(1),
+            new Lit(2)
+        ),
+        new Lit(3)
+    };
+var array = new Expr[expr.CountChildren()];
+expr.GetChildren(array);
+Assert.Equal(expected, array);</code></pre>
+
+                
+
+                <h5 id="Sawmill_IRewritable_1_GetChildren_System_Span__0___seealso"><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0___seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="https://github.com/benjamin-hodgson/Sawmill/blob/main/Sawmill/IRewriter.cs">GetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;, T)</div>
+                </div>
+        
+                <a id="Sawmill_IRewritable_1_SetChildren_"></a>
+                <h4 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></h4>
+                <div><p>Set the immediate children of the current instance.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">T SetChildren(ReadOnlySpan&lt;T&gt; newChildren)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</p></td>
+                                    <td><p>newChildren</p></td>
+                                    <td><p>The new children.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><span class="xref">T</span></p></td>
+                                    <td><p>A copy of the current instance with updated children.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+                    <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___remarks"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___remarks">Remarks</a></h5>
+                    <div><p>Callers should ensure that <code class="paramref">newChildren</code> contains the same number of children as was returned by
+<a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a>.</p>
+</div>
+
+                    <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___examples">Examples</h5>
+        <p>Given a representation of the expression <code>(1+2)+3</code>.</p>
+<pre><code class="lang-csharp">Expr expr = new Add(
+    new Add(
+        new Lit(1),
+        new Lit(2)
+    ),
+    new Lit(3)
+);</code></pre><a class="xref" href="Sawmill.IRewritable-1.html#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a> replaces the immediate children of the topmost node.
+<pre><code class="lang-csharp">Expr expected = new Add(
+    new Lit(4),
+    new Lit(5)
+);
+Assert.Equal(expected, expr.SetChildren(Children.Two(new Lit(4), new Lit(5))));</code></pre>
+
+                
+
+                <h5 id="Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___seealso"><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0___seealso">See Also</a></h5>
+                <div>
+                            <div><a class="xref" href="https://github.com/benjamin-hodgson/Sawmill/blob/main/Sawmill/IRewriter.cs">SetChildren</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;, T)</div>
+                </div>
+
+
+
+
+
+            <h3 id="seealso"><a href="#seealso">See Also</a></h3>
+            <div>
+                        <div><a class="xref" href="https://github.com/benjamin-hodgson/Sawmill/blob/main/Sawmill/IRewriter.cs">IRewriter</a>&lt;T&gt;</div>
+            </div>
 </article>
 
 <div class="col col-sm sticky md:hide">
@@ -196,15 +426,17 @@
     <nav id="local-toc">
         <ul class="active">
             <li>
-                <a class="active" href="#Sawmill_Newtonsoft_Json">Namespace Sawmill.Newtonsoft.Json
+                <a class="active" href="#Sawmill_IRewritable_1">Interface IRewritable&lt;T&gt;
 </a>
                 <ul class="active">
                         <li>
-                            <a href="#classes"></a>
+                            <a href="#methods">Methods
+</a>
 
                             <ul>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenExtensions">JTokenExtensions</a></li>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter">JTokenRewriter</a></li>
+                                    <li><a href="#Sawmill_IRewritable_1_CountChildren">CountChildren()</a></li>
+                                    <li><a href="#Sawmill_IRewritable_1_GetChildren_System_Span__0__">GetChildren(Span&lt;T&gt;)</a></li>
+                                    <li><a href="#Sawmill_IRewritable_1_SetChildren_System_ReadOnlySpan__0__">SetChildren(ReadOnlySpan&lt;T&gt;)</a></li>
                             </ul>
                         </li>
                 </ul>

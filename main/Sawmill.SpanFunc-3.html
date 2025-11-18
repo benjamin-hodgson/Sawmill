@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Namespace Sawmill.Microsoft.CodeAnalysis.CSharp
+        <title>Delegate SpanFunc&lt;T, U, R&gt;
  | Benjamin.Pizza.DocTest </title>
         <meta name="viewport" content="width=device-width">
-        <meta name="title" content="Namespace Sawmill.Microsoft.CodeAnalysis.CSharp
+        <meta name="title" content="Delegate SpanFunc&lt;T, U, R&gt;
  | Benjamin.Pizza.DocTest ">
         <meta name="generator" content="docfx ">
 
@@ -45,9 +45,9 @@
                     </form>
                             <ul id="toc0" class="active active-i">
                                     <li>
-                                            <button type="button" class="link expander  js-expander" aria-controls="toc0_0"></button>
-                                            <a href="Sawmill.html" title="Sawmill" class="">Sawmill</a>
-                                            <ul id="toc0_0" class="">
+                                            <button type="button" class="link expander active active-i js-expander" aria-controls="toc0_0"></button>
+                                            <a href="Sawmill.html" title="Sawmill" class="active active-i">Sawmill</a>
+                                            <ul id="toc0_0" class="active active-i">
                                                     <li>
                                                             <a href="Sawmill.AutoRewriter-1.html" title="AutoRewriter&lt;T&gt;" class="">AutoRewriter&lt;T&gt;</a>
                                                     </li>
@@ -85,7 +85,7 @@
                                                             <a href="Sawmill.RewriterBuilder-1.html" title="RewriterBuilder&lt;T&gt;" class="">RewriterBuilder&lt;T&gt;</a>
                                                     </li>
                                                     <li>
-                                                            <a href="Sawmill.SpanFunc-3.html" title="SpanFunc&lt;T, U, R&gt;" class="">SpanFunc&lt;T, U, R&gt;</a>
+                                                            <a href="Sawmill.SpanFunc-3.html" title="SpanFunc&lt;T, U, R&gt;" class="active active-i">SpanFunc&lt;T, U, R&gt;</a>
                                                     </li>
                                             </ul>
                                     </li>
@@ -123,9 +123,9 @@
                                             </ul>
                                     </li>
                                     <li>
-                                            <button type="button" class="link expander active active-i js-expander" aria-controls="toc0_4"></button>
-                                            <a href="Sawmill.Microsoft.CodeAnalysis.CSharp.html" title="Sawmill.Microsoft.CodeAnalysis.CSharp" class="active active-i">Sawmill.Microsoft.CodeAnalysis.CSharp</a>
-                                            <ul id="toc0_4" class="active active-i">
+                                            <button type="button" class="link expander  js-expander" aria-controls="toc0_4"></button>
+                                            <a href="Sawmill.Microsoft.CodeAnalysis.CSharp.html" title="Sawmill.Microsoft.CodeAnalysis.CSharp" class="">Sawmill.Microsoft.CodeAnalysis.CSharp</a>
+                                            <ul id="toc0_4" class="">
                                                     <li>
                                                             <a href="Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html" title="CSharpSyntaxNodeExtensions" class="">CSharpSyntaxNodeExtensions</a>
                                                     </li>
@@ -176,16 +176,264 @@
 
             <div class="col columns">
 <article class="col">
-
-        <h1 id="Sawmill_Microsoft_CodeAnalysis_CSharp"><a href="#Sawmill_Microsoft_CodeAnalysis_CSharp">Namespace Sawmill.Microsoft.CodeAnalysis.CSharp
+        <h1 id="Sawmill_SpanFunc_3"><a href="#Sawmill_SpanFunc_3">Delegate SpanFunc&lt;T, U, R&gt;
 </a></h1>
-        <div></div>
-        <div></div>
-            <h3 id="classes"><a href="#classes">Classes
+        <div><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a> whose first argument is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</div>
+
+
+        <h5>Declaration</h5>
+        <pre><code class="lang- hljs">public delegate R SpanFunc&lt;T, in U, out R&gt;(Span&lt;T&gt; span, U arg)</code></pre>
+            <h5>Type Parameters</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td><p>T</p></td>
+                            <td><p>The type of elements in the span.</p>
+</td>
+                        </tr>
+                        <tr>
+                            <td><p>U</p></td>
+                            <td><p>The type of the additional argument.</p>
+</td>
+                        </tr>
+                        <tr>
+                            <td><p>R</p></td>
+                            <td><p>The return type.</p>
+</td>
+                        </tr>
+                </tbody>
+            </table>
+
+
+
+            <h3 id="constructors"><a href="#constructors">Constructors
 </a></h3>
-                <h4><a class="xref" href="Sawmill.Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNodeExtensions.html">CSharpSyntaxNodeExtensions</a></h4>
-                <section><p>Extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.codeanalysis.csharp.csharpsyntaxnode">CSharpSyntaxNode</a>s.</p>
-</section>
+
+        
+                <a id="Sawmill_SpanFunc_3__ctor_"></a>
+                <h4 id="Sawmill_SpanFunc_3__ctor_System_Object_System_IntPtr_"><a href="#Sawmill_SpanFunc_3__ctor_System_Object_System_IntPtr_">SpanFunc(object, nint)</a></h4>
+                <div><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a> whose first argument is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">public SpanFunc(object @object, nint method)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></p></td>
+                                    <td><p>object</p></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></p></td>
+                                    <td><p>method</p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+
+                
+
+            <h3 id="methods"><a href="#methods">Methods
+</a></h3>
+
+        
+                <a id="Sawmill_SpanFunc_3_BeginInvoke_"></a>
+                <h4 id="Sawmill_SpanFunc_3_BeginInvoke_System_Span__0___1_System_AsyncCallback_System_Object_"><a href="#Sawmill_SpanFunc_3_BeginInvoke_System_Span__0___1_System_AsyncCallback_System_Object_">BeginInvoke(Span&lt;T&gt;, U, AsyncCallback, object)</a></h4>
+                <div><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a> whose first argument is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">public virtual IAsyncResult BeginInvoke(Span&lt;T&gt; span, U arg, AsyncCallback callback, object @object)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</p></td>
+                                    <td><p>span</p></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">U</span></p></td>
+                                    <td><p>arg</p></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.asynccallback">AsyncCallback</a></p></td>
+                                    <td><p>callback</p></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></p></td>
+                                    <td><p>object</p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+                
+
+        
+                <a id="Sawmill_SpanFunc_3_EndInvoke_"></a>
+                <h4 id="Sawmill_SpanFunc_3_EndInvoke_System_IAsyncResult_"><a href="#Sawmill_SpanFunc_3_EndInvoke_System_IAsyncResult_">EndInvoke(IAsyncResult)</a></h4>
+                <div><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a> whose first argument is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">public virtual R EndInvoke(IAsyncResult result)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></p></td>
+                                    <td><p>result</p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><span class="xref">R</span></p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+                
+
+        
+                <a id="Sawmill_SpanFunc_3_Invoke_"></a>
+                <h4 id="Sawmill_SpanFunc_3_Invoke_System_Span__0___1_"><a href="#Sawmill_SpanFunc_3_Invoke_System_Span__0___1_">Invoke(Span&lt;T&gt;, U)</a></h4>
+                <div><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func&lt;T1, T2, TResult&gt;</a> whose first argument is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">public virtual R Invoke(Span&lt;T&gt; span, U arg)</code></pre>
+
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</p></td>
+                                    <td><p>span</p></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><p><span class="xref">U</span></p></td>
+                                    <td><p>arg</p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><span class="xref">R</span></p></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
 </article>
 
 <div class="col col-sm sticky md:hide">
@@ -193,14 +441,25 @@
     <nav id="local-toc">
         <ul class="active">
             <li>
-                <a class="active" href="#Sawmill_Microsoft_CodeAnalysis_CSharp">Namespace Sawmill.Microsoft.CodeAnalysis.CSharp
+                <a class="active" href="#Sawmill_SpanFunc_3">Delegate SpanFunc&lt;T, U, R&gt;
 </a>
                 <ul class="active">
                         <li>
-                            <a href="#classes"></a>
+                            <a href="#constructors">Constructors
+</a>
 
                             <ul>
-                                    <li><a href="#Sawmill_Microsoft_CodeAnalysis_CSharp_CSharpSyntaxNodeExtensions">CSharpSyntaxNodeExtensions</a></li>
+                                    <li><a href="#Sawmill_SpanFunc_3__ctor_System_Object_System_IntPtr_">SpanFunc(object, nint)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#methods">Methods
+</a>
+
+                            <ul>
+                                    <li><a href="#Sawmill_SpanFunc_3_BeginInvoke_System_Span__0___1_System_AsyncCallback_System_Object_">BeginInvoke(Span&lt;T&gt;, U, AsyncCallback, object)</a></li>
+                                    <li><a href="#Sawmill_SpanFunc_3_EndInvoke_System_IAsyncResult_">EndInvoke(IAsyncResult)</a></li>
+                                    <li><a href="#Sawmill_SpanFunc_3_Invoke_System_Span__0___1_">Invoke(Span&lt;T&gt;, U)</a></li>
                             </ul>
                         </li>
                 </ul>

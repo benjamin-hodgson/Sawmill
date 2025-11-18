@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Class JTokenRewriter
+        <title>Class RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;
  | Benjamin.Pizza.DocTest </title>
         <meta name="viewport" content="width=device-width">
-        <meta name="title" content="Class JTokenRewriter
+        <meta name="title" content="Class RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;
  | Benjamin.Pizza.DocTest ">
         <meta name="generator" content="docfx ">
 
@@ -45,9 +45,9 @@
                     </form>
                             <ul id="toc0" class="active active-i">
                                     <li>
-                                            <button type="button" class="link expander  js-expander" aria-controls="toc0_0"></button>
-                                            <a href="Sawmill.html" title="Sawmill" class="">Sawmill</a>
-                                            <ul id="toc0_0" class="">
+                                            <button type="button" class="link expander active active-i js-expander" aria-controls="toc0_0"></button>
+                                            <a href="Sawmill.html" title="Sawmill" class="active active-i">Sawmill</a>
+                                            <ul id="toc0_0" class="active active-i">
                                                     <li>
                                                             <a href="Sawmill.AutoRewriter-1.html" title="AutoRewriter&lt;T&gt;" class="">AutoRewriter&lt;T&gt;</a>
                                                     </li>
@@ -79,7 +79,7 @@
                                                             <a href="Sawmill.RewriterBuilderCase.html" title="RewriterBuilderCase" class="">RewriterBuilderCase</a>
                                                     </li>
                                                     <li>
-                                                            <a href="Sawmill.RewriterBuilderCase-3.html" title="RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;" class="">RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;</a>
+                                                            <a href="Sawmill.RewriterBuilderCase-3.html" title="RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;" class="active active-i">RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;</a>
                                                     </li>
                                                     <li>
                                                             <a href="Sawmill.RewriterBuilder-1.html" title="RewriterBuilder&lt;T&gt;" class="">RewriterBuilder&lt;T&gt;</a>
@@ -141,14 +141,14 @@
                                             </ul>
                                     </li>
                                     <li>
-                                            <button type="button" class="link expander active active-i js-expander" aria-controls="toc0_6"></button>
-                                            <a href="Sawmill.Newtonsoft.Json.html" title="Sawmill.Newtonsoft.Json" class="active active-i">Sawmill.Newtonsoft.Json</a>
-                                            <ul id="toc0_6" class="active active-i">
+                                            <button type="button" class="link expander  js-expander" aria-controls="toc0_6"></button>
+                                            <a href="Sawmill.Newtonsoft.Json.html" title="Sawmill.Newtonsoft.Json" class="">Sawmill.Newtonsoft.Json</a>
+                                            <ul id="toc0_6" class="">
                                                     <li>
                                                             <a href="Sawmill.Newtonsoft.Json.JTokenExtensions.html" title="JTokenExtensions" class="">JTokenExtensions</a>
                                                     </li>
                                                     <li>
-                                                            <a href="Sawmill.Newtonsoft.Json.JTokenRewriter.html" title="JTokenRewriter" class="active active-i">JTokenRewriter</a>
+                                                            <a href="Sawmill.Newtonsoft.Json.JTokenRewriter.html" title="JTokenRewriter" class="">JTokenRewriter</a>
                                                     </li>
                                             </ul>
                                     </li>
@@ -176,27 +176,20 @@
 
             <div class="col columns">
 <article class="col">
-        <h1 id="Sawmill_Newtonsoft_Json_JTokenRewriter"><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter">Class JTokenRewriter
+        <h1 id="Sawmill_RewriterBuilderCase_3"><a href="#Sawmill_RewriterBuilderCase_3">Class RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;
 </a></h1>
-        <div><p>An implementation of <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a> for <span class="xref">Newtonsoft.Json.Linq.JToken</span>s.</p>
+        <div><p>Tools for building rewriters for a single subclass of a base type.</p>
 </div>
             <h5>Inheritance</h5>
             <ul>
                     <li><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></li>
-                <li>JTokenRewriter</li>
-            </ul>
-            <h5>Implements</h5>
-            <ul>
-                    <li><a class="xref" href="https://github.com/benjamin-hodgson/Sawmill/blob/main/Sawmill/IRewriter.cs">IRewriter</a>&lt;<span class="xref">JToken</span>&gt;</li>
+                <li>RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;</li>
             </ul>
 
             <h5>Inherited Members</h5>
             <ul>
                     <li>
                             <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-                    </li>
-                    <li>
-                            <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
                     </li>
                     <li>
                             <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
@@ -216,78 +209,46 @@
             </ul>
 
         <h5>Declaration</h5>
-        <pre><code class="lang- hljs">public class JTokenRewriter : IRewriter&lt;JToken&gt;</code></pre>
-
-
-
-            <h3 id="constructors"><a href="#constructors">Constructors
-</a></h3>
-
-        
-                <a id="Sawmill_Newtonsoft_Json_JTokenRewriter__ctor_"></a>
-                <h4 id="Sawmill_Newtonsoft_Json_JTokenRewriter__ctor"><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter__ctor">JTokenRewriter()</a></h4>
-                <div><p>Create a new instance of <a class="xref" href="Sawmill.Newtonsoft.Json.JTokenRewriter.html">JTokenRewriter</a>.</p>
-</div>
-                <h5>Declaration</h5>
-                    <pre><code class="lang- hljs">protected JTokenRewriter()</code></pre>
-
-
-
-
-
-
-
-
-
-                
-
-            <h3 id="properties"><a href="#properties">Properties
-</a></h3>
-
-        
-                <a id="Sawmill_Newtonsoft_Json_JTokenRewriter_Instance_"></a>
-                <h4 id="Sawmill_Newtonsoft_Json_JTokenRewriter_Instance"><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_Instance">Instance</a></h4>
-                <div><p>Gets the single global instance of <a class="xref" href="Sawmill.Newtonsoft.Json.JTokenRewriter.html">JTokenRewriter</a>.</p>
-</div>
-                <h5>Declaration</h5>
-                    <pre><code class="lang- hljs">public static JTokenRewriter Instance { get; }</code></pre>
-
-
-
-
-
-                        <h5>Property Value</h5>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p><a class="xref" href="Sawmill.Newtonsoft.Json.JTokenRewriter.html">JTokenRewriter</a></p></td>
-                                    <td><p>The single global instance of <a class="xref" href="Sawmill.Newtonsoft.Json.JTokenRewriter.html">JTokenRewriter</a>.</p>
+        <pre><code class="lang- hljs">public sealed class RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;</code></pre>
+            <h5>Type Parameters</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td><p>TArgs</p></td>
+                            <td><p>The constructor arguments.</p>
 </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        </tr>
+                        <tr>
+                            <td><p>TBase</p></td>
+                            <td><p>The rewritable tree type.</p>
+</td>
+                        </tr>
+                        <tr>
+                            <td><p>TSub</p></td>
+                            <td><p>The sublcass which this case handles.</p>
+</td>
+                        </tr>
+                </tbody>
+            </table>
 
 
-
-
-                
 
             <h3 id="methods"><a href="#methods">Methods
 </a></h3>
 
         
-                <a id="Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_"></a>
-                <h4 id="Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_Newtonsoft_Json_Linq_JToken_"><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_Newtonsoft_Json_Linq_JToken_">CountChildren(JToken)</a></h4>
-                <div><p>See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_CountChildren__0_">CountChildren(T)</a>.</p>
+                <a id="Sawmill_RewriterBuilderCase_3_Child_"></a>
+                <h4 id="Sawmill_RewriterBuilderCase_3_Child_System_Func__2__1__"><a href="#Sawmill_RewriterBuilderCase_3_Child_System_Func__2__1__">Child(Func&lt;TSub, TBase&gt;)</a></h4>
+                <div><p>Select an immediate child.</p>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang- hljs">public int CountChildren(JToken value)</code></pre>
+                    <pre><code class="lang- hljs">public RewriterBuilderCase&lt;(TArgs Args, TBase Child), TBase, TSub&gt; Child(Func&lt;TSub, TBase&gt; child)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -300,9 +261,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">JToken</span></p></td>
-                                    <td><p>value</p></td>
-                                    <td><p>The value.</p>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TSub, TBase&gt;</p></td>
+                                    <td><p>child</p></td>
+                                    <td><p>The child selector.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -318,8 +279,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></p></td>
-                                    <td><p><code class="paramref">value</code>'s number of immediate children.</p>
+                                    <td><p><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;(TArgs <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple--0,-1-.args">Args</a>, TBase <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple--0,-1-.child">Child</a>), TBase, TSub&gt;</p></td>
+                                    <td><p>A copy of this <a class="xref" href="Sawmill.RewriterBuilderCase.html">RewriterBuilderCase</a> with an additional constructor argument.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -334,12 +295,12 @@
                 
 
         
-                <a id="Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_"></a>
-                <h4 id="Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_System_Span_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_"><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_System_Span_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_">GetChildren(Span&lt;JToken&gt;, JToken)</a></h4>
-                <div><p>See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_GetChildren_System_Span__0___0_">GetChildren(Span&lt;T&gt;, T)</a>.</p>
+                <a id="Sawmill_RewriterBuilderCase_3_Children_"></a>
+                <h4 id="Sawmill_RewriterBuilderCase_3_Children_System_Func__2_System_Collections_Immutable_ImmutableList__1___"><a href="#Sawmill_RewriterBuilderCase_3_Children_System_Func__2_System_Collections_Immutable_ImmutableList__1___">Children(Func&lt;TSub, ImmutableList&lt;TBase&gt;&gt;)</a></h4>
+                <div><p>Select a list of children.</p>
 </div>
                 <h5>Declaration</h5>
-                    <pre><code class="lang- hljs">public void GetChildren(Span&lt;JToken&gt; childrenReceiver, JToken value)</code></pre>
+                    <pre><code class="lang- hljs">public RewriterBuilderCase&lt;(TArgs Args, ImmutableList&lt;TBase&gt; Children), TBase, TSub&gt; Children(Func&lt;TSub, ImmutableList&lt;TBase&gt;&gt; children)</code></pre>
 
                         <h5>Parameters</h5>
                         <table>
@@ -352,58 +313,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<span class="xref">JToken</span>&gt;</p></td>
-                                    <td><p>childrenReceiver</p></td>
-                                    <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a> to copy <code class="paramref">value</code>'s immediate children into.
-The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span&lt;T&gt;</a>'s <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1.length">Length</a> will be equal to the number returned by <a class="xref" href="Sawmill.Newtonsoft.Json.JTokenRewriter.html#Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_Newtonsoft_Json_Linq_JToken_">CountChildren(JToken)</a>.</p>
-</td>
-                                </tr>
-                                <tr>
-                                    <td><p><span class="xref">JToken</span></p></td>
-                                    <td><p>value</p></td>
-                                    <td><p>The value.</p>
-</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-
-
-
-
-
-
-
-                
-
-        
-                <a id="Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_"></a>
-                <h4 id="Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_System_ReadOnlySpan_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_"><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_System_ReadOnlySpan_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_">SetChildren(ReadOnlySpan&lt;JToken&gt;, JToken)</a></h4>
-                <div><p>See <a class="xref" href="Sawmill.IRewriter-1.html#Sawmill_IRewriter_1_SetChildren_System_ReadOnlySpan__0___0_">SetChildren(ReadOnlySpan&lt;T&gt;, T)</a>.</p>
-</div>
-                <h5>Declaration</h5>
-                    <pre><code class="lang- hljs">public JToken SetChildren(ReadOnlySpan&lt;JToken&gt; newChildren, JToken value)</code></pre>
-
-                        <h5>Parameters</h5>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<span class="xref">JToken</span>&gt;</p></td>
-                                    <td><p>newChildren</p></td>
-                                    <td><p>The new children.</p>
-</td>
-                                </tr>
-                                <tr>
-                                    <td><p><span class="xref">JToken</span></p></td>
-                                    <td><p>value</p></td>
-                                    <td><p>The old value, whose immediate children should be replaced.</p>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TSub, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablelist-1">ImmutableList</a>&lt;TBase&gt;&gt;</p></td>
+                                    <td><p>children</p></td>
+                                    <td><p>The children selector.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -419,8 +331,8 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><p><span class="xref">JToken</span></p></td>
-                                    <td><p>A copy of <code class="paramref">value</code> with updated children.</p>
+                                    <td><p><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;(TArgs <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple--0,system.collections.immutable.immutablelist--1--.args">Args</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablelist-1">ImmutableList</a>&lt;TBase&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple--0,system.collections.immutable.immutablelist--1--.children">Children</a>), TBase, TSub&gt;</p></td>
+                                    <td><p>A copy of this <a class="xref" href="Sawmill.RewriterBuilderCase.html">RewriterBuilderCase</a> with an additional constructor argument.</p>
 </td>
                                 </tr>
                             </tbody>
@@ -434,11 +346,75 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
 
                 
 
+        
+                <a id="Sawmill_RewriterBuilderCase_3_Field_"></a>
+                <h4 id="Sawmill_RewriterBuilderCase_3_Field__1_System_Func__2___0__"><a href="#Sawmill_RewriterBuilderCase_3_Field__1_System_Func__2___0__">Field&lt;U&gt;(Func&lt;TSub, U&gt;)</a></h4>
+                <div><p>Select a field from the subclass.</p>
+</div>
+                <h5>Declaration</h5>
+                    <pre><code class="lang- hljs">public RewriterBuilderCase&lt;(TArgs Args, U Field), TBase, TSub&gt; Field&lt;U&gt;(Func&lt;TSub, U&gt; field)</code></pre>
 
-        <h3 id="implements"><a href="#implements">Implements</a></h3>
-        <div>
-                <a class="xref" href="Sawmill.IRewriter-1.html">IRewriter&lt;T&gt;</a>
-        </div>
+                        <h5>Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TSub, U&gt;</p></td>
+                                    <td><p>field</p></td>
+                                    <td><p>The field selector.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Returns</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p><a class="xref" href="Sawmill.RewriterBuilderCase-3.html">RewriterBuilderCase</a>&lt;(TArgs <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple--0,--0-.args">Args</a>, U <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple--0,--0-.field">Field</a>), TBase, TSub&gt;</p></td>
+                                    <td><p>A copy of this <a class="xref" href="Sawmill.RewriterBuilderCase.html">RewriterBuilderCase</a> with an additional constructor argument.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>Type Parameters</h5>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>U</p></td>
+                                    <td><p>The field type.</p>
+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+                
+
+
 
 
 
@@ -450,33 +426,17 @@ The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">
     <nav id="local-toc">
         <ul class="active">
             <li>
-                <a class="active" href="#Sawmill_Newtonsoft_Json_JTokenRewriter">Class JTokenRewriter
+                <a class="active" href="#Sawmill_RewriterBuilderCase_3">Class RewriterBuilderCase&lt;TArgs, TBase, TSub&gt;
 </a>
                 <ul class="active">
-                        <li>
-                            <a href="#constructors">Constructors
-</a>
-
-                            <ul>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter__ctor">JTokenRewriter()</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#properties">Properties
-</a>
-
-                            <ul>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_Instance">Instance</a></li>
-                            </ul>
-                        </li>
                         <li>
                             <a href="#methods">Methods
 </a>
 
                             <ul>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_CountChildren_Newtonsoft_Json_Linq_JToken_">CountChildren(JToken)</a></li>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_GetChildren_System_Span_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_">GetChildren(Span&lt;JToken&gt;, JToken)</a></li>
-                                    <li><a href="#Sawmill_Newtonsoft_Json_JTokenRewriter_SetChildren_System_ReadOnlySpan_Newtonsoft_Json_Linq_JToken__Newtonsoft_Json_Linq_JToken_">SetChildren(ReadOnlySpan&lt;JToken&gt;, JToken)</a></li>
+                                    <li><a href="#Sawmill_RewriterBuilderCase_3_Child_System_Func__2__1__">Child(Func&lt;TSub, TBase&gt;)</a></li>
+                                    <li><a href="#Sawmill_RewriterBuilderCase_3_Children_System_Func__2_System_Collections_Immutable_ImmutableList__1___">Children(Func&lt;TSub, ImmutableList&lt;TBase&gt;&gt;)</a></li>
+                                    <li><a href="#Sawmill_RewriterBuilderCase_3_Field__1_System_Func__2___0__">Field&lt;U&gt;(Func&lt;TSub, U&gt;)</a></li>
                             </ul>
                         </li>
                 </ul>
