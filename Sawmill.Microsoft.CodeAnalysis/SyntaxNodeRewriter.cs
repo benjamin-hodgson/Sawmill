@@ -28,10 +28,7 @@ public class SyntaxNodeRewriter<T> : IRewriter<T>
     /// <returns><paramref name="value" />'s number of immediate children.</returns>
     public int CountChildren(T value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         return value.ChildNodes().Count();
     }
@@ -46,10 +43,7 @@ public class SyntaxNodeRewriter<T> : IRewriter<T>
     /// <param name="value">The value.</param>
     public void GetChildren(Span<T> childrenReceiver, T value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         var i = 0;
         foreach (var child in (IEnumerable<T>)value.ChildNodes())
@@ -67,10 +61,7 @@ public class SyntaxNodeRewriter<T> : IRewriter<T>
     /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public T SetChildren(ReadOnlySpan<T> newChildren, T value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         return value.ChildNodes()
             .Zip(newChildren.ToArray(), ValueTuple.Create)

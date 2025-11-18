@@ -531,9 +531,9 @@ public class RewriterTests
             );
 
     private static ValueTask<bool> EqualAsync(Expr left, Expr right)
-        => left.ZipFold<Expr, bool>(
+        => left.ZipFold(
             right,
-            async (x, y, children) => x switch
+            async (Expr x, Expr y, IAsyncEnumerable<bool> children) => x switch
                 {
                     Lit l1 when y is Lit l2 => l1.Value == l2.Value,
                     Neg n1 when y is Neg n2 => await children.FirstAsync(),

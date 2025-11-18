@@ -37,10 +37,7 @@ public class JTokenRewriter : IRewriter<JToken>
     /// <param name="value">The value.</param>
     public void GetChildren(Span<JToken> childrenReceiver, JToken value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         if (value is JContainer)
         {
@@ -61,10 +58,7 @@ public class JTokenRewriter : IRewriter<JToken>
     /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public JToken SetChildren(ReadOnlySpan<JToken> newChildren, JToken value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         if (newChildren.Length == 0)
         {

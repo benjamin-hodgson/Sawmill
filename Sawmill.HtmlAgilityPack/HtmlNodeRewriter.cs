@@ -23,10 +23,7 @@ public class HtmlNodeRewriter : IRewriter<HtmlNode>
     /// <returns><paramref name="value" />'s number of immediate children.</returns>
     public int CountChildren(HtmlNode value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         return value.ChildNodes.Count;
     }
@@ -41,10 +38,7 @@ public class HtmlNodeRewriter : IRewriter<HtmlNode>
     /// <param name="value">The value.</param>
     public void GetChildren(Span<HtmlNode> childrenReceiver, HtmlNode value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         for (var i = 0; i < value.ChildNodes.Count; i++)
         {
@@ -60,10 +54,7 @@ public class HtmlNodeRewriter : IRewriter<HtmlNode>
     /// <returns>A copy of <paramref name="value" /> with updated children.</returns>
     public HtmlNode SetChildren(ReadOnlySpan<HtmlNode> newChildren, HtmlNode value)
     {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
+        ArgumentNullException.ThrowIfNull(value);
 
         var clone = value.Clone();
         clone.ChildNodes.Clear();
